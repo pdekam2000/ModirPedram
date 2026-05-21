@@ -1,0 +1,6 @@
+{
+    "video": "runway",
+    "music": "suno",
+    "voice": "elevenlabs",
+    "llm": "openai"
+}

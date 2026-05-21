@@ -1,0 +1,80 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*.token
+
+# Outputs / generated media
+outputs/
+downloads/
+final_videos/
+videos/
+audio/
+music_outputs/
+rendered/
+exports/
+snapshots/
+
+# Large media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.zip
+*.rar
+*.7z
+
+# Logs
+*.log
+logs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Backup folders
+backup_temp/
+storage/backups/
+# Browser profiles
+storage/browser_session/
+storage/real_chrome_profile/
+
+# Browser cache/session
+Cookies
+Cache/
+Code Cache/
+GPUCache/
+IndexedDB/
+Service Worker/
+
+# Backups
+ModirAgentOS_CORE_BACKUP*/
+
+# Generated media
+outputs/
+downloads/
+final_videos/
+*.mp4
+*.mp3
+*.wav
+
+# Secrets
+.env

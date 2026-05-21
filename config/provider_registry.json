@@ -1,0 +1,94 @@
+{
+    "video": [
+        {
+            "name": "hailuo_browser",
+            "display_name": "Hailuo Browser",
+            "api_key_env": "",
+            "mode": "browser",
+            "enabled": true
+        },
+        {
+            "name": "minimax_api",
+            "display_name": "MiniMax API",
+            "api_key_env": "MINIMAX_API_KEY",
+            "mode": "api",
+            "enabled": true
+        },
+        {
+            "name": "runway",
+            "display_name": "RunwayML",
+            "api_key_env": "RUNWAY_API_KEY",
+            "mode": "api",
+            "enabled": true
+        },
+        {
+            "name": "luma",
+            "display_name": "Luma AI",
+            "api_key_env": "LUMA_API_KEY",
+            "mode": "api",
+            "enabled": false
+        },
+        {
+            "name": "kling",
+            "display_name": "Kling AI",
+            "api_key_env": "KLING_API_KEY",
+            "mode": "api",
+            "enabled": false
+        }
+    ],
+    "music": [
+        {
+            "name": "suno",
+            "display_name": "Suno AI",
+            "api_key_env": "SUNO_API_KEY",
+            "mode": "api",
+            "enabled": false
+        }
+    ],
+    "voice": [
+        {
+            "name": "elevenlabs",
+            "display_name": "ElevenLabs",
+            "api_key_env": "ELEVENLABS_API_KEY",
+            "mode": "api",
+            "enabled": true
+        },
+        {
+            "name": "openai_tts",
+            "display_name": "OpenAI TTS",
+            "api_key_env": "OPENAI_API_KEY",
+            "mode": "api",
+            "enabled": false
+        }
+    ],
+    "llm": [
+        {
+            "name": "openai",
+            "display_name": "OpenAI",
+            "api_key_env": "OPENAI_API_KEY",
+            "mode": "api",
+            "enabled": true
+        },
+        {
+            "name": "claude",
+            "display_name": "Claude",
+            "api_key_env": "CLAUDE_API_KEY",
+            "mode": "api",
+            "enabled": false
+        },
+        {
+            "name": "gemini",
+            "display_name": "Gemini",
+            "api_key_env": "GEMINI_API_KEY",
+            "mode": "api",
+            "enabled": false
+        },
+        {
+            "name": "deepseek",
+            "display_name": "DeepSeek",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "mode": "api",
+            "enabled": false
+        }
+    ]
+}

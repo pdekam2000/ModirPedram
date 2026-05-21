@@ -1,0 +1,562 @@
+import os
+import json
+import random
+from pathlib import Path
+from datetime import datetime
+
+from dotenv import load_dotenv
+from core.topic_memory_engine import TopicMemoryEngine
+from core.content_series_planner import ContentSeriesPlanner
+from core.selfcare_content_engine import SelfcareContentEngine
+from core.timeline_engine import TimelineEngine
+
+from engines.viral_hook_engine import ViralHookEngine
+from engines.scene_continuity_engine import SceneContinuityEngine
+from engines.ai_director_engine import AIDirectorEngine
+from engines.subtitle_engine import SubtitleEngine
+from engines.subtitle_burner import SubtitleBurner
+from engines.music_engine import MusicEngine
+from engines.audio_finish_engine import AudioFinishEngine
+from engines.ingredient_overlay_engine import IngredientOverlayEngine
+from engines.hook_overlay_engine import HookOverlayEngine
+from engines.thumbnail_engine import ThumbnailEngine
+from engines.seo_package_engine import SEOPackageEngine
+from engines.auto_publishing_engine import AutoPublishingEngine
+from engines.ai_performance_analyzer import AIPerformanceAnalyzer
+from engines.auto_optimization_loop_engine import AutoOptimizationLoopEngine
+from engines.ai_memory_learning_engine import AIMemoryLearningEngine
+
+from providers.elevenlabs_voice_provider import ElevenLabsVoiceProvider
+from core.video_provider_router import VideoProviderRouter
+from utils.ffmpeg_clip_audio_merger import FFmpegClipAudioMerger
+from utils.final_cinematic_assembler import FinalCinematicAssembler
+
+
+load_dotenv()
+
+FFMPEG_PATH = r"C:\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
+RUN_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
+CLIP_COUNT = 3
+CLIP_DURATION_SECONDS = 10
+TOTAL_VIDEO_DURATION_SECONDS = CLIP_COUNT * CLIP_DURATION_SECONDS
+
+STUDIO_TOPIC = os.getenv("STUDIO_TOPIC", "").strip()
+STUDIO_PLATFORM = os.getenv("STUDIO_PLATFORM", "").strip()
+STUDIO_MODE = os.getenv("STUDIO_MODE", "").strip()
+STUDIO_VIDEO_TYPE = os.getenv("STUDIO_VIDEO_TYPE", "").strip()
+STUDIO_MUSIC_SOURCE = os.getenv("STUDIO_MUSIC_SOURCE", "local_default").strip() or "local_default"
+STUDIO_MUSIC_FILE = os.getenv("STUDIO_MUSIC_FILE", "").strip()
+
+
+
+def generate_raw_trend_topic():
+
+    # =====================================
+    # SAFE FALLBACK TREND GENERATOR
+    # =====================================
+    # This function was required by get_trend_topic().
+    # It keeps the pipeline working even when the real
+    # OpenAI/trend provider is not connected or unavailable.
+
+    fallback_topics = [
+        {
+            "topic": "morning glass skin routine for glowing skin",
+            "title": "Morning Glass Skin Routine For Glowing Skin",
+            "ingredients": [
+                {"name": "Gentle Cleanser", "amount": "1 step"},
+                {"name": "Hydrating Serum", "amount": "2 drops"},
+                {"name": "Light Moisturizer", "amount": "1 layer"},
+            ],
+        },
+        {
+            "topic": "night skincare routine for damaged skin barrier",
+            "title": "Night Skincare Routine For Damaged Skin Barrier",
+            "ingredients": [
+                {"name": "Barrier Repair Cream", "amount": "1 layer"},
+                {"name": "Hydrating Toner", "amount": "1 step"},
+                {"name": "Clean Skin", "amount": "1 base"},
+            ],
+        },
+        {
+            "topic": "simple under eye care routine for tired skin",
+            "title": "Simple Under Eye Care Routine For Tired Skin",
+            "ingredients": [
+                {"name": "Cooling Eye Gel", "amount": "1 small amount"},
+                {"name": "Gentle Massage", "amount": "30 seconds"},
+                {"name": "Hydration", "amount": "1 step"},
+            ],
+        },
+        {
+            "topic": "three skincare mistakes that make skin look dull",
+            "title": "Three Skincare Mistakes That Make Skin Look Dull",
+            "ingredients": [
+                {"name": "Cleanser", "amount": "1 step"},
+                {"name": "Moisturizer", "amount": "1 layer"},
+                {"name": "SPF", "amount": "1 daily step"},
+            ],
+        },
+        {
+            "topic": "quick glow up skincare routine before going out",
+            "title": "Quick Glow Up Skincare Routine Before Going Out",
+            "ingredients": [
+                {"name": "Hydrating Mist", "amount": "2 sprays"},
+                {"name": "Glow Serum", "amount": "2 drops"},
+                {"name": "Light Moisturizer", "amount": "1 layer"},
+            ],
+        },
+        {
+            "topic": "calm skincare routine for sensitive skin",
+            "title": "Calm Skincare Routine For Sensitive Skin",
+            "ingredients": [
+                {"name": "Gentle Cleanser", "amount": "1 step"},
+                {"name": "Soothing Cream", "amount": "1 layer"},
+                {"name": "Fragrance-Free Care", "amount": "1 routine"},
+            ],
+        },
+        {
+            "topic": "skincare routine to make makeup sit better",
+            "title": "Skincare Routine To Make Makeup Sit Better",
+            "ingredients": [
+                {"name": "Hydrating Serum", "amount": "2 drops"},
+                {"name": "Primer Moisturizer", "amount": "1 layer"},
+                {"name": "Clean Skin", "amount": "1 base"},
+            ],
+        },
+        {
+            "topic": "lazy girl skincare routine for busy mornings",
+            "title": "Lazy Girl Skincare Routine For Busy Mornings",
+            "ingredients": [
+                {"name": "Cleanser", "amount": "1 quick step"},
+                {"name": "Moisturizer", "amount": "1 layer"},
+                {"name": "SPF", "amount": "1 final step"},
+            ],
+        },
+    ]
+
+    trend = random.choice(fallback_topics)
+
+    # Add a tiny run-specific variation so TopicMemoryEngine
+    # has a lower chance of rejecting all topics as duplicates.
+    trend = dict(trend)
+    trend["topic"] = f'{trend["topic"]} {RUN_ID}'
+
+    return trend
+
+
+def get_trend_topic():
+
+    # =====================================
+    # RUN STUDIO CUSTOM TOPIC
+    # =====================================
+
+    if STUDIO_TOPIC:
+
+        print("\n" + "=" * 80)
+        print("[RUN STUDIO]")
+        print("=" * 80)
+
+        print("[Run Studio] Custom topic received from UI.")
+        print("[Run Studio] Topic:", STUDIO_TOPIC)
+        print("[Run Studio] Platform:", STUDIO_PLATFORM)
+        print("[Run Studio] Mode:", STUDIO_MODE)
+        print("[Run Studio] Video Type:", STUDIO_VIDEO_TYPE)
+        print("[Run Studio] Music Source:", STUDIO_MUSIC_SOURCE)
+        if STUDIO_MUSIC_FILE:
+            print("[Run Studio] Music File:", STUDIO_MUSIC_FILE)
+
+        return {
+            "topic": STUDIO_TOPIC,
+            "title": STUDIO_TOPIC.title(),
+            "ingredients": [
+                {
+                    "name": "Skincare Step",
+                    "amount": "1 routine"
+                },
+                {
+                    "name": "Clean Skin",
+                    "amount": "1 base"
+                }
+            ],
+        }
+
+    # =====================================
+    # ORIGINAL TREND SYSTEM
+    # =====================================
+
+    topic_memory = TopicMemoryEngine()
+    max_attempts = 10
+
+    for attempt in range(1, max_attempts + 1):
+
+        print(f"[Topic Memory] Attempt {attempt}/{max_attempts}")
+
+        trend = generate_raw_trend_topic()
+        topic = trend["topic"]
+
+        if topic_memory.topic_exists(topic):
+
+            print(f"[Topic Memory] Duplicate topic rejected: {topic}")
+            continue
+
+        topic_memory.add_topic(
+            topic=topic,
+            source="trend_research_engine"
+        )
+
+        print(f"[Topic Memory] New topic saved: {topic}")
+
+        return trend
+
+    emergency_topic = {
+        "topic": f"unique skincare trend ritual {RUN_ID}",
+        "title": "A Fresh Skincare Ritual To Try Today",
+        "ingredients": [
+            {"name": "Clean Skin", "amount": "1 routine"},
+            {"name": "Skincare Tool", "amount": "1"},
+        ],
+    }
+
+    topic_memory.add_topic(
+        topic=emergency_topic["topic"],
+        source="emergency_fallback"
+    )
+
+    return emergency_topic
+def add_brand_intro_to_prompts(prompts, brand_intro):
+    updated_prompts = []
+
+    for index, prompt in enumerate(prompts, start=1):
+        if index == 1:
+            updated_prompt = f"""
+BRAND INTRO FIRST 5 SECONDS:
+{brand_intro}
+
+After the 5-second branded opening, continue with:
+
+{prompt}
+""".strip()
+        else:
+            updated_prompt = f"""
+VISUAL BRAND CONSISTENCY:
+Keep the same clean feminine brand identity from the opening:
+{brand_intro}
+
+{prompt}
+""".strip()
+
+        updated_prompts.append(updated_prompt)
+
+    return updated_prompts
+
+
+def add_viral_hook_to_first_segment(timeline, viral_hook):
+    if timeline.segments:
+        timeline.segments[0].narration = f"{viral_hook}\n\n{timeline.segments[0].narration}"
+    return timeline
+
+
+def main():
+    print("\n" + "=" * 80)
+    print("FULL AI VIDEO PIPELINE TEST")
+    print("=" * 80)
+
+    trend = get_trend_topic()
+
+    topic = trend["topic"]
+    title = trend["title"]
+    ingredients = trend["ingredients"]
+
+    print("\n[TREND TOPIC]")
+    print("Title:", title)
+    print("Topic:", topic)
+    print("Ingredients:", ingredients)
+
+    planner = ContentSeriesPlanner()
+    episode = planner.get_episode(1)
+
+    viral_hook_engine = ViralHookEngine()
+    viral_package = viral_hook_engine.generate_full_package(topic)
+
+    viral_hook = viral_package["hook"]
+    thumbnail_text = viral_package["thumbnail_text"]
+    caption_hook = viral_package["caption_hook"]
+
+    print("\n[VIRAL PACKAGE]")
+    print("Hook:", viral_hook)
+    print("Thumbnail:", thumbnail_text)
+    print("Caption Hook:", caption_hook)
+
+    content_engine = SelfcareContentEngine()
+    plan = content_engine.build_mask_video(topic=topic)
+
+    video_prompts = add_brand_intro_to_prompts(
+        prompts=plan.video_prompts,
+        brand_intro=episode.brand_intro,
+    )
+
+    continuity_engine = SceneContinuityEngine()
+    video_prompts = continuity_engine.apply_continuity(video_prompts)
+
+    director_engine = AIDirectorEngine()
+    video_prompts, direction_data = director_engine.apply_direction(video_prompts)
+
+    timeline_engine = TimelineEngine()
+    timeline = timeline_engine.build_selfcare_timeline()
+    timeline = add_viral_hook_to_first_segment(timeline, viral_hook)
+
+    print("\n[1] Generating ElevenLabs narration...")
+
+    narrator = ElevenLabsVoiceProvider(
+        voice_id="EXAVITQu4vr4xnSDxMaL"
+    )
+
+    episode_folder = f"test_run_{RUN_ID}"
+    audio_dir = Path("outputs/audio") / episode_folder
+    audio_dir.mkdir(parents=True, exist_ok=True)
+
+    voice_files = []
+
+    for segment in timeline.segments:
+        voice_file = narrator.generate_voice(
+            text=segment.narration,
+            output_path=str(audio_dir / f"clip_{segment.clip_number}_voice.mp3"),
+        )
+        voice_files.append(voice_file)
+
+    print("\n[2] Generating Hailuo clips...")
+    print("\n" + "=" * 80)
+    print("[VIDEO ROUTER CHECK]")
+    print("Pipeline is now using Dynamic VideoProviderRouter")
+    print("=" * 80)
+
+    video_router = VideoProviderRouter()
+    downloaded_clips = video_router.generate_clips(video_prompts)
+
+    print("\n" + "=" * 80)
+    print("[VIDEO ROUTER CHECK COMPLETE]")
+    print("Video provider finished and returned clips")
+    print("=" * 80)
+    print("\n[3] Syncing clip audio...")
+
+    synced_dir = Path("outputs/full_test") / episode_folder / "synced"
+    synced_dir.mkdir(parents=True, exist_ok=True)
+
+    merger = FFmpegClipAudioMerger(ffmpeg_path=FFMPEG_PATH)
+
+    synced_files = []
+
+    for index, (clip, voice) in enumerate(zip(downloaded_clips, voice_files), start=1):
+        synced_file = merger.merge_clip_audio(
+            video_path=str(clip),
+            audio_path=str(voice),
+            output_path=str(synced_dir / f"synced_clip_{index}.mp4"),
+        )
+        synced_files.append(synced_file)
+
+    print("\n[4] Final cinematic assembly...")
+
+    assembler = FinalCinematicAssembler(ffmpeg_path=FFMPEG_PATH)
+
+    assembled_video = assembler.assemble(
+        clip_paths=synced_files,
+        output_path=f"outputs/full_test/{episode_folder}/assembled_video.mp4",
+    )
+
+    narration_text = "\n".join([segment.narration for segment in timeline.segments])
+
+    print("\n[5] Generating subtitles...")
+
+    subtitle_engine = SubtitleEngine()
+    subtitles = subtitle_engine.create_subtitles(
+        narration_text=narration_text,
+        duration=30,
+        base_name=f"{episode_folder}_subtitles",
+    )
+
+    print("\n[6] Burning subtitles...")
+
+    subtitled_video = f"outputs/full_test/{episode_folder}/with_subtitles.mp4"
+
+    SubtitleBurner().burn_ass_subtitles(
+        input_video=assembled_video,
+        subtitle_file=subtitles["ass"],
+        output_video=subtitled_video,
+    )
+
+    print("\n[7] Adding music...")
+
+    music_video = f"outputs/full_test/{episode_folder}/with_music.mp4"
+
+    selected_music_file = "assets/music/soft_feminine_bg.mp3"
+
+    if STUDIO_MUSIC_SOURCE == "no_music":
+
+        print("[Music] No music selected. Skipping background music.")
+        music_video = subtitled_video
+
+    elif STUDIO_MUSIC_SOURCE == "local_mp3":
+
+        if STUDIO_MUSIC_FILE and Path(STUDIO_MUSIC_FILE).exists():
+            selected_music_file = STUDIO_MUSIC_FILE
+            print(f"[Music] Using local MP3: {selected_music_file}")
+        else:
+            print("[Music] Local MP3 missing. Falling back to default music.")
+
+        MusicEngine().add_background_music(
+            input_video=subtitled_video,
+            music_file=selected_music_file,
+            output_video=music_video,
+        )
+
+    elif STUDIO_MUSIC_SOURCE == "suno_ai":
+
+        print("[Music] Suno AI selected.")
+
+        try:
+            from providers.suno_music_provider import SunoMusicProvider
+
+            suno_provider = SunoMusicProvider()
+            selected_music_file = suno_provider.generate_background_music(
+                topic=topic,
+                title=title,
+                output_dir=f"outputs/full_test/{episode_folder}/music",
+            )
+
+            print(f"[Music] Suno music ready: {selected_music_file}")
+
+        except Exception as e:
+            print(f"[Music] Suno provider unavailable or failed: {e}")
+            print("[Music] Falling back to default local music.")
+            selected_music_file = "assets/music/soft_feminine_bg.mp3"
+
+        MusicEngine().add_background_music(
+            input_video=subtitled_video,
+            music_file=selected_music_file,
+            output_video=music_video,
+        )
+
+    else:
+
+        print("[Music] Using default local background music.")
+
+        MusicEngine().add_background_music(
+            input_video=subtitled_video,
+            music_file=selected_music_file,
+            output_video=music_video,
+        )
+
+    print("\n[8] Smoothing audio ending...")
+
+    smooth_video = f"outputs/full_test/{episode_folder}/smooth_audio.mp4"
+
+    AudioFinishEngine().smooth_audio_finish(
+        input_video=music_video,
+        output_video=smooth_video,
+    )
+
+    print("\n[9] Adding ingredient overlay...")
+
+    ingredient_video = f"outputs/full_test/{episode_folder}/with_ingredients.mp4"
+
+    IngredientOverlayEngine().add_ingredient_overlay(
+        input_video=smooth_video,
+        output_video=ingredient_video,
+        ingredients=ingredients,
+    )
+
+    print("\n[10] Adding hook overlay...")
+
+    final_video = f"outputs/full_test/{episode_folder}/FINAL_PUBLISH_READY.mp4"
+
+    hook_overlay_text = viral_hook.upper().replace(".", "").replace("'", "")
+    hook_overlay_text = hook_overlay_text.replace(" BECAUSE ", "\\NBECAUSE ")
+
+    HookOverlayEngine().add_hook_overlay(
+        input_video=ingredient_video,
+        output_video=final_video,
+        hook_text=hook_overlay_text,
+    )
+
+    print("\n[11] Generating thumbnail...")
+
+    thumbnail_path = ThumbnailEngine().generate_thumbnail(
+        input_video=final_video,
+        thumbnail_text=thumbnail_text,
+        output_name=f"{episode_folder}_thumbnail",
+    )
+
+    print("\n[12] Generating SEO package...")
+
+    seo_engine = SEOPackageEngine()
+
+    seo_package = seo_engine.build_package(
+        topic=topic,
+        hook=viral_hook,
+        thumbnail_text=thumbnail_text,
+        episode_number=1,
+    )
+
+    seo_file = seo_engine.save_package(
+        package=seo_package,
+        filename=f"{episode_folder}_seo_package",
+    )
+
+    print("\n[13] Building publishing package...")
+
+    publish_package = AutoPublishingEngine().build_publish_package(
+        seo_package_path=seo_file,
+        video_path=final_video,
+        thumbnail_path=thumbnail_path,
+    )
+
+    publish_file = AutoPublishingEngine().save_publish_package(
+        package=publish_package,
+        filename=f"{episode_folder}_publish_package",
+    )
+
+    print("\n[14] Performance report...")
+
+    analyzer = AIPerformanceAnalyzer()
+    report = analyzer.build_report(video_name=final_video)
+
+    report_file = analyzer.save_report(
+        report=report,
+        filename=f"{episode_folder}_performance_report",
+    )
+
+    print("\n[15] Optimization strategy...")
+
+    optimizer = AutoOptimizationLoopEngine()
+    strategy = optimizer.build_optimization_strategy(report)
+
+    strategy_file = optimizer.save_strategy(
+        strategy=strategy,
+        filename=f"{episode_folder}_optimization",
+    )
+
+    print("\n[16] Saving AI memory...")
+
+    memory = AIMemoryLearningEngine()
+    memory.add_video_result(
+        video_name=final_video,
+        topic=topic,
+        hook=viral_hook,
+        thumbnail_text=thumbnail_text,
+        score=report["overall_score"],
+        rating=report["rating"],
+    )
+
+    print("\n" + "=" * 80)
+    print("FULL TEST COMPLETE")
+    print("=" * 80)
+
+    print("Final Video:", final_video)
+    print("Thumbnail:", thumbnail_path)
+    print("SEO Package:", seo_file)
+    print("Publish Package:", publish_file)
+    print("Performance Report:", report_file)
+    print("Optimization:", strategy_file)
+
+
+if __name__ == "__main__":
+    main()

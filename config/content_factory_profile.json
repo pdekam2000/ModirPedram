@@ -1,0 +1,44 @@
+{
+  "project_name": "AI Content Factory",
+  "default_niche": "Educational Skin Care",
+  "language": "English",
+  "target_platforms": [
+    "TikTok",
+    "Instagram Reels",
+    "YouTube Shorts"
+  ],
+  "content_style": {
+    "tone": "educational, simple, trustworthy, viral",
+    "visual_style": "clean beauty, soft light, modern skincare aesthetic",
+    "audience": "women interested in skincare, beauty routines, oily skin, dry skin, acne care, glow-up tips",
+    "format": "short-form vertical video",
+    "duration_seconds": 30,
+    "clip_count": 3,
+    "clip_duration_seconds": 10
+  },
+  "video_rules": {
+    "must_be_connected_clips": true,
+    "clips_continue_each_other_visually": true,
+    "use_strong_hook": true,
+    "avoid_medical_claims": true,
+    "avoid_fake_guarantees": true,
+    "include_disclaimer_when_needed": true
+  },
+  "seo_rules": {
+    "title_style": "clear, searchable, curiosity-based",
+    "description_style": "short, helpful, keyword-rich",
+    "hashtag_style": "mix broad, niche, and viral hashtags"
+  },
+  "example_topics": [
+    "oily skin routine",
+    "dry skin routine",
+    "acne mistakes",
+    "morning skincare routine",
+    "night skincare routine",
+    "skin barrier repair",
+    "glow up skincare",
+    "large pores",
+    "blackheads",
+    "sunscreen mistakes"
+  ]
+}

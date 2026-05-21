@@ -1,0 +1,67 @@
+project:
+  name: "ModirAgent OS"
+  mode: "AUTONOMOUS_AI_MEDIA_STUDIO"
+
+providers:
+  video_provider: "hailuo"
+  voice_provider: "elevenlabs"
+  llm_provider: "openai"
+
+video:
+  clip_count: 3
+  clip_duration_seconds: 10
+  final_format: "mp4"
+  resolution: "1366x768"
+  fps: 24
+
+audio:
+  music_volume: 0.35
+  narration_volume: 1.0
+  fade_out_seconds: 0.5
+  narration_end_early_seconds: 0.7
+
+subtitles:
+  enabled: true
+  font_size: 34
+  style: "viral_cinematic"
+  color: "white"
+
+branding:
+  theme: "feminine_luxury_selfcare"
+  intro_thumbnail_enabled: true
+  hook_overlay_enabled: true
+  ingredient_overlay_enabled: true
+
+hooks:
+  enabled: true
+  intensity: "high"
+  style: "curiosity"
+
+continuity:
+  enabled: true
+  maintain_character: true
+  maintain_lighting: true
+  maintain_environment: true
+
+director:
+  cinematic_mode: true
+  beauty_commercial_style: true
+  emotional_pacing: true
+
+seo:
+  enabled: true
+  hashtag_count: 10
+  auto_cta: true
+
+optimization:
+  enabled: true
+  auto_learning: true
+  rebuild_without_hailuo: true
+
+publishing:
+  auto_package: true
+  default_publish_hour: 19
+
+ui:
+  theme: "dark"
+  live_logs: true
