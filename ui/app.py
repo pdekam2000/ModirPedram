@@ -1,15 +1,18 @@
+from pathlib import Path
+
 import os
 import sys
 import json
+import time
+import queue
 import shutil
 import zipfile
+import signal
 import subprocess
 import threading
 from datetime import datetime
 from pathlib import Path
-from ui.services.runner_service import RunnerService
-from ui.services.env_service import EnvService
-from ui.components.progress_tracker import ProgressTracker
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
@@ -17,6 +20,14 @@ from tkinter import filedialog
 
 from dotenv import load_dotenv
 
+from ui.services.runner_service import RunnerService
+from ui.services.env_service import EnvService
+from ui.components.progress_tracker import ProgressTracker
+
+
+# =========================================================
+# PATHS
+# =========================================================
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -34,6 +45,10 @@ ACTIVE_PROVIDERS_FILE = CONFIG_DIR / "active_providers.json"
 ENV_FILE = PROJECT_ROOT / ".env"
 
 
+# =========================================================
+# MAIN UI
+# =========================================================
+
 class ModirAgentControlCenter:
 
     def __init__(self, root):
@@ -44,19 +59,31 @@ class ModirAgentControlCenter:
             "ModirAgent OS - Created by Pedram Kamangar"
         )
 
-        self.root.geometry("1320x920")
+        self.root.geometry("1380x940")
+        self.root.minsize(1180, 820)
 
         self.is_running = False
+        self.studio_process = None
         self.provider_vars = {}
+
         self.runner_service = RunnerService(PROJECT_ROOT)
         self.env_service = EnvService(PROJECT_ROOT)
         self.progress_tracker = ProgressTracker()
 
+        # Thread-safe UI queues
+        self.dashboard_log_queue = queue.Queue()
+        self.studio_log_queue = queue.Queue()
+
         self.build_ui()
         self.load_provider_panel()
 
+        self.root.after(150, self.process_dashboard_log_queue)
+        self.root.after(150, self.process_studio_log_queue)
+
+        self.queue_dashboard_log("ModirAgent Control Center Ready.")
+
     # =========================================================
-    # UI
+    # UI ROOT
     # =========================================================
 
     def build_ui(self):
@@ -71,7 +98,7 @@ class ModirAgentControlCenter:
             justify="center"
         )
 
-        title.pack(pady=10)
+        title.pack(pady=(10, 2))
 
         creator = tk.Label(
             self.root,
@@ -79,7 +106,7 @@ class ModirAgentControlCenter:
             font=("Arial", 11)
         )
 
-        creator.pack()
+        creator.pack(pady=(0, 8))
 
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
@@ -97,7 +124,7 @@ class ModirAgentControlCenter:
         self.build_runstudio_tab()
 
     # =========================================================
-    # DASHBOARD
+    # DASHBOARD TAB
     # =========================================================
 
     def build_dashboard_tab(self):
@@ -106,7 +133,6 @@ class ModirAgentControlCenter:
         button_frame.pack(pady=12)
 
         buttons = [
-
             ("BUILD FINAL HANDOFF", self.build_final_handoff),
             ("OPEN AI BROWSER", self.open_ai_browser),
             ("SHOW TOPIC MEMORY", self.show_topic_memory),
@@ -149,12 +175,11 @@ class ModirAgentControlCenter:
         self.progress = ttk.Progressbar(
             self.dashboard_tab,
             mode="determinate",
-            length=760,
+            length=780,
             maximum=100
         )
 
         self.progress["value"] = 0
-
         self.progress.pack(pady=10)
 
         self.status_label = tk.Label(
@@ -167,16 +192,12 @@ class ModirAgentControlCenter:
 
         self.log_box = tk.Text(
             self.dashboard_tab,
-            width=155,
-            height=28,
+            width=165,
+            height=30,
             wrap="word"
         )
 
         self.log_box.pack(padx=10, pady=10)
-
-        self.log(
-            "ModirAgent Control Center Ready."
-        )
 
     # =========================================================
     # PROVIDERS TAB
@@ -191,6 +212,17 @@ class ModirAgentControlCenter:
         )
 
         header.pack(pady=8)
+
+        info = tk.Label(
+            self.providers_tab,
+            text=(
+                "Choose which provider the pipeline should use. "
+                "For current browser generation use video = runway_browser."
+            ),
+            font=("Arial", 10)
+        )
+
+        info.pack(pady=(0, 8))
 
         self.provider_frame = tk.Frame(self.providers_tab)
         self.provider_frame.pack(pady=8, fill="x", padx=30)
@@ -222,10 +254,18 @@ class ModirAgentControlCenter:
             command=self.open_provider_config
         ).grid(row=0, column=2, padx=6)
 
+        tk.Button(
+            action_frame,
+            text="SET RUNWAY BROWSER",
+            width=28,
+            height=2,
+            command=self.set_runway_browser_provider
+        ).grid(row=0, column=3, padx=6)
+
         self.provider_status_box = tk.Text(
             self.providers_tab,
-            width=155,
-            height=28,
+            width=165,
+            height=30,
             wrap="word"
         )
 
@@ -243,12 +283,20 @@ class ModirAgentControlCenter:
             font=("Arial", 18, "bold")
         )
 
-        title.pack(pady=10)
+        title.pack(pady=(8, 4))
 
-        form_frame = tk.Frame(self.runstudio_tab)
-        form_frame.pack(pady=10)
+        form_frame = tk.LabelFrame(
+            self.runstudio_tab,
+            text="Project Input",
+            padx=10,
+            pady=8
+        )
 
-        # Topic
+        form_frame.pack(fill="x", padx=16, pady=8)
+
+        # -----------------------------------------------------
+        # Topic / Niche
+        # -----------------------------------------------------
 
         tk.Label(
             form_frame,
@@ -261,16 +309,70 @@ class ModirAgentControlCenter:
         tk.Entry(
             form_frame,
             textvariable=self.topic_var,
-            width=70
-        ).grid(row=0, column=1, padx=10, pady=8)
+            width=78
+        ).grid(row=0, column=1, padx=10, pady=8, sticky="w")
 
+        # -----------------------------------------------------
+        # Content Mode
+        # -----------------------------------------------------
+
+        tk.Label(
+            form_frame,
+            text="Content Mode",
+            font=("Arial", 11, "bold")
+        ).grid(row=1, column=0, sticky="w", pady=8)
+
+        self.content_mode_var = tk.StringVar(value="channel_niche_trend")
+
+        ttk.Combobox(
+            form_frame,
+            textvariable=self.content_mode_var,
+            values=[
+                "channel_niche_trend",
+                "custom_one_time_topic"
+            ],
+            state="readonly",
+            width=34
+        ).grid(row=1, column=1, sticky="w", padx=10)
+
+        # -----------------------------------------------------
+        # Trend + Repetition Options
+        # -----------------------------------------------------
+
+        options_frame = tk.Frame(form_frame)
+        options_frame.grid(row=2, column=1, sticky="w", padx=10, pady=6)
+
+        self.use_trends_var = tk.BooleanVar(value=True)
+        self.avoid_repeat_var = tk.BooleanVar(value=True)
+        self.director_mode_var = tk.BooleanVar(value=True)
+
+        tk.Checkbutton(
+            options_frame,
+            text="Use daily trend research",
+            variable=self.use_trends_var
+        ).grid(row=0, column=0, sticky="w", padx=(0, 18))
+
+        tk.Checkbutton(
+            options_frame,
+            text="Avoid repeated topics",
+            variable=self.avoid_repeat_var
+        ).grid(row=0, column=1, sticky="w", padx=(0, 18))
+
+        tk.Checkbutton(
+            options_frame,
+            text="AI Director structure",
+            variable=self.director_mode_var
+        ).grid(row=0, column=2, sticky="w")
+
+        # -----------------------------------------------------
         # Platform
+        # -----------------------------------------------------
 
         tk.Label(
             form_frame,
             text="Platform",
             font=("Arial", 11, "bold")
-        ).grid(row=1, column=0, sticky="w", pady=8)
+        ).grid(row=3, column=0, sticky="w", pady=8)
 
         self.platform_var = tk.StringVar(value="TikTok")
 
@@ -283,16 +385,18 @@ class ModirAgentControlCenter:
                 "YouTube Shorts"
             ],
             state="readonly",
-            width=30
-        ).grid(row=1, column=1, sticky="w", padx=10)
+            width=34
+        ).grid(row=3, column=1, sticky="w", padx=10)
 
+        # -----------------------------------------------------
         # Video Type
+        # -----------------------------------------------------
 
         tk.Label(
             form_frame,
             text="Video Type",
             font=("Arial", 11, "bold")
-        ).grid(row=2, column=0, sticky="w", pady=8)
+        ).grid(row=4, column=0, sticky="w", pady=8)
 
         self.video_type_var = tk.StringVar(value="ai_video")
 
@@ -303,19 +407,23 @@ class ModirAgentControlCenter:
                 "ai_video",
                 "slide_video",
                 "voice_only",
-                "seo_only"
+                "seo_only",
+                "music_only",
+                "music_video"
             ],
             state="readonly",
-            width=30
-        ).grid(row=2, column=1, sticky="w", padx=10)
+            width=34
+        ).grid(row=4, column=1, sticky="w", padx=10)
 
+        # -----------------------------------------------------
         # Run Mode
+        # -----------------------------------------------------
 
         tk.Label(
             form_frame,
             text="Run Mode",
             font=("Arial", 11, "bold")
-        ).grid(row=3, column=0, sticky="w", pady=8)
+        ).grid(row=5, column=0, sticky="w", pady=8)
 
         self.run_mode_var = tk.StringVar(value="full_video")
 
@@ -324,25 +432,96 @@ class ModirAgentControlCenter:
             textvariable=self.run_mode_var,
             values=[
                 "full_video",
+                "video_only",
+                "script_only",
                 "seo_only",
-                "voice_only"
+                "voice_only",
+                "postprocess_only"
             ],
             state="readonly",
-            width=30
-        ).grid(row=3, column=1, sticky="w", padx=10)
+            width=34
+        ).grid(row=5, column=1, sticky="w", padx=10)
 
-        # Music Source
+        # -----------------------------------------------------
+        # Story Style
+        # -----------------------------------------------------
 
         tk.Label(
             form_frame,
+            text="Story Style",
+            font=("Arial", 11, "bold")
+        ).grid(row=6, column=0, sticky="w", pady=8)
+
+        self.story_style_var = tk.StringVar(value="cinematic_professional")
+
+        ttk.Combobox(
+            form_frame,
+            textvariable=self.story_style_var,
+            values=[
+                "cinematic_professional",
+                "viral_hook_fast",
+                "educational_clean",
+                "dark_mystery",
+                "luxury_brand",
+                "emotional_story",
+                "documentary_style"
+            ],
+            state="readonly",
+            width=34
+        ).grid(row=6, column=1, sticky="w", padx=10)
+
+        # -----------------------------------------------------
+        # Output Language
+        # -----------------------------------------------------
+
+        tk.Label(
+            form_frame,
+            text="Output Language",
+            font=("Arial", 11, "bold")
+        ).grid(row=7, column=0, sticky="w", pady=8)
+
+        self.output_language_var = tk.StringVar(value="English")
+
+        ttk.Combobox(
+            form_frame,
+            textvariable=self.output_language_var,
+            values=[
+                "English",
+                "German",
+                "Persian",
+                "Spanish",
+                "French",
+                "Arabic",
+                "Hindi",
+                "Portuguese"
+            ],
+            state="readonly",
+            width=34
+        ).grid(row=7, column=1, sticky="w", padx=10)
+
+        # -----------------------------------------------------
+        # Music
+        # -----------------------------------------------------
+
+        music_frame = tk.LabelFrame(
+            self.runstudio_tab,
+            text="Music / Audio",
+            padx=10,
+            pady=8
+        )
+
+        music_frame.pack(fill="x", padx=16, pady=6)
+
+        tk.Label(
+            music_frame,
             text="Music Source",
             font=("Arial", 11, "bold")
-        ).grid(row=4, column=0, sticky="w", pady=8)
+        ).grid(row=0, column=0, sticky="w", pady=8)
 
         self.music_source_var = tk.StringVar(value="local_default")
 
         ttk.Combobox(
-            form_frame,
+            music_frame,
             textvariable=self.music_source_var,
             values=[
                 "local_default",
@@ -351,26 +530,24 @@ class ModirAgentControlCenter:
                 "no_music"
             ],
             state="readonly",
-            width=30
-        ).grid(row=4, column=1, sticky="w", padx=10)
-
-        # Local Music File
+            width=34
+        ).grid(row=0, column=1, sticky="w", padx=10)
 
         tk.Label(
-            form_frame,
+            music_frame,
             text="Local MP3 File",
             font=("Arial", 11, "bold")
-        ).grid(row=5, column=0, sticky="w", pady=8)
+        ).grid(row=1, column=0, sticky="w", pady=8)
 
-        music_file_frame = tk.Frame(form_frame)
-        music_file_frame.grid(row=5, column=1, sticky="w", padx=10)
+        music_file_frame = tk.Frame(music_frame)
+        music_file_frame.grid(row=1, column=1, sticky="w", padx=10)
 
         self.music_file_var = tk.StringVar(value="")
 
         tk.Entry(
             music_file_frame,
             textvariable=self.music_file_var,
-            width=52
+            width=60
         ).grid(row=0, column=0, padx=(0, 6))
 
         tk.Button(
@@ -380,41 +557,72 @@ class ModirAgentControlCenter:
             command=self.browse_studio_music_file
         ).grid(row=0, column=1)
 
-        # Active Providers
+        # -----------------------------------------------------
+        # Providers
+        # -----------------------------------------------------
 
-        tk.Label(
-            form_frame,
+        provider_frame = tk.LabelFrame(
+            self.runstudio_tab,
             text="Active Providers",
-            font=("Arial", 11, "bold")
-        ).grid(row=6, column=0, sticky="nw", pady=8)
-
-        self.active_provider_box = tk.Text(
-            form_frame,
-            width=70,
-            height=6
-        )
-
-        self.active_provider_box.grid(
-            row=6,
-            column=1,
             padx=10,
             pady=8
         )
 
-        self.refresh_active_provider_box()
+        provider_frame.pack(fill="x", padx=16, pady=6)
 
-        # Buttons
+        self.active_provider_box = tk.Text(
+            provider_frame,
+            width=120,
+            height=5
+        )
 
-        button_frame = tk.Frame(self.runstudio_tab)
-        button_frame.pack(pady=10)
+        self.active_provider_box.pack(side="left", padx=(0, 10))
 
         tk.Button(
+            provider_frame,
+            text="Refresh",
+            width=14,
+            height=2,
+            command=self.refresh_active_provider_box
+        ).pack(side="left", padx=4)
+
+        tk.Button(
+            provider_frame,
+            text="Set Runway Browser",
+            width=18,
+            height=2,
+            command=self.set_runway_browser_provider
+        ).pack(side="left", padx=4)
+
+        self.refresh_active_provider_box()
+
+        # -----------------------------------------------------
+        # Buttons
+        # -----------------------------------------------------
+
+        button_frame = tk.Frame(self.runstudio_tab)
+        button_frame.pack(pady=8)
+
+        self.generate_button = tk.Button(
             button_frame,
             text="GENERATE FULL VIDEO",
             width=28,
             height=2,
             command=self.run_studio_pipeline
-        ).grid(row=0, column=0, padx=6)
+        )
+
+        self.generate_button.grid(row=0, column=0, padx=6)
+
+        self.cancel_button = tk.Button(
+            button_frame,
+            text="CANCEL RUN",
+            width=24,
+            height=2,
+            command=self.cancel_studio_pipeline,
+            state="disabled"
+        )
+
+        self.cancel_button.grid(row=0, column=1, padx=6)
 
         tk.Button(
             button_frame,
@@ -422,22 +630,24 @@ class ModirAgentControlCenter:
             width=28,
             height=2,
             command=self.open_outputs
-        ).grid(row=0, column=1, padx=6)
+        ).grid(row=0, column=2, padx=6)
 
         tk.Button(
             button_frame,
-            text="REFRESH ACTIVE PROVIDERS",
-            width=28,
+            text="CLEAR STUDIO LOG",
+            width=24,
             height=2,
-            command=self.refresh_active_provider_box
-        ).grid(row=0, column=2, padx=6)
+            command=self.clear_studio_log
+        ).grid(row=0, column=3, padx=6)
 
+        # -----------------------------------------------------
         # Studio Progress
+        # -----------------------------------------------------
 
         self.studio_progress = ttk.Progressbar(
             self.runstudio_tab,
             mode="determinate",
-            length=760,
+            length=820,
             maximum=100
         )
 
@@ -452,16 +662,22 @@ class ModirAgentControlCenter:
 
         self.studio_status_label.pack(pady=(0, 6))
 
+        # -----------------------------------------------------
         # Studio Log
+        # -----------------------------------------------------
 
         self.studio_log_box = tk.Text(
             self.runstudio_tab,
-            width=155,
-            height=18,
+            width=165,
+            height=16,
             wrap="word"
         )
 
-        self.studio_log_box.pack(padx=10, pady=10)
+        self.studio_log_box.pack(padx=10, pady=10, fill="both", expand=True)
+
+    # =========================================================
+    # STUDIO HELPERS
+    # =========================================================
 
     def browse_studio_music_file(self):
 
@@ -478,164 +694,324 @@ class ModirAgentControlCenter:
             self.music_file_var.set(file_path)
             self.music_source_var.set("local_mp3")
 
+    def clear_studio_log(self):
+
+        self.studio_log_box.delete("1.0", tk.END)
+        self.studio_status_label.config(text="Studio Status: Ready")
+        self.studio_progress["value"] = 0
+
+    def queue_studio_log(self, message):
+
+        self.studio_log_queue.put(("log", message))
+
+    def queue_studio_status(self, status):
+
+        self.studio_log_queue.put(("status", status))
+
+    def queue_studio_progress(self, percent, stage):
+
+        self.studio_log_queue.put(("progress", percent, stage))
+
+    def process_studio_log_queue(self):
+
+        try:
+
+            while True:
+
+                item = self.studio_log_queue.get_nowait()
+                event_type = item[0]
+
+                if event_type == "log":
+
+                    self.studio_log_box.insert(tk.END, item[1])
+                    self.studio_log_box.see(tk.END)
+
+                elif event_type == "progress":
+
+                    percent = item[1]
+                    stage = item[2]
+
+                    self.studio_progress["value"] = percent
+                    self.studio_status_label.config(
+                        text=f"Studio Status: {stage} - {percent}%"
+                    )
+
+                elif event_type == "status":
+
+                    self.studio_status_label.config(text=item[1])
+
+                elif event_type == "done":
+
+                    self.is_running = False
+                    self.studio_process = None
+                    self.generate_button.config(state="normal")
+                    self.cancel_button.config(state="disabled")
+
+                elif event_type == "failed":
+
+                    self.is_running = False
+                    self.studio_process = None
+                    self.generate_button.config(state="normal")
+                    self.cancel_button.config(state="disabled")
+                    self.studio_status_label.config(
+                        text="Studio Status: FAILED"
+                    )
+
+        except queue.Empty:
+            pass
+
+        self.root.after(150, self.process_studio_log_queue)
+
     # =========================================================
     # RUN STUDIO EXECUTION
     # =========================================================
 
     def run_studio_pipeline(self):
 
+        if self.is_running:
+
+            messagebox.showwarning(
+                "Busy",
+                "Another process is running."
+            )
+
+            return
+
+        topic = self.topic_var.get().strip()
+        platform = self.platform_var.get().strip()
+        video_type = self.video_type_var.get().strip()
+        run_mode = self.run_mode_var.get().strip()
+        content_mode = self.content_mode_var.get().strip()
+        music_source = self.music_source_var.get().strip()
+        music_file = self.music_file_var.get().strip()
+        story_style = self.story_style_var.get().strip()
+        output_language = self.output_language_var.get().strip()
+
+        use_trends = "1" if self.use_trends_var.get() else "0"
+        avoid_repeat = "1" if self.avoid_repeat_var.get() else "0"
+        director_mode = "1" if self.director_mode_var.get() else "0"
+
+        if not topic:
+
+            messagebox.showerror(
+                "Missing Topic",
+                "Please enter a topic or niche."
+            )
+
+            return
+
+        self.is_running = True
+        self.studio_process = None
+
+        self.generate_button.config(state="disabled")
+        self.cancel_button.config(state="normal")
+
+        self.studio_progress["value"] = 0
+        self.studio_status_label.config(
+            text="Studio Status: Starting..."
+        )
+
+        self.studio_log_box.delete("1.0", tk.END)
+
+        self.queue_studio_log("\n" + "=" * 90 + "\n")
+        self.queue_studio_log("[RUN STUDIO] STARTING PROFESSIONAL PIPELINE\n")
+        self.queue_studio_log("=" * 90 + "\n")
+        self.queue_studio_log(f"Topic / Niche: {topic}\n")
+        self.queue_studio_log(f"Content Mode: {content_mode}\n")
+        self.queue_studio_log(f"Use Trends: {use_trends}\n")
+        self.queue_studio_log(f"Avoid Repeat: {avoid_repeat}\n")
+        self.queue_studio_log(f"AI Director: {director_mode}\n")
+        self.queue_studio_log(f"Platform: {platform}\n")
+        self.queue_studio_log(f"Video Type: {video_type}\n")
+        self.queue_studio_log(f"Run Mode: {run_mode}\n")
+        self.queue_studio_log(f"Story Style: {story_style}\n")
+        self.queue_studio_log(f"Output Language: {output_language}\n")
+        self.queue_studio_log(f"Music Source: {music_source}\n")
+
+        if music_file:
+            self.queue_studio_log(f"Music File: {music_file}\n")
+
+        self.queue_studio_log("\n")
+
+        # Environment contract for pipeline engines.
+        # Existing old variables are preserved.
+        os.environ["STUDIO_TOPIC"] = topic
+        os.environ["STUDIO_PLATFORM"] = platform
+        os.environ["STUDIO_MODE"] = run_mode
+        os.environ["STUDIO_VIDEO_TYPE"] = video_type
+        os.environ["STUDIO_MUSIC_SOURCE"] = music_source
+        os.environ["STUDIO_MUSIC_FILE"] = music_file
+
+        # New UI control variables.
+        os.environ["STUDIO_CONTENT_MODE"] = content_mode
+        os.environ["STUDIO_USE_TRENDS"] = use_trends
+        os.environ["STUDIO_AVOID_REPEAT"] = avoid_repeat
+        os.environ["STUDIO_DIRECTOR_MODE"] = director_mode
+        os.environ["STUDIO_STORY_STYLE"] = story_style
+        os.environ["STUDIO_OUTPUT_LANGUAGE"] = output_language
+
         def task():
-
-            self.is_running = True
-
-            self.studio_progress["value"] = 0
-
-            self.studio_status_label.config(
-                text="Studio Status: Starting..."
-            )
-
-            topic = self.topic_var.get().strip()
-            platform = self.platform_var.get().strip()
-            video_type = self.video_type_var.get().strip()
-            run_mode = self.run_mode_var.get().strip()
-            music_source = self.music_source_var.get().strip()
-            music_file = self.music_file_var.get().strip()
-
-            if not topic:
-
-                messagebox.showerror(
-                    "Missing Topic",
-                    "Please enter a topic."
-                )
-
-                self.studio_status_label.config(
-                    text="Studio Status: Ready"
-                )
-
-                self.is_running = False
-                return
-
-            self.studio_log_box.delete("1.0", tk.END)
-
-            self.studio_log_box.insert(
-                tk.END,
-                "\n" + "=" * 80 + "\n"
-            )
-
-            self.studio_log_box.insert(
-                tk.END,
-                "[RUN STUDIO] STARTING PROFESSIONAL PIPELINE\n"
-            )
-
-            self.studio_log_box.insert(tk.END, f"Topic: {topic}\n")
-            self.studio_log_box.insert(tk.END, f"Platform: {platform}\n")
-            self.studio_log_box.insert(tk.END, f"Video Type: {video_type}\n")
-            self.studio_log_box.insert(tk.END, f"Run Mode: {run_mode}\n")
-            self.studio_log_box.insert(tk.END, f"Music Source: {music_source}\n")
-
-            if music_file:
-                self.studio_log_box.insert(tk.END, f"Music File: {music_file}\n")
-
-            self.studio_log_box.insert(tk.END, "\n")
-            self.studio_log_box.see(tk.END)
-            self.root.update_idletasks()
-
-            # =========================================
-            # ENV INJECTION FOR PIPELINE
-            # =========================================
-
-            os.environ["STUDIO_TOPIC"] = topic
-            os.environ["STUDIO_PLATFORM"] = platform
-            os.environ["STUDIO_MODE"] = run_mode
-            os.environ["STUDIO_VIDEO_TYPE"] = video_type
-            os.environ["STUDIO_MUSIC_SOURCE"] = music_source
-            os.environ["STUDIO_MUSIC_FILE"] = music_file
 
             try:
 
                 env_copy = os.environ.copy()
                 env_copy["PYTHONIOENCODING"] = "utf-8"
                 env_copy["PYTHONUTF8"] = "1"
+                env_copy["PYTHONUNBUFFERED"] = "1"
+
+                command = [
+                    sys.executable,
+                    "-u",
+                    "-m",
+                    "pipelines.full_video_pipeline"
+                ]
+
+                self.studio_log_queue.put(
+                    (
+                        "log",
+                        "[RUN STUDIO] Command: "
+                        + " ".join(command)
+                        + "\n\n"
+                    )
+                )
 
                 process = subprocess.Popen(
-                    [
-                         sys.executable,
-                         "-m",
-                         "pipelines.full_video_pipeline"
-                    ],
+                    command,
                     cwd=PROJECT_ROOT,
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT,
+                    stdin=subprocess.DEVNULL,
                     text=True,
                     encoding="utf-8",
                     errors="replace",
+                    bufsize=1,
                     env=env_copy
                 )
 
-                for line in process.stdout:
+                self.studio_process = process
+
+                for line in iter(process.stdout.readline, ""):
+
+                    if not line:
+                        break
 
                     progress_data = self.progress_tracker.detect(line)
 
                     if progress_data:
 
-                        self.studio_progress["value"] = progress_data["percent"]
-
-                        self.studio_status_label.config(
-                            text=(
-                                f"Studio Status: "
-                                f"{progress_data['stage']} "
-                                f"- "
-                                f"{progress_data['percent']}%"
+                        self.studio_log_queue.put(
+                            (
+                                "progress",
+                                progress_data["percent"],
+                                progress_data["stage"]
                             )
                         )
 
-                        self.studio_log_box.insert(
-                            tk.END,
-                            f"\n[STAGE] {progress_data['stage']}\n"
+                        self.studio_log_queue.put(
+                            (
+                                "log",
+                                (
+                                    "\n[STAGE] "
+                                    f"{progress_data['stage']} "
+                                    f"- {progress_data['percent']}%\n"
+                                )
+                            )
                         )
 
-                    self.studio_log_box.insert(
-                        tk.END,
-                        line
-                    )
-
-                    self.studio_log_box.see(tk.END)
-                    self.root.update_idletasks()
+                    self.studio_log_queue.put(("log", line))
 
                 process.wait()
 
                 if process.returncode == 0:
 
-                    self.studio_progress["value"] = 100
-
-                    self.studio_status_label.config(
-                        text="Studio Status: COMPLETE - 100%"
+                    self.studio_log_queue.put(
+                        ("progress", 100, "COMPLETE")
                     )
 
-                    self.studio_log_box.insert(
-                        tk.END,
-                        "\n[RUN STUDIO] PIPELINE COMPLETE\n"
+                    self.studio_log_queue.put(
+                        (
+                            "log",
+                            "\n[RUN STUDIO] PIPELINE COMPLETE\n"
+                        )
                     )
+
+                    self.studio_log_queue.put(
+                        (
+                            "status",
+                            "Studio Status: COMPLETE - 100%"
+                        )
+                    )
+
+                    self.studio_log_queue.put(("done", None))
 
                 else:
 
-                    self.studio_status_label.config(
-                        text="Studio Status: FAILED"
+                    self.studio_log_queue.put(
+                        (
+                            "log",
+                            (
+                                "\n[RUN STUDIO] PIPELINE FAILED "
+                                f"(code {process.returncode})\n"
+                            )
+                        )
                     )
 
-                    self.studio_log_box.insert(
-                        tk.END,
-                        "\n[RUN STUDIO] PIPELINE FAILED\n"
-                    )
+                    self.studio_log_queue.put(("failed", None))
 
-                self.studio_log_box.see(tk.END)
-                self.root.update_idletasks()
+            except Exception as e:
 
-            finally:
+                self.studio_log_queue.put(
+                    ("log", f"\n[RUN STUDIO ERROR] {e}\n")
+                )
 
-                self.is_running = False
+                self.studio_log_queue.put(("failed", None))
 
-        self.run_threaded(task)
+        thread = threading.Thread(
+            target=task,
+            daemon=True
+        )
+
+        thread.start()
+
+    def cancel_studio_pipeline(self):
+
+        if not self.is_running:
+            return
+
+        if not self.studio_process:
+
+            self.queue_studio_log(
+                "\n[CANCEL] Process is not ready yet.\n"
+            )
+
+            return
+
+        try:
+
+            self.queue_studio_log(
+                "\n[CANCEL] Terminating studio pipeline...\n"
+            )
+
+            self.studio_process.terminate()
+
+            time.sleep(1)
+
+            if self.studio_process.poll() is None:
+                self.studio_process.kill()
+
+            self.queue_studio_status(
+                "Studio Status: CANCELLED"
+            )
+
+        except Exception as e:
+
+            self.queue_studio_log(
+                f"\n[CANCEL ERROR] {e}\n"
+            )
+
+        finally:
+
+            self.studio_log_queue.put(("done", None))
 
     # =========================================================
     # PROVIDER SYSTEM
@@ -646,8 +1022,11 @@ class ModirAgentControlCenter:
         if not path.exists():
             return default
 
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return default
 
     def save_json_file(self, path, data):
 
@@ -694,6 +1073,7 @@ class ModirAgentControlCenter:
             names = [
                 provider.get("name", "")
                 for provider in providers
+                if provider.get("name", "")
             ]
 
             selected = active.get(category)
@@ -709,7 +1089,7 @@ class ModirAgentControlCenter:
                 textvariable=var,
                 values=names,
                 state="readonly",
-                width=32
+                width=36
             )
 
             combo.grid(
@@ -736,6 +1116,13 @@ class ModirAgentControlCenter:
         active = self.load_json_file(
             ACTIVE_PROVIDERS_FILE,
             {}
+        )
+
+        self.provider_status_box.insert(
+            tk.END,
+            "PROVIDER STATUS\n"
+            + "=" * 80
+            + "\n\n"
         )
 
         for category, providers in registry.items():
@@ -799,6 +1186,15 @@ class ModirAgentControlCenter:
             {}
         )
 
+        if not active:
+
+            self.active_provider_box.insert(
+                tk.END,
+                "No active provider config found.\n"
+            )
+
+            return
+
         for category, provider in active.items():
 
             self.active_provider_box.insert(
@@ -806,20 +1202,86 @@ class ModirAgentControlCenter:
                 f"{category.upper()} : {provider}\n"
             )
 
+    def set_runway_browser_provider(self):
+
+        active = self.load_json_file(
+            ACTIVE_PROVIDERS_FILE,
+            {}
+        )
+
+        if not active:
+            active = {
+                "video": "runway_browser",
+                "music": "suno",
+                "voice": "elevenlabs",
+                "llm": "openai"
+            }
+
+        active["video"] = "runway_browser"
+
+        self.save_json_file(
+            ACTIVE_PROVIDERS_FILE,
+            active
+        )
+
+        self.load_provider_panel()
+        self.refresh_active_provider_box()
+
+        messagebox.showinfo(
+            "Provider Updated",
+            "Video provider set to runway_browser."
+        )
+
     # =========================================================
-    # UTILITIES
+    # DASHBOARD LOG QUEUE
+    # =========================================================
+
+    def queue_dashboard_log(self, message):
+
+        self.dashboard_log_queue.put(("log", message))
+
+    def process_dashboard_log_queue(self):
+
+        try:
+
+            while True:
+
+                item = self.dashboard_log_queue.get_nowait()
+
+                if item[0] == "log":
+
+                    self.log_box.insert(
+                        tk.END,
+                        item[1] + "\n"
+                    )
+
+                    self.log_box.see(tk.END)
+
+                elif item[0] == "status":
+
+                    self.status_label.config(text=item[1])
+
+                elif item[0] == "progress":
+
+                    self.progress["value"] = item[1]
+
+                elif item[0] == "done":
+
+                    self.is_running = False
+                    self.progress.stop()
+
+        except queue.Empty:
+            pass
+
+        self.root.after(150, self.process_dashboard_log_queue)
+
+    # =========================================================
+    # GENERAL UTILITIES
     # =========================================================
 
     def log(self, message):
 
-        self.log_box.insert(
-            tk.END,
-            message + "\n"
-        )
-
-        self.log_box.see(tk.END)
-
-        self.root.update_idletasks()
+        self.queue_dashboard_log(message)
 
     def clear_log(self):
 
@@ -828,7 +1290,7 @@ class ModirAgentControlCenter:
             tk.END
         )
 
-        self.log("Log cleared.")
+        self.queue_dashboard_log("Log cleared.")
 
     def run_threaded(self, target):
 
@@ -850,43 +1312,62 @@ class ModirAgentControlCenter:
 
     def run_command(self, command, title):
 
-        self.log("")
-        self.log("=" * 80)
-        self.log(title)
-        self.log("=" * 80)
+        self.queue_dashboard_log("")
+        self.queue_dashboard_log("=" * 80)
+        self.queue_dashboard_log(title)
+        self.queue_dashboard_log("=" * 80)
 
-        process = subprocess.Popen(
-            command,
-            cwd=PROJECT_ROOT,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            encoding="utf-8",
-            errors="replace"
-        )
+        try:
 
-        for line in process.stdout:
-            self.log(line.rstrip())
+            process = subprocess.Popen(
+                command,
+                cwd=PROJECT_ROOT,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                bufsize=1,
+                env={
+                    **os.environ.copy(),
+                    "PYTHONIOENCODING": "utf-8",
+                    "PYTHONUTF8": "1",
+                    "PYTHONUNBUFFERED": "1",
+                }
+            )
 
-        process.wait()
+            for line in iter(process.stdout.readline, ""):
+                self.queue_dashboard_log(line.rstrip())
 
-        if process.returncode == 0:
-            self.log(f"[OK] {title} complete.")
-        else:
-            self.log(f"[ERROR] {title} failed.")
+            process.wait()
+
+            if process.returncode == 0:
+                self.queue_dashboard_log(f"[OK] {title} complete.")
+            else:
+                self.queue_dashboard_log(f"[ERROR] {title} failed.")
+
+        except Exception as e:
+
+            self.queue_dashboard_log(f"[ERROR] {title}: {e}")
+
+    # =========================================================
+    # DASHBOARD ACTIONS
+    # =========================================================
 
     def build_final_handoff(self):
 
         def task():
 
             self.is_running = True
-            self.progress.start()
+            self.dashboard_log_queue.put(("progress", 5))
+            self.dashboard_log_queue.put(("status", "Status: Building project brain..."))
 
             try:
 
                 self.run_command(
                     [
                         sys.executable,
+                        "-u",
                         "-m",
                         "core.project_brain_engine"
                     ],
@@ -895,8 +1376,9 @@ class ModirAgentControlCenter:
 
             finally:
 
-                self.progress.stop()
-                self.is_running = False
+                self.dashboard_log_queue.put(("progress", 100))
+                self.dashboard_log_queue.put(("status", "Status: Ready"))
+                self.dashboard_log_queue.put(("done", None))
 
         self.run_threaded(task)
 
@@ -905,13 +1387,15 @@ class ModirAgentControlCenter:
         def task():
 
             self.is_running = True
-            self.progress.start()
+            self.dashboard_log_queue.put(("progress", 5))
+            self.dashboard_log_queue.put(("status", "Status: Running full pipeline..."))
 
             try:
 
                 self.run_command(
                     [
                         sys.executable,
+                        "-u",
                         "test_full_ai_video_pipeline.py"
                     ],
                     "FULL VIDEO PIPELINE"
@@ -919,8 +1403,9 @@ class ModirAgentControlCenter:
 
             finally:
 
-                self.progress.stop()
-                self.is_running = False
+                self.dashboard_log_queue.put(("progress", 100))
+                self.dashboard_log_queue.put(("status", "Status: Ready"))
+                self.dashboard_log_queue.put(("done", None))
 
         self.run_threaded(task)
 
@@ -939,11 +1424,11 @@ class ModirAgentControlCenter:
                 )
             ])
 
-            self.log("[OK] AI Browser opened.")
+            self.queue_dashboard_log("[OK] AI Browser opened.")
 
         except Exception as e:
 
-            self.log(
+            self.queue_dashboard_log(
                 f"[ERROR] Browser failed: {e}"
             )
 
@@ -952,13 +1437,15 @@ class ModirAgentControlCenter:
         def task():
 
             self.is_running = True
-            self.progress.start()
+            self.dashboard_log_queue.put(("progress", 5))
+            self.dashboard_log_queue.put(("status", "Status: Reading topic memory..."))
 
             try:
 
                 self.run_command(
                     [
                         sys.executable,
+                        "-u",
                         "-m",
                         "core.topic_memory_engine"
                     ],
@@ -967,10 +1454,15 @@ class ModirAgentControlCenter:
 
             finally:
 
-                self.progress.stop()
-                self.is_running = False
+                self.dashboard_log_queue.put(("progress", 100))
+                self.dashboard_log_queue.put(("status", "Status: Ready"))
+                self.dashboard_log_queue.put(("done", None))
 
         self.run_threaded(task)
+
+    # =========================================================
+    # FILE / FOLDER ACTIONS
+    # =========================================================
 
     def open_path(self, path):
 
@@ -1003,24 +1495,25 @@ class ModirAgentControlCenter:
 
     def clean_downloads(self):
 
-        if not DOWNLOADS_DIR.exists():
-            return
+        if DOWNLOADS_DIR.exists():
 
-        shutil.rmtree(
-            DOWNLOADS_DIR,
-            ignore_errors=True
-        )
+            shutil.rmtree(
+                DOWNLOADS_DIR,
+                ignore_errors=True
+            )
 
         DOWNLOADS_DIR.mkdir(
             parents=True,
             exist_ok=True
         )
 
-        self.log("[OK] Downloads cleaned.")
+        self.queue_dashboard_log("[OK] Downloads cleaned.")
 
     def clean_outputs(self):
 
         if not OUTPUTS_DIR.exists():
+
+            self.queue_dashboard_log("[INFO] Outputs folder does not exist.")
             return
 
         for item in OUTPUTS_DIR.iterdir():
@@ -1037,121 +1530,183 @@ class ModirAgentControlCenter:
                         ignore_errors=True
                     )
 
-        self.log("[OK] Test outputs cleaned.")
+                else:
+
+                    try:
+                        item.unlink()
+                    except Exception:
+                        pass
+
+        self.queue_dashboard_log("[OK] Test outputs cleaned.")
 
     def clean_temp_files(self):
 
-        removed = 0
+        def task():
 
-        for root, dirs, files in os.walk(
-            PROJECT_ROOT
-        ):
+            self.is_running = True
+            self.dashboard_log_queue.put(("progress", 5))
+            self.dashboard_log_queue.put(("status", "Status: Cleaning temp files..."))
 
-            dirs[:] = [
-                d for d in dirs
-                if d != "venv"
-            ]
+            removed = 0
 
-            for d in dirs:
+            skip_dirs = {
+                "venv",
+                ".venv",
+                "__pycache__",
+                ".git",
+                "storage",
+                "downloads",
+                "outputs",
+                "backups",
+            }
 
-                if d == "__pycache__":
+            for root, dirs, files in os.walk(PROJECT_ROOT):
 
-                    shutil.rmtree(
-                        Path(root) / d,
-                        ignore_errors=True
-                    )
+                dirs[:] = [
+                    d for d in dirs
+                    if d not in skip_dirs
+                ]
 
-                    removed += 1
+                for d in list(dirs):
 
-            for file in files:
+                    if d == "__pycache__":
 
-                if (
-                    file.endswith(".tmp")
-                    or file.endswith(".log")
-                ):
-
-                    try:
-
-                        os.remove(
-                            Path(root) / file
+                        shutil.rmtree(
+                            Path(root) / d,
+                            ignore_errors=True
                         )
 
                         removed += 1
 
-                    except:
-                        pass
+                for file in files:
 
-        self.log(
-            f"[OK] Temp cleanup complete. "
-            f"Removed: {removed}"
-        )
+                    if (
+                        file.endswith(".tmp")
+                        or file.endswith(".log")
+                    ):
+
+                        try:
+
+                            os.remove(
+                                Path(root) / file
+                            )
+
+                            removed += 1
+
+                        except Exception:
+                            pass
+
+            self.queue_dashboard_log(
+                f"[OK] Temp cleanup complete. Removed: {removed}"
+            )
+
+            self.dashboard_log_queue.put(("progress", 100))
+            self.dashboard_log_queue.put(("status", "Status: Ready"))
+            self.dashboard_log_queue.put(("done", None))
+
+        self.run_threaded(task)
 
     def create_backup(self):
 
-        BACKUP_DIR.mkdir(
-            parents=True,
-            exist_ok=True
-        )
+        def task():
 
-        backup_name = (
-            "ModirAgentOS_BACKUP_"
-            + datetime.now().strftime(
-                "%Y%m%d_%H%M%S"
+            self.is_running = True
+            self.dashboard_log_queue.put(("progress", 5))
+            self.dashboard_log_queue.put(("status", "Status: Creating backup..."))
+
+            BACKUP_DIR.mkdir(
+                parents=True,
+                exist_ok=True
             )
-            + ".zip"
-        )
 
-        backup_path = (
-            BACKUP_DIR /
-            backup_name
-        )
+            backup_name = (
+                "ModirAgentOS_BACKUP_"
+                + datetime.now().strftime(
+                    "%Y%m%d_%H%M%S"
+                )
+                + ".zip"
+            )
 
-        self.log("[BACKUP] Creating backup...")
+            backup_path = (
+                BACKUP_DIR /
+                backup_name
+            )
 
-        with zipfile.ZipFile(
-            backup_path,
-            "w",
-            zipfile.ZIP_DEFLATED
-        ) as zipf:
+            self.queue_dashboard_log("[BACKUP] Creating backup...")
 
-            for root, dirs, files in os.walk(
-                PROJECT_ROOT
-            ):
+            skip_dirs = {
+                "venv",
+                ".venv",
+                "__pycache__",
+                ".git",
+                "outputs",
+                "downloads",
+                "real_chrome_profile",
+                "browser_session",
+                "backups",
+                "backup_temp",
+            }
 
-                dirs[:] = [
+            try:
 
-                    d for d in dirs
+                with zipfile.ZipFile(
+                    backup_path,
+                    "w",
+                    zipfile.ZIP_DEFLATED
+                ) as zipf:
 
-                    if d not in [
-                        "venv",
-                        "__pycache__",
-                        "outputs",
-                        "downloads",
-                        "real_chrome_profile",
-                        "backups",
-                    ]
-                ]
-
-                for file in files:
-
-                    filepath = (
-                        Path(root) / file
-                    )
-
-                    arcname = filepath.relative_to(
+                    for root, dirs, files in os.walk(
                         PROJECT_ROOT
-                    )
+                    ):
 
-                    zipf.write(
-                        filepath,
-                        arcname
-                    )
+                        dirs[:] = [
+                            d for d in dirs
+                            if d not in skip_dirs
+                        ]
 
-        self.log(
-            f"[OK] Backup created:\n"
-            f"{backup_path}"
-        )
+                        for file in files:
 
+                            if file.endswith((".mp4", ".mov", ".avi", ".zip")):
+                                continue
+
+                            filepath = (
+                                Path(root) / file
+                            )
+
+                            try:
+
+                                arcname = filepath.relative_to(
+                                    PROJECT_ROOT
+                                )
+
+                                zipf.write(
+                                    filepath,
+                                    arcname
+                                )
+
+                            except Exception:
+                                pass
+
+                self.queue_dashboard_log(
+                    f"[OK] Backup created:\n{backup_path}"
+                )
+
+            except Exception as e:
+
+                self.queue_dashboard_log(
+                    f"[ERROR] Backup failed: {e}"
+                )
+
+            self.dashboard_log_queue.put(("progress", 100))
+            self.dashboard_log_queue.put(("status", "Status: Ready"))
+            self.dashboard_log_queue.put(("done", None))
+
+        self.run_threaded(task)
+
+
+# =========================================================
+# ENTRYPOINT
+# =========================================================
 
 def main():
 

@@ -134,7 +134,14 @@ class RunwayBrowserProvider:
                         self.page.keyboard.press("Control+A")
                         self.page.keyboard.press("Backspace")
                         self.page.keyboard.type(prompt, delay=5)
+                        time.sleep(0.5)
 
+                        try:
+                          self.page.mouse.click(1200, 700)
+                          time.sleep(0.5)
+                        except Exception:
+                          pass
+ 
                         print("[Runway Browser] Prompt filled.")
                         time.sleep(1)
                         return
@@ -212,14 +219,14 @@ class RunwayBrowserProvider:
             time.sleep(0.5)
         except Exception:
             pass
-
+        print("[Runway Browser] Looking for Generate button...")
         # Prefer the bottom visible Generate button near the prompt panel.
         clicked = self.click_text_in_region(
             text="Generate",
             min_x=0,
             max_y=1200,
         )
-
+        print("[Runway Browser] Waiting for queue state...")
         if clicked:
             print("[Runway Browser] Generate clicked.")
             time.sleep(5)

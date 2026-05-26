@@ -1,6 +1,6 @@
 # DEPENDENCY MAP
 
-Generated at: 2026-05-17 13:57:40
+Generated at: 2026-05-26 22:30:42
 
 ## full_selfcare_factory.py
 
@@ -101,6 +101,8 @@ Generated at: 2026-05-17 13:57:40
 - core.content_series_planner
 - core.selfcare_content_engine
 - core.timeline_engine
+- core.topic_memory_engine
+- core.video_provider_router
 - datetime
 - dotenv
 - engines.ai_director_engine
@@ -119,11 +121,10 @@ Generated at: 2026-05-17 13:57:40
 - engines.thumbnail_engine
 - engines.viral_hook_engine
 - json
-- openai
-- orchestrators.hailuo_multi_clip_orchestrator
 - os
 - pathlib
 - providers.elevenlabs_voice_provider
+- providers.suno_music_provider
 - random
 - utils.ffmpeg_clip_audio_merger
 - utils.final_cinematic_assembler
@@ -145,6 +146,10 @@ Generated at: 2026-05-17 13:57:40
 ## test_openai_trends.py
 
 - providers.openai_trend_provider
+
+## test_runway_orchestrator_direct.py
+
+- orchestrators.runway_browser_orchestrator
 
 ## test_selfcare_content_engine.py
 
@@ -170,15 +175,48 @@ Generated at: 2026-05-17 13:57:40
 - datetime
 - pathlib
 
+## agents\change_request_agent.py
+
+- datetime
+
 ## agents\coder_agent.py
 
 - datetime
 - pathlib
 
+## agents\code_generation_agent.py
+
+- agents.project_context_agent
+- datetime
+
 ## agents\memory_agent.py
 
 - datetime
 - pathlib
+
+## agents\project_context_agent.py
+
+- ast
+- pathlib
+
+## agents\project_upgrade_agent.py
+
+- datetime
+- pathlib
+- sys
+
+## agents\self_editing_agent.py
+
+- agents.change_request_agent
+- agents.code_generation_agent
+- agents.project_upgrade_agent
+- agents.verifier_agent
+- argparse
+- core.dependency_graph_engine
+- core.upgrade_planner_engine
+- execution.apply_patch_engine
+- execution.patch_preview_engine
+- execution.patch_validator
 
 ## agents\seo_agent.py
 
@@ -229,11 +267,24 @@ Generated at: 2026-05-17 13:57:40
 - dataclasses
 - typing
 
+## core\dependency_graph_engine.py
+
+- datetime
+- pathlib
+- re
+- sys
+
 ## core\dependency_mapper.py
 
 - datetime
 - pathlib
 - re
+
+## core\full_project_scanner.py
+
+- datetime
+- os
+- pathlib
 
 ## core\handoff_generator.py
 
@@ -243,6 +294,11 @@ Generated at: 2026-05-17 13:57:40
 ## core\impact_analyzer.py
 
 - core.dependency_mapper
+- datetime
+- pathlib
+
+## core\live_handoff_engine.py
+
 - datetime
 - pathlib
 
@@ -258,6 +314,13 @@ Generated at: 2026-05-17 13:57:40
 - datetime
 - pathlib
 
+## core\project_brain_engine.py
+
+- ast
+- datetime
+- os
+- pathlib
+
 ## core\project_reader.py
 
 - pathlib
@@ -267,6 +330,13 @@ Generated at: 2026-05-17 13:57:40
 - datetime
 - pathlib
 
+## core\provider_registry_engine.py
+
+- dotenv
+- json
+- os
+- pathlib
+
 ## core\safety_guard.py
 
 - pathlib
@@ -274,7 +344,7 @@ Generated at: 2026-05-17 13:57:40
 ## core\selfcare_content_engine.py
 
 - dataclasses
-- typing
+- engines.visual_scenario_engine
 
 ## core\state_writer.py
 
@@ -290,6 +360,25 @@ Generated at: 2026-05-17 13:57:40
 
 - dataclasses
 - typing
+
+## core\topic_memory_engine.py
+
+- datetime
+- json
+- pathlib
+
+## core\upgrade_planner_engine.py
+
+- datetime
+- pathlib
+
+## core\video_provider_router.py
+
+- core.provider_registry_engine
+- orchestrators.hailuo_multi_clip_orchestrator
+- orchestrators.runway_browser_orchestrator
+- providers.minimax_video_provider
+- providers.runway_video_provider
 
 ## core\__init__.py
 
@@ -323,6 +412,11 @@ Generated at: 2026-05-17 13:57:40
 - pathlib
 - subprocess
 
+## engines\audio_sync_engine.py
+
+- pathlib
+- utils.ffmpeg_clip_audio_merger
+
 ## engines\auto_optimization_loop_engine.py
 
 - json
@@ -333,6 +427,14 @@ Generated at: 2026-05-17 13:57:40
 - datetime
 - json
 - pathlib
+
+## engines\cinematic_motion_engine.py
+
+- random
+
+## engines\final_assembly_engine.py
+
+- utils.final_cinematic_assembler
 
 ## engines\hook_overlay_engine.py
 
@@ -354,6 +456,11 @@ Generated at: 2026-05-17 13:57:40
 - core.config_injection_engine
 - pathlib
 - subprocess
+
+## engines\narration_engine.py
+
+- pathlib
+- providers.elevenlabs_voice_provider
 
 ## engines\scene_continuity_engine.py
 
@@ -388,16 +495,68 @@ Generated at: 2026-05-17 13:57:40
 - pathlib
 - subprocess
 
+## engines\trend_engine.py
+
+- random
+
+## engines\trend_research_engine.py
+
+- datetime
+- random
+
+## engines\video_generation_engine.py
+
+- core.video_provider_router
+
+## engines\video_prompt_engine.py
+
+- core.selfcare_content_engine
+- engines.ai_director_engine
+- engines.scene_continuity_engine
+
 ## engines\viral_hook_engine.py
 
 - random
+
+## engines\visual_scenario_engine.py
+
+- engines.cinematic_motion_engine
+- random
+
+## execution\apply_patch_engine.py
+
+- execution.approval_engine
+- execution.patch_validator
+- execution.safe_code_editor
+
+## execution\approval_engine.py
+
+- datetime
+- pathlib
 
 ## execution\command_runner.py
 
 - pathlib
 - subprocess
 
+## execution\patch_preview_engine.py
+
+- datetime
+- difflib
+- pathlib
+
+## execution\patch_validator.py
+
+- ast
+- pathlib
+
 ## execution\rollback_manager.py
+
+- datetime
+- pathlib
+- shutil
+
+## execution\safe_code_editor.py
 
 - datetime
 - pathlib
@@ -412,6 +571,50 @@ Generated at: 2026-05-17 13:57:40
 - providers.hailuo_browser_provider
 - providers.hailuo_download_provider
 - time
+
+## orchestrators\runway_browser_orchestrator.py
+
+- providers.runway_browser_provider
+- providers.runway_download_provider
+- time
+
+## pipelines\full_video_pipeline.py
+
+- core.content_series_planner
+- core.timeline_engine
+- core.topic_memory_engine
+- core.video_provider_router
+- datetime
+- dotenv
+- engines.ai_memory_learning_engine
+- engines.ai_performance_analyzer
+- engines.audio_finish_engine
+- engines.audio_sync_engine
+- engines.auto_optimization_loop_engine
+- engines.auto_publishing_engine
+- engines.final_assembly_engine
+- engines.hook_overlay_engine
+- engines.ingredient_overlay_engine
+- engines.music_engine
+- engines.narration_engine
+- engines.seo_package_engine
+- engines.subtitle_burner
+- engines.subtitle_engine
+- engines.thumbnail_engine
+- engines.trend_engine
+- engines.video_generation_engine
+- engines.video_prompt_engine
+- engines.viral_hook_engine
+- os
+- pathlib
+- providers.suno_music_provider
+- sys
+- utils.ffmpeg_clip_audio_merger
+- utils.final_cinematic_assembler
+
+## pipelines\__init__.py
+
+- No imports detected
 
 ## providers\elevenlabs_voice_provider.py
 
@@ -432,6 +635,11 @@ Generated at: 2026-05-17 13:57:40
 - pathlib
 - time
 
+## providers\minimax_video_provider.py
+
+- dotenv
+- os
+
 ## providers\openai_provider.py
 
 - dotenv
@@ -443,16 +651,89 @@ Generated at: 2026-05-17 13:57:40
 - openai
 - os
 
+## providers\runway_browser_provider.py
+
+- automation.browser_manager
+- time
+
+## providers\runway_download_provider.py
+
+- automation.browser_manager
+- pathlib
+- requests
+- time
+
+## providers\runway_video_provider.py
+
+- dotenv
+- os
+- pathlib
+- requests
+- time
+
 ## providers\__init__.py
 
 - No imports detected
 
 ## ui\app.py
 
+- datetime
+- dotenv
+- json
+- os
 - pathlib
+- queue
+- shutil
+- signal
 - subprocess
+- sys
+- threading
+- time
+- tkinter
+- ui.components.progress_tracker
+- ui.services.env_service
+- ui.services.runner_service
+- zipfile
+
+## ui\app_backup_before_refactor.py
+
+- datetime
+- dotenv
+- json
+- os
+- pathlib
+- shutil
+- subprocess
+- sys
 - threading
 - tkinter
+- zipfile
+
+## ui\components\progress_tracker.py
+
+- No imports detected
+
+## ui\components\__init__.py
+
+- No imports detected
+
+## ui\services\env_service.py
+
+- dotenv
+- os
+- pathlib
+
+## ui\services\runner_service.py
+
+- subprocess
+
+## ui\services\__init__.py
+
+- No imports detected
+
+## ui\tabs\__init__.py
+
+- No imports detected
 
 ## utils\download_helper.py
 

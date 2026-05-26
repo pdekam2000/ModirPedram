@@ -179,3 +179,18 @@ class RunwayVideoProvider:
 
         print("[Runway] All clips generated.")
         return downloaded_files
+
+
+def retry_generation(
+    operation,
+    retries=3
+):
+    pass
+
+
+
+def timeout_wrapper(
+    operation,
+    timeout_seconds=60
+):
+    return operation()

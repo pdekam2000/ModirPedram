@@ -13,12 +13,34 @@ IGNORE_FOLDERS = {
     ".git",
     ".idea",
     ".vscode",
+
     "outputs",
     "downloads",
     "node_modules",
+
     "dist",
     "build",
+
     "backup_temp",
+    "backup",
+    "backups",
+
+    "storage",
+    "browser_session",
+    "real_chrome_profile",
+
+    "Default",
+    "Cache",
+    "Code Cache",
+    "GPUCache",
+    "IndexedDB",
+    "Local Storage",
+    "Session Storage",
+    "Service Worker",
+    "Crashpad",
+    "ShaderCache",
+    "GrShaderCache",
+    "GraphiteDawnCache",
 }
 
 IGNORE_FILES_CONTAINS = {

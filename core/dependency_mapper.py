@@ -9,20 +9,68 @@ IMPORT_PATTERN = re.compile(
 )
 
 
+IGNORE_DIRS = {
+    "venv",
+    ".venv",
+    "__pycache__",
+    ".git",
+    ".idea",
+    ".vscode",
+
+    "outputs",
+    "downloads",
+    "node_modules",
+
+    "dist",
+    "build",
+
+    "backup_temp",
+    "backup",
+    "backups",
+    "ModirAgentOS_CORE_BACKUPaussssssss",
+    "ModirAgentOS_CORE_BACKUP",
+
+    "storage",
+    "browser_session",
+    "real_chrome_profile",
+
+    "Default",
+    "Cache",
+    "Code Cache",
+    "GPUCache",
+    "IndexedDB",
+    "Local Storage",
+    "Session Storage",
+    "Service Worker",
+    "Crashpad",
+    "ShaderCache",
+    "GrShaderCache",
+    "GraphiteDawnCache",
+}
+
+
 class DependencyMapper:
     def __init__(self, project_root: str = "."):
         self.root = Path(project_root).resolve()
 
+    def should_ignore(self, path: Path) -> bool:
+        return any(
+            part in IGNORE_DIRS
+            for part in path.parts
+        )
+
     def get_python_files(self) -> list:
         return [
             file for file in self.root.rglob("*.py")
-            if "__pycache__" not in str(file)
-            and "venv" not in str(file)
+            if not self.should_ignore(file)
         ]
 
     def extract_imports(self, file_path: Path) -> list:
         try:
-            content = file_path.read_text(encoding="utf-8")
+            content = file_path.read_text(
+                encoding="utf-8",
+                errors="ignore"
+            )
         except Exception:
             return []
 
@@ -65,6 +113,14 @@ class DependencyMapper:
         lines.append("")
 
         for file_name, data in dependency_map.items():
+            normalized = file_name.replace("\\", "/")
+
+            if any(
+                part in IGNORE_DIRS
+                for part in normalized.split("/")
+            ):
+                continue
+
             lines.append(f"## {file_name}")
             lines.append("")
 

@@ -1,26 +1,24 @@
 # SYSTEM MAP
 
-Generated: 2026-05-21 18:42:24.951569
+Generated: 2026-05-26 22:30:42.352598
 
 ## AGENT
 
 - agents\architect_agent.py (priority=50)
+- agents\change_request_agent.py (priority=50)
 - agents\coder_agent.py (priority=50)
+- agents\code_generation_agent.py (priority=50)
 - agents\memory_agent.py (priority=50)
+- agents\project_context_agent.py (priority=50)
+- agents\project_upgrade_agent.py (priority=50)
+- agents\self_editing_agent.py (priority=50)
 - agents\seo_agent.py (priority=50)
 - agents\trend_agent.py (priority=50)
 - agents\verifier_agent.py (priority=50)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\architect_agent.py (priority=50)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\coder_agent.py (priority=50)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\memory_agent.py (priority=50)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\seo_agent.py (priority=50)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\trend_agent.py (priority=50)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\verifier_agent.py (priority=50)
 
 ## CONFIG
 
 - config\config_loader.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\config\config_loader.py (priority=10)
 
 ## ENGINE
 
@@ -29,10 +27,13 @@ Generated: 2026-05-21 18:42:24.951569
 - test_timeline_engine.py (priority=70)
 - core\config_injection_engine.py (priority=70)
 - core\continuity_engine.py (priority=70)
+- core\dependency_graph_engine.py (priority=70)
+- core\live_handoff_engine.py (priority=70)
 - core\project_brain_engine.py (priority=70)
 - core\selfcare_content_engine.py (priority=70)
 - core\timeline_engine.py (priority=70)
 - core\topic_memory_engine.py (priority=70)
+- core\upgrade_planner_engine.py (priority=70)
 - engines\ai_director_engine.py (priority=70)
 - engines\ai_memory_learning_engine.py (priority=70)
 - engines\audio_finish_engine.py (priority=70)
@@ -57,33 +58,13 @@ Generated: 2026-05-21 18:42:24.951569
 - engines\video_prompt_engine.py (priority=70)
 - engines\viral_hook_engine.py (priority=70)
 - engines\visual_scenario_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_continuity_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_selfcare_content_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_timeline_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\config_injection_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\continuity_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\selfcare_content_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\timeline_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\ai_director_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\ai_memory_learning_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\audio_finish_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\auto_optimization_loop_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\auto_publishing_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\hook_overlay_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\ingredient_overlay_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\intro_thumbnail_frame_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\music_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\scene_continuity_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\seo_package_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\smart_transition_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\subtitle_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\thumbnail_engine.py (priority=70)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\viral_hook_engine.py (priority=70)
+- execution\apply_patch_engine.py (priority=70)
+- execution\approval_engine.py (priority=70)
+- execution\patch_preview_engine.py (priority=70)
 
 ## GENERAL
 
 - full_selfcare_factory.py (priority=100)
-- ModirAgentOS_CORE_BACKUPaussssssss\full_selfcare_factory.py (priority=100)
 - postprocess_existing_video.py (priority=10)
 - agents\__init__.py (priority=10)
 - automation\browser_manager.py (priority=10)
@@ -101,32 +82,10 @@ Generated: 2026-05-21 18:42:24.951569
 - engines\ai_performance_analyzer.py (priority=10)
 - engines\subtitle_burner.py (priority=10)
 - execution\command_runner.py (priority=10)
+- execution\patch_validator.py (priority=10)
 - execution\rollback_manager.py (priority=10)
+- execution\safe_code_editor.py (priority=10)
 - execution\__init__.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\postprocess_existing_video.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\agents\__init__.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\config\__init__.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\content_series_planner.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\dependency_mapper.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\handoff_generator.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\impact_analyzer.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\project_reader.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\safety_guard.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\state_writer.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\task_router.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\__init__.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\dashboard\control_center.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\ai_performance_analyzer.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\engines\subtitle_burner.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\execution\command_runner.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\execution\rollback_manager.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\execution\__init__.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\providers\__init__.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\utils\download_helper.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\utils\ffmpeg_audio_merger.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\utils\ffmpeg_clip_audio_merger.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\utils\ffmpeg_stitcher.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\utils\final_cinematic_assembler.py (priority=10)
 - pipelines\full_video_pipeline.py (priority=10)
 - pipelines\__init__.py (priority=10)
 - providers\__init__.py (priority=10)
@@ -139,44 +98,37 @@ Generated: 2026-05-21 18:42:24.951569
 ## MAIN_ENTRY
 
 - main.py (priority=90)
-- ModirAgentOS_CORE_BACKUPaussssssss\main.py (priority=90)
 
 ## ORCHESTRATOR
 
+- test_runway_orchestrator_direct.py (priority=85)
 - core\master_orchestrator_engine.py (priority=85)
 - core\orchestrator.py (priority=85)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\master_orchestrator_engine.py (priority=85)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\orchestrator.py (priority=85)
-- ModirAgentOS_CORE_BACKUPaussssssss\orchestrators\hailuo_multi_clip_orchestrator.py (priority=85)
 - orchestrators\hailuo_multi_clip_orchestrator.py (priority=85)
+- orchestrators\runway_browser_orchestrator.py (priority=85)
 
 ## PROVIDER
 
 - core\provider_registry_engine.py (priority=70)
 - core\video_provider_router.py (priority=60)
-- ModirAgentOS_CORE_BACKUPaussssssss\providers\elevenlabs_voice_provider.py (priority=60)
-- ModirAgentOS_CORE_BACKUPaussssssss\providers\hailuo_browser_provider.py (priority=60)
-- ModirAgentOS_CORE_BACKUPaussssssss\providers\hailuo_download_provider.py (priority=60)
-- ModirAgentOS_CORE_BACKUPaussssssss\providers\openai_provider.py (priority=60)
-- ModirAgentOS_CORE_BACKUPaussssssss\providers\openai_trend_provider.py (priority=60)
 - providers\elevenlabs_voice_provider.py (priority=60)
 - providers\hailuo_browser_provider.py (priority=60)
 - providers\hailuo_download_provider.py (priority=60)
 - providers\minimax_video_provider.py (priority=60)
 - providers\openai_provider.py (priority=60)
 - providers\openai_trend_provider.py (priority=60)
+- providers\runway_browser_provider.py (priority=60)
+- providers\runway_download_provider.py (priority=60)
 - providers\runway_video_provider.py (priority=60)
 
 ## SCANNER
 
 - core\full_project_scanner.py (priority=10)
 - core\project_scanner.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\core\project_scanner.py (priority=10)
 
 ## TEST
 
 - test_full_ai_video_pipeline.py (priority=95)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_full_ai_video_pipeline.py (priority=95)
 - test_audio_video_merge.py (priority=20)
 - test_browser.py (priority=20)
 - test_clip_audio_sync.py (priority=20)
@@ -193,28 +145,10 @@ Generated: 2026-05-21 18:42:24.951569
 - test_openai_trends.py (priority=20)
 - test_selfcare_voice.py (priority=20)
 - test_timeline_voice.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_audio_video_merge.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_browser.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_clip_audio_sync.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_content_series_planner.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_continuity_hailuo_pipeline.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_download.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_elevenlabs_voice.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_episode_preview.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_ffmpeg_stitch.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_final_cinematic_assembly.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_full_hailuo_pipeline.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_hailuo.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_multi_clip.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_openai_trends.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_selfcare_voice.py (priority=20)
-- ModirAgentOS_CORE_BACKUPaussssssss\test_timeline_voice.py (priority=20)
 
 ## UI
 
 - rebuild_existing_project.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\rebuild_existing_project.py (priority=10)
-- ModirAgentOS_CORE_BACKUPaussssssss\ui\app.py (priority=10)
 - ui\app.py (priority=10)
 - ui\app_backup_before_refactor.py (priority=10)
 - ui\components\progress_tracker.py (priority=10)

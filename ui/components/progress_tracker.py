@@ -2,49 +2,110 @@ class ProgressTracker:
 
     STAGES = [
         {
-            "name": "Voice",
-            "percent": 10,
-            "markers": ["[1]", "elevenlabs", "narration", "voice"],
+            "name": "Planning / Topic",
+            "percent": 5,
+            "markers": [
+                "full ai video pipeline",
+                "[run studio]",
+                "custom topic received",
+                "[trend topic]",
+            ],
         },
         {
-            "name": "Hailuo",
+            "name": "Story / Prompt",
+            "percent": 15,
+            "markers": [
+                "viral package",
+                "video prompts",
+                "direction data",
+                "timeline",
+            ],
+        },
+        {
+            "name": "Voice",
             "percent": 25,
-            "markers": ["[2]", "hailuo", "generating hailuo", "clips"],
+            "markers": [
+                "elevenlabs",
+                "narration",
+                "voice",
+                "generating narration",
+            ],
+        },
+        {
+            "name": "Video Clip 1",
+            "percent": 40,
+            "markers": [
+                "clip 1",
+                "generating clip 1",
+                "[runway browser] clip 1",
+                "[runway] generating clip 1",
+            ],
+        },
+        {
+            "name": "Video Clip 2",
+            "percent": 55,
+            "markers": [
+                "clip 2",
+                "generating clip 2",
+                "[runway browser] clip 2",
+                "[runway] generating clip 2",
+            ],
+        },
+        {
+            "name": "Video Clip 3",
+            "percent": 70,
+            "markers": [
+                "clip 3",
+                "generating clip 3",
+                "[runway browser] clip 3",
+                "[runway] generating clip 3",
+            ],
         },
         {
             "name": "Audio Sync",
-            "percent": 40,
-            "markers": ["[3]", "syncing clip audio", "audio sync"],
+            "percent": 78,
+            "markers": [
+                "syncing clip audio",
+                "audio sync",
+            ],
         },
         {
             "name": "Assembly",
-            "percent": 55,
-            "markers": ["[4]", "assembly", "assembled_video"],
+            "percent": 84,
+            "markers": [
+                "assembly",
+                "assembled_video",
+                "assemble video",
+            ],
         },
         {
             "name": "Subtitles",
-            "percent": 65,
-            "markers": ["[5]", "[6]", "subtitles", "burning subtitles"],
+            "percent": 90,
+            "markers": [
+                "generating subtitles",
+                "burning subtitles",
+                "subtitles",
+            ],
         },
         {
-            "name": "Music",
-            "percent": 75,
-            "markers": ["[7]", "[8]", "music", "smoothing audio"],
-        },
-        {
-            "name": "Overlays",
-            "percent": 85,
-            "markers": ["[9]", "[10]", "ingredient overlay", "hook overlay"],
-        },
-        {
-            "name": "SEO / Packaging",
+            "name": "Music / Overlays",
             "percent": 95,
-            "markers": ["[11]", "[12]", "[13]", "[14]", "[15]", "seo", "publishing package"],
+            "markers": [
+                "adding music",
+                "adding hook overlay",
+                "adding ingredient overlay",
+                "thumbnail",
+                "seo package",
+            ],
         },
         {
             "name": "Complete",
             "percent": 100,
-            "markers": ["[16]", "full test complete", "pipeline complete"],
+            "markers": [
+                "full pipeline complete",
+                "pipeline complete",
+                "final video:",
+            ],
         },
     ]
 
@@ -53,14 +114,15 @@ class ProgressTracker:
         self.current_percent = 0
 
     def detect(self, line):
-        clean_line = line.strip()
+        clean_line = str(line).strip()
         lower_line = clean_line.lower()
 
         for stage in self.STAGES:
             for marker in stage["markers"]:
                 if marker.lower() in lower_line:
-                    self.current_stage = stage["name"]
-                    self.current_percent = stage["percent"]
+                    if stage["percent"] >= self.current_percent:
+                        self.current_stage = stage["name"]
+                        self.current_percent = stage["percent"]
 
                     return {
                         "stage": self.current_stage,
@@ -71,18 +133,14 @@ class ProgressTracker:
 
     def detect_percent(self, line):
         result = self.detect(line)
-
         if result:
             return result["percent"]
-
         return None
 
     def detect_stage(self, line):
         result = self.detect(line)
-
         if result:
             return result["stage"]
-
         return None
 
     def reset(self):

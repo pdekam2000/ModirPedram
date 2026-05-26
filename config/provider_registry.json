@@ -5,6 +5,13 @@
             "display_name": "Hailuo Browser",
             "api_key_env": "",
             "mode": "browser",
+            "enabled": false
+        },
+        {
+            "name": "runway_browser",
+            "display_name": "Runway Browser",
+            "api_key_env": "",
+            "mode": "browser",
             "enabled": true
         },
         {
@@ -12,14 +19,14 @@
             "display_name": "MiniMax API",
             "api_key_env": "MINIMAX_API_KEY",
             "mode": "api",
-            "enabled": true
+            "enabled": false
         },
         {
             "name": "runway",
-            "display_name": "RunwayML",
+            "display_name": "RunwayML API",
             "api_key_env": "RUNWAY_API_KEY",
             "mode": "api",
-            "enabled": true
+            "enabled": false
         },
         {
             "name": "luma",

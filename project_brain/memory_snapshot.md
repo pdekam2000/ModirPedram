@@ -1,50 +1,44 @@
 # MEMORY SUMMARY
 
-Generated at: 2026-05-17 13:57:40
+Generated at: 2026-05-25 19:09:00
 
 ## current_state.md
 
 # PROJECT CURRENT STATE
 
-Generated at: 2026-05-17 13:57:36
+Generated at: 2026-05-25 19:08:56
 Project root: `C:\Users\kaman\Desktop\ModirAgentOS`
 
 ## Summary
 
-- Total folders: 574
-- Total files: 3856
+- Total folders: 1481
+- Total files: 8992
 
 ## Folders
 
+- `ModirAgentOS_CORE_BACKUPaussssssss`
+- `ModirAgentOS_CORE_BACKUPaussssssss\agents`
+- `ModirAgentOS_CORE_BACKUPaussssssss\agents\agents`
+- `ModirAgentOS_CORE_BACKUPaussssssss\config`
+- `ModirAgentOS_CORE_BACKUPaussssssss\core`
+- `ModirAgentOS_CORE_BACKUPaussssssss\dashboard`
+- `ModirAgentOS_CORE_BACKUPaussssssss\engines`
+- `ModirAgentOS_CORE_BACKUPaussssssss\execution`
+- `ModirAgentOS_CORE_BACKUPaussssssss\orchestrators`
+- `ModirAgentOS_CORE_BACKUPaussssssss\project_brain`
+- `ModirAgentOS_CORE_BACKUPaussssssss\providers`
+- `ModirAgentOS_CORE_BACKUPaussssssss\tasks`
+- `ModirAgentOS_CORE_BACKUPaussssssss\templates`
+- `ModirAgentOS_CORE_BACKUPaussssssss\ui`
+- `ModirAgentOS_CORE_BACKUPaussssssss\utils`
 - `agents`
 - `agents\agents`
 - `assets`
 - `assets\music`
 - `automation`
-- `config`
-- `core`
-- `dashboard`
-- `downloads`
-- `engines`
-- `execution`
-- `orchestrators`
-- `project_brain`
-- `providers`
-- `storage`
-- `storage\backups`
-- `storage\browser_session`
-- `storage\browser_session\BrowserMetrics`
-- `storage\browser_session\Crashpad`
-- `storage\browser_session\Crashpad\attachments`
-- `storage\browser_session\Crashpad\reports`
-- `storage\browser_session\Default`
-- `storage\browser_session\Default\AutofillAiModelCache`
-- `storage\browser_session\Default\AutofillStrikeDatabase`
-- `storage\browser_session\Default\BudgetDatabase`
-- `storage\browser_session\Default\Cache`
-- `storage\browser_session\Default\Cache\Cache_Data`
-- `storage\browser_session\Default\Cache\No_Vary_Search`
-- `storage\browser_session\Default\Cl
+- `backup_temp`
+- `backup_temp\agents`
+-
 
 ---
 
