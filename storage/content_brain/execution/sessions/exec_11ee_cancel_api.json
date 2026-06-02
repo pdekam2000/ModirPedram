@@ -1,0 +1,479 @@
+{
+  "session_schema_version": "10i_v1",
+  "session_uuid": "2b820d1c-babe-4224-b4aa-1ce8d8c6f1b6",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_11ee_cancel_api",
+  "brief_id": "brief_10f_dequeued",
+  "state": "DEQUEUED",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-05-31 00:08:53",
+  "provider": "runway",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_dequeued",
+    "video_format_plan": {
+      "clip_count": 2,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    },
+    "run_context": {
+      "story_intelligence": {
+        "schema_director_shots": [
+          {
+            "clip_number": 1,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 1 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 1."
+          },
+          {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 2 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 2."
+          }
+        ]
+      }
+    }
+  },
+  "story_quality": {
+    "composite_score": 86.0,
+    "score": 86.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "runway",
+    "alternatives": [],
+    "expected_retry_risk": "low",
+    "category_selections": {
+      "video_generation": {
+        "provider": "runway"
+      }
+    }
+  },
+  "execution_confidence_score": 78.0,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 2.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_8c807dc542f3",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved_for_execution",
+    "reasons": [
+      "All auto-approval thresholds met."
+    ],
+    "blockers": [],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-05-31 00:08:52",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 86.0,
+      "execution_confidence": 78.0,
+      "estimated_credits": 2.0,
+      "effective_credits": 2.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "cc6c8226-450b-43ed-9e76-75239146fb27"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_da114ae30bae",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 2.0,
+    "effective_credits": 2.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 998.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-31 00:08:52",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "cc6c8226-450b-43ed-9e76-75239146fb27",
+    "report_id": "sim_f562d386",
+    "generated_at": "2026-05-31 00:08:52",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 2,
+    "estimated_generation_time_minutes": 4.0,
+    "estimated_provider_cost": 2.0,
+    "estimated_credits": 2.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "low",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 78.0,
+    "cost_estimate": {
+      "estimated_total_credits": 2.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 4.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:12a9cd6a84617a3376c840aa11e2000937dad08d713593b0803fa05a47cc41fa",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_f562d386",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-31 00:08:52",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-05-31 00:08:52",
+    "queue_version": "10h_v1",
+    "queue_enqueued_at": "2026-05-31 00:08:52"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-05-31 00:08:52",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-31 00:08:52",
+      "state": "GOVERNED",
+      "reason": "governance: approval=APPROVED_FOR_EXECUTION, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-05-31 00:08:52",
+      "state": "READY",
+      "reason": "readiness gate: READY (score=100.0)"
+    },
+    {
+      "at": "2026-05-31 00:08:52",
+      "state": "QUEUED",
+      "reason": "queue engine: QUEUED (item=queue_20260531_000852_a35141, position=None)"
+    },
+    {
+      "at": "2026-05-31 00:08:53",
+      "state": "DEQUEUED",
+      "reason": "queue dequeued"
+    },
+    {
+      "at": "2026-05-31 00:08:53",
+      "state": "DISPATCHED",
+      "reason": "provider runtime: dispatched (hailuo_browser, clips=2)"
+    },
+    {
+      "at": "2026-05-31 00:08:53",
+      "state": "RUNNING",
+      "reason": "provider runtime: running (hailuo_browser)"
+    },
+    {
+      "at": "2026-05-31 00:08:53",
+      "state": "COMPLETED",
+      "reason": "provider runtime: completed (2 clips)"
+    }
+  ],
+  "priority_band": "high",
+  "priority_decision": {
+    "priority_band": "high",
+    "priority_score": 86.0,
+    "queue_position": null,
+    "decision_source": "execution_queue_engine"
+  },
+  "execution_readiness": {
+    "decision": "READY",
+    "readiness_score": 100.0,
+    "readiness_failures": [],
+    "readiness_warnings": [],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-31 00:08:52"
+      },
+      "simulation_report_uuid": "cc6c8226-450b-43ed-9e76-75239146fb27",
+      "governance_decision_ids": {
+        "approval": "appr_8c807dc542f3",
+        "budget": "bdgt_da114ae30bae"
+      }
+    }
+  },
+  "queue_item": {
+    "queue_item_uuid": "d360c1c1-7995-4a0f-873e-2200ef4a1fdb",
+    "queue_item_id": "queue_20260531_000852_a35141",
+    "queue_state": "DEQUEUED",
+    "queue_version": "10h_v1",
+    "session_uuid": "2b820d1c-babe-4224-b4aa-1ce8d8c6f1b6",
+    "execution_session_id": "exec_10i_dequeued_demo",
+    "brief_id": "brief_10f_dequeued",
+    "priority": {
+      "priority_band": "high",
+      "priority_score": 86.0,
+      "queue_position": null,
+      "effective_priority": 300091.0
+    },
+    "eligibility_snapshot": {
+      "readiness_decision": "READY",
+      "readiness_score": 100.0,
+      "approval_status": "APPROVED_FOR_EXECUTION",
+      "budget_status": "WITHIN_LIMIT",
+      "simulation_fingerprint": "sha256:12a9cd6a84617a3376c840aa11e2000937dad08d713593b0803fa05a47cc41fa",
+      "provider": "hailuo"
+    },
+    "enqueue_context": {
+      "enqueued_at": "2026-05-31 00:08:52",
+      "enqueued_by": "system",
+      "enqueue_attempt": 1,
+      "enqueue_reason": "readiness_passed"
+    },
+    "lifecycle": {
+      "dequeued_at": "2026-05-31 00:08:53",
+      "dequeued_by": "seed",
+      "cancelled_at": null,
+      "cancelled_by": null,
+      "cancel_reason": null,
+      "expired_at": null,
+      "expire_reason": null,
+      "ttl_seconds": 86400,
+      "expires_at": "2026-06-01 00:08:52"
+    },
+    "retry": {
+      "max_enqueue_attempts": 3,
+      "enqueue_attempts_used": 1,
+      "requeue_allowed": true,
+      "last_terminal_state": "DEQUEUED"
+    },
+    "metadata": {
+      "queue_provenance": {
+        "engine": "ExecutionQueueEngine",
+        "engine_version": "10h_v1",
+        "policy_version": "10h_v1",
+        "evaluated_at": "2026-05-31 00:08:52",
+        "policy_snapshot": {
+          "policy_id": "default_local",
+          "policy_version": "10h_v1",
+          "eligible_readiness_decisions": [
+            "READY",
+            "READY_WITH_WARNINGS"
+          ],
+          "default_ttl_seconds": 86400,
+          "max_active_queue_depth": 100,
+          "max_enqueue_attempts": 3,
+          "require_fingerprint_match": true,
+          "priority_band_weights": {
+            "critical": 400,
+            "high": 300,
+            "medium": 200,
+            "low": 100
+          }
+        }
+      },
+      "queue_fingerprint": "sha256:cefaf7bcac65d1f925db568805b3e4695f60ad77097fe3debd2c258adf104957",
+      "queue_fingerprint_version": "10h_v1",
+      "queue_fingerprint_sources": [
+        "execution_readiness",
+        "approval_decision",
+        "budget_decision",
+        "simulation_fingerprint"
+      ],
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-31 00:08:52"
+      },
+      "governance_decision_ids": {
+        "approval": "appr_8c807dc542f3",
+        "budget": "bdgt_da114ae30bae"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_be81c17d5602",
+      "event_type": "ENQUEUED",
+      "at": "2026-05-31 00:08:52",
+      "queue_item_id": "queue_20260531_000852_a35141",
+      "queue_item_uuid": "d360c1c1-7995-4a0f-873e-2200ef4a1fdb",
+      "actor": "seed",
+      "details": {
+        "queue_position": null,
+        "effective_priority": 300091.0,
+        "readiness_decision": "READY"
+      }
+    },
+    {
+      "event_id": "qevt_9aaa0d354e4b",
+      "event_type": "DEQUEUED",
+      "at": "2026-05-31 00:08:53",
+      "queue_item_id": "queue_20260531_000852_a35141",
+      "queue_item_uuid": "d360c1c1-7995-4a0f-873e-2200ef4a1fdb",
+      "actor": "seed",
+      "details": {
+        "queue_item_id": "queue_20260531_000852_a35141",
+        "targeted": true
+      }
+    }
+  ],
+  "provider_audit_log": [
+    {
+      "event_id": "pevt_e0d429db6236",
+      "event_type": "DISPATCHED",
+      "at": "2026-05-31 00:08:53",
+      "dispatch_id": "disp_20260531_000853_eac2aa",
+      "actor": "api",
+      "details": {
+        "provider": "hailuo_browser",
+        "provider_category": "video_generation",
+        "clip_count": 2
+      }
+    },
+    {
+      "event_id": "pevt_887293faf4f3",
+      "event_type": "RUNNING",
+      "at": "2026-05-31 00:08:53",
+      "dispatch_id": "disp_20260531_000853_eac2aa",
+      "actor": "api",
+      "details": {
+        "provider": "hailuo_browser",
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_76ac134e1568",
+      "event_type": "ARTIFACT_VALIDATED",
+      "at": "2026-05-31 00:08:53",
+      "dispatch_id": "disp_20260531_000853_eac2aa",
+      "actor": "api",
+      "details": {
+        "clip_count": 2,
+        "clip_target": 2,
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_660083d7ea51",
+      "event_type": "COMPLETED",
+      "at": "2026-05-31 00:08:53",
+      "dispatch_id": "disp_20260531_000853_eac2aa",
+      "actor": "api",
+      "details": {
+        "clip_count": 2,
+        "provider_category": "video_generation"
+      }
+    }
+  ]
+}

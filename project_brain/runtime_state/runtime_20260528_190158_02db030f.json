@@ -1,0 +1,100 @@
+{
+    "session_id": "runtime_20260528_190158_02db030f",
+    "created_at": "2026-05-28 19:01:58",
+    "updated_at": "2026-05-28 19:01:58",
+    "goal": "Live safe recovery test",
+    "status": "ROLLBACK_COMPLETE",
+    "current_step": null,
+    "completed_steps": [],
+    "failed_step": null,
+    "approval_required": false,
+    "approval_granted": false,
+    "orchestration_plan": {
+        "patch_data": {
+            "target_file": "execution/apply_replace_patch_test_target.py",
+            "function_name": "demo_replace_target",
+            "class_name": "Demo"
+        },
+        "queue": [
+            {
+                "step": 1,
+                "action": "APPLY_REPLACE_PATCH"
+            },
+            {
+                "step": 2,
+                "action": "RUN_VERIFIER"
+            }
+        ],
+        "rollback_strategy": [
+            {
+                "rollback_action": "RESTORE_BACKUP"
+            }
+        ]
+    },
+    "execution_log": [],
+    "rollback_history": [
+        {
+            "timestamp": "2026-05-28 19:01:58",
+            "rollback_action": "RESTORE_BACKUP",
+            "target": "execution/apply_replace_patch_test_target.py",
+            "result": {
+                "success": true,
+                "message": "Backup restored successfully.",
+                "backup_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\backups\\execution__apply_replace_patch_test_target.py.20260528_190158.bak",
+                "target_file": "execution/apply_replace_patch_test_target.py"
+            }
+        }
+    ],
+    "recovery_history": [
+        {
+            "timestamp": "2026-05-28 19:01:58",
+            "session_id": "runtime_20260528_190158_02db030f",
+            "decision": "ROLLBACK",
+            "reason": "Auto-rollback allowed for syntax error or missing critical brain/core files.",
+            "errors": [
+                {
+                    "code": "SYNTAX_ERROR",
+                    "message": "Syntax error in execution/apply_replace_patch_test_target.py at line 12: invalid syntax",
+                    "category": "syntax",
+                    "target_file": "execution/apply_replace_patch_test_target.py",
+                    "line": 12,
+                    "detail": "invalid syntax"
+                }
+            ],
+            "auto_executed": true,
+            "execution_result": {
+                "success": true,
+                "message": "Backup restored successfully.",
+                "backup_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\backups\\execution__apply_replace_patch_test_target.py.20260528_190158.bak",
+                "target_file": "execution/apply_replace_patch_test_target.py"
+            },
+            "recovery_plan": {
+                "decision": "ROLLBACK",
+                "target_file": "execution/apply_replace_patch_test_target.py",
+                "errors": [
+                    {
+                        "code": "SYNTAX_ERROR",
+                        "message": "Syntax error in execution/apply_replace_patch_test_target.py at line 12: invalid syntax",
+                        "category": "syntax",
+                        "target_file": "execution/apply_replace_patch_test_target.py",
+                        "line": 12,
+                        "detail": "invalid syntax"
+                    }
+                ],
+                "requires_approval": true,
+                "safe_mode": true,
+                "recommended_actions": [
+                    "Restore latest backup",
+                    "Review verifier report"
+                ],
+                "patch_data": {
+                    "target_file": "execution/apply_replace_patch_test_target.py",
+                    "function_name": "demo_replace_target",
+                    "class_name": "Demo"
+                }
+            },
+            "requires_approval": false,
+            "log_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\recovery_runtime_20260528_190158_02db030f_20260528_190158.json"
+        }
+    ]
+}

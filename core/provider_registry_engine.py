@@ -8,6 +8,10 @@ load_dotenv()
 
 
 class ProviderRegistryEngine:
+    TREND_CATEGORY = "trend"
+    TREND_ENRICHMENT_CATEGORY = "trend_enrichment"
+    ACTIVE_TREND_SOURCES_KEY = "trend_sources"
+    ACTIVE_TREND_ENRICHMENT_KEY = "trend_enrichment"
 
     def __init__(self):
 
@@ -134,6 +138,48 @@ class ProviderRegistryEngine:
                         "mode": "api",
                         "enabled": False
                     }
+                ],
+
+                self.TREND_CATEGORY: [
+
+                    {
+                        "name": "mock_trend_provider",
+                        "display_name": "Mock Local Seeds",
+                        "api_key_env": "",
+                        "mode": "local",
+                        "enabled": True
+                    },
+
+                    {
+                        "name": "dataforseo",
+                        "display_name": "DataForSEO",
+                        "api_key_env": "",
+                        "credential_envs": [
+                            "DATAFORSEO_LOGIN",
+                            "DATAFORSEO_PASSWORD"
+                        ],
+                        "mode": "api",
+                        "enabled": False
+                    },
+
+                    {
+                        "name": "serpapi",
+                        "display_name": "SerpAPI",
+                        "api_key_env": "SERPAPI_API_KEY",
+                        "mode": "api",
+                        "enabled": False
+                    }
+                ],
+
+                self.TREND_ENRICHMENT_CATEGORY: [
+
+                    {
+                        "name": "openai_trend_enricher",
+                        "display_name": "OpenAI Trend Enricher",
+                        "api_key_env": "OPENAI_API_KEY",
+                        "mode": "api",
+                        "enabled": False
+                    }
                 ]
             }
 
@@ -156,7 +202,11 @@ class ProviderRegistryEngine:
                 "video": "hailuo",
                 "music": "suno",
                 "voice": "elevenlabs",
-                "llm": "openai"
+                "llm": "openai",
+                self.ACTIVE_TREND_SOURCES_KEY: [
+                    "mock_trend_provider"
+                ],
+                self.ACTIVE_TREND_ENRICHMENT_KEY: None
             }
 
             with open(
@@ -248,7 +298,33 @@ class ProviderRegistryEngine:
 
         return None
 
-    def api_key_exists(
+    def _resolve_required_env_names(
+        self,
+        provider
+    ):
+
+        credential_envs = provider.get(
+            "credential_envs",
+            []
+        )
+
+        if credential_envs:
+            return [
+                str(item)
+                for item in credential_envs
+                if item
+            ]
+
+        api_key_env = provider.get(
+            "api_key_env"
+        )
+
+        if api_key_env:
+            return [str(api_key_env)]
+
+        return []
+
+    def credentials_ready(
         self,
         category,
         provider_name
@@ -267,18 +343,60 @@ class ProviderRegistryEngine:
             "api"
         )
 
-        if mode == "browser":
+        if mode in ("browser", "local"):
             return True
 
-        env_name = provider.get(
-            "api_key_env"
+        env_names = self._resolve_required_env_names(
+            provider
         )
 
-        if not env_name:
+        if not env_names:
             return False
 
-        return bool(
-            os.getenv(env_name)
+        return all(
+            bool(os.getenv(env_name))
+            for env_name in env_names
+        )
+
+    def get_provider_credentials(
+        self,
+        category,
+        provider_name
+    ):
+
+        if not self.credentials_ready(
+            category,
+            provider_name
+        ):
+            return {}
+
+        provider = self.get_provider_info(
+            category,
+            provider_name
+        )
+
+        if not provider:
+            return {}
+
+        credentials = {}
+
+        for env_name in self._resolve_required_env_names(provider):
+            value = os.getenv(env_name)
+
+            if value:
+                credentials[str(env_name)] = str(value)
+
+        return credentials
+
+    def api_key_exists(
+        self,
+        category,
+        provider_name
+    ):
+
+        return self.credentials_ready(
+            category,
+            provider_name
         )
 
     def get_provider_status(
@@ -303,13 +421,148 @@ class ProviderRegistryEngine:
         if mode == "browser":
             return "BROWSER MODE"
 
-        if self.api_key_exists(
+        if mode == "local":
+            return "LOCAL MODE"
+
+        if self.credentials_ready(
             category,
             provider_name
         ):
             return "API OK"
 
         return "NO API KEY"
+
+    def get_active_trend_sources(self):
+
+        active = self.load_active()
+        raw = active.get(
+            self.ACTIVE_TREND_SOURCES_KEY,
+            []
+        )
+
+        if isinstance(raw, str):
+            raw = [raw] if raw.strip() else []
+
+        if not isinstance(raw, list):
+            return []
+
+        registry_names = {
+            provider["name"]
+            for provider in self.load_registry().get(
+                self.TREND_CATEGORY,
+                []
+            )
+        }
+
+        validated = []
+
+        for item in raw:
+            name = str(item).strip()
+
+            if name and name in registry_names:
+                validated.append(name)
+
+        return validated
+
+    def get_active_trend_enrichment(self):
+
+        active = self.load_active()
+        value = active.get(
+            self.ACTIVE_TREND_ENRICHMENT_KEY
+        )
+
+        if value in (None, "", False):
+            return None
+
+        name = str(value).strip()
+
+        if not name:
+            return None
+
+        if self.get_provider_info(
+            self.TREND_ENRICHMENT_CATEGORY,
+            name
+        ):
+            return name
+
+        return None
+
+    def get_ready_trend_sources(self):
+
+        registry = self.load_registry()
+        trend_providers = {
+            provider["name"]: provider
+            for provider in registry.get(
+                self.TREND_CATEGORY,
+                []
+            )
+        }
+
+        ready = []
+
+        for name in self.get_active_trend_sources():
+            provider = trend_providers.get(name)
+
+            if not provider:
+                continue
+
+            if not provider.get(
+                "enabled",
+                True
+            ):
+                continue
+
+            if self.credentials_ready(
+                self.TREND_CATEGORY,
+                name
+            ):
+                ready.append(name)
+
+        return ready
+
+    def get_ready_trend_enrichment(self):
+
+        name = self.get_active_trend_enrichment()
+
+        if not name:
+            return None
+
+        provider = self.get_provider_info(
+            self.TREND_ENRICHMENT_CATEGORY,
+            name
+        )
+
+        if not provider:
+            return None
+
+        if not provider.get(
+            "enabled",
+            True
+        ):
+            return None
+
+        if not self.credentials_ready(
+            self.TREND_ENRICHMENT_CATEGORY,
+            name
+        ):
+            return None
+
+        return name
+
+    def _is_active_provider(
+        self,
+        category,
+        provider_name,
+        active
+    ):
+
+        if category == self.TREND_CATEGORY:
+            return provider_name in self.get_active_trend_sources()
+
+        if category == self.TREND_ENRICHMENT_CATEGORY:
+            return self.get_active_trend_enrichment() == provider_name
+
+        return active.get(category) == provider_name
 
     def print_summary(self):
 
@@ -319,6 +572,22 @@ class ProviderRegistryEngine:
         print("\n" + "=" * 60)
         print("PROVIDER REGISTRY")
         print("=" * 60)
+        print(
+            f"\nActive trend sources: "
+            f"{self.get_active_trend_sources()}"
+        )
+        print(
+            f"Ready trend sources: "
+            f"{self.get_ready_trend_sources()}"
+        )
+        print(
+            f"Active trend enrichment: "
+            f"{self.get_active_trend_enrichment()}"
+        )
+        print(
+            f"Ready trend enrichment: "
+            f"{self.get_ready_trend_enrichment()}"
+        )
 
         for category, providers in registry.items():
 
@@ -330,7 +599,11 @@ class ProviderRegistryEngine:
 
                 active_mark = ""
 
-                if active.get(category) == name:
+                if self._is_active_provider(
+                    category,
+                    name,
+                    active
+                ):
                     active_mark = "  <-- ACTIVE"
 
                 status = self.get_provider_status(

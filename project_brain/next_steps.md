@@ -1,13 +1,7 @@
-# ORCHESTRATION PLAN
+# Next Steps
 
-Generated at: 2026-05-15 22:54:40
-Goal: Improve architecture safety memory and dependency planning
-
-## Execution Plan
-
-1. Read Project Brain
-2. Run ArchitectAgent
-3. Validate SafetyGuard
-4. Run MemoryAgent
-5. Run DependencyMapper
-6. Update Project Brain
+1. Run the automatic handoff + backup script.
+2. Confirm backup ZIP is created.
+3. Confirm `backup_manifest.json` is created.
+4. Confirm `latest_backup_report.md` is created.
+5. Later add Runtime Studio button: `Update Brain + Create Backup`.

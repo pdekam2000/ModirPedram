@@ -1,0 +1,394 @@
+{
+  "profile_id": "dark_mystery_v1",
+  "profile_version": "1.0.0",
+  "profile_type": "niche_pack",
+  "extends": "default_profile.json",
+  "niche": "dark_mystery",
+  "niche_label": "Dark Mystery / Psychological Horror",
+  "domain": "dark_mystery",
+  "audience": {
+    "primary": "18-34 viewers who binge psychological horror, true-crime-adjacent mystery, and disturbing cinematic shorts",
+    "psychographic": "curiosity-driven, comment-section debaters, series followers, late-night scrollers",
+    "avoid": "children, generic jump-scare-only audiences, tutorial-seekers"
+  },
+  "tone_rules": {
+    "primary_tone": "unsettling, intimate, psychologically precise, cinematic",
+    "secondary_tone": "quiet dread, controlled ambiguity, emotionally invasive",
+    "voice_style": "confessional, observational, never explanatory",
+    "pacing": "slow burn with sharp rupture points; silence is a weapon",
+    "emotional_targets": [
+      "curiosity",
+      "dread",
+      "moral discomfort",
+      "paranoia",
+      "aftershock"
+    ],
+    "must_include": [
+      "one specific sensory anchor per story (sound, smell, texture, temperature, or light quality)",
+      "concrete object or detail that makes the horror feel personal",
+      "implication over explanation in the final beat"
+    ],
+    "must_avoid": [
+      "comedic horror unless explicitly requested",
+      "campy vampire/werewolf tropes without psychological grounding",
+      "moral lectures or explicit 'the lesson is' endings",
+      "over-narration that explains the twist",
+      "safe, sanitized horror language",
+      "generic AI phrasing and template story structures"
+    ],
+    "disturbance_level": {
+      "min": 6,
+      "max": 9,
+      "scale_note": "1=creepy suggestion, 10=explicit gore; stay in psychological/cinematic disturbance, not shock-gore spam"
+    }
+  },
+  "visual_dna": {
+    "core_aesthetic": "dark cinematic horror, realistic, atmospheric, suspenseful",
+    "color_palette": [
+      "desaturated cold blues",
+      "sickly amber practical lights",
+      "deep crushed blacks",
+      "occasional single-color accent (red record light, green night-vision tint)"
+    ],
+    "lighting": [
+      "single-source practical lighting",
+      "flickering hallway bulbs",
+      "phone flashlight in darkness",
+      "underlit face close-ups",
+      "rain-streaked window backlight"
+    ],
+    "camera_language": [
+      "slow push-in",
+      "handheld micro-shake realism",
+      "over-shoulder voyeur framing",
+      "extreme close-up on hands/objects",
+      "static wide shot with small movement in background"
+    ],
+    "locations_preferred": [
+      "empty apartment hallway at night",
+      "basement with unfinished walls",
+      "hospital corridor after hours",
+      "childhood bedroom unchanged for years",
+      "parking garage level B3",
+      "house that does not match its floor plan"
+    ],
+    "character_consistency": {
+      "rule": "same face, same outfit, same emotional baseline within an episode unless story beat requires visible change",
+      "face_reveal_policy": "delay full face reveal until escalation beat unless hook requires partial visibility"
+    },
+    "props_and_symbols": [
+      "old cassette recorder still running",
+      "door that opens the wrong direction",
+      "family photo with one face scratched out",
+      "child's drawing taped to adult's mirror",
+      "voicemail timestamp that should be impossible"
+    ],
+    "forbidden_visuals": [
+      "bright influencer lighting",
+      "clean beauty vanity setups",
+      "cartoonish monster reveals",
+      "stock-footage generic haunted house clichés without story-specific detail"
+    ]
+  },
+  "platform_rules": {
+    "tiktok": {
+      "caption_style": "cryptic, 1-2 lines, no hashtag stuffing in primary caption",
+      "cta_style": "Part 2? / Comment what you think happened",
+      "audio_priority": "native-feeling sound design, sudden silence drops, low rumble under voice",
+      "pacing_note": "fastest hook delivery; first frame must contain motion or visual wrongness"
+    },
+    "youtube_shorts": {
+      "caption_style": "searchable first line + cryptic second line",
+      "title_style": "SEO-aware curiosity title required; ambiguity with one concrete noun",
+      "cta_style": "Full story in comments / Follow for Part 2",
+      "audio_priority": "clear narration legibility with cinematic bed; slightly slower hook burn allowed",
+      "pacing_note": "allow one extra micro-setup beat if retention map stays dense"
+    },
+    "instagram_reels": {
+      "caption_style": "minimal, aesthetic spacing, one haunting line",
+      "title_style": "cover frame + first-line caption carry the hook",
+      "cta_style": "Save this / Series continues tomorrow",
+      "audio_priority": "visual-first; music bed can carry mood if voice is sparse",
+      "pacing_note": "strongest visual shock in frame 0; trim exposition aggressively"
+    }
+  },
+  "hook_rules": {
+    "hook_class_definitions": {
+      "violation": "Open with an event that breaks normal rules of space, time, identity, or memory.",
+      "incomplete_truth": "State a partial fact that implies a worse unseen reality.",
+      "personal_threat": "Make the viewer feel the scenario could happen to them tonight.",
+      "moral_discomfort": "Present a choice or outcome that feels ethically wrong but believable.",
+      "false_safety": "Begin in calm normality, then rupture it with one precise wrong detail.",
+      "open_loop_seed": "End the hook on an unresolved question the body cannot ignore."
+    },
+    "rotation_rules": {
+      "require_sensory_anchor_in_hook": true
+    },
+    "minimum_scores": {
+      "curiosity_gap_score": 70,
+      "interrupt_power": 75,
+      "specificity_score": 65,
+      "composite_hook_score": 72
+    },
+    "must_include_one_of": [
+      "specific time",
+      "specific object",
+      "specific place detail",
+      "specific relationship",
+      "specific sound"
+    ]
+  },
+  "story_modes": {
+    "enabled_modes": [
+      "found_footage",
+      "confession",
+      "missing_person",
+      "wrong_house",
+      "psychological_unraveling",
+      "lore_episode"
+    ],
+    "mode_definitions": {
+      "found_footage": "Present story as recovered recordings with timestamps, gaps, and camera limitations.",
+      "confession": "First-person account where the speaker knows more than they initially admit.",
+      "missing_person": "Center on absence, last-known details, and what was left behind.",
+      "wrong_house": "Domestic space behaves incorrectly — layout, objects, or memories do not align.",
+      "psychological_unraveling": "Reality distortion driven by perception, guilt, grief, or obsession.",
+      "lore_episode": "Serialized installment that advances universe rules and pays off prior breadcrumbs."
+    },
+    "rotation_rules": {
+      "max_consecutive_same_mode": 2,
+      "require_mode_diversity_every_n_briefs": 6
+    },
+    "act_structure": {
+      "act_3": {
+        "goal": "disturbing reveal or controlled ambiguity"
+      },
+      "tag": {
+        "goal": "open loop for series, comments, or next episode"
+      }
+    },
+    "reveal_types_allowed": [
+      "partial_reveal",
+      "implied_reveal",
+      "identity_reveal",
+      "spatial_reveal",
+      "temporal_reveal",
+      "moral_reveal"
+    ],
+    "reveal_types_forbidden": [
+      "it_was_all_a_dream",
+      "random_monster_with_no_setup",
+      "cop_out_gaslighting_without_clues"
+    ]
+  },
+  "retention_rules": {
+    "minimum_retention_score": 68,
+    "require_aftershock": true,
+    "beat_blocks": [
+      {
+        "block_label": "visual_shock",
+        "start_second": 0,
+        "end_second": 1,
+        "mechanic": "pattern_interrupt",
+        "required": true,
+        "implementation": "Hard cut, close-up, off-center framing, or visible wrongness in frame 0"
+      },
+      {
+        "block_label": "verbal_hook_completion",
+        "start_second": 1,
+        "end_second": 3,
+        "mechanic": "curiosity_gap",
+        "required": true,
+        "implementation": "One unsettling sentence that completes the hook promise"
+      },
+      {
+        "block_label": "micro_payoff_1",
+        "start_second": 3,
+        "end_second": 8,
+        "mechanic": "small_reveal",
+        "required": true,
+        "implementation": "Small reveal that raises a bigger question; never fully explain"
+      },
+      {
+        "block_label": "pattern_break_1",
+        "start_second": 8,
+        "end_second": 15,
+        "mechanic": "perspective_shift",
+        "required": true,
+        "implementation": "Camera shift, sound drop, new object detail, or silence rupture"
+      },
+      {
+        "block_label": "escalation_ladder",
+        "start_second": 15,
+        "end_second": 25,
+        "mechanic": "stakes_increase",
+        "required": true,
+        "implementation": "Stakes rise through action or discovery; no beat repeats same information"
+      },
+      {
+        "block_label": "climax_beat",
+        "start_second": 25,
+        "end_second": 35,
+        "mechanic": "disturbing_peak",
+        "required": true,
+        "implementation": "Disturbing image, confession fragment, or spatial impossibility"
+      },
+      {
+        "block_label": "aftershock",
+        "start_second": 35,
+        "end_second": 45,
+        "mechanic": "emotional_echo",
+        "required": true,
+        "implementation": "Silence, reaction shot, implication, or one line that reframes everything"
+      },
+      {
+        "block_label": "loop_hook",
+        "start_second": 45,
+        "end_second": 60,
+        "mechanic": "open_loop",
+        "required": true,
+        "implementation": "Unresolved object, unanswered question, or direct series continuation cue"
+      }
+    ]
+  },
+  "scoring_thresholds": {
+    "dimension_minimums": {
+      "hook_strength": 70,
+      "retention_architecture": 68,
+      "emotional_intensity_curve": 60,
+      "specificity": 65,
+      "uniqueness": 70,
+      "platform_fit": 60,
+      "loop_potential": 50
+    }
+  },
+  "uniqueness_rules": {
+    "uniqueness_gate_minimum_score": 70,
+    "layers": [
+      {
+        "layer_name": "twist_type_collision",
+        "threshold": 0.65,
+        "lookback_count": 10,
+        "method": "reveal_type_and_payoff_match"
+      }
+    ],
+    "diversity_enforcement": {
+      "require_unique_sensory_anchor": true,
+      "require_unique_primary_object": true
+    },
+    "regeneration_directives": {
+      "twist_collision": "Keep setup; change reveal type and aftershock framing."
+    }
+  },
+  "lore_continuity_rules": {
+    "enabled": true,
+    "universe_id": "dark_mystery_universe_v1",
+    "series_support": true,
+    "character_rules": [
+      "Every recurring character must have a visual_signature and speech_pattern documented before reuse.",
+      "Do not change face, age, or core outfit of a recurring character without an in-story reason.",
+      "Recurring characters must accumulate knowledge; they cannot reset emotionally each episode."
+    ],
+    "location_rules": [
+      "Recurring locations must obey established layout and mood rules.",
+      "If a location changes physically between episodes, the change must become a plot point."
+    ],
+    "artifact_rules": [
+      "Symbolic objects (recorder, photo, drawing, key) must maintain consistent meaning once introduced.",
+      "An artifact's first appearance must seed at least one future payoff within 5 episodes."
+    ],
+    "timeline_rules": [
+      "Track in-universe order separately from publish order.",
+      "Callbacks must reference specific prior episode events, not vague 'remember last time' lines."
+    ],
+    "hard_constraints": [
+      "No contradictory deaths or resurrections without explicit story mechanism.",
+      "No breaking established universe rules for shock value alone.",
+      "Lore episodes must include at least 2 breadcrumbs for future payoff."
+    ],
+    "breadcrumb_requirements": {
+      "min_per_lore_episode": 2,
+      "max_unpaid_breadcrumbs_before_payoff": 5
+    }
+  },
+  "banned_generic_patterns": {
+    "banned_phrases": [
+      "this is the scariest story ever",
+      "based on a true story",
+      "based on true events",
+      "in a haunted house",
+      "a ghost appeared",
+      "and then I died",
+      "scary story time",
+      "true horror story",
+      "let me tell you a story",
+      "I still can't sleep"
+    ],
+    "banned_structures": [
+      "unnamed protagonist with no sensory detail",
+      "it was all a dream ending",
+      "monster appears with no prior foreshadowing",
+      "final moral summary explaining the lesson",
+      "three unrelated scares with no narrative spine",
+      "copy-paste creepypasta cadence without original detail"
+    ],
+    "ai_tell_patterns": [
+      "vague place descriptions like 'an old house' without specific wrong details",
+      "empty threat language with no concrete consequence"
+    ],
+    "required_originality_signals": [
+      "at least one proper noun or highly specific identifier per brief",
+      "one sensory anchor",
+      "one object that could only belong to this story",
+      "one line that would not fit a generic horror template"
+    ]
+  },
+  "seo_and_packaging": {
+    "title_rules": {
+      "preferred_patterns": [
+        "[specific object/place] + [wrong detail]",
+        "[time] + [personal threat]",
+        "[relationship role] + [missing/ changed detail]"
+      ]
+    },
+    "hashtag_rules": {
+      "mix": [
+        "broad_horror",
+        "niche_psychological",
+        "platform_discovery",
+        "series_tag"
+      ],
+      "forbidden": [
+        "#scary",
+        "#horror",
+        "#viral",
+        "#fyp"
+      ]
+    },
+    "thumbnail_psychology": {
+      "must_show": [
+        "human emotion or partial face",
+        "one incomplete information element",
+        "high contrast focal point"
+      ],
+      "must_avoid": [
+        "bright cheerful color grading"
+      ]
+    }
+  },
+  "example_seed_topics": [
+    "The apartment had one extra room on the lease but not on the blueprint",
+    "She kept getting voicemails from her own number at 3:07 AM",
+    "The family photo in the hallway had one face scratched out before they moved in",
+    "He found his childhood drawing taped inside a house he had never lived in",
+    "The basement door opened inward yesterday and outward today",
+    "Every night the security camera shows her already inside before she arrives",
+    "The missing poster was printed before the person disappeared",
+    "The lullaby on the baby monitor was in a language nobody in the house spoke"
+  ],
+  "metadata": {
+    "profile_role": "niche_pack",
+    "example_profile": true,
+    "notes": "Specialized horror/mystery pack extending default_profile.json."
+  }
+}

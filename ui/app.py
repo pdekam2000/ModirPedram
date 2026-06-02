@@ -24,6 +24,16 @@ from ui.services.runner_service import RunnerService
 from ui.services.env_service import EnvService
 from ui.components.progress_tracker import ProgressTracker
 
+try:
+    from ui.components.content_brain_panel import ContentBrainPanel
+except ImportError:
+    ContentBrainPanel = None
+
+try:
+    from ui.components.execution_center_panel import ExecutionCenterPanel
+except ImportError:
+    ExecutionCenterPanel = None
+
 
 # =========================================================
 # PATHS
@@ -114,14 +124,20 @@ class ModirAgentControlCenter:
         self.dashboard_tab = tk.Frame(self.notebook)
         self.providers_tab = tk.Frame(self.notebook)
         self.runstudio_tab = tk.Frame(self.notebook)
+        self.content_brain_tab = tk.Frame(self.notebook)
+        self.execution_center_tab = tk.Frame(self.notebook)
 
         self.notebook.add(self.dashboard_tab, text="Dashboard")
         self.notebook.add(self.providers_tab, text="AI Providers")
         self.notebook.add(self.runstudio_tab, text="Run Studio")
+        self.notebook.add(self.content_brain_tab, text="Content Brain")
+        self.notebook.add(self.execution_center_tab, text="Execution Center")
 
         self.build_dashboard_tab()
         self.build_providers_tab()
         self.build_runstudio_tab()
+        self.build_content_brain_tab()
+        self.build_execution_center_tab()
 
     # =========================================================
     # DASHBOARD TAB
@@ -274,6 +290,56 @@ class ModirAgentControlCenter:
     # =========================================================
     # RUN STUDIO TAB
     # =========================================================
+
+    def build_content_brain_tab(self):
+
+        if ContentBrainPanel is None:
+
+            tk.Label(
+                self.content_brain_tab,
+                text=(
+                    "Content Brain panel unavailable.\n"
+                    "Could not import ui.components.content_brain_panel."
+                ),
+                font=("Arial", 12),
+                justify="center",
+                fg="#b00020",
+            ).pack(
+                expand=True,
+                pady=40,
+            )
+
+            return
+
+        self.content_brain_panel = ContentBrainPanel(
+            self.content_brain_tab,
+            project_root=PROJECT_ROOT,
+        )
+
+    def build_execution_center_tab(self):
+
+        if ExecutionCenterPanel is None:
+
+            tk.Label(
+                self.execution_center_tab,
+                text=(
+                    "Execution Center panel unavailable.\n"
+                    "Could not import ui.components.execution_center_panel."
+                ),
+                font=("Arial", 12),
+                justify="center",
+                fg="#b00020",
+            ).pack(
+                expand=True,
+                pady=40,
+            )
+
+            return
+
+        self.execution_center_panel = ExecutionCenterPanel(
+            self.execution_center_tab,
+            project_root=PROJECT_ROOT,
+        )
 
     def build_runstudio_tab(self):
 
@@ -1412,19 +1478,10 @@ class ModirAgentControlCenter:
     def open_ai_browser(self):
 
         try:
+            from automation.browser_launcher import launch_controlled_chrome
 
-            subprocess.Popen([
-                r"C:\Program Files\Google\Chrome\Application\chrome.exe",
-                "--remote-debugging-port=9222",
-                (
-                    "--user-data-dir="
-                    "C:\\Users\\kaman\\Desktop\\"
-                    "ModirAgentOS\\storage\\"
-                    "real_chrome_profile"
-                )
-            ])
-
-            self.queue_dashboard_log("[OK] AI Browser opened.")
+            result = launch_controlled_chrome(PROJECT_ROOT)
+            self.queue_dashboard_log(f"[OK] {result.get('message', 'AI Browser opened.')}")
 
         except Exception as e:
 

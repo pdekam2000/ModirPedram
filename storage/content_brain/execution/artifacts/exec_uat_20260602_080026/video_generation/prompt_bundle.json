@@ -1,0 +1,267 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 2,
+  "target_clip_count": 2,
+  "provider_hint": "runway_browser",
+  "prompts": [
+    "Open on dog: dog worked — and that is exactly why it feels wrong in General Short-Form.... close-up for emotion or detail; subject-readable lighting; palette high-contrast mobile palette; focal subject one concrete texture, sound, or object in frame; incomplete detail visible but payoff hidden.. one concrete texture, sound, or object in frame. Clip 1 opens with immediate motion or new detail; do not fade in from black. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening; sets up ESCALATION_BEAT..",
+    "close-up for emotion or detail; subject-readable lighting; palette high-contrast mobile palette; focal subject one concrete texture, sound, or object in frame; incomplete detail visible but payoff hidden.. one concrete texture, sound, or object in frame. camera angle or scene shift then clear visual proof or story turn then unfinished detail held in frame for the sequel cue. Follows HOOK_BEAT; sets up close. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up close.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 2,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:536eb6369fdcebcec19c9a692acafc96bbdbfffc192e24ee3a925dfccb236a68",
+      "lineage": {
+        "composer_version": "12j_c_v1",
+        "clip_index": 1,
+        "merge_pass": "prose_v1",
+        "precedence_applied": [
+          "retention",
+          "architecture",
+          "director_shots",
+          "thumbnail",
+          "lexicon_fallback"
+        ],
+        "beat_collapse": {
+          "primary_beats": [
+            "HOOK_BEAT"
+          ],
+          "folded_beats": [
+            "CONTEXT_BEAT"
+          ],
+          "clip_count": 2
+        },
+        "sources_used": [
+          {
+            "path": "retention",
+            "field": "visual",
+            "weight": 1.0,
+            "used_in": "retention_payload.primary_visual"
+          },
+          {
+            "path": "architecture",
+            "field": "visual",
+            "weight": 0.9,
+            "used_in": "architecture_payload.primary_visual"
+          },
+          {
+            "path": "director_shots",
+            "field": "visual",
+            "weight": 0.8,
+            "used_in": "director_shots.prompt"
+          },
+          {
+            "path": "thumbnail",
+            "field": "visual",
+            "weight": 0.7,
+            "used_in": "thumbnail_payload"
+          }
+        ],
+        "director_shot_id": null,
+        "lexicon_fallback_used": false,
+        "truncation_applied_by": "none"
+      },
+      "quality_score": {
+        "genericity_score": 0.0,
+        "specificity_score": 1.0,
+        "visual_richness_score": 0.7143,
+        "prompt_entropy_score": 0.9256,
+        "composite_score": 0.8957,
+        "pass": true,
+        "failure_reasons": [],
+        "audit_flags": []
+      }
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:2d291b87ed8056af57db710b78612d14c4072799ddfd8e22d105d9f5d91ce2e9",
+      "lineage": {
+        "composer_version": "12j_c_v1",
+        "clip_index": 2,
+        "merge_pass": "prose_v1",
+        "precedence_applied": [
+          "retention",
+          "architecture",
+          "director_shots",
+          "thumbnail",
+          "lexicon_fallback"
+        ],
+        "beat_collapse": {
+          "primary_beats": [
+            "ESCALATION_BEAT"
+          ],
+          "folded_beats": [
+            "PATTERN_BREAK",
+            "PAYOFF_BEAT",
+            "LOOP_SEED"
+          ],
+          "clip_count": 2
+        },
+        "sources_used": [
+          {
+            "path": "architecture",
+            "field": "visual",
+            "weight": 0.9,
+            "used_in": "architecture_payload.primary_visual"
+          },
+          {
+            "path": "director_shots",
+            "field": "visual",
+            "weight": 0.8,
+            "used_in": "director_shots.prompt"
+          },
+          {
+            "path": "thumbnail",
+            "field": "visual",
+            "weight": 0.7,
+            "used_in": "thumbnail_payload"
+          }
+        ],
+        "director_shot_id": null,
+        "lexicon_fallback_used": false,
+        "truncation_applied_by": "none"
+      },
+      "quality_score": {
+        "genericity_score": 0.0,
+        "specificity_score": 0.45,
+        "visual_richness_score": 0.7143,
+        "prompt_entropy_score": 0.9167,
+        "composite_score": 0.7285,
+        "pass": false,
+        "failure_reasons": [
+          "LOW_SPECIFICITY"
+        ],
+        "audit_flags": []
+      }
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-06-02 08:00:28"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": [],
+    "runway_composer_version": "12j_c_v1",
+    "pre_truncation_prompts": [
+      "Open on dog: dog worked — and that is exactly why it feels wrong in General Short-Form.... close-up for emotion or detail; subject-readable lighting; palette high-contrast mobile palette; focal subject one concrete texture, sound, or object in frame; incomplete detail visible but payoff hidden.. one concrete texture, sound, or object in frame. Clip 1 opens with immediate motion or new detail; do not fade in from black. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening; sets up ESCALATION_BEAT..",
+      "close-up for emotion or detail; subject-readable lighting; palette high-contrast mobile palette; focal subject one concrete texture, sound, or object in frame; incomplete detail visible but payoff hidden.. one concrete texture, sound, or object in frame. camera angle or scene shift then clear visual proof or story turn then unfinished detail held in frame for the sequel cue. Follows HOOK_BEAT; sets up close. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up close.."
+    ],
+    "prompt_lineage": [
+      {
+        "clip_number": 1,
+        "composer_version": "12j_c_v1",
+        "clip_index": 1,
+        "merge_pass": "prose_v1",
+        "precedence_applied": [
+          "retention",
+          "architecture",
+          "director_shots",
+          "thumbnail",
+          "lexicon_fallback"
+        ],
+        "beat_collapse": {
+          "primary_beats": [
+            "HOOK_BEAT"
+          ],
+          "folded_beats": [
+            "CONTEXT_BEAT"
+          ],
+          "clip_count": 2
+        },
+        "sources_used": [
+          {
+            "path": "retention",
+            "field": "visual",
+            "weight": 1.0,
+            "used_in": "retention_payload.primary_visual"
+          },
+          {
+            "path": "architecture",
+            "field": "visual",
+            "weight": 0.9,
+            "used_in": "architecture_payload.primary_visual"
+          },
+          {
+            "path": "director_shots",
+            "field": "visual",
+            "weight": 0.8,
+            "used_in": "director_shots.prompt"
+          },
+          {
+            "path": "thumbnail",
+            "field": "visual",
+            "weight": 0.7,
+            "used_in": "thumbnail_payload"
+          }
+        ],
+        "director_shot_id": null,
+        "lexicon_fallback_used": false,
+        "truncation_applied_by": "none"
+      },
+      {
+        "clip_number": 2,
+        "composer_version": "12j_c_v1",
+        "clip_index": 2,
+        "merge_pass": "prose_v1",
+        "precedence_applied": [
+          "retention",
+          "architecture",
+          "director_shots",
+          "thumbnail",
+          "lexicon_fallback"
+        ],
+        "beat_collapse": {
+          "primary_beats": [
+            "ESCALATION_BEAT"
+          ],
+          "folded_beats": [
+            "PATTERN_BREAK",
+            "PAYOFF_BEAT",
+            "LOOP_SEED"
+          ],
+          "clip_count": 2
+        },
+        "sources_used": [
+          {
+            "path": "architecture",
+            "field": "visual",
+            "weight": 0.9,
+            "used_in": "architecture_payload.primary_visual"
+          },
+          {
+            "path": "director_shots",
+            "field": "visual",
+            "weight": 0.8,
+            "used_in": "director_shots.prompt"
+          },
+          {
+            "path": "thumbnail",
+            "field": "visual",
+            "weight": 0.7,
+            "used_in": "thumbnail_payload"
+          }
+        ],
+        "director_shot_id": null,
+        "lexicon_fallback_used": false,
+        "truncation_applied_by": "none"
+      }
+    ],
+    "quality_warnings": [
+      "clip 2: LOW_SPECIFICITY"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+[Script Info]
+Title: ModirAgentOS Subtitles
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,72,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,4,0,2,80,80,220,1
+Style: Emphasis,Arial,72,&H0000FFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,110,110,0,0,1,4,0,2,80,80,220,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:02.19,Default,,0,0,0,,{\fad(80,80)}Watch one concrete {\c&H00FFFF&\b1\fscx110\fscy110}general{\r} {\c&H00FFFF&\b1\fscx110\fscy110}short{\r}-{\c&H00FFFF&\b1\fscx110\fscy110}form{\r}
+Dialogue: 0,0:00:02.19,0:00:05.26,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}content{\r} detail closely — the last second
+Dialogue: 0,0:00:05.26,0:00:08.33,Default,,0,0,0,,{\fad(80,80)}of UAT {\c&H00FFFF&\b1\fscx110\fscy110}validator{\r} mock {\c&H00FFFF&\b1\fscx110\fscy110}topic{\r} for {\c&H00FFFF&\b1\fscx110\fscy110}automated{\r}
+Dialogue: 0,0:00:08.33,0:00:09.64,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}test{\r} does not…
+Dialogue: 0,0:00:09.64,0:00:12.37,Default,,0,0,0,,{\fad(80,80)}Set up the {\c&H00FFFF&\b1\fscx110\fscy110}General{\r} {\c&H00FFFF&\b1\fscx110\fscy110}Short{\r}-Form {\c&H00FFFF&\b1\fscx110\fscy110}Content{\r}
+Dialogue: 0,0:00:12.37,0:00:14.18,Default,,0,0,0,,{\fad(80,80)}sit{\c&H00FFFF&\b1\fscx110\fscy110}uat{\r}ion behind the hook:
+Dialogue: 0,0:00:14.18,0:00:17.36,Default,,0,0,0,,{\fad(80,80)}UAT {\c&H00FFFF&\b1\fscx110\fscy110}validator{\r} mock {\c&H00FFFF&\b1\fscx110\fscy110}topic{\r} for {\c&H00FFFF&\b1\fscx110\fscy110}automated{\r} test
+Dialogue: 0,0:00:17.36,0:00:19.93,Default,,0,0,0,,{\fad(80,80)}Raise the stakes in {\c&H00FFFF&\b1\fscx110\fscy110}General{\r} {\c&H00FFFF&\b1\fscx110\fscy110}Short{\r}-{\c&H00FFFF&\b1\fscx110\fscy110}Form{\r}
+Dialogue: 0,0:00:19.93,0:00:22.93,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}Content{\r} with one new detail that changes
+Dialogue: 0,0:00:22.93,0:00:25.93,Default,,0,0,0,,{\fad(80,80)}how the viewer reads {\c&H00FFFF&\b1\fscx110\fscy110}UAT{\r} {\c&H00FFFF&\b1\fscx110\fscy110}validator{\r} {\c&H00FFFF&\b1\fscx110\fscy110}mock{\r}
+Dialogue: 0,0:00:25.93,0:00:27.64,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}topic{\r} for {\c&H00FFFF&\b1\fscx110\fscy110}automated{\r} {\c&H00FFFF&\b1\fscx110\fscy110}test{\r}
+Dialogue: 0,0:00:27.64,0:00:28.56,Default,,0,0,0,,{\fad(80,80)}Shift perspective:
+Dialogue: 0,0:00:28.56,0:00:31.76,Default,,0,0,0,,{\fad(80,80)}the obvious read on {\c&H00FFFF&\b1\fscx110\fscy110}UAT{\r} {\c&H00FFFF&\b1\fscx110\fscy110}validator{\r} {\c&H00FFFF&\b1\fscx110\fscy110}mock{\r}
+Dialogue: 0,0:00:31.76,0:00:34.50,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}topic{\r} for {\c&H00FFFF&\b1\fscx110\fscy110}automated{\r} {\c&H00FFFF&\b1\fscx110\fscy110}test{\r} is incomplete
+Dialogue: 0,0:00:34.50,0:00:37.38,Default,,0,0,0,,{\fad(80,80)}Deliver the payoff for {\c&H00FFFF&\b1\fscx110\fscy110}General{\r} {\c&H00FFFF&\b1\fscx110\fscy110}Short{\r}-{\c&H00FFFF&\b1\fscx110\fscy110}Form{\r}
+Dialogue: 0,0:00:37.38,0:00:39.30,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}Content{\r} without fake certainty:
+Dialogue: 0,0:00:39.30,0:00:42.65,Default,,0,0,0,,{\fad(80,80)}show what changes after {\c&H00FFFF&\b1\fscx110\fscy110}UAT{\r} {\c&H00FFFF&\b1\fscx110\fscy110}validator{\r} {\c&H00FFFF&\b1\fscx110\fscy110}mock{\r}
+Dialogue: 0,0:00:42.65,0:00:44.57,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}topic{\r} for {\c&H00FFFF&\b1\fscx110\fscy110}automated{\r} {\c&H00FFFF&\b1\fscx110\fscy110}test{\r}
+Dialogue: 0,0:00:44.57,0:00:47.26,Default,,0,0,0,,{\fad(80,80)}Leave one unanswered detail about {\c&H00FFFF&\b1\fscx110\fscy110}UAT{\r}
+Dialogue: 0,0:00:47.26,0:00:50.38,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}validator{\r} mock {\c&H00FFFF&\b1\fscx110\fscy110}topic{\r} for {\c&H00FFFF&\b1\fscx110\fscy110}automated{\r} test so
+Dialogue: 0,0:00:50.38,0:00:52.62,Default,,0,0,0,,{\fad(80,80)}{\c&H00FFFF&\b1\fscx110\fscy110}General{\r} {\c&H00FFFF&\b1\fscx110\fscy110}Short{\r}-Form {\c&H00FFFF&\b1\fscx110\fscy110}Content{\r} viewers comment
+Dialogue: 0,0:00:52.62,0:00:54.86,Default,,0,0,0,,{\fad(80,80)}or wait for part two

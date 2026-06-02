@@ -1,7 +1,7 @@
 # PROJECT UPGRADE AGENT PLAN
 
 Version: V2 - Targeted Analyze Mode
-Generated at: 2026-05-26 22:24:58
+Generated at: 2026-05-27 19:00:34
 
 ## Mode
 
@@ -15,14 +15,12 @@ ANALYZE ONLY
 
 ## User Goal
 
-Add retry mechanism to Runway provider
+upgrade retry mechanism
 
 ## Extracted Keywords
 
 - mechanism
-- provider
 - retry
-- runway
 
 ## Scan Target
 
@@ -40,32 +38,32 @@ providers
 
 ## Project Brain Context
 
-- current_state.md: FOUND (6016 chars)
+- current_state.md: FOUND (5972 chars)
 - dependency_map.md: FOUND (11132 chars)
 - pipeline_map.md: FOUND (2760 chars)
 - file_ownership.md: FOUND (1473 chars)
 - impact_report.md: FOUND (177 chars)
-- CHAT_HANDOFF.md: FOUND (35602 chars)
-- FULL_PROJECT_HANDOFF.md: FOUND (35602 chars)
+- CHAT_HANDOFF.md: FOUND (34341 chars)
+- FULL_PROJECT_HANDOFF.md: FOUND (34341 chars)
 - FULL_PROJECT_HANDOFF_NEW.md: FOUND (36493 chars)
 - ACTIVE_PIPELINE.md: FOUND (1495 chars)
 - SYSTEM_MAP.md: FOUND (5789 chars)
 - EXECUTION_FLOW.md: FOUND (3962 chars)
 - verification_report.md: FOUND (578 chars)
-- change_log.md: FOUND (7294 chars)
+- change_log.md: FOUND (9142 chars)
 
 ## Core Files
 
-- providers/runway_video_provider.py | score=12 | reason=Keyword / structure match
-- providers/runway_browser_provider.py | score=11 | reason=Keyword / structure match
-- providers/runway_download_provider.py | score=11 | reason=Keyword / structure match
-- providers/elevenlabs_voice_provider.py | score=6 | reason=Keyword / structure match
-- providers/hailuo_browser_provider.py | score=6 | reason=Keyword / structure match
-- providers/hailuo_download_provider.py | score=6 | reason=Keyword / structure match
-- providers/minimax_video_provider.py | score=6 | reason=Keyword / structure match
-- providers/openai_provider.py | score=6 | reason=Keyword / structure match
-- providers/openai_trend_provider.py | score=6 | reason=Keyword / structure match
-- providers/__init__.py | score=5 | reason=Keyword / structure match
+- providers/runway_video_provider.py | score=2 | reason=Keyword / structure match
+- providers/__init__.py | score=1 | reason=Keyword / structure match
+- providers/elevenlabs_voice_provider.py | score=1 | reason=Keyword / structure match
+- providers/hailuo_browser_provider.py | score=1 | reason=Keyword / structure match
+- providers/hailuo_download_provider.py | score=1 | reason=Keyword / structure match
+- providers/minimax_video_provider.py | score=1 | reason=Keyword / structure match
+- providers/openai_provider.py | score=1 | reason=Keyword / structure match
+- providers/openai_trend_provider.py | score=1 | reason=Keyword / structure match
+- providers/runway_browser_provider.py | score=1 | reason=Keyword / structure match
+- providers/runway_download_provider.py | score=1 | reason=Keyword / structure match
 - core/video_provider_router.py | score=1 | reason=Imports affected module: providers.runway_video_provider
 - engines/narration_engine.py | score=1 | reason=Imports affected module: providers.elevenlabs_voice_provider
 - orchestrators/hailuo_multi_clip_orchestrator.py | score=1 | reason=Imports affected module: providers.hailuo_download_provider
@@ -88,11 +86,11 @@ providers
 
 ## Suggested Improvements
 
-1. Start with targeted analysis
-2. Confirm affected files
-3. Create backup before any edit
-4. Apply minimal changes only
-5. Run verifier after change
+1. Keep ProjectUpgradeAgent in analyze-only mode first
+2. Add approval state before file edits
+3. Add backup creation before modifications
+4. Add change report after modifications
+5. Run verifier after modifications
 
 ## Recommended Safe Workflow
 

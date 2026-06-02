@@ -1,0 +1,16 @@
+{
+  "job_id": "disp_20260530_222929_9349a0",
+  "session_id": "exec_10kd_cancel_coop",
+  "phase": "FAILED",
+  "provider_family": "runway",
+  "provider_execution_mode": "browser",
+  "provider_resolved": "runway_browser",
+  "learning_key": "runway_browser",
+  "accepted_at": "2026-05-30 22:29:29",
+  "heartbeat_at": null,
+  "thread_id": 24424,
+  "stale": false,
+  "stale_reason": null,
+  "reject_code": "PROVIDER_RUNTIME_ERROR",
+  "finalized_at": "2026-05-30 22:29:29"
+}

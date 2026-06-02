@@ -1,0 +1,384 @@
+{
+  "session_schema_version": "10h_v1",
+  "session_uuid": "ad8196f7-9219-43fb-b1a0-ec707a4869a3",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_10h_cancelled_demo",
+  "brief_id": "brief_10f_cancelled",
+  "state": "READY",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-05-29 23:09:13",
+  "provider": "hailuo",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_cancelled",
+    "video_format_plan": {
+      "clip_count": 2,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    }
+  },
+  "story_quality": {
+    "composite_score": 86.0,
+    "score": 86.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "hailuo",
+    "alternatives": [],
+    "expected_retry_risk": "low"
+  },
+  "execution_confidence_score": 78.0,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 2.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_60c08fe8c35a",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved_for_execution",
+    "reasons": [
+      "All auto-approval thresholds met."
+    ],
+    "blockers": [],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-05-29 23:09:13",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 86.0,
+      "execution_confidence": 78.0,
+      "estimated_credits": 2.0,
+      "effective_credits": 2.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "08f532ff-f5e9-4b2e-89be-700b498db0e3"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_ff7e1686e778",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 2.0,
+    "effective_credits": 2.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 998.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-29 23:09:13",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "08f532ff-f5e9-4b2e-89be-700b498db0e3",
+    "report_id": "sim_515cac6a",
+    "generated_at": "2026-05-29 23:09:13",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 2,
+    "estimated_generation_time_minutes": 4.0,
+    "estimated_provider_cost": 2.0,
+    "estimated_credits": 2.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "low",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 78.0,
+    "cost_estimate": {
+      "estimated_total_credits": 2.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 4.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:ee378cec2ca15ef5ed923918dd6fc6466a7130835eafb2eed2a819d52dc7901d",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_515cac6a",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-29 23:09:13",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-05-29 23:09:13",
+    "queue_version": "10h_v1",
+    "queue_enqueued_at": "2026-05-29 23:09:13"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-05-29 23:09:13",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-29 23:09:13",
+      "state": "GOVERNED",
+      "reason": "governance: approval=APPROVED_FOR_EXECUTION, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-05-29 23:09:13",
+      "state": "READY",
+      "reason": "readiness gate: READY (score=100.0)"
+    },
+    {
+      "at": "2026-05-29 23:09:13",
+      "state": "QUEUED",
+      "reason": "queue engine: QUEUED (item=queue_20260529_230913_b5483f, position=None)"
+    },
+    {
+      "at": "2026-05-29 23:09:13",
+      "state": "READY",
+      "reason": "queue cancelled: demo_cancel"
+    }
+  ],
+  "priority_band": "high",
+  "priority_decision": {
+    "priority_band": "high",
+    "priority_score": 86.0,
+    "queue_position": null,
+    "decision_source": "execution_queue_engine"
+  },
+  "execution_readiness": {
+    "decision": "READY",
+    "readiness_score": 100.0,
+    "readiness_failures": [],
+    "readiness_warnings": [],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-29 23:09:13"
+      },
+      "simulation_report_uuid": "08f532ff-f5e9-4b2e-89be-700b498db0e3",
+      "governance_decision_ids": {
+        "approval": "appr_60c08fe8c35a",
+        "budget": "bdgt_ff7e1686e778"
+      }
+    }
+  },
+  "queue_item": {
+    "queue_item_uuid": "0e7a7d8d-7179-444e-9ca7-3f0567b36f01",
+    "queue_item_id": "queue_20260529_230913_b5483f",
+    "queue_state": "CANCELLED",
+    "queue_version": "10h_v1",
+    "session_uuid": "ad8196f7-9219-43fb-b1a0-ec707a4869a3",
+    "execution_session_id": "exec_10h_cancelled_demo",
+    "brief_id": "brief_10f_cancelled",
+    "priority": {
+      "priority_band": "high",
+      "priority_score": 86.0,
+      "queue_position": 1,
+      "effective_priority": 300091.0
+    },
+    "eligibility_snapshot": {
+      "readiness_decision": "READY",
+      "readiness_score": 100.0,
+      "approval_status": "APPROVED_FOR_EXECUTION",
+      "budget_status": "WITHIN_LIMIT",
+      "simulation_fingerprint": "sha256:ee378cec2ca15ef5ed923918dd6fc6466a7130835eafb2eed2a819d52dc7901d",
+      "provider": "hailuo"
+    },
+    "enqueue_context": {
+      "enqueued_at": "2026-05-29 23:09:13",
+      "enqueued_by": "system",
+      "enqueue_attempt": 1,
+      "enqueue_reason": "readiness_passed"
+    },
+    "lifecycle": {
+      "dequeued_at": null,
+      "dequeued_by": null,
+      "cancelled_at": "2026-05-29 23:09:13",
+      "cancelled_by": "seed",
+      "cancel_reason": "demo_cancel",
+      "expired_at": null,
+      "expire_reason": null,
+      "ttl_seconds": 86400,
+      "expires_at": "2026-05-30 23:09:13"
+    },
+    "retry": {
+      "max_enqueue_attempts": 3,
+      "enqueue_attempts_used": 1,
+      "requeue_allowed": true,
+      "last_terminal_state": "CANCELLED"
+    },
+    "metadata": {
+      "queue_provenance": {
+        "engine": "ExecutionQueueEngine",
+        "engine_version": "10h_v1",
+        "policy_version": "10h_v1",
+        "evaluated_at": "2026-05-29 23:09:13",
+        "policy_snapshot": {
+          "policy_id": "default_local",
+          "policy_version": "10h_v1",
+          "eligible_readiness_decisions": [
+            "READY",
+            "READY_WITH_WARNINGS"
+          ],
+          "default_ttl_seconds": 86400,
+          "max_active_queue_depth": 100,
+          "max_enqueue_attempts": 3,
+          "require_fingerprint_match": true,
+          "priority_band_weights": {
+            "critical": 400,
+            "high": 300,
+            "medium": 200,
+            "low": 100
+          }
+        }
+      },
+      "queue_fingerprint": "sha256:d6c129d83ad35f4ee4fb486d1a8be3645a2034b430527fc859eac23c1b3b77eb",
+      "queue_fingerprint_version": "10h_v1",
+      "queue_fingerprint_sources": [
+        "execution_readiness",
+        "approval_decision",
+        "budget_decision",
+        "simulation_fingerprint"
+      ],
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-29 23:09:13"
+      },
+      "governance_decision_ids": {
+        "approval": "appr_60c08fe8c35a",
+        "budget": "bdgt_ff7e1686e778"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_9f8a48fdc927",
+      "event_type": "ENQUEUED",
+      "at": "2026-05-29 23:09:13",
+      "queue_item_id": "queue_20260529_230913_b5483f",
+      "queue_item_uuid": "0e7a7d8d-7179-444e-9ca7-3f0567b36f01",
+      "actor": "seed",
+      "details": {
+        "queue_position": null,
+        "effective_priority": 300091.0,
+        "readiness_decision": "READY"
+      }
+    },
+    {
+      "event_id": "qevt_27a741b08d84",
+      "event_type": "CANCELLED",
+      "at": "2026-05-29 23:09:13",
+      "queue_item_id": "queue_20260529_230913_b5483f",
+      "queue_item_uuid": "0e7a7d8d-7179-444e-9ca7-3f0567b36f01",
+      "actor": "seed",
+      "details": {
+        "cancel_reason": "demo_cancel"
+      }
+    }
+  ]
+}

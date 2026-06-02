@@ -1,18 +1,19 @@
 import argparse
-
+from agents.refactor_orchestrator_agent import RefactorOrchestratorAgent
 from agents.project_upgrade_agent import ProjectUpgradeAgent
 from agents.change_request_agent import ChangeRequestAgent
 from agents.code_generation_agent import CodeGenerationAgent
 from agents.verifier_agent import VerifierAgent
-
+from agents.patch_planner_agent import PatchPlannerAgent
 from core.dependency_graph_engine import DependencyGraphEngine
 from core.upgrade_planner_engine import UpgradePlannerEngine
-
+from execution.replace_patch_engine import ReplacePatchEngine
+from execution.apply_replace_patch_engine import ApplyReplacePatchEngine
 from execution.patch_preview_engine import PatchPreviewEngine
 from execution.patch_validator import PatchValidator
 from execution.apply_patch_engine import ApplyPatchEngine
-
-
+from execution.refactor_execution_engine import RefactorExecutionEngine
+from execution.queue_payload_enricher import QueuePayloadEnricher
 class SelfEditingAgent:
     """
     Self Editing Agent V5
@@ -39,9 +40,17 @@ class SelfEditingAgent:
         self.planner = UpgradePlannerEngine(project_root)
         self.change_request_agent = ChangeRequestAgent()
         self.code_generation_agent = CodeGenerationAgent()
+        self.patch_planner_agent = PatchPlannerAgent(project_root)
+        self.refactor_orchestrator = RefactorOrchestratorAgent(project_root)
+        
+        self.refactor_execution_engine = RefactorExecutionEngine(project_root)
+        self.queue_payload_enricher = QueuePayloadEnricher()
         self.preview_engine = PatchPreviewEngine(project_root)
         self.validator = PatchValidator(project_root)
         self.apply_engine = ApplyPatchEngine(project_root)
+        
+        self.replace_engine = ReplacePatchEngine(project_root)
+        self.apply_replace_engine = ( ApplyReplacePatchEngine(project_root))
         self.verifier = VerifierAgent(project_root)
 
     def analyze_request(self, goal, target_path=""):
@@ -92,7 +101,46 @@ class SelfEditingAgent:
             goal=goal,
             target_file=target_file
         )
+    def build_patch_plan(self, goal, context, target_file):
+        print("\n" + "=" * 70)
+        print("STEP 5.5 - PATCH PLANNER")
+        print("=" * 70)
 
+        return self.patch_planner_agent.run(
+            goal=goal,
+            context=context,
+            target_file=target_file
+        )
+    def build_refactor_orchestration(self, patch_plan):
+        print("\n" + "=" * 70)
+        print("STEP 5.6 - REFACTOR ORCHESTRATOR")
+        print("=" * 70)
+
+        return self.refactor_orchestrator.run(
+            refactor_plan=patch_plan
+        )
+    def enrich_orchestration_plan(
+        self,
+        orchestration_plan,
+        patch_data
+    ):
+
+        print("\n" + "=" * 70)
+        print("STEP 5.65 - QUEUE PAYLOAD ENRICHMENT")
+        print("=" * 70)
+
+        return self.queue_payload_enricher.enrich_plan(
+            orchestration_plan=orchestration_plan,
+            patch_data=patch_data
+        )
+    def simulate_refactor_execution(self, orchestration_plan):
+        print("\n" + "=" * 70)
+        print("STEP 5.7 - REFACTOR EXECUTION ENGINE")
+        print("=" * 70)
+
+        return self.refactor_execution_engine.run(
+            orchestration_plan
+        )
     def preview_patch(self, target_file, patch_code):
         print("\n" + "=" * 70)
         print("STEP 6 - PATCH PREVIEW")
@@ -181,19 +229,51 @@ class SelfEditingAgent:
             goal,
             target_file
         )
+        
+        patch_plan = self.build_patch_plan(
+            goal=goal,
+            context=code_patch.get("context", {}),
+            target_file=target_file
+        )
+        refactor_orchestration = (
+            self.build_refactor_orchestration(
+                patch_plan
+            )
+        )
+        refactor_orchestration = (
+            self.enrich_orchestration_plan(
+                orchestration_plan=refactor_orchestration,
+                patch_data=code_patch
+            )
+        )
+        execution_simulation = (
+            self.simulate_refactor_execution(
+                refactor_orchestration
+            )
+        )
 
         patch = code_patch.get("patch", {})
         patch_code = patch.get("code", "")
         patch_operation = patch.get("operation", "NO_PATCH")
 
-        if patch_operation != "APPEND_FUNCTION":
+        supported_operations = [
+            "APPEND_FUNCTION",
+            "REPLACE_FUNCTION"
+        ]
+
+        if patch_operation not in supported_operations:
+
             print("\n" + "=" * 70)
             print("PATCH BLOCKED")
             print("=" * 70)
             print("")
-            print(f"Unsupported patch operation: {patch_operation}")
+            print(
+                f"Unsupported patch operation: "
+                f"{patch_operation}"
+            )
             print("No files were modified.")
             print("")
+
             return
 
         if not patch_code.strip():
@@ -205,7 +285,100 @@ class SelfEditingAgent:
             print("No files were modified.")
             print("")
             return
+        if patch_operation == "REPLACE_FUNCTION":
 
+            function_name = patch.get(
+                "function_name"
+            )
+
+            class_name = patch.get(
+                "class_name"
+            )
+
+            replace_preview = (
+                self.replace_engine
+                .build_replace_patch(
+                    file_path=target_file,
+                    function_name=function_name,
+                    class_name=class_name,
+                    new_function_source=patch_code
+                )
+            )
+
+            print("\n" + "=" * 70)
+            print("STEP 6 - REPLACE PATCH PREVIEW")
+            print("=" * 70)
+
+            print("")
+            print(
+                replace_preview["diff_preview"]
+            )
+            print("")
+
+            if not approve:
+
+                print("\n" + "=" * 70)
+                print("PREVIEW ONLY - APPROVAL REQUIRED")
+                print("=" * 70)
+
+                print("")
+                print(
+                    "Replace patch preview created."
+                )
+
+                print(
+                    "No files were modified."
+                )
+
+                print("")
+
+                return
+
+            apply_result = (
+                self.apply_replace_engine
+                .apply_replace_patch(
+                    file_path=target_file,
+                    function_name=function_name,
+                    class_name=class_name,
+                    new_function_source=patch_code,
+                    approve=True
+                )
+            )
+
+            print("\n" + "=" * 70)
+            print("STEP 8 - APPLY REPLACE PATCH")
+            print("=" * 70)
+
+            print("")
+            print(apply_result)
+            print("")
+
+            if apply_result.get(
+                "status"
+            ) == "PATCH_APPLIED":
+
+                self.run_verifier()
+
+                print("\n" + "=" * 70)
+                print("SELF EDIT COMPLETE")
+                print("=" * 70)
+
+                print("")
+                print(
+                    "Replace patch applied successfully."
+                )
+
+                print(
+                    "Backup created successfully."
+                )
+
+                print(
+                    "Verifier executed."
+                )
+
+                print("")
+
+            return
         self.preview_patch(
             target_file,
             patch_code

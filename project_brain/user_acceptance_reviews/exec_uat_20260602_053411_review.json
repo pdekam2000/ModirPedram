@@ -1,0 +1,25 @@
+{
+  "review_version": "12d_v1",
+  "session_id": "exec_uat_20260602_053411",
+  "submitted_at": "2026-06-02 05:36:04",
+  "submitted_by": "operator_uat",
+  "uat_inputs": {
+    "topic": "dogs",
+    "platform": "youtube_shorts",
+    "target_duration_seconds": 10,
+    "video_provider": "runway_browser",
+    "voice_provider": "elevenlabs"
+  },
+  "artifact_paths": {
+    "artifact_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_20260602_053411",
+    "final_video": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_20260602_053411\\assembly_generation\\FINAL_PUBLISH_READY.mp4"
+  },
+  "story_quality_score": 1,
+  "visual_quality_score": 4,
+  "voice_quality_score": 8,
+  "subtitle_quality_score": 1,
+  "continuity_score": 1,
+  "overall_quality_score": 2,
+  "comments": "",
+  "publishable": true
+}

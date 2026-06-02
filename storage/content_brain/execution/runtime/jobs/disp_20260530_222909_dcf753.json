@@ -1,0 +1,14 @@
+{
+  "job_id": "disp_20260530_222909_dcf753",
+  "session_id": "exec_10kd_cancel_coop",
+  "phase": "RUNNING",
+  "provider_family": "runway",
+  "provider_execution_mode": "browser",
+  "provider_resolved": "runway_browser",
+  "learning_key": "runway_browser",
+  "accepted_at": "2026-05-30 22:29:09",
+  "heartbeat_at": null,
+  "thread_id": 560,
+  "stale": false,
+  "stale_reason": null
+}

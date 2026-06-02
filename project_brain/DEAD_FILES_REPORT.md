@@ -36,9 +36,17 @@
 - dashboard\control_center.py
 - engines\ai_performance_analyzer.py
 - engines\subtitle_burner.py
+- execution\action_context_builder.py
+- execution\action_executor_registry.py
+- execution\apply_replace_patch_test_target.py
 - execution\command_runner.py
+- execution\function_extractor.py
+- execution\function_replacer.py
+- execution\function_replacer_test_target.py
 - execution\patch_validator.py
+- execution\queue_payload_enricher.py
 - execution\rollback_manager.py
+- execution\runtime_state_manager.py
 - execution\safe_code_editor.py
 - execution\__init__.py
 - pipelines\full_video_pipeline.py

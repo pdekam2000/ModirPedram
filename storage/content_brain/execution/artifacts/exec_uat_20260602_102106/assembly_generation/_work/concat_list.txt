@@ -1,0 +1,2 @@
+file 'C:/Users/kaman/Desktop/ModirAgentOS/storage/content_brain/execution/artifacts/exec_uat_20260602_102106/video_generation/clip_01.mp4'
+file 'C:/Users/kaman/Desktop/ModirAgentOS/storage/content_brain/execution/artifacts/exec_uat_20260602_102106/video_generation/clip_02.mp4'

@@ -1,0 +1,2481 @@
+{
+  "session_schema_version": "10g_v1",
+  "session_uuid": "2f613700-2908-469c-9475-97df6dd30ab1",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_uat_20260602_183049",
+  "brief_id": "brief_20260602_183049_19611a9a",
+  "state": "NOT_READY",
+  "created_at": "2026-06-02 18:30:49",
+  "updated_at": "2026-06-02 18:30:50",
+  "channel_id": null,
+  "provider": "runway_browser",
+  "brief_snapshot": {
+    "brief_id": "brief_20260602_183049_19611a9a",
+    "profile": {
+      "profile_id": "default_v1",
+      "profile_version": "1.0.0",
+      "profile_type": "base",
+      "project_name": "Viral Content Brain",
+      "niche": "general",
+      "niche_label": "General Short-Form Content",
+      "domain": "general",
+      "language": "English",
+      "language_rules": {
+        "output_language": "English",
+        "allow_mixed_language": false,
+        "caption_language": "English",
+        "narration_language": "English",
+        "title_language": "English"
+      },
+      "target_platforms": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "niche_registry": {
+        "general": "default_profile.json",
+        "horror": "dark_mystery_profile.json",
+        "dark_mystery": "dark_mystery_profile.json",
+        "psychological": "dark_mystery_profile.json",
+        "storytelling": "dark_mystery_profile.json"
+      },
+      "audience": {
+        "primary": "Short-form viewers seeking high-retention, niche-relevant value or emotion",
+        "psychographic": "scroll-stoppers, commenters, savers, and series followers",
+        "avoid": "generic mass-audience fluff with no niche specificity"
+      },
+      "content_format": {
+        "format": "short-form vertical video",
+        "orientation": "9:16",
+        "default_duration_seconds": 30,
+        "min_duration_seconds": 15,
+        "max_duration_seconds": 58,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "must_be_connected_clips": true,
+        "clips_continue_each_other_visually": true
+      },
+      "tone_rules": {
+        "primary_tone": "clear, specific, audience-native, retention-first",
+        "secondary_tone": "curiosity-led, emotionally intentional, non-generic",
+        "voice_style": "direct, concrete, platform-native; show don't lecture",
+        "pacing": "hook immediately, escalate value or tension, land payoff before drop-off",
+        "emotional_targets": [
+          "curiosity",
+          "surprise",
+          "desire",
+          "belonging",
+          "urgency"
+        ],
+        "must_include": [
+          "one concrete detail that anchors the video to this niche",
+          "one reason the viewer should care in the first 3 seconds",
+          "one payoff that matches the hook promise"
+        ],
+        "must_avoid": [
+          "generic AI phrasing",
+          "vague advice with no specifics",
+          "clickbait with no delivery",
+          "tone that does not match the declared niche"
+        ]
+      },
+      "visual_dna": {
+        "core_aesthetic": "niche-appropriate, clean subject focus, mobile-first framing",
+        "color_palette": [],
+        "lighting": [
+          "subject-readable lighting",
+          "consistent look across clips"
+        ],
+        "camera_language": [
+          "close-up for emotion or detail",
+          "medium shot for context",
+          " purposeful camera movement only"
+        ],
+        "locations_preferred": [],
+        "character_consistency": {
+          "rule": "keep subject identity and wardrobe consistent within an episode unless the beat requires change",
+          "face_reveal_policy": "show the subject clearly when trust or emotion matters for the niche"
+        },
+        "props_and_symbols": [],
+        "forbidden_visuals": [
+          "unreadable cluttered frames",
+          "off-niche stock aesthetics with no story purpose"
+        ]
+      },
+      "platform_rules": {
+        "tiktok": {
+          "platform_id": "tiktok",
+          "display_name": "TikTok",
+          "ideal_duration_seconds": {
+            "min": 21,
+            "max": 34,
+            "sweet_spot": 28
+          },
+          "hook_window_seconds": 1.5,
+          "caption_style": "short, native, 1-2 lines",
+          "title_style": "in-video text first",
+          "hashtag_count": {
+            "min": 3,
+            "max": 6
+          },
+          "cta_style": "comment, follow, or part 2 when serial",
+          "audio_priority": "immediate clarity; strong opening sound or voice",
+          "pacing_note": "fastest hook; motion in frame 0"
+        },
+        "youtube_shorts": {
+          "platform_id": "youtube_shorts",
+          "display_name": "YouTube Shorts",
+          "ideal_duration_seconds": {
+            "min": 30,
+            "max": 58,
+            "sweet_spot": 42
+          },
+          "hook_window_seconds": 2.5,
+          "caption_style": "searchable first line plus supporting detail",
+          "title_style": "curiosity title with one concrete noun",
+          "hashtag_count": {
+            "min": 2,
+            "max": 5
+          },
+          "cta_style": "follow for more / full context in comments",
+          "audio_priority": "clear narration with light bed",
+          "pacing_note": "one extra setup beat allowed if retention stays dense"
+        },
+        "instagram_reels": {
+          "platform_id": "instagram_reels",
+          "display_name": "Instagram Reels",
+          "ideal_duration_seconds": {
+            "min": 15,
+            "max": 30,
+            "sweet_spot": 24
+          },
+          "hook_window_seconds": 1.0,
+          "caption_style": "minimal, aesthetic, one strong line",
+          "title_style": "cover frame and first caption line carry the hook",
+          "hashtag_count": {
+            "min": 4,
+            "max": 8
+          },
+          "cta_style": "save this / series continues",
+          "audio_priority": "visual-first; music or voice supports mood",
+          "pacing_note": "strongest visual hook in frame 0"
+        }
+      },
+      "hook_rules": {
+        "enabled_hook_classes": [
+          "violation",
+          "incomplete_truth",
+          "personal_threat",
+          "moral_discomfort",
+          "false_safety",
+          "open_loop_seed"
+        ],
+        "hook_class_definitions": {
+          "violation": "Open with something that breaks the viewer's expectation of normal.",
+          "incomplete_truth": "State a partial fact that implies a larger unseen payoff.",
+          "personal_threat": "Make the viewer feel the scenario could apply to them.",
+          "moral_discomfort": "Present a tension that feels ethically or emotionally wrong.",
+          "false_safety": "Start normal, then rupture with one precise wrong detail.",
+          "open_loop_seed": "End the hook on a question the viewer needs answered."
+        },
+        "rotation_rules": {
+          "max_consecutive_same_class": 2,
+          "force_class_rotation_every_n_briefs": 5,
+          "require_sensory_anchor_in_hook": false
+        },
+        "minimum_scores": {
+          "curiosity_gap_score": 65,
+          "interrupt_power": 70,
+          "specificity_score": 60,
+          "composite_hook_score": 68
+        },
+        "hook_length": {
+          "max_words": 22,
+          "preferred_words": "10-18",
+          "max_sentences": 2
+        },
+        "must_include_one_of": [
+          "specific time",
+          "specific object",
+          "specific place detail",
+          "specific relationship",
+          "specific result"
+        ]
+      },
+      "story_modes": {
+        "enabled_modes": [
+          "quick_tip",
+          "storytime",
+          "comparison",
+          "myth_busting",
+          "before_after",
+          "lore_episode"
+        ],
+        "mode_definitions": {
+          "quick_tip": "One high-value insight delivered fast with proof or demo.",
+          "storytime": "Narrative arc with setup, turn, and payoff.",
+          "comparison": "Contrast two options, paths, or outcomes.",
+          "myth_busting": "Challenge a common belief in the niche.",
+          "before_after": "Transformation or reveal across the runtime.",
+          "lore_episode": "Serialized installment with continuity callbacks."
+        },
+        "rotation_rules": {
+          "max_consecutive_same_mode": 3,
+          "require_mode_diversity_every_n_briefs": 6
+        },
+        "act_structure": {
+          "act_1": {
+            "label": "hook_beat",
+            "start_second": 0,
+            "end_second": 3,
+            "goal": "pattern interrupt plus immediate stakes"
+          },
+          "act_2": {
+            "label": "escalation_beats",
+            "start_second": 3,
+            "end_second": 20,
+            "goal": "deliver value or tension in rising beats"
+          },
+          "act_3": {
+            "label": "payoff_beat",
+            "start_second": 20,
+            "end_second": 45,
+            "goal": "payoff that satisfies or strategically subverts the hook"
+          },
+          "tag": {
+            "label": "loop_seed",
+            "start_second": 45,
+            "end_second": 60,
+            "goal": "open loop for comments, saves, or next episode"
+          }
+        },
+        "reveal_types_allowed": [
+          "result_reveal",
+          "comparison_reveal",
+          "twist_reveal",
+          "proof_reveal",
+          "emotional_reveal",
+          "open_loop_reveal"
+        ],
+        "reveal_types_forbidden": [
+          "promise_hook_with_no_payoff",
+          "random_unrelated_ending"
+        ]
+      },
+      "retention_rules": {
+        "minimum_retention_score": 65,
+        "max_seconds_without_beat": 5,
+        "minimum_pattern_breaks": 2,
+        "require_loop_seed": true,
+        "require_aftershock": false,
+        "beat_blocks": [
+          {
+            "block_label": "visual_hook",
+            "start_second": 0,
+            "end_second": 1,
+            "mechanic": "pattern_interrupt",
+            "required": true,
+            "implementation": "Motion, contrast, or subject focus in frame 0"
+          },
+          {
+            "block_label": "verbal_hook_completion",
+            "start_second": 1,
+            "end_second": 3,
+            "mechanic": "curiosity_gap",
+            "required": true,
+            "implementation": "Complete the hook promise in one line or text card"
+          },
+          {
+            "block_label": "micro_payoff_1",
+            "start_second": 3,
+            "end_second": 8,
+            "mechanic": "small_reveal",
+            "required": true,
+            "implementation": "First value beat, detail, or story turn"
+          },
+          {
+            "block_label": "pattern_break_1",
+            "start_second": 8,
+            "end_second": 15,
+            "mechanic": "perspective_shift",
+            "required": true,
+            "implementation": "Angle, scene, or information shift"
+          },
+          {
+            "block_label": "escalation_ladder",
+            "start_second": 15,
+            "end_second": 25,
+            "mechanic": "stakes_increase",
+            "required": true,
+            "implementation": "Raise stakes, proof, or emotional intensity"
+          },
+          {
+            "block_label": "climax_beat",
+            "start_second": 25,
+            "end_second": 35,
+            "mechanic": "peak_moment",
+            "required": true,
+            "implementation": "Main payoff, reveal, or emotional peak"
+          },
+          {
+            "block_label": "loop_hook",
+            "start_second": 35,
+            "end_second": 60,
+            "mechanic": "open_loop",
+            "required": true,
+            "implementation": "CTA, sequel seed, or comment driver"
+          }
+        ],
+        "retention_mechanics_library": [
+          "pattern_interrupt",
+          "curiosity_gap",
+          "perspective_shift",
+          "sound_drop",
+          "false_resolution",
+          "object_focus",
+          "countdown_pressure",
+          "social_proof_tease",
+          "rule_violation",
+          "aftershock_silence"
+        ]
+      },
+      "scoring_thresholds": {
+        "viral_gate_minimum": 65,
+        "auto_proceed_minimum": 80,
+        "human_review_range": {
+          "min": 65,
+          "max": 79
+        },
+        "production_tiers": {
+          "S": {
+            "min_score": 85,
+            "label": "flagship"
+          },
+          "A": {
+            "min_score": 75,
+            "max_score": 84,
+            "label": "standard_publish"
+          },
+          "B": {
+            "min_score": 65,
+            "max_score": 74,
+            "label": "revise_one_dimension"
+          },
+          "F": {
+            "max_score": 64,
+            "label": "discard"
+          }
+        },
+        "dimension_weights": {
+          "hook_strength": 0.2,
+          "retention_architecture": 0.25,
+          "emotional_intensity_curve": 0.15,
+          "specificity": 0.1,
+          "uniqueness": 0.15,
+          "platform_fit": 0.1,
+          "loop_potential": 0.05
+        },
+        "dimension_minimums": {
+          "hook_strength": 65,
+          "retention_architecture": 65,
+          "emotional_intensity_curve": 55,
+          "specificity": 60,
+          "uniqueness": 65,
+          "platform_fit": 55,
+          "loop_potential": 45
+        }
+      },
+      "uniqueness_rules": {
+        "uniqueness_gate_minimum_score": 65,
+        "max_similarity_threshold": 0.72,
+        "layers": [
+          {
+            "layer_name": "topic_similarity",
+            "threshold": 0.72,
+            "lookback_count": 50,
+            "method": "normalized_topic_jaccard"
+          },
+          {
+            "layer_name": "hook_fingerprint",
+            "threshold": 0.68,
+            "lookback_count": 40,
+            "method": "hook_class_plus_structure_hash"
+          },
+          {
+            "layer_name": "beat_sequence_fingerprint",
+            "threshold": 0.7,
+            "lookback_count": 30,
+            "method": "story_beat_sequence_hash"
+          },
+          {
+            "layer_name": "generic_pattern_detection",
+            "threshold": 0.0,
+            "lookback_count": 0,
+            "method": "banned_phrase_and_cliche_structure_scan"
+          }
+        ],
+        "diversity_enforcement": {
+          "rotate_hook_classes": true,
+          "rotate_story_modes": true,
+          "rotate_reveal_types": true,
+          "require_unique_sensory_anchor": false,
+          "require_unique_primary_object": false
+        },
+        "regeneration_directives": {
+          "topic_collision": "Change topic angle; keep hook structure if strong.",
+          "hook_collision": "Keep topic; change hook class and opening.",
+          "beat_collision": "Keep hook; rebuild escalation beats.",
+          "generic_pattern_hit": "Rewrite with niche-specific concrete detail."
+        }
+      },
+      "lore_continuity_rules": {
+        "enabled": false,
+        "universe_id": null,
+        "series_support": false,
+        "character_rules": [],
+        "location_rules": [],
+        "artifact_rules": [],
+        "timeline_rules": [],
+        "hard_constraints": [],
+        "breadcrumb_requirements": {
+          "min_per_lore_episode": 0,
+          "max_unpaid_breadcrumbs_before_payoff": 0
+        }
+      },
+      "banned_generic_patterns": {
+        "banned_phrases": [
+          "what happened next will shock you",
+          "you won't believe what happened",
+          "make sure to like and subscribe",
+          "this changed my life forever",
+          "AI generated",
+          "as an AI"
+        ],
+        "banned_structures": [
+          "hook with no payoff",
+          "generic advice with no proof or detail",
+          "three unrelated points with no narrative spine",
+          "copy-paste template cadence with no niche voice"
+        ],
+        "ai_tell_patterns": [
+          "over-explaining the conclusion",
+          "listing emotions instead of showing them",
+          "perfectly generic sentences with no niche specificity",
+          "vague descriptions with no concrete anchor"
+        ],
+        "required_originality_signals": [
+          "at least one niche-specific detail per brief",
+          "one line that would not fit a generic template",
+          "one concrete object, result, or identifier"
+        ]
+      },
+      "seo_and_packaging": {
+        "title_rules": {
+          "max_characters": 80,
+          "must_contain_concrete_noun": true,
+          "avoid_clickbait_spam": true,
+          "preferred_patterns": [
+            "[specific subject] + [result or tension]",
+            "[niche problem] + [promise]",
+            "[before state] + [after state]"
+          ]
+        },
+        "hashtag_rules": {
+          "mix": [
+            "broad_niche",
+            "sub_niche",
+            "platform_discovery",
+            "series_tag"
+          ],
+          "forbidden": [
+            "single-word spam tags with no story relevance"
+          ]
+        },
+        "thumbnail_psychology": {
+          "must_show": [
+            "clear focal subject",
+            "one incomplete information element",
+            "readable contrast on mobile"
+          ],
+          "must_avoid": [
+            "text-only thumbnail with no visual tension",
+            "full payoff reveal in thumbnail"
+          ]
+        }
+      },
+      "example_seed_topics": [],
+      "metadata": {
+        "created_for": "Viral Content Brain V1",
+        "profile_role": "base",
+        "compatible_schema": "content_brain/schemas/content_brief.py",
+        "does_not_replace": "config/content_factory_profile.json",
+        "notes": "Default base profile for any niche. Specialized profiles extend this file.",
+        "resolved_at": "2026-06-02 18:30:49",
+        "resolved_domain": "general"
+      },
+      "semantic_universe": {
+        "universe_id": "universe_general_33d76fbe",
+        "source_niche": "general",
+        "niche_slug": "general",
+        "domain": "custom",
+        "semantic_clusters": [
+          {
+            "cluster_id": "subject_core",
+            "label": "Core Subject",
+            "concepts": [
+              "common mistakes around topic",
+              "underrated angle in topic",
+              "before-and-after shift in topic",
+              "the detail most people skip in topic"
+            ]
+          },
+          {
+            "cluster_id": "audience_interest",
+            "label": "Audience Interest",
+            "concepts": [
+              "what newcomers get wrong about topic",
+              "what experienced people notice first in topic",
+              "comment-section debates around topic"
+            ]
+          },
+          {
+            "cluster_id": "tension_points",
+            "label": "Tension Points",
+            "concepts": [
+              "the tradeoff nobody mentions in topic",
+              "the hidden cost of choosing topic",
+              "when topic stops working"
+            ]
+          },
+          {
+            "cluster_id": "discovery_angles",
+            "label": "Discovery Angles",
+            "concepts": [
+              "unexpected use case for topic",
+              "small change that improves topic",
+              "pattern emerging around topic"
+            ]
+          }
+        ],
+        "topic_seed_pool": [
+          "common mistakes around topic",
+          "common mistakes around topic in a high-stakes moment",
+          "underrated angle in topic",
+          "underrated angle in topic in a high-stakes moment",
+          "before-and-after shift in topic",
+          "before-and-after shift in topic in a high-stakes moment",
+          "what newcomers get wrong about topic",
+          "what newcomers get wrong about topic in a high-stakes moment",
+          "what experienced people notice first in topic",
+          "what experienced people notice first in topic in a high-stakes moment",
+          "comment-section debates around topic",
+          "comment-section debates around topic in a high-stakes moment",
+          "the tradeoff nobody mentions in topic",
+          "the tradeoff nobody mentions in topic in a high-stakes moment",
+          "the hidden cost of choosing topic",
+          "the hidden cost of choosing topic in a high-stakes moment",
+          "when topic stops working",
+          "when topic stops working in a high-stakes moment",
+          "unexpected use case for topic",
+          "unexpected use case for topic in a high-stakes moment",
+          "small change that improves topic",
+          "small change that improves topic in a high-stakes moment",
+          "pattern emerging around topic",
+          "pattern emerging around topic in a high-stakes moment"
+        ],
+        "emotional_angles": [
+          "curiosity",
+          "surprise",
+          "skepticism",
+          "relief",
+          "urgency"
+        ],
+        "audience_angles": [
+          "first-time viewers",
+          "repeat scrollers",
+          "comment-driven follow-ups",
+          "save-for-later researchers"
+        ],
+        "conflict_angles": [
+          "beginner vs expert views on topic",
+          "popular advice vs real results in topic",
+          "expectation vs outcome in topic"
+        ],
+        "trend_angles": [
+          "this week's most debated topic angle",
+          "the format gaining traction around topic",
+          "the question people keep asking about topic"
+        ],
+        "engine_version": "semantic_universe_v1",
+        "generated_at": "2026-06-02 18:30:49",
+        "metadata": {
+          "sub_niche": "",
+          "audience": "Short-form viewers seeking high-retention, niche-relevant value or emotion",
+          "tone": "clear, specific, audience-native, retention-first",
+          "visual_style": "niche-appropriate, clean subject focus, mobile-first framing",
+          "expansion_strategy": "generic_decomposition",
+          "cluster_count": 4,
+          "seed_count": 24
+        }
+      },
+      "trend_discovery": {
+        "manual_seed_topics": [
+          "common mistakes around topic",
+          "common mistakes around topic in a high-stakes moment",
+          "underrated angle in topic",
+          "underrated angle in topic in a high-stakes moment",
+          "before-and-after shift in topic",
+          "before-and-after shift in topic in a high-stakes moment",
+          "what newcomers get wrong about topic",
+          "what newcomers get wrong about topic in a high-stakes moment",
+          "what experienced people notice first in topic",
+          "what experienced people notice first in topic in a high-stakes moment",
+          "comment-section debates around topic",
+          "comment-section debates around topic in a high-stakes moment",
+          "the tradeoff nobody mentions in topic",
+          "the tradeoff nobody mentions in topic in a high-stakes moment",
+          "the hidden cost of choosing topic",
+          "the hidden cost of choosing topic in a high-stakes moment",
+          "when topic stops working",
+          "when topic stops working in a high-stakes moment",
+          "unexpected use case for topic",
+          "unexpected use case for topic in a high-stakes moment",
+          "small change that improves topic",
+          "small change that improves topic in a high-stakes moment",
+          "pattern emerging around topic",
+          "pattern emerging around topic in a high-stakes moment"
+        ],
+        "semantic_universe_id": "universe_general_33d76fbe",
+        "seed_source": "semantic_universe_engine_v1"
+      }
+    },
+    "trend_signal": {
+      "topic": "girls dancing  and singing under rain street",
+      "velocity": 100.0,
+      "saturation": 44.0,
+      "virality_score": 76.85,
+      "platform": "tiktok",
+      "source": "user_topic",
+      "emotional_vector": {
+        "curiosity": 0.25,
+        "surprise": 0.25,
+        "desire": 0.25,
+        "belonging": 0.25,
+        "urgency": 0.25
+      },
+      "platform_fit": {
+        "tiktok": 76.0,
+        "youtube_shorts": 68.0,
+        "instagram_reels": 76.0
+      },
+      "expiry_window_hours": 72
+    },
+    "hook_package": {
+      "variants": [
+        {
+          "variant_id": "hook_4_moral_discomfort_1",
+          "hook_class": "moral_discomfort",
+          "text": "girls dancing and singing under rain street worked — and that is exactly why it feels wrong in General Short-Form Content.",
+          "curiosity_gap_score": 72.0,
+          "interrupt_power": 64.0,
+          "specificity_score": 68.0,
+          "emotional_vector": {
+            "curiosity_gap": 72.0,
+            "emotional_spike": 64.0,
+            "niche_fit": 77.0,
+            "platform_fit": 70.0,
+            "non_generic_score": 82.0,
+            "composite": 71.7
+          }
+        },
+        {
+          "variant_id": "hook_6_open_loop_seed_1",
+          "hook_class": "open_loop_seed",
+          "text": "girls dancing and singing under rain street ends with one question nobody in General Short-Form Content can ignore.",
+          "curiosity_gap_score": 69.0,
+          "interrupt_power": 56.0,
+          "specificity_score": 68.0,
+          "emotional_vector": {
+            "curiosity_gap": 69.0,
+            "emotional_spike": 56.0,
+            "niche_fit": 83.0,
+            "platform_fit": 78.0,
+            "non_generic_score": 82.0,
+            "composite": 71.64
+          }
+        },
+        {
+          "variant_id": "hook_6_open_loop_seed_2",
+          "hook_class": "open_loop_seed",
+          "text": "Watch one concrete general short-form content detail closely — the last second of girls dancing and singing under rain street does not…",
+          "curiosity_gap_score": 82.0,
+          "interrupt_power": 50.0,
+          "specificity_score": 60.0,
+          "emotional_vector": {
+            "curiosity_gap": 82.0,
+            "emotional_spike": 50.0,
+            "niche_fit": 83.0,
+            "platform_fit": 70.0,
+            "non_generic_score": 86.0,
+            "composite": 71.5
+          }
+        },
+        {
+          "variant_id": "hook_3_personal_threat_1",
+          "hook_class": "personal_threat",
+          "text": "If you care about General Short-Form Content, check this before your next session.",
+          "curiosity_gap_score": 60.0,
+          "interrupt_power": 68.0,
+          "specificity_score": 63.0,
+          "emotional_vector": {
+            "curiosity_gap": 60.0,
+            "emotional_spike": 68.0,
+            "niche_fit": 82.0,
+            "platform_fit": 78.0,
+            "non_generic_score": 82.0,
+            "composite": 70.74
+          }
+        },
+        {
+          "variant_id": "hook_1_violation_2",
+          "hook_class": "violation",
+          "text": "Everyone in General Short-Form Content does this first — girls dancing and singing under rain street proves that habit fails.",
+          "curiosity_gap_score": 68.0,
+          "interrupt_power": 50.0,
+          "specificity_score": 68.0,
+          "emotional_vector": {
+            "curiosity_gap": 68.0,
+            "emotional_spike": 50.0,
+            "niche_fit": 83.0,
+            "platform_fit": 70.0,
+            "non_generic_score": 82.0,
+            "composite": 69.38
+          }
+        },
+        {
+          "variant_id": "hook_3_personal_threat_2",
+          "hook_class": "personal_threat",
+          "text": "This General Short-Form Content mistake is common — girls dancing and singing under rain street shows why it catches people off guard.",
+          "curiosity_gap_score": 73.0,
+          "interrupt_power": 50.0,
+          "specificity_score": 68.0,
+          "emotional_vector": {
+            "curiosity_gap": 73.0,
+            "emotional_spike": 50.0,
+            "niche_fit": 74.0,
+            "platform_fit": 70.0,
+            "non_generic_score": 82.0,
+            "composite": 68.86
+          }
+        }
+      ],
+      "selected_variant_id": "hook_4_moral_discomfort_1",
+      "best_hook_text": "girls dancing and singing under rain street worked — and that is exactly why it feels wrong in General Short-Form Content.",
+      "hook_class": "moral_discomfort",
+      "composite_score": 71.7
+    },
+    "video_format_plan": {
+      "target_duration_seconds": 50,
+      "clip_count": 5,
+      "clip_duration_seconds": 10,
+      "format_type": "multi_clip",
+      "pacing_profile": "balanced",
+      "content_type": "short",
+      "platform": "youtube_shorts",
+      "platform_limits": {
+        "platform_id": "youtube_shorts",
+        "ideal_duration_seconds": {
+          "min": 30,
+          "max": 58,
+          "sweet_spot": 42
+        },
+        "hook_window_seconds": 2.5,
+        "min_project_duration": 15,
+        "max_project_duration": 58,
+        "caption_style": "searchable first line plus supporting detail",
+        "pacing_note": "one extra setup beat allowed if retention stays dense"
+      },
+      "provider_name": "runway_browser",
+      "provider_limits": {
+        "default_clip_duration_seconds": 10,
+        "allowed_clip_duration_seconds": [
+          10
+        ],
+        "max_clip_duration_seconds": 10,
+        "min_clip_duration_seconds": 10,
+        "supports_multi_clip": true,
+        "clip_duration_seconds": 10
+      },
+      "recommended_story_beats": [
+        {
+          "beat_id": "HOOK_BEAT",
+          "start_second": 0.0,
+          "end_second": 4.5,
+          "act": 1,
+          "goal": "Pattern interrupt and immediate stakes"
+        },
+        {
+          "beat_id": "CONTEXT_BEAT",
+          "start_second": 4.5,
+          "end_second": 10.0,
+          "act": 1,
+          "goal": "Establish context without over-explaining"
+        },
+        {
+          "beat_id": "ESCALATION_BEAT",
+          "start_second": 10.0,
+          "end_second": 21.0,
+          "act": 2,
+          "goal": "Increase tension or value"
+        },
+        {
+          "beat_id": "PATTERN_BREAK",
+          "start_second": 21.0,
+          "end_second": 27.0,
+          "act": 2,
+          "goal": "Shift angle before payoff"
+        },
+        {
+          "beat_id": "PAYOFF_BEAT",
+          "start_second": 27.0,
+          "end_second": 41.0,
+          "act": 3,
+          "goal": "Deliver payoff that matches the hook"
+        },
+        {
+          "beat_id": "LOOP_SEED",
+          "start_second": 41.0,
+          "end_second": 50.0,
+          "act": 3,
+          "goal": "Open loop for comments or next episode"
+        }
+      ],
+      "selection_reason": "Used user-requested duration 40s for youtube_shorts (short) with 5x10s clips via runway_browser. Aligned from 45s to 50s using 5x10s clips.",
+      "user_duration_requested": 40,
+      "metadata": {
+        "supported_short_durations": [
+          15,
+          30,
+          45,
+          60
+        ],
+        "profile_default_duration": 30,
+        "requested_duration_seconds": 45,
+        "aligned_duration_seconds": 50,
+        "provider_clip_duration_seconds": 10
+      }
+    },
+    "story_blueprint": {
+      "story_mode": "psychological_unraveling",
+      "beats": [
+        {
+          "beat_id": "HOOK_BEAT",
+          "act": 1,
+          "start_second": 0.0,
+          "end_second": 2.5,
+          "description": "PURPOSE: Pattern interrupt and immediate stakes | NARRATION: girls dancing and singing under rain street worked — and that is exactly why it feels wrong in General Short-Form Content | VISUAL: tight close-up on the subject tied to the hook",
+          "emotional_tone": "pattern interrupt and immediate stakes (0.85)",
+          "retention_mechanic": "pattern_interrupt"
+        },
+        {
+          "beat_id": "CONTEXT_BEAT",
+          "act": 1,
+          "start_second": 2.5,
+          "end_second": 5.6,
+          "description": "PURPOSE: Establish context without over-explaining | NARRATION: Two General Short-Form Content paths look similar until girls dancing and singing under rain street separates them | VISUAL: medium shot establishing the niche setting",
+          "emotional_tone": "establish context without over-explaining (0.55)",
+          "retention_mechanic": "curiosity_gap"
+        },
+        {
+          "beat_id": "ESCALATION_BEAT",
+          "act": 2,
+          "start_second": 5.6,
+          "end_second": 11.8,
+          "description": "PURPOSE: Increase tension or value | NARRATION: The difference is subtle early and obvious later | VISUAL: detail shot revealing new information",
+          "emotional_tone": "increase tension or value (0.72)",
+          "retention_mechanic": "stakes_increase"
+        },
+        {
+          "beat_id": "PATTERN_BREAK",
+          "act": 2,
+          "start_second": 11.8,
+          "end_second": 15.1,
+          "description": "PURPOSE: Shift angle before the payoff | NARRATION: Shift perspective: the obvious read on girls dancing and singing under rain street is incomplete | VISUAL: camera angle or scene shift",
+          "emotional_tone": "shift angle before the payoff (0.78)",
+          "retention_mechanic": "perspective_shift"
+        },
+        {
+          "beat_id": "PAYOFF_BEAT",
+          "act": 3,
+          "start_second": 15.1,
+          "end_second": 23.0,
+          "description": "PURPOSE: Payoff that matches the hook promise | NARRATION: Choose based on the tradeoff, not the headline | VISUAL: clear visual proof or story turn",
+          "emotional_tone": "payoff that matches the hook promise (0.92)",
+          "retention_mechanic": "peak_moment"
+        },
+        {
+          "beat_id": "LOOP_SEED",
+          "act": 3,
+          "start_second": 23.0,
+          "end_second": 28.0,
+          "description": "PURPOSE: Open loop for comments or next episode | NARRATION: Leave one unanswered detail about girls dancing and singing under rain street so General Short-Form Content viewers comment or wait for part two | VISUAL: unfinished detail held in frame for the sequel cue",
+          "emotional_tone": "open loop for comments or next episode (0.66)",
+          "retention_mechanic": "open_loop"
+        }
+      ],
+      "reveal_type": "comparison_reveal",
+      "loop_seed": "Leave one unanswered detail about girls dancing and singing under rain street so General Short-Form Content viewers comment or wait for part two",
+      "total_duration_seconds": 50,
+      "emotional_curve": [
+        0.85,
+        0.55,
+        0.72,
+        0.78,
+        0.92,
+        0.66
+      ],
+      "lore_refs": [
+        "profile_story_mode:comparison"
+      ],
+      "sensory_anchor": "one concrete texture, sound, or object in frame"
+    },
+    "retention_map": {
+      "beats": [
+        {
+          "block_label": "clip_0_mini_hook",
+          "start_second": 0.0,
+          "end_second": 1.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 1 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Open with voice or sound in frame 0. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 0 [0.0-10.0] | INTENSITY: 0.93 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "opening_visual_hook",
+          "start_second": 0.0,
+          "end_second": 1.0,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Motion, contrast, or subject focus in frame 0 | AUDIO: Front-load the most important spoken line or sound. | CAPTION: girls dancing and singing under rain street worked — and that is exactly why it  | CLIP: 0 [0.0-10.0] | INTENSITY: 1.00 | RISK: First 3 seconds must not feel slow. | STORY: HOOK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "sensory_anchor",
+          "start_second": 0.0,
+          "end_second": 2.0,
+          "mechanic": "object_focus",
+          "implementation_note": "VISUAL: one concrete texture, sound, or object in frame | AUDIO: Let the sensory detail have one clean audio moment. | CAPTION: No caption needed unless it names the sensory detail. | CLIP: 0 [0.0-10.0] | INTENSITY: 0.87 | RISK: Missing sensory anchor makes the story feel generic.",
+          "required": true
+        },
+        {
+          "block_label": "story_hook_beat",
+          "start_second": 0.0,
+          "end_second": 2.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: tight close-up on the subject tied to the hook | AUDIO: Lead with the hook line in the first second. | CAPTION: girls dancing and singing under rain street worked — and that is exactly why it feels wron | CLIP: 0 [0.0-10.0] | INTENSITY: 0.95 | RISK: Slow hook delivery causes immediate swipe. | STORY: HOOK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "opening_verbal_hook_completion",
+          "start_second": 1.0,
+          "end_second": 2.0,
+          "mechanic": "curiosity_gap",
+          "implementation_note": "VISUAL: Complete the hook promise in one line or text card | AUDIO: Front-load the most important spoken line or sound. | CAPTION: girls dancing and singing under rain street worked — and that is exactly why it  | CLIP: 0 [0.0-10.0] | INTENSITY: 0.95 | RISK: First 3 seconds must not feel slow. | STORY: HOOK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "opening_opening_stakes_lock",
+          "start_second": 2.0,
+          "end_second": 3.0,
+          "mechanic": "stakes_lock",
+          "implementation_note": "VISUAL: Tight close-up or immediate motion in frame 0. | AUDIO: Front-load the most important spoken line or sound. | CAPTION: girls dancing and singing under rain street worked — and that is exactly why it  | CLIP: 0 [0.0-10.0] | INTENSITY: 0.91 | RISK: First 3 seconds must not feel slow.",
+          "required": true
+        },
+        {
+          "block_label": "story_context_beat",
+          "start_second": 2.5,
+          "end_second": 5.6,
+          "mechanic": "curiosity_gap",
+          "implementation_note": "VISUAL: medium shot establishing the niche setting | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 0 [0.0-10.0] | INTENSITY: 0.63 | RISK: Over-explaining here collapses curiosity. | STORY: CONTEXT_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "story_escalation_beat",
+          "start_second": 5.6,
+          "end_second": 11.8,
+          "mechanic": "stakes_increase",
+          "implementation_note": "VISUAL: detail shot revealing new information | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 0 [0.0-10.0] | INTENSITY: 0.72 | RISK: Repeating the hook without new info causes drop-off. | STORY: ESCALATION_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_0_mini_payoff",
+          "start_second": 8.2,
+          "end_second": 10.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 1 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 0 [0.0-10.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "clip_1_mini_hook",
+          "start_second": 10.0,
+          "end_second": 11.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 2 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 1 [10.0-20.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "story_pattern_break_beat",
+          "start_second": 11.8,
+          "end_second": 15.1,
+          "mechanic": "perspective_shift",
+          "implementation_note": "VISUAL: camera angle or scene shift | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 1 [10.0-20.0] | INTENSITY: 0.65 | RISK: Beat lacks specificity or pacing. | STORY: PATTERN_BREAK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "story_payoff_beat",
+          "start_second": 15.1,
+          "end_second": 23.0,
+          "mechanic": "peak_moment",
+          "implementation_note": "VISUAL: clear visual proof or story turn | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 1 [10.0-20.0] | INTENSITY: 0.92 | RISK: Weak payoff breaks trust with the hook. | STORY: PAYOFF_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_1_mini_payoff",
+          "start_second": 18.2,
+          "end_second": 20.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 2 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 1 [10.0-20.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "clip_2_mini_hook",
+          "start_second": 20.0,
+          "end_second": 21.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 3 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 2 [20.0-30.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "story_loop_seed_beat",
+          "start_second": 23.0,
+          "end_second": 28.0,
+          "mechanic": "open_loop",
+          "implementation_note": "VISUAL: unfinished detail held in frame for the sequel cue | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 2 [20.0-30.0] | INTENSITY: 0.65 | RISK: Beat lacks specificity or pacing. | STORY: LOOP_SEED_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "density_1",
+          "start_second": 25.6,
+          "end_second": 27.1,
+          "mechanic": "object_focus",
+          "implementation_note": "VISUAL: Insert a new detail tied to comparison_reveal. | AUDIO: Keep voice or sound active; avoid dead air. | CAPTION: Optional micro-caption if it adds clarity. | CLIP: 2 [20.0-30.0] | INTENSITY: 0.62 | RISK: Gap created risk of scroll-away.",
+          "required": true
+        },
+        {
+          "block_label": "clip_2_mini_payoff",
+          "start_second": 28.2,
+          "end_second": 30.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 3 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 2 [20.0-30.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "clip_3_mini_hook",
+          "start_second": 30.0,
+          "end_second": 31.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 4 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 3 [30.0-40.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "density_2",
+          "start_second": 34.1,
+          "end_second": 35.6,
+          "mechanic": "object_focus",
+          "implementation_note": "VISUAL: Insert a new detail tied to comparison_reveal. | AUDIO: Keep voice or sound active; avoid dead air. | CAPTION: Optional micro-caption if it adds clarity. | CLIP: 3 [30.0-40.0] | INTENSITY: 0.62 | RISK: Gap created risk of scroll-away.",
+          "required": true
+        },
+        {
+          "block_label": "pattern_break_1",
+          "start_second": 36.0,
+          "end_second": 37.5,
+          "mechanic": "perspective_shift",
+          "implementation_note": "VISUAL: Change camera angle, subject distance, or scene location. | AUDIO: Use a subtle whoosh or cut-point accent. | CAPTION: Use only if the break needs one clarifying line. | CLIP: 3 [30.0-40.0] | INTENSITY: 0.76 | RISK: Predictable pacing without breaks loses retention.",
+          "required": true
+        },
+        {
+          "block_label": "clip_3_mini_payoff",
+          "start_second": 38.2,
+          "end_second": 40.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 4 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 3 [30.0-40.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "clip_4_mini_hook",
+          "start_second": 40.0,
+          "end_second": 41.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 5 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 4 [40.0-50.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "density_3",
+          "start_second": 44.1,
+          "end_second": 45.6,
+          "mechanic": "object_focus",
+          "implementation_note": "VISUAL: Insert a new detail tied to comparison_reveal. | AUDIO: Keep voice or sound active; avoid dead air. | CAPTION: Optional micro-caption if it adds clarity. | CLIP: 4 [40.0-50.0] | INTENSITY: 0.62 | RISK: Gap created risk of scroll-away.",
+          "required": true
+        },
+        {
+          "block_label": "clip_4_mini_payoff",
+          "start_second": 48.2,
+          "end_second": 50.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 5 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 4 [40.0-50.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        }
+      ],
+      "retention_score_estimate": 100.0,
+      "pattern_break_count": 6,
+      "loop_seed_present": true
+    },
+    "uniqueness_report": {
+      "passed": false,
+      "layers": [
+        {
+          "layer_name": "topic_similarity",
+          "similarity_score": 0.1111,
+          "threshold": 0.72,
+          "passed": true,
+          "detail": "Compared topic against 1 prior records."
+        },
+        {
+          "layer_name": "hook_fingerprint",
+          "similarity_score": 0.8143,
+          "threshold": 0.68,
+          "passed": false,
+          "detail": "Compared hook fingerprint against 1 prior records."
+        },
+        {
+          "layer_name": "beat_sequence_fingerprint",
+          "similarity_score": 1.0,
+          "threshold": 0.7,
+          "passed": false,
+          "detail": "Compared beat sequence against 1 prior records."
+        },
+        {
+          "layer_name": "generic_pattern_detection",
+          "similarity_score": 0.0,
+          "threshold": 0.0,
+          "passed": true,
+          "detail": "No generic patterns detected."
+        },
+        {
+          "layer_name": "twist_type_collision",
+          "similarity_score": 0.8615,
+          "threshold": 0.65,
+          "passed": false,
+          "detail": "Compared reveal/loop fingerprint against 1 prior records."
+        },
+        {
+          "layer_name": "niche_banned_patterns",
+          "similarity_score": 0.0,
+          "threshold": 0.0,
+          "passed": true,
+          "detail": "No niche banned phrases detected."
+        }
+      ],
+      "max_similarity": 1.0,
+      "uniqueness_score": 0.0,
+      "regeneration_directive": "Keep topic; change hook class and opening."
+    },
+    "viral_scorecard": {
+      "dimensions": [
+        {
+          "name": "hook_strength",
+          "score": 71.7,
+          "weight": 0.2,
+          "notes": "hook_strength scored 71.7; minimum 65.0; pass."
+        },
+        {
+          "name": "retention_architecture",
+          "score": 100.0,
+          "weight": 0.25,
+          "notes": "retention_architecture scored 100.0; minimum 65.0; pass."
+        },
+        {
+          "name": "emotional_intensity_curve",
+          "score": 63.3,
+          "weight": 0.15,
+          "notes": "emotional_intensity_curve scored 63.3; minimum 55.0; pass."
+        },
+        {
+          "name": "specificity",
+          "score": 66.0,
+          "weight": 0.1,
+          "notes": "specificity scored 66.0; minimum 60.0; pass."
+        },
+        {
+          "name": "uniqueness",
+          "score": 0.0,
+          "weight": 0.15,
+          "notes": "uniqueness scored 0.0; minimum 65.0; below minimum."
+        },
+        {
+          "name": "platform_fit",
+          "score": 73.33,
+          "weight": 0.1,
+          "notes": "platform_fit scored 73.3; minimum 55.0; pass."
+        },
+        {
+          "name": "loop_potential",
+          "score": 85.0,
+          "weight": 0.05,
+          "notes": "loop_potential scored 85.0; minimum 45.0; pass."
+        }
+      ],
+      "composite_score": 67.02,
+      "production_tier": "B",
+      "passed_gate": false,
+      "minimum_gate_score": 65.0
+    },
+    "decision_package": {
+      "decision": "REJECT",
+      "confidence": 0.9,
+      "reasons": [
+        "Uniqueness failed with critically high similarity or very low uniqueness score."
+      ],
+      "weak_dimensions": [
+        "uniqueness"
+      ],
+      "revision_targets": [
+        "hook",
+        "story_beats",
+        "trend_context"
+      ],
+      "regeneration_required": false,
+      "priority_fixes": [
+        "Keep topic; change hook class and opening."
+      ],
+      "production_ready": false
+    },
+    "title_thumbnail_package": {
+      "titles": [],
+      "thumbnail_concepts": [],
+      "thumbnail_text_options": [],
+      "ctr_hooks": [],
+      "curiosity_gaps": [],
+      "emotional_triggers": [],
+      "packaging_style": "clear, specific, audience-native, retention-first; curiosity title with one concrete noun",
+      "platform_optimized": {
+        "platform": "youtube_shorts",
+        "display_name": "YouTube Shorts",
+        "title_style": "curiosity title with one concrete noun",
+        "caption_style": "searchable first line plus supporting detail",
+        "cta_style": "follow for more / full context in comments",
+        "title_max_characters": 80,
+        "hook_window_seconds": 2.5,
+        "hashtag_count": {
+          "min": 2,
+          "max": 5
+        }
+      },
+      "recommended_title": "",
+      "recommended_thumbnail_concept": {},
+      "warnings": [
+        "Packaging skipped: brief decision is REJECT.",
+        "Resolve upstream scoring or uniqueness issues before generating titles."
+      ]
+    },
+    "production_ready": false,
+    "next_action": "discard_brief",
+    "run_context": {
+      "brief_id": "brief_20260602_183049_19611a9a",
+      "niche": "general",
+      "topic": "girls dancing  and singing under rain street",
+      "user_topic": "girls dancing  and singing under rain street",
+      "user_topic_authoritative": true,
+      "platform": "youtube_shorts",
+      "provider_name": "runway_browser",
+      "channel_id": "",
+      "channel_name": "",
+      "channel_identity_applied": false,
+      "pipeline_version": "content_brief_orchestrator_v1",
+      "started_at": "2026-06-02 18:30:49",
+      "completed_at": "2026-06-02 18:30:49",
+      "decision": "REJECT",
+      "composite_score": 67.02,
+      "production_tier": "B",
+      "recommended_title": "",
+      "packaging_warning_count": 2,
+      "story_intelligence_applied": true,
+      "story_intelligence": {
+        "engine_version": "story_intelligence_v1",
+        "story_blueprint": {
+          "narrative_premise": "A General Short-Form Content story about girls dancing  and singing under rain street that proves girls dancing singing is the detail everyone missed.",
+          "emotional_arc": [
+            {
+              "beat_id": "HOOK_BEAT",
+              "emotion_target": "curiosity",
+              "intensity": 0.88,
+              "cause": "Hook promises a hidden girls in girls dancing  and singing under rain street.",
+              "prior_beat_emotion": "neutral",
+              "release_or_tension": "tension",
+              "connects_to_next": "CONTEXT_BEAT"
+            },
+            {
+              "beat_id": "CONTEXT_BEAT",
+              "emotion_target": "grounding",
+              "intensity": 0.55,
+              "cause": "After curiosity from curiosity, viewer needs grounding on girls.",
+              "prior_beat_emotion": "curiosity",
+              "release_or_tension": "release",
+              "connects_to_next": "ESCALATION_BEAT"
+            },
+            {
+              "beat_id": "ESCALATION_BEAT",
+              "emotion_target": "tension",
+              "intensity": 0.78,
+              "cause": "Stakes rise when girls contradicts the obvious reading.",
+              "prior_beat_emotion": "grounding",
+              "release_or_tension": "tension",
+              "connects_to_next": "PATTERN_BREAK"
+            },
+            {
+              "beat_id": "PATTERN_BREAK",
+              "emotion_target": "surprise",
+              "intensity": 0.82,
+              "cause": "Perspective shifts because comparison reveal reframes girls.",
+              "prior_beat_emotion": "tension",
+              "release_or_tension": "tension",
+              "connects_to_next": "PAYOFF_BEAT"
+            },
+            {
+              "beat_id": "PAYOFF_BEAT",
+              "emotion_target": "payoff",
+              "intensity": 0.92,
+              "cause": "Payoff delivers the answer the hook implied about girls.",
+              "prior_beat_emotion": "surprise",
+              "release_or_tension": "tension",
+              "connects_to_next": "LOOP_SEED"
+            },
+            {
+              "beat_id": "LOOP_SEED",
+              "emotion_target": "open_loop",
+              "intensity": 0.7,
+              "cause": "One unanswered girls detail seeds the next episode.",
+              "prior_beat_emotion": "payoff",
+              "release_or_tension": "release",
+              "connects_to_next": ""
+            }
+          ],
+          "story_beats": [
+            {
+              "beat_id": "HOOK_BEAT",
+              "act": 1,
+              "start_second": 0.0,
+              "end_second": 2.5,
+              "emotional_target": "curiosity",
+              "intensity": 0.88,
+              "retention_mechanic": "pattern_interrupt",
+              "description": "PURPOSE: Pattern interrupt and immediate stakes | NARRATION: girls dancing and singing under rain street worked — and that is exactly why it feels wrong in General Short-Form Content | VISUAL: tight close-up on the subject tied to the hook"
+            },
+            {
+              "beat_id": "CONTEXT_BEAT",
+              "act": 1,
+              "start_second": 2.5,
+              "end_second": 5.6,
+              "emotional_target": "grounding",
+              "intensity": 0.55,
+              "retention_mechanic": "curiosity_gap",
+              "description": "PURPOSE: Establish context without over-explaining | NARRATION: Two General Short-Form Content paths look similar until girls dancing and singing under rain street separates them | VISUAL: medium shot establishing the niche setting"
+            },
+            {
+              "beat_id": "ESCALATION_BEAT",
+              "act": 2,
+              "start_second": 5.6,
+              "end_second": 11.8,
+              "emotional_target": "tension",
+              "intensity": 0.78,
+              "retention_mechanic": "stakes_increase",
+              "description": "PURPOSE: Increase tension or value | NARRATION: The difference is subtle early and obvious later | VISUAL: detail shot revealing new information"
+            },
+            {
+              "beat_id": "PATTERN_BREAK",
+              "act": 2,
+              "start_second": 11.8,
+              "end_second": 15.1,
+              "emotional_target": "surprise",
+              "intensity": 0.82,
+              "retention_mechanic": "perspective_shift",
+              "description": "PURPOSE: Shift angle before the payoff | NARRATION: Shift perspective: the obvious read on girls dancing and singing under rain street is incomplete | VISUAL: camera angle or scene shift"
+            },
+            {
+              "beat_id": "PAYOFF_BEAT",
+              "act": 3,
+              "start_second": 15.1,
+              "end_second": 23.0,
+              "emotional_target": "payoff",
+              "intensity": 0.92,
+              "retention_mechanic": "peak_moment",
+              "description": "PURPOSE: Payoff that matches the hook promise | NARRATION: Choose based on the tradeoff, not the headline | VISUAL: clear visual proof or story turn"
+            },
+            {
+              "beat_id": "LOOP_SEED",
+              "act": 3,
+              "start_second": 23.0,
+              "end_second": 28.0,
+              "emotional_target": "open_loop",
+              "intensity": 0.7,
+              "retention_mechanic": "open_loop",
+              "description": "PURPOSE: Open loop for comments or next episode | NARRATION: Leave one unanswered detail about girls dancing and singing under rain street so General Short-Form Content viewers comment or wait for part two | VISUAL: unfinished detail held in frame for the sequel cue"
+            }
+          ],
+          "cinematic_progression": [
+            {
+              "scene_id": "scene_01",
+              "beat_id": "HOOK_BEAT",
+              "escalation_step": 0.88,
+              "camera": "Tight macro on evidence detail, shallow depth of field",
+              "lighting": "Natural motivated light with clear subject separation — high contrast accent on focal detail",
+              "motion": "Snap focus rack to evidence detail",
+              "emotional_target": "curiosity",
+              "narrative_link": " → HOOK_BEAT → ESCALATION_BEAT"
+            },
+            {
+              "scene_id": "scene_02",
+              "beat_id": "ESCALATION_BEAT",
+              "escalation_step": 0.78,
+              "camera": "Slow push-in on contradicting detail",
+              "lighting": "Natural motivated light with clear subject separation",
+              "motion": "Controlled push-in as tension builds",
+              "emotional_target": "tension",
+              "narrative_link": "HOOK_BEAT → ESCALATION_BEAT → PAYOFF_BEAT"
+            },
+            {
+              "scene_id": "scene_03",
+              "beat_id": "PAYOFF_BEAT",
+              "escalation_step": 0.92,
+              "camera": "Locked-off hero frame with decisive reveal element centered",
+              "lighting": "Natural motivated light with clear subject separation — crisp highlight on reveal object",
+              "motion": "Hold steady; micro-movement only on reveal",
+              "emotional_target": "payoff",
+              "narrative_link": "ESCALATION_BEAT → PAYOFF_BEAT → LOOP_SEED"
+            },
+            {
+              "scene_id": "scene_04",
+              "beat_id": "LOOP_SEED",
+              "escalation_step": 0.7,
+              "camera": "Pull-back reveal leaving one element unresolved at frame edge",
+              "lighting": "Natural motivated light with clear subject separation — falloff into shadow on unresolved edge",
+              "motion": "Slow drift away from incomplete detail",
+              "emotional_target": "open_loop",
+              "narrative_link": "PAYOFF_BEAT → LOOP_SEED → CONTEXT_BEAT"
+            },
+            {
+              "scene_id": "scene_05",
+              "beat_id": "CONTEXT_BEAT",
+              "escalation_step": 0.55,
+              "camera": "Medium-wide establishing with subject in lower third",
+              "lighting": "Natural motivated light with clear subject separation",
+              "motion": "Gentle lateral slide across environment",
+              "emotional_target": "grounding",
+              "narrative_link": "LOOP_SEED → CONTEXT_BEAT → "
+            }
+          ],
+          "twist_or_reveal": {
+            "reveal_type": "comparison_reveal",
+            "loop_seed": "Leave one unanswered detail about girls dancing and singing under rain street so General Short-Form Content viewers comment or wait for part two",
+            "payoff_scene_id": "scene_04",
+            "twist_mechanism": "comparison reveal reframes girls"
+          },
+          "scene_plan": [
+            {
+              "scene_id": "scene_01",
+              "beat_id": "HOOK_BEAT",
+              "beat_role": "hook",
+              "start_second": 0,
+              "end_second": 2,
+              "duration_seconds": 2,
+              "narrative_purpose": "Interrupt with a concrete girls the audience has not examined.",
+              "connects_from": "",
+              "connects_to": "ESCALATION_BEAT",
+              "story_advance": "new_information",
+              "visual_description": "topic-specific object in sharp focus highlighting girls during hook — specific to girls dancing  and singing under rain street, not generic stock footage.",
+              "emotional_target": "curiosity",
+              "emotional_intensity": 0.88,
+              "camera_direction": "Tight macro on evidence detail, shallow depth of field",
+              "lighting_mood": "Natural motivated light with clear subject separation — high contrast accent on focal detail",
+              "motion_direction": "Snap focus rack to evidence detail",
+              "voiceover_intent": "State the overlooked girls claim without explaining yet.",
+              "subject": "girls evidence element",
+              "environment": "General Short-Form Content setting anchored to girls",
+              "action": "Reveal girls detail entering frame",
+              "mood": "curiosity",
+              "framing_style": "Evidence-forward macro framing",
+              "reveal_style": "Partial evidence visible before context",
+              "escalation_style": "",
+              "payoff_style": "",
+              "topic_class": "general_investigation",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_02",
+              "beat_id": "ESCALATION_BEAT",
+              "beat_role": "escalation",
+              "start_second": 5,
+              "end_second": 11,
+              "duration_seconds": 6,
+              "narrative_purpose": "Raise stakes by showing girls conflicts with the public narrative.",
+              "connects_from": "HOOK_BEAT",
+              "connects_to": "PAYOFF_BEAT",
+              "story_advance": "stakes_increase",
+              "visual_description": "contrasting before/after frame highlighting dancing during escalation — specific to girls dancing  and singing under rain street, not generic stock footage.",
+              "emotional_target": "tension",
+              "emotional_intensity": 0.78,
+              "camera_direction": "Slow push-in on contradicting detail",
+              "lighting_mood": "Natural motivated light with clear subject separation",
+              "motion_direction": "Controlled push-in as tension builds",
+              "voiceover_intent": "Increase urgency; introduce contradiction.",
+              "subject": "dancing evidence element",
+              "environment": "General Short-Form Content setting anchored to dancing",
+              "action": "Contrast two readings of dancing",
+              "mood": "tension",
+              "framing_style": "Contradiction-forward push-in",
+              "reveal_style": "",
+              "escalation_style": "Contradiction between two readings of {anchor}",
+              "payoff_style": "",
+              "topic_class": "general_investigation",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_03",
+              "beat_id": "PAYOFF_BEAT",
+              "beat_role": "payoff",
+              "start_second": 15,
+              "end_second": 23,
+              "duration_seconds": 8,
+              "narrative_purpose": "Deliver the decisive girls evidence the hook promised.",
+              "connects_from": "ESCALATION_BEAT",
+              "connects_to": "LOOP_SEED",
+              "story_advance": "answer_delivery",
+              "visual_description": "evidence detail macro shot highlighting singing during payoff — specific to girls dancing  and singing under rain street, not generic stock footage.",
+              "emotional_target": "payoff",
+              "emotional_intensity": 0.92,
+              "camera_direction": "Locked-off hero frame with decisive reveal element centered",
+              "lighting_mood": "Natural motivated light with clear subject separation — crisp highlight on reveal object",
+              "motion_direction": "Hold steady; micro-movement only on reveal",
+              "voiceover_intent": "Deliver the answer with concrete specificity.",
+              "subject": "singing evidence element",
+              "environment": "General Short-Form Content setting anchored to singing",
+              "action": "Hold on decisive singing evidence",
+              "mood": "payoff",
+              "framing_style": "Decisive hero framing",
+              "reveal_style": "",
+              "escalation_style": "",
+              "payoff_style": "Decisive proof centered on {anchor}",
+              "topic_class": "general_investigation",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_04",
+              "beat_id": "LOOP_SEED",
+              "beat_role": "loop_seed",
+              "start_second": 23,
+              "end_second": 28,
+              "duration_seconds": 5,
+              "narrative_purpose": "Leave one girls question open to drive comments or part two.",
+              "connects_from": "PAYOFF_BEAT",
+              "connects_to": "CONTEXT_BEAT",
+              "story_advance": "open_question",
+              "visual_description": "incomplete detail at frame edge highlighting under during loop_seed — specific to girls dancing  and singing under rain street, not generic stock footage.",
+              "emotional_target": "open_loop",
+              "emotional_intensity": 0.7,
+              "camera_direction": "Pull-back reveal leaving one element unresolved at frame edge",
+              "lighting_mood": "Natural motivated light with clear subject separation — falloff into shadow on unresolved edge",
+              "motion_direction": "Slow drift away from incomplete detail",
+              "voiceover_intent": "Pose one unanswered question about girls.",
+              "subject": "under evidence element",
+              "environment": "General Short-Form Content setting anchored to under",
+              "action": "Leave under partially obscured at frame edge",
+              "mood": "open_loop",
+              "framing_style": "Open-loop edge framing",
+              "reveal_style": "",
+              "escalation_style": "",
+              "payoff_style": "",
+              "topic_class": "general_investigation",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_05",
+              "beat_id": "CONTEXT_BEAT",
+              "beat_role": "context",
+              "start_second": 2,
+              "end_second": 5,
+              "duration_seconds": 3,
+              "narrative_purpose": "Establish why girls matters inside girls dancing  and singing under rain street.",
+              "connects_from": "LOOP_SEED",
+              "connects_to": "",
+              "story_advance": "stakes_definition",
+              "visual_description": "environmental texture tied to claim highlighting rain during context — specific to girls dancing  and singing under rain street, not generic stock footage.",
+              "emotional_target": "grounding",
+              "emotional_intensity": 0.55,
+              "camera_direction": "Medium-wide establishing with subject in lower third",
+              "lighting_mood": "Natural motivated light with clear subject separation",
+              "motion_direction": "Gentle lateral slide across environment",
+              "voiceover_intent": "Ground why girls changes interpretation.",
+              "subject": "rain evidence element",
+              "environment": "General Short-Form Content setting anchored to rain",
+              "action": "Show rain in situ within environment",
+              "mood": "grounding",
+              "framing_style": "Establishing context frame",
+              "reveal_style": "",
+              "escalation_style": "",
+              "payoff_style": "",
+              "topic_class": "general_investigation",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            }
+          ],
+          "visual_originality_notes": [
+            "scene_01: topic_class=general_investigation lexicon 'topic-specific object in sharp focus' beat=HOOK_BEAT.",
+            "scene_02: topic_class=general_investigation lexicon 'evidence detail macro shot' beat=ESCALATION_BEAT.",
+            "scene_03: topic_class=general_investigation lexicon 'contrasting before/after frame' beat=PAYOFF_BEAT.",
+            "scene_04: topic_class=general_investigation lexicon 'annotated screen capture' beat=LOOP_SEED.",
+            "scene_05: topic_class=general_investigation lexicon 'environmental texture tied to claim' beat=CONTEXT_BEAT."
+          ],
+          "anti_repetition_notes": [
+            "scene_01: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_02: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_03: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_04: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_05: no generic trope keywords detected; scene has explicit narrative purpose"
+          ],
+          "director_shots": [
+            {
+              "shot_id": "shot_01",
+              "scene_id": "scene_01",
+              "clip_number": 1,
+              "duration_seconds": 2,
+              "prompt_intent": "topic-specific object in sharp focus highlighting girls during hook — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: girls evidence element. Action: Reveal girls detail entering frame. Mood: curiosity.",
+              "camera": "Tight macro on evidence detail, shallow depth of field",
+              "lighting": "Natural motivated light with clear subject separation — high contrast accent on focal detail",
+              "subject": "girls evidence element",
+              "environment": "General Short-Form Content setting anchored to girls",
+              "action": "Reveal girls detail entering frame",
+              "mood": "curiosity",
+              "continuity_notes": "Follows opening; sets up ESCALATION_BEAT."
+            },
+            {
+              "shot_id": "shot_02",
+              "scene_id": "scene_02",
+              "clip_number": 2,
+              "duration_seconds": 6,
+              "prompt_intent": "contrasting before/after frame highlighting dancing during escalation — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: dancing evidence element. Action: Contrast two readings of dancing. Mood: tension.",
+              "camera": "Slow push-in on contradicting detail",
+              "lighting": "Natural motivated light with clear subject separation",
+              "subject": "dancing evidence element",
+              "environment": "General Short-Form Content setting anchored to dancing",
+              "action": "Contrast two readings of dancing",
+              "mood": "tension",
+              "continuity_notes": "Follows HOOK_BEAT; sets up PAYOFF_BEAT."
+            },
+            {
+              "shot_id": "shot_03",
+              "scene_id": "scene_03",
+              "clip_number": 3,
+              "duration_seconds": 8,
+              "prompt_intent": "evidence detail macro shot highlighting singing during payoff — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: singing evidence element. Action: Hold on decisive singing evidence. Mood: payoff.",
+              "camera": "Locked-off hero frame with decisive reveal element centered",
+              "lighting": "Natural motivated light with clear subject separation — crisp highlight on reveal object",
+              "subject": "singing evidence element",
+              "environment": "General Short-Form Content setting anchored to singing",
+              "action": "Hold on decisive singing evidence",
+              "mood": "payoff",
+              "continuity_notes": "Follows ESCALATION_BEAT; sets up LOOP_SEED."
+            },
+            {
+              "shot_id": "shot_04",
+              "scene_id": "scene_04",
+              "clip_number": 4,
+              "duration_seconds": 5,
+              "prompt_intent": "incomplete detail at frame edge highlighting under during loop_seed — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: under evidence element. Action: Leave under partially obscured at frame edge. Mood: open_loop.",
+              "camera": "Pull-back reveal leaving one element unresolved at frame edge",
+              "lighting": "Natural motivated light with clear subject separation — falloff into shadow on unresolved edge",
+              "subject": "under evidence element",
+              "environment": "General Short-Form Content setting anchored to under",
+              "action": "Leave under partially obscured at frame edge",
+              "mood": "open_loop",
+              "continuity_notes": "Follows PAYOFF_BEAT; sets up CONTEXT_BEAT."
+            },
+            {
+              "shot_id": "shot_05",
+              "scene_id": "scene_05",
+              "clip_number": 5,
+              "duration_seconds": 3,
+              "prompt_intent": "environmental texture tied to claim highlighting rain during context — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: rain evidence element. Action: Show rain in situ within environment. Mood: grounding.",
+              "camera": "Medium-wide establishing with subject in lower third",
+              "lighting": "Natural motivated light with clear subject separation",
+              "subject": "rain evidence element",
+              "environment": "General Short-Form Content setting anchored to rain",
+              "action": "Show rain in situ within environment",
+              "mood": "grounding",
+              "continuity_notes": "Follows LOOP_SEED; sets up close."
+            }
+          ],
+          "story_quality_score": {
+            "composite": 88.6,
+            "originality_score": 92.0,
+            "cinematic_score": 100.0,
+            "emotional_tension_score": 53.2,
+            "visual_diversity_score": 100.0,
+            "scene_necessity_score": 100.0,
+            "visual_note_count": 5
+          }
+        },
+        "schema_director_shots": [
+          {
+            "clip_number": 1,
+            "duration_seconds": 2,
+            "prompt": "topic-specific object in sharp focus highlighting girls during hook — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: girls evidence element. Action: Reveal girls detail entering frame. Mood: curiosity.",
+            "camera_shot": "Tight macro on evidence detail",
+            "camera_movement": "shallow depth of field",
+            "lighting": "Natural motivated light with clear subject separation — high contrast accent on focal detail",
+            "pacing": "curiosity",
+            "continuity_notes": "Follows opening; sets up ESCALATION_BEAT."
+          },
+          {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "prompt": "contrasting before/after frame highlighting dancing during escalation — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: dancing evidence element. Action: Contrast two readings of dancing. Mood: tension.",
+            "camera_shot": "Slow push-in on contradicting detail",
+            "camera_movement": "Static hold",
+            "lighting": "Natural motivated light with clear subject separation",
+            "pacing": "tension",
+            "continuity_notes": "Follows HOOK_BEAT; sets up PAYOFF_BEAT."
+          },
+          {
+            "clip_number": 3,
+            "duration_seconds": 8,
+            "prompt": "evidence detail macro shot highlighting singing during payoff — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: singing evidence element. Action: Hold on decisive singing evidence. Mood: payoff.",
+            "camera_shot": "Locked-off hero frame with decisive reveal element centered",
+            "camera_movement": "Static hold",
+            "lighting": "Natural motivated light with clear subject separation — crisp highlight on reveal object",
+            "pacing": "payoff",
+            "continuity_notes": "Follows ESCALATION_BEAT; sets up LOOP_SEED."
+          },
+          {
+            "clip_number": 4,
+            "duration_seconds": 5,
+            "prompt": "incomplete detail at frame edge highlighting under during loop_seed — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: under evidence element. Action: Leave under partially obscured at frame edge. Mood: open_loop.",
+            "camera_shot": "Pull-back reveal leaving one element unresolved at frame edge",
+            "camera_movement": "Static hold",
+            "lighting": "Natural motivated light with clear subject separation — falloff into shadow on unresolved edge",
+            "pacing": "open_loop",
+            "continuity_notes": "Follows PAYOFF_BEAT; sets up CONTEXT_BEAT."
+          },
+          {
+            "clip_number": 5,
+            "duration_seconds": 3,
+            "prompt": "environmental texture tied to claim highlighting rain during context — specific to girls dancing  and singing under rain street, not generic stock footage.. Subject: rain evidence element. Action: Show rain in situ within environment. Mood: grounding.",
+            "camera_shot": "Medium-wide establishing with subject in lower third",
+            "camera_movement": "Static hold",
+            "lighting": "Natural motivated light with clear subject separation",
+            "pacing": "grounding",
+            "continuity_notes": "Follows LOOP_SEED; sets up close."
+          }
+        ],
+        "story_signature": "39c36005c2e4",
+        "scene_fingerprints": [
+          "f7fa754e7c4f",
+          "c346a95195c3",
+          "77b6cacd84d2",
+          "a3e9ee72c1e8",
+          "44e47c6eb520"
+        ],
+        "visual_fingerprints": [
+          "0ba70a4455e3",
+          "b9c851b38896",
+          "734257a39839",
+          "003b8f9e7a78",
+          "efacdd4a5d0b"
+        ],
+        "repeated_risk_score": 0.11,
+        "visual_grammar_metadata": {
+          "topic_class": "general_investigation",
+          "resolution_source": "fallback:general_investigation",
+          "grammar_version": "12j_d_b_v1",
+          "beat_grammar_used": [
+            {
+              "topic_class": "general_investigation",
+              "beat_id": "HOOK_BEAT",
+              "camera": "Tight macro on evidence detail, shallow depth of field",
+              "motion": "Snap focus rack to evidence detail"
+            },
+            {
+              "topic_class": "general_investigation",
+              "beat_id": "ESCALATION_BEAT",
+              "camera": "Slow push-in on contradicting detail",
+              "motion": "Controlled push-in as tension builds"
+            },
+            {
+              "topic_class": "general_investigation",
+              "beat_id": "PAYOFF_BEAT",
+              "camera": "Locked-off hero frame with decisive reveal element centered",
+              "motion": "Hold steady; micro-movement only on reveal"
+            },
+            {
+              "topic_class": "general_investigation",
+              "beat_id": "LOOP_SEED",
+              "camera": "Pull-back reveal leaving one element unresolved at frame edge",
+              "motion": "Slow drift away from incomplete detail"
+            },
+            {
+              "topic_class": "general_investigation",
+              "beat_id": "CONTEXT_BEAT",
+              "camera": "Medium-wide establishing with subject in lower third",
+              "motion": "Gentle lateral slide across environment"
+            }
+          ]
+        },
+        "explainability": {
+          "narrative_question": "What does girls dancing singing reveal about girls dancing  and singing under rain street?",
+          "stakes_statement": "If viewers ignore girls dancing singing, they misread the entire General Short-Form Content angle.",
+          "niche_visual_language": [
+            "topic-specific object in sharp focus",
+            "evidence detail macro shot",
+            "contrasting before/after frame",
+            "annotated screen capture",
+            "environmental texture tied to claim",
+            "girls-specific evidence frame",
+            "dancing-specific evidence frame",
+            "singing-specific evidence frame"
+          ],
+          "scene_count": 5,
+          "clip_count": 5,
+          "topic_class": "general_investigation",
+          "topic_class_resolution": "fallback:general_investigation",
+          "grammar_version": "12j_d_b_v1"
+        },
+        "memory": {
+          "repeated_risk_score": 0.11,
+          "recent_repetition_score": 0.11,
+          "lifetime_repetition_score": 0.11,
+          "repeated_elements": [
+            {
+              "type": "twist_structure",
+              "element": "comparison_reveal",
+              "count_in_window": 3,
+              "severity": "medium",
+              "window": 30,
+              "detail": "Reveal type 'comparison_reveal' used 3 times in window."
+            },
+            {
+              "type": "emotional_arc",
+              "element": "curiosity→grounding→tension→surprise→payoff→open_loop",
+              "count_in_window": 3,
+              "severity": "medium",
+              "window": 30,
+              "detail": "Emotional arc signature repeated 3 times."
+            }
+          ],
+          "suggested_variations": [
+            "Switch reveal_type to the least-used twist in recent channel history.",
+            "Flatten mid-section tension and spike payoff later in the arc."
+          ],
+          "memory_decision": "SAFE",
+          "compare_failed": false,
+          "reasoning": "Story memory compared against 3 recent and 3 lifetime records (channel=none, niche=general)."
+        }
+      },
+      "story_intelligence_composite_score": 88.6,
+      "story_memory_decision": "SAFE",
+      "story_memory_repeated_risk_score": 0.11,
+      "story_memory_recent_score": 0.11,
+      "story_memory_lifetime_score": 0.11
+    }
+  },
+  "story_quality": {
+    "composite_score": 88.6,
+    "score": 88.6,
+    "decision": "REJECT",
+    "critical_failures": [
+      "Uniqueness failed with critically high similarity or very low uniqueness score."
+    ],
+    "warnings": [
+      "uniqueness",
+      "Keep topic; change hook class and opening.",
+      "Packaging skipped: brief decision is REJECT.",
+      "Resolve upstream scoring or uniqueness issues before generating titles.",
+      "Memory: Switch reveal_type to the least-used twist in recent channel history.",
+      "Memory: Flatten mid-section tension and spike payoff later in the arc.",
+      "Viral score gate not passed."
+    ],
+    "cost_risk_score": 0.11,
+    "metadata": {
+      "viral_composite": 67.02,
+      "production_tier": "B",
+      "memory_decision": "SAFE",
+      "story_intelligence_applied": true,
+      "source_engines": [
+        "story_intelligence",
+        "story_memory",
+        "content_decision",
+        "viral_scoring"
+      ]
+    },
+    "originality_score": 92.0,
+    "cinematic_score": 100.0,
+    "emotional_tension_score": 53.2,
+    "visual_diversity_score": 100.0,
+    "scene_necessity_score": 100.0,
+    "visual_note_count": 5
+  },
+  "story_quality_score": 88.6,
+  "priority_band": "medium",
+  "priority_decision": {
+    "priority_band": "medium",
+    "priority_score": 67.02,
+    "queue_position": null,
+    "decision_source": "viral_scorecard_seed"
+  },
+  "provider_selection": {
+    "primary_provider": "runway_browser",
+    "alternatives": [],
+    "expected_retry_risk": "low"
+  },
+  "execution_confidence_score": 80.6,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "blocked",
+    "brief_id": "brief_20260602_183049_19611a9a",
+    "recommended_title": null,
+    "estimated_credits": 10.0,
+    "estimated_runtime_minutes": 0.83,
+    "provider_selection": {
+      "primary_provider": "runway_browser"
+    },
+    "content_decision": "REJECT",
+    "production_ready": false
+  },
+  "approval_decision": {
+    "decision_id": "appr_bb2a21dd2134",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved",
+    "reasons": [],
+    "blockers": [
+      "Content gate: REJECT"
+    ],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-06-02 18:30:49",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 88.6,
+      "execution_confidence": 80.6,
+      "estimated_credits": 10.0,
+      "effective_credits": 10.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "db346cca-cfef-4384-8ce9-10706c9c137d"
+    },
+    "override": {
+      "source": "uat_supervised_real_video",
+      "bridge_version": "12i_b_v1",
+      "reason": "12I-B supervised real-video UAT",
+      "evaluated_at": "2026-06-02 18:30:50",
+      "by": "operator_uat"
+    }
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_09043226a979",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 10.0,
+    "effective_credits": 10.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 990.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-06-02 18:30:49",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "db346cca-cfef-4384-8ce9-10706c9c137d",
+    "report_id": "sim_4b60ce46",
+    "generated_at": "2026-06-02 18:30:49",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 5,
+    "estimated_generation_time_minutes": 10.0,
+    "estimated_provider_cost": 10.0,
+    "estimated_credits": 10.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "high",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 80.6,
+    "cost_estimate": {
+      "estimated_total_credits": 10.0,
+      "per_clip_credits": 2.0,
+      "provider": "runway_browser"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.83,
+      "estimated_generation_minutes": 10.0,
+      "target_duration_seconds": 50
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:25400e78dcd42d5ae6db5e187b1bbb43b073ee2c3c075a6396c0f138abb89107",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_4b60ce46",
+  "state_history": [
+    {
+      "at": "2026-06-02 18:30:49",
+      "state": "REJECTED",
+      "reason": "populated from content brief"
+    },
+    {
+      "at": "2026-06-02 18:30:49",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-06-02 18:30:49",
+      "state": "REJECTED",
+      "reason": "governance: approval=REJECTED, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-06-02 18:30:49",
+      "state": "NOT_READY",
+      "reason": "readiness gate: NOT_READY (score=47.7)"
+    },
+    {
+      "at": "2026-06-02 18:30:50",
+      "state": "NOT_READY",
+      "reason": "readiness gate: NOT_READY (score=49.0)"
+    }
+  ],
+  "metadata": {
+    "population_version": "10d_v1",
+    "population_source": "content_brief_orchestrator",
+    "lineage_type": null,
+    "production_ready": false,
+    "niche": "general",
+    "topic": "girls dancing  and singing under rain street",
+    "platform": "youtube_shorts",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-06-02 18:30:49",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-06-02 18:30:50"
+  },
+  "execution_readiness": {
+    "decision": "NOT_READY",
+    "readiness_score": 49.0,
+    "readiness_failures": [
+      "Story quality decision is REJECT.",
+      "Story quality has critical failures."
+    ],
+    "readiness_warnings": [
+      "Simulation stitch_complexity is high.",
+      "Browser provider selected — runtime variability expected.",
+      "uniqueness",
+      "Keep topic; change hook class and opening.",
+      "Packaging skipped: brief decision is REJECT.",
+      "Resolve upstream scoring or uniqueness issues before generating titles.",
+      "Memory: Switch reveal_type to the least-used twist in recent channel history.",
+      "Memory: Flatten mid-section tension and spike payoff later in the arc.",
+      "Viral score gate not passed."
+    ],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 90.0,
+        "failures": [],
+        "warnings": [
+          "Simulation stitch_complexity is high."
+        ]
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 92.0,
+        "failures": [],
+        "warnings": [
+          "Browser provider selected — runtime variability expected."
+        ]
+      },
+      "story_quality_exists": {
+        "passed": false,
+        "score": 0.0,
+        "failures": [
+          "Story quality decision is REJECT.",
+          "Story quality has critical failures."
+        ],
+        "warnings": [
+          "uniqueness",
+          "Keep topic; change hook class and opening.",
+          "Packaging skipped: brief decision is REJECT.",
+          "Resolve upstream scoring or uniqueness issues before generating titles.",
+          "Memory: Switch reveal_type to the least-used twist in recent channel history.",
+          "Memory: Flatten mid-section tension and spike payoff later in the arc.",
+          "Viral score gate not passed."
+        ]
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-06-02 18:30:50"
+      },
+      "simulation_report_uuid": "db346cca-cfef-4384-8ce9-10706c9c137d",
+      "governance_decision_ids": {
+        "approval": "appr_bb2a21dd2134",
+        "budget": "bdgt_09043226a979"
+      }
+    }
+  },
+  "execution_runtime": {
+    "category_runtime": {
+      "video_generation": {
+        "category_name": "video",
+        "status": "pending",
+        "provider": null,
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "voice_generation": {
+        "category_name": "voice",
+        "status": "planned",
+        "provider": "elevenlabs",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "music_generation": {
+        "category_name": "music",
+        "status": "planned",
+        "provider": "suno",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "subtitles": {
+        "category_name": "subtitle_generation",
+        "status": "planned",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1"
+      },
+      "assembly": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      },
+      "subtitle_generation": {
+        "category_name": "subtitle_generation",
+        "status": "planned",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1"
+      },
+      "assembly_generation": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [],
+      "voice_generation": [],
+      "music_generation": [],
+      "subtitles": [],
+      "assembly": [],
+      "image_generation": [],
+      "publishing": [],
+      "subtitle_generation": [],
+      "assembly_generation": []
+    },
+    "multi_category_shell": {
+      "shell_version": "11g_v1",
+      "media_categories": [
+        "video_generation",
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly"
+      ],
+      "future_routers": {
+        "voice_generation": "content_brain.execution.voice_provider_router.VoiceProviderRouter",
+        "music_generation": "content_brain.execution.music_provider_router.MusicProviderRouter",
+        "subtitles": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "subtitle_generation": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "assembly": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run",
+        "assembly_generation": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run"
+      },
+      "executable_categories_11g": [
+        "video_generation"
+      ]
+    },
+    "operations": {
+      "uat_run": {
+        "mode": "user_acceptance_test",
+        "profile_version": "12b_v1",
+        "session_id": "exec_uat_20260602_183049",
+        "topic": "girls dancing  and singing under rain street",
+        "platform": "youtube_shorts",
+        "target_duration_seconds": 40,
+        "video_provider": "runway_browser",
+        "voice_provider": "elevenlabs",
+        "confirm_real_voice": true,
+        "confirm_real_video": true,
+        "confirm_real_assembly": true,
+        "triggered_by": "operator_uat",
+        "status": "failed",
+        "progress_log": [
+          {
+            "timestamp": "2026-06-02 18:30:49",
+            "stage": "content_brain",
+            "level": "info",
+            "message": "Content brief generated."
+          },
+          {
+            "timestamp": "2026-06-02 18:30:49",
+            "stage": "video",
+            "level": "info",
+            "message": "Running video stage."
+          },
+          {
+            "timestamp": "2026-06-02 18:30:50",
+            "stage": "failed",
+            "level": "error",
+            "message": "Session not ready for UAT video dispatch after supervised approval override: readiness=NOT_READY; Story quality decision is REJECT.; Story quality has critical failures."
+          }
+        ],
+        "stages": {
+          "content_brain": {
+            "success": true,
+            "brief_id": "brief_20260602_183049_19611a9a",
+            "decision": "REJECT",
+            "clip_count": 5,
+            "production_ready": false
+          }
+        },
+        "current_stage": "failed",
+        "started_at": "2026-06-02 18:30:49",
+        "errors": [
+          "Session not ready for UAT video dispatch after supervised approval override: readiness=NOT_READY; Story quality decision is REJECT.; Story quality has critical failures."
+        ],
+        "completed_at": "2026-06-02 18:30:50"
+      }
+    }
+  }
+}

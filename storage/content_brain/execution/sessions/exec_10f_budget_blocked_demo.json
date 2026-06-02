@@ -1,0 +1,181 @@
+{
+  "session_schema_version": "10f_v1",
+  "session_uuid": "063ac90e-6b5e-4755-a4d3-5aff3e546d84",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_10f_budget_blocked_demo",
+  "brief_id": "brief_10f_blocked",
+  "state": "BUDGET_BLOCKED",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-05-29 22:53:58",
+  "provider": "hailuo",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_blocked",
+    "video_format_plan": {
+      "clip_count": 30,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    }
+  },
+  "story_quality": {
+    "composite_score": 88.0,
+    "score": 88.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "hailuo",
+    "alternatives": [],
+    "expected_retry_risk": "low"
+  },
+  "execution_confidence_score": 80.0,
+  "execution_confidence": null,
+  "approval_state": "pending",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 30.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_b0ed328053b9",
+    "status": "AWAITING_APPROVAL",
+    "action": "awaiting_approval",
+    "reasons": [
+      "Estimated cost requires human review."
+    ],
+    "blockers": [
+      "Effective cost 30.0 exceeds per-run cap 25.0."
+    ],
+    "requires_human_approval": true,
+    "evaluated_at": "2026-05-29 22:53:58",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 88.0,
+      "execution_confidence": 80.0,
+      "estimated_credits": 30.0,
+      "effective_credits": 30.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "0989bdba-0d45-4251-b3df-d151d919ac8d"
+    },
+    "override": null
+  },
+  "budget_state": "blocked",
+  "budget_decision": {
+    "decision_id": "bdgt_acd54c81330f",
+    "budget_status": "BUDGET_BLOCKED",
+    "budget_allowed": false,
+    "budget_state": "BUDGET_BLOCKED",
+    "estimated_credits": 30.0,
+    "effective_credits": 30.0,
+    "budget_warnings": [],
+    "budget_block_reason": "Effective cost 30.0 exceeds per-run cap 25.0.",
+    "remaining_budget_after_run": {
+      "credits": 970.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-29 22:53:58",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "0989bdba-0d45-4251-b3df-d151d919ac8d",
+    "report_id": "sim_3a6acc4e",
+    "generated_at": "2026-05-29 22:53:58",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 30,
+    "estimated_generation_time_minutes": 60.0,
+    "estimated_provider_cost": 30.0,
+    "estimated_credits": 30.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "high",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 80.0,
+    "cost_estimate": {
+      "estimated_total_credits": 30.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 60.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:41fab2935475ca6b421d82aa754e4cfd3cf2635861beb287249fc67c30912f5e",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_3a6acc4e",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-29 22:53:58"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-05-29 22:53:58",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-29 22:53:58",
+      "state": "BUDGET_BLOCKED",
+      "reason": "governance: approval=AWAITING_APPROVAL, budget=BUDGET_BLOCKED"
+    }
+  ]
+}

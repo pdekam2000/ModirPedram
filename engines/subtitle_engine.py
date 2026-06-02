@@ -1,32 +1,30 @@
 from pathlib import Path
 import re
 
+DEFAULT_HIGHLIGHT_KEYWORDS = (
+    "secret",
+    "hidden",
+    "important",
+    "never",
+    "always",
+    "stop",
+    "watch",
+)
+
 
 class SubtitleEngine:
-    def __init__(self, output_dir="outputs/subtitles"):
+    def __init__(self, output_dir="outputs/subtitles", highlight_keywords=None):
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        self.highlight_words = [
-            "glow",
-            "skin",
-            "mask",
-            "tonight",
-            "secret",
-            "soft",
-            "radiant",
-            "smooth",
-            "hydrated",
-            "fresh",
-            "natural",
-            "simple",
-            "beautiful",
-            "healthy",
-            "viral",
-            "stop",
-            "never",
-            "always"
-        ]
+        if highlight_keywords is not None:
+            self.highlight_words = [
+                str(word).strip().lower()
+                for word in highlight_keywords
+                if str(word).strip()
+            ]
+        else:
+            self.highlight_words = list(DEFAULT_HIGHLIGHT_KEYWORDS)
 
     def split_text(self, text, max_words=4):
         words = text.strip().split()
@@ -180,8 +178,8 @@ if __name__ == "__main__":
     engine = SubtitleEngine()
 
     test_text = (
-        "Make this simple glow mask tonight "
-        "for soft hydrated radiant skin naturally."
+        "Watch this hidden secret tonight "
+        "because it is always important to stop and learn."
     )
 
     result = engine.create_subtitles(

@@ -1,0 +1,46 @@
+{
+  "manifest_version": "11h2a_v1",
+  "session_id": "exec_11h2a_mock_ok",
+  "category": "voice_generation",
+  "provider": "mock_elevenlabs",
+  "provider_mode": "mock",
+  "segment_count": 2,
+  "character_count": 87,
+  "total_size_bytes": 200,
+  "files": [
+    {
+      "segment_index": 1,
+      "file_name": "narration_001.mp3",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11h2a_mock_ok\\voice_generation\\narration_001.mp3",
+      "size_bytes": 100,
+      "character_count": 43,
+      "text_hash": "sha256:dd8975f9809eebfaff113b23631d1db8414892b11cbad943b81c96936bf43cfe",
+      "beat_id": "HOOK",
+      "validation_status": "valid",
+      "request_id": null,
+      "retry_count": 0
+    },
+    {
+      "segment_index": 2,
+      "file_name": "narration_002.mp3",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11h2a_mock_ok\\voice_generation\\narration_002.mp3",
+      "size_bytes": 100,
+      "character_count": 44,
+      "text_hash": "sha256:9725c1af9ca09f4440a35b685fa8e41da712949afc994a07bf53b49d53c85aff",
+      "beat_id": "BODY",
+      "validation_status": "valid",
+      "request_id": null,
+      "retry_count": 0
+    }
+  ],
+  "created_at": "2026-06-01 19:07:12",
+  "started_at": "2026-06-01 19:07:12",
+  "completed_at": "2026-06-01 19:07:12",
+  "duration_seconds": 0.0,
+  "validation_status": "valid",
+  "execution_status": "completed",
+  "partial": false,
+  "tts_executed": true,
+  "real_provider_called": false,
+  "engine_version": "11h2d_v1"
+}

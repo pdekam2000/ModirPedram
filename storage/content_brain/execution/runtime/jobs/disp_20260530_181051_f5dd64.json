@@ -1,0 +1,16 @@
+{
+  "job_id": "disp_20260530_181051_f5dd64",
+  "session_id": "exec_10kd_cancel_coop",
+  "phase": "FAILED",
+  "provider_family": "hailuo",
+  "provider_execution_mode": "browser",
+  "provider_resolved": "hailuo_browser",
+  "learning_key": "hailuo_browser",
+  "accepted_at": "2026-05-30 18:10:51",
+  "heartbeat_at": null,
+  "thread_id": null,
+  "stale": false,
+  "stale_reason": null,
+  "reject_code": "PROVIDER_RUNTIME_ERROR",
+  "finalized_at": "2026-05-30 18:10:51"
+}

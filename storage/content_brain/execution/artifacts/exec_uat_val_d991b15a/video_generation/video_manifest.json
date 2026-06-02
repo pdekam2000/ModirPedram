@@ -1,0 +1,16 @@
+{
+  "clips": [
+    {
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_d991b15a\\video_generation\\clip_001.mp4",
+      "clip_number": 1
+    },
+    {
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_d991b15a\\video_generation\\clip_002.mp4",
+      "clip_number": 2
+    },
+    {
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_d991b15a\\video_generation\\clip_003.mp4",
+      "clip_number": 3
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "extends": "profiles/dark_mystery_profile.json",
+  "metadata": {
+    "deprecated_path": true,
+    "redirect_to": "config/content_brain/profiles/dark_mystery_profile.json",
+    "notes": "Backward-compatible pointer. Load via ProfileLoader instead of reading this file directly."
+  }
+}

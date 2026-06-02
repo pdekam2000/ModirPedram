@@ -1,0 +1,1010 @@
+{
+  "session_schema_version": "10i_v1",
+  "session_uuid": "60bc136f-01f3-4c4f-a1f5-3ada6a416bf8",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_10k_val_completed",
+  "brief_id": "brief_10f_worker_completed",
+  "state": "COMPLETED",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-06-02 19:54:09",
+  "provider": "hailuo_browser",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_worker_completed",
+    "video_format_plan": {
+      "clip_count": 2,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    },
+    "run_context": {
+      "story_intelligence": {
+        "schema_director_shots": [
+          {
+            "clip_number": 1,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 1 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 1."
+          },
+          {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 2 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 2."
+          }
+        ]
+      }
+    }
+  },
+  "story_quality": {
+    "composite_score": 86.0,
+    "score": 86.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "hailuo_browser",
+    "alternatives": [],
+    "expected_retry_risk": "low",
+    "category_selections": {
+      "video_generation": {
+        "provider": "hailuo_browser"
+      }
+    }
+  },
+  "execution_confidence_score": 78.0,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 2.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_ba38b2a82ac1",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved_for_execution",
+    "reasons": [
+      "All auto-approval thresholds met."
+    ],
+    "blockers": [],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-05-30 10:01:38",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 86.0,
+      "execution_confidence": 78.0,
+      "estimated_credits": 2.0,
+      "effective_credits": 2.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "384956aa-e060-4662-8159-7f2e9f6f376f"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_8d33c00c50ab",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 2.0,
+    "effective_credits": 2.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 998.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-30 10:01:38",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "384956aa-e060-4662-8159-7f2e9f6f376f",
+    "report_id": "sim_cdc7771b",
+    "generated_at": "2026-05-30 10:01:38",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 2,
+    "estimated_generation_time_minutes": 4.0,
+    "estimated_provider_cost": 2.0,
+    "estimated_credits": 2.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "low",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 78.0,
+    "cost_estimate": {
+      "estimated_total_credits": 2.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 4.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:c6674db69dcb38d25c5333affe94c0af166a54f003ff26b375bab5844871596a",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_cdc7771b",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-30 10:01:38",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-05-30 10:01:38",
+    "queue_version": "10h_v1",
+    "queue_enqueued_at": "2026-05-30 10:01:38"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "GOVERNED",
+      "reason": "governance: approval=APPROVED_FOR_EXECUTION, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "READY",
+      "reason": "readiness gate: READY (score=100.0)"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "QUEUED",
+      "reason": "queue engine: QUEUED (item=queue_20260530_100138_618642, position=None)"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "DEQUEUED",
+      "reason": "queue dequeued"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "DISPATCHED",
+      "reason": "provider runtime: dispatched (hailuo_browser, clips=2)"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "RUNNING",
+      "reason": "provider runtime: running (hailuo_browser)"
+    },
+    {
+      "at": "2026-05-30 10:01:38",
+      "state": "COMPLETED",
+      "reason": "provider runtime: completed (2 clips)"
+    },
+    {
+      "at": "2026-06-02 19:54:09",
+      "state": "COMPLETED",
+      "reason": "operator archive: validation archive"
+    }
+  ],
+  "priority_band": "high",
+  "priority_decision": {
+    "priority_band": "high",
+    "priority_score": 86.0,
+    "queue_position": null,
+    "decision_source": "execution_queue_engine"
+  },
+  "execution_readiness": {
+    "decision": "READY",
+    "readiness_score": 100.0,
+    "readiness_failures": [],
+    "readiness_warnings": [],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-30 10:01:38"
+      },
+      "simulation_report_uuid": "384956aa-e060-4662-8159-7f2e9f6f376f",
+      "governance_decision_ids": {
+        "approval": "appr_ba38b2a82ac1",
+        "budget": "bdgt_8d33c00c50ab"
+      }
+    }
+  },
+  "queue_item": {
+    "queue_item_uuid": "8646f919-84de-41e1-bd15-aedda61078c3",
+    "queue_item_id": "queue_20260530_100138_618642",
+    "queue_state": "DEQUEUED",
+    "queue_version": "10h_v1",
+    "session_uuid": "60bc136f-01f3-4c4f-a1f5-3ada6a416bf8",
+    "execution_session_id": "exec_10j_ops_worker_completed",
+    "brief_id": "brief_10f_worker_completed",
+    "priority": {
+      "priority_band": "high",
+      "priority_score": 86.0,
+      "queue_position": null,
+      "effective_priority": 300091.0
+    },
+    "eligibility_snapshot": {
+      "readiness_decision": "READY",
+      "readiness_score": 100.0,
+      "approval_status": "APPROVED_FOR_EXECUTION",
+      "budget_status": "WITHIN_LIMIT",
+      "simulation_fingerprint": "sha256:c6674db69dcb38d25c5333affe94c0af166a54f003ff26b375bab5844871596a",
+      "provider": "hailuo"
+    },
+    "enqueue_context": {
+      "enqueued_at": "2026-05-30 10:01:38",
+      "enqueued_by": "system",
+      "enqueue_attempt": 1,
+      "enqueue_reason": "readiness_passed"
+    },
+    "lifecycle": {
+      "dequeued_at": "2026-05-30 10:01:38",
+      "dequeued_by": "seed",
+      "cancelled_at": null,
+      "cancelled_by": null,
+      "cancel_reason": null,
+      "expired_at": null,
+      "expire_reason": null,
+      "ttl_seconds": 86400,
+      "expires_at": "2026-05-31 10:01:38"
+    },
+    "retry": {
+      "max_enqueue_attempts": 3,
+      "enqueue_attempts_used": 1,
+      "requeue_allowed": true,
+      "last_terminal_state": "DEQUEUED"
+    },
+    "metadata": {
+      "queue_provenance": {
+        "engine": "ExecutionQueueEngine",
+        "engine_version": "10h_v1",
+        "policy_version": "10h_v1",
+        "evaluated_at": "2026-05-30 10:01:38",
+        "policy_snapshot": {
+          "policy_id": "default_local",
+          "policy_version": "10h_v1",
+          "eligible_readiness_decisions": [
+            "READY",
+            "READY_WITH_WARNINGS"
+          ],
+          "default_ttl_seconds": 86400,
+          "max_active_queue_depth": 100,
+          "max_enqueue_attempts": 3,
+          "require_fingerprint_match": true,
+          "priority_band_weights": {
+            "critical": 400,
+            "high": 300,
+            "medium": 200,
+            "low": 100
+          }
+        }
+      },
+      "queue_fingerprint": "sha256:b33d1d26d0f39550b6a30c093e25fe7b11ab4840fefc767e31c051260ac7b0a9",
+      "queue_fingerprint_version": "10h_v1",
+      "queue_fingerprint_sources": [
+        "execution_readiness",
+        "approval_decision",
+        "budget_decision",
+        "simulation_fingerprint"
+      ],
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-30 10:01:38"
+      },
+      "governance_decision_ids": {
+        "approval": "appr_ba38b2a82ac1",
+        "budget": "bdgt_8d33c00c50ab"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_3858bb4bee01",
+      "event_type": "ENQUEUED",
+      "at": "2026-05-30 10:01:38",
+      "queue_item_id": "queue_20260530_100138_618642",
+      "queue_item_uuid": "8646f919-84de-41e1-bd15-aedda61078c3",
+      "actor": "seed",
+      "details": {
+        "queue_position": null,
+        "effective_priority": 300091.0,
+        "readiness_decision": "READY"
+      }
+    },
+    {
+      "event_id": "qevt_9fa15a4e5f4f",
+      "event_type": "DEQUEUED",
+      "at": "2026-05-30 10:01:38",
+      "queue_item_id": "queue_20260530_100138_618642",
+      "queue_item_uuid": "8646f919-84de-41e1-bd15-aedda61078c3",
+      "actor": "seed",
+      "details": {
+        "queue_item_id": "queue_20260530_100138_618642",
+        "targeted": true
+      }
+    }
+  ],
+  "execution_runtime": {
+    "runtime_version": "10i_v1",
+    "provider_category": "video_generation",
+    "dispatch_id": "disp_20260530_100138_eba98f",
+    "dispatch_uuid": "315716f8-07b4-4a66-913f-4bdd37918a20",
+    "provider_resolved": "hailuo_browser",
+    "provider_mode": "browser",
+    "state": "COMPLETED",
+    "dispatched_at": "2026-05-30 10:01:38",
+    "running_at": "2026-05-30 10:01:38",
+    "completed_at": "2026-05-30 10:01:38",
+    "artifact_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10j_ops_worker_completed\\video_generation",
+    "prompt_bundle": {
+      "adapter_version": "10i_v1",
+      "adapter_source": "schema_director_shots",
+      "provider_category": "video_generation",
+      "clip_count": 2,
+      "target_clip_count": 2,
+      "provider_hint": "hailuo_browser",
+      "prompts": [
+        "Demo clip 1 for provider runtime dry-run validation. Camera: Medium-wide establishing. Movement: Static hold. Lighting: Low-key motivated practical. Pacing: tension. Continuity: Demo continuity for clip 1..",
+        "Demo clip 2 for provider runtime dry-run validation. Camera: Medium-wide establishing. Movement: Static hold. Lighting: Low-key motivated practical. Pacing: tension. Continuity: Demo continuity for clip 2.."
+      ],
+      "clip_metadata": [
+        {
+          "clip_number": 1,
+          "duration_seconds": 6,
+          "beat_id": null,
+          "source_shot_id": null,
+          "prompt_hash": "sha256:671e08f2807611e59854bd729a6446acedc68e2db1ee42cdad3663d23598a243"
+        },
+        {
+          "clip_number": 2,
+          "duration_seconds": 6,
+          "beat_id": null,
+          "source_shot_id": null,
+          "prompt_hash": "sha256:cd93239d7e87e9a3af4db6d20a885312ec5849073a81c0425b3081ba994dd568"
+        }
+      ],
+      "metadata": {
+        "adapter_provenance": {
+          "engine": "SessionPromptAdapter",
+          "engine_version": "10i_v1",
+          "evaluated_at": "2026-05-30 10:01:38"
+        },
+        "sources_used": [
+          "schema_director_shots",
+          "video_format_plan",
+          "brief_snapshot"
+        ],
+        "warnings": []
+      }
+    },
+    "category_runtime": {
+      "video_generation": {
+        "state": "COMPLETED",
+        "provider": "hailuo_browser",
+        "status": "active",
+        "started_at": "2026-05-30 10:01:38",
+        "completed_at": "2026-05-30 10:01:38",
+        "artifact_count": 2
+      },
+      "voice_generation": {
+        "state": "not_started",
+        "provider": "elevenlabs",
+        "status": "planned"
+      },
+      "music_generation": {
+        "state": "not_started",
+        "provider": "suno",
+        "status": "planned"
+      },
+      "image_generation": {
+        "state": "not_started",
+        "provider": "generic",
+        "status": "planned"
+      },
+      "publishing": {
+        "state": "not_started",
+        "provider": "generic",
+        "status": "planned"
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [
+        {
+          "artifact_id": "art_c339b134b495",
+          "provider_category": "video_generation",
+          "artifact_type": "video_clip",
+          "provider": "hailuo_browser",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10j_ops_worker_completed\\video_generation\\clip_01.mock",
+          "clip_number": 1,
+          "metadata": {
+            "clip_number": 1,
+            "duration_seconds": 6,
+            "beat_id": null,
+            "source_shot_id": null,
+            "prompt_hash": "sha256:671e08f2807611e59854bd729a6446acedc68e2db1ee42cdad3663d23598a243"
+          },
+          "validated_at": "2026-05-30 10:01:38",
+          "provider_execution": {
+            "provider_name": "hailuo",
+            "provider_category": "video_generation",
+            "execution_mode": "browser",
+            "learning_key": "hailuo_browser",
+            "router_key": "hailuo_browser"
+          },
+          "size_bytes": 63,
+          "validation_status": "valid",
+          "validation_error": null,
+          "sha256": "sha256:5062170b8ede5c48427938fc058b33c37662f4030e04d2cf9ee34f8f04fcd956"
+        },
+        {
+          "artifact_id": "art_46f07b907a7e",
+          "provider_category": "video_generation",
+          "artifact_type": "video_clip",
+          "provider": "hailuo_browser",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10j_ops_worker_completed\\video_generation\\clip_02.mock",
+          "clip_number": 2,
+          "metadata": {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "beat_id": null,
+            "source_shot_id": null,
+            "prompt_hash": "sha256:cd93239d7e87e9a3af4db6d20a885312ec5849073a81c0425b3081ba994dd568"
+          },
+          "validated_at": "2026-05-30 10:01:38",
+          "provider_execution": {
+            "provider_name": "hailuo",
+            "provider_category": "video_generation",
+            "execution_mode": "browser",
+            "learning_key": "hailuo_browser",
+            "router_key": "hailuo_browser"
+          },
+          "size_bytes": 63,
+          "validation_status": "valid",
+          "validation_error": null,
+          "sha256": "sha256:5062170b8ede5c48427938fc058b33c37662f4030e04d2cf9ee34f8f04fcd956"
+        }
+      ],
+      "voice_generation": [],
+      "music_generation": [],
+      "image_generation": [],
+      "publishing": []
+    },
+    "failure": null,
+    "retry": {
+      "max_dispatch_attempts": 1,
+      "dispatch_attempts_used": 1,
+      "requeue_required_for_retry": true
+    },
+    "provider_provenance": {
+      "engine": "ProviderRuntimeEngine",
+      "engine_version": "10i_v1",
+      "policy_version": "10j_v1",
+      "evaluated_at": "2026-05-30 10:01:38",
+      "provider_category": "video_generation",
+      "provider_resolved": "hailuo_browser",
+      "registry_category": "video_generation",
+      "registry_entry": {
+        "name": "hailuo_browser",
+        "display_name": "Hailuo Browser",
+        "api_key_env": "",
+        "mode": "browser",
+        "enabled": false
+      },
+      "future_categories_registered": [
+        "voice_generation",
+        "music_generation",
+        "image_generation",
+        "publishing"
+      ],
+      "policy_snapshot": {
+        "policy_id": "default_local",
+        "policy_version": "10j_v1",
+        "provider_category": "video_generation",
+        "require_queue_fingerprint": true,
+        "require_readiness": true,
+        "skip_provider_execution": true,
+        "max_clips_cap": 30,
+        "supported_categories_10i": [
+          "video_generation"
+        ],
+        "future_categories": [
+          "voice_generation",
+          "music_generation",
+          "image_generation",
+          "publishing"
+        ]
+      }
+    },
+    "operations": {
+      "operations_version": "10j_v1",
+      "job_id": "disp_20260530_100138_eba98f",
+      "dispatch_mode": "async",
+      "provider_family": "hailuo",
+      "provider_execution_mode": "browser",
+      "provider_resolved": "hailuo_browser",
+      "learning_key": "hailuo_browser",
+      "router_key": "hailuo_browser",
+      "worker": {
+        "engine": "RuntimeWorkerEngine",
+        "engine_version": "10j_v1",
+        "started_at": "2026-05-30 10:01:38",
+        "heartbeat_at": "2026-05-30 10:01:38",
+        "phase": "COMPLETED",
+        "thread_alive": false,
+        "stale": false,
+        "stale_reason": null
+      },
+      "preflight": {
+        "passed": true,
+        "checked_at": "2026-05-30 10:01:38",
+        "preflight_version": "10j_v1",
+        "provider_family": "hailuo",
+        "provider_execution_mode": "browser",
+        "provider_resolved": "hailuo_browser",
+        "learning_key": "hailuo_browser",
+        "mode_resolution": {
+          "provider_family": "hailuo",
+          "provider_execution_mode": "browser",
+          "router_key": "hailuo_browser",
+          "learning_key": "hailuo_browser",
+          "adapter": "browser",
+          "display_name": "Hailuo",
+          "cost_basis": "subscription",
+          "provider_category": "video_generation"
+        },
+        "checks": [
+          {
+            "id": "PROVIDER_FAMILY_RESOLVED",
+            "passed": true,
+            "message": "Family resolved: hailuo"
+          },
+          {
+            "id": "EXECUTION_MODE_SUPPORTED",
+            "passed": true,
+            "message": "Mode: browser"
+          },
+          {
+            "id": "ROUTER_KEY_RESOLVED",
+            "passed": true,
+            "message": "Router key: hailuo_browser"
+          },
+          {
+            "id": "ROUTER_IMPLEMENTED",
+            "passed": true,
+            "message": "Router implemented"
+          },
+          {
+            "id": "REGISTRY_ENTRY",
+            "passed": true,
+            "message": "Registry entry for hailuo_browser"
+          },
+          {
+            "id": "PROMPT_BUNDLE",
+            "passed": true,
+            "message": "Prompt adapter dry-run OK"
+          },
+          {
+            "id": "CLIP_COUNT_CAP",
+            "passed": true,
+            "message": "Clip count within cap"
+          },
+          {
+            "id": "ARTIFACT_DIR_WRITABLE",
+            "passed": true,
+            "message": "Artifact dir writable: C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10j_ops_worker_completed\\video_generation"
+          },
+          {
+            "id": "DISPATCH_ATTEMPTS",
+            "passed": true,
+            "message": "Dispatch attempts OK (0/3)"
+          },
+          {
+            "id": "BROWSER_AVAILABLE",
+            "passed": true,
+            "message": "Browser probes skipped (test mode)"
+          }
+        ],
+        "reject_code": null,
+        "reject_reasons": []
+      },
+      "validation": {
+        "validated_at": "2026-05-30 10:01:38",
+        "passed": true,
+        "validation_version": "10j_v1",
+        "clip_target": 2,
+        "clip_valid": 2,
+        "clip_invalid": 0,
+        "invalid_clips": [],
+        "checks": [
+          {
+            "id": "MIN_SIZE",
+            "passed": true,
+            "message": "Clip 1: size 63 OK",
+            "artifact_index": 1
+          },
+          {
+            "id": "PATH_EXISTS",
+            "passed": true,
+            "message": "Clip 1: path exists",
+            "artifact_index": 1
+          },
+          {
+            "id": "EXTENSION",
+            "passed": true,
+            "message": "Clip 1: extension '.mock' OK",
+            "artifact_index": 1
+          },
+          {
+            "id": "MIN_SIZE",
+            "passed": true,
+            "message": "Clip 2: size 63 OK",
+            "artifact_index": 2
+          },
+          {
+            "id": "PATH_EXISTS",
+            "passed": true,
+            "message": "Clip 2: path exists",
+            "artifact_index": 2
+          },
+          {
+            "id": "EXTENSION",
+            "passed": true,
+            "message": "Clip 2: extension '.mock' OK",
+            "artifact_index": 2
+          },
+          {
+            "id": "COUNT_MATCH",
+            "passed": true,
+            "message": "Clip count 2 matches target 2"
+          }
+        ],
+        "reject_code": null,
+        "reject_reasons": []
+      },
+      "timing": {
+        "preflight_ms": null,
+        "provider_ms": null,
+        "validation_ms": null,
+        "total_ms": null
+      },
+      "policy_snapshot": {
+        "policy_id": "default_local",
+        "operations_policy_version": "10j_v1",
+        "provider_category": "video_generation",
+        "require_queue_fingerprint": true,
+        "require_readiness": true,
+        "skip_provider_execution": true,
+        "max_clips_cap": 30,
+        "max_dispatch_attempts": 3,
+        "retriable_failure_codes": [
+          "API_CONNECTIVITY_FAILED",
+          "API_ENDPOINT_NOT_CONFIGURED",
+          "API_QUOTA_EXCEEDED",
+          "ARTIFACT_COPY_FAILED",
+          "ARTIFACT_COUNT_MISMATCH",
+          "ARTIFACT_DIR_NOT_WRITABLE",
+          "ARTIFACT_INVALID_TYPE",
+          "ARTIFACT_MISSING",
+          "ARTIFACT_NULL_PATH",
+          "ARTIFACT_PATH_MISSING",
+          "ARTIFACT_TOO_SMALL",
+          "ARTIFACT_VALIDATION_FAILED",
+          "BROWSER_AUTOMATION_NOT_READY",
+          "BROWSER_CONCURRENCY_LIMIT",
+          "BROWSER_PROFILE_MISSING",
+          "BROWSER_SESSION_INVALID",
+          "BROWSER_UNAVAILABLE",
+          "CREDENTIALS_INVALID",
+          "CREDENTIALS_MISSING",
+          "DOWNLOAD_FAILED",
+          "DOWNLOAD_PATH_NOT_WRITABLE",
+          "HEARTBEAT_TIMEOUT",
+          "PREFLIGHT_FAILED",
+          "PROVIDER_RUNTIME_ERROR",
+          "PROVIDER_TASK_FAILED",
+          "PROVIDER_TIMEOUT",
+          "REFERENCE_FRAME_PATH_MISSING"
+        ],
+        "max_concurrent_browser_jobs": 1,
+        "heartbeat_interval_seconds": 30,
+        "stale_after_seconds": 120,
+        "min_artifact_bytes": 100000,
+        "allow_partial_artifacts": false,
+        "auto_requeue_on_retriable_failure": false,
+        "worker_log_capture": true
+      },
+      "cost_telemetry": {
+        "telemetry_version": "10j_v1",
+        "provider_name": "hailuo",
+        "provider_execution_mode": "browser",
+        "learning_key": "hailuo_browser",
+        "router_key": "hailuo_browser",
+        "provider_category": "video_generation",
+        "dispatch_id": "disp_20260530_100138_eba98f",
+        "start_time": "2026-05-30 10:01:38",
+        "end_time": "2026-05-30 10:01:38",
+        "duration_seconds": 0,
+        "estimated_cost": 2.0,
+        "estimated_credits": 2.0,
+        "estimate_source": "simulation_report.estimated_credits",
+        "cost_basis": "subscription",
+        "clip_count": 2,
+        "outcome": "COMPLETED",
+        "snapshotted_at": "2026-05-30 10:01:38"
+      }
+    }
+  },
+  "provider_audit_log": [
+    {
+      "event_id": "pevt_f00af3cce45f",
+      "event_type": "JOB_ACCEPTED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "provider_family": "hailuo",
+        "provider_execution_mode": "browser",
+        "learning_key": "hailuo_browser"
+      }
+    },
+    {
+      "event_id": "pevt_5dd41170b6dc",
+      "event_type": "MODE_RESOLVED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "provider_family": "hailuo",
+        "provider_execution_mode": "browser",
+        "router_key": "hailuo_browser",
+        "learning_key": "hailuo_browser",
+        "adapter": "browser",
+        "display_name": "Hailuo",
+        "cost_basis": "subscription",
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_12a58d205171",
+      "event_type": "PREFLIGHT_PASSED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "provider_execution_mode": "browser",
+        "learning_key": "hailuo_browser",
+        "checks_passed": 10
+      }
+    },
+    {
+      "event_id": "pevt_ade3def33f13",
+      "event_type": "DISPATCHED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "provider": "hailuo_browser",
+        "provider_category": "video_generation",
+        "clip_count": 2
+      }
+    },
+    {
+      "event_id": "pevt_9d5ee5b830ca",
+      "event_type": "RUNNING",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "provider": "hailuo_browser",
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_2e9ecd7f516f",
+      "event_type": "ARTIFACT_VALIDATED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "clip_count": 2,
+        "clip_target": 2,
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_217073eeab5e",
+      "event_type": "COMPLETED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "clip_count": 2,
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_a48062c77304",
+      "event_type": "COMPLETED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "worker": true,
+        "provider_execution_mode": "browser"
+      }
+    },
+    {
+      "event_id": "pevt_66d6570554b4",
+      "event_type": "COST_TELEMETRY_RECORDED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "cost_telemetry": {
+          "telemetry_version": "10j_v1",
+          "provider_name": "hailuo",
+          "provider_execution_mode": "browser",
+          "learning_key": "hailuo_browser",
+          "router_key": "hailuo_browser",
+          "provider_category": "video_generation",
+          "dispatch_id": "disp_20260530_100138_eba98f",
+          "start_time": "2026-05-30 10:01:38",
+          "end_time": "2026-05-30 10:01:38",
+          "duration_seconds": 0,
+          "estimated_cost": 2.0,
+          "estimated_credits": 2.0,
+          "estimate_source": "simulation_report.estimated_credits",
+          "cost_basis": "subscription",
+          "clip_count": 2,
+          "outcome": "COMPLETED",
+          "snapshotted_at": "2026-05-30 10:01:38"
+        }
+      }
+    },
+    {
+      "event_id": "pevt_81822eaa1c76",
+      "event_type": "JOB_FINALIZED",
+      "at": "2026-05-30 10:01:38",
+      "dispatch_id": "disp_20260530_100138_eba98f",
+      "actor": "seed",
+      "details": {
+        "phase": "COMPLETED"
+      }
+    }
+  ],
+  "operations_control": {
+    "schema_version": "10k_v1",
+    "archived": true,
+    "retry_count": 0,
+    "requeue_count": 0,
+    "archived_at": "2026-06-02 19:54:09",
+    "archived_by": "operator",
+    "archive_reason": "validation archive"
+  },
+  "operations_audit_log": [
+    {
+      "event_id": "ops_evt_20260602_195409_88190e",
+      "timestamp": "2026-06-02 19:54:09",
+      "session_id": "exec_10k_val_completed",
+      "action": "archive",
+      "actor": "operator",
+      "previous_state": "COMPLETED",
+      "next_state": "COMPLETED",
+      "reason": "validation archive",
+      "allowed": true,
+      "blocked_reason": null,
+      "metadata": {
+        "archived": true
+      }
+    }
+  ]
+}

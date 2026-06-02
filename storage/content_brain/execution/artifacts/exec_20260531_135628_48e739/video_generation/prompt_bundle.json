@@ -1,0 +1,65 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 5,
+  "target_clip_count": 5,
+  "provider_hint": "hailuo_browser",
+  "prompts": [
+    "topic-specific object in sharp focus highlighting cat during hook — specific to cat in the streets of Los Angeles, not generic stock footage.. Subject: cat evidence element. Action: Reveal cat detail entering frame. Mood: curiosity. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening; sets up ESCALATION_BEAT..",
+    "evidence detail macro shot highlighting streets during escalation — specific to cat in the streets of Los Angeles, not generic stock footage.. Subject: streets evidence element. Action: Contrast two readings of streets. Mood: tension. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up PAYOFF_BEAT..",
+    "contrasting before/after frame highlighting los during payoff — specific to cat in the streets of Los Angeles, not generic stock footage.. Subject: los evidence element. Action: Hold on decisive los evidence. Mood: payoff. Camera: Locked-off hero frame with decisive reveal element centered. Movement: Static hold. Lighting: Natural motivated light with clear subject separation — crisp highlight on reveal object. Pacing: payoff. Continuity: Follows ESCALATION_BEAT; sets up LOOP_SEED..",
+    "annotated screen capture highlighting angeles during loop_seed — specific to cat in the streets of Los Angeles, not generic stock footage.. Subject: angeles evidence element. Action: Leave angeles partially obscured at frame edge. Mood: open_loop. Camera: Pull-back reveal leaving one element unresolved at frame edge. Movement: Static hold. Lighting: Natural motivated light with clear subject separation — falloff into shadow on unresolved edge. Pacing: open_loop. Continuity: Follows PAYOFF_BEAT; sets up CONTEXT_BEAT..",
+    "environmental texture tied to claim highlighting cat during context — specific to cat in the streets of Los Angeles, not generic stock footage.. Subject: cat evidence element. Action: Show cat in situ within environment. Mood: grounding. Camera: Medium-wide establishing with subject in lower third. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: grounding. Continuity: Follows LOOP_SEED; sets up close.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 2,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:10fc3bb20c9079b3c8127326422f8741d7da1460e7fe21671fcf3a2d90f1ce9b"
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:44dda2bdb905359faf99a2a672931ca956895effbb592b0473e8449ec10233ba"
+    },
+    {
+      "clip_number": 3,
+      "duration_seconds": 8,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:425344fabe4c1a0c658e2b4355099822377523286d9d4ac31fc28bf5251ac394"
+    },
+    {
+      "clip_number": 4,
+      "duration_seconds": 5,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:897a99fc2b427b86eabd6b74d33a723af7f7d5a8958e9f61b608a6fe42ae8594"
+    },
+    {
+      "clip_number": 5,
+      "duration_seconds": 3,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:7fa96ccdf3ba35ba76642b5cabac41b70e44aec9a4af04d1bbe75c392bd59d74"
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-05-31 13:56:28"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": []
+  }
+}

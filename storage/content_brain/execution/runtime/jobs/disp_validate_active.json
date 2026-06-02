@@ -1,0 +1,14 @@
+{
+  "job_id": "disp_validate_active",
+  "session_id": "exec_10i_dequeued_demo",
+  "phase": "RUNNING",
+  "provider_family": null,
+  "provider_execution_mode": null,
+  "provider_resolved": null,
+  "learning_key": null,
+  "accepted_at": "2026-05-30 10:01:38",
+  "heartbeat_at": null,
+  "thread_id": null,
+  "stale": false,
+  "stale_reason": null
+}

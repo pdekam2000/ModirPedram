@@ -97,5 +97,52 @@
             "mode": "api",
             "enabled": false
         }
+    ],
+    "trend": [
+        {
+            "name": "mock_trend_provider",
+            "display_name": "Mock Local Seeds",
+            "api_key_env": "",
+            "mode": "local",
+            "enabled": true
+        },
+        {
+            "name": "dataforseo",
+            "display_name": "DataForSEO",
+            "api_key_env": "",
+            "credential_envs": [
+                "DATAFORSEO_LOGIN",
+                "DATAFORSEO_PASSWORD"
+            ],
+            "mode": "api",
+            "enabled": false
+        },
+        {
+            "name": "serpapi",
+            "display_name": "SerpAPI",
+            "api_key_env": "SERPAPI_API_KEY",
+            "mode": "api",
+            "enabled": false
+        },
+        {
+            "name": "dataforseo_youtube",
+            "display_name": "DataForSEO YouTube SERP",
+            "api_key_env": "",
+            "credential_envs": [
+                "DATAFORSEO_LOGIN",
+                "DATAFORSEO_PASSWORD"
+            ],
+            "mode": "api",
+            "enabled": false
+        }
+    ],
+    "trend_enrichment": [
+        {
+            "name": "openai_trend_enricher",
+            "display_name": "OpenAI Trend Enricher",
+            "api_key_env": "OPENAI_API_KEY",
+            "mode": "api",
+            "enabled": false
+        }
     ]
 }

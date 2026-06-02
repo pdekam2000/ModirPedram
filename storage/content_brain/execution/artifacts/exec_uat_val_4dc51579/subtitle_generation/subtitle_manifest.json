@@ -1,0 +1,64 @@
+{
+  "manifest_version": "11i_v1",
+  "writer_version": "11i6_v1",
+  "session_id": "exec_uat_val_4dc51579",
+  "category": "subtitle_generation",
+  "provider": "local_subtitle_runtime",
+  "provider_mode": "local",
+  "source_type": "narration_text_only",
+  "timing_strategy": "equal_chunk",
+  "language": "en",
+  "cue_count": 15,
+  "segment_count": 6,
+  "formats_written": [
+    "srt",
+    "ass",
+    "vtt"
+  ],
+  "format_list": [
+    "srt",
+    "ass",
+    "vtt"
+  ],
+  "files": [
+    {
+      "format": "srt",
+      "file_name": "subtitles.srt",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_4dc51579\\subtitle_generation\\subtitles.srt",
+      "size_bytes": 1060,
+      "cue_count": 15,
+      "validation_status": "valid"
+    },
+    {
+      "format": "ass",
+      "file_name": "subtitles.ass",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_4dc51579\\subtitle_generation\\subtitles.ass",
+      "size_bytes": 3004,
+      "cue_count": 15,
+      "validation_status": "valid"
+    },
+    {
+      "format": "vtt",
+      "file_name": "subtitles.vtt",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_4dc51579\\subtitle_generation\\subtitles.vtt",
+      "size_bytes": 1019,
+      "cue_count": 15,
+      "validation_status": "valid"
+    }
+  ],
+  "total_duration_seconds": 35.214,
+  "total_duration": 35.214,
+  "validation_status": "valid",
+  "generated_at": "2026-06-01 22:09:13",
+  "batch_version": "11i4_v1",
+  "voice_manifest_ref": null,
+  "narration_source_path": null,
+  "execution_status": "completed",
+  "partial": false,
+  "real_provider_called": false,
+  "artifact_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_4dc51579\\subtitle_generation",
+  "warnings": [
+    "schema_director_shots present but ignored — visual prompts are not narration sources.",
+    "TIMING_ESTIMATED_EQUAL_CHUNK"
+  ]
+}

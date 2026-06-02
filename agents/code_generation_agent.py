@@ -66,6 +66,39 @@ def timeout_wrapper(
     return operation()
 '''
 
+    def build_replace_retry_patch(self):
+
+        return '''
+def retry_generation(
+    operation,
+    retries=5,
+    delay=2
+):
+
+    import time
+
+    last_error = None
+
+    for attempt in range(retries):
+
+        try:
+            return operation()
+
+        except Exception as error:
+
+            last_error = error
+
+            print(
+                f"[Retry] Attempt "
+                f"{attempt + 1}/{retries} failed"
+            )
+
+            if attempt < retries - 1:
+                time.sleep(delay)
+
+    raise last_error
+'''
+
     # =====================================================
     # GENERATE
     # =====================================================
@@ -90,18 +123,22 @@ def timeout_wrapper(
                 "retry_generation"
                 in existing
             ):
+
                 return {
                     "operation":
-                        "NO_PATCH",
+                        "REPLACE_FUNCTION",
 
                     "function_name":
                         "retry_generation",
 
+                    "class_name":
+                        None,
+
                     "code":
-                        "",
+                        self.build_replace_retry_patch(),
 
                     "reason":
-                        "Function already exists",
+                        "Upgrade existing retry function",
                 }
 
             return {
@@ -110,6 +147,9 @@ def timeout_wrapper(
 
                 "function_name":
                     "retry_generation",
+
+                "class_name":
+                    None,
 
                 "code":
                     self.build_retry_patch(),

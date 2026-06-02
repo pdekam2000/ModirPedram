@@ -1,0 +1,55 @@
+{
+  "execution_session_id": "validate_12j_c2a_obs_session",
+  "execution_runtime": {
+    "operations": {
+      "runway_browser_obs": {
+        "step": "page_selected",
+        "step_updated_at": "2026-06-02T17:38:39Z",
+        "observability_version": "12j_c2a_obs_v1",
+        "controlled_page": {
+          "page_index": 0,
+          "page_url": "https://app.runwayml.com/video",
+          "page_title": "Generative Session | Runway AI",
+          "is_runway_url": true
+        },
+        "open_pages": [
+          {
+            "index": 0,
+            "page_url": "https://app.runwayml.com/video",
+            "page_title": "Generative Session | Runway AI",
+            "is_runway_url": true,
+            "controlled": true
+          }
+        ]
+      }
+    },
+    "category_runtime": {
+      "video_generation": {
+        "state": "RUNNING",
+        "provider": "runway_browser",
+        "runway_browser_obs": {
+          "step": "page_selected",
+          "step_updated_at": "2026-06-02T17:38:39Z",
+          "observability_version": "12j_c2a_obs_v1",
+          "controlled_page": {
+            "page_index": 0,
+            "page_url": "https://app.runwayml.com/video",
+            "page_title": "Generative Session | Runway AI",
+            "is_runway_url": true
+          },
+          "open_pages": [
+            {
+              "index": 0,
+              "page_url": "https://app.runwayml.com/video",
+              "page_title": "Generative Session | Runway AI",
+              "is_runway_url": true,
+              "controlled": true
+            }
+          ]
+        }
+      }
+    },
+    "state": "RUNNING"
+  },
+  "updated_at": "2026-06-02T17:38:39Z"
+}

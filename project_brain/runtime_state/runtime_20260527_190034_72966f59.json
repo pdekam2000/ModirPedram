@@ -1,0 +1,445 @@
+{
+    "session_id": "runtime_20260527_190034_72966f59",
+    "created_at": "2026-05-27 19:00:34",
+    "updated_at": "2026-05-27 19:00:34",
+    "goal": "runtime execution",
+    "status": "WAITING_APPROVAL",
+    "current_step": {
+        "step": 4,
+        "action": "REQUEST_APPROVAL",
+        "status": "WAITING_APPROVAL",
+        "message": "User approval required before applying patch.",
+        "action_context": {
+            "timestamp": "2026-05-27 19:00:34",
+            "project_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS",
+            "session_id": "runtime_20260527_190034_72966f59",
+            "runtime_status": "RUNNING",
+            "step": 4,
+            "action": "REQUEST_APPROVAL",
+            "target_file": "providers/runway_video_provider.py",
+            "target_function": null,
+            "class_name": null,
+            "patch_data": {
+                "timestamp": "2026-05-27 19:00:34",
+                "goal": "upgrade retry mechanism",
+                "target_file": "providers/runway_video_provider.py",
+                "context": {
+                    "target_file": "providers/runway_video_provider.py",
+                    "classes": [
+                        "RunwayVideoProvider"
+                    ],
+                    "functions": [
+                        "__init__",
+                        "clean_prompt",
+                        "download_video",
+                        "generate_clips",
+                        "generate_single_clip",
+                        "retry_generation",
+                        "timeout_wrapper",
+                        "wait_for_task"
+                    ],
+                    "imports": [
+                        "dotenv",
+                        "os",
+                        "pathlib",
+                        "requests",
+                        "time"
+                    ],
+                    "dependency_report": "# DEPENDENCY GRAPH REPORT\n\nGenerated at: 2026-05-27 19:00:34\n\nTarget input: `providers.runway_video_provider`\nResolved target file: `providers/runway_video_provider.py`\n\nEstimated change risk: **CRITICAL**\n\n## Direct Dependencies\n\nFiles/modules that the target file directly or indirectly uses.\n\n### Dependency Level 1\n\n- None\n\n## Reverse Dependencies / Impact Chain\n\nFiles that depend on the target file and may be affected by changes.\n\n### Impact Level 1\n\n- core/video_provider_router.py\n\n### Impact Level 2\n\n- engines/video_generation_engine.py\n- pipelines/full_video_pipeline.py\n- test_full_ai_video_pipeline.py\n\n### Impact Level 3\n\n- None\n\n## Safe Upgrade Recommendation\n\n1. Review target file first\n2. Review Level 1 impact files\n3. Create backup before edits\n4. Apply minimal change\n5. Run verifier\n6. Run related tests if available\n7. Update project_brain\n\n## Approval Status\n\nWAITING FOR USER APPROVAL\n\nNo file was modified by this engine."
+                },
+                "patch": {
+                    "operation": "REPLACE_FUNCTION",
+                    "function_name": "retry_generation",
+                    "class_name": null,
+                    "code": "\ndef retry_generation(\n    operation,\n    retries=5,\n    delay=2\n):\n\n    import time\n\n    last_error = None\n\n    for attempt in range(retries):\n\n        try:\n            return operation()\n\n        except Exception as error:\n\n            last_error = error\n\n            print(\n                f\"[Retry] Attempt \"\n                f\"{attempt + 1}/{retries} failed\"\n            )\n\n            if attempt < retries - 1:\n                time.sleep(delay)\n\n    raise last_error\n",
+                    "reason": "Upgrade existing retry function"
+                },
+                "status": "PATCH_READY"
+            },
+            "ui": {
+                "display_action": "REQUEST_APPROVAL",
+                "progress_step": 4,
+                "requires_user_action": true
+            },
+            "approval": {
+                "required": true,
+                "granted": false,
+                "message": "User approval required before apply."
+            }
+        }
+    },
+    "completed_steps": [
+        {
+            "step": 1,
+            "action": "EXTRACT_FUNCTION"
+        },
+        {
+            "step": 2,
+            "action": "GENERATE_REPLACEMENT"
+        },
+        {
+            "step": 3,
+            "action": "BUILD_DIFF"
+        }
+    ],
+    "failed_step": null,
+    "approval_required": true,
+    "approval_granted": false,
+    "orchestration_plan": {
+        "timestamp": "2026-05-27 19:00:34",
+        "operation": "REPLACE_FUNCTION",
+        "target_file": "providers/runway_video_provider.py",
+        "target_function": "retry_generation",
+        "risk": "MEDIUM",
+        "queue": [
+            {
+                "step": 1,
+                "action": "EXTRACT_FUNCTION",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "status": "PENDING",
+                "class_name": null
+            },
+            {
+                "step": 2,
+                "action": "GENERATE_REPLACEMENT",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "status": "PENDING",
+                "class_name": null
+            },
+            {
+                "step": 3,
+                "action": "BUILD_DIFF",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "status": "PENDING",
+                "class_name": null
+            },
+            {
+                "step": 4,
+                "action": "REQUEST_APPROVAL",
+                "status": "PENDING",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": null,
+                "class_name": null
+            },
+            {
+                "step": 5,
+                "action": "CREATE_BACKUP",
+                "target_file": "providers/runway_video_provider.py",
+                "status": "PENDING",
+                "target_function": null,
+                "class_name": null
+            },
+            {
+                "step": 6,
+                "action": "APPLY_REPLACE_PATCH",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "status": "PENDING",
+                "class_name": null
+            },
+            {
+                "step": 7,
+                "action": "RUN_VERIFIER",
+                "status": "PENDING",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": null,
+                "class_name": null
+            }
+        ],
+        "rollback_strategy": [
+            {
+                "rollback_action": "RESTORE_BACKUP",
+                "target": "providers/runway_video_provider.py"
+            }
+        ],
+        "status": "ORCHESTRATION_READY",
+        "patch_data": {
+            "timestamp": "2026-05-27 19:00:34",
+            "goal": "upgrade retry mechanism",
+            "target_file": "providers/runway_video_provider.py",
+            "context": {
+                "target_file": "providers/runway_video_provider.py",
+                "classes": [
+                    "RunwayVideoProvider"
+                ],
+                "functions": [
+                    "__init__",
+                    "clean_prompt",
+                    "download_video",
+                    "generate_clips",
+                    "generate_single_clip",
+                    "retry_generation",
+                    "timeout_wrapper",
+                    "wait_for_task"
+                ],
+                "imports": [
+                    "dotenv",
+                    "os",
+                    "pathlib",
+                    "requests",
+                    "time"
+                ],
+                "dependency_report": "# DEPENDENCY GRAPH REPORT\n\nGenerated at: 2026-05-27 19:00:34\n\nTarget input: `providers.runway_video_provider`\nResolved target file: `providers/runway_video_provider.py`\n\nEstimated change risk: **CRITICAL**\n\n## Direct Dependencies\n\nFiles/modules that the target file directly or indirectly uses.\n\n### Dependency Level 1\n\n- None\n\n## Reverse Dependencies / Impact Chain\n\nFiles that depend on the target file and may be affected by changes.\n\n### Impact Level 1\n\n- core/video_provider_router.py\n\n### Impact Level 2\n\n- engines/video_generation_engine.py\n- pipelines/full_video_pipeline.py\n- test_full_ai_video_pipeline.py\n\n### Impact Level 3\n\n- None\n\n## Safe Upgrade Recommendation\n\n1. Review target file first\n2. Review Level 1 impact files\n3. Create backup before edits\n4. Apply minimal change\n5. Run verifier\n6. Run related tests if available\n7. Update project_brain\n\n## Approval Status\n\nWAITING FOR USER APPROVAL\n\nNo file was modified by this engine."
+            },
+            "patch": {
+                "operation": "REPLACE_FUNCTION",
+                "function_name": "retry_generation",
+                "class_name": null,
+                "code": "\ndef retry_generation(\n    operation,\n    retries=5,\n    delay=2\n):\n\n    import time\n\n    last_error = None\n\n    for attempt in range(retries):\n\n        try:\n            return operation()\n\n        except Exception as error:\n\n            last_error = error\n\n            print(\n                f\"[Retry] Attempt \"\n                f\"{attempt + 1}/{retries} failed\"\n            )\n\n            if attempt < retries - 1:\n                time.sleep(delay)\n\n    raise last_error\n",
+                "reason": "Upgrade existing retry function"
+            },
+            "status": "PATCH_READY"
+        }
+    },
+    "execution_log": [
+        {
+            "timestamp": "2026-05-27 19:00:34",
+            "step": 1,
+            "action": "EXTRACT_FUNCTION",
+            "status": "SUCCESS",
+            "message": "Function extraction step completed.",
+            "action_context": {
+                "timestamp": "2026-05-27 19:00:34",
+                "project_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS",
+                "session_id": "runtime_20260527_190034_72966f59",
+                "runtime_status": "RUNNING",
+                "step": 1,
+                "action": "EXTRACT_FUNCTION",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "class_name": null,
+                "patch_data": {
+                    "timestamp": "2026-05-27 19:00:34",
+                    "goal": "upgrade retry mechanism",
+                    "target_file": "providers/runway_video_provider.py",
+                    "context": {
+                        "target_file": "providers/runway_video_provider.py",
+                        "classes": [
+                            "RunwayVideoProvider"
+                        ],
+                        "functions": [
+                            "__init__",
+                            "clean_prompt",
+                            "download_video",
+                            "generate_clips",
+                            "generate_single_clip",
+                            "retry_generation",
+                            "timeout_wrapper",
+                            "wait_for_task"
+                        ],
+                        "imports": [
+                            "dotenv",
+                            "os",
+                            "pathlib",
+                            "requests",
+                            "time"
+                        ],
+                        "dependency_report": "# DEPENDENCY GRAPH REPORT\n\nGenerated at: 2026-05-27 19:00:34\n\nTarget input: `providers.runway_video_provider`\nResolved target file: `providers/runway_video_provider.py`\n\nEstimated change risk: **CRITICAL**\n\n## Direct Dependencies\n\nFiles/modules that the target file directly or indirectly uses.\n\n### Dependency Level 1\n\n- None\n\n## Reverse Dependencies / Impact Chain\n\nFiles that depend on the target file and may be affected by changes.\n\n### Impact Level 1\n\n- core/video_provider_router.py\n\n### Impact Level 2\n\n- engines/video_generation_engine.py\n- pipelines/full_video_pipeline.py\n- test_full_ai_video_pipeline.py\n\n### Impact Level 3\n\n- None\n\n## Safe Upgrade Recommendation\n\n1. Review target file first\n2. Review Level 1 impact files\n3. Create backup before edits\n4. Apply minimal change\n5. Run verifier\n6. Run related tests if available\n7. Update project_brain\n\n## Approval Status\n\nWAITING FOR USER APPROVAL\n\nNo file was modified by this engine."
+                    },
+                    "patch": {
+                        "operation": "REPLACE_FUNCTION",
+                        "function_name": "retry_generation",
+                        "class_name": null,
+                        "code": "\ndef retry_generation(\n    operation,\n    retries=5,\n    delay=2\n):\n\n    import time\n\n    last_error = None\n\n    for attempt in range(retries):\n\n        try:\n            return operation()\n\n        except Exception as error:\n\n            last_error = error\n\n            print(\n                f\"[Retry] Attempt \"\n                f\"{attempt + 1}/{retries} failed\"\n            )\n\n            if attempt < retries - 1:\n                time.sleep(delay)\n\n    raise last_error\n",
+                        "reason": "Upgrade existing retry function"
+                    },
+                    "status": "PATCH_READY"
+                },
+                "ui": {
+                    "display_action": "EXTRACT_FUNCTION",
+                    "progress_step": 1,
+                    "requires_user_action": false
+                }
+            }
+        },
+        {
+            "timestamp": "2026-05-27 19:00:34",
+            "step": 2,
+            "action": "GENERATE_REPLACEMENT",
+            "status": "SUCCESS",
+            "message": "Replacement generation step completed.",
+            "action_context": {
+                "timestamp": "2026-05-27 19:00:34",
+                "project_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS",
+                "session_id": "runtime_20260527_190034_72966f59",
+                "runtime_status": "RUNNING",
+                "step": 2,
+                "action": "GENERATE_REPLACEMENT",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "class_name": null,
+                "patch_data": {
+                    "timestamp": "2026-05-27 19:00:34",
+                    "goal": "upgrade retry mechanism",
+                    "target_file": "providers/runway_video_provider.py",
+                    "context": {
+                        "target_file": "providers/runway_video_provider.py",
+                        "classes": [
+                            "RunwayVideoProvider"
+                        ],
+                        "functions": [
+                            "__init__",
+                            "clean_prompt",
+                            "download_video",
+                            "generate_clips",
+                            "generate_single_clip",
+                            "retry_generation",
+                            "timeout_wrapper",
+                            "wait_for_task"
+                        ],
+                        "imports": [
+                            "dotenv",
+                            "os",
+                            "pathlib",
+                            "requests",
+                            "time"
+                        ],
+                        "dependency_report": "# DEPENDENCY GRAPH REPORT\n\nGenerated at: 2026-05-27 19:00:34\n\nTarget input: `providers.runway_video_provider`\nResolved target file: `providers/runway_video_provider.py`\n\nEstimated change risk: **CRITICAL**\n\n## Direct Dependencies\n\nFiles/modules that the target file directly or indirectly uses.\n\n### Dependency Level 1\n\n- None\n\n## Reverse Dependencies / Impact Chain\n\nFiles that depend on the target file and may be affected by changes.\n\n### Impact Level 1\n\n- core/video_provider_router.py\n\n### Impact Level 2\n\n- engines/video_generation_engine.py\n- pipelines/full_video_pipeline.py\n- test_full_ai_video_pipeline.py\n\n### Impact Level 3\n\n- None\n\n## Safe Upgrade Recommendation\n\n1. Review target file first\n2. Review Level 1 impact files\n3. Create backup before edits\n4. Apply minimal change\n5. Run verifier\n6. Run related tests if available\n7. Update project_brain\n\n## Approval Status\n\nWAITING FOR USER APPROVAL\n\nNo file was modified by this engine."
+                    },
+                    "patch": {
+                        "operation": "REPLACE_FUNCTION",
+                        "function_name": "retry_generation",
+                        "class_name": null,
+                        "code": "\ndef retry_generation(\n    operation,\n    retries=5,\n    delay=2\n):\n\n    import time\n\n    last_error = None\n\n    for attempt in range(retries):\n\n        try:\n            return operation()\n\n        except Exception as error:\n\n            last_error = error\n\n            print(\n                f\"[Retry] Attempt \"\n                f\"{attempt + 1}/{retries} failed\"\n            )\n\n            if attempt < retries - 1:\n                time.sleep(delay)\n\n    raise last_error\n",
+                        "reason": "Upgrade existing retry function"
+                    },
+                    "status": "PATCH_READY"
+                },
+                "ui": {
+                    "display_action": "GENERATE_REPLACEMENT",
+                    "progress_step": 2,
+                    "requires_user_action": false
+                }
+            }
+        },
+        {
+            "timestamp": "2026-05-27 19:00:34",
+            "step": 3,
+            "action": "BUILD_DIFF",
+            "status": "SUCCESS",
+            "message": "Diff build step completed.",
+            "action_context": {
+                "timestamp": "2026-05-27 19:00:34",
+                "project_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS",
+                "session_id": "runtime_20260527_190034_72966f59",
+                "runtime_status": "RUNNING",
+                "step": 3,
+                "action": "BUILD_DIFF",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": "retry_generation",
+                "class_name": null,
+                "patch_data": {
+                    "timestamp": "2026-05-27 19:00:34",
+                    "goal": "upgrade retry mechanism",
+                    "target_file": "providers/runway_video_provider.py",
+                    "context": {
+                        "target_file": "providers/runway_video_provider.py",
+                        "classes": [
+                            "RunwayVideoProvider"
+                        ],
+                        "functions": [
+                            "__init__",
+                            "clean_prompt",
+                            "download_video",
+                            "generate_clips",
+                            "generate_single_clip",
+                            "retry_generation",
+                            "timeout_wrapper",
+                            "wait_for_task"
+                        ],
+                        "imports": [
+                            "dotenv",
+                            "os",
+                            "pathlib",
+                            "requests",
+                            "time"
+                        ],
+                        "dependency_report": "# DEPENDENCY GRAPH REPORT\n\nGenerated at: 2026-05-27 19:00:34\n\nTarget input: `providers.runway_video_provider`\nResolved target file: `providers/runway_video_provider.py`\n\nEstimated change risk: **CRITICAL**\n\n## Direct Dependencies\n\nFiles/modules that the target file directly or indirectly uses.\n\n### Dependency Level 1\n\n- None\n\n## Reverse Dependencies / Impact Chain\n\nFiles that depend on the target file and may be affected by changes.\n\n### Impact Level 1\n\n- core/video_provider_router.py\n\n### Impact Level 2\n\n- engines/video_generation_engine.py\n- pipelines/full_video_pipeline.py\n- test_full_ai_video_pipeline.py\n\n### Impact Level 3\n\n- None\n\n## Safe Upgrade Recommendation\n\n1. Review target file first\n2. Review Level 1 impact files\n3. Create backup before edits\n4. Apply minimal change\n5. Run verifier\n6. Run related tests if available\n7. Update project_brain\n\n## Approval Status\n\nWAITING FOR USER APPROVAL\n\nNo file was modified by this engine."
+                    },
+                    "patch": {
+                        "operation": "REPLACE_FUNCTION",
+                        "function_name": "retry_generation",
+                        "class_name": null,
+                        "code": "\ndef retry_generation(\n    operation,\n    retries=5,\n    delay=2\n):\n\n    import time\n\n    last_error = None\n\n    for attempt in range(retries):\n\n        try:\n            return operation()\n\n        except Exception as error:\n\n            last_error = error\n\n            print(\n                f\"[Retry] Attempt \"\n                f\"{attempt + 1}/{retries} failed\"\n            )\n\n            if attempt < retries - 1:\n                time.sleep(delay)\n\n    raise last_error\n",
+                        "reason": "Upgrade existing retry function"
+                    },
+                    "status": "PATCH_READY"
+                },
+                "ui": {
+                    "display_action": "BUILD_DIFF",
+                    "progress_step": 3,
+                    "requires_user_action": false
+                }
+            }
+        },
+        {
+            "timestamp": "2026-05-27 19:00:34",
+            "step": 4,
+            "action": "REQUEST_APPROVAL",
+            "status": "WAITING_APPROVAL",
+            "message": "User approval required before applying patch.",
+            "action_context": {
+                "timestamp": "2026-05-27 19:00:34",
+                "project_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS",
+                "session_id": "runtime_20260527_190034_72966f59",
+                "runtime_status": "RUNNING",
+                "step": 4,
+                "action": "REQUEST_APPROVAL",
+                "target_file": "providers/runway_video_provider.py",
+                "target_function": null,
+                "class_name": null,
+                "patch_data": {
+                    "timestamp": "2026-05-27 19:00:34",
+                    "goal": "upgrade retry mechanism",
+                    "target_file": "providers/runway_video_provider.py",
+                    "context": {
+                        "target_file": "providers/runway_video_provider.py",
+                        "classes": [
+                            "RunwayVideoProvider"
+                        ],
+                        "functions": [
+                            "__init__",
+                            "clean_prompt",
+                            "download_video",
+                            "generate_clips",
+                            "generate_single_clip",
+                            "retry_generation",
+                            "timeout_wrapper",
+                            "wait_for_task"
+                        ],
+                        "imports": [
+                            "dotenv",
+                            "os",
+                            "pathlib",
+                            "requests",
+                            "time"
+                        ],
+                        "dependency_report": "# DEPENDENCY GRAPH REPORT\n\nGenerated at: 2026-05-27 19:00:34\n\nTarget input: `providers.runway_video_provider`\nResolved target file: `providers/runway_video_provider.py`\n\nEstimated change risk: **CRITICAL**\n\n## Direct Dependencies\n\nFiles/modules that the target file directly or indirectly uses.\n\n### Dependency Level 1\n\n- None\n\n## Reverse Dependencies / Impact Chain\n\nFiles that depend on the target file and may be affected by changes.\n\n### Impact Level 1\n\n- core/video_provider_router.py\n\n### Impact Level 2\n\n- engines/video_generation_engine.py\n- pipelines/full_video_pipeline.py\n- test_full_ai_video_pipeline.py\n\n### Impact Level 3\n\n- None\n\n## Safe Upgrade Recommendation\n\n1. Review target file first\n2. Review Level 1 impact files\n3. Create backup before edits\n4. Apply minimal change\n5. Run verifier\n6. Run related tests if available\n7. Update project_brain\n\n## Approval Status\n\nWAITING FOR USER APPROVAL\n\nNo file was modified by this engine."
+                    },
+                    "patch": {
+                        "operation": "REPLACE_FUNCTION",
+                        "function_name": "retry_generation",
+                        "class_name": null,
+                        "code": "\ndef retry_generation(\n    operation,\n    retries=5,\n    delay=2\n):\n\n    import time\n\n    last_error = None\n\n    for attempt in range(retries):\n\n        try:\n            return operation()\n\n        except Exception as error:\n\n            last_error = error\n\n            print(\n                f\"[Retry] Attempt \"\n                f\"{attempt + 1}/{retries} failed\"\n            )\n\n            if attempt < retries - 1:\n                time.sleep(delay)\n\n    raise last_error\n",
+                        "reason": "Upgrade existing retry function"
+                    },
+                    "status": "PATCH_READY"
+                },
+                "ui": {
+                    "display_action": "REQUEST_APPROVAL",
+                    "progress_step": 4,
+                    "requires_user_action": true
+                },
+                "approval": {
+                    "required": true,
+                    "granted": false,
+                    "message": "User approval required before apply."
+                }
+            }
+        }
+    ],
+    "rollback_history": []
+}

@@ -1,0 +1,8 @@
+{
+  "session_id": "validate_perf_a_obs_session",
+  "execution_runtime": {
+    "operations": {
+      "runway_browser_obs": {}
+    }
+  }
+}

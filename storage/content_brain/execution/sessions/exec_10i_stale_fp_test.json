@@ -1,0 +1,477 @@
+{
+  "session_schema_version": "10i_v1",
+  "session_uuid": "b054f6a0-2956-4acd-872c-d5d2ee47ecba",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_10i_stale_fp_test",
+  "brief_id": "brief_10f_stale",
+  "state": "FAILED",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-05-30 00:19:26",
+  "provider": "hailuo",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_stale",
+    "video_format_plan": {
+      "clip_count": 2,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    },
+    "run_context": {
+      "story_intelligence": {
+        "schema_director_shots": [
+          {
+            "clip_number": 1,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 1 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 1."
+          },
+          {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 2 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 2."
+          }
+        ]
+      }
+    }
+  },
+  "story_quality": {
+    "composite_score": 86.0,
+    "score": 86.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "hailuo",
+    "alternatives": [],
+    "expected_retry_risk": "low"
+  },
+  "execution_confidence_score": 78.0,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 2.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_74bb574adc69",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved_for_execution",
+    "reasons": [
+      "All auto-approval thresholds met."
+    ],
+    "blockers": [],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-05-30 00:19:26",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 86.0,
+      "execution_confidence": 78.0,
+      "estimated_credits": 2.0,
+      "effective_credits": 2.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "b81579e3-07b9-4292-992d-572734c6710e"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_d6f5ff11995f",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 2.0,
+    "effective_credits": 2.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 998.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-30 00:19:26",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "b81579e3-07b9-4292-992d-572734c6710e",
+    "report_id": "sim_c699533a",
+    "generated_at": "2026-05-30 00:19:26",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 2,
+    "estimated_generation_time_minutes": 4.0,
+    "estimated_provider_cost": 2.0,
+    "estimated_credits": 2.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "low",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 78.0,
+    "cost_estimate": {
+      "estimated_total_credits": 2.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 4.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:deadbeef",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_c699533a",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-30 00:19:26",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-05-30 00:19:26",
+    "queue_version": "10h_v1",
+    "queue_enqueued_at": "2026-05-30 00:19:26"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-05-30 00:19:26",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-30 00:19:26",
+      "state": "GOVERNED",
+      "reason": "governance: approval=APPROVED_FOR_EXECUTION, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-05-30 00:19:26",
+      "state": "READY",
+      "reason": "readiness gate: READY (score=100.0)"
+    },
+    {
+      "at": "2026-05-30 00:19:26",
+      "state": "QUEUED",
+      "reason": "queue engine: QUEUED (item=queue_20260530_001926_2041b8, position=None)"
+    },
+    {
+      "at": "2026-05-30 00:19:26",
+      "state": "DEQUEUED",
+      "reason": "queue dequeued"
+    },
+    {
+      "at": "2026-05-30 00:19:26",
+      "state": "FAILED",
+      "reason": "provider runtime failed: STALE_QUEUE_FINGERPRINT"
+    }
+  ],
+  "priority_band": "high",
+  "priority_decision": {
+    "priority_band": "high",
+    "priority_score": 86.0,
+    "queue_position": null,
+    "decision_source": "execution_queue_engine"
+  },
+  "execution_readiness": {
+    "decision": "READY",
+    "readiness_score": 100.0,
+    "readiness_failures": [],
+    "readiness_warnings": [],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-30 00:19:26"
+      },
+      "simulation_report_uuid": "b81579e3-07b9-4292-992d-572734c6710e",
+      "governance_decision_ids": {
+        "approval": "appr_74bb574adc69",
+        "budget": "bdgt_d6f5ff11995f"
+      }
+    }
+  },
+  "queue_item": {
+    "queue_item_uuid": "df9dfffe-8c58-45df-87d6-bb895b999b60",
+    "queue_item_id": "queue_20260530_001926_2041b8",
+    "queue_state": "DEQUEUED",
+    "queue_version": "10h_v1",
+    "session_uuid": "b054f6a0-2956-4acd-872c-d5d2ee47ecba",
+    "execution_session_id": "exec_10i_stale_fp_test",
+    "brief_id": "brief_10f_stale",
+    "priority": {
+      "priority_band": "high",
+      "priority_score": 86.0,
+      "queue_position": null,
+      "effective_priority": 300091.0
+    },
+    "eligibility_snapshot": {
+      "readiness_decision": "READY",
+      "readiness_score": 100.0,
+      "approval_status": "APPROVED_FOR_EXECUTION",
+      "budget_status": "WITHIN_LIMIT",
+      "simulation_fingerprint": "sha256:d8e079dc20cff667332bc7c26cd34051e7da2cca51e28f65c9eb79f0840cfbe1",
+      "provider": "hailuo"
+    },
+    "enqueue_context": {
+      "enqueued_at": "2026-05-30 00:19:26",
+      "enqueued_by": "system",
+      "enqueue_attempt": 1,
+      "enqueue_reason": "readiness_passed"
+    },
+    "lifecycle": {
+      "dequeued_at": "2026-05-30 00:19:26",
+      "dequeued_by": "seed",
+      "cancelled_at": null,
+      "cancelled_by": null,
+      "cancel_reason": null,
+      "expired_at": null,
+      "expire_reason": null,
+      "ttl_seconds": 86400,
+      "expires_at": "2026-05-31 00:19:26"
+    },
+    "retry": {
+      "max_enqueue_attempts": 3,
+      "enqueue_attempts_used": 1,
+      "requeue_allowed": true,
+      "last_terminal_state": "DEQUEUED"
+    },
+    "metadata": {
+      "queue_provenance": {
+        "engine": "ExecutionQueueEngine",
+        "engine_version": "10h_v1",
+        "policy_version": "10h_v1",
+        "evaluated_at": "2026-05-30 00:19:26",
+        "policy_snapshot": {
+          "policy_id": "default_local",
+          "policy_version": "10h_v1",
+          "eligible_readiness_decisions": [
+            "READY",
+            "READY_WITH_WARNINGS"
+          ],
+          "default_ttl_seconds": 86400,
+          "max_active_queue_depth": 100,
+          "max_enqueue_attempts": 3,
+          "require_fingerprint_match": true,
+          "priority_band_weights": {
+            "critical": 400,
+            "high": 300,
+            "medium": 200,
+            "low": 100
+          }
+        }
+      },
+      "queue_fingerprint": "sha256:840552aac99521de20423d5ed55cb815911e8fcca30c9ff15119e9be826c1d85",
+      "queue_fingerprint_version": "10h_v1",
+      "queue_fingerprint_sources": [
+        "execution_readiness",
+        "approval_decision",
+        "budget_decision",
+        "simulation_fingerprint"
+      ],
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-30 00:19:26"
+      },
+      "governance_decision_ids": {
+        "approval": "appr_74bb574adc69",
+        "budget": "bdgt_d6f5ff11995f"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_6ecad2755baa",
+      "event_type": "ENQUEUED",
+      "at": "2026-05-30 00:19:26",
+      "queue_item_id": "queue_20260530_001926_2041b8",
+      "queue_item_uuid": "df9dfffe-8c58-45df-87d6-bb895b999b60",
+      "actor": "seed",
+      "details": {
+        "queue_position": null,
+        "effective_priority": 300091.0,
+        "readiness_decision": "READY"
+      }
+    },
+    {
+      "event_id": "qevt_40ca3d6bd037",
+      "event_type": "DEQUEUED",
+      "at": "2026-05-30 00:19:26",
+      "queue_item_id": "queue_20260530_001926_2041b8",
+      "queue_item_uuid": "df9dfffe-8c58-45df-87d6-bb895b999b60",
+      "actor": "seed",
+      "details": {
+        "queue_item_id": "queue_20260530_001926_2041b8",
+        "targeted": true
+      }
+    }
+  ],
+  "execution_runtime": {
+    "runtime_version": "10i_v1",
+    "provider_category": "video_generation",
+    "dispatch_id": "disp_20260530_001926_d4bb8b",
+    "category_runtime": {
+      "video_generation": {
+        "state": "not_started",
+        "provider": null,
+        "status": "active"
+      },
+      "voice_generation": {
+        "state": "not_started",
+        "provider": "elevenlabs",
+        "status": "planned"
+      },
+      "music_generation": {
+        "state": "not_started",
+        "provider": "suno",
+        "status": "planned"
+      },
+      "image_generation": {
+        "state": "not_started",
+        "provider": "generic",
+        "status": "planned"
+      },
+      "publishing": {
+        "state": "not_started",
+        "provider": "generic",
+        "status": "planned"
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [],
+      "voice_generation": [],
+      "music_generation": [],
+      "image_generation": [],
+      "publishing": []
+    },
+    "state": "FAILED",
+    "failure": {
+      "code": "STALE_QUEUE_FINGERPRINT",
+      "message": "Queue fingerprint mismatch — session mutated after enqueue.",
+      "failed_at": "2026-05-30 00:19:26"
+    }
+  },
+  "provider_audit_log": [
+    {
+      "event_id": "pevt_2e93d3aa9d26",
+      "event_type": "DISPATCH_REJECTED",
+      "at": "2026-05-30 00:19:26",
+      "dispatch_id": "disp_20260530_001926_d4bb8b",
+      "actor": "test",
+      "details": {
+        "code": "STALE_QUEUE_FINGERPRINT",
+        "reasons": [
+          "Queue fingerprint mismatch — session mutated after enqueue."
+        ],
+        "provider_category": "video_generation"
+      }
+    }
+  ]
+}

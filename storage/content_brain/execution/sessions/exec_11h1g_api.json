@@ -1,0 +1,382 @@
+{
+  "execution_session_id": "exec_11h1g_api",
+  "state": "COMPLETED",
+  "brief_snapshot": {
+    "run_context": {
+      "story_intelligence": {
+        "story_architecture": {
+          "beat_plans": [
+            {
+              "beat_id": "HOOK",
+              "narration": "Narration for voice approval write API test."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "execution_runtime": {
+    "category_runtime": {
+      "video_generation": {
+        "state": "COMPLETED",
+        "provider": "hailuo_browser",
+        "status": "completed",
+        "category_name": "video",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "voice_generation": {
+        "category_name": "voice",
+        "status": "pending",
+        "provider": "elevenlabs",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [
+          "Voice preflight ready"
+        ],
+        "state": "pending",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "live_tts_requested": true,
+        "preflight_evaluated_at": "2026-06-01 19:07:15",
+        "slot_version": "11h1b_v1",
+        "narration_adapter": {
+          "segment_count": 1,
+          "total_text_length": 44,
+          "source_path": "run_context.story_intelligence.story_architecture.beat_plans",
+          "skipped": false,
+          "warnings": []
+        },
+        "voice_preflight": {
+          "preflight_version": "11h1a_v1",
+          "status": "ready",
+          "provider": "elevenlabs",
+          "ready": true,
+          "code": null,
+          "message": "ElevenLabs preflight ready (probe only, no TTS executed).",
+          "checks": [
+            {
+              "id": "PROVIDER_ENABLED",
+              "passed": true,
+              "message": "ElevenLabs enabled in provider registry"
+            },
+            {
+              "id": "CAPABILITY_NARRATION",
+              "passed": true,
+              "message": "ElevenLabs supports narration capability"
+            },
+            {
+              "id": "API_KEY_PRESENT",
+              "passed": true,
+              "message": "API key env ELEVENLABS_API_KEY present"
+            },
+            {
+              "id": "VOICE_ID_RESOLVED",
+              "passed": true,
+              "message": "Voice ID resolved: JBFqnCBs..."
+            },
+            {
+              "id": "PROVIDER_CATEGORY",
+              "passed": true,
+              "message": "Category: voice_generation"
+            },
+            {
+              "id": "LIVE_TTS_DISABLED",
+              "passed": true,
+              "message": "11H-1a preflight only — no live TTS call"
+            }
+          ],
+          "warnings": [],
+          "config_summary": {
+            "config_version": "11h1a_v1",
+            "provider_id": "elevenlabs",
+            "api_key_env": "ELEVENLABS_API_KEY",
+            "has_api_key": true,
+            "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+            "model_id": "eleven_multilingual_v2",
+            "output_format": "mp3_44100_128",
+            "enabled_in_registry": true
+          },
+          "checked_at": "2026-06-01 19:07:15"
+        },
+        "segment_count": 1,
+        "approval": {
+          "gate_version": "11h1e_v1",
+          "approval_required": true,
+          "approval_state": "approved",
+          "approved_by": "api_test",
+          "approved_at": "2026-06-01 19:07:15",
+          "approval_reason": "API test",
+          "estimated_voice_cost": 0.00132,
+          "estimated_voice_cost_currency": "USD",
+          "estimated_voice_cost_confidence": "low",
+          "estimated_character_count": 44,
+          "estimated_segment_count": 1,
+          "approval_expires_at": "2026-06-01 23:07:15",
+          "live_tts_eligible": true,
+          "live_tts_blocked_reasons": []
+        }
+      },
+      "music_generation": {
+        "category_name": "music",
+        "status": "planned",
+        "provider": "suno",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "subtitles": {
+        "category_name": "subtitle_generation",
+        "status": "planned",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1"
+      },
+      "assembly": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      },
+      "subtitle_generation": {
+        "category_name": "subtitle_generation",
+        "status": "planned",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1"
+      },
+      "assembly_generation": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [],
+      "voice_generation": [],
+      "music_generation": [],
+      "subtitles": [],
+      "assembly": [],
+      "image_generation": [],
+      "publishing": [],
+      "subtitle_generation": [],
+      "assembly_generation": []
+    },
+    "multi_category_shell": {
+      "shell_version": "11g_v1",
+      "media_categories": [
+        "video_generation",
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly"
+      ],
+      "future_routers": {
+        "voice_generation": "content_brain.execution.voice_provider_router.VoiceProviderRouter",
+        "music_generation": "content_brain.execution.music_provider_router.MusicProviderRouter",
+        "subtitles": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "subtitle_generation": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "assembly": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run",
+        "assembly_generation": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run"
+      },
+      "executable_categories_11g": [
+        "video_generation"
+      ]
+    },
+    "operations": {
+      "voice_preflight_dry_run": {
+        "slot_version": "11h1b_v1",
+        "evaluated_at": "2026-06-01 19:07:15",
+        "status": "pending",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "provider": "elevenlabs",
+        "segment_count": 1,
+        "narration_skipped": false,
+        "preflight_ready": true,
+        "reject_code": null,
+        "completed_run_preserved": false
+      },
+      "voice_approval_gate": {
+        "gate_version": "11h1e_v1",
+        "evaluated_at": "2026-06-01T17:07:15Z",
+        "approval_required": true,
+        "approval_state": "approved",
+        "live_tts_requested": true,
+        "live_tts_eligible": true,
+        "blocked_reasons": [],
+        "policy_snapshot": {
+          "max_characters_per_run": 5000,
+          "max_estimated_voice_cost_usd": 5.0,
+          "approval_ttl_hours": 4
+        }
+      },
+      "voice_approval_audit": [
+        {
+          "event_id": "voice_appr_evt_20260601_170715_444b1f",
+          "event_type": "approve_voice",
+          "session_id": "exec_11h1g_api",
+          "category": "voice_generation",
+          "actor": "api_test",
+          "reason": "API test",
+          "timestamp": "2026-06-01T17:07:15Z",
+          "previous_state": "not_required",
+          "new_state": "approved",
+          "blocked_reasons": [],
+          "live_tts_eligible": true,
+          "tts_executed": false,
+          "allowed": true,
+          "metadata": {
+            "engine_version": "11h1g_v1",
+            "gate_version": "11h1e_v1",
+            "provider": "elevenlabs",
+            "estimated_character_count": 44,
+            "estimated_segment_count": 1,
+            "estimated_voice_cost": 0.00132,
+            "live_tts_requested": true
+          }
+        }
+      ]
+    }
+  },
+  "updated_at": "2026-06-01T17:07:15Z"
+}

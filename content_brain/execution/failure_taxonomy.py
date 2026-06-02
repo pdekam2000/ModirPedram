@@ -1,0 +1,192 @@
+"""
+Phase 10J-a — unified failure codes for Provider Operations.
+
+Storage and classification only; no runtime behavior in 10J-a.
+"""
+
+from __future__ import annotations
+
+from typing import Any
+
+TAXONOMY_VERSION = "10j_v1_11e_a"
+
+CATEGORY_DISPATCH_REJECT = "DISPATCH_REJECT"
+CATEGORY_PREFLIGHT_REJECT = "PREFLIGHT_REJECT"
+CATEGORY_RUNTIME_ERROR = "RUNTIME_ERROR"
+CATEGORY_ARTIFACT_REJECT = "ARTIFACT_REJECT"
+CATEGORY_OPERATIONS = "OPERATIONS"
+
+FAILURE_CATEGORIES = (
+    CATEGORY_DISPATCH_REJECT,
+    CATEGORY_PREFLIGHT_REJECT,
+    CATEGORY_RUNTIME_ERROR,
+    CATEGORY_ARTIFACT_REJECT,
+    CATEGORY_OPERATIONS,
+)
+
+# code -> (category, retriable, default_http_status)
+_FAILURE_REGISTRY: dict[str, tuple[str, bool, int]] = {
+    # Dispatch reject (10I)
+    "NOT_DEQUEUED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "STALE_QUEUE_FINGERPRINT": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "READINESS_DRIFT": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "INVALID_PROVIDER": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "PROVIDER_UNSUPPORTED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "PROMPT_ADAPTER_FAILED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "CLIP_COUNT_MISMATCH": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "CATEGORY_NOT_SUPPORTED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "DISPATCH_REJECTED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    # Preflight reject (10J)
+    "PROVIDER_NOT_IMPLEMENTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "EXECUTION_MODE_UNSUPPORTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "PROVIDER_REGISTRY_MISSING": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "CREDENTIALS_MISSING": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "CREDENTIALS_INVALID": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "PROVIDER_DISABLED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "CAPABILITY_RUNTIME_UNSUPPORTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "BROWSER_UNAVAILABLE": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "BROWSER_PROFILE_MISSING": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "BROWSER_SESSION_INVALID": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "BROWSER_AUTOMATION_NOT_READY": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "DOWNLOAD_PATH_NOT_WRITABLE": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "REFERENCE_FRAME_PATH_MISSING": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "BROWSER_CONCURRENCY_LIMIT": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "ARTIFACT_DIR_NOT_WRITABLE": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "RETRY_EXHAUSTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "API_ENDPOINT_NOT_CONFIGURED": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "API_CONNECTIVITY_FAILED": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "API_POLLING_NOT_SUPPORTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "API_QUOTA_EXCEEDED": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    "PREFLIGHT_FAILED": (CATEGORY_PREFLIGHT_REJECT, True, 409),
+    # Runtime
+    "PROVIDER_RUNTIME_ERROR": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "PROVIDER_TIMEOUT": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "PROVIDER_TASK_FAILED": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "DOWNLOAD_FAILED": (CATEGORY_RUNTIME_ERROR, True, 409),
+    # Artifact
+    "ARTIFACT_VALIDATION_FAILED": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_COUNT_MISMATCH": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_MISSING": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_PATH_MISSING": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_TOO_SMALL": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_INVALID_TYPE": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_NULL_PATH": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ARTIFACT_COPY_FAILED": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    # Operations
+    "JOB_ALREADY_ACTIVE": (CATEGORY_OPERATIONS, False, 409),
+    "HEARTBEAT_TIMEOUT": (CATEGORY_OPERATIONS, True, 200),
+    "OPERATIONS_CANCELLED": (CATEGORY_OPERATIONS, False, 200),
+    "INTEGRITY_FAILED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    # Voice live TTS — ElevenLabs (11H-2c taxonomy)
+    "ELEVENLABS_KEY_MISSING": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ELEVENLABS_RATE_LIMIT": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "ELEVENLABS_TIMEOUT": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "ELEVENLABS_HTTP_ERROR": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "ELEVENLABS_EMPTY_AUDIO": (CATEGORY_ARTIFACT_REJECT, False, 409),
+    "ELEVENLABS_CANCELLED": (CATEGORY_OPERATIONS, False, 409),
+    "LIVE_TTS_DISABLED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "LIVE_TTS_NOT_CONFIRMED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "ESTIMATES_MISSING": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "APPROVAL_REQUIRED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "APPROVAL_EXPIRED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    # Assembly Runtime (11J-5 design / 11J-6 dry-run)
+    "ASSEMBLY_PLAN_INVALID": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_VIDEO_MISSING": (CATEGORY_ARTIFACT_REJECT, False, 409),
+    "ASSEMBLY_AUDIO_MISSING": (CATEGORY_ARTIFACT_REJECT, False, 409),
+    "ASSEMBLY_SUBTITLE_INVALID": (CATEGORY_ARTIFACT_REJECT, False, 409),
+    "ASSEMBLY_FFMPEG_FAILED": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "ASSEMBLY_OUTPUT_INVALID": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ASSEMBLY_OUTPUT_MISSING": (CATEGORY_ARTIFACT_REJECT, True, 409),
+    "ASSEMBLY_CANCELLED": (CATEGORY_OPERATIONS, False, 409),
+    "ASSEMBLY_TIMEOUT": (CATEGORY_RUNTIME_ERROR, True, 409),
+    "ASSEMBLY_REAL_EXECUTION_DISABLED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "ASSEMBLY_SLOT_MISSING": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_RUN_ACTIVE": (CATEGORY_OPERATIONS, False, 409),
+    "ASSEMBLY_SESSION_ARCHIVED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "ASSEMBLY_PLAN_NOT_READY": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_APPROVAL_REQUIRED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_APPROVAL_EXPIRED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_APPROVAL_REJECTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_RUNTIME_EXECUTION_DISABLED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "REAL_ASSEMBLY_NOT_REQUESTED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_DRY_RUN_NOT_COMPLETED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_APPROVAL_INVALID_STATE": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_APPROVAL_PRECONDITION_FAILED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_REAL_EXECUTION_NOT_CONFIRMED": (CATEGORY_DISPATCH_REJECT, False, 409),
+    "ASSEMBLY_SMOKE_CAP_EXCEEDED": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_OUTPUT_EXISTS": (CATEGORY_PREFLIGHT_REJECT, False, 409),
+    "ASSEMBLY_ALREADY_EXECUTED": (CATEGORY_OPERATIONS, False, 409),
+}
+
+DEFAULT_RETRIABLE_CODES: frozenset[str] = frozenset(
+    code for code, (_, retriable, _) in _FAILURE_REGISTRY.items() if retriable
+)
+
+
+def classify_failure(code: str | None) -> dict[str, Any]:
+    """Return category, retriable, and suggested HTTP status for a failure code."""
+    key = str(code or "").strip().upper() or "PROVIDER_RUNTIME_ERROR"
+    category, retriable, http_status = _FAILURE_REGISTRY.get(
+        key,
+        (CATEGORY_RUNTIME_ERROR, True, 409),
+    )
+    return {
+        "code": key,
+        "category": category,
+        "retriable": retriable,
+        "http_status": http_status,
+    }
+
+
+def is_retriable(code: str | None, *, allowed: frozenset[str] | None = None) -> bool:
+    allowed_set = allowed or DEFAULT_RETRIABLE_CODES
+    key = str(code or "").strip().upper()
+    if key in allowed_set:
+        return True
+    return classify_failure(key)["retriable"]
+
+
+def build_failure_object(
+    code: str,
+    message: str,
+    *,
+    dispatch_id: str | None = None,
+    dispatch_attempt: int | None = None,
+    provider_execution_mode: str | None = None,
+    provider_family: str | None = None,
+    details: dict[str, Any] | None = None,
+    failed_at: str | None = None,
+) -> dict[str, Any]:
+    meta = classify_failure(code)
+    payload: dict[str, Any] = {
+        "code": meta["code"],
+        "category": meta["category"],
+        "message": message,
+        "retriable": meta["retriable"],
+        "failed_at": failed_at,
+        "dispatch_id": dispatch_id,
+        "dispatch_attempt": dispatch_attempt,
+        "provider_execution_mode": provider_execution_mode,
+        "provider_family": provider_family,
+        "details": details or {},
+    }
+    return {key: value for key, value in payload.items() if value is not None}
+
+
+def http_status_for_code(code: str | None) -> int:
+    return int(classify_failure(code)["http_status"])
+
+
+__all__ = [
+    "TAXONOMY_VERSION",
+    "CATEGORY_DISPATCH_REJECT",
+    "CATEGORY_PREFLIGHT_REJECT",
+    "CATEGORY_RUNTIME_ERROR",
+    "CATEGORY_ARTIFACT_REJECT",
+    "CATEGORY_OPERATIONS",
+    "DEFAULT_RETRIABLE_CODES",
+    "classify_failure",
+    "is_retriable",
+    "build_failure_object",
+    "http_status_for_code",
+]

@@ -1,0 +1,528 @@
+{
+  "execution_session_id": "exec_11j14_no_req",
+  "execution_runtime": {
+    "category_runtime": {
+      "video_generation": {
+        "category_name": "video",
+        "status": "completed",
+        "provider": "hailuo_browser",
+        "artifacts": [],
+        "error": null,
+        "started_at": "2026-05-31 00:00:00",
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "COMPLETED",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "video_manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\video_manifest.json"
+      },
+      "voice_generation": {
+        "category_name": "voice",
+        "status": "completed",
+        "provider": "elevenlabs",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "COMPLETED",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "voice_manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\voice_manifest.json"
+      },
+      "music_generation": {
+        "category_name": "music",
+        "status": "planned",
+        "provider": "suno",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "subtitles": {
+        "category_name": "subtitle_generation",
+        "status": "completed",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1",
+        "manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\subtitle_manifest.json"
+      },
+      "assembly": {
+        "category_name": "assembly_generation",
+        "status": "pending",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": "2026-06-01 15:32:41",
+        "completed_at": "2026-06-01 15:32:41",
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [
+          "Video, voice, and subtitle artifacts available for assembly"
+        ],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": "READY",
+        "input_summary": {
+          "video_count": 2,
+          "voice_count": 2,
+          "subtitle_count": 2,
+          "video_ok": true,
+          "voice_ok": true,
+          "subtitle_ok": true,
+          "missing": []
+        },
+        "output_summary": {
+          "expected_output": "FINAL_PUBLISH_READY.mp4",
+          "output_file": null,
+          "output_created": false,
+          "output_size": null
+        },
+        "assembly_mode": "video_voice_subtitle",
+        "subtitle_mode": "burn_in",
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": "2026-06-01 15:32:41",
+        "assembly_preflight": {
+          "slot_version": "11j2_v1",
+          "evaluated_at": "2026-06-01 15:32:41",
+          "validation_status": "READY",
+          "artifact_category": "assembly_generation",
+          "input_summary": {
+            "video_count": 2,
+            "voice_count": 2,
+            "subtitle_count": 2,
+            "video_ok": true,
+            "voice_ok": true,
+            "subtitle_ok": true,
+            "missing": []
+          },
+          "warnings": [],
+          "reject_reasons": [],
+          "files_generated": false
+        },
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": 75.0,
+          "estimated_output_size": 18750000,
+          "estimated_disk_usage": 46875000,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        },
+        "real_assembly_executed": false,
+        "output_created": false,
+        "assembly_run": {
+          "run_id": "assembly_run_20260601_133241_ec6d9b",
+          "triggered_by": "validator",
+          "overwrite": false,
+          "timeout_seconds": 120,
+          "dry_run": true,
+          "started_at": "2026-06-01 15:32:41",
+          "completed_at": "2026-06-01 15:32:41",
+          "status": "completed"
+        },
+        "expected_output": "FINAL_PUBLISH_READY.mp4",
+        "planned_steps": [
+          {
+            "step": 1,
+            "name": "validate_inputs",
+            "action": "verify video/voice/subtitle inputs and output directory",
+            "detail": {
+              "video_clips": 2,
+              "narration_segments": 2,
+              "subtitle_tracks": 1
+            }
+          },
+          {
+            "step": 2,
+            "name": "video_concat",
+            "action": "concatenate ordered clips (preserve plan order)",
+            "detail": {
+              "clips": [
+                "clip_001.mp4",
+                "clip_002.mp4"
+              ]
+            }
+          },
+          {
+            "step": 3,
+            "name": "audio_merge",
+            "action": "merge ordered narration segments",
+            "detail": {
+              "narration": [
+                "narration_001.mp3",
+                "narration_002.mp3"
+              ]
+            }
+          },
+          {
+            "step": 4,
+            "name": "subtitle_handling",
+            "action": "burn_in (ASS preferred, SRT fallback)",
+            "detail": {
+              "subtitle_mode": "burn_in",
+              "source": "subtitles.ass"
+            }
+          },
+          {
+            "step": 5,
+            "name": "export",
+            "action": "export final video (atomic temp -> replace)",
+            "detail": {
+              "expected_output": "FINAL_PUBLISH_READY.mp4",
+              "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11j14_no_req\\assembly_generation\\FINAL_PUBLISH_READY.mp4"
+            }
+          },
+          {
+            "step": 6,
+            "name": "output_validation",
+            "action": "verify file exists, non-zero size, duration > 0",
+            "detail": {}
+          }
+        ],
+        "warnings": [],
+        "errors": [],
+        "execution_time_seconds": null,
+        "preflight_evaluated_at": "2026-06-01 15:32:41"
+      },
+      "subtitle_generation": {
+        "category_name": "subtitle_generation",
+        "status": "completed",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1",
+        "manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\subtitle_manifest.json"
+      },
+      "assembly_generation": {
+        "category_name": "assembly_generation",
+        "status": "pending",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": "2026-06-01 15:32:41",
+        "completed_at": "2026-06-01 15:32:41",
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [
+          "Video, voice, and subtitle artifacts available for assembly"
+        ],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": "READY",
+        "input_summary": {
+          "video_count": 2,
+          "voice_count": 2,
+          "subtitle_count": 2,
+          "video_ok": true,
+          "voice_ok": true,
+          "subtitle_ok": true,
+          "missing": []
+        },
+        "output_summary": {
+          "expected_output": "FINAL_PUBLISH_READY.mp4",
+          "output_file": null,
+          "output_created": false,
+          "output_size": null
+        },
+        "assembly_mode": "video_voice_subtitle",
+        "subtitle_mode": "burn_in",
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": "2026-06-01 15:32:41",
+        "assembly_preflight": {
+          "slot_version": "11j2_v1",
+          "evaluated_at": "2026-06-01 15:32:41",
+          "validation_status": "READY",
+          "artifact_category": "assembly_generation",
+          "input_summary": {
+            "video_count": 2,
+            "voice_count": 2,
+            "subtitle_count": 2,
+            "video_ok": true,
+            "voice_ok": true,
+            "subtitle_ok": true,
+            "missing": []
+          },
+          "warnings": [],
+          "reject_reasons": [],
+          "files_generated": false
+        },
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": 75.0,
+          "estimated_output_size": 18750000,
+          "estimated_disk_usage": 46875000,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        },
+        "real_assembly_executed": false,
+        "output_created": false,
+        "assembly_run": {
+          "run_id": "assembly_run_20260601_133241_ec6d9b",
+          "triggered_by": "validator",
+          "overwrite": false,
+          "timeout_seconds": 120,
+          "dry_run": true,
+          "started_at": "2026-06-01 15:32:41",
+          "completed_at": "2026-06-01 15:32:41",
+          "status": "completed"
+        },
+        "expected_output": "FINAL_PUBLISH_READY.mp4",
+        "planned_steps": [
+          {
+            "step": 1,
+            "name": "validate_inputs",
+            "action": "verify video/voice/subtitle inputs and output directory",
+            "detail": {
+              "video_clips": 2,
+              "narration_segments": 2,
+              "subtitle_tracks": 1
+            }
+          },
+          {
+            "step": 2,
+            "name": "video_concat",
+            "action": "concatenate ordered clips (preserve plan order)",
+            "detail": {
+              "clips": [
+                "clip_001.mp4",
+                "clip_002.mp4"
+              ]
+            }
+          },
+          {
+            "step": 3,
+            "name": "audio_merge",
+            "action": "merge ordered narration segments",
+            "detail": {
+              "narration": [
+                "narration_001.mp3",
+                "narration_002.mp3"
+              ]
+            }
+          },
+          {
+            "step": 4,
+            "name": "subtitle_handling",
+            "action": "burn_in (ASS preferred, SRT fallback)",
+            "detail": {
+              "subtitle_mode": "burn_in",
+              "source": "subtitles.ass"
+            }
+          },
+          {
+            "step": 5,
+            "name": "export",
+            "action": "export final video (atomic temp -> replace)",
+            "detail": {
+              "expected_output": "FINAL_PUBLISH_READY.mp4",
+              "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11j14_no_req\\assembly_generation\\FINAL_PUBLISH_READY.mp4"
+            }
+          },
+          {
+            "step": 6,
+            "name": "output_validation",
+            "action": "verify file exists, non-zero size, duration > 0",
+            "detail": {}
+          }
+        ],
+        "warnings": [],
+        "errors": [],
+        "execution_time_seconds": null,
+        "preflight_evaluated_at": "2026-06-01 15:32:41"
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [
+        {
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\clip_001.mp4"
+        },
+        {
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\clip_002.mp4"
+        }
+      ],
+      "voice_generation": [
+        {
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\narration_001.mp3"
+        },
+        {
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\narration_002.mp3"
+        }
+      ],
+      "music_generation": [],
+      "subtitles": [],
+      "assembly": [],
+      "image_generation": [],
+      "publishing": [],
+      "subtitle_generation": [
+        {
+          "format": "ass",
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\subtitles.ass"
+        },
+        {
+          "format": "srt",
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmpsqz1i3xv\\art_no_req\\subtitles.srt"
+        }
+      ],
+      "assembly_generation": []
+    },
+    "multi_category_shell": {
+      "shell_version": "11g_v1",
+      "media_categories": [
+        "video_generation",
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly"
+      ],
+      "future_routers": {
+        "voice_generation": "content_brain.execution.voice_provider_router.VoiceProviderRouter",
+        "music_generation": "content_brain.execution.music_provider_router.MusicProviderRouter",
+        "subtitles": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "subtitle_generation": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "assembly": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run",
+        "assembly_generation": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run"
+      },
+      "executable_categories_11g": [
+        "video_generation"
+      ]
+    },
+    "operations": {
+      "assembly_execution": {
+        "engine_version": "11j8_v1",
+        "executor_version": "11j6_v1",
+        "last_status": "completed",
+        "last_run_id": "assembly_run_20260601_133241_ec6d9b",
+        "assembly_executed": false,
+        "real_assembly_executed": false
+      },
+      "assembly_preflight_dry_run": {
+        "slot_version": "11j2_v1",
+        "evaluated_at": "2026-06-01 15:32:41",
+        "validation_status": "READY",
+        "artifact_category": "assembly_generation",
+        "input_summary": {
+          "video_count": 2,
+          "voice_count": 2,
+          "subtitle_count": 2,
+          "video_ok": true,
+          "voice_ok": true,
+          "subtitle_ok": true,
+          "missing": []
+        },
+        "warnings": [],
+        "reject_reasons": [],
+        "files_generated": false,
+        "status": "pending",
+        "executed": false,
+        "dry_run": true,
+        "completed_run_preserved": false
+      },
+      "assembly_approval_audit": [
+        {
+          "event_id": "asm_appr_evt_20260601_133241_e08e01",
+          "event_type": "assembly_approval_approved",
+          "session_id": "exec_11j14_no_req",
+          "category": "assembly_generation",
+          "actor": "test",
+          "reason": "Assembly approved for real execution (metadata only).",
+          "timestamp": "2026-06-01T13:32:41Z",
+          "previous_state": "not_required",
+          "new_state": "not_required",
+          "blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ],
+          "assembly_eligible": false,
+          "real_assembly_executed": false,
+          "allowed": false,
+          "metadata": {
+            "engine_version": "11j14_v1",
+            "gate_version": "11j12_v1",
+            "validation_status": "READY",
+            "expected_output": "FINAL_PUBLISH_READY.mp4",
+            "real_assembly_requested": false
+          }
+        }
+      ]
+    }
+  }
+}

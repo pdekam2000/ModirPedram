@@ -1,0 +1,447 @@
+{
+  "execution_session_id": "exec_11i8_overwrite_allow",
+  "topic": "football VAR controversy",
+  "brief_snapshot": {
+    "topic": "football VAR controversy",
+    "content_format": {
+      "default_duration_seconds": 24
+    },
+    "run_context": {
+      "story_intelligence": {
+        "story_architecture": {
+          "beat_plans": [
+            {
+              "beat_id": "HOOK",
+              "narration": "Watch this hidden replay angle before the final decision."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "execution_runtime": {
+    "category_runtime": {
+      "video_generation": {
+        "category_name": "video",
+        "status": "pending",
+        "provider": null,
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "voice_generation": {
+        "category_name": "voice",
+        "status": "planned",
+        "provider": "elevenlabs",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "music_generation": {
+        "category_name": "music",
+        "status": "planned",
+        "provider": "suno",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "subtitles": {
+        "category_name": "subtitle_generation",
+        "status": "completed",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [
+          {
+            "format": "srt",
+            "file_name": "subtitles.srt",
+            "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.srt",
+            "size_bytes": 130,
+            "cue_count": 2,
+            "validation_status": "valid"
+          },
+          {
+            "format": "ass",
+            "file_name": "subtitles.ass",
+            "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.ass",
+            "size_bytes": 1045,
+            "cue_count": 2,
+            "validation_status": "valid"
+          },
+          {
+            "format": "vtt",
+            "file_name": "subtitles.vtt",
+            "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.vtt",
+            "size_bytes": 134,
+            "cue_count": 2,
+            "validation_status": "valid"
+          }
+        ],
+        "error": null,
+        "started_at": "2026-06-01 19:08:20",
+        "completed_at": "2026-06-01 19:08:20",
+        "duration_seconds": 0.0,
+        "cost_estimate": null,
+        "runtime_notes": [
+          "Narration text available for subtitle generation"
+        ],
+        "state": "not_started",
+        "executed": true,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": "narration_text_only",
+        "source_ready": true,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": "valid",
+        "created_at": null,
+        "updated_at": "2026-06-01 19:08:20",
+        "subtitle_preflight": {
+          "slot_version": "11i2_v1",
+          "evaluated_at": "2026-06-01 19:08:20",
+          "voice_status": "planned",
+          "source_type": "narration_text_only",
+          "source_ready": true,
+          "artifact_category": "subtitle_generation",
+          "supported_formats": [
+            "srt",
+            "ass",
+            "vtt"
+          ],
+          "files_generated": true
+        },
+        "slot_version": "11i7_v1",
+        "preflight_evaluated_at": "2026-06-01 19:08:20",
+        "subtitle_run": {
+          "run_id": "subtitle_run_20260601_170820_f6f002",
+          "triggered_by": "operator",
+          "formats_requested": [],
+          "overwrite": true,
+          "force_retry": false,
+          "engine_version": "11i8_v1"
+        },
+        "timing_strategy": "equal_chunk",
+        "language": "en",
+        "cue_count": 2,
+        "formats_written": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "manifest_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitle_manifest.json",
+        "engine_version": "11i4_v1",
+        "writer_version": "11i6_v1",
+        "runtime_engine_version": "11i8_v1"
+      },
+      "assembly": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      },
+      "subtitle_generation": {
+        "category_name": "subtitle_generation",
+        "status": "completed",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [
+          {
+            "format": "srt",
+            "file_name": "subtitles.srt",
+            "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.srt",
+            "size_bytes": 130,
+            "cue_count": 2,
+            "validation_status": "valid"
+          },
+          {
+            "format": "ass",
+            "file_name": "subtitles.ass",
+            "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.ass",
+            "size_bytes": 1045,
+            "cue_count": 2,
+            "validation_status": "valid"
+          },
+          {
+            "format": "vtt",
+            "file_name": "subtitles.vtt",
+            "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.vtt",
+            "size_bytes": 134,
+            "cue_count": 2,
+            "validation_status": "valid"
+          }
+        ],
+        "error": null,
+        "started_at": "2026-06-01 19:08:20",
+        "completed_at": "2026-06-01 19:08:20",
+        "duration_seconds": 0.0,
+        "cost_estimate": null,
+        "runtime_notes": [
+          "Narration text available for subtitle generation"
+        ],
+        "state": "not_started",
+        "executed": true,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": "narration_text_only",
+        "source_ready": true,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": "valid",
+        "created_at": null,
+        "updated_at": "2026-06-01 19:08:20",
+        "subtitle_preflight": {
+          "slot_version": "11i2_v1",
+          "evaluated_at": "2026-06-01 19:08:20",
+          "voice_status": "planned",
+          "source_type": "narration_text_only",
+          "source_ready": true,
+          "artifact_category": "subtitle_generation",
+          "supported_formats": [
+            "srt",
+            "ass",
+            "vtt"
+          ],
+          "files_generated": true
+        },
+        "slot_version": "11i7_v1",
+        "preflight_evaluated_at": "2026-06-01 19:08:20",
+        "subtitle_run": {
+          "run_id": "subtitle_run_20260601_170820_f6f002",
+          "triggered_by": "operator",
+          "formats_requested": [],
+          "overwrite": true,
+          "force_retry": false,
+          "engine_version": "11i8_v1"
+        },
+        "timing_strategy": "equal_chunk",
+        "language": "en",
+        "cue_count": 2,
+        "formats_written": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "manifest_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitle_manifest.json",
+        "engine_version": "11i4_v1",
+        "writer_version": "11i6_v1",
+        "runtime_engine_version": "11i8_v1"
+      },
+      "assembly_generation": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [],
+      "voice_generation": [],
+      "music_generation": [],
+      "subtitles": [
+        {
+          "format": "srt",
+          "file_name": "subtitles.srt",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.srt",
+          "category": "subtitle_generation",
+          "validation_status": "valid",
+          "cue_count": 2
+        },
+        {
+          "format": "ass",
+          "file_name": "subtitles.ass",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.ass",
+          "category": "subtitle_generation",
+          "validation_status": "valid",
+          "cue_count": 2
+        },
+        {
+          "format": "vtt",
+          "file_name": "subtitles.vtt",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.vtt",
+          "category": "subtitle_generation",
+          "validation_status": "valid",
+          "cue_count": 2
+        }
+      ],
+      "assembly": [],
+      "image_generation": [],
+      "publishing": [],
+      "subtitle_generation": [
+        {
+          "format": "srt",
+          "file_name": "subtitles.srt",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.srt",
+          "category": "subtitle_generation",
+          "validation_status": "valid",
+          "cue_count": 2
+        },
+        {
+          "format": "ass",
+          "file_name": "subtitles.ass",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.ass",
+          "category": "subtitle_generation",
+          "validation_status": "valid",
+          "cue_count": 2
+        },
+        {
+          "format": "vtt",
+          "file_name": "subtitles.vtt",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.vtt",
+          "category": "subtitle_generation",
+          "validation_status": "valid",
+          "cue_count": 2
+        }
+      ],
+      "assembly_generation": []
+    },
+    "multi_category_shell": {
+      "shell_version": "11g_v1",
+      "media_categories": [
+        "video_generation",
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly"
+      ],
+      "future_routers": {
+        "voice_generation": "content_brain.execution.voice_provider_router.VoiceProviderRouter",
+        "music_generation": "content_brain.execution.music_provider_router.MusicProviderRouter",
+        "subtitles": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "subtitle_generation": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "assembly": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run",
+        "assembly_generation": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run"
+      },
+      "executable_categories_11g": [
+        "video_generation"
+      ]
+    },
+    "operations": {
+      "subtitle_preflight_dry_run": {
+        "slot_version": "11i2_v1",
+        "evaluated_at": "2026-06-01 19:08:20",
+        "voice_status": "planned",
+        "source_type": "narration_text_only",
+        "source_ready": true,
+        "artifact_category": "subtitle_generation",
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "files_generated": true,
+        "status": "completed",
+        "executed": true,
+        "dry_run": false,
+        "completed_run_preserved": true
+      },
+      "subtitle_execution": {
+        "engine_version": "11i8_v1",
+        "last_status": "completed",
+        "last_run_id": "subtitle_run_20260601_170820_f6f002",
+        "subtitles_executed": true,
+        "real_provider_called": false
+      }
+    }
+  }
+}

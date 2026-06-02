@@ -1,0 +1,33 @@
+{
+  "execution_session_id": "exec_11h2c_policy",
+  "state": "COMPLETED",
+  "brief_snapshot": {
+    "run_context": {
+      "story_intelligence": {
+        "story_architecture": {
+          "beat_plans": [
+            {
+              "beat_id": "HOOK",
+              "narration": "Adapter test narration segment one."
+            },
+            {
+              "beat_id": "BODY",
+              "narration": "Adapter test narration segment two."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "execution_runtime": {
+    "category_runtime": {
+      "video_generation": {
+        "state": "COMPLETED",
+        "provider": "hailuo_browser",
+        "status": "completed",
+        "started_at": "2026-05-28 10:00:00",
+        "completed_at": "2026-05-28 10:05:00"
+      }
+    }
+  }
+}

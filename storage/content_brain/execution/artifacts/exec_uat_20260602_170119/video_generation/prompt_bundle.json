@@ -1,0 +1,45 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 2,
+  "target_clip_count": 2,
+  "provider_hint": "runway_browser",
+  "prompts": [
+    "topic-specific object in sharp focus highlighting girl during hook — specific to girl in rain, not generic stock footage.. Subject: girl evidence element. Action: Reveal girl detail entering frame. Mood: curiosity. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening; sets up ESCALATION_BEAT..",
+    "contrasting before/after frame highlighting rain during escalation — specific to girl in rain, not generic stock footage.. Subject: rain evidence element. Action: Contrast two readings of rain. Mood: tension. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up close.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 2,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:01be6c0646b017999c798c3d8ca520bada5661bd71aef2fb8c6416f14bd921d1",
+      "lineage": null,
+      "quality_score": null
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:cda1887dd559bfa09e69457aea0187fb9b79173d2a85000bcedf77ca51e9a400",
+      "lineage": null,
+      "quality_score": null
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-06-02 17:01:20"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": []
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "manifest_version": "11i_v1",
+  "writer_version": "11i6_v1",
+  "session_id": "exec_11i8_overwrite_allow",
+  "category": "subtitle_generation",
+  "provider": "local_subtitle_runtime",
+  "provider_mode": "local",
+  "source_type": "narration_text_only",
+  "timing_strategy": "equal_chunk",
+  "language": "en",
+  "cue_count": 2,
+  "segment_count": 1,
+  "formats_written": [
+    "srt",
+    "ass",
+    "vtt"
+  ],
+  "format_list": [
+    "srt",
+    "ass",
+    "vtt"
+  ],
+  "files": [
+    {
+      "format": "srt",
+      "file_name": "subtitles.srt",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.srt",
+      "size_bytes": 130,
+      "cue_count": 2,
+      "validation_status": "valid"
+    },
+    {
+      "format": "ass",
+      "file_name": "subtitles.ass",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.ass",
+      "size_bytes": 1045,
+      "cue_count": 2,
+      "validation_status": "valid"
+    },
+    {
+      "format": "vtt",
+      "file_name": "subtitles.vtt",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation\\subtitles.vtt",
+      "size_bytes": 134,
+      "cue_count": 2,
+      "validation_status": "valid"
+    }
+  ],
+  "total_duration_seconds": 15.0,
+  "total_duration": 15.0,
+  "validation_status": "valid",
+  "generated_at": "2026-06-01 19:08:20",
+  "batch_version": "11i4_v1",
+  "voice_manifest_ref": null,
+  "narration_source_path": null,
+  "execution_status": "completed",
+  "partial": false,
+  "real_provider_called": false,
+  "artifact_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_11i8_overwrite_allow\\subtitle_generation",
+  "warnings": [
+    "TIMING_ESTIMATED_EQUAL_CHUNK",
+    "Cue 2: duration exceeds recommended maximum"
+  ]
+}

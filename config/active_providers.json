@@ -1,6 +1,10 @@
 {
-    "video": "hailuo_browser",
+    "video": "runway_browser",
     "music": "suno",
     "voice": "elevenlabs",
-    "llm": "openai"
+    "llm": "openai",
+    "trend_sources": [
+        "mock_trend_provider"
+    ],
+    "trend_enrichment": null
 }

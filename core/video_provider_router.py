@@ -1,4 +1,5 @@
 from core.provider_registry_engine import ProviderRegistryEngine
+from content_brain.execution.provider_cancel_wiring import call_with_optional_cancel_check
 
 
 class VideoProviderRouter:
@@ -10,8 +11,21 @@ class VideoProviderRouter:
     def get_active_video_provider(self):
         return self.active.get("video", "hailuo_browser")
 
-    def generate_clips(self, prompts):
-        provider_name = self.get_active_video_provider()
+    def generate_clips(
+        self,
+        prompts,
+        *,
+        provider_override: str | None = None,
+        cancel_check=None,
+        runway_obs=None,
+    ):
+        provider_name = provider_override or self.get_active_video_provider()
+        if provider_override:
+            provider_name = str(provider_override).strip().lower()
+            if provider_name == "hailuo":
+                provider_name = "hailuo_browser"
+            if provider_name == "runway_api":
+                provider_name = "runway"
 
         print("\n" + "=" * 60)
         print("VIDEO PROVIDER ROUTER")
@@ -23,22 +37,23 @@ class VideoProviderRouter:
                 HailuoMultiClipOrchestrator,
             )
 
-            orchestrator = HailuoMultiClipOrchestrator(
-                wait_seconds=150
-            )
+            orchestrator = HailuoMultiClipOrchestrator()
 
-            return orchestrator.run(prompts)
+            return call_with_optional_cancel_check(orchestrator.run, prompts, cancel_check=cancel_check)
 
         if provider_name == "runway_browser":
             from orchestrators.runway_browser_orchestrator import (
                 RunwayBrowserOrchestrator,
             )
+            from providers.runway_browser_support import log_runway_wait_config
 
+            wait_seconds, _source = log_runway_wait_config()
             orchestrator = RunwayBrowserOrchestrator(
-                wait_seconds=180
+                wait_seconds=wait_seconds,
+                runway_obs=runway_obs,
             )
 
-            return orchestrator.run(prompts)
+            return call_with_optional_cancel_check(orchestrator.run, prompts, cancel_check=cancel_check)
 
         if provider_name == "minimax_api":
             from providers.minimax_video_provider import (
@@ -54,7 +69,7 @@ class VideoProviderRouter:
             )
 
             provider = RunwayVideoProvider()
-            return provider.generate_clips(prompts)
+            return call_with_optional_cancel_check(provider.generate_clips, prompts, cancel_check=cancel_check)
 
         raise ValueError(
             f"Unsupported video provider: {provider_name}"

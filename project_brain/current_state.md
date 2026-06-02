@@ -1,204 +1,32 @@
-# PROJECT CURRENT STATE
+# Current State
 
-Generated at: 2026-05-26 22:30:42
-Project root: `C:\Users\kaman\Desktop\ModirAgentOS`
+Generated: `2026-05-31 05:19:21`
 
-## Summary
+## Status
 
-- Total folders: 22
-- Total files: 160
+Runtime Editing V1 is working.
 
-## Folders
+## Project Size
 
-- `agents`
-- `agents\agents`
-- `assets`
-- `assets\music`
-- `automation`
-- `config`
-- `core`
-- `dashboard`
-- `engines`
-- `execution`
-- `orchestrators`
-- `pipelines`
-- `project_brain`
-- `project_brain\topic_memory`
-- `providers`
-- `tasks`
-- `templates`
-- `ui`
-- `ui\components`
-- `ui\services`
-- `ui\tabs`
-- `utils`
+- Folders: `1597`
+- Files: `13247`
 
-## Files
+## Runtime Summary
 
-- `.env`
-- `.gitignore`
-- `agents\__init__.py`
-- `agents\architect_agent.py`
-- `agents\change_request_agent.py`
-- `agents\code_generation_agent.py`
-- `agents\coder_agent.py`
-- `agents\memory_agent.py`
-- `agents\project_context_agent.py`
-- `agents\project_upgrade_agent.py`
-- `agents\self_editing_agent.py`
-- `agents\seo_agent.py`
-- `agents\trend_agent.py`
-- `agents\verifier_agent.py`
-- `automation\browser_manager.py`
-- `config\__init__.py`
-- `config\active_providers.json`
-- `config\config.yaml`
-- `config\config_loader.py`
-- `config\content_factory_profile.json`
-- `config\provider_registry.json`
-- `core\__init__.py`
-- `core\config_injection_engine.py`
-- `core\content_series_planner.py`
-- `core\continuity_engine.py`
-- `core\dependency_graph_engine.py`
-- `core\dependency_mapper.py`
-- `core\full_project_scanner.py`
-- `core\handoff_generator.py`
-- `core\impact_analyzer.py`
-- `core\live_handoff_engine.py`
-- `core\master_orchestrator_engine.py`
-- `core\orchestrator.py`
-- `core\project_brain_engine.py`
-- `core\project_reader.py`
-- `core\project_scanner.py`
-- `core\provider_registry_engine.py`
-- `core\safety_guard.py`
-- `core\selfcare_content_engine.py`
-- `core\state_writer.py`
-- `core\task_router.py`
-- `core\timeline_engine.py`
-- `core\topic_memory_engine.py`
-- `core\upgrade_planner_engine.py`
-- `core\video_provider_router.py`
-- `dashboard\control_center.py`
-- `engines\ai_director_engine.py`
-- `engines\ai_memory_learning_engine.py`
-- `engines\ai_performance_analyzer.py`
-- `engines\audio_finish_engine.py`
-- `engines\audio_sync_engine.py`
-- `engines\auto_optimization_loop_engine.py`
-- `engines\auto_publishing_engine.py`
-- `engines\cinematic_motion_engine.py`
-- `engines\final_assembly_engine.py`
-- `engines\hook_overlay_engine.py`
-- `engines\ingredient_overlay_engine.py`
-- `engines\intro_thumbnail_frame_engine.py`
-- `engines\music_engine.py`
-- `engines\narration_engine.py`
-- `engines\scene_continuity_engine.py`
-- `engines\seo_package_engine.py`
-- `engines\smart_transition_engine.py`
-- `engines\subtitle_burner.py`
-- `engines\subtitle_engine.py`
-- `engines\thumbnail_engine.py`
-- `engines\trend_engine.py`
-- `engines\trend_research_engine.py`
-- `engines\video_generation_engine.py`
-- `engines\video_prompt_engine.py`
-- `engines\viral_hook_engine.py`
-- `engines\visual_scenario_engine.py`
-- `execution\__init__.py`
-- `execution\apply_patch_engine.py`
-- `execution\approval_engine.py`
-- `execution\command_runner.py`
-- `execution\patch_preview_engine.py`
-- `execution\patch_validator.py`
-- `execution\rollback_manager.py`
-- `execution\safe_code_editor.py`
-- `full_selfcare_factory.py`
-- `main.py`
-- `orchestrators\hailuo_multi_clip_orchestrator.py`
-- `orchestrators\runway_browser_orchestrator.py`
-- `pipelines\__init__.py`
-- `pipelines\full_video_pipeline.py`
-- `postprocess_existing_video.py`
-- `project_brain\ACTIVE_PIPELINE.md`
-- `project_brain\CHAT_HANDOFF.md`
-- `project_brain\DEAD_FILES_REPORT.md`
-- `project_brain\EXECUTION_FLOW.md`
-- `project_brain\FULL_PROJECT_HANDOFF.md`
-- `project_brain\FULL_PROJECT_HANDOFF_NEW.md`
-- `project_brain\SYSTEM_MAP.md`
-- `project_brain\approval_log.md`
-- `project_brain\change_log.md`
-- `project_brain\coder_plan.md`
-- `project_brain\current_state.md`
-- `project_brain\decisions.md`
-- `project_brain\dependency_graph_report.md`
-- `project_brain\dependency_map.md`
-- `project_brain\file_ownership.md`
-- `project_brain\impact_report.md`
-- `project_brain\known_issues.md`
-- `project_brain\memory_snapshot.md`
-- `project_brain\next_steps.md`
-- `project_brain\patch_preview.md`
-- `project_brain\pipeline_map.md`
-- `project_brain\roadmap.md`
-- `project_brain\topic_memory\used_topics.json`
-- `project_brain\upgrade_execution_plan.md`
-- `project_brain\upgrade_plan.md`
-- `project_brain\verification_report.md`
-- `project_tree.txt`
-- `providers\__init__.py`
-- `providers\elevenlabs_voice_provider.py`
-- `providers\hailuo_browser_provider.py`
-- `providers\hailuo_download_provider.py`
-- `providers\minimax_video_provider.py`
-- `providers\openai_provider.py`
-- `providers\openai_trend_provider.py`
-- `providers\runway_browser_provider.py`
-- `providers\runway_download_provider.py`
-- `providers\runway_video_provider.py`
-- `rebuild_existing_project.py`
-- `requirements.txt`
-- `test_audio_video_merge.py`
-- `test_browser.py`
-- `test_clip_audio_sync.py`
-- `test_content_series_planner.py`
-- `test_continuity_engine.py`
-- `test_continuity_hailuo_pipeline.py`
-- `test_download.py`
-- `test_elevenlabs_voice.py`
-- `test_episode_preview.py`
-- `test_ffmpeg_stitch.py`
-- `test_final_cinematic_assembly.py`
-- `test_full_ai_video_pipeline.py`
-- `test_full_hailuo_pipeline.py`
-- `test_hailuo.py`
-- `test_multi_clip.py`
-- `test_openai_trends.py`
-- `test_runway_orchestrator_direct.py`
-- `test_selfcare_content_engine.py`
-- `test_selfcare_voice.py`
-- `test_timeline_engine.py`
-- `test_timeline_voice.py`
-- `ui\app.py`
-- `ui\app_backup_before_refactor.py`
-- `ui\components\__init__.py`
-- `ui\components\progress_tracker.py`
-- `ui\services\__init__.py`
-- `ui\services\env_service.py`
-- `ui\services\runner_service.py`
-- `ui\tabs\__init__.py`
-- `utils\download_helper.py`
-- `utils\ffmpeg_audio_merger.py`
-- `utils\ffmpeg_clip_audio_merger.py`
-- `utils\ffmpeg_stitcher.py`
-- `utils\final_cinematic_assembler.py`
+```json
+{
+  "status": "Runtime state loaded.",
+  "latest_file": "runtime_20260528_191600_76bbcc63.json",
+  "session_id": "runtime_20260528_191600_76bbcc63",
+  "runtime_status": null,
+  "current_step": null,
+  "updated_at": "2026-05-28 19:16:00",
+  "approval_metadata": null
+}
+```
 
-## Notes
+## Latest Completed Work
 
-- This report is generated by `core/project_scanner.py`.
-- Scanner Cleanup V1 is active.
-- Large backup, browser profile, cache, media, archive, and temporary files are ignored.
-- No code was changed by this scanner.
+Automatic Project Brain + Full Handoff + Backup script added:
+
+`project_brain/auto_handoff_backup.py`

@@ -1,0 +1,45 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 2,
+  "target_clip_count": 2,
+  "provider_hint": "runway_browser",
+  "prompts": [
+    "topic-specific object in sharp focus highlighting cat during hook — specific to cat, not generic stock footage.. Subject: cat evidence element. Action: Reveal cat detail entering frame. Mood: curiosity. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening; sets up ESCALATION_BEAT..",
+    "evidence detail macro shot highlighting cat during escalation — specific to cat, not generic stock footage.. Subject: cat evidence element. Action: Contrast two readings of cat. Mood: tension. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up close.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 2,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:2bbdc203f6e75ae1f43a3fd7cb78bc00370c30393bd811c9a028c8e2dd49468e",
+      "lineage": null,
+      "quality_score": null
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:ee4b4082a70d5738bd9068f3525c5d1a5f590854555ef0234bae2414787af78c",
+      "lineage": null,
+      "quality_score": null
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-06-02 10:53:50"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": []
+  }
+}

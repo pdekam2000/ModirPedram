@@ -1,0 +1,269 @@
+{
+  "execution_session_id": "exec_debug",
+  "execution_runtime": {
+    "category_runtime": {
+      "video_generation": {
+        "category_name": "video",
+        "status": "completed",
+        "provider": "hailuo_browser",
+        "artifacts": [],
+        "error": null,
+        "started_at": "2026-05-31 00:00:00",
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "COMPLETED",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "video_manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\video_manifest.json"
+      },
+      "voice_generation": {
+        "category_name": "voice",
+        "status": "completed",
+        "provider": "elevenlabs",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "COMPLETED",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "voice_manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\voice_manifest.json"
+      },
+      "music_generation": {
+        "category_name": "music",
+        "status": "planned",
+        "provider": "suno",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "subtitles": {
+        "category_name": "subtitle_generation",
+        "status": "completed",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1",
+        "manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\subtitle_manifest.json"
+      },
+      "assembly": {
+        "category_name": "assembly_generation",
+        "status": "failed",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": "ASSEMBLY_PLAN_INVALID",
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": "PARTIAL",
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": "2026-06-01 09:31:43",
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": 90.0,
+          "estimated_output_size": 22500000,
+          "estimated_disk_usage": 56250000,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        },
+        "real_assembly_executed": false,
+        "output_created": false,
+        "reject_reasons": [
+          "AssemblyPlan is not READY (validation_status=PARTIAL)."
+        ]
+      },
+      "subtitle_generation": {
+        "category_name": "subtitle_generation",
+        "status": "completed",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1",
+        "manifest_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\subtitle_manifest.json"
+      },
+      "assembly_generation": {
+        "category_name": "assembly_generation",
+        "status": "failed",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": "ASSEMBLY_PLAN_INVALID",
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": "PARTIAL",
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": "2026-06-01 09:31:43",
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": 90.0,
+          "estimated_output_size": 22500000,
+          "estimated_disk_usage": 56250000,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        },
+        "real_assembly_executed": false,
+        "output_created": false,
+        "reject_reasons": [
+          "AssemblyPlan is not READY (validation_status=PARTIAL)."
+        ]
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [
+        {
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\clip_001.mp4"
+        },
+        {
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\clip_002.mp4"
+        }
+      ],
+      "voice_generation": [],
+      "music_generation": [],
+      "subtitles": [],
+      "assembly": [],
+      "image_generation": [],
+      "publishing": [],
+      "subtitle_generation": [
+        {
+          "format": "ass",
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\subtitles.ass"
+        },
+        {
+          "format": "srt",
+          "file_path": "C:\\Users\\kaman\\AppData\\Local\\Temp\\tmp_i6rtsc7\\subtitles.srt"
+        }
+      ],
+      "assembly_generation": []
+    },
+    "multi_category_shell": {
+      "shell_version": "11g_v1",
+      "media_categories": [
+        "video_generation",
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly"
+      ],
+      "future_routers": {
+        "voice_generation": "content_brain.execution.voice_provider_router.VoiceProviderRouter",
+        "music_generation": "content_brain.execution.music_provider_router.MusicProviderRouter",
+        "subtitles": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "subtitle_generation": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "assembly": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run",
+        "assembly_generation": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run"
+      },
+      "executable_categories_11g": [
+        "video_generation"
+      ]
+    },
+    "operations": {
+      "assembly_execution": {
+        "engine_version": "11j8_v1",
+        "executor_version": "11j6_v1",
+        "last_status": "failed",
+        "last_run_id": null,
+        "assembly_executed": false,
+        "real_assembly_executed": false
+      }
+    }
+  }
+}

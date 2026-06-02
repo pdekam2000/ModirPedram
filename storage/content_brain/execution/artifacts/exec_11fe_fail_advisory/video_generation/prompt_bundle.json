@@ -1,0 +1,41 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 2,
+  "target_clip_count": 2,
+  "provider_hint": "hailuo_browser",
+  "prompts": [
+    "Demo clip 1 for provider runtime dry-run validation. Camera: Medium-wide establishing. Movement: Static hold. Lighting: Low-key motivated practical. Pacing: tension. Continuity: Demo continuity for clip 1..",
+    "Demo clip 2 for provider runtime dry-run validation. Camera: Medium-wide establishing. Movement: Static hold. Lighting: Low-key motivated practical. Pacing: tension. Continuity: Demo continuity for clip 2.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:671e08f2807611e59854bd729a6446acedc68e2db1ee42cdad3663d23598a243"
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:cd93239d7e87e9a3af4db6d20a885312ec5849073a81c0425b3081ba994dd568"
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-05-30 23:52:36"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": []
+  }
+}

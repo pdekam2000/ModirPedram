@@ -1,0 +1,2251 @@
+{
+  "session_schema_version": "10h_v1",
+  "session_uuid": "db48a0b9-f0c8-4d14-b2ab-bdbb7f0171fe",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_20260529_231545_e6e9ce",
+  "brief_id": "brief_20260529_231545_40c61bf9",
+  "state": "DEQUEUED",
+  "created_at": "2026-05-29 23:15:45",
+  "updated_at": "2026-05-29 23:16:06",
+  "channel_id": null,
+  "provider": "hailuo",
+  "brief_snapshot": {
+    "brief_id": "brief_20260529_231545_40c61bf9",
+    "profile": {
+      "profile_id": "dark_mystery_v1",
+      "profile_version": "1.0.0",
+      "profile_type": "niche_pack",
+      "project_name": "Viral Content Brain",
+      "niche": "dark_mystery",
+      "niche_label": "Dark Mystery / Psychological Horror",
+      "domain": "dark_mystery",
+      "language": "English",
+      "language_rules": {
+        "output_language": "English",
+        "allow_mixed_language": false,
+        "caption_language": "English",
+        "narration_language": "English",
+        "title_language": "English"
+      },
+      "target_platforms": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "niche_registry": {
+        "general": "default_profile.json",
+        "horror": "dark_mystery_profile.json",
+        "dark_mystery": "dark_mystery_profile.json",
+        "psychological": "dark_mystery_profile.json",
+        "storytelling": "dark_mystery_profile.json"
+      },
+      "audience": {
+        "primary": "18-34 viewers who binge psychological horror, true-crime-adjacent mystery, and disturbing cinematic shorts",
+        "psychographic": "curiosity-driven, comment-section debaters, series followers, late-night scrollers",
+        "avoid": "children, generic jump-scare-only audiences, tutorial-seekers"
+      },
+      "content_format": {
+        "format": "short-form vertical video",
+        "orientation": "9:16",
+        "default_duration_seconds": 30,
+        "min_duration_seconds": 15,
+        "max_duration_seconds": 58,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "must_be_connected_clips": true,
+        "clips_continue_each_other_visually": true
+      },
+      "tone_rules": {
+        "primary_tone": "unsettling, intimate, psychologically precise, cinematic",
+        "secondary_tone": "quiet dread, controlled ambiguity, emotionally invasive",
+        "voice_style": "confessional, observational, never explanatory",
+        "pacing": "slow burn with sharp rupture points; silence is a weapon",
+        "emotional_targets": [
+          "curiosity",
+          "dread",
+          "moral discomfort",
+          "paranoia",
+          "aftershock"
+        ],
+        "must_include": [
+          "one specific sensory anchor per story (sound, smell, texture, temperature, or light quality)",
+          "concrete object or detail that makes the horror feel personal",
+          "implication over explanation in the final beat"
+        ],
+        "must_avoid": [
+          "comedic horror unless explicitly requested",
+          "campy vampire/werewolf tropes without psychological grounding",
+          "moral lectures or explicit 'the lesson is' endings",
+          "over-narration that explains the twist",
+          "safe, sanitized horror language",
+          "generic AI phrasing and template story structures"
+        ],
+        "disturbance_level": {
+          "min": 6,
+          "max": 9,
+          "scale_note": "1=creepy suggestion, 10=explicit gore; stay in psychological/cinematic disturbance, not shock-gore spam"
+        }
+      },
+      "visual_dna": {
+        "core_aesthetic": "dark cinematic horror, realistic, atmospheric, suspenseful",
+        "color_palette": [
+          "desaturated cold blues",
+          "sickly amber practical lights",
+          "deep crushed blacks",
+          "occasional single-color accent (red record light, green night-vision tint)"
+        ],
+        "lighting": [
+          "single-source practical lighting",
+          "flickering hallway bulbs",
+          "phone flashlight in darkness",
+          "underlit face close-ups",
+          "rain-streaked window backlight"
+        ],
+        "camera_language": [
+          "slow push-in",
+          "handheld micro-shake realism",
+          "over-shoulder voyeur framing",
+          "extreme close-up on hands/objects",
+          "static wide shot with small movement in background"
+        ],
+        "locations_preferred": [
+          "empty apartment hallway at night",
+          "basement with unfinished walls",
+          "hospital corridor after hours",
+          "childhood bedroom unchanged for years",
+          "parking garage level B3",
+          "house that does not match its floor plan"
+        ],
+        "character_consistency": {
+          "rule": "same face, same outfit, same emotional baseline within an episode unless story beat requires visible change",
+          "face_reveal_policy": "delay full face reveal until escalation beat unless hook requires partial visibility"
+        },
+        "props_and_symbols": [
+          "old cassette recorder still running",
+          "door that opens the wrong direction",
+          "family photo with one face scratched out",
+          "child's drawing taped to adult's mirror",
+          "voicemail timestamp that should be impossible"
+        ],
+        "forbidden_visuals": [
+          "bright influencer lighting",
+          "clean beauty vanity setups",
+          "cartoonish monster reveals",
+          "stock-footage generic haunted house clichés without story-specific detail"
+        ]
+      },
+      "platform_rules": {
+        "tiktok": {
+          "platform_id": "tiktok",
+          "display_name": "TikTok",
+          "ideal_duration_seconds": {
+            "min": 21,
+            "max": 34,
+            "sweet_spot": 28
+          },
+          "hook_window_seconds": 1.5,
+          "caption_style": "cryptic, 1-2 lines, no hashtag stuffing in primary caption",
+          "title_style": "in-video text first",
+          "hashtag_count": {
+            "min": 3,
+            "max": 6
+          },
+          "cta_style": "Part 2? / Comment what you think happened",
+          "audio_priority": "native-feeling sound design, sudden silence drops, low rumble under voice",
+          "pacing_note": "fastest hook delivery; first frame must contain motion or visual wrongness"
+        },
+        "youtube_shorts": {
+          "platform_id": "youtube_shorts",
+          "display_name": "YouTube Shorts",
+          "ideal_duration_seconds": {
+            "min": 30,
+            "max": 58,
+            "sweet_spot": 42
+          },
+          "hook_window_seconds": 2.5,
+          "caption_style": "searchable first line + cryptic second line",
+          "title_style": "SEO-aware curiosity title required; ambiguity with one concrete noun",
+          "hashtag_count": {
+            "min": 2,
+            "max": 5
+          },
+          "cta_style": "Full story in comments / Follow for Part 2",
+          "audio_priority": "clear narration legibility with cinematic bed; slightly slower hook burn allowed",
+          "pacing_note": "allow one extra micro-setup beat if retention map stays dense"
+        },
+        "instagram_reels": {
+          "platform_id": "instagram_reels",
+          "display_name": "Instagram Reels",
+          "ideal_duration_seconds": {
+            "min": 15,
+            "max": 30,
+            "sweet_spot": 24
+          },
+          "hook_window_seconds": 1.0,
+          "caption_style": "minimal, aesthetic spacing, one haunting line",
+          "title_style": "cover frame + first-line caption carry the hook",
+          "hashtag_count": {
+            "min": 4,
+            "max": 8
+          },
+          "cta_style": "Save this / Series continues tomorrow",
+          "audio_priority": "visual-first; music bed can carry mood if voice is sparse",
+          "pacing_note": "strongest visual shock in frame 0; trim exposition aggressively"
+        }
+      },
+      "hook_rules": {
+        "enabled_hook_classes": [
+          "violation",
+          "incomplete_truth",
+          "personal_threat",
+          "moral_discomfort",
+          "false_safety",
+          "open_loop_seed"
+        ],
+        "hook_class_definitions": {
+          "violation": "Open with an event that breaks normal rules of space, time, identity, or memory.",
+          "incomplete_truth": "State a partial fact that implies a worse unseen reality.",
+          "personal_threat": "Make the viewer feel the scenario could happen to them tonight.",
+          "moral_discomfort": "Present a choice or outcome that feels ethically wrong but believable.",
+          "false_safety": "Begin in calm normality, then rupture it with one precise wrong detail.",
+          "open_loop_seed": "End the hook on an unresolved question the body cannot ignore."
+        },
+        "rotation_rules": {
+          "max_consecutive_same_class": 2,
+          "force_class_rotation_every_n_briefs": 5,
+          "require_sensory_anchor_in_hook": true
+        },
+        "minimum_scores": {
+          "curiosity_gap_score": 70,
+          "interrupt_power": 75,
+          "specificity_score": 65,
+          "composite_hook_score": 72
+        },
+        "hook_length": {
+          "max_words": 22,
+          "preferred_words": "10-18",
+          "max_sentences": 2
+        },
+        "must_include_one_of": [
+          "specific time",
+          "specific object",
+          "specific place detail",
+          "specific relationship",
+          "specific sound"
+        ]
+      },
+      "story_modes": {
+        "enabled_modes": [
+          "found_footage",
+          "confession",
+          "missing_person",
+          "wrong_house",
+          "psychological_unraveling",
+          "lore_episode"
+        ],
+        "mode_definitions": {
+          "quick_tip": "One high-value insight delivered fast with proof or demo.",
+          "storytime": "Narrative arc with setup, turn, and payoff.",
+          "comparison": "Contrast two options, paths, or outcomes.",
+          "myth_busting": "Challenge a common belief in the niche.",
+          "before_after": "Transformation or reveal across the runtime.",
+          "lore_episode": "Serialized installment that advances universe rules and pays off prior breadcrumbs.",
+          "found_footage": "Present story as recovered recordings with timestamps, gaps, and camera limitations.",
+          "confession": "First-person account where the speaker knows more than they initially admit.",
+          "missing_person": "Center on absence, last-known details, and what was left behind.",
+          "wrong_house": "Domestic space behaves incorrectly — layout, objects, or memories do not align.",
+          "psychological_unraveling": "Reality distortion driven by perception, guilt, grief, or obsession."
+        },
+        "rotation_rules": {
+          "max_consecutive_same_mode": 2,
+          "require_mode_diversity_every_n_briefs": 6
+        },
+        "act_structure": {
+          "act_1": {
+            "label": "hook_beat",
+            "start_second": 0,
+            "end_second": 3,
+            "goal": "pattern interrupt plus immediate stakes"
+          },
+          "act_2": {
+            "label": "escalation_beats",
+            "start_second": 3,
+            "end_second": 20,
+            "goal": "deliver value or tension in rising beats"
+          },
+          "act_3": {
+            "label": "payoff_beat",
+            "start_second": 20,
+            "end_second": 45,
+            "goal": "disturbing reveal or controlled ambiguity"
+          },
+          "tag": {
+            "label": "loop_seed",
+            "start_second": 45,
+            "end_second": 60,
+            "goal": "open loop for series, comments, or next episode"
+          }
+        },
+        "reveal_types_allowed": [
+          "partial_reveal",
+          "implied_reveal",
+          "identity_reveal",
+          "spatial_reveal",
+          "temporal_reveal",
+          "moral_reveal"
+        ],
+        "reveal_types_forbidden": [
+          "it_was_all_a_dream",
+          "random_monster_with_no_setup",
+          "cop_out_gaslighting_without_clues"
+        ]
+      },
+      "retention_rules": {
+        "minimum_retention_score": 68,
+        "max_seconds_without_beat": 5,
+        "minimum_pattern_breaks": 2,
+        "require_loop_seed": true,
+        "require_aftershock": true,
+        "beat_blocks": [
+          {
+            "block_label": "visual_shock",
+            "start_second": 0,
+            "end_second": 1,
+            "mechanic": "pattern_interrupt",
+            "required": true,
+            "implementation": "Hard cut, close-up, off-center framing, or visible wrongness in frame 0"
+          },
+          {
+            "block_label": "verbal_hook_completion",
+            "start_second": 1,
+            "end_second": 3,
+            "mechanic": "curiosity_gap",
+            "required": true,
+            "implementation": "One unsettling sentence that completes the hook promise"
+          },
+          {
+            "block_label": "micro_payoff_1",
+            "start_second": 3,
+            "end_second": 8,
+            "mechanic": "small_reveal",
+            "required": true,
+            "implementation": "Small reveal that raises a bigger question; never fully explain"
+          },
+          {
+            "block_label": "pattern_break_1",
+            "start_second": 8,
+            "end_second": 15,
+            "mechanic": "perspective_shift",
+            "required": true,
+            "implementation": "Camera shift, sound drop, new object detail, or silence rupture"
+          },
+          {
+            "block_label": "escalation_ladder",
+            "start_second": 15,
+            "end_second": 25,
+            "mechanic": "stakes_increase",
+            "required": true,
+            "implementation": "Stakes rise through action or discovery; no beat repeats same information"
+          },
+          {
+            "block_label": "climax_beat",
+            "start_second": 25,
+            "end_second": 35,
+            "mechanic": "disturbing_peak",
+            "required": true,
+            "implementation": "Disturbing image, confession fragment, or spatial impossibility"
+          },
+          {
+            "block_label": "aftershock",
+            "start_second": 35,
+            "end_second": 45,
+            "mechanic": "emotional_echo",
+            "required": true,
+            "implementation": "Silence, reaction shot, implication, or one line that reframes everything"
+          },
+          {
+            "block_label": "loop_hook",
+            "start_second": 45,
+            "end_second": 60,
+            "mechanic": "open_loop",
+            "required": true,
+            "implementation": "Unresolved object, unanswered question, or direct series continuation cue"
+          }
+        ],
+        "retention_mechanics_library": [
+          "pattern_interrupt",
+          "curiosity_gap",
+          "perspective_shift",
+          "sound_drop",
+          "false_resolution",
+          "object_focus",
+          "countdown_pressure",
+          "social_proof_tease",
+          "rule_violation",
+          "aftershock_silence"
+        ]
+      },
+      "scoring_thresholds": {
+        "viral_gate_minimum": 65,
+        "auto_proceed_minimum": 80,
+        "human_review_range": {
+          "min": 65,
+          "max": 79
+        },
+        "production_tiers": {
+          "S": {
+            "min_score": 85,
+            "label": "flagship"
+          },
+          "A": {
+            "min_score": 75,
+            "max_score": 84,
+            "label": "standard_publish"
+          },
+          "B": {
+            "min_score": 65,
+            "max_score": 74,
+            "label": "revise_one_dimension"
+          },
+          "F": {
+            "max_score": 64,
+            "label": "discard"
+          }
+        },
+        "dimension_weights": {
+          "hook_strength": 0.2,
+          "retention_architecture": 0.25,
+          "emotional_intensity_curve": 0.15,
+          "specificity": 0.1,
+          "uniqueness": 0.15,
+          "platform_fit": 0.1,
+          "loop_potential": 0.05
+        },
+        "dimension_minimums": {
+          "hook_strength": 70,
+          "retention_architecture": 68,
+          "emotional_intensity_curve": 60,
+          "specificity": 65,
+          "uniqueness": 70,
+          "platform_fit": 60,
+          "loop_potential": 50
+        }
+      },
+      "uniqueness_rules": {
+        "uniqueness_gate_minimum_score": 70,
+        "max_similarity_threshold": 0.72,
+        "layers": [
+          {
+            "layer_name": "twist_type_collision",
+            "threshold": 0.65,
+            "lookback_count": 10,
+            "method": "reveal_type_and_payoff_match"
+          }
+        ],
+        "diversity_enforcement": {
+          "rotate_hook_classes": true,
+          "rotate_story_modes": true,
+          "rotate_reveal_types": true,
+          "require_unique_sensory_anchor": true,
+          "require_unique_primary_object": true
+        },
+        "regeneration_directives": {
+          "topic_collision": "Change topic angle; keep hook structure if strong.",
+          "hook_collision": "Keep topic; change hook class and opening.",
+          "beat_collision": "Keep hook; rebuild escalation beats.",
+          "generic_pattern_hit": "Rewrite with niche-specific concrete detail.",
+          "twist_collision": "Keep setup; change reveal type and aftershock framing."
+        }
+      },
+      "lore_continuity_rules": {
+        "enabled": true,
+        "universe_id": "dark_mystery_universe_v1",
+        "series_support": true,
+        "character_rules": [
+          "Every recurring character must have a visual_signature and speech_pattern documented before reuse.",
+          "Do not change face, age, or core outfit of a recurring character without an in-story reason.",
+          "Recurring characters must accumulate knowledge; they cannot reset emotionally each episode."
+        ],
+        "location_rules": [
+          "Recurring locations must obey established layout and mood rules.",
+          "If a location changes physically between episodes, the change must become a plot point."
+        ],
+        "artifact_rules": [
+          "Symbolic objects (recorder, photo, drawing, key) must maintain consistent meaning once introduced.",
+          "An artifact's first appearance must seed at least one future payoff within 5 episodes."
+        ],
+        "timeline_rules": [
+          "Track in-universe order separately from publish order.",
+          "Callbacks must reference specific prior episode events, not vague 'remember last time' lines."
+        ],
+        "hard_constraints": [
+          "No contradictory deaths or resurrections without explicit story mechanism.",
+          "No breaking established universe rules for shock value alone.",
+          "Lore episodes must include at least 2 breadcrumbs for future payoff."
+        ],
+        "breadcrumb_requirements": {
+          "min_per_lore_episode": 2,
+          "max_unpaid_breadcrumbs_before_payoff": 5
+        }
+      },
+      "banned_generic_patterns": {
+        "banned_phrases": [
+          "this is the scariest story ever",
+          "based on a true story",
+          "based on true events",
+          "in a haunted house",
+          "a ghost appeared",
+          "and then I died",
+          "scary story time",
+          "true horror story",
+          "let me tell you a story",
+          "I still can't sleep"
+        ],
+        "banned_structures": [
+          "unnamed protagonist with no sensory detail",
+          "it was all a dream ending",
+          "monster appears with no prior foreshadowing",
+          "final moral summary explaining the lesson",
+          "three unrelated scares with no narrative spine",
+          "copy-paste creepypasta cadence without original detail"
+        ],
+        "ai_tell_patterns": [
+          "vague place descriptions like 'an old house' without specific wrong details",
+          "empty threat language with no concrete consequence"
+        ],
+        "required_originality_signals": [
+          "at least one proper noun or highly specific identifier per brief",
+          "one sensory anchor",
+          "one object that could only belong to this story",
+          "one line that would not fit a generic horror template"
+        ]
+      },
+      "seo_and_packaging": {
+        "title_rules": {
+          "max_characters": 80,
+          "must_contain_concrete_noun": true,
+          "avoid_clickbait_spam": true,
+          "preferred_patterns": [
+            "[specific object/place] + [wrong detail]",
+            "[time] + [personal threat]",
+            "[relationship role] + [missing/ changed detail]"
+          ]
+        },
+        "hashtag_rules": {
+          "mix": [
+            "broad_horror",
+            "niche_psychological",
+            "platform_discovery",
+            "series_tag"
+          ],
+          "forbidden": [
+            "#scary",
+            "#horror",
+            "#viral",
+            "#fyp"
+          ]
+        },
+        "thumbnail_psychology": {
+          "must_show": [
+            "human emotion or partial face",
+            "one incomplete information element",
+            "high contrast focal point"
+          ],
+          "must_avoid": [
+            "bright cheerful color grading"
+          ]
+        }
+      },
+      "example_seed_topics": [
+        "The apartment had one extra room on the lease but not on the blueprint",
+        "She kept getting voicemails from her own number at 3:07 AM",
+        "The family photo in the hallway had one face scratched out before they moved in",
+        "He found his childhood drawing taped inside a house he had never lived in",
+        "The basement door opened inward yesterday and outward today",
+        "Every night the security camera shows her already inside before she arrives",
+        "The missing poster was printed before the person disappeared",
+        "The lullaby on the baby monitor was in a language nobody in the house spoke"
+      ],
+      "metadata": {
+        "created_for": "Viral Content Brain V1",
+        "profile_role": "niche_pack",
+        "compatible_schema": "content_brain/schemas/content_brief.py",
+        "does_not_replace": "config/content_factory_profile.json",
+        "notes": "Specialized horror/mystery pack extending default_profile.json.",
+        "example_profile": true,
+        "resolved_at": "2026-05-29 23:15:45",
+        "resolved_domain": "dark_mystery"
+      },
+      "semantic_universe": {
+        "universe_id": "universe_dark_mystery_0407342c",
+        "source_niche": "dark_mystery",
+        "niche_slug": "dark_mystery",
+        "domain": "dark_mystery",
+        "semantic_clusters": [
+          {
+            "cluster_id": "narrative_mystery",
+            "label": "Narrative Mystery",
+            "concepts": [
+              "found-footage pacing tricks",
+              "one-room psychological dread",
+              "open-loop cliffhanger endings",
+              "missing timeline details",
+              "slow reveal framing",
+              "atmospheric setup detail"
+            ]
+          },
+          {
+            "cluster_id": "environmental_dread",
+            "label": "Environmental Dread",
+            "concepts": [
+              "the room not on the blueprint",
+              "ambient sound design hooks",
+              "lighting that feels slightly wrong",
+              "objects moved between cuts",
+              "slow reveal framing",
+              "atmospheric setup detail"
+            ]
+          },
+          {
+            "cluster_id": "audience_engagement",
+            "label": "Audience Engagement",
+            "concepts": [
+              "comment-section theory threads",
+              "frame-by-frame breakdowns",
+              "part-two demand loops",
+              "unsolved detail obsession",
+              "slow reveal framing",
+              "atmospheric setup detail"
+            ]
+          }
+        ],
+        "topic_seed_pool": [
+          "found-footage pacing tricks",
+          "found-footage pacing tricks in a high-stakes moment",
+          "one-room psychological dread",
+          "one-room psychological dread in a high-stakes moment",
+          "open-loop cliffhanger endings",
+          "open-loop cliffhanger endings in a high-stakes moment",
+          "the room not on the blueprint",
+          "the room not on the blueprint in a high-stakes moment",
+          "ambient sound design hooks",
+          "ambient sound design hooks in a high-stakes moment",
+          "lighting that feels slightly wrong",
+          "lighting that feels slightly wrong in a high-stakes moment",
+          "comment-section theory threads",
+          "comment-section theory threads in a high-stakes moment",
+          "frame-by-frame breakdowns",
+          "frame-by-frame breakdowns in a high-stakes moment",
+          "part-two demand loops",
+          "part-two demand loops in a high-stakes moment",
+          "dread framing around a pivotal moment",
+          "curiosity framing around a pivotal moment",
+          "paranoia framing around a pivotal moment",
+          "what theory builders are arguing about this week",
+          "what frame hunters are arguing about this week",
+          "what slow-burn viewers are arguing about this week"
+        ],
+        "emotional_angles": [
+          "dread",
+          "curiosity",
+          "paranoia",
+          "suspense",
+          "disorientation",
+          "unease"
+        ],
+        "audience_angles": [
+          "theory builders",
+          "frame hunters",
+          "slow-burn viewers"
+        ],
+        "conflict_angles": [
+          "what you saw vs what happened",
+          "memory vs evidence",
+          "trust vs fear"
+        ],
+        "trend_angles": [
+          "the detail viewers rewound three times",
+          "the ending that launched a theory thread",
+          "the clip that feels too coherent to fake"
+        ],
+        "engine_version": "semantic_universe_v1",
+        "generated_at": "2026-05-29 23:15:45",
+        "metadata": {
+          "sub_niche": "",
+          "audience": "18-34 viewers who binge psychological horror, true-crime-adjacent mystery, and disturbing cinematic shorts",
+          "tone": "unsettling, intimate, psychologically precise, cinematic",
+          "visual_style": "dark cinematic horror, realistic, atmospheric, suspenseful",
+          "expansion_strategy": "dark_mystery",
+          "cluster_count": 3,
+          "seed_count": 24
+        }
+      },
+      "trend_discovery": {
+        "manual_seed_topics": [
+          "found-footage pacing tricks",
+          "found-footage pacing tricks in a high-stakes moment",
+          "one-room psychological dread",
+          "one-room psychological dread in a high-stakes moment",
+          "open-loop cliffhanger endings",
+          "open-loop cliffhanger endings in a high-stakes moment",
+          "the room not on the blueprint",
+          "the room not on the blueprint in a high-stakes moment",
+          "ambient sound design hooks",
+          "ambient sound design hooks in a high-stakes moment",
+          "lighting that feels slightly wrong",
+          "lighting that feels slightly wrong in a high-stakes moment",
+          "comment-section theory threads",
+          "comment-section theory threads in a high-stakes moment",
+          "frame-by-frame breakdowns",
+          "frame-by-frame breakdowns in a high-stakes moment",
+          "part-two demand loops",
+          "part-two demand loops in a high-stakes moment",
+          "dread framing around a pivotal moment",
+          "curiosity framing around a pivotal moment",
+          "paranoia framing around a pivotal moment",
+          "what theory builders are arguing about this week",
+          "what frame hunters are arguing about this week",
+          "what slow-burn viewers are arguing about this week"
+        ],
+        "semantic_universe_id": "universe_dark_mystery_0407342c",
+        "seed_source": "semantic_universe_engine_v1"
+      }
+    },
+    "trend_signal": {
+      "topic": "pre-10i validation happy path",
+      "velocity": 100.0,
+      "saturation": 56.0,
+      "virality_score": 72.65,
+      "platform": "tiktok",
+      "source": "user_topic",
+      "emotional_vector": {
+        "curiosity": 0.25,
+        "dread": 0.25,
+        "moral discomfort": 0.25,
+        "paranoia": 0.25,
+        "aftershock": 0.25
+      },
+      "platform_fit": {
+        "tiktok": 76.0,
+        "youtube_shorts": 68.0,
+        "instagram_reels": 76.0
+      },
+      "expiry_window_hours": 72
+    },
+    "hook_package": {
+      "variants": [
+        {
+          "variant_id": "hook_4_moral_discomfort_1",
+          "hook_class": "moral_discomfort",
+          "text": "pre-10i validation happy path worked — and that is exactly why it feels wrong in Dark Mystery / Psychological Horror.",
+          "curiosity_gap_score": 72.0,
+          "interrupt_power": 64.0,
+          "specificity_score": 68.0,
+          "emotional_vector": {
+            "curiosity_gap": 72.0,
+            "emotional_spike": 64.0,
+            "niche_fit": 77.0,
+            "platform_fit": 70.0,
+            "non_generic_score": 82.0,
+            "composite": 71.7
+          }
+        },
+        {
+          "variant_id": "hook_6_open_loop_seed_1",
+          "hook_class": "open_loop_seed",
+          "text": "pre-10i validation happy path ends with one question nobody in Dark Mystery / Psychological Horror can ignore.",
+          "curiosity_gap_score": 69.0,
+          "interrupt_power": 56.0,
+          "specificity_score": 68.0,
+          "emotional_vector": {
+            "curiosity_gap": 69.0,
+            "emotional_spike": 56.0,
+            "niche_fit": 80.0,
+            "platform_fit": 78.0,
+            "non_generic_score": 82.0,
+            "composite": 71.1
+          }
+        },
+        {
+          "variant_id": "hook_2_incomplete_truth_1",
+          "hook_class": "incomplete_truth",
+          "text": "Everyone saw the hallway light flickering once. Nobody checked the door that opens the wrong way.",
+          "curiosity_gap_score": 67.0,
+          "interrupt_power": 64.0,
+          "specificity_score": 63.0,
+          "emotional_vector": {
+            "curiosity_gap": 67.0,
+            "emotional_spike": 64.0,
+            "niche_fit": 70.0,
+            "platform_fit": 78.0,
+            "non_generic_score": 86.0,
+            "composite": 69.88
+          }
+        }
+      ],
+      "selected_variant_id": "hook_4_moral_discomfort_1",
+      "best_hook_text": "pre-10i validation happy path worked — and that is exactly why it feels wrong in Dark Mystery / Psychological Horror.",
+      "hook_class": "moral_discomfort",
+      "composite_score": 71.7
+    },
+    "video_format_plan": {
+      "target_duration_seconds": 30,
+      "clip_count": 5,
+      "clip_duration_seconds": 6,
+      "format_type": "multi_clip_hailuo",
+      "pacing_profile": "fast",
+      "content_type": "short",
+      "platform": "tiktok",
+      "platform_limits": {
+        "platform_id": "tiktok",
+        "ideal_duration_seconds": {
+          "min": 21,
+          "max": 34,
+          "sweet_spot": 28
+        },
+        "hook_window_seconds": 1.5,
+        "min_project_duration": 15,
+        "max_project_duration": 58,
+        "caption_style": "cryptic, 1-2 lines, no hashtag stuffing in primary caption",
+        "pacing_note": "fastest hook delivery; first frame must contain motion or visual wrongness"
+      },
+      "provider_name": "hailuo",
+      "provider_limits": {
+        "default_clip_duration_seconds": 6,
+        "allowed_clip_duration_seconds": [
+          6,
+          8
+        ],
+        "max_clip_duration_seconds": 8,
+        "min_clip_duration_seconds": 6,
+        "supports_multi_clip": true,
+        "clip_duration_seconds": 6
+      },
+      "recommended_story_beats": [
+        {
+          "beat_id": "HOOK_BEAT",
+          "start_second": 0.0,
+          "end_second": 2.7,
+          "act": 1,
+          "goal": "Pattern interrupt and immediate stakes"
+        },
+        {
+          "beat_id": "CONTEXT_BEAT",
+          "start_second": 2.7,
+          "end_second": 6.0,
+          "act": 1,
+          "goal": "Establish context without over-explaining"
+        },
+        {
+          "beat_id": "ESCALATION_BEAT",
+          "start_second": 6.0,
+          "end_second": 12.6,
+          "act": 2,
+          "goal": "Increase tension or value"
+        },
+        {
+          "beat_id": "PATTERN_BREAK",
+          "start_second": 12.6,
+          "end_second": 16.2,
+          "act": 2,
+          "goal": "Shift angle before payoff"
+        },
+        {
+          "beat_id": "PAYOFF_BEAT",
+          "start_second": 16.2,
+          "end_second": 24.6,
+          "act": 3,
+          "goal": "Deliver payoff that matches the hook"
+        },
+        {
+          "beat_id": "LOOP_SEED",
+          "start_second": 24.6,
+          "end_second": 30.0,
+          "act": 3,
+          "goal": "Open loop for comments or next episode"
+        }
+      ],
+      "selection_reason": "Used user-requested duration 30s for tiktok (short) with 5x6s clips via hailuo.",
+      "user_duration_requested": 30,
+      "metadata": {
+        "supported_short_durations": [
+          15,
+          30,
+          45,
+          60
+        ],
+        "profile_default_duration": 30,
+        "requested_duration_seconds": 30,
+        "aligned_duration_seconds": 30,
+        "provider_clip_duration_seconds": 6
+      }
+    },
+    "story_blueprint": {
+      "story_mode": "confession",
+      "beats": [
+        {
+          "beat_id": "HOOK_BEAT",
+          "act": 1,
+          "start_second": 0.0,
+          "end_second": 2.5,
+          "description": "PURPOSE: Pattern interrupt and immediate stakes | NARRATION: pre-10i validation happy path worked — and that is exactly why it feels wrong in Dark Mystery / Psychological Horror | VISUAL: single hallway bulb flicker in an empty corridor",
+          "emotional_tone": "pattern interrupt and immediate stakes (0.85)",
+          "retention_mechanic": "pattern_interrupt"
+        },
+        {
+          "beat_id": "CONTEXT_BEAT",
+          "act": 1,
+          "start_second": 2.5,
+          "end_second": 5.6,
+          "description": "PURPOSE: Establish context without over-explaining | NARRATION: The room seemed ordinary until pre-10i validation happy path stopped matching the layout they remembered | VISUAL: handheld shot entering the room mentioned in the hook",
+          "emotional_tone": "establish context without over-explaining (0.55)",
+          "retention_mechanic": "curiosity_gap"
+        },
+        {
+          "beat_id": "ESCALATION_BEAT",
+          "act": 2,
+          "start_second": 5.6,
+          "end_second": 11.8,
+          "description": "PURPOSE: Increase tension or value | NARRATION: Each detail is small alone; together they feel wrong | VISUAL: slow push toward the object that should not be there",
+          "emotional_tone": "increase tension or value (0.72)",
+          "retention_mechanic": "stakes_increase"
+        },
+        {
+          "beat_id": "PATTERN_BREAK",
+          "act": 2,
+          "start_second": 11.8,
+          "end_second": 15.1,
+          "description": "PURPOSE: Shift angle before the payoff | NARRATION: Shift perspective: the obvious read on pre-10i validation happy path is incomplete | VISUAL: sudden silence with one off-screen sound",
+          "emotional_tone": "shift angle before the payoff (0.78)",
+          "retention_mechanic": "perspective_shift"
+        },
+        {
+          "beat_id": "PAYOFF_BEAT",
+          "act": 3,
+          "start_second": 15.1,
+          "end_second": 23.0,
+          "description": "PURPOSE: Payoff that matches the hook promise | NARRATION: The camera catches enough to disturb, not enough to explain | VISUAL: partial reveal that implies a worse unseen detail",
+          "emotional_tone": "payoff that matches the hook promise (0.92)",
+          "retention_mechanic": "peak_moment"
+        },
+        {
+          "beat_id": "LOOP_SEED",
+          "act": 3,
+          "start_second": 23.0,
+          "end_second": 28.0,
+          "description": "PURPOSE: Open loop for comments or next episode | NARRATION: Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two | VISUAL: door left ajar with light spilling the wrong direction",
+          "emotional_tone": "open loop for comments or next episode (0.66)",
+          "retention_mechanic": "open_loop"
+        }
+      ],
+      "reveal_type": "implied_reveal",
+      "loop_seed": "Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two",
+      "total_duration_seconds": 30,
+      "emotional_curve": [
+        0.85,
+        0.55,
+        0.72,
+        0.78,
+        0.92,
+        0.66
+      ],
+      "lore_refs": [
+        "profile_story_mode:confession"
+      ],
+      "sensory_anchor": "cold draft under the door with a faint humming sound"
+    },
+    "retention_map": {
+      "beats": [
+        {
+          "block_label": "clip_0_mini_hook",
+          "start_second": 0.0,
+          "end_second": 1.32,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 1 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Open with voice or sound in frame 0. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 0 [0.0-6.0] | INTENSITY: 0.93 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "opening_visual_hook",
+          "start_second": 0.0,
+          "end_second": 1.0,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Tight close-up or immediate motion in frame 0. | AUDIO: Front-load the most important spoken line or sound. | CAPTION: pre-10i validation happy path worked — and that is exactly why it feels wrong in | CLIP: 0 [0.0-6.0] | INTENSITY: 1.00 | RISK: First 3 seconds must not feel slow. | STORY: HOOK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "sensory_anchor",
+          "start_second": 0.0,
+          "end_second": 2.0,
+          "mechanic": "object_focus",
+          "implementation_note": "VISUAL: cold draft under the door with a faint humming sound | AUDIO: Let the sensory detail have one clean audio moment. | CAPTION: No caption needed unless it names the sensory detail. | CLIP: 0 [0.0-6.0] | INTENSITY: 0.87 | RISK: Missing sensory anchor makes the story feel generic.",
+          "required": true
+        },
+        {
+          "block_label": "story_hook_beat",
+          "start_second": 0.0,
+          "end_second": 2.5,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: single hallway bulb flicker in an empty corridor | AUDIO: Lead with the hook line in the first second. | CAPTION: pre-10i validation happy path worked — and that is exactly why it feels wrong in Dark Myst | CLIP: 0 [0.0-6.0] | INTENSITY: 0.95 | RISK: Slow hook delivery causes immediate swipe. | STORY: HOOK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "opening_verbal_hook_completion",
+          "start_second": 1.0,
+          "end_second": 2.0,
+          "mechanic": "curiosity_gap",
+          "implementation_note": "VISUAL: One unsettling sentence that completes the hook promise | AUDIO: Front-load the most important spoken line or sound. | CAPTION: pre-10i validation happy path worked — and that is exactly why it feels wrong in | CLIP: 0 [0.0-6.0] | INTENSITY: 0.95 | RISK: First 3 seconds must not feel slow. | STORY: HOOK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "opening_opening_stakes_lock",
+          "start_second": 2.0,
+          "end_second": 3.0,
+          "mechanic": "stakes_lock",
+          "implementation_note": "VISUAL: Tight close-up or immediate motion in frame 0. | AUDIO: Front-load the most important spoken line or sound. | CAPTION: pre-10i validation happy path worked — and that is exactly why it feels wrong in | CLIP: 0 [0.0-6.0] | INTENSITY: 0.91 | RISK: First 3 seconds must not feel slow.",
+          "required": true
+        },
+        {
+          "block_label": "story_context_beat",
+          "start_second": 2.5,
+          "end_second": 5.6,
+          "mechanic": "curiosity_gap",
+          "implementation_note": "VISUAL: handheld shot entering the room mentioned in the hook | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 0 [0.0-6.0] | INTENSITY: 0.63 | RISK: Over-explaining here collapses curiosity. | STORY: CONTEXT_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_0_mini_payoff",
+          "start_second": 4.32,
+          "end_second": 6.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 1 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 0 [0.0-6.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "story_escalation_beat",
+          "start_second": 5.6,
+          "end_second": 11.8,
+          "mechanic": "stakes_increase",
+          "implementation_note": "VISUAL: slow push toward the object that should not be there | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 0 [0.0-6.0] | INTENSITY: 0.72 | RISK: Repeating the hook without new info causes drop-off. | STORY: ESCALATION_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_1_mini_hook",
+          "start_second": 6.0,
+          "end_second": 7.32,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 2 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 1 [6.0-12.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "pattern_break_1",
+          "start_second": 8.0,
+          "end_second": 9.5,
+          "mechanic": "perspective_shift",
+          "implementation_note": "VISUAL: Change camera angle, subject distance, or scene location. | AUDIO: Use a subtle whoosh or cut-point accent. | CAPTION: Use only if the break needs one clarifying line. | CLIP: 1 [6.0-12.0] | INTENSITY: 0.76 | RISK: Predictable pacing without breaks loses retention.",
+          "required": true
+        },
+        {
+          "block_label": "clip_1_mini_payoff",
+          "start_second": 10.32,
+          "end_second": 12.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 2 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 1 [6.0-12.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "story_pattern_break_beat",
+          "start_second": 11.8,
+          "end_second": 15.1,
+          "mechanic": "perspective_shift",
+          "implementation_note": "VISUAL: sudden silence with one off-screen sound | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 1 [6.0-12.0] | INTENSITY: 0.65 | RISK: Beat lacks specificity or pacing. | STORY: PATTERN_BREAK_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_2_mini_hook",
+          "start_second": 12.0,
+          "end_second": 13.32,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 3 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 2 [12.0-18.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "story_payoff_beat",
+          "start_second": 15.1,
+          "end_second": 23.0,
+          "mechanic": "peak_moment",
+          "implementation_note": "VISUAL: partial reveal that implies a worse unseen detail | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 2 [12.0-18.0] | INTENSITY: 0.92 | RISK: Weak payoff breaks trust with the hook. | STORY: PAYOFF_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_2_mini_payoff",
+          "start_second": 16.32,
+          "end_second": 18.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 3 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 2 [12.0-18.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "clip_3_mini_hook",
+          "start_second": 18.0,
+          "end_second": 19.32,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 4 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 3 [18.0-24.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "clip_3_mini_payoff",
+          "start_second": 22.32,
+          "end_second": 24.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 4 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 3 [18.0-24.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        },
+        {
+          "block_label": "story_loop_seed_beat",
+          "start_second": 23.0,
+          "end_second": 28.0,
+          "mechanic": "open_loop",
+          "implementation_note": "VISUAL: door left ajar with light spilling the wrong direction | AUDIO: Keep narration concise and synced to the visual turn. | CAPTION: One short line max. | CLIP: 3 [18.0-24.0] | INTENSITY: 0.65 | RISK: Beat lacks specificity or pacing. | STORY: LOOP_SEED_BEAT",
+          "required": true
+        },
+        {
+          "block_label": "clip_4_mini_hook",
+          "start_second": 24.0,
+          "end_second": 25.32,
+          "mechanic": "pattern_interrupt",
+          "implementation_note": "VISUAL: Clip 5 opens with immediate motion or new detail; do not fade in from black. | AUDIO: Hard audio start or sudden contrast against previous clip ending. | CAPTION: On-screen text only if it adds tension or clarity in the first second. | CLIP: 4 [24.0-30.0] | INTENSITY: 0.78 | RISK: Weak clip openings cause multi-clip drop-off.",
+          "required": true
+        },
+        {
+          "block_label": "clip_4_mini_payoff",
+          "start_second": 28.32,
+          "end_second": 30.0,
+          "mechanic": "small_reveal",
+          "implementation_note": "VISUAL: Close clip 5 with one concrete visual turn that makes the next clip necessary. | AUDIO: End with a line, sound spike, or silence that pulls forward. | CAPTION: If used, one short line that tees up the next clip. | CLIP: 4 [24.0-30.0] | INTENSITY: 0.74 | RISK: Clip ends that feel complete kill continuity.",
+          "required": true
+        }
+      ],
+      "retention_score_estimate": 100.0,
+      "pattern_break_count": 3,
+      "loop_seed_present": true
+    },
+    "uniqueness_report": {
+      "passed": true,
+      "layers": [
+        {
+          "layer_name": "twist_type_collision",
+          "similarity_score": 0.0,
+          "threshold": 0.65,
+          "passed": true,
+          "detail": "Unknown method 'reveal_type_and_payoff_match'."
+        },
+        {
+          "layer_name": "twist_type_collision",
+          "similarity_score": 0.0,
+          "threshold": 0.65,
+          "passed": true,
+          "detail": "Compared reveal/loop fingerprint against 0 prior records."
+        },
+        {
+          "layer_name": "niche_banned_patterns",
+          "similarity_score": 0.0,
+          "threshold": 0.0,
+          "passed": true,
+          "detail": "No niche banned phrases detected."
+        }
+      ],
+      "max_similarity": 0.0,
+      "uniqueness_score": 100.0,
+      "regeneration_directive": ""
+    },
+    "viral_scorecard": {
+      "dimensions": [
+        {
+          "name": "hook_strength",
+          "score": 71.7,
+          "weight": 0.2,
+          "notes": "hook_strength scored 71.7; minimum 70.0; pass."
+        },
+        {
+          "name": "retention_architecture",
+          "score": 100.0,
+          "weight": 0.25,
+          "notes": "retention_architecture scored 100.0; minimum 68.0; pass."
+        },
+        {
+          "name": "emotional_intensity_curve",
+          "score": 63.3,
+          "weight": 0.15,
+          "notes": "emotional_intensity_curve scored 63.3; minimum 60.0; pass."
+        },
+        {
+          "name": "specificity",
+          "score": 66.0,
+          "weight": 0.1,
+          "notes": "specificity scored 66.0; minimum 65.0; pass."
+        },
+        {
+          "name": "uniqueness",
+          "score": 100.0,
+          "weight": 0.15,
+          "notes": "uniqueness scored 100.0; minimum 70.0; pass."
+        },
+        {
+          "name": "platform_fit",
+          "score": 73.33,
+          "weight": 0.1,
+          "notes": "platform_fit scored 73.3; minimum 60.0; pass."
+        },
+        {
+          "name": "loop_potential",
+          "score": 85.0,
+          "weight": 0.05,
+          "notes": "loop_potential scored 85.0; minimum 50.0; pass."
+        }
+      ],
+      "composite_score": 82.02,
+      "production_tier": "A",
+      "passed_gate": true,
+      "minimum_gate_score": 65.0
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "confidence": 0.9,
+      "reasons": [
+        "Viral tier A with composite 82.0 and no critical weaknesses."
+      ],
+      "weak_dimensions": [],
+      "revision_targets": [],
+      "regeneration_required": false,
+      "priority_fixes": [],
+      "production_ready": true
+    },
+    "title_thumbnail_package": {
+      "titles": [
+        "pre-10i validation happy path",
+        "Why humming changes this story",
+        "The humming moment nobody finished explaining",
+        "humming + Leave one unanswered detail about pre-10i validation happy path so Da...",
+        "humming: Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two",
+        "pre-10i validation happy path worked — and that is exactly why it feels wrong i..."
+      ],
+      "thumbnail_concepts": [
+        {
+          "concept_id": "thumb_focal_tension",
+          "focal_subject": "cold draft under the door with a faint humming sound",
+          "visual_prompt": "slow push-in; single-source practical lighting; palette desaturated cold blues, sickly amber practical lights, deep crushed blacks; focal subject cold draft under the door with a faint humming sound; incomplete detail visible but payoff hidden.",
+          "tension_element": "Hide the full implied reveal behind framing or shadow.",
+          "composition_note": "Must show: human emotion or partial face, one incomplete information element, high contrast focal point.",
+          "score": 85.0
+        },
+        {
+          "concept_id": "thumb_object_interrupt",
+          "focal_subject": "humming",
+          "visual_prompt": "Single object-led frame featuring humming; mobile-readable contrast; motion or wrong detail in frame 0.",
+          "tension_element": "One precise wrong detail without revealing the final answer.",
+          "composition_note": "Use object focus before context is explained.",
+          "score": 73.0
+        },
+        {
+          "concept_id": "thumb_hook_overlay",
+          "focal_subject": "pre-10i validation happy path worked — and that ",
+          "visual_prompt": "Cover frame with cold draft under the door with a faint humming sound in background and bold overlay text zone; single-source practical lighting; avoid full payoff reveal.",
+          "tension_element": "Text implies a missing piece the viewer must watch to resolve.",
+          "composition_note": "in-video text first",
+          "score": 67.0
+        },
+        {
+          "concept_id": "thumb_loop_seed",
+          "focal_subject": "Leave one unanswered detail about pre-10i validation happy p",
+          "visual_prompt": "Unresolved question visual using cold draft under the door with a faint humming sound; leave one unanswered element on screen.",
+          "tension_element": "Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two",
+          "composition_note": "Invite comments or rewatch without closing the loop.",
+          "score": 67.0
+        }
+      ],
+      "thumbnail_text_options": [
+        "HUMMING",
+        "LEAVE ONE UNANSWERED DETAIL ABOUT PRE-10I",
+        "PRE-10I VALIDATION HAPPY PATH WORKED —",
+        "THE HUMMING",
+        "HUMMING?!"
+      ],
+      "ctr_hooks": [
+        "pre-10i validation happy path worked — and that is exactly why it feels wrong in Dark Mystery / Psychological Horror.",
+        "Stop scrolling — humming is the part everyone missed.",
+        "You saw the clip about humming. You didn't see leave one unanswered detail about pre-10i validation happy path so dark mystery / psychological horror viewers comment or wait for part two."
+      ],
+      "curiosity_gaps": [
+        "What actually caused humming?",
+        "Why leave one unanswered detail about pre-10i validation happy path so dark mystery / psychological horror viewers comment or wait for part two?",
+        "Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two",
+        "The implied reveal is shown partially, not fully."
+      ],
+      "emotional_triggers": [
+        "curiosity",
+        "tension",
+        "confession"
+      ],
+      "packaging_style": "unsettling, intimate, psychologically precise, cinematic; in-video text first",
+      "platform_optimized": {
+        "platform": "tiktok",
+        "display_name": "TikTok",
+        "title_style": "in-video text first",
+        "caption_style": "cryptic, 1-2 lines, no hashtag stuffing in primary caption",
+        "cta_style": "Part 2? / Comment what you think happened",
+        "title_max_characters": 80,
+        "hook_window_seconds": 1.5,
+        "hashtag_count": {
+          "min": 3,
+          "max": 6
+        }
+      },
+      "recommended_title": "pre-10i validation happy path",
+      "recommended_thumbnail_concept": {
+        "concept_id": "thumb_focal_tension",
+        "focal_subject": "cold draft under the door with a faint humming sound",
+        "visual_prompt": "slow push-in; single-source practical lighting; palette desaturated cold blues, sickly amber practical lights, deep crushed blacks; focal subject cold draft under the door with a faint humming sound; incomplete detail visible but payoff hidden.",
+        "tension_element": "Hide the full implied reveal behind framing or shadow.",
+        "composition_note": "Must show: human emotion or partial face, one incomplete information element, high contrast focal point.",
+        "score": 85.0
+      },
+      "warnings": [
+        "Title exceeds max length (82>80): humming + Leave one unanswered detail ab..."
+      ]
+    },
+    "production_ready": true,
+    "next_action": "proceed_to_title_thumbnail",
+    "run_context": {
+      "brief_id": "brief_20260529_231545_40c61bf9",
+      "niche": "dark_mystery",
+      "topic": "pre-10i validation happy path",
+      "user_topic": "pre-10i validation happy path",
+      "user_topic_authoritative": true,
+      "platform": "tiktok",
+      "provider_name": "hailuo",
+      "channel_id": "",
+      "channel_name": "",
+      "channel_identity_applied": false,
+      "pipeline_version": "content_brief_orchestrator_v1",
+      "started_at": "2026-05-29 23:15:45",
+      "completed_at": "2026-05-29 23:15:45",
+      "decision": "PROCEED",
+      "composite_score": 82.02,
+      "production_tier": "A",
+      "recommended_title": "pre-10i validation happy path",
+      "packaging_warning_count": 1,
+      "story_intelligence_applied": true,
+      "story_intelligence": {
+        "engine_version": "story_intelligence_v1",
+        "story_blueprint": {
+          "narrative_premise": "A Dark Mystery / Psychological Horror story about pre-10i validation happy path that proves pre 10i validation is the detail everyone missed.",
+          "emotional_arc": [
+            {
+              "beat_id": "HOOK_BEAT",
+              "emotion_target": "curiosity",
+              "intensity": 0.88,
+              "cause": "Hook promises a hidden pre in pre-10i validation happy path.",
+              "prior_beat_emotion": "neutral",
+              "release_or_tension": "tension",
+              "connects_to_next": "CONTEXT_BEAT"
+            },
+            {
+              "beat_id": "CONTEXT_BEAT",
+              "emotion_target": "grounding",
+              "intensity": 0.55,
+              "cause": "After curiosity from curiosity, viewer needs grounding on pre.",
+              "prior_beat_emotion": "curiosity",
+              "release_or_tension": "release",
+              "connects_to_next": "ESCALATION_BEAT"
+            },
+            {
+              "beat_id": "ESCALATION_BEAT",
+              "emotion_target": "tension",
+              "intensity": 0.78,
+              "cause": "Stakes rise when pre contradicts the obvious reading.",
+              "prior_beat_emotion": "grounding",
+              "release_or_tension": "tension",
+              "connects_to_next": "PATTERN_BREAK"
+            },
+            {
+              "beat_id": "PATTERN_BREAK",
+              "emotion_target": "surprise",
+              "intensity": 0.82,
+              "cause": "Perspective shifts because implied reveal reframes pre.",
+              "prior_beat_emotion": "tension",
+              "release_or_tension": "tension",
+              "connects_to_next": "PAYOFF_BEAT"
+            },
+            {
+              "beat_id": "PAYOFF_BEAT",
+              "emotion_target": "payoff",
+              "intensity": 0.92,
+              "cause": "Payoff delivers the answer the hook implied about pre.",
+              "prior_beat_emotion": "surprise",
+              "release_or_tension": "tension",
+              "connects_to_next": "LOOP_SEED"
+            },
+            {
+              "beat_id": "LOOP_SEED",
+              "emotion_target": "open_loop",
+              "intensity": 0.7,
+              "cause": "One unanswered pre detail seeds the next episode.",
+              "prior_beat_emotion": "payoff",
+              "release_or_tension": "release",
+              "connects_to_next": ""
+            }
+          ],
+          "story_beats": [
+            {
+              "beat_id": "HOOK_BEAT",
+              "act": 1,
+              "start_second": 0.0,
+              "end_second": 2.5,
+              "emotional_target": "curiosity",
+              "intensity": 0.88,
+              "retention_mechanic": "pattern_interrupt",
+              "description": "PURPOSE: Pattern interrupt and immediate stakes | NARRATION: pre-10i validation happy path worked — and that is exactly why it feels wrong in Dark Mystery / Psychological Horror | VISUAL: single hallway bulb flicker in an empty corridor"
+            },
+            {
+              "beat_id": "CONTEXT_BEAT",
+              "act": 1,
+              "start_second": 2.5,
+              "end_second": 5.6,
+              "emotional_target": "grounding",
+              "intensity": 0.55,
+              "retention_mechanic": "curiosity_gap",
+              "description": "PURPOSE: Establish context without over-explaining | NARRATION: The room seemed ordinary until pre-10i validation happy path stopped matching the layout they remembered | VISUAL: handheld shot entering the room mentioned in the hook"
+            },
+            {
+              "beat_id": "ESCALATION_BEAT",
+              "act": 2,
+              "start_second": 5.6,
+              "end_second": 11.8,
+              "emotional_target": "tension",
+              "intensity": 0.78,
+              "retention_mechanic": "stakes_increase",
+              "description": "PURPOSE: Increase tension or value | NARRATION: Each detail is small alone; together they feel wrong | VISUAL: slow push toward the object that should not be there"
+            },
+            {
+              "beat_id": "PATTERN_BREAK",
+              "act": 2,
+              "start_second": 11.8,
+              "end_second": 15.1,
+              "emotional_target": "surprise",
+              "intensity": 0.82,
+              "retention_mechanic": "perspective_shift",
+              "description": "PURPOSE: Shift angle before the payoff | NARRATION: Shift perspective: the obvious read on pre-10i validation happy path is incomplete | VISUAL: sudden silence with one off-screen sound"
+            },
+            {
+              "beat_id": "PAYOFF_BEAT",
+              "act": 3,
+              "start_second": 15.1,
+              "end_second": 23.0,
+              "emotional_target": "payoff",
+              "intensity": 0.92,
+              "retention_mechanic": "peak_moment",
+              "description": "PURPOSE: Payoff that matches the hook promise | NARRATION: The camera catches enough to disturb, not enough to explain | VISUAL: partial reveal that implies a worse unseen detail"
+            },
+            {
+              "beat_id": "LOOP_SEED",
+              "act": 3,
+              "start_second": 23.0,
+              "end_second": 28.0,
+              "emotional_target": "open_loop",
+              "intensity": 0.7,
+              "retention_mechanic": "open_loop",
+              "description": "PURPOSE: Open loop for comments or next episode | NARRATION: Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two | VISUAL: door left ajar with light spilling the wrong direction"
+            }
+          ],
+          "cinematic_progression": [
+            {
+              "scene_id": "scene_01",
+              "beat_id": "HOOK_BEAT",
+              "escalation_step": 0.88,
+              "camera": "Tight macro on evidence detail, shallow depth of field",
+              "lighting": "Low-key with motivated practical light source — high contrast accent on focal detail",
+              "motion": "Snap focus rack to evidence detail",
+              "emotional_target": "curiosity",
+              "narrative_link": " → HOOK_BEAT → ESCALATION_BEAT"
+            },
+            {
+              "scene_id": "scene_02",
+              "beat_id": "ESCALATION_BEAT",
+              "escalation_step": 0.78,
+              "camera": "Slow push-in on contradicting detail",
+              "lighting": "Low-key with motivated practical light source",
+              "motion": "Controlled push-in as tension builds",
+              "emotional_target": "tension",
+              "narrative_link": "HOOK_BEAT → ESCALATION_BEAT → PAYOFF_BEAT"
+            },
+            {
+              "scene_id": "scene_03",
+              "beat_id": "PAYOFF_BEAT",
+              "escalation_step": 0.92,
+              "camera": "Locked-off hero frame with decisive reveal element centered",
+              "lighting": "Low-key with motivated practical light source — crisp highlight on reveal object",
+              "motion": "Hold steady; micro-movement only on reveal",
+              "emotional_target": "payoff",
+              "narrative_link": "ESCALATION_BEAT → PAYOFF_BEAT → LOOP_SEED"
+            },
+            {
+              "scene_id": "scene_04",
+              "beat_id": "LOOP_SEED",
+              "escalation_step": 0.7,
+              "camera": "Pull-back reveal leaving one element unresolved at frame edge",
+              "lighting": "Low-key with motivated practical light source — falloff into shadow on unresolved edge",
+              "motion": "Slow drift away from incomplete detail",
+              "emotional_target": "open_loop",
+              "narrative_link": "PAYOFF_BEAT → LOOP_SEED → CONTEXT_BEAT"
+            },
+            {
+              "scene_id": "scene_05",
+              "beat_id": "CONTEXT_BEAT",
+              "escalation_step": 0.55,
+              "camera": "Medium-wide establishing with subject in lower third",
+              "lighting": "Low-key with motivated practical light source",
+              "motion": "Gentle lateral slide across environment",
+              "emotional_target": "grounding",
+              "narrative_link": "LOOP_SEED → CONTEXT_BEAT → "
+            }
+          ],
+          "twist_or_reveal": {
+            "reveal_type": "implied_reveal",
+            "loop_seed": "Leave one unanswered detail about pre-10i validation happy path so Dark Mystery / Psychological Horror viewers comment or wait for part two",
+            "payoff_scene_id": "scene_04",
+            "twist_mechanism": "implied reveal reframes pre"
+          },
+          "scene_plan": [
+            {
+              "scene_id": "scene_01",
+              "beat_id": "HOOK_BEAT",
+              "beat_role": "hook",
+              "start_second": 0,
+              "end_second": 2,
+              "duration_seconds": 2,
+              "narrative_purpose": "Interrupt with a concrete pre the audience has not examined.",
+              "connects_from": "",
+              "connects_to": "ESCALATION_BEAT",
+              "story_advance": "new_information",
+              "visual_description": "blueprint floor plan with missing room highlighting pre during hook — specific to pre-10i validation happy path, not generic stock footage.",
+              "emotional_target": "curiosity",
+              "emotional_intensity": 0.88,
+              "camera_direction": "Tight macro on evidence detail, shallow depth of field",
+              "lighting_mood": "Low-key with motivated practical light source — high contrast accent on focal detail",
+              "motion_direction": "Snap focus rack to evidence detail",
+              "voiceover_intent": "State the overlooked pre claim without explaining yet.",
+              "subject": "pre evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to pre",
+              "action": "Reveal pre detail entering frame",
+              "mood": "curiosity",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_02",
+              "beat_id": "ESCALATION_BEAT",
+              "beat_role": "escalation",
+              "start_second": 5,
+              "end_second": 11,
+              "duration_seconds": 6,
+              "narrative_purpose": "Raise stakes by showing pre conflicts with the public narrative.",
+              "connects_from": "HOOK_BEAT",
+              "connects_to": "PAYOFF_BEAT",
+              "story_advance": "stakes_increase",
+              "visual_description": "cold draft under door gap highlighting 10i during escalation — specific to pre-10i validation happy path, not generic stock footage.",
+              "emotional_target": "tension",
+              "emotional_intensity": 0.78,
+              "camera_direction": "Slow push-in on contradicting detail",
+              "lighting_mood": "Low-key with motivated practical light source",
+              "motion_direction": "Controlled push-in as tension builds",
+              "voiceover_intent": "Increase urgency; introduce contradiction.",
+              "subject": "10i evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to 10i",
+              "action": "Contrast two readings of 10i",
+              "mood": "tension",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_03",
+              "beat_id": "PAYOFF_BEAT",
+              "beat_role": "payoff",
+              "start_second": 15,
+              "end_second": 23,
+              "duration_seconds": 8,
+              "narrative_purpose": "Deliver the decisive pre evidence the hook promised.",
+              "connects_from": "ESCALATION_BEAT",
+              "connects_to": "LOOP_SEED",
+              "story_advance": "answer_delivery",
+              "visual_description": "flickering hallway sconce highlighting validation during payoff — specific to pre-10i validation happy path, not generic stock footage.",
+              "emotional_target": "payoff",
+              "emotional_intensity": 0.92,
+              "camera_direction": "Locked-off hero frame with decisive reveal element centered",
+              "lighting_mood": "Low-key with motivated practical light source — crisp highlight on reveal object",
+              "motion_direction": "Hold steady; micro-movement only on reveal",
+              "voiceover_intent": "Deliver the answer with concrete specificity.",
+              "subject": "validation evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to validation",
+              "action": "Hold on decisive validation evidence",
+              "mood": "payoff",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_04",
+              "beat_id": "LOOP_SEED",
+              "beat_role": "loop_seed",
+              "start_second": 23,
+              "end_second": 28,
+              "duration_seconds": 5,
+              "narrative_purpose": "Leave one pre question open to drive comments or part two.",
+              "connects_from": "PAYOFF_BEAT",
+              "connects_to": "CONTEXT_BEAT",
+              "story_advance": "open_question",
+              "visual_description": "architectural anomaly in wall panel highlighting happy during loop_seed — specific to pre-10i validation happy path, not generic stock footage.",
+              "emotional_target": "open_loop",
+              "emotional_intensity": 0.7,
+              "camera_direction": "Pull-back reveal leaving one element unresolved at frame edge",
+              "lighting_mood": "Low-key with motivated practical light source — falloff into shadow on unresolved edge",
+              "motion_direction": "Slow drift away from incomplete detail",
+              "voiceover_intent": "Pose one unanswered question about pre.",
+              "subject": "happy evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to happy",
+              "action": "Leave happy partially obscured at frame edge",
+              "mood": "open_loop",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            },
+            {
+              "scene_id": "scene_05",
+              "beat_id": "CONTEXT_BEAT",
+              "beat_role": "context",
+              "start_second": 2,
+              "end_second": 5,
+              "duration_seconds": 3,
+              "narrative_purpose": "Establish why pre matters inside pre-10i validation happy path.",
+              "connects_from": "LOOP_SEED",
+              "connects_to": "",
+              "story_advance": "stakes_definition",
+              "visual_description": "hum vibration on metal door handle highlighting path during context — specific to pre-10i validation happy path, not generic stock footage.",
+              "emotional_target": "grounding",
+              "emotional_intensity": 0.55,
+              "camera_direction": "Medium-wide establishing with subject in lower third",
+              "lighting_mood": "Low-key with motivated practical light source",
+              "motion_direction": "Gentle lateral slide across environment",
+              "voiceover_intent": "Ground why pre changes interpretation.",
+              "subject": "path evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to path",
+              "action": "Show path in situ within environment",
+              "mood": "grounding",
+              "anti_generic_reason": "no generic trope keywords detected; scene has explicit narrative purpose"
+            }
+          ],
+          "visual_originality_notes": [
+            "scene_01: uses niche lexicon 'blueprint floor plan with missing room' tied to topic tokens.",
+            "scene_02: uses niche lexicon 'cold draft under door gap' tied to topic tokens.",
+            "scene_03: uses niche lexicon 'flickering hallway sconce' tied to topic tokens.",
+            "scene_04: uses niche lexicon 'architectural anomaly in wall panel' tied to topic tokens.",
+            "scene_05: uses niche lexicon 'hum vibration on metal door handle' tied to topic tokens."
+          ],
+          "anti_repetition_notes": [
+            "scene_01: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_02: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_03: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_04: no generic trope keywords detected; scene has explicit narrative purpose",
+            "scene_05: no generic trope keywords detected; scene has explicit narrative purpose"
+          ],
+          "director_shots": [
+            {
+              "shot_id": "shot_01",
+              "scene_id": "scene_01",
+              "clip_number": 1,
+              "duration_seconds": 2,
+              "prompt_intent": "blueprint floor plan with missing room highlighting pre during hook — specific to pre-10i validation happy path, not generic stock footage.. Subject: pre evidence element. Action: Reveal pre detail entering frame. Mood: curiosity.",
+              "camera": "Tight macro on evidence detail, shallow depth of field",
+              "lighting": "Low-key with motivated practical light source — high contrast accent on focal detail",
+              "subject": "pre evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to pre",
+              "action": "Reveal pre detail entering frame",
+              "mood": "curiosity",
+              "continuity_notes": "Follows opening; sets up ESCALATION_BEAT."
+            },
+            {
+              "shot_id": "shot_02",
+              "scene_id": "scene_02",
+              "clip_number": 2,
+              "duration_seconds": 6,
+              "prompt_intent": "cold draft under door gap highlighting 10i during escalation — specific to pre-10i validation happy path, not generic stock footage.. Subject: 10i evidence element. Action: Contrast two readings of 10i. Mood: tension.",
+              "camera": "Slow push-in on contradicting detail",
+              "lighting": "Low-key with motivated practical light source",
+              "subject": "10i evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to 10i",
+              "action": "Contrast two readings of 10i",
+              "mood": "tension",
+              "continuity_notes": "Follows HOOK_BEAT; sets up PAYOFF_BEAT."
+            },
+            {
+              "shot_id": "shot_03",
+              "scene_id": "scene_03",
+              "clip_number": 3,
+              "duration_seconds": 8,
+              "prompt_intent": "flickering hallway sconce highlighting validation during payoff — specific to pre-10i validation happy path, not generic stock footage.. Subject: validation evidence element. Action: Hold on decisive validation evidence. Mood: payoff.",
+              "camera": "Locked-off hero frame with decisive reveal element centered",
+              "lighting": "Low-key with motivated practical light source — crisp highlight on reveal object",
+              "subject": "validation evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to validation",
+              "action": "Hold on decisive validation evidence",
+              "mood": "payoff",
+              "continuity_notes": "Follows ESCALATION_BEAT; sets up LOOP_SEED."
+            },
+            {
+              "shot_id": "shot_04",
+              "scene_id": "scene_04",
+              "clip_number": 4,
+              "duration_seconds": 5,
+              "prompt_intent": "architectural anomaly in wall panel highlighting happy during loop_seed — specific to pre-10i validation happy path, not generic stock footage.. Subject: happy evidence element. Action: Leave happy partially obscured at frame edge. Mood: open_loop.",
+              "camera": "Pull-back reveal leaving one element unresolved at frame edge",
+              "lighting": "Low-key with motivated practical light source — falloff into shadow on unresolved edge",
+              "subject": "happy evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to happy",
+              "action": "Leave happy partially obscured at frame edge",
+              "mood": "open_loop",
+              "continuity_notes": "Follows PAYOFF_BEAT; sets up CONTEXT_BEAT."
+            },
+            {
+              "shot_id": "shot_05",
+              "scene_id": "scene_05",
+              "clip_number": 5,
+              "duration_seconds": 3,
+              "prompt_intent": "hum vibration on metal door handle highlighting path during context — specific to pre-10i validation happy path, not generic stock footage.. Subject: path evidence element. Action: Show path in situ within environment. Mood: grounding.",
+              "camera": "Medium-wide establishing with subject in lower third",
+              "lighting": "Low-key with motivated practical light source",
+              "subject": "path evidence element",
+              "environment": "Dark Mystery / Psychological Horror setting anchored to path",
+              "action": "Show path in situ within environment",
+              "mood": "grounding",
+              "continuity_notes": "Follows LOOP_SEED; sets up close."
+            }
+          ],
+          "story_quality_score": {
+            "composite": 88.6,
+            "originality_score": 92.0,
+            "cinematic_score": 100.0,
+            "emotional_tension_score": 53.2,
+            "visual_diversity_score": 100.0,
+            "scene_necessity_score": 100.0,
+            "visual_note_count": 5
+          }
+        },
+        "schema_director_shots": [
+          {
+            "clip_number": 1,
+            "duration_seconds": 2,
+            "prompt": "blueprint floor plan with missing room highlighting pre during hook — specific to pre-10i validation happy path, not generic stock footage.. Subject: pre evidence element. Action: Reveal pre detail entering frame. Mood: curiosity.",
+            "camera_shot": "Tight macro on evidence detail",
+            "camera_movement": "shallow depth of field",
+            "lighting": "Low-key with motivated practical light source — high contrast accent on focal detail",
+            "pacing": "curiosity",
+            "continuity_notes": "Follows opening; sets up ESCALATION_BEAT."
+          },
+          {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "prompt": "cold draft under door gap highlighting 10i during escalation — specific to pre-10i validation happy path, not generic stock footage.. Subject: 10i evidence element. Action: Contrast two readings of 10i. Mood: tension.",
+            "camera_shot": "Slow push-in on contradicting detail",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key with motivated practical light source",
+            "pacing": "tension",
+            "continuity_notes": "Follows HOOK_BEAT; sets up PAYOFF_BEAT."
+          },
+          {
+            "clip_number": 3,
+            "duration_seconds": 8,
+            "prompt": "flickering hallway sconce highlighting validation during payoff — specific to pre-10i validation happy path, not generic stock footage.. Subject: validation evidence element. Action: Hold on decisive validation evidence. Mood: payoff.",
+            "camera_shot": "Locked-off hero frame with decisive reveal element centered",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key with motivated practical light source — crisp highlight on reveal object",
+            "pacing": "payoff",
+            "continuity_notes": "Follows ESCALATION_BEAT; sets up LOOP_SEED."
+          },
+          {
+            "clip_number": 4,
+            "duration_seconds": 5,
+            "prompt": "architectural anomaly in wall panel highlighting happy during loop_seed — specific to pre-10i validation happy path, not generic stock footage.. Subject: happy evidence element. Action: Leave happy partially obscured at frame edge. Mood: open_loop.",
+            "camera_shot": "Pull-back reveal leaving one element unresolved at frame edge",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key with motivated practical light source — falloff into shadow on unresolved edge",
+            "pacing": "open_loop",
+            "continuity_notes": "Follows PAYOFF_BEAT; sets up CONTEXT_BEAT."
+          },
+          {
+            "clip_number": 5,
+            "duration_seconds": 3,
+            "prompt": "hum vibration on metal door handle highlighting path during context — specific to pre-10i validation happy path, not generic stock footage.. Subject: path evidence element. Action: Show path in situ within environment. Mood: grounding.",
+            "camera_shot": "Medium-wide establishing with subject in lower third",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key with motivated practical light source",
+            "pacing": "grounding",
+            "continuity_notes": "Follows LOOP_SEED; sets up close."
+          }
+        ],
+        "story_signature": "1f76242ec802",
+        "scene_fingerprints": [
+          "51abe8fb62d6",
+          "3c76ffe1faf0",
+          "06f8572ebae0",
+          "7fc3b01b370b",
+          "d9931ac85db5"
+        ],
+        "visual_fingerprints": [
+          "03b0244851c5",
+          "6d6460acd51e",
+          "7062d1cc587b",
+          "e433682597ba",
+          "115de8a85e8c"
+        ],
+        "repeated_risk_score": 0.1133,
+        "explainability": {
+          "narrative_question": "What does pre 10i validation reveal about pre-10i validation happy path?",
+          "stakes_statement": "If viewers ignore pre 10i validation, they misread the entire Dark Mystery / Psychological Horror angle.",
+          "niche_visual_language": [
+            "blueprint floor plan with missing room",
+            "cold draft under door gap",
+            "flickering hallway sconce",
+            "architectural anomaly in wall panel",
+            "hum vibration on metal door handle",
+            "pre-specific evidence frame",
+            "10i-specific evidence frame",
+            "validation-specific evidence frame"
+          ],
+          "scene_count": 5,
+          "clip_count": 5
+        },
+        "memory": {
+          "repeated_risk_score": 0.1133,
+          "recent_repetition_score": 0.1133,
+          "lifetime_repetition_score": 0.1133,
+          "repeated_elements": [
+            {
+              "type": "visual_token",
+              "element": "hallway",
+              "count_in_window": 2,
+              "severity": "medium",
+              "window": 30,
+              "detail": "Visual token 'hallway' appears in 2 prior videos."
+            }
+          ],
+          "suggested_variations": [
+            "Shift pattern_break to exterior threshold or annotated floor plan.",
+            "Consider switching reveal_type from 'implied_reveal' to less-used 'partial_reveal'."
+          ],
+          "memory_decision": "SAFE",
+          "compare_failed": false,
+          "reasoning": "Story memory compared against 2 recent and 2 lifetime records (channel=none, niche=dark_mystery)."
+        }
+      },
+      "story_intelligence_composite_score": 88.6,
+      "story_memory_decision": "SAFE",
+      "story_memory_repeated_risk_score": 0.1133,
+      "story_memory_recent_score": 0.1133,
+      "story_memory_lifetime_score": 0.1133
+    }
+  },
+  "story_quality": {
+    "composite_score": 88.6,
+    "score": 88.6,
+    "decision": "PROCEED",
+    "critical_failures": [],
+    "warnings": [
+      "Title exceeds max length (82>80): humming + Leave one unanswered detail ab...",
+      "Memory: Shift pattern_break to exterior threshold or annotated floor plan.",
+      "Memory: Consider switching reveal_type from 'implied_reveal' to less-used 'partial_reveal'."
+    ],
+    "cost_risk_score": 0.1133,
+    "metadata": {
+      "viral_composite": 82.02,
+      "production_tier": "A",
+      "memory_decision": "SAFE",
+      "story_intelligence_applied": true,
+      "source_engines": [
+        "story_intelligence",
+        "story_memory",
+        "content_decision",
+        "viral_scoring"
+      ]
+    },
+    "originality_score": 92.0,
+    "cinematic_score": 100.0,
+    "emotional_tension_score": 53.2,
+    "visual_diversity_score": 100.0,
+    "scene_necessity_score": 100.0,
+    "visual_note_count": 5
+  },
+  "story_quality_score": 88.6,
+  "priority_band": "high",
+  "priority_decision": {
+    "priority_band": "high",
+    "priority_score": 82.02,
+    "queue_position": null,
+    "decision_source": "execution_queue_engine"
+  },
+  "provider_selection": {
+    "primary_provider": "hailuo",
+    "alternatives": [],
+    "expected_retry_risk": "low"
+  },
+  "execution_confidence_score": 80.6,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "pending",
+    "brief_id": "brief_20260529_231545_40c61bf9",
+    "recommended_title": "pre-10i validation happy path",
+    "estimated_credits": 5.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "content_decision": "PROCEED",
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_302785c8490f",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved_for_execution",
+    "reasons": [
+      "All auto-approval thresholds met."
+    ],
+    "blockers": [],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-05-29 23:15:45",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 88.6,
+      "execution_confidence": 80.6,
+      "estimated_credits": 5.0,
+      "effective_credits": 5.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "f3316ae3-c159-4a05-86f3-0d1fa8c0a73b"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_7025bc8e1151",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 5.0,
+    "effective_credits": 5.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 995.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-29 23:15:45",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "f3316ae3-c159-4a05-86f3-0d1fa8c0a73b",
+    "report_id": "sim_5dcecc87",
+    "generated_at": "2026-05-29 23:15:45",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 5,
+    "estimated_generation_time_minutes": 10.0,
+    "estimated_provider_cost": 5.0,
+    "estimated_credits": 5.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "high",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 80.6,
+    "cost_estimate": {
+      "estimated_total_credits": 5.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 10.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:859650cd8c71e98053dd3b25cdc8c107c6f2f24c3ef1c85d6136e2b55e74ce36",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_5dcecc87",
+  "state_history": [
+    {
+      "at": "2026-05-29 23:15:45",
+      "state": "PLANNED",
+      "reason": "populated from content brief"
+    },
+    {
+      "at": "2026-05-29 23:15:45",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-29 23:15:45",
+      "state": "GOVERNED",
+      "reason": "governance: approval=APPROVED_FOR_EXECUTION, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-05-29 23:15:45",
+      "state": "READY_WITH_WARNINGS",
+      "reason": "readiness gate: READY_WITH_WARNINGS (score=96.2)"
+    },
+    {
+      "at": "2026-05-29 23:15:45",
+      "state": "QUEUED",
+      "reason": "queue engine: QUEUED (item=queue_20260529_231545_d30081, position=None)"
+    },
+    {
+      "at": "2026-05-29 23:16:06",
+      "state": "DEQUEUED",
+      "reason": "queue dequeued"
+    }
+  ],
+  "metadata": {
+    "population_version": "10d_v1",
+    "population_source": "content_brief_orchestrator",
+    "lineage_type": null,
+    "production_ready": true,
+    "niche": "dark_mystery",
+    "topic": "pre-10i validation happy path",
+    "platform": "tiktok",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-29 23:15:45",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-05-29 23:15:45",
+    "queue_version": "10h_v1",
+    "queue_enqueued_at": "2026-05-29 23:15:45"
+  },
+  "execution_readiness": {
+    "decision": "READY_WITH_WARNINGS",
+    "readiness_score": 96.2,
+    "readiness_failures": [],
+    "readiness_warnings": [
+      "Simulation stitch_complexity is high.",
+      "Title exceeds max length (82>80): humming + Leave one unanswered detail ab...",
+      "Memory: Shift pattern_break to exterior threshold or annotated floor plan.",
+      "Memory: Consider switching reveal_type from 'implied_reveal' to less-used 'partial_reveal'."
+    ],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 90.0,
+        "failures": [],
+        "warnings": [
+          "Simulation stitch_complexity is high."
+        ]
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 85.0,
+        "failures": [],
+        "warnings": [
+          "Title exceeds max length (82>80): humming + Leave one unanswered detail ab...",
+          "Memory: Shift pattern_break to exterior threshold or annotated floor plan.",
+          "Memory: Consider switching reveal_type from 'implied_reveal' to less-used 'partial_reveal'."
+        ]
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-29 23:15:45"
+      },
+      "simulation_report_uuid": "f3316ae3-c159-4a05-86f3-0d1fa8c0a73b",
+      "governance_decision_ids": {
+        "approval": "appr_302785c8490f",
+        "budget": "bdgt_7025bc8e1151"
+      }
+    }
+  },
+  "queue_item": {
+    "queue_item_uuid": "fa6184f1-49ed-4dc0-b3ca-1bb80034c4e5",
+    "queue_item_id": "queue_20260529_231545_d30081",
+    "queue_state": "DEQUEUED",
+    "queue_version": "10h_v1",
+    "session_uuid": "db48a0b9-f0c8-4d14-b2ab-bdbb7f0171fe",
+    "execution_session_id": "exec_20260529_231545_e6e9ce",
+    "brief_id": "brief_20260529_231545_40c61bf9",
+    "priority": {
+      "priority_band": "high",
+      "priority_score": 82.02,
+      "queue_position": null,
+      "effective_priority": 300082.0
+    },
+    "eligibility_snapshot": {
+      "readiness_decision": "READY_WITH_WARNINGS",
+      "readiness_score": 96.2,
+      "approval_status": "APPROVED_FOR_EXECUTION",
+      "budget_status": "WITHIN_LIMIT",
+      "simulation_fingerprint": "sha256:859650cd8c71e98053dd3b25cdc8c107c6f2f24c3ef1c85d6136e2b55e74ce36",
+      "provider": "hailuo"
+    },
+    "enqueue_context": {
+      "enqueued_at": "2026-05-29 23:15:45",
+      "enqueued_by": "system",
+      "enqueue_attempt": 1,
+      "enqueue_reason": "readiness_passed"
+    },
+    "lifecycle": {
+      "dequeued_at": "2026-05-29 23:16:06",
+      "dequeued_by": "api",
+      "cancelled_at": null,
+      "cancelled_by": null,
+      "cancel_reason": null,
+      "expired_at": null,
+      "expire_reason": null,
+      "ttl_seconds": 86400,
+      "expires_at": "2026-05-30 23:15:45"
+    },
+    "retry": {
+      "max_enqueue_attempts": 3,
+      "enqueue_attempts_used": 1,
+      "requeue_allowed": true,
+      "last_terminal_state": "DEQUEUED"
+    },
+    "metadata": {
+      "queue_provenance": {
+        "engine": "ExecutionQueueEngine",
+        "engine_version": "10h_v1",
+        "policy_version": "10h_v1",
+        "evaluated_at": "2026-05-29 23:15:45",
+        "policy_snapshot": {
+          "policy_id": "default_local",
+          "policy_version": "10h_v1",
+          "eligible_readiness_decisions": [
+            "READY",
+            "READY_WITH_WARNINGS"
+          ],
+          "default_ttl_seconds": 86400,
+          "max_active_queue_depth": 100,
+          "max_enqueue_attempts": 3,
+          "require_fingerprint_match": true,
+          "priority_band_weights": {
+            "critical": 400,
+            "high": 300,
+            "medium": 200,
+            "low": 100
+          }
+        }
+      },
+      "queue_fingerprint": "sha256:674186cad8d11f19f232a7661caa015ff02ad868406f6c82922d903bddd8278c",
+      "queue_fingerprint_version": "10h_v1",
+      "queue_fingerprint_sources": [
+        "execution_readiness",
+        "approval_decision",
+        "budget_decision",
+        "simulation_fingerprint"
+      ],
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-29 23:15:45"
+      },
+      "governance_decision_ids": {
+        "approval": "appr_302785c8490f",
+        "budget": "bdgt_7025bc8e1151"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_492e0088ba0e",
+      "event_type": "ENQUEUED",
+      "at": "2026-05-29 23:15:45",
+      "queue_item_id": "queue_20260529_231545_d30081",
+      "queue_item_uuid": "fa6184f1-49ed-4dc0-b3ca-1bb80034c4e5",
+      "actor": "validation",
+      "details": {
+        "queue_position": null,
+        "effective_priority": 300082.0,
+        "readiness_decision": "READY_WITH_WARNINGS"
+      }
+    },
+    {
+      "event_id": "qevt_7952b8c6246b",
+      "event_type": "DEQUEUED",
+      "at": "2026-05-29 23:16:06",
+      "queue_item_id": "queue_20260529_231545_d30081",
+      "queue_item_uuid": "fa6184f1-49ed-4dc0-b3ca-1bb80034c4e5",
+      "actor": "api",
+      "details": {
+        "queue_item_id": "queue_20260529_231545_d30081"
+      }
+    }
+  ]
+}

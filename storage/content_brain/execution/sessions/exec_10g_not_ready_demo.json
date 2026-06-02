@@ -1,0 +1,307 @@
+{
+  "session_schema_version": "10g_v1",
+  "session_uuid": "b486a60a-7786-4b41-a69b-3c7695718cde",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_10g_not_ready_demo",
+  "brief_id": "brief_10f_not_ready",
+  "state": "NOT_READY",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-05-29 23:01:01",
+  "provider": "hailuo",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_not_ready",
+    "video_format_plan": {
+      "clip_count": 5,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    }
+  },
+  "story_quality": {
+    "composite_score": 62.0,
+    "score": 62.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "hailuo",
+    "alternatives": [],
+    "expected_retry_risk": "high"
+  },
+  "execution_confidence_score": 55.0,
+  "execution_confidence": null,
+  "approval_state": "rejected",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 5.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_d5daacffcbda",
+    "status": "REJECTED",
+    "action": "rejected",
+    "reasons": [],
+    "blockers": [
+      "Story quality 62.0 below minimum 70.0."
+    ],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-05-29 23:01:01",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 62.0,
+      "execution_confidence": 55.0,
+      "estimated_credits": 5.0,
+      "effective_credits": 7.5,
+      "retry_risk": "high",
+      "simulation_report_uuid": "706315bb-3b1b-4ecc-bde1-aa78bc9ba8a5"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_c1038b43cade",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 5.0,
+    "effective_credits": 7.5,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 992.5,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-05-29 23:01:01",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "706315bb-3b1b-4ecc-bde1-aa78bc9ba8a5",
+    "report_id": "sim_d5ebb045",
+    "generated_at": "2026-05-29 23:01:01",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 5,
+    "estimated_generation_time_minutes": 15.0,
+    "estimated_provider_cost": 5.0,
+    "estimated_credits": 5.0,
+    "estimated_retry_risk": "high",
+    "stitch_complexity": "high",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 55.0,
+    "cost_estimate": {
+      "estimated_total_credits": 5.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 10.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:8a167062cf4e4da85e7dfd4f1ec9616e240d8e309ef26c4bff0873614ac79674",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_d5ebb045",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-05-29 23:01:01",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-05-29 23:01:01"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-05-29 23:01:01",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-05-29 23:01:01",
+      "state": "REJECTED",
+      "reason": "governance: approval=REJECTED, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-05-29 23:01:01",
+      "state": "NOT_READY",
+      "reason": "readiness gate: NOT_READY (score=49.0)"
+    }
+  ],
+  "execution_readiness": {
+    "decision": "NOT_READY",
+    "readiness_score": 49.0,
+    "readiness_failures": [
+      "Approval status is REJECTED, not APPROVED_FOR_EXECUTION.",
+      "Session state REJECTED is not governed for queue entry."
+    ],
+    "readiness_warnings": [
+      "Simulation stitch_complexity is high.",
+      "Provider retry risk is high."
+    ],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 90.0,
+        "failures": [],
+        "warnings": [
+          "Simulation stitch_complexity is high."
+        ]
+      },
+      "governance_exists": {
+        "passed": false,
+        "score": 0.0,
+        "failures": [
+          "Approval status is REJECTED, not APPROVED_FOR_EXECUTION."
+        ],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 92.0,
+        "failures": [],
+        "warnings": [
+          "Provider retry risk is high."
+        ]
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": false,
+        "score": 0.0,
+        "failures": [
+          "Session state REJECTED is not governed for queue entry."
+        ],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-05-29 23:01:01"
+      },
+      "simulation_report_uuid": "706315bb-3b1b-4ecc-bde1-aa78bc9ba8a5",
+      "governance_decision_ids": {
+        "approval": "appr_d5daacffcbda",
+        "budget": "bdgt_c1038b43cade"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_d3ae455792f6",
+      "event_type": "ENQUEUE_REJECTED",
+      "at": "2026-05-29 23:09:37",
+      "queue_item_id": "",
+      "queue_item_uuid": null,
+      "actor": "system",
+      "details": {
+        "reject_code": "READINESS_NOT_READY",
+        "reject_reasons": [
+          "Readiness decision is NOT_READY, not eligible for queue."
+        ]
+      }
+    },
+    {
+      "event_id": "qevt_e53d2e1b844c",
+      "event_type": "ENQUEUE_REJECTED",
+      "at": "2026-05-29 23:14:37",
+      "queue_item_id": "",
+      "queue_item_uuid": null,
+      "actor": "validation",
+      "details": {
+        "reject_code": "READINESS_NOT_READY",
+        "reject_reasons": [
+          "Readiness decision is NOT_READY, not eligible for queue."
+        ]
+      }
+    },
+    {
+      "event_id": "qevt_807ffad0e2ba",
+      "event_type": "ENQUEUE_REJECTED",
+      "at": "2026-05-29 23:15:45",
+      "queue_item_id": "",
+      "queue_item_uuid": null,
+      "actor": "validation",
+      "details": {
+        "reject_code": "READINESS_NOT_READY",
+        "reject_reasons": [
+          "Readiness decision is NOT_READY, not eligible for queue."
+        ]
+      }
+    }
+  ]
+}

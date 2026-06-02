@@ -1,0 +1,45 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 2,
+  "target_clip_count": 2,
+  "provider_hint": "runway_browser",
+  "prompts": [
+    "topic-specific object in sharp focus highlighting girls during hook — specific to girls in party, not generic stock footage.. Subject: girls evidence element. Action: Reveal girls detail entering frame. Mood: curiosity. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening; sets up ESCALATION_BEAT..",
+    "contrasting before/after frame highlighting party during escalation — specific to girls in party, not generic stock footage.. Subject: party evidence element. Action: Contrast two readings of party. Mood: tension. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up close.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 2,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:ca0b5c06d5fbea0144ac64633530d065bbcb86af09a05e0c1256749a6c76581b",
+      "lineage": null,
+      "quality_score": null
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:4dcbec5cef7e2e842b46c3299a293c50b09db3ee5efea31bd36095e1543af506",
+      "lineage": null,
+      "quality_score": null
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-06-02 13:49:06"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": []
+  }
+}

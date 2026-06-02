@@ -1,0 +1,30 @@
+{
+  "execution_session_id": "validate_ratio_ui_stabilization_session",
+  "execution_runtime": {
+    "operations": {
+      "runway_browser_obs": {
+        "clip_prep_updated_at": "2026-06-02T19:35:25Z",
+        "clip_index": 1,
+        "ratio_selected_before_generate": true,
+        "duration_selected_before_generate": true,
+        "prompt_still_verified_before_generate": true,
+        "ui_stabilized_after_ratio": true,
+        "observability_version": "12j_c2a_obs_v1"
+      }
+    },
+    "category_runtime": {
+      "video_generation": {
+        "runway_browser_obs": {
+          "clip_prep_updated_at": "2026-06-02T19:35:25Z",
+          "clip_index": 1,
+          "ratio_selected_before_generate": true,
+          "duration_selected_before_generate": true,
+          "prompt_still_verified_before_generate": true,
+          "ui_stabilized_after_ratio": true,
+          "observability_version": "12j_c2a_obs_v1"
+        }
+      }
+    }
+  },
+  "updated_at": "2026-06-02T19:35:25Z"
+}

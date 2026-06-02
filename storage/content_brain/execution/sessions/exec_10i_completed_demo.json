@@ -1,0 +1,992 @@
+{
+  "session_schema_version": "10i_v1",
+  "session_uuid": "02b68c64-6d27-4073-91bf-5ec1c63356c2",
+  "source_session_uuid": null,
+  "execution_session_id": "exec_10i_completed_demo",
+  "brief_id": "brief_10f_completed",
+  "state": "COMPLETED",
+  "created_at": "2026-05-29 23:00:00",
+  "updated_at": "2026-06-02 19:54:11",
+  "provider": "hailuo",
+  "brief_snapshot": {
+    "brief_id": "brief_10f_completed",
+    "video_format_plan": {
+      "clip_count": 2,
+      "clip_duration_seconds": 6,
+      "target_duration_seconds": 30,
+      "provider_name": "hailuo",
+      "format_type": "multi_clip_hailuo"
+    },
+    "decision_package": {
+      "decision": "PROCEED",
+      "production_ready": true
+    },
+    "run_context": {
+      "story_intelligence": {
+        "schema_director_shots": [
+          {
+            "clip_number": 1,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 1 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 1."
+          },
+          {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "prompt": "Demo clip 2 for provider runtime dry-run validation.",
+            "camera_shot": "Medium-wide establishing",
+            "camera_movement": "Static hold",
+            "lighting": "Low-key motivated practical",
+            "pacing": "tension",
+            "continuity_notes": "Demo continuity for clip 2."
+          }
+        ]
+      }
+    }
+  },
+  "story_quality": {
+    "composite_score": 86.0,
+    "score": 86.0,
+    "decision": "PROCEED",
+    "warnings": [],
+    "critical_failures": []
+  },
+  "story_quality_score": 86.0,
+  "provider_selection": {
+    "primary_provider": "hailuo",
+    "alternatives": [],
+    "expected_retry_risk": "low"
+  },
+  "execution_confidence_score": 78.0,
+  "execution_confidence": null,
+  "approval_state": "approved",
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 2.0,
+    "estimated_runtime_minutes": 0.5,
+    "provider_selection": {
+      "primary_provider": "hailuo"
+    },
+    "production_ready": true
+  },
+  "approval_decision": {
+    "decision_id": "appr_f9a07a8e62db",
+    "status": "APPROVED_FOR_EXECUTION",
+    "action": "approved_for_execution",
+    "reasons": [
+      "All auto-approval thresholds met."
+    ],
+    "blockers": [],
+    "requires_human_approval": false,
+    "evaluated_at": "2026-06-02 19:54:11",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "story_quality_min": 70.0,
+      "story_quality_auto_approve_min": 75.0,
+      "execution_confidence_min": 60.0,
+      "execution_confidence_auto_approve_min": 70.0,
+      "retry_risk_auto_approve": "low",
+      "require_human_over_credits": 15.0
+    },
+    "inputs_summary": {
+      "story_quality_score": 86.0,
+      "execution_confidence": 78.0,
+      "estimated_credits": 2.0,
+      "effective_credits": 2.0,
+      "retry_risk": "low",
+      "simulation_report_uuid": "9e340177-bcb9-4f7a-b493-890a75286282"
+    },
+    "override": null
+  },
+  "budget_state": "allowed",
+  "budget_decision": {
+    "decision_id": "bdgt_d0116d6f382f",
+    "budget_status": "WITHIN_LIMIT",
+    "budget_allowed": true,
+    "budget_state": "WITHIN_LIMIT",
+    "estimated_credits": 2.0,
+    "effective_credits": 2.0,
+    "budget_warnings": [],
+    "budget_block_reason": null,
+    "remaining_budget_after_run": {
+      "credits": 998.0,
+      "scope": "local"
+    },
+    "evaluated_at": "2026-06-02 19:54:11",
+    "evaluated_by": {
+      "engine": "ApprovalBudgetGovernanceEngine",
+      "engine_version": "10f_v1"
+    },
+    "policy_snapshot": {
+      "policy_id": "default_local",
+      "policy_version": "10f_v1",
+      "per_run_credit_cap": 25.0,
+      "monthly_credit_limit": 1000.0,
+      "auto_approve_under_credits": 10.0,
+      "retry_risk_budget_multiplier_high": 1.5,
+      "retry_risk_budget_multiplier_medium": 1.25,
+      "budget_scope": "local"
+    },
+    "policy_source": "default_local",
+    "override": null
+  },
+  "simulation_report": {
+    "report_uuid": "9e340177-bcb9-4f7a-b493-890a75286282",
+    "report_id": "sim_5f5d3853",
+    "generated_at": "2026-06-02 19:54:11",
+    "simulation_mode": "pre_execution_rule_based",
+    "simulation_version": "10e_v1",
+    "estimated_clip_count": 2,
+    "estimated_generation_time_minutes": 4.0,
+    "estimated_provider_cost": 2.0,
+    "estimated_credits": 2.0,
+    "estimated_retry_risk": "low",
+    "stitch_complexity": "low",
+    "continuity_risk": "low",
+    "execution_confidence_estimate": 78.0,
+    "cost_estimate": {
+      "estimated_total_credits": 2.0,
+      "per_clip_credits": 1.0,
+      "provider": "hailuo"
+    },
+    "runtime_estimate": {
+      "estimated_total_minutes": 0.5,
+      "estimated_generation_minutes": 4.0,
+      "target_duration_seconds": 30
+    },
+    "metadata": {
+      "generator": {
+        "engine": "SimulationReportBuilder",
+        "engine_version": "10e_v1",
+        "simulation_mode": "pre_execution_rule_based"
+      },
+      "simulation_fingerprint": "sha256:7e0d10556fceab77cabd8dd4cf2695a9f9faa4b4061981e061e62f7847844623",
+      "simulation_fingerprint_version": "10e_v1",
+      "fingerprint_sources": [
+        "brief_snapshot",
+        "story_quality",
+        "provider_selection"
+      ]
+    }
+  },
+  "simulation_report_id": "sim_5f5d3853",
+  "metadata": {
+    "production_ready": true,
+    "population_source": "governance_demo_seed",
+    "governance_version": "10f_v1",
+    "governance_evaluated_at": "2026-06-02 19:54:11",
+    "readiness_version": "10g_v1",
+    "readiness_evaluated_at": "2026-06-02 19:54:11",
+    "queue_version": "10h_v1",
+    "queue_enqueued_at": "2026-06-02 19:54:11"
+  },
+  "state_history": [
+    {
+      "at": "2026-05-29 23:00:00",
+      "state": "PLANNED",
+      "reason": "governance demo seed"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "SIMULATED",
+      "reason": "pre-execution simulation"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "GOVERNED",
+      "reason": "governance: approval=APPROVED_FOR_EXECUTION, budget=WITHIN_LIMIT"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "READY",
+      "reason": "readiness gate: READY (score=100.0)"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "QUEUED",
+      "reason": "queue engine: QUEUED (item=queue_20260602_195411_ce82bd, position=None)"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "DEQUEUED",
+      "reason": "queue dequeued"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "DISPATCHED",
+      "reason": "provider runtime: dispatched (hailuo_browser, clips=2)"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "RUNNING",
+      "reason": "provider runtime: running (hailuo_browser)"
+    },
+    {
+      "at": "2026-06-02 19:54:11",
+      "state": "COMPLETED",
+      "reason": "provider runtime: completed (2 clips)"
+    }
+  ],
+  "priority_band": "high",
+  "priority_decision": {
+    "priority_band": "high",
+    "priority_score": 86.0,
+    "queue_position": null,
+    "decision_source": "execution_queue_engine"
+  },
+  "execution_readiness": {
+    "decision": "READY",
+    "readiness_score": 100.0,
+    "readiness_failures": [],
+    "readiness_warnings": [],
+    "checks": {
+      "simulation_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "governance_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "provider_selection_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "story_quality_exists": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "required_fields_completeness": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "fingerprint_consistency": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      },
+      "valid_session_state": {
+        "passed": true,
+        "score": 100.0,
+        "failures": [],
+        "warnings": []
+      }
+    },
+    "metadata": {
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-06-02 19:54:11"
+      },
+      "simulation_report_uuid": "9e340177-bcb9-4f7a-b493-890a75286282",
+      "governance_decision_ids": {
+        "approval": "appr_f9a07a8e62db",
+        "budget": "bdgt_d0116d6f382f"
+      }
+    }
+  },
+  "queue_item": {
+    "queue_item_uuid": "f5cbdbcd-5da4-4edd-912d-8293137eaa33",
+    "queue_item_id": "queue_20260602_195411_ce82bd",
+    "queue_state": "DEQUEUED",
+    "queue_version": "10h_v1",
+    "session_uuid": "02b68c64-6d27-4073-91bf-5ec1c63356c2",
+    "execution_session_id": "exec_10i_completed_demo",
+    "brief_id": "brief_10f_completed",
+    "priority": {
+      "priority_band": "high",
+      "priority_score": 86.0,
+      "queue_position": null,
+      "effective_priority": 300091.0
+    },
+    "eligibility_snapshot": {
+      "readiness_decision": "READY",
+      "readiness_score": 100.0,
+      "approval_status": "APPROVED_FOR_EXECUTION",
+      "budget_status": "WITHIN_LIMIT",
+      "simulation_fingerprint": "sha256:7e0d10556fceab77cabd8dd4cf2695a9f9faa4b4061981e061e62f7847844623",
+      "provider": "hailuo"
+    },
+    "enqueue_context": {
+      "enqueued_at": "2026-06-02 19:54:11",
+      "enqueued_by": "system",
+      "enqueue_attempt": 1,
+      "enqueue_reason": "readiness_passed"
+    },
+    "lifecycle": {
+      "dequeued_at": "2026-06-02 19:54:11",
+      "dequeued_by": "seed",
+      "cancelled_at": null,
+      "cancelled_by": null,
+      "cancel_reason": null,
+      "expired_at": null,
+      "expire_reason": null,
+      "ttl_seconds": 86400,
+      "expires_at": "2026-06-03 19:54:11"
+    },
+    "retry": {
+      "max_enqueue_attempts": 3,
+      "enqueue_attempts_used": 1,
+      "requeue_allowed": true,
+      "last_terminal_state": "DEQUEUED"
+    },
+    "metadata": {
+      "queue_provenance": {
+        "engine": "ExecutionQueueEngine",
+        "engine_version": "10h_v1",
+        "policy_version": "10h_v1",
+        "evaluated_at": "2026-06-02 19:54:11",
+        "policy_snapshot": {
+          "policy_id": "default_local",
+          "policy_version": "10h_v1",
+          "eligible_readiness_decisions": [
+            "READY",
+            "READY_WITH_WARNINGS"
+          ],
+          "default_ttl_seconds": 86400,
+          "max_active_queue_depth": 100,
+          "max_enqueue_attempts": 3,
+          "require_fingerprint_match": true,
+          "priority_band_weights": {
+            "critical": 400,
+            "high": 300,
+            "medium": 200,
+            "low": 100
+          }
+        }
+      },
+      "queue_fingerprint": "sha256:bd922bf780a69271b31f0d8569d9a6aeb04193e73947ad3723d9c3f084c7ec8b",
+      "queue_fingerprint_version": "10h_v1",
+      "queue_fingerprint_sources": [
+        "execution_readiness",
+        "approval_decision",
+        "budget_decision",
+        "simulation_fingerprint"
+      ],
+      "readiness_provenance": {
+        "engine": "ExecutionReadinessGate",
+        "engine_version": "10g_v1",
+        "policy_version": "10g_v1",
+        "evaluated_at": "2026-06-02 19:54:11"
+      },
+      "governance_decision_ids": {
+        "approval": "appr_f9a07a8e62db",
+        "budget": "bdgt_d0116d6f382f"
+      }
+    }
+  },
+  "queue_audit_log": [
+    {
+      "event_id": "qevt_a8cb78b42223",
+      "event_type": "ENQUEUED",
+      "at": "2026-06-02 19:54:11",
+      "queue_item_id": "queue_20260602_195411_ce82bd",
+      "queue_item_uuid": "f5cbdbcd-5da4-4edd-912d-8293137eaa33",
+      "actor": "seed",
+      "details": {
+        "queue_position": null,
+        "effective_priority": 300091.0,
+        "readiness_decision": "READY"
+      }
+    },
+    {
+      "event_id": "qevt_4aa7f251be3f",
+      "event_type": "DEQUEUED",
+      "at": "2026-06-02 19:54:11",
+      "queue_item_id": "queue_20260602_195411_ce82bd",
+      "queue_item_uuid": "f5cbdbcd-5da4-4edd-912d-8293137eaa33",
+      "actor": "seed",
+      "details": {
+        "queue_item_id": "queue_20260602_195411_ce82bd",
+        "targeted": true
+      }
+    }
+  ],
+  "execution_runtime": {
+    "runtime_version": "10i_v1",
+    "provider_category": "video_generation",
+    "dispatch_id": "disp_20260602_195411_524729",
+    "dispatch_uuid": "22ebb417-a382-43eb-a231-093afc10953b",
+    "provider_resolved": "hailuo_browser",
+    "provider_mode": "browser",
+    "state": "COMPLETED",
+    "dispatched_at": "2026-06-02 19:54:11",
+    "running_at": "2026-06-02 19:54:11",
+    "completed_at": "2026-06-02 19:54:11",
+    "artifact_root": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10i_completed_demo\\video_generation",
+    "prompt_bundle": {
+      "adapter_version": "10i_v1",
+      "adapter_source": "schema_director_shots",
+      "provider_category": "video_generation",
+      "clip_count": 2,
+      "target_clip_count": 2,
+      "provider_hint": "hailuo_browser",
+      "prompts": [
+        "Demo clip 1 for provider runtime dry-run validation. Camera: Medium-wide establishing. Movement: Static hold. Lighting: Low-key motivated practical. Pacing: tension. Continuity: Demo continuity for clip 1..",
+        "Demo clip 2 for provider runtime dry-run validation. Camera: Medium-wide establishing. Movement: Static hold. Lighting: Low-key motivated practical. Pacing: tension. Continuity: Demo continuity for clip 2.."
+      ],
+      "clip_metadata": [
+        {
+          "clip_number": 1,
+          "duration_seconds": 6,
+          "beat_id": null,
+          "source_shot_id": null,
+          "prompt_hash": "sha256:671e08f2807611e59854bd729a6446acedc68e2db1ee42cdad3663d23598a243",
+          "lineage": null,
+          "quality_score": null
+        },
+        {
+          "clip_number": 2,
+          "duration_seconds": 6,
+          "beat_id": null,
+          "source_shot_id": null,
+          "prompt_hash": "sha256:cd93239d7e87e9a3af4db6d20a885312ec5849073a81c0425b3081ba994dd568",
+          "lineage": null,
+          "quality_score": null
+        }
+      ],
+      "metadata": {
+        "adapter_provenance": {
+          "engine": "SessionPromptAdapter",
+          "engine_version": "10i_v1",
+          "evaluated_at": "2026-06-02 19:54:11"
+        },
+        "sources_used": [
+          "schema_director_shots",
+          "video_format_plan",
+          "brief_snapshot"
+        ],
+        "warnings": []
+      }
+    },
+    "category_runtime": {
+      "video_generation": {
+        "category_name": "video",
+        "status": "pending",
+        "provider": "hailuo_browser",
+        "artifacts": [],
+        "error": null,
+        "started_at": "2026-06-02 19:54:11",
+        "completed_at": "2026-06-02 19:54:11",
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "COMPLETED",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "artifact_count": 2
+      },
+      "voice_generation": {
+        "category_name": "voice",
+        "status": "skipped",
+        "provider": "elevenlabs",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [
+          "No narration text available"
+        ],
+        "state": "skipped",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "live_tts_requested": false,
+        "preflight_evaluated_at": "2026-06-02 19:54:11",
+        "slot_version": "11h1b_v1",
+        "narration_adapter": {
+          "segment_count": 0,
+          "total_text_length": 0,
+          "source_path": "none",
+          "skipped": true,
+          "warnings": [
+            "schema_director_shots present but ignored — visual prompts are not narration sources.",
+            "No narration segments found in brief_snapshot."
+          ]
+        },
+        "voice_preflight": null,
+        "segment_count": 0,
+        "approval": {
+          "gate_version": "11h1e_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "estimated_voice_cost": null,
+          "estimated_voice_cost_currency": "USD",
+          "estimated_voice_cost_confidence": "low",
+          "estimated_character_count": 0,
+          "estimated_segment_count": 0,
+          "approval_expires_at": null,
+          "live_tts_eligible": false,
+          "live_tts_blocked_reasons": [
+            "NO_NARRATION"
+          ]
+        }
+      },
+      "music_generation": {
+        "category_name": "music",
+        "status": "planned",
+        "provider": "suno",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false
+      },
+      "subtitles": {
+        "category_name": "subtitle_generation",
+        "status": "planned",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1"
+      },
+      "assembly": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      },
+      "subtitle_generation": {
+        "category_name": "subtitle_generation",
+        "status": "planned",
+        "provider": "local_subtitle_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": false,
+        "live_tts": false,
+        "source_type": null,
+        "source_ready": false,
+        "supported_formats": [
+          "srt",
+          "ass",
+          "vtt"
+        ],
+        "validation_status": null,
+        "created_at": null,
+        "updated_at": null,
+        "subtitle_preflight": null,
+        "slot_version": "11i2_v1"
+      },
+      "assembly_generation": {
+        "category_name": "assembly_generation",
+        "status": "planned",
+        "provider": "local_assembly_runtime",
+        "artifacts": [],
+        "error": null,
+        "started_at": null,
+        "completed_at": null,
+        "duration_seconds": null,
+        "cost_estimate": null,
+        "runtime_notes": [],
+        "state": "not_started",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "validation_status": null,
+        "input_summary": null,
+        "output_summary": null,
+        "assembly_mode": null,
+        "subtitle_mode": null,
+        "manifest_path": null,
+        "created_at": null,
+        "updated_at": null,
+        "assembly_preflight": null,
+        "real_assembly_requested": false,
+        "slot_version": "11j2_v1",
+        "approval": {
+          "gate_version": "11j12_v1",
+          "approval_required": false,
+          "approval_state": "not_required",
+          "approved_by": null,
+          "approved_at": null,
+          "approval_reason": null,
+          "approval_expires_at": null,
+          "estimated_runtime_seconds": null,
+          "estimated_output_size": null,
+          "estimated_disk_usage": null,
+          "assembly_eligible": false,
+          "assembly_blocked_reasons": [
+            "REAL_ASSEMBLY_NOT_REQUESTED"
+          ]
+        }
+      }
+    },
+    "artifacts_by_category": {
+      "video_generation": [
+        {
+          "artifact_id": "art_f1f34e732411",
+          "provider_category": "video_generation",
+          "artifact_type": "video_clip",
+          "provider": "hailuo_browser",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10i_completed_demo\\video_generation\\clip_01.mock",
+          "clip_number": 1,
+          "metadata": {
+            "clip_number": 1,
+            "duration_seconds": 6,
+            "beat_id": null,
+            "source_shot_id": null,
+            "prompt_hash": "sha256:671e08f2807611e59854bd729a6446acedc68e2db1ee42cdad3663d23598a243",
+            "lineage": null,
+            "quality_score": null
+          },
+          "validated_at": "2026-06-02 19:54:11",
+          "provider_execution": {
+            "provider_name": "hailuo_browser",
+            "provider_category": "video_generation",
+            "execution_mode": null,
+            "learning_key": null,
+            "router_key": "hailuo_browser"
+          },
+          "size_bytes": 63,
+          "validation_status": "valid",
+          "validation_error": null,
+          "sha256": "sha256:5062170b8ede5c48427938fc058b33c37662f4030e04d2cf9ee34f8f04fcd956"
+        },
+        {
+          "artifact_id": "art_0dcc614bf154",
+          "provider_category": "video_generation",
+          "artifact_type": "video_clip",
+          "provider": "hailuo_browser",
+          "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_10i_completed_demo\\video_generation\\clip_02.mock",
+          "clip_number": 2,
+          "metadata": {
+            "clip_number": 2,
+            "duration_seconds": 6,
+            "beat_id": null,
+            "source_shot_id": null,
+            "prompt_hash": "sha256:cd93239d7e87e9a3af4db6d20a885312ec5849073a81c0425b3081ba994dd568",
+            "lineage": null,
+            "quality_score": null
+          },
+          "validated_at": "2026-06-02 19:54:11",
+          "provider_execution": {
+            "provider_name": "hailuo_browser",
+            "provider_category": "video_generation",
+            "execution_mode": null,
+            "learning_key": null,
+            "router_key": "hailuo_browser"
+          },
+          "size_bytes": 63,
+          "validation_status": "valid",
+          "validation_error": null,
+          "sha256": "sha256:5062170b8ede5c48427938fc058b33c37662f4030e04d2cf9ee34f8f04fcd956"
+        }
+      ],
+      "voice_generation": [],
+      "music_generation": [],
+      "subtitles": [],
+      "assembly": [],
+      "image_generation": [],
+      "publishing": []
+    },
+    "failure": null,
+    "retry": {
+      "max_dispatch_attempts": 1,
+      "dispatch_attempts_used": 1,
+      "requeue_required_for_retry": true
+    },
+    "provider_provenance": {
+      "engine": "ProviderRuntimeEngine",
+      "engine_version": "10i_v1",
+      "policy_version": "10i_v1",
+      "evaluated_at": "2026-06-02 19:54:11",
+      "provider_category": "video_generation",
+      "provider_resolved": "hailuo_browser",
+      "registry_category": "video_generation",
+      "registry_entry": {
+        "name": "hailuo_browser",
+        "display_name": "Hailuo Browser",
+        "api_key_env": "",
+        "mode": "browser",
+        "enabled": false
+      },
+      "future_categories_registered": [
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly",
+        "image_generation",
+        "publishing"
+      ],
+      "policy_snapshot": {
+        "policy_id": "default_local",
+        "policy_version": "10i_v1",
+        "provider_category": "video_generation",
+        "require_queue_fingerprint": true,
+        "require_readiness": true,
+        "skip_provider_execution": true,
+        "max_clips_cap": 30,
+        "supported_categories_10i": [
+          "video_generation"
+        ],
+        "supported_categories_11g_shell": [
+          "video_generation",
+          "voice_generation",
+          "music_generation",
+          "subtitles",
+          "assembly"
+        ],
+        "future_categories": [
+          "voice_generation",
+          "music_generation",
+          "subtitles",
+          "assembly",
+          "image_generation",
+          "publishing"
+        ]
+      }
+    },
+    "multi_category_shell": {
+      "shell_version": "11g_v1",
+      "media_categories": [
+        "video_generation",
+        "voice_generation",
+        "music_generation",
+        "subtitles",
+        "assembly"
+      ],
+      "future_routers": {
+        "voice_generation": "content_brain.execution.voice_provider_router.VoiceProviderRouter",
+        "music_generation": "content_brain.execution.music_provider_router.MusicProviderRouter",
+        "subtitles": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "subtitle_generation": "content_brain.execution.subtitle_preflight_runtime_slot.apply_subtitle_preflight_dry_run",
+        "assembly": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run",
+        "assembly_generation": "content_brain.execution.assembly_preflight_runtime_slot.apply_assembly_preflight_dry_run"
+      },
+      "executable_categories_11g": [
+        "video_generation"
+      ]
+    },
+    "operations": {
+      "voice_preflight_dry_run": {
+        "slot_version": "11h1b_v1",
+        "evaluated_at": "2026-06-02 19:54:11",
+        "status": "skipped",
+        "executed": false,
+        "dry_run": true,
+        "live_tts": false,
+        "provider": "elevenlabs",
+        "segment_count": 0,
+        "narration_skipped": true,
+        "preflight_ready": false,
+        "reject_code": null,
+        "completed_run_preserved": false
+      },
+      "voice_approval_gate": {
+        "gate_version": "11h1e_v1",
+        "evaluated_at": "2026-06-02 19:54:11",
+        "approval_required": false,
+        "approval_state": "not_required",
+        "live_tts_requested": false,
+        "live_tts_eligible": false,
+        "blocked_reasons": [
+          "NO_NARRATION"
+        ],
+        "policy_snapshot": {
+          "max_characters_per_run": 5000,
+          "max_estimated_voice_cost_usd": 5.0,
+          "approval_ttl_hours": 4
+        }
+      },
+      "validation": {
+        "validated_at": "2026-06-02 19:54:11",
+        "passed": true,
+        "validation_version": "10j_v1",
+        "clip_target": 2,
+        "clip_valid": 2,
+        "clip_invalid": 0,
+        "invalid_clips": [],
+        "checks": [
+          {
+            "id": "MIN_SIZE",
+            "passed": true,
+            "message": "Clip 1: size 63 OK",
+            "artifact_index": 1
+          },
+          {
+            "id": "PATH_EXISTS",
+            "passed": true,
+            "message": "Clip 1: path exists",
+            "artifact_index": 1
+          },
+          {
+            "id": "EXTENSION",
+            "passed": true,
+            "message": "Clip 1: extension '.mock' OK",
+            "artifact_index": 1
+          },
+          {
+            "id": "MIN_SIZE",
+            "passed": true,
+            "message": "Clip 2: size 63 OK",
+            "artifact_index": 2
+          },
+          {
+            "id": "PATH_EXISTS",
+            "passed": true,
+            "message": "Clip 2: path exists",
+            "artifact_index": 2
+          },
+          {
+            "id": "EXTENSION",
+            "passed": true,
+            "message": "Clip 2: extension '.mock' OK",
+            "artifact_index": 2
+          },
+          {
+            "id": "COUNT_MATCH",
+            "passed": true,
+            "message": "Clip count 2 matches target 2"
+          }
+        ],
+        "reject_code": null,
+        "reject_reasons": []
+      }
+    }
+  },
+  "provider_audit_log": [
+    {
+      "event_id": "pevt_f56a67d67920",
+      "event_type": "DISPATCHED",
+      "at": "2026-06-02 19:54:11",
+      "dispatch_id": "disp_20260602_195411_524729",
+      "actor": "seed",
+      "details": {
+        "provider": "hailuo_browser",
+        "provider_category": "video_generation",
+        "clip_count": 2
+      }
+    },
+    {
+      "event_id": "pevt_4a9e144ce4dd",
+      "event_type": "RUNNING",
+      "at": "2026-06-02 19:54:11",
+      "dispatch_id": "disp_20260602_195411_524729",
+      "actor": "seed",
+      "details": {
+        "provider": "hailuo_browser",
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_dd1de821d41f",
+      "event_type": "ARTIFACT_VALIDATED",
+      "at": "2026-06-02 19:54:11",
+      "dispatch_id": "disp_20260602_195411_524729",
+      "actor": "seed",
+      "details": {
+        "clip_count": 2,
+        "clip_target": 2,
+        "provider_category": "video_generation"
+      }
+    },
+    {
+      "event_id": "pevt_d2ee8ff402d3",
+      "event_type": "COMPLETED",
+      "at": "2026-06-02 19:54:11",
+      "dispatch_id": "disp_20260602_195411_524729",
+      "actor": "seed",
+      "details": {
+        "clip_count": 2,
+        "provider_category": "video_generation"
+      }
+    }
+  ]
+}

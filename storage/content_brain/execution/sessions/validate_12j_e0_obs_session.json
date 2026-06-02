@@ -1,0 +1,33 @@
+{
+  "execution_session_id": "validate_12j_e0_obs_session",
+  "execution_runtime": {
+    "operations": {
+      "runway_browser_obs": {
+        "clip_prep_updated_at": "2026-06-02T19:35:25Z",
+        "clip_index": 1,
+        "prompt_expected_length": 500,
+        "prompt_actual_length": 498,
+        "prompt_verified": true,
+        "ratio_verified": true,
+        "duration_verified": true,
+        "observability_version": "12j_c2a_obs_v1"
+      }
+    },
+    "category_runtime": {
+      "video_generation": {
+        "state": "RUNNING",
+        "runway_browser_obs": {
+          "clip_prep_updated_at": "2026-06-02T19:35:25Z",
+          "clip_index": 1,
+          "prompt_expected_length": 500,
+          "prompt_actual_length": 498,
+          "prompt_verified": true,
+          "ratio_verified": true,
+          "duration_verified": true,
+          "observability_version": "12j_c2a_obs_v1"
+        }
+      }
+    }
+  },
+  "updated_at": "2026-06-02T19:35:25Z"
+}

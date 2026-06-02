@@ -1,0 +1,32 @@
+{
+  "execution_session_id": "exec_test_001",
+  "brief_id": "brief_abc",
+  "state": "SIMULATED",
+  "created_at": "2026-05-28 12:00:00",
+  "updated_at": "2026-05-28 12:05:00",
+  "provider": "runway_browser",
+  "story_quality_score": 88,
+  "approval_state": "pending",
+  "budget_state": "allowed",
+  "priority_band": "high",
+  "execution_confidence_score": 92,
+  "state_history": [
+    {
+      "at": "2026-05-28 12:00:00",
+      "state": "PLANNED"
+    },
+    {
+      "at": "2026-05-28 12:05:00",
+      "state": "SIMULATED",
+      "reason": "sim complete"
+    }
+  ],
+  "simulation_report": {
+    "report_id": "sim_1",
+    "estimated_credits": 8.0
+  },
+  "approval_request": {
+    "status": "pending",
+    "estimated_credits": 8.0
+  }
+}

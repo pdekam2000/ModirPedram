@@ -377,3 +377,45 @@ Planned modes:
 9. Slide Video Agent
 10. Voiceover Agent
 11. Stitching Agent
+
+---
+
+# COMMERCIAL & SECURITY ROADMAP (FUTURE — NOT IMPLEMENTED)
+
+**Full specification:** `project_brain/COMMERCIAL_ARCHITECTURE_ROADMAP.md`
+
+Long-term layers required before public SaaS or sellable desktop release. Aligns with dual deployment (local desktop / SaaS / hybrid local-agent).
+
+## Planned Layers
+
+### SaaS Security Layer (before public SaaS)
+- MFA
+- Argon2id password hashing
+- Session security
+- Tenant isolation
+- Encrypted secrets vault
+- Audit logs
+
+### Desktop Licensing Layer (before desktop product release)
+- Online license validation
+- Machine binding
+- Activation limits
+- License tiers
+- Heartbeat validation
+- Offline grace period
+
+### Creator Identity Layer (first public-facing release)
+- Visible branding
+- About dialog attribution
+- License attribution
+- Metadata attribution
+- Build signatures
+
+## Mandatory Review Gates
+
+| Gate | Before |
+|---|---|
+| **Phase Security Audit** | Public SaaS release |
+| **Phase License & Protection Audit** | Sellable desktop release |
+
+**Do not implement these layers until their deployment mode is in active development.**

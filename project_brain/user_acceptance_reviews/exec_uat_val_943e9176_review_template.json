@@ -1,0 +1,29 @@
+{
+  "review_version": "12d_v1",
+  "session_id": "exec_uat_val_943e9176",
+  "submitted_at": null,
+  "submitted_by": null,
+  "uat_inputs": {
+    "topic": "UAT validator mock topic for automated test",
+    "platform": "youtube_shorts",
+    "target_duration_seconds": 30,
+    "video_provider": "runway_browser",
+    "voice_provider": "mock"
+  },
+  "artifact_paths": {
+    "artifact_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_943e9176",
+    "final_video": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_val_943e9176\\assembly_generation\\FINAL_PUBLISH_READY.mp4"
+  },
+  "story_quality_score": null,
+  "visual_quality_score": null,
+  "voice_quality_score": null,
+  "subtitle_quality_score": null,
+  "continuity_score": null,
+  "overall_quality_score": null,
+  "comments": {
+    "felt_good": "",
+    "felt_wrong": "",
+    "should_improve": ""
+  },
+  "publishable": null
+}

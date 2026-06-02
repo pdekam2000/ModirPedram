@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "record_id": "uniq_e792a4abf5",
+      "created_at": "2026-06-02 18:16:43",
+      "niche": "general",
+      "topic": "Girl in Rain",
+      "hook_text": "Girl in Rain worked — and that is exactly why it feels wrong in General Short-Form Content.",
+      "hook_class": "moral_discomfort",
+      "story_mode": "psychological_unraveling",
+      "reveal_type": "comparison_reveal",
+      "loop_seed": "Leave one unanswered detail about Girl in Rain so General Short-Form Content viewers comment or wait for part two",
+      "sensory_anchor": "one concrete texture, sound, or object in frame",
+      "beat_sequence": [
+        "HOOK_BEAT",
+        "CONTEXT_BEAT",
+        "ESCALATION_BEAT",
+        "PATTERN_BREAK",
+        "PAYOFF_BEAT",
+        "LOOP_SEED"
+      ],
+      "mechanic_sequence": [
+        "pattern_interrupt",
+        "curiosity_gap",
+        "stakes_increase",
+        "perspective_shift",
+        "peak_moment",
+        "open_loop"
+      ],
+      "topic_tokens": [
+        "girl",
+        "in",
+        "rain"
+      ],
+      "hook_fingerprint": "moral_discomfort:74b3a30f54",
+      "beat_fingerprint": "abdde4490f43",
+      "twist_fingerprint": "eb89e5166d29"
+    }
+  ]
+}
