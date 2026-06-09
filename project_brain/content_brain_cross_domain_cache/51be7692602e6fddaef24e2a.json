@@ -1,0 +1,80 @@
+{
+  "topic": "Can AI destroy traditional marketing agencies by 2026?",
+  "language_code": "en",
+  "payload": {
+    "topic": "Can AI destroy traditional marketing agencies by 2026?",
+    "primary_domain": "ai",
+    "secondary_domains": [
+      "future",
+      "marketing"
+    ],
+    "supporting_domains": [
+      "business"
+    ],
+    "domain_weights": {
+      "ai": 1.0
+    },
+    "story_focus": "cross-domain analysis of Can AI destroy traditional marketing agencies by 2026",
+    "strategic_angle": "Can AI destroy traditional marketing agencies by 2026",
+    "domain_concepts_by_domain": {
+      "ai": [
+        "generative design",
+        "prediction models",
+        "consumer preference modeling",
+        "algorithmic formulation",
+        "algorithmic scent model",
+        "consumer preference dashboard"
+      ],
+      "future": [
+        "market disruption",
+        "future forecast",
+        "industry shift",
+        "2030 outlook",
+        "adoption curve"
+      ],
+      "marketing": [
+        "marketing agency",
+        "client acquisition",
+        "campaign management",
+        "media buying",
+        "copywriting",
+        "creative strategy"
+      ],
+      "business": [
+        "brand positioning",
+        "luxury market",
+        "consumer adoption",
+        "market share",
+        "billion-dollar brand",
+        "distribution strategy"
+      ]
+    },
+    "fused_conflict": "What cross-domain forces decide cross-domain analysis of Can AI destroy traditional marketing agencies by 2026?",
+    "fused_clip_structure": [
+      "Open with the central cross-domain claim behind Can AI destroy traditional marketing agencies by 2026.",
+      "Compare expert evidence across ai, future, marketing with visible mechanism detail.",
+      "Deliver a fused verdict on Can AI destroy traditional marketing agencies by 2026 using concepts from each major domain."
+    ],
+    "fused_character": "a knowledgeable presenter",
+    "fused_setting": "a cross-disciplinary research studio with algorithm dashboards, product prototypes, and market evidence boards",
+    "missing_domain_warnings": [
+      "business domain missing"
+    ],
+    "multi_domain": false,
+    "domain_balance_score": 1.0,
+    "cross_domain_fusion_score": 0.0,
+    "openai_applied": true,
+    "openai_fusion_used": true,
+    "cache_hit": false,
+    "estimated_cost_usd": 0.0,
+    "source": "openai_cross_domain_dry_run",
+    "classification_strategy": "business_debate",
+    "intent_primary": "industry_disruption"
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

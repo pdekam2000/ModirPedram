@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-06-04 10:49:44",
+  "menu_key": "image_quality_menu",
+  "option_key": "image_quality_2k",
+  "expected_texts": [
+    "2K"
+  ],
+  "detected": "1K",
+  "retry_attempts": 3,
+  "toolbar_container_selector": "simulate",
+  "toolbar_found": true,
+  "active_chip_candidate": {
+    "kind": "quality",
+    "text": "2K",
+    "active": true,
+    "in_toolbar": true,
+    "is_button": true,
+    "bbox": {},
+    "score": 0.0
+  },
+  "all_quality_chip_candidates": [],
+  "picked_text": "2K",
+  "screenshot_path": "",
+  "current_url": "",
+  "last_action_log_entries": [
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=; aspect=; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_retry",
+      "control_key": "image_quality_menu",
+      "detail": "attempt=1; expected=('2K',); detected='1K'; reopen_menu=True",
+      "approved": false
+    },
+    {
+      "action": "chip_open",
+      "control_key": "image_quality_menu",
+      "detail": "kind=quality; before=1K; target=('2K',)",
+      "approved": false
+    },
+    {
+      "action": "chip_select",
+      "control_key": "image_quality_2k",
+      "detail": "simulate texts=('2K',); before=1K",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=; aspect=; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_retry",
+      "control_key": "image_quality_menu",
+      "detail": "attempt=2; expected=('2K',); detected='1K'; reopen_menu=True",
+      "approved": false
+    },
+    {
+      "action": "chip_open",
+      "control_key": "image_quality_menu",
+      "detail": "kind=quality; before=1K; target=('2K',)",
+      "approved": false
+    },
+    {
+      "action": "chip_select",
+      "control_key": "image_quality_2k",
+      "detail": "simulate texts=('2K',); before=1K",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=; aspect=; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=; aspect=; quality=2K; duration=",
+      "approved": false
+    }
+  ]
+}

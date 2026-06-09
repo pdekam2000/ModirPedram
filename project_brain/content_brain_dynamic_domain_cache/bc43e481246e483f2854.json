@@ -1,0 +1,47 @@
+{
+  "topic": "bodybilding",
+  "language_code": "en",
+  "payload": {
+    "category": "health_fitness",
+    "strategy": "documentary",
+    "domain_profile": {
+      "domain_name": "Bodybuilding",
+      "expert_role": "Fitness Trainer and Nutritionist",
+      "setting": "Gym and Nutrition Lab",
+      "core_concepts": [
+        "Muscle hypertrophy",
+        "Resistance training techniques",
+        "Nutrition and supplementation",
+        "Recovery and rest",
+        "Progressive overload"
+      ],
+      "timeline_beats": [
+        "Introduction to bodybuilding origins and goals",
+        "Explanation of muscle growth mechanisms",
+        "Overview of training routines and nutrition plans",
+        "Importance of rest and recovery",
+        "Common myths and best practices"
+      ],
+      "visual_objects": [
+        "Dumbbells and barbells",
+        "Muscle anatomy diagrams",
+        "Meal prep and supplements",
+        "Before and after transformation photos",
+        "Training session clips"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduction to bodybuilding and its benefits with gym visuals",
+        "clip_2": "Detailed explanation of training methods and nutrition with expert commentary",
+        "clip_3": "Tips on recovery, myth-busting, and motivational closing"
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 247,
+    "completion_tokens": 269,
+    "total_tokens": 516
+  },
+  "estimated_cost_usd": 0.0005292
+}

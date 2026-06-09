@@ -1,0 +1,19 @@
+{
+  "topic": "How to make pizza dough?",
+  "category": "cooking",
+  "strategy": "recipe_tutorial",
+  "enhancement_types": [
+    "prompt"
+  ],
+  "payload": {
+    "prompt_additions": [
+      "How to make pizza dough?"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

@@ -520,6 +520,37 @@ class ProviderRegistryEngine:
 
         return ready
 
+    def get_credential_ready_trend_sources(self):
+        """Trend providers with valid credentials, regardless of active_providers.json."""
+        registry = self.load_registry()
+        trend_providers = {
+            provider["name"]: provider
+            for provider in registry.get(
+                self.TREND_CATEGORY,
+                []
+            )
+        }
+
+        ready = []
+
+        for name, provider in trend_providers.items():
+            if name == "mock_trend_provider":
+                continue
+
+            if not provider.get(
+                "enabled",
+                True
+            ):
+                continue
+
+            if self.credentials_ready(
+                self.TREND_CATEGORY,
+                name
+            ):
+                ready.append(name)
+
+        return ready
+
     def get_ready_trend_enrichment(self):
 
         name = self.get_active_trend_enrichment()

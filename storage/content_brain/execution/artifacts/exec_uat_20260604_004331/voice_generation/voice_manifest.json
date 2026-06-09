@@ -1,0 +1,48 @@
+{
+  "manifest_version": "11h2d_v1",
+  "session_id": "exec_uat_20260604_004331",
+  "category": "voice_generation",
+  "provider": "elevenlabs",
+  "provider_mode": "live_elevenlabs",
+  "segment_count": 1,
+  "character_count": 215,
+  "total_size_bytes": 224070,
+  "files": [
+    {
+      "segment_index": 1,
+      "file_name": "narration_001.mp3",
+      "file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_20260604_004331\\voice_generation\\narration_001.mp3",
+      "size_bytes": 224070,
+      "character_count": 215,
+      "text_hash": "sha256:8e5aff898f03c5be4fca28cd0b57f9d1a963bb73cbb3010c9e0e7a123e4a641a",
+      "beat_id": "UAT_SMOKE_NARRATION",
+      "validation_status": "valid",
+      "request_id": "0K13oaObppL3XytSvKZH",
+      "retry_count": 0
+    }
+  ],
+  "created_at": "2026-06-04 00:56:25",
+  "started_at": "2026-06-04 00:56:22",
+  "completed_at": "2026-06-04 00:56:25",
+  "duration_seconds": 3.0,
+  "validation_status": "valid",
+  "execution_status": "completed",
+  "partial": false,
+  "tts_executed": true,
+  "real_provider_called": true,
+  "engine_version": "11h2d_v1",
+  "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_128",
+  "retry_count": 0,
+  "adapter_version": "11h2c_v1",
+  "safety_caps": {
+    "max_segments_per_run": 1,
+    "max_characters_per_run": 300,
+    "max_estimated_cost_usd": 0.1,
+    "max_retry_attempts": 1,
+    "timeout_seconds": 60,
+    "profile_version": "11h2d_v1"
+  },
+  "request_id": "0K13oaObppL3XytSvKZH"
+}

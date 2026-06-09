@@ -1,0 +1,3127 @@
+{
+  "run_id": "cb_e2e_20260606_014310_d8736f0a",
+  "started_at": "2026-06-06 01:43:10",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "Will AI replace graphic designers?",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v7",
+    "language_code": "en",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "openai_classification": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI classification enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for weak-local classification fallback."
+        },
+        "openai_quality": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI quality enhancement",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for selective quality repair after audit."
+        },
+        "openai_intent": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI intent intelligence",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for intent-aware strategy selection."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.13,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "Will AI replace graphic designers?",
+        "detected_language_code": "en",
+        "extracted_subject": "Will AI",
+        "extracted_environment": "",
+        "extracted_action": "",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "Will AI replace graphic designers?",
+          "extracted_subject": "Will AI",
+          "extracted_environment": "",
+          "extracted_action": "",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 3.46,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 83.11,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to Will AI replace graphic designers?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8682,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8682,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "trend": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.09,
+            "confidence": 0.8645,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best Will AI replace graphic designers? tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8561,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8561,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "trend": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why Will AI replace graphic designers? is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8597,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8597,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "trend": "Will AI replace graphic designers?",
+            "source": "manual_seed",
+            "score": 75.75,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "trend": "Will AI replace graphic designers? for beginners",
+            "source": "mock_trend_provider",
+            "score": 70.13,
+            "confidence": 0.5835,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "Will AI replace graphic designers? for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around Will AI replace graphic designers? for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "Will AI replace graphic designers? for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Will AI replace graphic designers? for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.622,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.622,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "Will AI replace graphic designers?",
+          "velocity": 100.0,
+          "saturation": 36.0,
+          "virality_score": 75.75,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.25,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "fallback_seed_expansion",
+        "trend_intelligence": {
+          "trend_mode": "fallback_seed_expansion",
+          "topic": "Will AI replace graphic designers?",
+          "items": [
+            {
+              "trend": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.11,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.823,
+                "freshness_score": 0.74,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 01:43:10",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 2,
+                "seed_source": "how to Will AI replace graphic designers?",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_001",
+                  "canonical_topic": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+                      "confidence": 0.823,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.8888
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8682,
+                "niche_relevance_reason": "Matched subject core semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8682,
+                  "decision": "KEEP",
+                  "reason": "Matched subject core semantic cluster",
+                  "matched_cluster_id": "subject_core",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 01:43:10"
+              }
+            },
+            {
+              "trend": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.09,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.8645,
+                "freshness_score": 0.79,
+                "niche_match": 0.98,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 01:43:10",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 1,
+                "seed_source": "best Will AI replace graphic designers? tips",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_000",
+                  "canonical_topic": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+                      "confidence": 0.8645,
+                      "niche_match": 0.98,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.9337
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8561,
+                "niche_relevance_reason": "Matched discovery angles semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8561,
+                  "decision": "KEEP",
+                  "reason": "Matched discovery angles semantic cluster",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 01:43:10"
+              }
+            },
+            {
+              "trend": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.06,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.718,
+                "freshness_score": 0.64,
+                "niche_match": 1.0,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 01:43:10",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 4,
+                "seed_source": "why Will AI replace graphic designers? is trending",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_003",
+                  "canonical_topic": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+                      "confidence": 0.718,
+                      "niche_match": 1.0,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.718
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8597,
+                "niche_relevance_reason": "Matched tension points semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8597,
+                  "decision": "KEEP",
+                  "reason": "Matched tension points semantic cluster",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 01:43:10"
+              }
+            },
+            {
+              "trend": "Will AI replace graphic designers?",
+              "source": "manual_seed",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 75.75,
+              "metadata": {
+                "priority": "user_topic",
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 01:43:10"
+              }
+            },
+            {
+              "trend": "Will AI replace graphic designers? for beginners",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 70.13,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.5835,
+                "freshness_score": 0.69,
+                "niche_match": 0.66,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 01:43:10",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 3,
+                "seed_source": "Will AI replace graphic designers? for beginners",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "trend_angle": "beginner vs expert views on topic framing around Will AI replace graphic designers? for beginners",
+                "aggregation": {
+                  "cluster_id": "cluster_004",
+                  "canonical_topic": "Will AI replace graphic designers? for beginners",
+                  "aggregation_score": 0.9304,
+                  "final_rank_score": 0.9304,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Will AI replace graphic designers? for beginners",
+                      "confidence": 0.5835,
+                      "niche_match": 0.66,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.5835
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "niche_relevance_score": 0.622,
+                "niche_relevance_reason": "Low overlap with general semantic universe",
+                "rejected_by_filter": false,
+                "filter_decision": "WARNING",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.622,
+                  "decision": "WARNING",
+                  "reason": "Low overlap with general semantic universe",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 01:43:10"
+              }
+            }
+          ],
+          "best_trend_opportunity_score": 1.0,
+          "summary": {
+            "count": 5,
+            "rising": 3,
+            "evergreen": 2,
+            "seasonal": 0
+          }
+        },
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to Will AI replace graphic designers?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8682,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8682,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best Will AI replace graphic designers? tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8561,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8561,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why Will AI replace graphic designers? is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8597,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8597,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 01:43:10",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "Will AI replace graphic designers? for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around Will AI replace graphic designers? for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "Will AI replace graphic designers? for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Will AI replace graphic designers? for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.622,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.622,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 01:43:10"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification, Intent & Strategy",
+      "duration_ms": 10.0,
+      "api_sources": [
+        "content_brain_topic_strategy",
+        "content_brain_intent_intelligence",
+        "domain_knowledge_layer",
+        "topic_knowledge_graph",
+        "content_brain_character_builder",
+        "story_strategy_library",
+        "openai_classification_enricher_skipped"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "Will AI replace graphic designers?",
+          "topic_category": "technology",
+          "content_strategy": "technology_forecast",
+          "instructional_intent": false,
+          "confidence": 0.92,
+          "reasoning": "Matched category 'technology' from topic keywords. | intent=technology_forecast: Future prediction or industry disruption question detected."
+        },
+        "intent_intelligence": {
+          "topic": "Will AI replace graphic designers?",
+          "primary_intent": "technology_forecast",
+          "secondary_intents": [
+            "industry_disruption",
+            "future_prediction"
+          ],
+          "recommended_strategy": "technology_forecast",
+          "confidence": 0.92,
+          "reasoning": "Future prediction or industry disruption question detected.",
+          "source": "local_rules",
+          "alternative_intents": [
+            "future_prediction"
+          ],
+          "domain_concepts": [],
+          "story_angles": [],
+          "seo_title_candidates": [],
+          "openai_applied": false,
+          "cache_hit": false,
+          "estimated_cost_usd": 0.0
+        },
+        "content_strategy": {
+          "strategy_id": "technology_forecast",
+          "label": "Technology forecast strategy",
+          "purpose": "forecast how technology changes a role, workflow, or industry",
+          "niche_style": "documentary",
+          "effective_mood": "documentary",
+          "clip_beats": [
+            "problem setup and tool/workflow overview.",
+            "step-by-step setup or demonstration.",
+            "result, comparison, and practical takeaway."
+          ],
+          "conflict": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+          "seo_title_candidates": [
+            "will ai replace will ai replace graphic designers??",
+            "the future of will ai replace graphic designers? in an ai world",
+            "what ai still cannot do for will ai replace graphic designers?",
+            "which will ai replace graphic designers? jobs ai will change first"
+          ],
+          "required_terms": [
+            "ai",
+            "workflow",
+            "automation",
+            "future",
+            "tool",
+            "role",
+            "design",
+            "replace",
+            "adapt",
+            "forecast"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "domain_knowledge": {
+          "domain_id": "technology",
+          "label": "Technology & AI",
+          "concepts": [
+            "creator",
+            "workflow",
+            "automation",
+            "prompt",
+            "tool",
+            "productivity",
+            "comparison",
+            "setup",
+            "use case",
+            "integration"
+          ],
+          "default_role_en": "a focused digital creator",
+          "default_role_fa": "",
+          "setting_en": "a modern desk setup with laptop, tools, and readable screen glow",
+          "instructional_beats_en": [
+            "Problem setup and tool/workflow overview.",
+            "Step-by-step setup or demonstration.",
+            "Result, comparison, and practical takeaway."
+          ],
+          "review_beats_en": [
+            "Claim and product/tool reveal.",
+            "Hands-on test and comparison.",
+            "Verdict and best use case."
+          ]
+        },
+        "knowledge_graph": {
+          "domain": "technology",
+          "nodes": [
+            {
+              "node_id": "workflow",
+              "label": "workflow",
+              "node_type": "concept",
+              "related": [
+                "automation",
+                "productivity"
+              ]
+            },
+            {
+              "node_id": "prompt",
+              "label": "prompt",
+              "node_type": "concept",
+              "related": [
+                "tool",
+                "use case"
+              ]
+            },
+            {
+              "node_id": "comparison",
+              "label": "comparison",
+              "node_type": "format",
+              "related": [
+                "review",
+                "setup"
+              ]
+            }
+          ],
+          "matched_nodes": [],
+          "related_concepts": [
+            "automation",
+            "productivity",
+            "tool",
+            "use case",
+            "review",
+            "setup"
+          ],
+          "seo_keywords": [
+            "workflow",
+            "prompt",
+            "comparison",
+            "automation",
+            "productivity",
+            "tool",
+            "use case",
+            "review",
+            "setup"
+          ]
+        },
+        "character_builder": {
+          "character": "a focused digital creator",
+          "domain": "technology",
+          "source": "domain_role",
+          "quality_score": 0.92,
+          "warnings": [],
+          "builder_version": "character_builder_v3"
+        },
+        "story_strategy": {
+          "strategy_id": "documentary",
+          "label": "Documentary",
+          "hook_structure": "Context that frames why this matters now.",
+          "clip_beat_structure": [
+            "Clip 1 \u2014 context",
+            "Clip 2 \u2014 evidence / escalation",
+            "Clip 3 \u2014 conclusion"
+          ],
+          "conflict_type": "What is the most important unanswered question?",
+          "payoff_type": "Evidence-backed conclusion.",
+          "visual_language": "Observational framing, evidence inserts, grounded realism.",
+          "prompt_rules": [
+            "Prioritize evidence over spectacle."
+          ]
+        },
+        "detected_language_code": "en",
+        "openai_classification": {
+          "applied": false,
+          "provider": "openai_classification_enricher",
+          "model": "",
+          "trigger_reason": "",
+          "cache_hit": false,
+          "classification": {
+            "topic": "Will AI replace graphic designers?",
+            "topic_category": "technology",
+            "content_strategy": "educational_tech",
+            "instructional_intent": false,
+            "confidence": 0.88,
+            "reasoning": "Matched category 'technology' from topic keywords."
+          },
+          "strategy_plan": {},
+          "enrichment": {},
+          "domain_profile": {},
+          "notes": [
+            "openai_classification_not_needed"
+          ],
+          "usage": {},
+          "estimated_cost_usd": 0.0
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.06,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.5,
+      "api_sources": [
+        "content_brain_seo_director",
+        "content_brain_topic_strategy",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Why Will AI Replace Graphic Designers Matters",
+        "title_candidates": [
+          "Why Will AI Replace Graphic Designers Matters",
+          "The Truth About Will AI Replace Graphic Designers",
+          "What Everyone Gets Wrong About Will AI Replace Graphic Designers",
+          "The Real Story Behind Will AI Replace Graphic Designers",
+          "Will AI Replace Graphic Designers?",
+          "will ai replace will ai replace graphic designers??",
+          "which will ai replace graphic designers? jobs ai will change first",
+          "what ai still cannot do for will ai replace graphic designers?"
+        ],
+        "keywords": [
+          "Will AI replace graphic designers?",
+          "Will AI",
+          "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+          "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+          "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+          "Will AI replace graphic designers? for beginners",
+          "how to Will AI replace graphic designers?:"
+        ],
+        "trend_angle": "how to Will AI replace graphic designers?:",
+        "language_code": "en",
+        "seo_score": 1.0,
+        "candidates_ranked": [
+          {
+            "title": "will ai replace will ai replace graphic designers??",
+            "reason": "strong SEO relevance",
+            "seo_score": 1.0,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "Will AI replace graphic designers?",
+              "Will AI",
+              "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+              "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+              "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+              "Will AI replace graphic designers? for beginners"
+            ],
+            "selected": true
+          },
+          {
+            "title": "which will ai replace graphic designers? jobs ai will change first",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.8667,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "Will AI replace graphic designers?",
+              "Will AI",
+              "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+              "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+              "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+              "Will AI replace graphic designers? for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "what ai still cannot do for will ai replace graphic designers?",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.8,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "Will AI replace graphic designers?",
+              "Will AI",
+              "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+              "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+              "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+              "Will AI replace graphic designers? for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "the future of will ai replace graphic designers? in an ai world",
+            "reason": "balanced SEO/CTR/topic authority",
+            "seo_score": 0.7455,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "Will AI replace graphic designers?",
+              "Will AI",
+              "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+              "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+              "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+              "Will AI replace graphic designers? for beginners"
+            ],
+            "selected": false
+          }
+        ],
+        "selection_reason": "strong SEO relevance",
+        "content_strategy": "technology_forecast",
+        "selected_seo_title": "Why Will AI Replace Graphic Designers Matters"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 4252.4,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "content_brain_character_builder",
+        "openai_story_enricher",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "will ai replace will ai replace graphic designers??",
+          "logline": "A focused expert breaks down Will AI replace graphic designers with concrete evidence, objects, and topic-specific stakes.",
+          "main_character": "a focused analyst",
+          "setting": "a modern desk setup with laptop, tools, and readable screen glow",
+          "conflict_tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+          "emotional_arc": "fear converting into forward motion",
+          "ending_beat": "result, comparison, and practical takeaway.",
+          "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a focused digital creator",
+            "location": "a modern desk setup with laptop, tools, and readable screen glow",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+            "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+            "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+          ],
+          "source_topic": "Will AI replace graphic designers?",
+          "target_platform": "youtube_shorts",
+          "niche_style": "documentary",
+          "mood": "tense hopeful",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "Will AI replace graphic designers?",
+            "subject": "Will AI Replace Graphic Designers?",
+            "facts": [
+              "The narrative stays anchored to Will AI Replace Graphic Designers?."
+            ],
+            "entities": [
+              "Will",
+              "AI",
+              "replace",
+              "graphic",
+              "designers",
+              "designers?"
+            ],
+            "settings": [
+              "a modern desk setup with laptop, tools, and readable screen glow"
+            ],
+            "objects": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt",
+              "Will",
+              "AI",
+              "replace",
+              "graphic"
+            ],
+            "narrative_beats": [
+              "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+              "Demonstrate the core action using creator.",
+              "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "goal": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "conflict": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "seo_title": "will ai replace will ai replace graphic designers??",
+          "language_code": "en",
+          "content_strategy": "technology_forecast",
+          "content_strategy_label": "Technology forecast strategy",
+          "topic_category": "technology",
+          "character_builder": {
+            "character": "a focused digital creator",
+            "domain": "technology",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          },
+          "openai_quality_enhanced": true
+        },
+        "seo_title": "will ai replace will ai replace graphic designers??",
+        "language_code": "en",
+        "content_strategy": {
+          "strategy_id": "technology_forecast",
+          "label": "Technology forecast strategy",
+          "purpose": "forecast how technology changes a role, workflow, or industry",
+          "niche_style": "documentary",
+          "effective_mood": "documentary",
+          "clip_beats": [
+            "problem setup and tool/workflow overview.",
+            "step-by-step setup or demonstration.",
+            "result, comparison, and practical takeaway."
+          ],
+          "conflict": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+          "seo_title_candidates": [
+            "will ai replace will ai replace graphic designers??",
+            "the future of will ai replace graphic designers? in an ai world",
+            "what ai still cannot do for will ai replace graphic designers?",
+            "which will ai replace graphic designers? jobs ai will change first"
+          ],
+          "required_terms": [
+            "ai",
+            "workflow",
+            "automation",
+            "future",
+            "tool",
+            "role",
+            "design",
+            "replace",
+            "adapt",
+            "forecast"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "will ai replace will ai replace graphic designers??",
+            "logline": "a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?.",
+            "main_character": "a focused digital creator",
+            "setting": "a modern desk setup with laptop, tools, and readable screen glow",
+            "conflict_tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+            "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+            "emotional_arc": "fear converting into forward motion",
+            "ending_beat": "result, comparison, and practical takeaway.",
+            "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a focused digital creator",
+              "location": "a modern desk setup with laptop, tools, and readable screen glow",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+              "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+              "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+            ],
+            "source_topic": "Will AI replace graphic designers?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2+openai_story",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "Will AI replace graphic designers?",
+              "subject": "Will AI Replace Graphic Designers?",
+              "facts": [
+                "The narrative stays anchored to Will AI Replace Graphic Designers?."
+              ],
+              "entities": [
+                "Will",
+                "AI",
+                "replace",
+                "graphic",
+                "designers"
+              ],
+              "settings": [
+                "a modern desk setup with laptop, tools, and readable screen glow"
+              ],
+              "objects": [
+                "creator",
+                "workflow",
+                "automation",
+                "prompt"
+              ],
+              "narrative_beats": [
+                "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+                "Demonstrate the core action using creator.",
+                "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            },
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+            "role_label": "hook",
+            "story_beat": "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes."
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+            "role_label": "escalation",
+            "story_beat": "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI."
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI.",
+            "role_label": "payoff",
+            "story_beat": "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 4.85,
+      "api_sources": [
+        "runway_prompt_builder",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a focused digital creator. Environment: a modern desk setup with laptop, tools, and readable screen glow. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?.. Topic narrative: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Visual hook: Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.. Tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?. Style direction: premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Story beat reference: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Story beat reference: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI..",
+        "starter_image_prompt_chars": 2255,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Clip 1 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2620,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a focused digital creator. Environment: a modern desk setup with laptop, tools, and readable screen glow. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?.. Topic narrative: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Visual hook: Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.. Tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?. Style direction: premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Story beat reference: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Story beat reference: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI..",
+            "image_prompt_chars": 2255,
+            "continuity_notes": "same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth)"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Clip 2 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2633,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth)"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Clip 3 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Deliver the takeaway tied to Will AI Replace Graphic Designers?.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2615,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth)"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "a focused digital creator",
+          "location": "a modern desk setup with laptop, tools, and readable screen glow",
+          "lighting": "natural motivated available light with soft contrast",
+          "camera": "handheld-inspired stability with observational framing",
+          "palette": "neutral documentary color grade with selective warmth",
+          "wardrobe": ""
+        },
+        "builder_version": "runway_starter_to_video_f_v3",
+        "validation_warnings": [
+          "clip 1 missing explicit 10-second motion language",
+          "clip 2 missing explicit 10-second motion language",
+          "clip 3 missing explicit 10-second motion language"
+        ],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 2255,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2561,
+            2574,
+            2556
+          ],
+          "clip_prompt_min": 2556,
+          "clip_prompt_max": 2574,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_d14127ab",
+          "story_idea": "a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?. Character: a focused digital creator. Setting: a modern desk setup with laptop, tools, and readable screen glow. Conflict: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?. Visual hook: Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.. Emotional arc: fear converting into forward motion. Ending: result, comparison, and practical takeaway.. Clip 1: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Clip 2: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Clip 3: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI..",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a focused digital creator. Environment: a modern desk setup with laptop, tools, and readable screen glow. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?.. Topic narrative: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Visual hook: Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.. Tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?. Style direction: premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Story beat reference: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Story beat reference: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI..",
+          "clip_prompts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Deliver the takeaway tied to Will AI Replace Graphic Designers?.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "a focused digital creator",
+            "location": "a modern desk setup with laptop, tools, and readable screen glow",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": ""
+          },
+          "warnings": [
+            "clip 1 missing explicit 10-second motion language",
+            "clip 2 missing explicit 10-second motion language",
+            "clip 3 missing explicit 10-second motion language"
+          ],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 2255,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2561,
+              2574,
+              2556
+            ],
+            "clip_prompt_min": 2556,
+            "clip_prompt_max": 2574,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v3",
+          "story_brief": {
+            "title": "will ai replace will ai replace graphic designers??",
+            "logline": "a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?.",
+            "main_character": "a focused digital creator",
+            "setting": "a modern desk setup with laptop, tools, and readable screen glow",
+            "conflict_tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+            "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+            "emotional_arc": "fear converting into forward motion",
+            "ending_beat": "result, comparison, and practical takeaway.",
+            "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a focused digital creator",
+              "location": "a modern desk setup with laptop, tools, and readable screen glow",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+              "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+              "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+            ],
+            "source_topic": "Will AI replace graphic designers?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "Will AI replace graphic designers?",
+              "subject": "Will AI Replace Graphic Designers?",
+              "facts": [
+                "The narrative stays anchored to Will AI Replace Graphic Designers?."
+              ],
+              "entities": [
+                "Will",
+                "AI",
+                "replace",
+                "graphic",
+                "designers"
+              ],
+              "settings": [
+                "a modern desk setup with laptop, tools, and readable screen glow"
+              ],
+              "objects": [
+                "creator",
+                "workflow",
+                "automation",
+                "prompt"
+              ],
+              "narrative_beats": [
+                "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+                "Demonstrate the core action using creator.",
+                "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            }
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Why Will AI Replace Graphic Designers Matters",
+        "seo_description": "a focused digital creator in a modern desk setup with laptop, tools, and readable screen glow. will ai replace will ai replace graphic designers??. Central tension: Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?. Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+        "keywords": [
+          "Will AI replace graphic designers?",
+          "Will AI",
+          "how to Will AI replace graphic designers?: the question people keep asking about topic angle gaining comments this week",
+          "Why best Will AI replace graphic designers? tips is gaining traction via format gaining traction around topic",
+          "Why why Will AI replace graphic designers? is trending is gaining traction via popular advice vs real results in topic",
+          "Will AI replace graphic designers? for beginners",
+          "how to Will AI replace graphic designers?:"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 1.0,
+        "title_candidates": [
+          "Why Will AI Replace Graphic Designers Matters",
+          "The Truth About Will AI Replace Graphic Designers",
+          "What Everyone Gets Wrong About Will AI Replace Graphic Designers",
+          "The Real Story Behind Will AI Replace Graphic Designers",
+          "Will AI Replace Graphic Designers?",
+          "will ai replace will ai replace graphic designers??",
+          "which will ai replace graphic designers? jobs ai will change first",
+          "what ai still cannot do for will ai replace graphic designers?"
+        ],
+        "trend_angle": "how to Will AI replace graphic designers?:",
+        "language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.58,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8879,
+        "domain_knowledge_score": 0.625,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.6813,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.625,
+        "prompt_specificity_score": 0.75,
+        "narrative_detail_score": 0.92,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.8337,
+        "warnings": [],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8879,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.88,
+              "story_logline": 0.8859,
+              "story_character": 0.88,
+              "story_setting": 0.9018,
+              "story_beats": 0.8935,
+              "prompts": 0.8894,
+              "hashtags": 0.88,
+              "trends": 0.8924
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "Will AI replace graphic designers?",
+            "content_strategy": "technology_forecast",
+            "topic_strategy_alignment_score": 0.6813,
+            "seo_alignment": 0.375,
+            "story_alignment": 0.625,
+            "clip_alignment": 0.75,
+            "prompt_alignment": 0.875,
+            "generic_filler_hits": [],
+            "required_term_hits": [
+              "ai",
+              "workflow",
+              "automation",
+              "tool",
+              "design",
+              "replace",
+              "adapt"
+            ],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "documentary",
+            "label": "Documentary",
+            "hook_structure": "Context that frames why this matters now.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 context",
+              "Clip 2 \u2014 evidence / escalation",
+              "Clip 3 \u2014 conclusion"
+            ],
+            "conflict_type": "What is the most important unanswered question?",
+            "payoff_type": "Evidence-backed conclusion.",
+            "visual_language": "Observational framing, evidence inserts, grounded realism.",
+            "prompt_rules": [
+              "Prioritize evidence over spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "technology",
+            "label": "Technology & AI",
+            "concepts": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt",
+              "tool",
+              "productivity",
+              "comparison",
+              "setup",
+              "use case",
+              "integration"
+            ],
+            "default_role_en": "a focused digital creator",
+            "default_role_fa": "",
+            "setting_en": "a modern desk setup with laptop, tools, and readable screen glow",
+            "instructional_beats_en": [
+              "Problem setup and tool/workflow overview.",
+              "Step-by-step setup or demonstration.",
+              "Result, comparison, and practical takeaway."
+            ],
+            "review_beats_en": [
+              "Claim and product/tool reveal.",
+              "Hands-on test and comparison.",
+              "Verdict and best use case."
+            ]
+          },
+          "topic_story_detail": {
+            "topic": "Will AI replace graphic designers?",
+            "subject": "Will AI Replace Graphic Designers?",
+            "facts": [
+              "The narrative stays anchored to Will AI Replace Graphic Designers?."
+            ],
+            "entities": [
+              "Will",
+              "AI",
+              "replace",
+              "graphic",
+              "designers"
+            ],
+            "settings": [
+              "a modern desk setup with laptop, tools, and readable screen glow"
+            ],
+            "objects": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt"
+            ],
+            "narrative_beats": [
+              "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+              "Demonstrate the core action using creator.",
+              "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "narrative_detail_hits": 0.92
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.6813,
+        "story_quality_score": 0.83,
+        "seo_score": 1.0,
+        "prompt_completeness_score": 0.75,
+        "forbidden_drift": [],
+        "audit_phase": "before_enhancement"
+      },
+      "error": ""
+    },
+    {
+      "step": 11,
+      "step_key": "openai_quality_enhancement",
+      "title": "OpenAI Quality Enhancement",
+      "duration_ms": 1.73,
+      "api_sources": [
+        "content_brain_openai_quality_enhancer"
+      ],
+      "provider_costs": {
+        "estimated_cost_usd": 0.0,
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        }
+      },
+      "payload": {
+        "applied": true,
+        "enabled": true,
+        "provider": "openai_quality_enhancer",
+        "model": "gpt-4.1-mini",
+        "trigger_report": {
+          "triggered": true,
+          "reasons": [
+            "language_authority_score<0.9",
+            "character_quality_score<0.8",
+            "domain_knowledge_score<0.8",
+            "story_specificity_score<0.8",
+            "seo_title_quality_score<0.85",
+            "prompt_specificity_score<0.8",
+            "generic_content_detected",
+            "domain_pack_missing"
+          ],
+          "enhancement_types": [
+            "character",
+            "domain_knowledge",
+            "story",
+            "seo",
+            "prompt"
+          ],
+          "generic_content_detected": true,
+          "domain_pack_missing": true
+        },
+        "enhancements_applied": [
+          "seo",
+          "domain_knowledge",
+          "character",
+          "story",
+          "prompt"
+        ],
+        "before_scores": {
+          "language_authority_score": 0.8879,
+          "domain_knowledge_score": 0.625,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.83,
+          "seo_title_quality_score": 1.0,
+          "prompt_specificity_score": 0.75,
+          "narrative_detail_score": 0.92,
+          "overall_content_score": 0.8337
+        },
+        "after_scores": {
+          "language_authority_score": 0.8879,
+          "domain_knowledge_score": 0.86,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.86,
+          "seo_title_quality_score": 1.0,
+          "prompt_specificity_score": 0.84,
+          "narrative_detail_score": 0.92,
+          "overall_content_score": 0.8887
+        },
+        "improvement_summary": {
+          "domain_knowledge_score": {
+            "before": 0.625,
+            "after": 0.86,
+            "delta": 0.235,
+            "percent": 37.6
+          },
+          "overall_content_score": {
+            "before": 0.8337,
+            "after": 0.8887,
+            "delta": 0.055,
+            "percent": 6.6
+          },
+          "prompt_specificity_score": {
+            "before": 0.75,
+            "after": 0.84,
+            "delta": 0.09,
+            "percent": 12.0
+          },
+          "story_specificity_score": {
+            "before": 0.83,
+            "after": 0.86,
+            "delta": 0.03,
+            "percent": 3.6
+          }
+        },
+        "cache_hit": false,
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        "estimated_cost_usd": 0.0,
+        "notes": [
+          "openai_quality_dry_run"
+        ],
+        "enhanced": {
+          "story_payload": {
+            "title": "will ai replace will ai replace graphic designers??",
+            "logline": "A focused expert breaks down Will AI replace graphic designers with concrete evidence, objects, and topic-specific stakes.",
+            "main_character": "a focused analyst",
+            "setting": "a modern desk setup with laptop, tools, and readable screen glow",
+            "conflict_tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+            "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+            "emotional_arc": "fear converting into forward motion",
+            "ending_beat": "result, comparison, and practical takeaway.",
+            "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a focused digital creator",
+              "location": "a modern desk setup with laptop, tools, and readable screen glow",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+              "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+              "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+            ],
+            "source_topic": "Will AI replace graphic designers?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "Will AI replace graphic designers?",
+              "subject": "Will AI Replace Graphic Designers?",
+              "facts": [
+                "The narrative stays anchored to Will AI Replace Graphic Designers?."
+              ],
+              "entities": [
+                "Will",
+                "AI",
+                "replace",
+                "graphic",
+                "designers"
+              ],
+              "settings": [
+                "a modern desk setup with laptop, tools, and readable screen glow"
+              ],
+              "objects": [
+                "creator",
+                "workflow",
+                "automation",
+                "prompt"
+              ],
+              "narrative_beats": [
+                "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+                "Demonstrate the core action using creator.",
+                "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            },
+            "goal": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+            "conflict": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+            "tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+            "seo_title": "will ai replace will ai replace graphic designers??",
+            "language_code": "en",
+            "content_strategy": "technology_forecast",
+            "content_strategy_label": "Technology forecast strategy",
+            "topic_category": "technology",
+            "character_builder": {
+              "character": "a focused digital creator",
+              "domain": "technology",
+              "source": "domain_role",
+              "quality_score": 0.92,
+              "warnings": [],
+              "builder_version": "character_builder_v3"
+            }
+          },
+          "topic_story_detail": {
+            "topic": "Will AI replace graphic designers?",
+            "subject": "Will AI Replace Graphic Designers?",
+            "facts": [
+              "The narrative stays anchored to Will AI Replace Graphic Designers?."
+            ],
+            "entities": [
+              "Will",
+              "AI",
+              "replace",
+              "graphic",
+              "designers",
+              "designers?"
+            ],
+            "settings": [
+              "a modern desk setup with laptop, tools, and readable screen glow"
+            ],
+            "objects": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt",
+              "Will",
+              "AI",
+              "replace",
+              "graphic"
+            ],
+            "narrative_beats": [
+              "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+              "Demonstrate the core action using creator.",
+              "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "seo_title": "Why Will AI Replace Graphic Designers Matters",
+          "seo_candidates": [
+            "Why Will AI Replace Graphic Designers Matters",
+            "The Truth About Will AI Replace Graphic Designers",
+            "What Everyone Gets Wrong About Will AI Replace Graphic Designers",
+            "The Real Story Behind Will AI Replace Graphic Designers",
+            "Will AI Replace Graphic Designers?",
+            "will ai replace will ai replace graphic designers??",
+            "which will ai replace graphic designers? jobs ai will change first",
+            "what ai still cannot do for will ai replace graphic designers?"
+          ],
+          "prompt_texts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Deliver the takeaway tied to Will AI Replace Graphic Designers?.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "_applied_types": [
+            "seo",
+            "domain_knowledge",
+            "character",
+            "story",
+            "prompt"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 12,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.57,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8909,
+        "domain_knowledge_score": 0.625,
+        "character_quality_score": 0.75,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.6437,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.625,
+        "prompt_specificity_score": 0.75,
+        "narrative_detail_score": 0.92,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.8146,
+        "warnings": [],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8909,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.8971,
+              "story_logline": 0.8933,
+              "story_character": 0.88,
+              "story_setting": 0.9018,
+              "story_beats": 0.8935,
+              "prompts": 0.8892,
+              "hashtags": 0.88,
+              "trends": 0.8924
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "Will AI replace graphic designers?",
+            "content_strategy": "technology_forecast",
+            "topic_strategy_alignment_score": 0.6437,
+            "seo_alignment": 0.375,
+            "story_alignment": 0.5,
+            "clip_alignment": 0.75,
+            "prompt_alignment": 0.875,
+            "generic_filler_hits": [],
+            "required_term_hits": [
+              "ai",
+              "workflow",
+              "automation",
+              "tool",
+              "design",
+              "replace",
+              "adapt"
+            ],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "documentary",
+            "label": "Documentary",
+            "hook_structure": "Context that frames why this matters now.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 context",
+              "Clip 2 \u2014 evidence / escalation",
+              "Clip 3 \u2014 conclusion"
+            ],
+            "conflict_type": "What is the most important unanswered question?",
+            "payoff_type": "Evidence-backed conclusion.",
+            "visual_language": "Observational framing, evidence inserts, grounded realism.",
+            "prompt_rules": [
+              "Prioritize evidence over spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "technology",
+            "label": "Technology & AI",
+            "concepts": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt",
+              "tool",
+              "productivity",
+              "comparison",
+              "setup",
+              "use case",
+              "integration"
+            ],
+            "default_role_en": "a focused digital creator",
+            "default_role_fa": "",
+            "setting_en": "a modern desk setup with laptop, tools, and readable screen glow",
+            "instructional_beats_en": [
+              "Problem setup and tool/workflow overview.",
+              "Step-by-step setup or demonstration.",
+              "Result, comparison, and practical takeaway."
+            ],
+            "review_beats_en": [
+              "Claim and product/tool reveal.",
+              "Hands-on test and comparison.",
+              "Verdict and best use case."
+            ]
+          },
+          "topic_story_detail": {
+            "topic": "Will AI replace graphic designers?",
+            "subject": "Will AI Replace Graphic Designers?",
+            "facts": [
+              "The narrative stays anchored to Will AI Replace Graphic Designers?."
+            ],
+            "entities": [
+              "Will",
+              "AI",
+              "replace",
+              "graphic",
+              "designers"
+            ],
+            "settings": [
+              "a modern desk setup with laptop, tools, and readable screen glow"
+            ],
+            "objects": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt"
+            ],
+            "narrative_beats": [
+              "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+              "Demonstrate the core action using creator.",
+              "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "narrative_detail_hits": 0.92
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.6437,
+        "story_quality_score": 0.83,
+        "seo_score": 1.0,
+        "prompt_completeness_score": 0.75,
+        "forbidden_drift": [],
+        "audit_phase": "after_enhancement",
+        "quality_enhancement": {
+          "applied": true,
+          "enabled": true,
+          "provider": "openai_quality_enhancer",
+          "model": "gpt-4.1-mini",
+          "trigger_report": {
+            "triggered": true,
+            "reasons": [
+              "language_authority_score<0.9",
+              "character_quality_score<0.8",
+              "domain_knowledge_score<0.8",
+              "story_specificity_score<0.8",
+              "seo_title_quality_score<0.85",
+              "prompt_specificity_score<0.8",
+              "generic_content_detected",
+              "domain_pack_missing"
+            ],
+            "enhancement_types": [
+              "character",
+              "domain_knowledge",
+              "story",
+              "seo",
+              "prompt"
+            ],
+            "generic_content_detected": true,
+            "domain_pack_missing": true
+          },
+          "enhancements_applied": [
+            "seo",
+            "domain_knowledge",
+            "character",
+            "story",
+            "prompt"
+          ],
+          "before_scores": {
+            "language_authority_score": 0.8879,
+            "domain_knowledge_score": 0.625,
+            "character_quality_score": 0.92,
+            "story_specificity_score": 0.83,
+            "seo_title_quality_score": 1.0,
+            "prompt_specificity_score": 0.75,
+            "narrative_detail_score": 0.92,
+            "overall_content_score": 0.8337
+          },
+          "after_scores": {
+            "language_authority_score": 0.8879,
+            "domain_knowledge_score": 0.86,
+            "character_quality_score": 0.92,
+            "story_specificity_score": 0.86,
+            "seo_title_quality_score": 1.0,
+            "prompt_specificity_score": 0.84,
+            "narrative_detail_score": 0.92,
+            "overall_content_score": 0.8887
+          },
+          "improvement_summary": {
+            "domain_knowledge_score": {
+              "before": 0.625,
+              "after": 0.86,
+              "delta": 0.235,
+              "percent": 37.6
+            },
+            "overall_content_score": {
+              "before": 0.8337,
+              "after": 0.8887,
+              "delta": 0.055,
+              "percent": 6.6
+            },
+            "prompt_specificity_score": {
+              "before": 0.75,
+              "after": 0.84,
+              "delta": 0.09,
+              "percent": 12.0
+            },
+            "story_specificity_score": {
+              "before": 0.83,
+              "after": 0.86,
+              "delta": 0.03,
+              "percent": 3.6
+            }
+          },
+          "cache_hit": false,
+          "usage": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "estimated_cost_usd": 0.0,
+          "notes": [
+            "openai_quality_dry_run"
+          ],
+          "enhanced": {
+            "story_payload": {
+              "title": "will ai replace will ai replace graphic designers??",
+              "logline": "A focused expert breaks down Will AI replace graphic designers with concrete evidence, objects, and topic-specific stakes.",
+              "main_character": "a focused analyst",
+              "setting": "a modern desk setup with laptop, tools, and readable screen glow",
+              "conflict_tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+              "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+              "emotional_arc": "fear converting into forward motion",
+              "ending_beat": "result, comparison, and practical takeaway.",
+              "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+              "continuity_anchors": {
+                "character": "a focused digital creator",
+                "location": "a modern desk setup with laptop, tools, and readable screen glow",
+                "lighting": "natural motivated available light with soft contrast",
+                "camera": "handheld-inspired stability with observational framing",
+                "palette": "neutral documentary color grade with selective warmth",
+                "wardrobe": ""
+              },
+              "clip_beats": [
+                "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+                "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+                "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+              ],
+              "source_topic": "Will AI replace graphic designers?",
+              "target_platform": "youtube_shorts",
+              "niche_style": "documentary",
+              "mood": "tense hopeful",
+              "clip_count": 3,
+              "duration_seconds": 10,
+              "builder_version": "runway_story_brief_v2",
+              "warnings": [],
+              "topic_story_detail": {
+                "topic": "Will AI replace graphic designers?",
+                "subject": "Will AI Replace Graphic Designers?",
+                "facts": [
+                  "The narrative stays anchored to Will AI Replace Graphic Designers?."
+                ],
+                "entities": [
+                  "Will",
+                  "AI",
+                  "replace",
+                  "graphic",
+                  "designers"
+                ],
+                "settings": [
+                  "a modern desk setup with laptop, tools, and readable screen glow"
+                ],
+                "objects": [
+                  "creator",
+                  "workflow",
+                  "automation",
+                  "prompt"
+                ],
+                "narrative_beats": [
+                  "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+                  "Demonstrate the core action using creator.",
+                  "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+                ],
+                "source": "generic_extractor",
+                "match_key": ""
+              },
+              "goal": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+              "conflict": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+              "tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+              "seo_title": "will ai replace will ai replace graphic designers??",
+              "language_code": "en",
+              "content_strategy": "technology_forecast",
+              "content_strategy_label": "Technology forecast strategy",
+              "topic_category": "technology",
+              "character_builder": {
+                "character": "a focused digital creator",
+                "domain": "technology",
+                "source": "domain_role",
+                "quality_score": 0.92,
+                "warnings": [],
+                "builder_version": "character_builder_v3"
+              }
+            },
+            "topic_story_detail": {
+              "topic": "Will AI replace graphic designers?",
+              "subject": "Will AI Replace Graphic Designers?",
+              "facts": [
+                "The narrative stays anchored to Will AI Replace Graphic Designers?."
+              ],
+              "entities": [
+                "Will",
+                "AI",
+                "replace",
+                "graphic",
+                "designers",
+                "designers?"
+              ],
+              "settings": [
+                "a modern desk setup with laptop, tools, and readable screen glow"
+              ],
+              "objects": [
+                "creator",
+                "workflow",
+                "automation",
+                "prompt",
+                "Will",
+                "AI",
+                "replace",
+                "graphic"
+              ],
+              "narrative_beats": [
+                "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+                "Demonstrate the core action using creator.",
+                "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            },
+            "seo_title": "Why Will AI Replace Graphic Designers Matters",
+            "seo_candidates": [
+              "Why Will AI Replace Graphic Designers Matters",
+              "The Truth About Will AI Replace Graphic Designers",
+              "What Everyone Gets Wrong About Will AI Replace Graphic Designers",
+              "The Real Story Behind Will AI Replace Graphic Designers",
+              "Will AI Replace Graphic Designers?",
+              "will ai replace will ai replace graphic designers??",
+              "which will ai replace graphic designers? jobs ai will change first",
+              "what ai still cannot do for will ai replace graphic designers?"
+            ],
+            "prompt_texts": [
+              "Clip 1 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+              "Clip 2 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+              "Clip 3 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Deliver the takeaway tied to Will AI Replace Graphic Designers?.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+            ],
+            "_applied_types": [
+              "seo",
+              "domain_knowledge",
+              "character",
+              "story",
+              "prompt"
+            ]
+          }
+        },
+        "scores_before_enhancement": {
+          "language_authority_score": 0.8879,
+          "domain_knowledge_score": 0.625,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.83,
+          "seo_title_quality_score": 1.0,
+          "prompt_specificity_score": 0.75,
+          "narrative_detail_score": 0.92,
+          "overall_content_score": 0.8337
+        },
+        "scores_after_enhancement": {
+          "language_authority_score": 0.8909,
+          "domain_knowledge_score": 0.625,
+          "character_quality_score": 0.75,
+          "story_specificity_score": 0.83,
+          "seo_title_quality_score": 1.0,
+          "prompt_specificity_score": 0.75,
+          "narrative_detail_score": 0.92,
+          "overall_content_score": 0.8146
+        },
+        "improvement_summary": {
+          "language_authority_score": {
+            "before": 0.8879,
+            "after": 0.8909,
+            "delta": 0.003,
+            "percent": 0.3
+          }
+        }
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "language_authority_score": 0.8909,
+    "domain_knowledge_score": 0.625,
+    "character_quality_score": 0.75,
+    "story_specificity_score": 0.83,
+    "strategy_alignment_score": 0.6437,
+    "seo_title_quality_score": 1.0,
+    "clip_specificity_score": 0.625,
+    "prompt_specificity_score": 0.75,
+    "narrative_detail_score": 0.92,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.8146,
+    "warnings": [],
+    "passed": true,
+    "details": {
+      "language_authority": {
+        "expected_language_code": "en",
+        "language_authority_score": 0.8909,
+        "drift_detected": [],
+        "field_scores": {
+          "seo_title": 0.8971,
+          "story_logline": 0.8933,
+          "story_character": 0.88,
+          "story_setting": 0.9018,
+          "story_beats": 0.8935,
+          "prompts": 0.8892,
+          "hashtags": 0.88,
+          "trends": 0.8924
+        },
+        "passed": true,
+        "notes": []
+      },
+      "strategy_alignment": {
+        "topic": "Will AI replace graphic designers?",
+        "content_strategy": "technology_forecast",
+        "topic_strategy_alignment_score": 0.6437,
+        "seo_alignment": 0.375,
+        "story_alignment": 0.5,
+        "clip_alignment": 0.75,
+        "prompt_alignment": 0.875,
+        "generic_filler_hits": [],
+        "required_term_hits": [
+          "ai",
+          "workflow",
+          "automation",
+          "tool",
+          "design",
+          "replace",
+          "adapt"
+        ],
+        "passed": true,
+        "notes": []
+      },
+      "story_strategy": {
+        "strategy_id": "documentary",
+        "label": "Documentary",
+        "hook_structure": "Context that frames why this matters now.",
+        "clip_beat_structure": [
+          "Clip 1 \u2014 context",
+          "Clip 2 \u2014 evidence / escalation",
+          "Clip 3 \u2014 conclusion"
+        ],
+        "conflict_type": "What is the most important unanswered question?",
+        "payoff_type": "Evidence-backed conclusion.",
+        "visual_language": "Observational framing, evidence inserts, grounded realism.",
+        "prompt_rules": [
+          "Prioritize evidence over spectacle."
+        ]
+      },
+      "domain_profile": {
+        "domain_id": "technology",
+        "label": "Technology & AI",
+        "concepts": [
+          "creator",
+          "workflow",
+          "automation",
+          "prompt",
+          "tool",
+          "productivity",
+          "comparison",
+          "setup",
+          "use case",
+          "integration"
+        ],
+        "default_role_en": "a focused digital creator",
+        "default_role_fa": "",
+        "setting_en": "a modern desk setup with laptop, tools, and readable screen glow",
+        "instructional_beats_en": [
+          "Problem setup and tool/workflow overview.",
+          "Step-by-step setup or demonstration.",
+          "Result, comparison, and practical takeaway."
+        ],
+        "review_beats_en": [
+          "Claim and product/tool reveal.",
+          "Hands-on test and comparison.",
+          "Verdict and best use case."
+        ]
+      },
+      "topic_story_detail": {
+        "topic": "Will AI replace graphic designers?",
+        "subject": "Will AI Replace Graphic Designers?",
+        "facts": [
+          "The narrative stays anchored to Will AI Replace Graphic Designers?."
+        ],
+        "entities": [
+          "Will",
+          "AI",
+          "replace",
+          "graphic",
+          "designers"
+        ],
+        "settings": [
+          "a modern desk setup with laptop, tools, and readable screen glow"
+        ],
+        "objects": [
+          "creator",
+          "workflow",
+          "automation",
+          "prompt"
+        ],
+        "narrative_beats": [
+          "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+          "Demonstrate the core action using creator.",
+          "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+        ],
+        "source": "generic_extractor",
+        "match_key": ""
+      },
+      "narrative_detail_hits": 0.92
+    },
+    "audit_version": "quality_audit_v2",
+    "strategy_alignment_passed": true,
+    "topic_strategy_alignment_score": 0.6437,
+    "story_quality_score": 0.83,
+    "seo_score": 1.0,
+    "prompt_completeness_score": 0.75,
+    "forbidden_drift": [],
+    "audit_phase": "after_enhancement",
+    "quality_enhancement": {
+      "applied": true,
+      "enabled": true,
+      "provider": "openai_quality_enhancer",
+      "model": "gpt-4.1-mini",
+      "trigger_report": {
+        "triggered": true,
+        "reasons": [
+          "language_authority_score<0.9",
+          "character_quality_score<0.8",
+          "domain_knowledge_score<0.8",
+          "story_specificity_score<0.8",
+          "seo_title_quality_score<0.85",
+          "prompt_specificity_score<0.8",
+          "generic_content_detected",
+          "domain_pack_missing"
+        ],
+        "enhancement_types": [
+          "character",
+          "domain_knowledge",
+          "story",
+          "seo",
+          "prompt"
+        ],
+        "generic_content_detected": true,
+        "domain_pack_missing": true
+      },
+      "enhancements_applied": [
+        "seo",
+        "domain_knowledge",
+        "character",
+        "story",
+        "prompt"
+      ],
+      "before_scores": {
+        "language_authority_score": 0.8879,
+        "domain_knowledge_score": 0.625,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "seo_title_quality_score": 1.0,
+        "prompt_specificity_score": 0.75,
+        "narrative_detail_score": 0.92,
+        "overall_content_score": 0.8337
+      },
+      "after_scores": {
+        "language_authority_score": 0.8879,
+        "domain_knowledge_score": 0.86,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.86,
+        "seo_title_quality_score": 1.0,
+        "prompt_specificity_score": 0.84,
+        "narrative_detail_score": 0.92,
+        "overall_content_score": 0.8887
+      },
+      "improvement_summary": {
+        "domain_knowledge_score": {
+          "before": 0.625,
+          "after": 0.86,
+          "delta": 0.235,
+          "percent": 37.6
+        },
+        "overall_content_score": {
+          "before": 0.8337,
+          "after": 0.8887,
+          "delta": 0.055,
+          "percent": 6.6
+        },
+        "prompt_specificity_score": {
+          "before": 0.75,
+          "after": 0.84,
+          "delta": 0.09,
+          "percent": 12.0
+        },
+        "story_specificity_score": {
+          "before": 0.83,
+          "after": 0.86,
+          "delta": 0.03,
+          "percent": 3.6
+        }
+      },
+      "cache_hit": false,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "estimated_cost_usd": 0.0,
+      "notes": [
+        "openai_quality_dry_run"
+      ],
+      "enhanced": {
+        "story_payload": {
+          "title": "will ai replace will ai replace graphic designers??",
+          "logline": "A focused expert breaks down Will AI replace graphic designers with concrete evidence, objects, and topic-specific stakes.",
+          "main_character": "a focused analyst",
+          "setting": "a modern desk setup with laptop, tools, and readable screen glow",
+          "conflict_tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "visual_hook": "Screen or workflow detail showing AI changing Will AI Replace Graphic Designers? in real time.",
+          "emotional_arc": "fear converting into forward motion",
+          "ending_beat": "result, comparison, and practical takeaway.",
+          "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a focused digital creator",
+            "location": "a modern desk setup with laptop, tools, and readable screen glow",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.",
+            "Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.",
+            "Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI."
+          ],
+          "source_topic": "Will AI replace graphic designers?",
+          "target_platform": "youtube_shorts",
+          "niche_style": "documentary",
+          "mood": "tense hopeful",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "Will AI replace graphic designers?",
+            "subject": "Will AI Replace Graphic Designers?",
+            "facts": [
+              "The narrative stays anchored to Will AI Replace Graphic Designers?."
+            ],
+            "entities": [
+              "Will",
+              "AI",
+              "replace",
+              "graphic",
+              "designers"
+            ],
+            "settings": [
+              "a modern desk setup with laptop, tools, and readable screen glow"
+            ],
+            "objects": [
+              "creator",
+              "workflow",
+              "automation",
+              "prompt"
+            ],
+            "narrative_beats": [
+              "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+              "Demonstrate the core action using creator.",
+              "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "goal": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "conflict": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "tension": "Which parts of Will AI Replace Graphic Designers? will humans still own after AI adoption?",
+          "seo_title": "will ai replace will ai replace graphic designers??",
+          "language_code": "en",
+          "content_strategy": "technology_forecast",
+          "content_strategy_label": "Technology forecast strategy",
+          "topic_category": "technology",
+          "character_builder": {
+            "character": "a focused digital creator",
+            "domain": "technology",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          }
+        },
+        "topic_story_detail": {
+          "topic": "Will AI replace graphic designers?",
+          "subject": "Will AI Replace Graphic Designers?",
+          "facts": [
+            "The narrative stays anchored to Will AI Replace Graphic Designers?."
+          ],
+          "entities": [
+            "Will",
+            "AI",
+            "replace",
+            "graphic",
+            "designers",
+            "designers?"
+          ],
+          "settings": [
+            "a modern desk setup with laptop, tools, and readable screen glow"
+          ],
+          "objects": [
+            "creator",
+            "workflow",
+            "automation",
+            "prompt",
+            "Will",
+            "AI",
+            "replace",
+            "graphic"
+          ],
+          "narrative_beats": [
+            "Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.",
+            "Demonstrate the core action using creator.",
+            "Deliver the takeaway tied to Will AI Replace Graphic Designers?."
+          ],
+          "source": "generic_extractor",
+          "match_key": ""
+        },
+        "seo_title": "Why Will AI Replace Graphic Designers Matters",
+        "seo_candidates": [
+          "Why Will AI Replace Graphic Designers Matters",
+          "The Truth About Will AI Replace Graphic Designers",
+          "What Everyone Gets Wrong About Will AI Replace Graphic Designers",
+          "The Real Story Behind Will AI Replace Graphic Designers",
+          "Will AI Replace Graphic Designers?",
+          "will ai replace will ai replace graphic designers??",
+          "which will ai replace graphic designers? jobs ai will change first",
+          "what ai still cannot do for will ai replace graphic designers?"
+        ],
+        "prompt_texts": [
+          "Clip 1 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Introduce the question: Will AI replace graphic designers? Show the digital creator at their desk opening AI design software, highlighting tools and workflow changes.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+          "Clip 2 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Demonstrate a step-by-step AI-assisted design process: input prompt, AI generating options, designer refining results, emphasizing collaboration between human and AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+          "Clip 3 of 3. Topic-first narrative sequence about Will AI Replace Graphic Designers?. Primary story beat: Show final design outcomes comparing AI-only and human-AI collaboration. Conclude with practical advice on how designers can adapt and thrive alongside AI.. Subject identity: a focused digital creator. Location: a modern desk setup with laptop, tools, and readable screen glow. Topic facts and evidence: subject Will AI Replace Graphic Designers?; The narrative stays anchored to Will AI Replace Graphic Designers?.; Will; AI; a modern desk setup with laptop, tools, and readable screen glow; creator. Historical facts: The narrative stays anchored to Will AI Replace Graphic Designers?.. Key entities: Will; AI; replace. Visible objects: creator; workflow; automation. Setting details: a modern desk setup with laptop, tools, and readable screen glow. Narrative progression: Deliver the takeaway tied to Will AI Replace Graphic Designers?.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Historical detail: workflow. Historical detail: automation. Historical detail: prompt. Historical detail: a modern desk setup with laptop, tools, and readable screen glow. Historical detail: Establish Will AI Replace Graphic Designers? in a modern desk setup with laptop, tools, and readable screen glow.. Historical detail: Demonstrate the core action using creator.. Historical detail: The narrative stays anchored to Will AI Replace Graphic Designers?.. Historical detail: Will. Historical detail: AI. Historical detail: replace. Historical detail: graphic. Historical detail: creator. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a focused digital creator), same wardrobe, same location (a modern desk setup with laptop, tools, and readable screen glow), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Topic-specific detail: Will; replace; graphic; designers?. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+        ],
+        "_applied_types": [
+          "seo",
+          "domain_knowledge",
+          "character",
+          "story",
+          "prompt"
+        ]
+      }
+    },
+    "scores_before_enhancement": {
+      "language_authority_score": 0.8879,
+      "domain_knowledge_score": 0.625,
+      "character_quality_score": 0.92,
+      "story_specificity_score": 0.83,
+      "seo_title_quality_score": 1.0,
+      "prompt_specificity_score": 0.75,
+      "narrative_detail_score": 0.92,
+      "overall_content_score": 0.8337
+    },
+    "scores_after_enhancement": {
+      "language_authority_score": 0.8909,
+      "domain_knowledge_score": 0.625,
+      "character_quality_score": 0.75,
+      "story_specificity_score": 0.83,
+      "seo_title_quality_score": 1.0,
+      "prompt_specificity_score": 0.75,
+      "narrative_detail_score": 0.92,
+      "overall_content_score": 0.8146
+    },
+    "improvement_summary": {
+      "language_authority_score": {
+        "before": 0.8879,
+        "after": 0.8909,
+        "delta": 0.003,
+        "percent": 0.3
+      }
+    }
+  },
+  "overall_content_score": 0.8146,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

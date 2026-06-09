@@ -1,0 +1,47 @@
+{
+  "topic": "wels fishing method",
+  "language_code": "en",
+  "payload": {
+    "category": "fishing",
+    "strategy": "instructional_fishing",
+    "domain_profile": {
+      "domain_name": "Wels Catfish Fishing",
+      "expert_role": "Professional Angler / Fishing Instructor",
+      "setting": "Freshwater rivers and lakes known for Wels catfish",
+      "core_concepts": [
+        "Wels catfish behavior and habitat",
+        "Fishing gear and tackle selection",
+        "Bait types and preparation",
+        "Fishing techniques specific to Wels catfish",
+        "Safety and ethical fishing practices"
+      ],
+      "timeline_beats": [
+        "Introduction to Wels catfish and their environment",
+        "Overview of necessary fishing equipment",
+        "Step-by-step demonstration of fishing methods",
+        "Tips for increasing catch success",
+        "Handling and releasing the fish safely"
+      ],
+      "visual_objects": [
+        "Wels catfish images and footage",
+        "Fishing rods, reels, and tackle",
+        "Bait types (live bait, artificial lures)",
+        "Casting and hooking techniques",
+        "Safety gear and catch handling"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduction to Wels catfish and selecting the right equipment",
+        "clip_2": "Demonstration of fishing techniques and bait usage",
+        "clip_3": "Tips for landing, handling, and releasing Wels catfish"
+      }
+    },
+    "confidence": 0.95,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 252,
+    "completion_tokens": 309,
+    "total_tokens": 561
+  },
+  "estimated_cost_usd": 0.0005951999999999999
+}

@@ -58,6 +58,26 @@
   font-size: 0.95rem;
 }
 
+.uat-runtime-mode-label {
+  margin: 0.35rem 0 0;
+  color: var(--uat-warning);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.uat-phase-i-routing-warning {
+  margin: 0.75rem 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--uat-radius-sm);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.08);
+  color: #fcd34d;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .uat-status-pill {
   display: inline-flex;
   align-items: center;

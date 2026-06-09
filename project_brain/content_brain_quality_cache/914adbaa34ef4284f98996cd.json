@@ -1,0 +1,32 @@
+{
+  "topic": "the mystery of dyatlov pass",
+  "category": "history_mystery",
+  "strategy": "narrative_mystery",
+  "enhancement_types": [
+    "domain_knowledge",
+    "seo"
+  ],
+  "payload": {
+    "seo_titles": [
+      "The Untold Story of Dyatlov Pass",
+      "What Really Happened at Dyatlov Pass?",
+      "The Most Disturbing Clue From Dyatlov Pass",
+      "Why Dyatlov Pass Still Has No Simple Answer",
+      "Why Dyatlov Pass Remains Unsolved"
+    ],
+    "domain_concepts": [
+      "Ural Mountains",
+      "expedition tent",
+      "1959",
+      "hikers",
+      "snow",
+      "investigation"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

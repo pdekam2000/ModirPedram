@@ -1,0 +1,31 @@
+{
+  "topic": "The history and evolution of snakes through the ages",
+  "category": "natural_history",
+  "strategy": "documentary",
+  "enhancement_types": [
+    "domain_knowledge",
+    "seo"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Why The History and Evolution of Snakes Through the Ages Matters",
+      "The Truth About The History and Evolution of Snakes Through the Ages",
+      "What Everyone Gets Wrong About The History and Evolution of Snakes Through the Ages",
+      "The Real Story Behind The History and Evolution of Snakes Through the Ages",
+      "The History and Evolution of Snakes Through the Ages"
+    ],
+    "domain_concepts": [
+      "history",
+      "evolution",
+      "snakes",
+      "through",
+      "ages"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

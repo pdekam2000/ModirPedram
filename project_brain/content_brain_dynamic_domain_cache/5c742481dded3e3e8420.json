@@ -1,0 +1,46 @@
+{
+  "topic": "selfcare",
+  "language_code": "en",
+  "payload": {
+    "category": "health_wellness",
+    "strategy": "documentary",
+    "domain_profile": {
+      "domain_name": "Self-Care",
+      "expert_role": "Wellness Coach",
+      "setting": "Home and personal environments",
+      "core_concepts": [
+        "Physical health routines",
+        "Mental health practices",
+        "Emotional well-being",
+        "Stress management techniques",
+        "Daily self-care habits"
+      ],
+      "timeline_beats": [
+        "Introduction to self-care importance",
+        "Morning self-care rituals",
+        "Midday mindfulness and breaks",
+        "Evening relaxation and reflection"
+      ],
+      "visual_objects": [
+        "Yoga mat",
+        "Healthy meals",
+        "Meditation space",
+        "Journals",
+        "Calming nature scenes"
+      ],
+      "clip_structure": {
+        "clip_1": "Opening with the significance of self-care and its impact on overall health",
+        "clip_2": "Demonstration of practical self-care activities throughout the day",
+        "clip_3": "Encouragement and tips for integrating self-care into daily life"
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 245,
+    "completion_tokens": 256,
+    "total_tokens": 501
+  },
+  "estimated_cost_usd": 0.0005076
+}

@@ -1,0 +1,3288 @@
+{
+  "run_id": "cb_e2e_20260606_020146_fa1d70dc",
+  "started_at": "2026-06-06 02:01:46",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "What Really Happened to the Roanoke Colony?",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v7",
+    "language_code": "en",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "openai_classification": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI classification enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for weak-local classification fallback."
+        },
+        "openai_quality": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI quality enhancement",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for selective quality repair after audit."
+        },
+        "openai_intent": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI intent intelligence",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for intent-aware strategy selection."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.12,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "What Really Happened to the Roanoke Colony?",
+        "detected_language_code": "en",
+        "extracted_subject": "Happened",
+        "extracted_environment": "",
+        "extracted_action": "",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "What Really Happened to the Roanoke Colony?",
+          "extracted_subject": "Happened",
+          "extracted_environment": "",
+          "extracted_action": "",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 3.13,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 84.91,
+            "confidence": 0.8755,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8755,
+              "freshness_score": 0.79,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best What Really Happened to the Roanoke Colony? tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8755,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9455
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8645,
+              "niche_relevance_reason": "Matched audience interest semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8645,
+                "decision": "KEEP",
+                "reason": "Matched audience interest semantic cluster",
+                "matched_cluster_id": "audience_interest",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "trend": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 83.11,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to What Really Happened to the Roanoke Colony?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched audience interest semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched audience interest semantic cluster",
+                "matched_cluster_id": "audience_interest",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "trend": "What Really Happened to the Roanoke Colony? for beginners",
+            "source": "mock_trend_provider",
+            "score": 76.83,
+            "confidence": 0.6715,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.6715,
+              "freshness_score": 0.69,
+              "niche_match": 0.82,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "What Really Happened to the Roanoke Colony? for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around What Really Happened to the Roanoke Colony? for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "What Really Happened to the Roanoke Colony? for beginners",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "What Really Happened to the Roanoke Colony? for beginners",
+                    "confidence": 0.6715,
+                    "niche_match": 0.82,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.6715
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.7453,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.7453,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "trend": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why What Really Happened to the Roanoke Colony? is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8641,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8641,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "trend": "What Really Happened to the Roanoke Colony?",
+            "source": "manual_seed",
+            "score": 75.45,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "What Really Happened to the Roanoke Colony?",
+          "velocity": 100.0,
+          "saturation": 74.0,
+          "virality_score": 75.45,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.5,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "fallback_seed_expansion",
+        "trend_intelligence": {
+          "trend_mode": "fallback_seed_expansion",
+          "topic": "What Really Happened to the Roanoke Colony?",
+          "items": [
+            {
+              "trend": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 84.91,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.8755,
+                "freshness_score": 0.79,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 02:01:46",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 1,
+                "seed_source": "best What Really Happened to the Roanoke Colony? tips",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_000",
+                  "canonical_topic": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+                      "confidence": 0.8755,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.9455
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8645,
+                "niche_relevance_reason": "Matched audience interest semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8645,
+                  "decision": "KEEP",
+                  "reason": "Matched audience interest semantic cluster",
+                  "matched_cluster_id": "audience_interest",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 02:01:46"
+              }
+            },
+            {
+              "trend": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.11,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.823,
+                "freshness_score": 0.74,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 02:01:46",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 2,
+                "seed_source": "how to What Really Happened to the Roanoke Colony?",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_001",
+                  "canonical_topic": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+                      "confidence": 0.823,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.8888
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8688,
+                "niche_relevance_reason": "Matched audience interest semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8688,
+                  "decision": "KEEP",
+                  "reason": "Matched audience interest semantic cluster",
+                  "matched_cluster_id": "audience_interest",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 02:01:46"
+              }
+            },
+            {
+              "trend": "What Really Happened to the Roanoke Colony? for beginners",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.83,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.6715,
+                "freshness_score": 0.69,
+                "niche_match": 0.82,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 02:01:46",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 3,
+                "seed_source": "What Really Happened to the Roanoke Colony? for beginners",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "trend_angle": "beginner vs expert views on topic framing around What Really Happened to the Roanoke Colony? for beginners",
+                "aggregation": {
+                  "cluster_id": "cluster_004",
+                  "canonical_topic": "What Really Happened to the Roanoke Colony? for beginners",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "What Really Happened to the Roanoke Colony? for beginners",
+                      "confidence": 0.6715,
+                      "niche_match": 0.82,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.6715
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.7453,
+                "niche_relevance_reason": "Low overlap with general semantic universe",
+                "rejected_by_filter": false,
+                "filter_decision": "WARNING",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.7453,
+                  "decision": "WARNING",
+                  "reason": "Low overlap with general semantic universe",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 02:01:46"
+              }
+            },
+            {
+              "trend": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.06,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.718,
+                "freshness_score": 0.64,
+                "niche_match": 1.0,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 02:01:46",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 4,
+                "seed_source": "why What Really Happened to the Roanoke Colony? is trending",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_003",
+                  "canonical_topic": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+                      "confidence": 0.718,
+                      "niche_match": 1.0,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.718
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8641,
+                "niche_relevance_reason": "Matched tension points semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8641,
+                  "decision": "KEEP",
+                  "reason": "Matched tension points semantic cluster",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 02:01:46"
+              }
+            },
+            {
+              "trend": "What Really Happened to the Roanoke Colony?",
+              "source": "manual_seed",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 75.45,
+              "metadata": {
+                "priority": "user_topic",
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 02:01:46"
+              }
+            }
+          ],
+          "best_trend_opportunity_score": 1.0,
+          "summary": {
+            "count": 5,
+            "rising": 3,
+            "evergreen": 2,
+            "seasonal": 0
+          }
+        },
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8755,
+              "freshness_score": 0.79,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best What Really Happened to the Roanoke Colony? tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8755,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9455
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8645,
+              "niche_relevance_reason": "Matched audience interest semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8645,
+                "decision": "KEEP",
+                "reason": "Matched audience interest semantic cluster",
+                "matched_cluster_id": "audience_interest",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to What Really Happened to the Roanoke Colony?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched audience interest semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched audience interest semantic cluster",
+                "matched_cluster_id": "audience_interest",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.6715,
+              "freshness_score": 0.69,
+              "niche_match": 0.82,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "What Really Happened to the Roanoke Colony? for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around What Really Happened to the Roanoke Colony? for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "What Really Happened to the Roanoke Colony? for beginners",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "What Really Happened to the Roanoke Colony? for beginners",
+                    "confidence": 0.6715,
+                    "niche_match": 0.82,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.6715
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.7453,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.7453,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 02:01:46",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why What Really Happened to the Roanoke Colony? is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8641,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8641,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 02:01:46"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification, Intent & Strategy",
+      "duration_ms": 0.96,
+      "api_sources": [
+        "content_brain_topic_strategy",
+        "content_brain_intent_intelligence",
+        "domain_knowledge_layer",
+        "topic_knowledge_graph",
+        "content_brain_character_builder",
+        "story_strategy_library",
+        "openai_classification_enricher_skipped"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "What Really Happened to the Roanoke Colony?",
+          "topic_category": "history_mystery",
+          "content_strategy": "historical_investigation",
+          "instructional_intent": false,
+          "confidence": 0.96,
+          "reasoning": "Historical investigation question pattern detected (what happened / mystery / disappearance). | intent=historical_investigation: Historical investigation pattern detected. | openai_skipped: local_intent_sufficient"
+        },
+        "intent_intelligence": {
+          "topic": "What Really Happened to the Roanoke Colony?",
+          "primary_intent": "historical_investigation",
+          "secondary_intents": [],
+          "recommended_strategy": "historical_investigation",
+          "confidence": 0.96,
+          "reasoning": "Historical investigation pattern detected. | openai_skipped: local_intent_sufficient",
+          "source": "local_rules",
+          "alternative_intents": [],
+          "domain_concepts": [],
+          "story_angles": [],
+          "seo_title_candidates": [],
+          "openai_applied": false,
+          "cache_hit": false,
+          "estimated_cost_usd": 0.0
+        },
+        "content_strategy": {
+          "strategy_id": "historical_investigation",
+          "label": "Historical investigation strategy",
+          "purpose": "investigate a historical mystery through evidence and records",
+          "niche_style": "documentary",
+          "effective_mood": "documentary",
+          "clip_beats": [
+            "strange clue or unsettling detail tied to the case.",
+            "investigation escalation with evidence comparison and conflicting reports.",
+            "reveal or open-loop payoff that keeps the central question alive."
+          ],
+          "conflict": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+          "seo_title_candidates": [
+            "what really happened to roanoke colony?",
+            "the lost roanoke colony explained"
+          ],
+          "required_terms": [
+            "historical",
+            "evidence",
+            "records",
+            "archaeological",
+            "settlement",
+            "colony",
+            "investigation",
+            "theory",
+            "disappearance"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "domain_knowledge": {
+          "domain_id": "mystery",
+          "label": "Mystery & investigation",
+          "concepts": [
+            "clue",
+            "investigation",
+            "evidence",
+            "timeline",
+            "contradiction",
+            "witness",
+            "theory",
+            "reveal",
+            "expedition tent",
+            "footprints",
+            "snow",
+            "wilderness",
+            "case file",
+            "archival",
+            "Ural Mountains"
+          ],
+          "default_role_en": "a careful investigator",
+          "default_role_fa": "",
+          "setting_en": "documentary investigation space with evidence boards, maps, and archival photographs",
+          "instructional_beats_en": [
+            "Strange clue or unsettling detail tied to the case.",
+            "Investigation escalation with evidence comparison and conflicting reports.",
+            "Reveal or open-loop payoff that keeps the central question alive."
+          ],
+          "review_beats_en": []
+        },
+        "knowledge_graph": {
+          "domain": "mystery",
+          "nodes": [],
+          "matched_nodes": [],
+          "related_concepts": [],
+          "seo_keywords": []
+        },
+        "character_builder": {
+          "character": "a historian",
+          "domain": "history_mystery",
+          "source": "domain_role",
+          "quality_score": 0.92,
+          "warnings": [],
+          "builder_version": "character_builder_v3"
+        },
+        "story_strategy": {
+          "strategy_id": "documentary",
+          "label": "Documentary",
+          "hook_structure": "Context that frames why this matters now.",
+          "clip_beat_structure": [
+            "Clip 1 \u2014 context",
+            "Clip 2 \u2014 evidence / escalation",
+            "Clip 3 \u2014 conclusion"
+          ],
+          "conflict_type": "What is the most important unanswered question?",
+          "payoff_type": "Evidence-backed conclusion.",
+          "visual_language": "Observational framing, evidence inserts, grounded realism.",
+          "prompt_rules": [
+            "Prioritize evidence over spectacle."
+          ]
+        },
+        "detected_language_code": "en",
+        "openai_classification": {
+          "applied": false,
+          "provider": "openai_classification_enricher",
+          "model": "",
+          "trigger_reason": "",
+          "cache_hit": false,
+          "classification": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "topic_category": "history_mystery",
+            "content_strategy": "historical_investigation",
+            "instructional_intent": false,
+            "confidence": 0.96,
+            "reasoning": "Historical investigation question pattern detected (what happened / mystery / disappearance)."
+          },
+          "strategy_plan": {},
+          "enrichment": {},
+          "domain_profile": {},
+          "notes": [
+            "openai_classification_not_needed"
+          ],
+          "usage": {},
+          "estimated_cost_usd": 0.0
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.03,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.58,
+      "api_sources": [
+        "content_brain_seo_director",
+        "content_brain_topic_strategy",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "what really happened to roanoke colony?",
+        "title_candidates": [
+          "what really happened to roanoke colony?",
+          "What Really Happened: Roanoke Colony",
+          "What Really Happened at Roanoke Colony?",
+          "Roanoke Colony: What the Records Show",
+          "Why Roanoke Colony Remains Unsolved",
+          "Why Roanoke Colony Still Has No Simple Answer"
+        ],
+        "keywords": [
+          "What Really Happened to the Roanoke Colony?",
+          "Happened Roanoke",
+          "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+          "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+          "What Really Happened to the Roanoke Colony? for beginners",
+          "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+          "Why best What Really Happened to the"
+        ],
+        "trend_angle": "Why best What Really Happened to the",
+        "language_code": "en",
+        "seo_score": 1.0,
+        "candidates_ranked": [
+          {
+            "title": "what really happened to roanoke colony?",
+            "reason": "strong SEO relevance",
+            "seo_score": 1.0,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": true
+          },
+          {
+            "title": "What Really Happened: Roanoke Colony",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.8571,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          },
+          {
+            "title": "What Really Happened at Roanoke Colony?",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.75,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Roanoke Colony: What the Records Show",
+            "reason": "balanced SEO/CTR/topic authority",
+            "seo_score": 0.5333,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Why Roanoke Colony Remains Unsolved",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.24,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Why Roanoke Colony Still Has No Simple Answer",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.1846,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          },
+          {
+            "title": "the lost roanoke colony explained",
+            "reason": "balanced SEO/CTR/topic authority",
+            "seo_score": 0.4,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          },
+          {
+            "title": "The Truth About Roanoke Colony",
+            "reason": "balanced SEO/CTR/topic authority",
+            "seo_score": 0.4,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "What Really Happened to the Roanoke Colony?",
+              "Happened Roanoke",
+              "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+              "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+              "What Really Happened to the Roanoke Colony? for beginners",
+              "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic"
+            ],
+            "selected": false
+          }
+        ],
+        "selection_reason": "strong SEO relevance",
+        "content_strategy": "historical_investigation",
+        "selected_seo_title": "what really happened to roanoke colony?"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 4503.11,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "content_brain_character_builder",
+        "openai_story_enricher",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "what really happened to roanoke colony?",
+          "logline": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.",
+          "main_character": "a historian",
+          "setting": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+          "conflict_tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+          "emotional_arc": "fear converting into forward motion",
+          "ending_beat": "Reveal or open-loop payoff that keeps the central question alive.",
+          "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a historian",
+            "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+            "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation, highlighting settlers.",
+            "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further, highlighting Roanoke Island."
+          ],
+          "source_topic": "What Really Happened to the Roanoke Colony?",
+          "target_platform": "youtube_shorts",
+          "niche_style": "documentary",
+          "mood": "tense hopeful",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "subject": "Roanoke Colony",
+            "facts": [
+              "Croatoan is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "settlers is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "Roanoke Island is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "archaeological evidence is a core lever when evaluating What Really Happened to the Roanoke Colony."
+            ],
+            "entities": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement",
+              "English settlers",
+              "historical records",
+              "disappearance theories"
+            ],
+            "settings": [
+              "Roanoke Island coastal wilderness",
+              "abandoned colonial settlement with weathered timber structures",
+              "historical expedition camp near archaeological dig site"
+            ],
+            "objects": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence"
+            ],
+            "narrative_beats": [
+              "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+              "Archival records and carved clues contradict the official story of what happened to the settlers.",
+              "Archaeological evidence and competing disappearance theories leave the case unresolved."
+            ],
+            "source": "openai_quality_enhancement",
+            "match_key": "roanoke"
+          },
+          "goal": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "conflict": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "seo_title": "what really happened to roanoke colony?",
+          "language_code": "en",
+          "content_strategy": "historical_investigation",
+          "content_strategy_label": "Historical investigation strategy",
+          "topic_category": "history_mystery",
+          "character_builder": {
+            "character": "a historian",
+            "domain": "history_mystery",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          },
+          "domain_concepts": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence",
+            "colonial settlement",
+            "English settlers",
+            "historical records",
+            "disappearance theories"
+          ],
+          "openai_quality_enhanced": true
+        },
+        "seo_title": "what really happened to roanoke colony?",
+        "language_code": "en",
+        "content_strategy": {
+          "strategy_id": "historical_investigation",
+          "label": "Historical investigation strategy",
+          "purpose": "investigate a historical mystery through evidence and records",
+          "niche_style": "documentary",
+          "effective_mood": "documentary",
+          "clip_beats": [
+            "strange clue or unsettling detail tied to the case.",
+            "investigation escalation with evidence comparison and conflicting reports.",
+            "reveal or open-loop payoff that keeps the central question alive."
+          ],
+          "conflict": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+          "seo_title_candidates": [
+            "what really happened to roanoke colony?",
+            "the lost roanoke colony explained"
+          ],
+          "required_terms": [
+            "historical",
+            "evidence",
+            "records",
+            "archaeological",
+            "settlement",
+            "colony",
+            "investigation",
+            "theory",
+            "disappearance"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "what really happened to roanoke colony?",
+            "logline": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.",
+            "main_character": "a historian",
+            "setting": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+            "conflict_tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+            "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+            "emotional_arc": "fear converting into forward motion",
+            "ending_beat": "Reveal or open-loop payoff that keeps the central question alive.",
+            "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a historian",
+              "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+              "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.",
+              "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further."
+            ],
+            "source_topic": "What Really Happened to the Roanoke Colony?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2+openai_story",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "What Really Happened to the Roanoke Colony?",
+              "subject": "Roanoke Colony",
+              "facts": [
+                "English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.",
+                "The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.",
+                "Archaeological digs and colonial records still produce conflicting theories about the disappearance.",
+                "Historians debate starvation, conflict, assimilation, and relocation as competing explanations."
+              ],
+              "entities": [
+                "Roanoke Island",
+                "English settlers",
+                "Croatoan",
+                "colonial settlement",
+                "archaeological evidence",
+                "historical records",
+                "disappearance theories"
+              ],
+              "settings": [
+                "Roanoke Island coastal wilderness",
+                "abandoned colonial settlement with weathered timber structures",
+                "historical expedition camp near archaeological dig site"
+              ],
+              "objects": [
+                "carved Croatoan marker",
+                "colonial map and expedition journal",
+                "excavated pottery shards",
+                "settlement fort palisade remains"
+              ],
+              "narrative_beats": [
+                "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+                "Archival records and carved clues contradict the official story of what happened to the settlers.",
+                "Archaeological evidence and competing disappearance theories leave the case unresolved."
+              ],
+              "source": "topic_pack",
+              "match_key": "roanoke"
+            },
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+            "role_label": "hook",
+            "story_beat": "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'."
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation, highlighting settlers.",
+            "role_label": "escalation",
+            "story_beat": "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation, highlighting settlers."
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further, highlighting Roanoke Island.",
+            "role_label": "payoff",
+            "story_beat": "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further, highlighting Roanoke Island."
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 5.21,
+      "api_sources": [
+        "runway_prompt_builder",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a historian. Environment: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.. Topic narrative: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Visual hook: Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.. Tension: What do the historical records and archaeological evidence reveal about Roanoke Colony?. Style direction: premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Story beat reference: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Story beat reference: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further..",
+        "starter_image_prompt_chars": 2349,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Clip 1 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Historical detail: Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2701,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a historian. Environment: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.. Topic narrative: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Visual hook: Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.. Tension: What do the historical records and archaeological evidence reveal about Roanoke Colony?. Style direction: premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Story beat reference: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Story beat reference: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further..",
+            "image_prompt_chars": 2349,
+            "continuity_notes": "same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary "
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Clip 2 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archival records and carved clues contradict the official story of what happened to the settlers.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2652,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary "
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Clip 3 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archaeological evidence and competing disappearance theories leave the case unresolved.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2634,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary "
+          }
+        ],
+        "continuity_anchors": {
+          "character": "a historian",
+          "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+          "lighting": "natural motivated available light with soft contrast",
+          "camera": "handheld-inspired stability with observational framing",
+          "palette": "neutral documentary color grade with selective warmth",
+          "wardrobe": ""
+        },
+        "builder_version": "runway_starter_to_video_f_v3",
+        "validation_warnings": [
+          "clip 1 missing explicit 10-second motion language",
+          "clip 2 missing explicit 10-second motion language",
+          "clip 3 missing explicit 10-second motion language"
+        ],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 2349,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2701,
+            2652,
+            2634
+          ],
+          "clip_prompt_min": 2634,
+          "clip_prompt_max": 2701,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_12129ac2",
+          "story_idea": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation. Character: a historian. Setting: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Conflict: What do the historical records and archaeological evidence reveal about Roanoke Colony?. Visual hook: Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.. Emotional arc: fear converting into forward motion. Ending: Reveal or open-loop payoff that keeps the central question alive.. Clip 1: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Clip 2: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Clip 3: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further..",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a historian. Environment: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.. Topic narrative: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Visual hook: Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.. Tension: What do the historical records and archaeological evidence reveal about Roanoke Colony?. Style direction: premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Story beat reference: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Story beat reference: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further..",
+          "clip_prompts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Historical detail: Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archival records and carved clues contradict the official story of what happened to the settlers.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archaeological evidence and competing disappearance theories leave the case unresolved.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "a historian",
+            "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": ""
+          },
+          "warnings": [
+            "clip 1 missing explicit 10-second motion language",
+            "clip 2 missing explicit 10-second motion language",
+            "clip 3 missing explicit 10-second motion language"
+          ],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 2349,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2701,
+              2652,
+              2634
+            ],
+            "clip_prompt_min": 2634,
+            "clip_prompt_max": 2701,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v3",
+          "story_brief": {
+            "title": "what really happened to roanoke colony?",
+            "logline": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.",
+            "main_character": "a historian",
+            "setting": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+            "conflict_tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+            "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+            "emotional_arc": "fear converting into forward motion",
+            "ending_beat": "Reveal or open-loop payoff that keeps the central question alive.",
+            "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a historian",
+              "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+              "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.",
+              "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further."
+            ],
+            "source_topic": "What Really Happened to the Roanoke Colony?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "What Really Happened to the Roanoke Colony?",
+              "subject": "Roanoke Colony",
+              "facts": [
+                "English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.",
+                "The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.",
+                "Archaeological digs and colonial records still produce conflicting theories about the disappearance.",
+                "Historians debate starvation, conflict, assimilation, and relocation as competing explanations."
+              ],
+              "entities": [
+                "Roanoke Island",
+                "English settlers",
+                "Croatoan",
+                "colonial settlement",
+                "archaeological evidence",
+                "historical records",
+                "disappearance theories"
+              ],
+              "settings": [
+                "Roanoke Island coastal wilderness",
+                "abandoned colonial settlement with weathered timber structures",
+                "historical expedition camp near archaeological dig site"
+              ],
+              "objects": [
+                "carved Croatoan marker",
+                "colonial map and expedition journal",
+                "excavated pottery shards",
+                "settlement fort palisade remains"
+              ],
+              "narrative_beats": [
+                "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+                "Archival records and carved clues contradict the official story of what happened to the settlers.",
+                "Archaeological evidence and competing disappearance theories leave the case unresolved."
+              ],
+              "source": "topic_pack",
+              "match_key": "roanoke"
+            }
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief",
+        "openai_quality_enhancer"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "what really happened to roanoke colony?",
+        "seo_description": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation. Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+        "keywords": [
+          "What Really Happened to the Roanoke Colony?",
+          "Happened Roanoke",
+          "Why best What Really Happened to the Roanoke Colony? tips is gaining traction via format gaining traction around topic",
+          "how to What Really Happened to the Roanoke Colony?: the question people keep asking about topic angle gaining comments this week",
+          "What Really Happened to the Roanoke Colony? for beginners",
+          "Why why What Really Happened to the Roanoke Colony? is trending is gaining traction via popular advice vs real results in topic",
+          "Why best What Really Happened to the"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 1.0,
+        "title_candidates": [
+          "what really happened to roanoke colony?",
+          "What Really Happened: Roanoke Colony",
+          "What Really Happened at Roanoke Colony?",
+          "Roanoke Colony: What the Records Show",
+          "Why Roanoke Colony Remains Unsolved",
+          "Why Roanoke Colony Still Has No Simple Answer"
+        ],
+        "trend_angle": "Why best What Really Happened to the",
+        "language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.68,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8915,
+        "domain_knowledge_score": 0.5714,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.5938,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.5714,
+        "prompt_specificity_score": 0.8571,
+        "narrative_detail_score": 1.0,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.8303,
+        "warnings": [],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8915,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.9,
+              "story_logline": 0.8916,
+              "story_character": 0.88,
+              "story_setting": 0.8867,
+              "story_beats": 0.8976,
+              "prompts": 0.8895,
+              "hashtags": 0.88,
+              "trends": 0.9062
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "content_strategy": "historical_investigation",
+            "topic_strategy_alignment_score": 0.5938,
+            "seo_alignment": 0.125,
+            "story_alignment": 0.75,
+            "clip_alignment": 0.5,
+            "prompt_alignment": 0.875,
+            "generic_filler_hits": [],
+            "required_term_hits": [
+              "historical",
+              "evidence",
+              "records",
+              "archaeological",
+              "settlement",
+              "colony",
+              "disappearance"
+            ],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "documentary",
+            "label": "Documentary",
+            "hook_structure": "Context that frames why this matters now.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 context",
+              "Clip 2 \u2014 evidence / escalation",
+              "Clip 3 \u2014 conclusion"
+            ],
+            "conflict_type": "What is the most important unanswered question?",
+            "payoff_type": "Evidence-backed conclusion.",
+            "visual_language": "Observational framing, evidence inserts, grounded realism.",
+            "prompt_rules": [
+              "Prioritize evidence over spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "mystery",
+            "label": "Mystery & investigation",
+            "concepts": [
+              "Roanoke Island",
+              "English settlers",
+              "Croatoan",
+              "colonial settlement",
+              "archaeological evidence",
+              "historical records",
+              "disappearance theories"
+            ],
+            "default_role_en": "a careful investigator",
+            "default_role_fa": "",
+            "setting_en": "documentary investigation space with evidence boards, maps, and archival photographs",
+            "instructional_beats_en": [
+              "Strange clue or unsettling detail tied to the case.",
+              "Investigation escalation with evidence comparison and conflicting reports.",
+              "Reveal or open-loop payoff that keeps the central question alive."
+            ],
+            "review_beats_en": []
+          },
+          "topic_story_detail": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "subject": "Roanoke Colony",
+            "facts": [
+              "English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.",
+              "The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.",
+              "Archaeological digs and colonial records still produce conflicting theories about the disappearance.",
+              "Historians debate starvation, conflict, assimilation, and relocation as competing explanations."
+            ],
+            "entities": [
+              "Roanoke Island",
+              "English settlers",
+              "Croatoan",
+              "colonial settlement",
+              "archaeological evidence",
+              "historical records",
+              "disappearance theories"
+            ],
+            "settings": [
+              "Roanoke Island coastal wilderness",
+              "abandoned colonial settlement with weathered timber structures",
+              "historical expedition camp near archaeological dig site"
+            ],
+            "objects": [
+              "carved Croatoan marker",
+              "colonial map and expedition journal",
+              "excavated pottery shards",
+              "settlement fort palisade remains"
+            ],
+            "narrative_beats": [
+              "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+              "Archival records and carved clues contradict the official story of what happened to the settlers.",
+              "Archaeological evidence and competing disappearance theories leave the case unresolved."
+            ],
+            "source": "topic_pack",
+            "match_key": "roanoke"
+          },
+          "narrative_detail_hits": 1.0
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.5938,
+        "story_quality_score": 0.83,
+        "seo_score": 1.0,
+        "prompt_completeness_score": 0.8571428571428571,
+        "forbidden_drift": [],
+        "audit_phase": "before_enhancement"
+      },
+      "error": ""
+    },
+    {
+      "step": 11,
+      "step_key": "openai_quality_enhancement",
+      "title": "OpenAI Quality Enhancement",
+      "duration_ms": 8.68,
+      "api_sources": [
+        "content_brain_openai_quality_enhancer"
+      ],
+      "provider_costs": {
+        "estimated_cost_usd": 0.0,
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        }
+      },
+      "payload": {
+        "applied": true,
+        "enabled": true,
+        "provider": "openai_quality_enhancer",
+        "model": "gpt-4.1-mini",
+        "trigger_report": {
+          "triggered": true,
+          "reasons": [
+            "language_authority_score<0.9",
+            "domain_knowledge_score<0.8"
+          ],
+          "enhancement_types": [
+            "domain_knowledge"
+          ],
+          "generic_content_detected": false,
+          "domain_pack_missing": false
+        },
+        "enhancements_applied": [
+          "domain_knowledge"
+        ],
+        "before_scores": {
+          "language_authority_score": 0.8915,
+          "domain_knowledge_score": 0.5714,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.83,
+          "strategy_alignment_score": 0.5938,
+          "seo_title_quality_score": 1.0,
+          "clip_specificity_score": 0.5714,
+          "prompt_specificity_score": 0.8571,
+          "narrative_detail_score": 1.0,
+          "overall_content_score": 0.8303
+        },
+        "after_scores": {
+          "language_authority_score": 0.8907,
+          "domain_knowledge_score": 0.625,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.83,
+          "strategy_alignment_score": 0.5938,
+          "seo_title_quality_score": 1.0,
+          "clip_specificity_score": 0.625,
+          "prompt_specificity_score": 0.875,
+          "narrative_detail_score": 1.0,
+          "overall_content_score": 0.8161
+        },
+        "improvement_summary": {
+          "clip_specificity_score": {
+            "before": 0.5714,
+            "after": 0.625,
+            "delta": 0.0536,
+            "percent": 9.4
+          },
+          "domain_knowledge_score": {
+            "before": 0.5714,
+            "after": 0.625,
+            "delta": 0.0536,
+            "percent": 9.4
+          },
+          "prompt_specificity_score": {
+            "before": 0.8571,
+            "after": 0.875,
+            "delta": 0.0179,
+            "percent": 2.1
+          }
+        },
+        "cache_hit": true,
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        "estimated_cost_usd": 0.0,
+        "notes": [
+          "openai_quality_cache_hit"
+        ],
+        "enhanced": {
+          "story_payload": {
+            "title": "what really happened to roanoke colony?",
+            "logline": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.",
+            "main_character": "a historian",
+            "setting": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+            "conflict_tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+            "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+            "emotional_arc": "fear converting into forward motion",
+            "ending_beat": "Reveal or open-loop payoff that keeps the central question alive.",
+            "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a historian",
+              "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+              "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation, highlighting settlers.",
+              "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further, highlighting Roanoke Island."
+            ],
+            "source_topic": "What Really Happened to the Roanoke Colony?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "What Really Happened to the Roanoke Colony?",
+              "subject": "Roanoke Colony",
+              "facts": [
+                "English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.",
+                "The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.",
+                "Archaeological digs and colonial records still produce conflicting theories about the disappearance.",
+                "Historians debate starvation, conflict, assimilation, and relocation as competing explanations."
+              ],
+              "entities": [
+                "Roanoke Island",
+                "English settlers",
+                "Croatoan",
+                "colonial settlement",
+                "archaeological evidence",
+                "historical records",
+                "disappearance theories"
+              ],
+              "settings": [
+                "Roanoke Island coastal wilderness",
+                "abandoned colonial settlement with weathered timber structures",
+                "historical expedition camp near archaeological dig site"
+              ],
+              "objects": [
+                "carved Croatoan marker",
+                "colonial map and expedition journal",
+                "excavated pottery shards",
+                "settlement fort palisade remains"
+              ],
+              "narrative_beats": [
+                "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+                "Archival records and carved clues contradict the official story of what happened to the settlers.",
+                "Archaeological evidence and competing disappearance theories leave the case unresolved."
+              ],
+              "source": "topic_pack",
+              "match_key": "roanoke"
+            },
+            "goal": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+            "conflict": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+            "tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+            "seo_title": "what really happened to roanoke colony?",
+            "language_code": "en",
+            "content_strategy": "historical_investigation",
+            "content_strategy_label": "Historical investigation strategy",
+            "topic_category": "history_mystery",
+            "character_builder": {
+              "character": "a historian",
+              "domain": "history_mystery",
+              "source": "domain_role",
+              "quality_score": 0.92,
+              "warnings": [],
+              "builder_version": "character_builder_v3"
+            },
+            "domain_concepts": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement",
+              "English settlers",
+              "historical records",
+              "disappearance theories"
+            ]
+          },
+          "topic_story_detail": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "subject": "Roanoke Colony",
+            "facts": [
+              "Croatoan is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "settlers is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "Roanoke Island is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "archaeological evidence is a core lever when evaluating What Really Happened to the Roanoke Colony."
+            ],
+            "entities": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement",
+              "English settlers",
+              "historical records",
+              "disappearance theories"
+            ],
+            "settings": [
+              "Roanoke Island coastal wilderness",
+              "abandoned colonial settlement with weathered timber structures",
+              "historical expedition camp near archaeological dig site"
+            ],
+            "objects": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence"
+            ],
+            "narrative_beats": [
+              "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+              "Archival records and carved clues contradict the official story of what happened to the settlers.",
+              "Archaeological evidence and competing disappearance theories leave the case unresolved."
+            ],
+            "source": "openai_quality_enhancement",
+            "match_key": "roanoke"
+          },
+          "seo_title": "what really happened to roanoke colony?",
+          "seo_candidates": [
+            "what really happened to roanoke colony?",
+            "What Really Happened: Roanoke Colony",
+            "What Really Happened at Roanoke Colony?",
+            "Roanoke Colony: What the Records Show",
+            "Why Roanoke Colony Remains Unsolved",
+            "Why Roanoke Colony Still Has No Simple Answer"
+          ],
+          "prompt_texts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Historical detail: Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archival records and carved clues contradict the official story of what happened to the settlers.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archaeological evidence and competing disappearance theories leave the case unresolved.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "domain_concepts": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence",
+            "colonial settlement",
+            "English settlers",
+            "historical records",
+            "disappearance theories"
+          ],
+          "_applied_types": [
+            "domain_knowledge"
+          ]
+        },
+        "raw_enhancement": {
+          "domain_concepts": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence",
+            "colonial settlement"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 12,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.53,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8913,
+        "domain_knowledge_score": 0.625,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.5938,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.625,
+        "prompt_specificity_score": 0.875,
+        "narrative_detail_score": 1.0,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.8412,
+        "warnings": [
+          "strategy_alignment_score<0.6: 0.5938"
+        ],
+        "passed": false,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8913,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.9,
+              "story_logline": 0.8916,
+              "story_character": 0.88,
+              "story_setting": 0.8867,
+              "story_beats": 0.8964,
+              "prompts": 0.8895,
+              "hashtags": 0.88,
+              "trends": 0.9062
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "content_strategy": "historical_investigation",
+            "topic_strategy_alignment_score": 0.5938,
+            "seo_alignment": 0.125,
+            "story_alignment": 0.75,
+            "clip_alignment": 0.5,
+            "prompt_alignment": 0.875,
+            "generic_filler_hits": [],
+            "required_term_hits": [
+              "historical",
+              "evidence",
+              "records",
+              "archaeological",
+              "settlement",
+              "colony",
+              "disappearance"
+            ],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "documentary",
+            "label": "Documentary",
+            "hook_structure": "Context that frames why this matters now.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 context",
+              "Clip 2 \u2014 evidence / escalation",
+              "Clip 3 \u2014 conclusion"
+            ],
+            "conflict_type": "What is the most important unanswered question?",
+            "payoff_type": "Evidence-backed conclusion.",
+            "visual_language": "Observational framing, evidence inserts, grounded realism.",
+            "prompt_rules": [
+              "Prioritize evidence over spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "mystery",
+            "label": "Mystery & investigation",
+            "concepts": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement",
+              "English settlers",
+              "historical records",
+              "disappearance theories"
+            ],
+            "default_role_en": "a careful investigator",
+            "default_role_fa": "",
+            "setting_en": "documentary investigation space with evidence boards, maps, and archival photographs",
+            "instructional_beats_en": [
+              "Strange clue or unsettling detail tied to the case.",
+              "Investigation escalation with evidence comparison and conflicting reports.",
+              "Reveal or open-loop payoff that keeps the central question alive."
+            ],
+            "review_beats_en": []
+          },
+          "topic_story_detail": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "subject": "Roanoke Colony",
+            "facts": [
+              "Croatoan is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "settlers is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "Roanoke Island is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+              "archaeological evidence is a core lever when evaluating What Really Happened to the Roanoke Colony."
+            ],
+            "entities": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement",
+              "English settlers",
+              "historical records",
+              "disappearance theories"
+            ],
+            "settings": [
+              "Roanoke Island coastal wilderness",
+              "abandoned colonial settlement with weathered timber structures",
+              "historical expedition camp near archaeological dig site"
+            ],
+            "objects": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence"
+            ],
+            "narrative_beats": [
+              "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+              "Archival records and carved clues contradict the official story of what happened to the settlers.",
+              "Archaeological evidence and competing disappearance theories leave the case unresolved."
+            ],
+            "source": "openai_quality_enhancement",
+            "match_key": "roanoke"
+          },
+          "narrative_detail_hits": 1.0
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.5938,
+        "story_quality_score": 0.83,
+        "seo_score": 1.0,
+        "prompt_completeness_score": 0.875,
+        "forbidden_drift": [],
+        "audit_phase": "after_enhancement",
+        "quality_enhancement": {
+          "applied": true,
+          "enabled": true,
+          "provider": "openai_quality_enhancer",
+          "model": "gpt-4.1-mini",
+          "trigger_report": {
+            "triggered": true,
+            "reasons": [
+              "language_authority_score<0.9",
+              "domain_knowledge_score<0.8"
+            ],
+            "enhancement_types": [
+              "domain_knowledge"
+            ],
+            "generic_content_detected": false,
+            "domain_pack_missing": false
+          },
+          "enhancements_applied": [
+            "domain_knowledge"
+          ],
+          "before_scores": {
+            "language_authority_score": 0.8915,
+            "domain_knowledge_score": 0.5714,
+            "character_quality_score": 0.92,
+            "story_specificity_score": 0.83,
+            "strategy_alignment_score": 0.5938,
+            "seo_title_quality_score": 1.0,
+            "clip_specificity_score": 0.5714,
+            "prompt_specificity_score": 0.8571,
+            "narrative_detail_score": 1.0,
+            "overall_content_score": 0.8303
+          },
+          "after_scores": {
+            "language_authority_score": 0.8907,
+            "domain_knowledge_score": 0.625,
+            "character_quality_score": 0.92,
+            "story_specificity_score": 0.83,
+            "strategy_alignment_score": 0.5938,
+            "seo_title_quality_score": 1.0,
+            "clip_specificity_score": 0.625,
+            "prompt_specificity_score": 0.875,
+            "narrative_detail_score": 1.0,
+            "overall_content_score": 0.8161
+          },
+          "improvement_summary": {
+            "clip_specificity_score": {
+              "before": 0.5714,
+              "after": 0.625,
+              "delta": 0.0536,
+              "percent": 9.4
+            },
+            "domain_knowledge_score": {
+              "before": 0.5714,
+              "after": 0.625,
+              "delta": 0.0536,
+              "percent": 9.4
+            },
+            "prompt_specificity_score": {
+              "before": 0.8571,
+              "after": 0.875,
+              "delta": 0.0179,
+              "percent": 2.1
+            }
+          },
+          "cache_hit": true,
+          "usage": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "estimated_cost_usd": 0.0,
+          "notes": [
+            "openai_quality_cache_hit"
+          ],
+          "enhanced": {
+            "story_payload": {
+              "title": "what really happened to roanoke colony?",
+              "logline": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.",
+              "main_character": "a historian",
+              "setting": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+              "conflict_tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+              "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+              "emotional_arc": "fear converting into forward motion",
+              "ending_beat": "Reveal or open-loop payoff that keeps the central question alive.",
+              "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+              "continuity_anchors": {
+                "character": "a historian",
+                "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+                "lighting": "natural motivated available light with soft contrast",
+                "camera": "handheld-inspired stability with observational framing",
+                "palette": "neutral documentary color grade with selective warmth",
+                "wardrobe": ""
+              },
+              "clip_beats": [
+                "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+                "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation, highlighting settlers.",
+                "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further, highlighting Roanoke Island."
+              ],
+              "source_topic": "What Really Happened to the Roanoke Colony?",
+              "target_platform": "youtube_shorts",
+              "niche_style": "documentary",
+              "mood": "tense hopeful",
+              "clip_count": 3,
+              "duration_seconds": 10,
+              "builder_version": "runway_story_brief_v2",
+              "warnings": [],
+              "topic_story_detail": {
+                "topic": "What Really Happened to the Roanoke Colony?",
+                "subject": "Roanoke Colony",
+                "facts": [
+                  "English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.",
+                  "The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.",
+                  "Archaeological digs and colonial records still produce conflicting theories about the disappearance.",
+                  "Historians debate starvation, conflict, assimilation, and relocation as competing explanations."
+                ],
+                "entities": [
+                  "Roanoke Island",
+                  "English settlers",
+                  "Croatoan",
+                  "colonial settlement",
+                  "archaeological evidence",
+                  "historical records",
+                  "disappearance theories"
+                ],
+                "settings": [
+                  "Roanoke Island coastal wilderness",
+                  "abandoned colonial settlement with weathered timber structures",
+                  "historical expedition camp near archaeological dig site"
+                ],
+                "objects": [
+                  "carved Croatoan marker",
+                  "colonial map and expedition journal",
+                  "excavated pottery shards",
+                  "settlement fort palisade remains"
+                ],
+                "narrative_beats": [
+                  "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+                  "Archival records and carved clues contradict the official story of what happened to the settlers.",
+                  "Archaeological evidence and competing disappearance theories leave the case unresolved."
+                ],
+                "source": "topic_pack",
+                "match_key": "roanoke"
+              },
+              "goal": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+              "conflict": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+              "tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+              "seo_title": "what really happened to roanoke colony?",
+              "language_code": "en",
+              "content_strategy": "historical_investigation",
+              "content_strategy_label": "Historical investigation strategy",
+              "topic_category": "history_mystery",
+              "character_builder": {
+                "character": "a historian",
+                "domain": "history_mystery",
+                "source": "domain_role",
+                "quality_score": 0.92,
+                "warnings": [],
+                "builder_version": "character_builder_v3"
+              },
+              "domain_concepts": [
+                "Croatoan",
+                "settlers",
+                "Roanoke Island",
+                "archaeological evidence",
+                "colonial settlement",
+                "English settlers",
+                "historical records",
+                "disappearance theories"
+              ]
+            },
+            "topic_story_detail": {
+              "topic": "What Really Happened to the Roanoke Colony?",
+              "subject": "Roanoke Colony",
+              "facts": [
+                "Croatoan is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+                "settlers is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+                "Roanoke Island is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+                "archaeological evidence is a core lever when evaluating What Really Happened to the Roanoke Colony."
+              ],
+              "entities": [
+                "Croatoan",
+                "settlers",
+                "Roanoke Island",
+                "archaeological evidence",
+                "colonial settlement",
+                "English settlers",
+                "historical records",
+                "disappearance theories"
+              ],
+              "settings": [
+                "Roanoke Island coastal wilderness",
+                "abandoned colonial settlement with weathered timber structures",
+                "historical expedition camp near archaeological dig site"
+              ],
+              "objects": [
+                "Croatoan",
+                "settlers",
+                "Roanoke Island",
+                "archaeological evidence"
+              ],
+              "narrative_beats": [
+                "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+                "Archival records and carved clues contradict the official story of what happened to the settlers.",
+                "Archaeological evidence and competing disappearance theories leave the case unresolved."
+              ],
+              "source": "openai_quality_enhancement",
+              "match_key": "roanoke"
+            },
+            "seo_title": "what really happened to roanoke colony?",
+            "seo_candidates": [
+              "what really happened to roanoke colony?",
+              "What Really Happened: Roanoke Colony",
+              "What Really Happened at Roanoke Colony?",
+              "Roanoke Colony: What the Records Show",
+              "Why Roanoke Colony Remains Unsolved",
+              "Why Roanoke Colony Still Has No Simple Answer"
+            ],
+            "prompt_texts": [
+              "Clip 1 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Historical detail: Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+              "Clip 2 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archival records and carved clues contradict the official story of what happened to the settlers.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+              "Clip 3 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archaeological evidence and competing disappearance theories leave the case unresolved.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+            ],
+            "domain_concepts": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement",
+              "English settlers",
+              "historical records",
+              "disappearance theories"
+            ],
+            "_applied_types": [
+              "domain_knowledge"
+            ]
+          },
+          "raw_enhancement": {
+            "domain_concepts": [
+              "Croatoan",
+              "settlers",
+              "Roanoke Island",
+              "archaeological evidence",
+              "colonial settlement"
+            ]
+          }
+        },
+        "raw_enhancement": {
+          "domain_concepts": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence",
+            "colonial settlement"
+          ]
+        },
+        "scores_before_enhancement": {
+          "language_authority_score": 0.8915,
+          "domain_knowledge_score": 0.5714,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.83,
+          "strategy_alignment_score": 0.5938,
+          "seo_title_quality_score": 1.0,
+          "clip_specificity_score": 0.5714,
+          "prompt_specificity_score": 0.8571,
+          "narrative_detail_score": 1.0,
+          "overall_content_score": 0.8303
+        },
+        "scores_after_enhancement": {
+          "language_authority_score": 0.8913,
+          "domain_knowledge_score": 0.625,
+          "character_quality_score": 0.92,
+          "story_specificity_score": 0.83,
+          "strategy_alignment_score": 0.5938,
+          "seo_title_quality_score": 1.0,
+          "clip_specificity_score": 0.625,
+          "prompt_specificity_score": 0.875,
+          "narrative_detail_score": 1.0,
+          "overall_content_score": 0.8412
+        },
+        "improvement_summary": {
+          "clip_specificity_score": {
+            "before": 0.5714,
+            "after": 0.625,
+            "delta": 0.0536,
+            "percent": 9.4
+          },
+          "domain_knowledge_score": {
+            "before": 0.5714,
+            "after": 0.625,
+            "delta": 0.0536,
+            "percent": 9.4
+          },
+          "overall_content_score": {
+            "before": 0.8303,
+            "after": 0.8412,
+            "delta": 0.0109,
+            "percent": 1.3
+          },
+          "prompt_specificity_score": {
+            "before": 0.8571,
+            "after": 0.875,
+            "delta": 0.0179,
+            "percent": 2.1
+          }
+        },
+        "enhancement_quality_gates_passed": false,
+        "enhancement_quality_gate_failures": [
+          "strategy_alignment_score<0.6: 0.5938"
+        ]
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "language_authority_score": 0.8913,
+    "domain_knowledge_score": 0.625,
+    "character_quality_score": 0.92,
+    "story_specificity_score": 0.83,
+    "strategy_alignment_score": 0.5938,
+    "seo_title_quality_score": 1.0,
+    "clip_specificity_score": 0.625,
+    "prompt_specificity_score": 0.875,
+    "narrative_detail_score": 1.0,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.8412,
+    "warnings": [
+      "strategy_alignment_score<0.6: 0.5938"
+    ],
+    "passed": false,
+    "details": {
+      "language_authority": {
+        "expected_language_code": "en",
+        "language_authority_score": 0.8913,
+        "drift_detected": [],
+        "field_scores": {
+          "seo_title": 0.9,
+          "story_logline": 0.8916,
+          "story_character": 0.88,
+          "story_setting": 0.8867,
+          "story_beats": 0.8964,
+          "prompts": 0.8895,
+          "hashtags": 0.88,
+          "trends": 0.9062
+        },
+        "passed": true,
+        "notes": []
+      },
+      "strategy_alignment": {
+        "topic": "What Really Happened to the Roanoke Colony?",
+        "content_strategy": "historical_investigation",
+        "topic_strategy_alignment_score": 0.5938,
+        "seo_alignment": 0.125,
+        "story_alignment": 0.75,
+        "clip_alignment": 0.5,
+        "prompt_alignment": 0.875,
+        "generic_filler_hits": [],
+        "required_term_hits": [
+          "historical",
+          "evidence",
+          "records",
+          "archaeological",
+          "settlement",
+          "colony",
+          "disappearance"
+        ],
+        "passed": true,
+        "notes": []
+      },
+      "story_strategy": {
+        "strategy_id": "documentary",
+        "label": "Documentary",
+        "hook_structure": "Context that frames why this matters now.",
+        "clip_beat_structure": [
+          "Clip 1 \u2014 context",
+          "Clip 2 \u2014 evidence / escalation",
+          "Clip 3 \u2014 conclusion"
+        ],
+        "conflict_type": "What is the most important unanswered question?",
+        "payoff_type": "Evidence-backed conclusion.",
+        "visual_language": "Observational framing, evidence inserts, grounded realism.",
+        "prompt_rules": [
+          "Prioritize evidence over spectacle."
+        ]
+      },
+      "domain_profile": {
+        "domain_id": "mystery",
+        "label": "Mystery & investigation",
+        "concepts": [
+          "Croatoan",
+          "settlers",
+          "Roanoke Island",
+          "archaeological evidence",
+          "colonial settlement",
+          "English settlers",
+          "historical records",
+          "disappearance theories"
+        ],
+        "default_role_en": "a careful investigator",
+        "default_role_fa": "",
+        "setting_en": "documentary investigation space with evidence boards, maps, and archival photographs",
+        "instructional_beats_en": [
+          "Strange clue or unsettling detail tied to the case.",
+          "Investigation escalation with evidence comparison and conflicting reports.",
+          "Reveal or open-loop payoff that keeps the central question alive."
+        ],
+        "review_beats_en": []
+      },
+      "topic_story_detail": {
+        "topic": "What Really Happened to the Roanoke Colony?",
+        "subject": "Roanoke Colony",
+        "facts": [
+          "Croatoan is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+          "settlers is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+          "Roanoke Island is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+          "archaeological evidence is a core lever when evaluating What Really Happened to the Roanoke Colony."
+        ],
+        "entities": [
+          "Croatoan",
+          "settlers",
+          "Roanoke Island",
+          "archaeological evidence",
+          "colonial settlement",
+          "English settlers",
+          "historical records",
+          "disappearance theories"
+        ],
+        "settings": [
+          "Roanoke Island coastal wilderness",
+          "abandoned colonial settlement with weathered timber structures",
+          "historical expedition camp near archaeological dig site"
+        ],
+        "objects": [
+          "Croatoan",
+          "settlers",
+          "Roanoke Island",
+          "archaeological evidence"
+        ],
+        "narrative_beats": [
+          "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+          "Archival records and carved clues contradict the official story of what happened to the settlers.",
+          "Archaeological evidence and competing disappearance theories leave the case unresolved."
+        ],
+        "source": "openai_quality_enhancement",
+        "match_key": "roanoke"
+      },
+      "narrative_detail_hits": 1.0
+    },
+    "audit_version": "quality_audit_v2",
+    "strategy_alignment_passed": true,
+    "topic_strategy_alignment_score": 0.5938,
+    "story_quality_score": 0.83,
+    "seo_score": 1.0,
+    "prompt_completeness_score": 0.875,
+    "forbidden_drift": [],
+    "audit_phase": "after_enhancement",
+    "quality_enhancement": {
+      "applied": true,
+      "enabled": true,
+      "provider": "openai_quality_enhancer",
+      "model": "gpt-4.1-mini",
+      "trigger_report": {
+        "triggered": true,
+        "reasons": [
+          "language_authority_score<0.9",
+          "domain_knowledge_score<0.8"
+        ],
+        "enhancement_types": [
+          "domain_knowledge"
+        ],
+        "generic_content_detected": false,
+        "domain_pack_missing": false
+      },
+      "enhancements_applied": [
+        "domain_knowledge"
+      ],
+      "before_scores": {
+        "language_authority_score": 0.8915,
+        "domain_knowledge_score": 0.5714,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.5938,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.5714,
+        "prompt_specificity_score": 0.8571,
+        "narrative_detail_score": 1.0,
+        "overall_content_score": 0.8303
+      },
+      "after_scores": {
+        "language_authority_score": 0.8907,
+        "domain_knowledge_score": 0.625,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.5938,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.625,
+        "prompt_specificity_score": 0.875,
+        "narrative_detail_score": 1.0,
+        "overall_content_score": 0.8161
+      },
+      "improvement_summary": {
+        "clip_specificity_score": {
+          "before": 0.5714,
+          "after": 0.625,
+          "delta": 0.0536,
+          "percent": 9.4
+        },
+        "domain_knowledge_score": {
+          "before": 0.5714,
+          "after": 0.625,
+          "delta": 0.0536,
+          "percent": 9.4
+        },
+        "prompt_specificity_score": {
+          "before": 0.8571,
+          "after": 0.875,
+          "delta": 0.0179,
+          "percent": 2.1
+        }
+      },
+      "cache_hit": true,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "estimated_cost_usd": 0.0,
+      "notes": [
+        "openai_quality_cache_hit"
+      ],
+      "enhanced": {
+        "story_payload": {
+          "title": "what really happened to roanoke colony?",
+          "logline": "A historian investigates Roanoke Colony in Roanoke Island's coastal wilderness, exploring abandoned colonial settlement ruins and archaeological sites to uncover why English settlers vanished in the late 1580s without explanation.",
+          "main_character": "a historian",
+          "setting": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+          "conflict_tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "visual_hook": "Archival map, settlement ruins, or carved clue tied directly to Roanoke Colony.",
+          "emotional_arc": "fear converting into forward motion",
+          "ending_beat": "Reveal or open-loop payoff that keeps the central question alive.",
+          "style_direction": "premium documentary realism for vertical 9:16 YouTube Shorts. Mood: tense hopeful. Pacing: hook in first second, payoff before loop point. Palette: neutral documentary color grade with selective warmth. Camera: handheld-inspired stability with observational framing. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a historian",
+            "location": "Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.",
+            "Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation, highlighting settlers.",
+            "End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further, highlighting Roanoke Island."
+          ],
+          "source_topic": "What Really Happened to the Roanoke Colony?",
+          "target_platform": "youtube_shorts",
+          "niche_style": "documentary",
+          "mood": "tense hopeful",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "What Really Happened to the Roanoke Colony?",
+            "subject": "Roanoke Colony",
+            "facts": [
+              "English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.",
+              "The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.",
+              "Archaeological digs and colonial records still produce conflicting theories about the disappearance.",
+              "Historians debate starvation, conflict, assimilation, and relocation as competing explanations."
+            ],
+            "entities": [
+              "Roanoke Island",
+              "English settlers",
+              "Croatoan",
+              "colonial settlement",
+              "archaeological evidence",
+              "historical records",
+              "disappearance theories"
+            ],
+            "settings": [
+              "Roanoke Island coastal wilderness",
+              "abandoned colonial settlement with weathered timber structures",
+              "historical expedition camp near archaeological dig site"
+            ],
+            "objects": [
+              "carved Croatoan marker",
+              "colonial map and expedition journal",
+              "excavated pottery shards",
+              "settlement fort palisade remains"
+            ],
+            "narrative_beats": [
+              "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+              "Archival records and carved clues contradict the official story of what happened to the settlers.",
+              "Archaeological evidence and competing disappearance theories leave the case unresolved."
+            ],
+            "source": "topic_pack",
+            "match_key": "roanoke"
+          },
+          "goal": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "conflict": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "tension": "What do the historical records and archaeological evidence reveal about Roanoke Colony?",
+          "seo_title": "what really happened to roanoke colony?",
+          "language_code": "en",
+          "content_strategy": "historical_investigation",
+          "content_strategy_label": "Historical investigation strategy",
+          "topic_category": "history_mystery",
+          "character_builder": {
+            "character": "a historian",
+            "domain": "history_mystery",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          },
+          "domain_concepts": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence",
+            "colonial settlement",
+            "English settlers",
+            "historical records",
+            "disappearance theories"
+          ]
+        },
+        "topic_story_detail": {
+          "topic": "What Really Happened to the Roanoke Colony?",
+          "subject": "Roanoke Colony",
+          "facts": [
+            "Croatoan is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+            "settlers is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+            "Roanoke Island is a core lever when evaluating What Really Happened to the Roanoke Colony.",
+            "archaeological evidence is a core lever when evaluating What Really Happened to the Roanoke Colony."
+          ],
+          "entities": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence",
+            "colonial settlement",
+            "English settlers",
+            "historical records",
+            "disappearance theories"
+          ],
+          "settings": [
+            "Roanoke Island coastal wilderness",
+            "abandoned colonial settlement with weathered timber structures",
+            "historical expedition camp near archaeological dig site"
+          ],
+          "objects": [
+            "Croatoan",
+            "settlers",
+            "Roanoke Island",
+            "archaeological evidence"
+          ],
+          "narrative_beats": [
+            "A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.",
+            "Archival records and carved clues contradict the official story of what happened to the settlers.",
+            "Archaeological evidence and competing disappearance theories leave the case unresolved."
+          ],
+          "source": "openai_quality_enhancement",
+          "match_key": "roanoke"
+        },
+        "seo_title": "what really happened to roanoke colony?",
+        "seo_candidates": [
+          "what really happened to roanoke colony?",
+          "What Really Happened: Roanoke Colony",
+          "What Really Happened at Roanoke Colony?",
+          "Roanoke Colony: What the Records Show",
+          "Why Roanoke Colony Remains Unsolved",
+          "Why Roanoke Colony Still Has No Simple Answer"
+        ],
+        "prompt_texts": [
+          "Clip 1 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Show a strange carved clue found on a timber post at the Roanoke site, zooming in on the mysterious word 'CROATOAN'.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: A historian arrives at Roanoke Island and surveys the abandoned colonial settlement.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Historical detail: Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+          "Clip 2 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: Display the historian comparing conflicting historical reports and archaeological findings, highlighting possible theories such as assimilation with local tribes or relocation.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archival records and carved clues contradict the official story of what happened to the settlers.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+          "Clip 3 of 3. Topic-first narrative sequence about Roanoke Colony. Primary story beat: End with the historian standing by the ruins, emphasizing that despite evidence, the true fate of Roanoke Colony remains a mystery, inviting viewers to explore further.. Subject identity: a historian. Location: Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site. Topic facts and evidence: subject Roanoke Colony; English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Roanoke Island; English settlers; Roanoke Island coastal wilderness. Historical facts: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.; The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.; Archaeological digs and colonial records still produce conflicting theories about the disappearance.. Key entities: Roanoke Island; English settlers; Croatoan. Visible objects: carved Croatoan marker; colonial map and expedition journal; excavated pottery shards. Setting details: Roanoke Island coastal wilderness; abandoned colonial settlement with weathered timber structures; historical expedition camp near archaeological dig site. Narrative progression: Archaeological evidence and competing disappearance theories leave the case unresolved.. Historical detail: English settlers vanished from Roanoke Island in the late 1580s without a clear explanation.. Historical detail: The word Croatoan was carved at the abandoned settlement, hinting at a relocation or fate unknown.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a historian), same wardrobe, same location (Roanoke Island coastal wilderness, abandoned colonial settlement with weathered timber structures, historical expedition camp near archaeological dig site), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+        ],
+        "domain_concepts": [
+          "Croatoan",
+          "settlers",
+          "Roanoke Island",
+          "archaeological evidence",
+          "colonial settlement",
+          "English settlers",
+          "historical records",
+          "disappearance theories"
+        ],
+        "_applied_types": [
+          "domain_knowledge"
+        ]
+      },
+      "raw_enhancement": {
+        "domain_concepts": [
+          "Croatoan",
+          "settlers",
+          "Roanoke Island",
+          "archaeological evidence",
+          "colonial settlement"
+        ]
+      }
+    },
+    "raw_enhancement": {
+      "domain_concepts": [
+        "Croatoan",
+        "settlers",
+        "Roanoke Island",
+        "archaeological evidence",
+        "colonial settlement"
+      ]
+    },
+    "scores_before_enhancement": {
+      "language_authority_score": 0.8915,
+      "domain_knowledge_score": 0.5714,
+      "character_quality_score": 0.92,
+      "story_specificity_score": 0.83,
+      "strategy_alignment_score": 0.5938,
+      "seo_title_quality_score": 1.0,
+      "clip_specificity_score": 0.5714,
+      "prompt_specificity_score": 0.8571,
+      "narrative_detail_score": 1.0,
+      "overall_content_score": 0.8303
+    },
+    "scores_after_enhancement": {
+      "language_authority_score": 0.8913,
+      "domain_knowledge_score": 0.625,
+      "character_quality_score": 0.92,
+      "story_specificity_score": 0.83,
+      "strategy_alignment_score": 0.5938,
+      "seo_title_quality_score": 1.0,
+      "clip_specificity_score": 0.625,
+      "prompt_specificity_score": 0.875,
+      "narrative_detail_score": 1.0,
+      "overall_content_score": 0.8412
+    },
+    "improvement_summary": {
+      "clip_specificity_score": {
+        "before": 0.5714,
+        "after": 0.625,
+        "delta": 0.0536,
+        "percent": 9.4
+      },
+      "domain_knowledge_score": {
+        "before": 0.5714,
+        "after": 0.625,
+        "delta": 0.0536,
+        "percent": 9.4
+      },
+      "overall_content_score": {
+        "before": 0.8303,
+        "after": 0.8412,
+        "delta": 0.0109,
+        "percent": 1.3
+      },
+      "prompt_specificity_score": {
+        "before": 0.8571,
+        "after": 0.875,
+        "delta": 0.0179,
+        "percent": 2.1
+      }
+    },
+    "enhancement_quality_gates_passed": false,
+    "enhancement_quality_gate_failures": [
+      "strategy_alignment_score<0.6: 0.5938"
+    ]
+  },
+  "overall_content_score": 0.8412,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

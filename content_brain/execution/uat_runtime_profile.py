@@ -12,6 +12,10 @@ from typing import Any
 UAT_PROFILE_VERSION = "12b_v1"
 UAT_SESSION_PREFIX = "exec_uat_"
 UAT_TRIGGER = "operator_uat"
+UAT_RUNTIME_NAME = "Generic UAT Runtime"
+UAT_ROUTE_NAME = "uat_generic_supervised_pipeline"
+UAT_APPROVAL_PLAN = "uat_supervised_voice_video_assembly"
+UAT_IS_PHASE_I_CONTINUITY = False
 
 UAT_MIN_DURATION_SECONDS = 15
 UAT_MAX_DURATION_SECONDS = 90
@@ -200,12 +204,41 @@ def uat_caps_snapshot() -> dict[str, int | float | str]:
     }
 
 
+def uat_routing_snapshot(*, clip_count: int | None = None) -> dict[str, Any]:
+    """Routing metadata for UAT reports/status — explicitly not Phase I continuity."""
+    return {
+        "runtime_name": UAT_RUNTIME_NAME,
+        "route_name": UAT_ROUTE_NAME,
+        "is_phase_i_continuity": UAT_IS_PHASE_I_CONTINUITY,
+        "continuity_enabled": False,
+        "use_starter_image": False,
+        "use_frame_chain": False,
+        "approval_plan": UAT_APPROVAL_PLAN,
+        "clip_count": clip_count,
+        "expected_approval_gate_count": 0,
+        "use_frame_after_clips": [],
+        "story_brief_present": False,
+        "starter_prompt_chars": 0,
+        "clips_completed": 0,
+        "downloads_approved_count": 0,
+        "video_generates_approved_count": 0,
+        "continuity_notes": [
+            "Generic UAT uses Content Brain brief + ProviderRuntimeEngine dispatch.",
+            "Does not use RunwayContinuitySemiAutoEngine or the Phase I 7-gate continuity plan.",
+            "For Phase I 3-clip continuity use Execution Center → Runway Live Smoke → "
+            "3-Clip Continuity (Phase I).",
+        ],
+    }
+
+
 def build_uat_operations_block(config: UatRuntimeConfig, session_id: str) -> dict[str, Any]:
+    routing = uat_routing_snapshot()
     return {
         "uat_run": {
             "mode": "user_acceptance_test",
             "profile_version": UAT_PROFILE_VERSION,
             "session_id": session_id,
+            **routing,
             "topic": config.topic,
             "platform": config.platform,
             "target_duration_seconds": config.duration_seconds,
@@ -248,4 +281,9 @@ __all__ = [
     "clamp_duration",
     "uat_caps_snapshot",
     "build_uat_operations_block",
+    "UAT_RUNTIME_NAME",
+    "UAT_ROUTE_NAME",
+    "UAT_APPROVAL_PLAN",
+    "UAT_IS_PHASE_I_CONTINUITY",
+    "uat_routing_snapshot",
 ]

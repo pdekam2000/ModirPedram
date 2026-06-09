@@ -1,0 +1,31 @@
+{
+  "topic": "how to make pizza dough",
+  "category": "cooking",
+  "strategy": "recipe_tutorial",
+  "enhancement_types": [
+    "domain_knowledge",
+    "seo"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Why how to make pizza dough Matters",
+      "The Truth About how to make pizza dough",
+      "What Everyone Gets Wrong About how to make pizza dough",
+      "The Real Story Behind how to make pizza dough",
+      "how to make pizza dough"
+    ],
+    "domain_concepts": [
+      "hydration",
+      "kneading",
+      "proofing",
+      "gluten",
+      "oven spring"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

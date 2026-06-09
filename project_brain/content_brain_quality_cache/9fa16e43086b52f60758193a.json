@@ -1,0 +1,24 @@
+{
+  "topic": "Why do some perfumes last all day?",
+  "category": "perfume",
+  "strategy": "scientific_explanation",
+  "enhancement_types": [
+    "domain_knowledge"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "top notes",
+      "heart notes",
+      "base notes",
+      "blending",
+      "maceration",
+      "projection"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

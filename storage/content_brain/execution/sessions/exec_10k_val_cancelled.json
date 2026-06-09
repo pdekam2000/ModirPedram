@@ -4,9 +4,9 @@
   "source_session_uuid": null,
   "execution_session_id": "exec_10k_val_cancelled",
   "brief_id": "brief_10f_preflight_fail",
-  "state": "QUEUED",
+  "state": "EXPIRED",
   "created_at": "2026-05-29 23:00:00",
-  "updated_at": "2026-06-02 19:54:09",
+  "updated_at": "2026-06-04 00:43:32",
   "provider": "hailuo",
   "brief_snapshot": {
     "brief_id": "brief_10f_preflight_fail",
@@ -224,13 +224,18 @@
       "at": "2026-06-02 19:54:09",
       "state": "QUEUED",
       "reason": "queue engine: QUEUED (item=queue_20260602_195409_307b92, position=None)"
+    },
+    {
+      "at": "2026-06-04 00:43:32",
+      "state": "EXPIRED",
+      "reason": "queue expired: ttl"
     }
   ],
   "priority_band": "high",
   "priority_decision": {
     "priority_band": "high",
     "priority_score": 86.0,
-    "queue_position": 1,
+    "queue_position": null,
     "decision_source": "execution_queue_engine"
   },
   "execution_readiness": {
@@ -299,7 +304,7 @@
   "queue_item": {
     "queue_item_uuid": "9e11b529-104b-4ee1-9219-4891139dd6c2",
     "queue_item_id": "queue_20260602_195409_307b92",
-    "queue_state": "QUEUED",
+    "queue_state": "EXPIRED",
     "queue_version": "10h_v1",
     "session_uuid": "a66dcea5-1920-48a7-a311-f60e2ff16679",
     "execution_session_id": "exec_10k_val_cancelled",
@@ -330,8 +335,8 @@
       "cancelled_at": null,
       "cancelled_by": null,
       "cancel_reason": null,
-      "expired_at": null,
-      "expire_reason": null,
+      "expired_at": "2026-06-04 00:43:32",
+      "expire_reason": "ttl_exceeded",
       "ttl_seconds": 86400,
       "expires_at": "2026-06-03 19:54:09"
     },
@@ -339,7 +344,7 @@
       "max_enqueue_attempts": 3,
       "enqueue_attempts_used": 2,
       "requeue_allowed": true,
-      "last_terminal_state": null
+      "last_terminal_state": "EXPIRED"
     },
     "metadata": {
       "queue_provenance": {
@@ -423,6 +428,17 @@
         "queue_position": null,
         "effective_priority": 300091.0,
         "readiness_decision": "READY"
+      }
+    },
+    {
+      "event_id": "qevt_2bf7ac795121",
+      "event_type": "EXPIRED",
+      "at": "2026-06-04 00:43:32",
+      "queue_item_id": "queue_20260602_195409_307b92",
+      "queue_item_uuid": "9e11b529-104b-4ee1-9219-4891139dd6c2",
+      "actor": "system",
+      "details": {
+        "expire_reason": "ttl_exceeded"
       }
     }
   ],

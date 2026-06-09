@@ -1,0 +1,43 @@
+{
+  "topic": "Could AI design a billion-dollar perfume brand by 2030?",
+  "category": "perfume",
+  "strategy": "future_analysis",
+  "enhancement_types": [
+    "character",
+    "seo"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Could AI design a billion-dollar perfume brand by 2030?",
+      "The Truth About AI-Created Luxury Fragrance Brands",
+      "Why AI-Created Luxury Fragrance Brands Matters",
+      "What Everyone Gets Wrong About AI-Created Luxury Fragrance Brands",
+      "AI-Created Luxury Fragrance Brands"
+    ],
+    "domain_concepts": [
+      "brand positioning",
+      "accord design",
+      "generative design",
+      "luxury market",
+      "raw materials",
+      "prediction models",
+      "consumer adoption",
+      "longevity",
+      "consumer preference modeling",
+      "market share",
+      "projection",
+      "algorithmic formulation"
+    ],
+    "story_angles": [
+      "Market claim — frame the billion-dollar fragrance opportunity, future trend forecast, and 2030 prediction as AI enters luxury perfume design and brand creation.",
+      "Evidence — compare algorithmic formulation, algorithmic scent formulation, automation impact, consumer preference modeling, accord design, and longevity testing with visible market signals.",
+      "Verdict — can AI create a signature scent and build a real luxury brand by 2030, and what outcome still requires human taste and branding instinct?"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

@@ -1,0 +1,203 @@
+{
+  "run_id": "topic_universe_f8147ce432d4",
+  "status": "running",
+  "started_at": "2026-06-05 22:46:27",
+  "completed_at": "",
+  "total_duration_ms": 0.0,
+  "input": {
+    "topic": "fishing",
+    "language_code": "en",
+    "platform": "youtube_shorts",
+    "audience_level": "general",
+    "niche_style": "general",
+    "title_target": 5,
+    "use_live_trends": false,
+    "suggested_duration": 30,
+    "scope": {
+      "topic": "fishing",
+      "scope": "broad",
+      "token_count": 1,
+      "instructional_intent": false,
+      "domain": "fishing",
+      "anchor_tokens": [
+        "fishing"
+      ],
+      "reasoning": "Short category/niche input \u2014 expand into title bank."
+    },
+    "studio_version": "topic_universe_studio_v1"
+  },
+  "title_bank": {
+    "run_id": "topic_universe_5aa79d989eba",
+    "topic": "fishing",
+    "scope": {
+      "topic": "fishing",
+      "scope": "broad",
+      "token_count": 1,
+      "instructional_intent": false,
+      "domain": "fishing",
+      "anchor_tokens": [
+        "fishing"
+      ],
+      "reasoning": "Short category/niche input \u2014 expand into title bank."
+    },
+    "mode": "title_bank",
+    "trend_mode": "fallback_seed_expansion",
+    "title_target": 5,
+    "title_count": 5,
+    "titles": [
+      {
+        "title_id": "title_40121ccd9e",
+        "title": "3 Fishing Mistakes Beginners Make Without Realizing",
+        "subtopic": "beginner fishing tips",
+        "category": "fishing",
+        "intent": "listicle",
+        "difficulty": "beginner",
+        "estimated_viral_potential": 0.697,
+        "educational_value": 0.62,
+        "trend_score": 0.42,
+        "source_provider": "seed_expansion",
+        "keywords": [
+          "3",
+          "fishing",
+          "mistakes",
+          "beginners",
+          "make",
+          "without",
+          "realizing"
+        ],
+        "suggested_duration": 30,
+        "suggested_clip_count": 3,
+        "content_strategy": "instructional_fishing",
+        "duplicate_status": "unique",
+        "normalized_title": "3 fishing mistakes beginners make without realizing"
+      },
+      {
+        "title_id": "title_fa566cd831",
+        "title": "The First 5 Things Every New Angler Should Learn",
+        "subtopic": "beginner fishing tips",
+        "category": "fishing",
+        "intent": "listicle",
+        "difficulty": "beginner",
+        "estimated_viral_potential": 0.697,
+        "educational_value": 0.62,
+        "trend_score": 0.42,
+        "source_provider": "seed_expansion",
+        "keywords": [
+          "the",
+          "first",
+          "5",
+          "things",
+          "every",
+          "new",
+          "angler",
+          "should"
+        ],
+        "suggested_duration": 30,
+        "suggested_clip_count": 3,
+        "content_strategy": "instructional_fishing",
+        "duplicate_status": "unique",
+        "normalized_title": "the first 5 things every new angler should learn"
+      },
+      {
+        "title_id": "title_14af842ce2",
+        "title": "Why Beginners Lose Fish Before They Even Hook Them",
+        "subtopic": "beginner fishing tips",
+        "category": "fishing",
+        "intent": "listicle",
+        "difficulty": "beginner",
+        "estimated_viral_potential": 0.697,
+        "educational_value": 0.62,
+        "trend_score": 0.42,
+        "source_provider": "seed_expansion",
+        "keywords": [
+          "why",
+          "beginners",
+          "lose",
+          "fish",
+          "before",
+          "they",
+          "even",
+          "hook"
+        ],
+        "suggested_duration": 30,
+        "suggested_clip_count": 3,
+        "content_strategy": "instructional_fishing",
+        "duplicate_status": "unique",
+        "normalized_title": "why beginners lose fish before they even hook them"
+      },
+      {
+        "title_id": "title_40f2dec0d1",
+        "title": "What Nobody Tells You Before Your First Fishing Trip",
+        "subtopic": "beginner fishing tips",
+        "category": "fishing",
+        "intent": "listicle",
+        "difficulty": "beginner",
+        "estimated_viral_potential": 0.697,
+        "educational_value": 0.62,
+        "trend_score": 0.42,
+        "source_provider": "seed_expansion",
+        "keywords": [
+          "what",
+          "nobody",
+          "tells",
+          "you",
+          "before",
+          "your",
+          "first",
+          "fishing"
+        ],
+        "suggested_duration": 30,
+        "suggested_clip_count": 3,
+        "content_strategy": "instructional_fishing",
+        "duplicate_status": "unique",
+        "normalized_title": "what nobody tells you before your first fishing trip"
+      },
+      {
+        "title_id": "title_402aebc1e3",
+        "title": "Stop Doing This on Your First Cast",
+        "subtopic": "beginner fishing tips",
+        "category": "fishing",
+        "intent": "listicle",
+        "difficulty": "beginner",
+        "estimated_viral_potential": 0.697,
+        "educational_value": 0.62,
+        "trend_score": 0.42,
+        "source_provider": "seed_expansion",
+        "keywords": [
+          "stop",
+          "doing",
+          "this",
+          "on",
+          "your",
+          "first",
+          "cast"
+        ],
+        "suggested_duration": 30,
+        "suggested_clip_count": 3,
+        "content_strategy": "cinematic_narrative",
+        "duplicate_status": "unique",
+        "normalized_title": "stop doing this on your first cast"
+      }
+    ],
+    "deduplication": {
+      "removed_exact": 0,
+      "removed_near": 0,
+      "removed_subtopic_cap": 0,
+      "kept": 5,
+      "requested": 5
+    },
+    "notes": [
+      "trend_mode=fallback_seed_expansion \u2014 live trend APIs were not used."
+    ],
+    "builder_version": "topic_universe_builder_v1"
+  },
+  "export_paths": {},
+  "e2e_handoff": {
+    "ready": true,
+    "recommended_topic_field": "3 Fishing Mistakes Beginners Make Without Realizing",
+    "mode": "title_bank",
+    "instructions": "Select any generated title and pass it as the topic into Content Brain E2E Micro Test."
+  },
+  "errors": [],
+  "studio_version": "topic_universe_studio_v1"
+}

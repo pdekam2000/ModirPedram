@@ -1,0 +1,48 @@
+{
+  "topic": "snak",
+  "language_code": "en",
+  "payload": {
+    "topic": "snak",
+    "primary_intent": "documentary",
+    "secondary_intents": [
+      "historical_investigation",
+      "scientific_explanation",
+      "mystery"
+    ],
+    "recommended_strategy": "cinematic_narrative",
+    "confidence": 0.55,
+    "reasoning": "The topic 'snak' suggests a focus on storytelling with a cinematic narrative style, fitting well with a documentary intent to explore and inform about the subject in an engaging way.",
+    "source": "openai_intent_applied",
+    "alternative_intents": [
+      "historical_investigation",
+      "scientific_explanation",
+      "mystery"
+    ],
+    "domain_concepts": [
+      "snak origins",
+      "cultural significance",
+      "modern adaptations"
+    ],
+    "story_angles": [
+      "The history and evolution of snak through the ages",
+      "How snak impacts culture and daily life today",
+      "Behind the scenes: making of snak in modern times"
+    ],
+    "seo_title_candidates": [
+      "The Fascinating Story of Snak: A Cinematic Journey",
+      "Discovering Snak: History, Culture, and Modern Impact",
+      "Snak Uncovered: A Documentary Exploration",
+      "From Past to Present: The Evolution of Snak",
+      "Inside Snak: Cultural Significance and Modern Adaptations"
+    ],
+    "openai_applied": true,
+    "cache_hit": false,
+    "estimated_cost_usd": 0.000505
+  },
+  "usage": {
+    "prompt_tokens": 306,
+    "completion_tokens": 239,
+    "total_tokens": 545
+  },
+  "estimated_cost_usd": 0.0005047999999999999
+}

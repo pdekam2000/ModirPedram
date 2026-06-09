@@ -32,6 +32,8 @@ import {
   UAT_BRAND_SUBTITLE,
   UAT_BRAND_TITLE,
   UAT_GENERATE_LABEL,
+  UAT_PHASE_I_ROUTING_WARNING,
+  UAT_RUNTIME_MODE_LABEL,
   UAT_SAFETY_WARNING,
   UAT_STAGE_ORDER,
   UatWorkspaceStatus,
@@ -163,9 +165,14 @@ export function UatRuntimePage() {
         <div>
           <h1 className="uat-brand-title">{UAT_BRAND_TITLE}</h1>
           <p className="uat-brand-subtitle">{UAT_BRAND_SUBTITLE}</p>
+          <p className="uat-runtime-mode-label">{UAT_RUNTIME_MODE_LABEL}</p>
         </div>
         <span className={`uat-status-pill ${workspaceStatus.toLowerCase()}`}>{workspaceStatus}</span>
       </header>
+
+      <div className="uat-phase-i-routing-warning" role="note">
+        {UAT_PHASE_I_ROUTING_WARNING}
+      </div>
 
       {(startError || pollError) && (
         <div className="error-banner">{startError || pollError}</div>
@@ -605,6 +612,7 @@ function SessionIntelligence({
   onCopySessionId: () => void;
 }) {
   const rows = [
+    { key: "Runtime mode", value: UAT_RUNTIME_MODE_LABEL },
     { key: "Session ID", value: sessionId ?? "—" },
     {
       key: "Provider stack",

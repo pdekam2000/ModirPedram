@@ -1,0 +1,31 @@
+{
+  "topic": "zander fishing method",
+  "category": "fishing",
+  "strategy": "instructional_fishing",
+  "enhancement_types": [
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Master the Zander Fishing Method: Expert Techniques for Consistent Strikes",
+      "Unlock Zander Success: Proven Fishing Method Tips from an Experienced Angler",
+      "Step-by-Step Zander Fishing Method to Maximize Your Hookup Rate",
+      "Advanced Zander Fishing Method: Perfect Your Cast, Retrieve, and Hook Set",
+      "How to Fish Zander Like a Pro: Essential Method and Lure Strategies"
+    ],
+    "prompt_additions": [
+      "Highlight the importance of lure profile and color selection tailored to zander's predatory behavior under varying water clarity conditions.",
+      "Demonstrate precise depth control using weighted rigs and sonar feedback to target zander's preferred ambush zones near submerged structures.",
+      "Emphasize the timing and cadence of retrieve techniques that mimic injured baitfish, triggering aggressive strikes from zander.",
+      "Showcase the critical moment of the hook set with tips on rod positioning and line tension to ensure solid penetration in zander's tough mouth.",
+      "Include subtle environmental cues such as light angle and water temperature shifts that influence zander feeding activity and method adjustments."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1918,
+    "completion_tokens": 237,
+    "total_tokens": 2155
+  },
+  "estimated_cost_usd": 0.0011464000000000001
+}

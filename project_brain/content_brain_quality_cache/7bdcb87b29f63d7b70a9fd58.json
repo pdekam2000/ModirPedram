@@ -1,0 +1,36 @@
+{
+  "topic": "old man walking on a beach",
+  "category": "general",
+  "strategy": "documentary",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "story",
+    "prompt"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "walking",
+      "beach"
+    ],
+    "character_role": "a focused analyst",
+    "story": {
+      "logline": "A focused expert breaks down old man walking on a beach with concrete evidence, objects, and topic-specific stakes.",
+      "clip_beats": [
+        "Introduce the central question behind old man walking on a beach with the presenter explaining its significance while showing the environment.",
+        "Present evidence and context about old man walking on a beach, including historical or cultural insights, with visuals supporting the narration.",
+        "Conclude with the presenter summarizing what old man walking on a beach means today, emphasizing its relevance and impact."
+      ]
+    },
+    "prompt_additions": [
+      "walking",
+      "beach"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

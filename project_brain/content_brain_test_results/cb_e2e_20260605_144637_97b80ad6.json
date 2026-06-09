@@ -1,0 +1,857 @@
+{
+  "run_id": "cb_e2e_20260605_144637_97b80ad6",
+  "started_at": "2026-06-05 14:46:37",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v2",
+    "language_code": "fa"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 1.04,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+        "detected_language_code": "fa",
+        "extracted_subject": "angler",
+        "extracted_environment": "lakeside",
+        "extracted_action": "fishing",
+        "preserved_subject": false,
+        "preserved_environment": false,
+        "preserved_action": false,
+        "topic_preservation_score": 0.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "extracted_subject": "angler",
+          "extracted_environment": "lakeside",
+          "extracted_action": "fishing",
+          "preserved_subject": false,
+          "preserved_environment": false,
+          "preserved_action": false,
+          "topic_preservation_score": 0.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 636.22,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.09,
+            "confidence": 0.8645,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 14:46:37",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "\u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.86,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.86,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 14:46:38"
+            }
+          },
+          {
+            "trend": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 80.71,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 14:46:37",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8731,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8731,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 14:46:38"
+            }
+          },
+          {
+            "trend": "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 14:46:37",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "\u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.862,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.862,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 14:46:38"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "velocity": 86.45,
+          "saturation": 21.0,
+          "virality_score": 83.09,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.5,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 78.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 14:46:37",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "\u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.86,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.86,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 14:46:38"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 14:46:37",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8731,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8731,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 14:46:38"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 14:46:37",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "\u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.862,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.862,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 14:46:38"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.04,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.7,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "trend_discovery_engine"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+        "title_candidates": [
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u06a9\u0647",
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u2014 Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 (\u0627\u0648\u0644",
+          "\u0631\u0627\u0632 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u062f\u0631 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "\u0627\u06cc\u0646 \u0631\u0648\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0631\u0627\u06cc \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0627\u0632 \u062f\u0633\u062a \u0646\u062f\u0647",
+          "\u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u062f\u0631 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u0631\u0627 \u0639\u0648\u0636 \u0645\u06cc\u200c\u06a9\u0646\u062f"
+        ],
+        "keywords": [
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc",
+          "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+          "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+          "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+          "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632"
+        ],
+        "trend_angle": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632",
+        "language_code": "fa",
+        "seo_score": 1.0
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 0.32,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_seo_title_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "logline": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity.",
+          "main_character": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f",
+          "setting": "\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628",
+          "conflict_tension": "\u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity",
+          "visual_hook": "\u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628",
+          "emotional_arc": "connection deepening into conviction",
+          "ending_beat": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.",
+          "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f",
+            "location": "\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": "\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635"
+          },
+          "clip_beats": [
+            "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f.",
+            "\u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.",
+            "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f."
+          ],
+          "source_topic": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "target_platform": "youtube_shorts",
+          "niche_style": "cinematic",
+          "mood": "emotional",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v1",
+          "warnings": [],
+          "goal": "\u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity",
+          "conflict": "\u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity",
+          "tension": "\u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity",
+          "seo_title": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "language_code": "fa"
+        },
+        "seo_title": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+        "language_code": "fa"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f.",
+            "role_label": "hook",
+            "story_beat": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f."
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "\u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.",
+            "role_label": "escalation",
+            "story_beat": "\u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f."
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f.",
+            "role_label": "payoff",
+            "story_beat": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f."
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 4.78,
+      "api_sources": [
+        "runway_prompt_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f. Environment: \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity.. Visual hook: \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628. Tension: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Wardrobe locked: \u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635.",
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Continuity lock: same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 1 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Opens from the approved starter reference image via Use to Video \u2014 preserve identity, wardrobe, and environment from the hero frame. Primary action beat: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f.. Camera motion: begins with a slow discovery push-in. Narrative role (discovery): emotional beat \u2014 curiosity and unease awaken. Camera progression: medium-wide push-in; subject shifts from stillness to alerted attention. Environmental progression: introduce first environmental story beat (rain shift, distant lights, particles). Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f. Environment: \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity.. Visual hook: \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628. Tension: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Wardrobe locked: \u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635.",
+            "continuity_notes": "same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Continuity lock: same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 2 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: \u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.. Camera motion: maintains fluid lateral camera tracking during escalation. Narrative role (escalation): emotional beat \u2014 pressure and urgency rise. Camera progression: lateral tracking shot following motivated forward movement. Environmental progression: weather, lighting, or background motion intensifies while location stays fixed. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "image_prompt": "",
+            "continuity_notes": "same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Continuity lock: same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 3 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f.. Camera motion: eases into a final micro-motion reveal-ready pose. Narrative role (payoff): emotional beat \u2014 emotional consequence lands in a frame-ready end pose. Camera progression: push to hero close or crane down to reveal object/consequence. Environmental progression: environment frames the reveal detail without changing world location. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. Final clip resolves action but keeps the same world \u2014 no epilogue scene change. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "image_prompt": "",
+            "continuity_notes": "same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f",
+          "location": "\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628",
+          "lighting": "motivated cinematic key with volumetric atmosphere",
+          "camera": "35mm anamorphic lens personality with natural edge falloff",
+          "palette": "teal and amber cinematic color grade",
+          "wardrobe": "\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635"
+        },
+        "builder_version": "runway_starter_to_video_f_v1",
+        "validation_warnings": [],
+        "raw_bundle": {
+          "project_id": "cb_test_fff3e6d6",
+          "story_idea": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity. Character: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f. Setting: \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. Conflict: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity. Visual hook: \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628. Emotional arc: connection deepening into conviction. Ending: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.. Clip 1: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f.. Clip 2: \u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.. Clip 3: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f..",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f. Environment: \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity.. Visual hook: \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628. Tension: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Wardrobe locked: \u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635.",
+          "clip_prompts": [
+            "Continuity lock: same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 1 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Opens from the approved starter reference image via Use to Video \u2014 preserve identity, wardrobe, and environment from the hero frame. Primary action beat: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f.. Camera motion: begins with a slow discovery push-in. Narrative role (discovery): emotional beat \u2014 curiosity and unease awaken. Camera progression: medium-wide push-in; subject shifts from stillness to alerted attention. Environmental progression: introduce first environmental story beat (rain shift, distant lights, particles). Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Continuity lock: same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 2 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: \u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.. Camera motion: maintains fluid lateral camera tracking during escalation. Narrative role (escalation): emotional beat \u2014 pressure and urgency rise. Camera progression: lateral tracking shot following motivated forward movement. Environmental progression: weather, lighting, or background motion intensifies while location stays fixed. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Continuity lock: same character (\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f), same wardrobe (\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635), same location (\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 3 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f.. Camera motion: eases into a final micro-motion reveal-ready pose. Narrative role (payoff): emotional beat \u2014 emotional consequence lands in a frame-ready end pose. Camera progression: push to hero close or crane down to reveal object/consequence. Environmental progression: environment frames the reveal detail without changing world location. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. Final clip resolves action but keeps the same world \u2014 no epilogue scene change. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f",
+            "location": "\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": "\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635"
+          },
+          "warnings": [],
+          "char_stats": {
+            "starter_image_chars": 1381,
+            "clip_prompt_chars": [
+              2391,
+              2391,
+              2500
+            ],
+            "clip_prompt_min": 2391,
+            "clip_prompt_max": 2500
+          },
+          "builder_version": "runway_starter_to_video_f_v1",
+          "story_brief": {
+            "title": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+            "logline": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity.",
+            "main_character": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f",
+            "setting": "\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628",
+            "conflict_tension": "\u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity",
+            "visual_hook": "\u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628",
+            "emotional_arc": "connection deepening into conviction",
+            "ending_beat": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f",
+              "location": "\u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": "\u06a9\u0627\u067e\u0634\u0646 \u0636\u062f\u0622\u0628 \u0648 \u062c\u0644\u06cc\u0642\u0647 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0627 \u0642\u0644\u0627\u0628\u200c\u0647\u0627\u06cc \u0645\u0634\u062e\u0635"
+            },
+            "clip_beats": [
+              "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0634\u0631\u0648\u0639 \u0645\u06cc\u200c\u06a9\u0646\u062f \u2014 \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u062f\u0633\u062a\u200c\u0647\u0627 \u0648 \u0648\u0633\u0627\u06cc\u0644 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0645\u06cc\u200c\u0634\u0648\u062f.",
+              "\u062d\u0631\u06a9\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0633\u0648\u0698\u0647 \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity \u0634\u062f\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.",
+              "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f payoff \u0645\u0631\u0628\u0648\u0637 \u0628\u0647 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u0628\u0627 \u06cc\u06a9 \u062d\u0631\u06a9\u062a \u0642\u0637\u0639\u06cc \u062f\u0627\u0633\u062a\u0627\u0646 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0645\u06cc\u200c\u0628\u0646\u062f\u062f \u062f\u0631 \u062d\u0627\u0644\u06cc \u06a9\u0647 \u0645\u06a9\u0627\u0646 \u0648 \u0644\u0628\u0627\u0633 \u0628\u0631\u0627\u06cc \u062a\u062f\u0627\u0648\u0645 \u062b\u0627\u0628\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.; \u062f\u0648\u0631\u0628\u06cc\u0646 \u0631\u0648\u06cc \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0627\u06cc\u0633\u062a\u062f."
+            ],
+            "source_topic": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v1",
+            "warnings": []
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+        "seo_description": "\u06cc\u06a9 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0631\u0648\u06cc \u062a\u06a9\u0646\u06cc\u06a9 \u062a\u0645\u0631\u06a9\u0632 \u062f\u0627\u0631\u062f \u062f\u0631 \u062f\u0631\u06cc\u0627\u0686\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645 \u062f\u0631 \u0633\u067e\u06cc\u062f\u0647\u200c\u062f\u0645 \u0628\u0627 \u0645\u0647 \u0631\u0648\u06cc \u0622\u0628. \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627. \u062a\u0646\u0634 \u0627\u0635\u0644\u06cc: \u0641\u0634\u0627\u0631 \u062f\u0627\u0633\u062a\u0627\u0646 \u062d\u0648\u0644 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0648 personal stakes tied directly to the viewer's curiosity. \u0627\u0631\u0627\u0626\u0647 \u062f\u0642\u06cc\u0642 \u0642\u0644\u0627\u0628 \u062f\u0631 \u0644\u0628\u0647 \u0622\u0628",
+        "keywords": [
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc",
+          "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 is gaining traction via format gaining traction around topic",
+          "\u0622\u0645\u0648\u0632\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: the question people keep asking about topic angle gaining comments this week",
+          "Why \u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u062a\u0631\u0646\u062f \u0634\u062f\u0647 is gaining traction via popular advice vs real results in topic",
+          "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 1.0,
+        "title_candidates": [
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627: Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u06a9\u0647",
+          "\u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u2014 Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 (\u0627\u0648\u0644",
+          "\u0631\u0627\u0632 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u062f\u0631 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627",
+          "\u0627\u06cc\u0646 \u0631\u0648\u0634 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0628\u0631\u0627\u06cc \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0631\u0627 \u0627\u0632 \u062f\u0633\u062a \u0646\u062f\u0647",
+          "\u0686\u0631\u0627 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u062f\u0631 \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0645\u0627\u0647\u06cc \u0642\u0632\u0644 \u0622\u0644\u0627 \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u0631\u0627 \u0639\u0648\u0636 \u0645\u06cc\u200c\u06a9\u0646\u062f"
+        ],
+        "trend_angle": "Why \u0628\u0647\u062a\u0631\u06cc\u0646 \u0646\u06a9\u0627\u062a \u0631\u0648\u0634 \u0645\u0627\u0647\u06cc\u06af\u06cc\u0631\u06cc \u0627\u0632",
+        "language_code": "fa"
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "quality_audit",
+      "title": "Quality Audit",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_e2e_micro_test_studio"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 0.0,
+        "story_quality_score": 1.0,
+        "seo_score": 1.0,
+        "trend_relevance_score": 0.6,
+        "prompt_completeness_score": 1.0,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.69,
+        "forbidden_drift": []
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 0.0,
+    "story_quality_score": 1.0,
+    "seo_score": 1.0,
+    "trend_relevance_score": 0.6,
+    "prompt_completeness_score": 1.0,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.69,
+    "forbidden_drift": []
+  },
+  "overall_content_score": 0.69,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

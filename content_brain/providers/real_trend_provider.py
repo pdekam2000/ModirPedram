@@ -419,13 +419,22 @@ class RealTrendProvider:
         profile: dict[str, Any] | None = None,
         platforms: list[str] | None = None,
         max_results: int = 10,
+        locale: str = "",
     ) -> list[NormalizedTrendSignal]:
+        profile_payload = dict(profile or {})
+        resolved_locale = str(
+            locale
+            or profile_payload.get("language")
+            or (profile_payload.get("language_rules") or {}).get("output_language")
+            or "en"
+        ).strip()
         context = TrendProviderContext(
             niche=niche,
             topic=topic,
-            profile=dict(profile or {}),
+            profile=profile_payload,
             platforms=list(platforms or []),
             max_results=max_results,
+            locale=resolved_locale,
         )
 
         combined: list[NormalizedTrendSignal] = []
@@ -510,7 +519,7 @@ def _resolve_platforms(context: TrendProviderContext) -> list[str]:
 def _collect_seed_topics(context: TrendProviderContext, niche: str) -> list[str]:
     user_topic = context.topic.strip()
     if user_topic:
-        return [user_topic]
+        return _expand_related_topic_seeds(user_topic, context)
 
     seeds: list[str] = []
     profile = context.profile
@@ -537,6 +546,68 @@ def _collect_seed_topics(context: TrendProviderContext, niche: str) -> list[str]
         seeds = list(SAFE_GENERIC_FALLBACK_SEEDS)
 
     return seeds
+
+
+def _expand_related_topic_seeds(topic: str, context: TrendProviderContext) -> list[str]:
+    """Build related search-style seeds from the operator topic (offline fallback)."""
+    cleaned = re.sub(r"\s+", " ", topic.strip())
+    if not cleaned:
+        return []
+
+    locale = str(context.locale or "en").strip().lower().split("-")[0] or "en"
+    templates = RELATED_TOPIC_TEMPLATES.get(locale) or RELATED_TOPIC_TEMPLATES["en"]
+    seeds = [cleaned]
+    for template in templates:
+        rendered = re.sub(r"\s+", " ", template.format(topic=cleaned)).strip()
+        if rendered and rendered.lower() not in {item.lower() for item in seeds}:
+            seeds.append(rendered)
+        if len(seeds) >= max(3, min(context.max_results, 8)):
+            break
+    return seeds
+
+
+RELATED_TOPIC_TEMPLATES: dict[str, list[str]] = {
+    "en": [
+        "{topic}",
+        "best {topic} tips",
+        "how to {topic}",
+        "{topic} for beginners",
+        "why {topic} is trending",
+    ],
+    "fa": [
+        "{topic}",
+        "بهترین نکات {topic}",
+        "آموزش {topic}",
+        "{topic} برای مبتدیان",
+        "چرا {topic} ترند شده",
+    ],
+    "de": [
+        "{topic}",
+        "beste {topic} tipps",
+        "wie {topic} funktioniert",
+        "{topic} für anfänger",
+    ],
+    "fr": [
+        "{topic}",
+        "meilleurs conseils {topic}",
+        "comment {topic}",
+    ],
+    "es": [
+        "{topic}",
+        "mejores consejos de {topic}",
+        "cómo {topic}",
+    ],
+    "ar": [
+        "{topic}",
+        "أفضل نصائح {topic}",
+        "كيف {topic}",
+    ],
+    "tr": [
+        "{topic}",
+        "en iyi {topic} ipuçları",
+        "nasıl {topic}",
+    ],
+}
 
 
 def _clean_seed_list(values: Any) -> list[str]:

@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-06-04 22:04:17",
+  "test": "micro_test_6_direct_download",
+  "latest_video_card_detected": true,
+  "direct_download_possible": true,
+  "detected_media_url": "https://dnznrvs05pmza.cloudfront.net/48a982f7-f30b-4474-b431-582b09fddfd6.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjRkMzVlN2M4MjAyYjllYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MDc3NjA2MH0.p6gqhmcE5hug9owmtmLWwgtPXeX3rMRmo9InZ8FgBW0",
+  "url_type": "https",
+  "downloaded_file_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\test_direct_download.mp4",
+  "file_size": 2067113,
+  "verification_passed": true,
+  "fallback_required": false,
+  "safe_http_url_found": true,
+  "blob_url_found": false,
+  "browser_download_clicked": false,
+  "ui_fallback_executed": false,
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/assets",
+  "page_catalog": [
+    {
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/assets",
+      "actions": 0,
+      "image": 0,
+      "video": 0,
+      "score": 0
+    }
+  ],
+  "latest_video_card": {
+    "card_index": 0,
+    "card_fingerprint": "64|215|1180|239|video|tag gen-4_5 - sexy lady on strand video gpt image 2 - lady on strand_4.png image gpt image 2 - lady on strand_3.png imag",
+    "card_type": "video",
+    "card_prompt_text": "Tag Gen-4_5 - sexy lady on strand Video GPT Image 2 - lady on strand_4.png Image GPT Image 2 - lady on strand_3.png Image GPT Image 2 - lady on strand_2.png Image",
+    "bounding_box": {
+      "x": 64.0,
+      "y": 215.0,
+      "width": 1180.0,
+      "height": 238.6875
+    },
+    "buttons_visible": [
+      "Tag Gen-4_5 - sexy lady on strand Video",
+      "Tag",
+      "Edit in new session",
+      "GPT Image 2 - lady on strand_4.png Image",
+      "Use as input",
+      "GPT Image 2 - lady on strand_3.png Image",
+      "Use as input",
+      "GPT Image 2 - lady on strand_2.png Image",
+      "Use as input"
+    ],
+    "media_src": "https://dnznrvs05pmza.cloudfront.net/48a982f7-f30b-4474-b431-582b09fddfd6.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjRkMzVlN2M4MjAyYjllYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MDc3NjA2MH0.p6gqhmcE5hug9owmtmLWwgtPXeX3rMRmo9InZ8FgBW0",
+    "media_urls": [
+      "https://dnznrvs05pmza.cloudfront.net/48a982f7-f30b-4474-b431-582b09fddfd6.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjRkMzVlN2M4MjAyYjllYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MDc3NjA2MH0.p6gqhmcE5hug9owmtmLWwgtPXeX3rMRmo9InZ8FgBW0",
+      "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/compressed_image/result.jpg?input_image=https%3A%2F%2Fdnf8butk8bbsy.cloudfront.net%2Ftask_artifact_previews%2F4173eb86-27a0-4546-afd3-043aac19476a.jpg%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZmEyYzBkZjE3Mjk1NDAyNiIsImJ1Y2tldCI6InJ1bndheS11cGxvYWRzLXByb2QiLCJzdGFnZSI6InByb2QiLCJleHAiOjE3ODA3NTU5NTN9.sQA3fvEzlsnZDlK2czCU1S7szQE-wYq-mtrD_aH6gjU&input_max_width=400&input_max_height=400&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?editAssetId=4a3ea6cb-dcd3-41de-badc-b661a13d7fcf&returnTo=%2Fvideo-tools%2Fteams%2Fkamangarpedram%2Fai-tools%2Fassets&targetAssetGroupId=5471dc18-91b4-4c4d-8f95-582e5d82b128&mode=edit&newSession=true",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=0c1d6d61-8ca8-4661-8fde-80a6da9c1763&mode=tools",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=0cfabb4a-a104-4166-a400-9c654cfc9780&mode=tools",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=48b69903-1547-43fe-bc2c-dcee17c9bc11&mode=tools"
+    ],
+    "role": "clip_1_video_card",
+    "consumed": false
+  },
+  "inspection": {
+    "cardFound": false,
+    "videoCurrentSrc": "",
+    "videoSrc": "",
+    "sourceSrcs": [],
+    "hrefLinks": [],
+    "networkUrls": [],
+    "allUrls": [],
+    "tracker_media_urls": [
+      "https://dnznrvs05pmza.cloudfront.net/48a982f7-f30b-4474-b431-582b09fddfd6.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjRkMzVlN2M4MjAyYjllYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MDc3NjA2MH0.p6gqhmcE5hug9owmtmLWwgtPXeX3rMRmo9InZ8FgBW0",
+      "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/compressed_image/result.jpg?input_image=https%3A%2F%2Fdnf8butk8bbsy.cloudfront.net%2Ftask_artifact_previews%2F4173eb86-27a0-4546-afd3-043aac19476a.jpg%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZmEyYzBkZjE3Mjk1NDAyNiIsImJ1Y2tldCI6InJ1bndheS11cGxvYWRzLXByb2QiLCJzdGFnZSI6InByb2QiLCJleHAiOjE3ODA3NTU5NTN9.sQA3fvEzlsnZDlK2czCU1S7szQE-wYq-mtrD_aH6gjU&input_max_width=400&input_max_height=400&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?editAssetId=4a3ea6cb-dcd3-41de-badc-b661a13d7fcf&returnTo=%2Fvideo-tools%2Fteams%2Fkamangarpedram%2Fai-tools%2Fassets&targetAssetGroupId=5471dc18-91b4-4c4d-8f95-582e5d82b128&mode=edit&newSession=true",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=0c1d6d61-8ca8-4661-8fde-80a6da9c1763&mode=tools",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=0cfabb4a-a104-4166-a400-9c654cfc9780&mode=tools",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=48b69903-1547-43fe-bc2c-dcee17c9bc11&mode=tools"
+    ],
+    "unique_urls_collected": [
+      "https://dnznrvs05pmza.cloudfront.net/48a982f7-f30b-4474-b431-582b09fddfd6.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjRkMzVlN2M4MjAyYjllYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MDc3NjA2MH0.p6gqhmcE5hug9owmtmLWwgtPXeX3rMRmo9InZ8FgBW0",
+      "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/compressed_image/result.jpg?input_image=https%3A%2F%2Fdnf8butk8bbsy.cloudfront.net%2Ftask_artifact_previews%2F4173eb86-27a0-4546-afd3-043aac19476a.jpg%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZmEyYzBkZjE3Mjk1NDAyNiIsImJ1Y2tldCI6InJ1bndheS11cGxvYWRzLXByb2QiLCJzdGFnZSI6InByb2QiLCJleHAiOjE3ODA3NTU5NTN9.sQA3fvEzlsnZDlK2czCU1S7szQE-wYq-mtrD_aH6gjU&input_max_width=400&input_max_height=400&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?editAssetId=4a3ea6cb-dcd3-41de-badc-b661a13d7fcf&returnTo=%2Fvideo-tools%2Fteams%2Fkamangarpedram%2Fai-tools%2Fassets&targetAssetGroupId=5471dc18-91b4-4c4d-8f95-582e5d82b128&mode=edit&newSession=true",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=0c1d6d61-8ca8-4661-8fde-80a6da9c1763&mode=tools",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=0cfabb4a-a104-4166-a400-9c654cfc9780&mode=tools",
+      "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?fromOriginalAsset=48b69903-1547-43fe-bc2c-dcee17c9bc11&mode=tools"
+    ]
+  },
+  "download_method": "cdp_page_fetch",
+  "media_signature": "mp4_ftyp",
+  "pass": true
+}

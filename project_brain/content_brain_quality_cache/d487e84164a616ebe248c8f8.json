@@ -1,0 +1,36 @@
+{
+  "topic": "best game grafic cart",
+  "category": "technology",
+  "strategy": "scientific_explanation",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "prompt"
+  ],
+  "payload": {
+    "character_role": "Senior graphics hardware engineer specializing in GPU microarchitecture and real-time rendering optimization",
+    "domain_concepts": [
+      "shader core parallelism",
+      "tensor cores for AI-driven upscaling",
+      "memory bandwidth optimization",
+      "thermal throttling mitigation",
+      "PCIe interface versions and bandwidth",
+      "DLSS (Deep Learning Super Sampling) technology",
+      "real-time ray tracing acceleration units",
+      "power efficiency curves under gaming workloads",
+      "GPU die size and transistor density",
+      "VR gaming performance scaling"
+    ],
+    "prompt_additions": [
+      "Clip 1 of 3. Emphasize the role of clock speed in synchronizing shader core operations and its impact on frame rendering rates under high load gaming scenarios.",
+      "Clip 2 of 3. Detail how advanced GPU architectures integrate ray tracing cores and tensor cores to accelerate photorealistic lighting and AI-enhanced graphics, while VRAM capacity supports high-resolution texture streaming without bottlenecks.",
+      "Clip 3 of 3. Explain how thermal design power influences sustained GPU clock speeds during extended gaming sessions, including how cooling solutions prevent thermal throttling to maintain consistent gaming performance."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1739,
+    "completion_tokens": 249,
+    "total_tokens": 1988
+  },
+  "estimated_cost_usd": 0.001094
+}

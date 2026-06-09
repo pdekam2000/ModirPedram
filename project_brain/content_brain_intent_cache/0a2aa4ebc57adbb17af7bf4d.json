@@ -1,0 +1,52 @@
+{
+  "topic": "Can AI therapists replace human psychologists within the next 10 years?",
+  "language_code": "en",
+  "payload": {
+    "topic": "Can AI therapists replace human psychologists within the next 10 years?",
+    "primary_intent": "future_prediction",
+    "secondary_intents": [
+      "technology_forecast",
+      "business_debate",
+      "scientific_explanation"
+    ],
+    "recommended_strategy": "future_analysis",
+    "confidence": 0.92,
+    "reasoning": "The topic focuses on forecasting the potential of AI therapists replacing human psychologists within a decade, which aligns best with a future prediction intent supported by a future analysis strategy to explore technological, ethical, and practical implications.",
+    "source": "openai_intent_applied",
+    "alternative_intents": [
+      "technology_forecast",
+      "business_debate",
+      "scientific_explanation"
+    ],
+    "domain_concepts": [
+      "AI therapists",
+      "human psychologists",
+      "mental health technology",
+      "machine learning in therapy",
+      "ethical implications of AI",
+      "future of psychology",
+      "automation in healthcare"
+    ],
+    "story_angles": [
+      "Exploring current advancements in AI therapy and their limitations",
+      "Ethical and emotional challenges of replacing human psychologists with AI",
+      "Predictions and expert opinions on the future integration of AI in mental health care"
+    ],
+    "seo_title_candidates": [
+      "Will AI Therapists Replace Human Psychologists in the Next 10 Years?",
+      "The Future of Therapy: Can AI Take Over Psychology?",
+      "AI vs Human Psychologists: What to Expect in the Next Decade",
+      "How Close Are We to AI Therapists Replacing Human Experts?",
+      "The Rise of AI in Mental Health: Replacement or Support?"
+    ],
+    "openai_applied": true,
+    "cache_hit": false,
+    "estimated_cost_usd": 0.000566
+  },
+  "usage": {
+    "prompt_tokens": 315,
+    "completion_tokens": 275,
+    "total_tokens": 590
+  },
+  "estimated_cost_usd": 0.000566
+}

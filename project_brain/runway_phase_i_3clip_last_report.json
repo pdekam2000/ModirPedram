@@ -1,0 +1,3706 @@
+{
+  "phase": "runway_starter_to_video_i_3clip_v1",
+  "project_id": "phase_i_live",
+  "started_at": "2026-06-08 21:43:08",
+  "finished_at": "2026-06-08 22:37:16",
+  "ok": true,
+  "simulate": false,
+  "browser_connected": true,
+  "browser_probe_message": "browser probe failed",
+  "browser_probe": {
+    "passed": true,
+    "checks": [
+      {
+        "id": "BROWSER_AVAILABLE",
+        "passed": true,
+        "message": "CDP port reachable at 127.0.0.1:9222"
+      },
+      {
+        "id": "BROWSER_PROFILE",
+        "passed": true,
+        "message": "Browser profile path exists: C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\real_chrome_profile"
+      },
+      {
+        "id": "BROWSER_AUTOMATION_READY",
+        "passed": true,
+        "message": "Playwright CDP attach OK (browser version: 148.0.7778.217)"
+      },
+      {
+        "id": "BROWSER_SESSION_VALID",
+        "passed": true,
+        "message": "CDP attach succeeded (session assumed valid if attach works)"
+      },
+      {
+        "id": "DOWNLOAD_PATH_READY",
+        "passed": true,
+        "message": "Download path writable: C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway"
+      }
+    ],
+    "reject_code": null,
+    "message": "",
+    "ok": true
+  },
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+  "controls_resolved": 25,
+  "controls_missing": [],
+  "dry_run_ok": true,
+  "step_count": 37,
+  "clip_count": 3,
+  "approvals_requested": [],
+  "approvals_granted": [],
+  "manual_holds": [],
+  "image_generation_result": "generate_clicked_with_approval",
+  "video_completion_detected": true,
+  "completion_signals": [
+    "strict_clip_complete",
+    "download_in_card"
+  ],
+  "download_attempted": true,
+  "download_confirmed": true,
+  "remove_image_executed": true,
+  "detected_aspect_ratio": "9:16",
+  "detected_image_count": "1",
+  "detected_image_quality": "2K",
+  "settings_verified": true,
+  "image_prompt_cleared": true,
+  "prompt_text_before_clear": "Clip 2 of 3. Topic-first narrative sequence about The Ants. Primary story beat: Middle \u2014 focus on ant species diversity; colony structure and roles; communication through pheromones.. Subject identity: entomologist specializing in ants. Location: forest floor, ant colonies, laboratory observation. Key entities: ant species diversity; colony structure and roles; communication through pheromones. Visible objects: forest floor, ant colonies, laboratory observation. Historical detail: forest floor, ant colonies, laboratory observation. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (entomologist specializing in ants), same wardrobe, same location (forest floor, ant colonies, laboratory observation), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+  "prompt_text_after_clear": "",
+  "latest_image_card_found": true,
+  "latest_image_card_index": 0,
+  "selected_image_card_fingerprint": "554|1260|476|853|",
+  "selected_image_card_index": 0,
+  "card_prompt_text": "",
+  "card_bounding_box": {
+    "x": 554.0703125,
+    "y": 1260.453125,
+    "width": 475.859375,
+    "height": 852.578125
+  },
+  "video_transition_verified": true,
+  "current_url_after_transition": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+  "used_image_card_removed": false,
+  "used_image_card_marked_consumed": true,
+  "video_generation_started": true,
+  "browser_state": "",
+  "detected_video_aspect_ratio": "9:16",
+  "detected_video_duration": "10s",
+  "video_settings_verified": true,
+  "use_frame_after_clips": [
+    1,
+    2
+  ],
+  "downloads_approved_count": 3,
+  "video_generates_approved_count": 3,
+  "clips_completed": 3,
+  "story_brief_present": true,
+  "story_brief_title": "the ants",
+  "story_brief_logline": "a knowledgeable presenter in a single continuous environment with strong depth and readable vertical framing. Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about The Ants visible in frame. Central tension: stakes centered on ants; What conflicting evidence still surrounds The Ants? danger and possibility coexisting in the same frame.",
+  "story_brief_character": "a knowledgeable presenter",
+  "story_brief_setting": "a single continuous environment with strong depth and readable vertical framing",
+  "starter_prompt_chars": 1932,
+  "continuity_notes": [
+    "character=entomologist specializing in ants",
+    "location=forest floor, ant colonies, laboratory observation",
+    "lighting=natural motivated available light with soft contrast",
+    "palette=neutral documentary color grade with selective warmth",
+    "camera=handheld-inspired stability with observational framing",
+    "clip_1_continuity_lock=present",
+    "clip_1_use_to_video_language=present",
+    "clip_1_character_anchor=present",
+    "clip_2_continuity_lock=present",
+    "clip_2_use_frame_language=present",
+    "clip_2_character_anchor=present",
+    "clip_3_continuity_lock=present",
+    "clip_3_use_frame_language=present",
+    "clip_3_character_anchor=present",
+    "use_for_video_action=Use to Video (app menu)"
+  ],
+  "runtime_name": "Phase I 3-Clip Continuity Runtime",
+  "route_name": "runway_live_smoke_phase_i_3clip",
+  "is_phase_i_continuity": true,
+  "approval_plan": "phase_i_7_gate",
+  "preclean_attempted": true,
+  "stale_image_preview_detected": false,
+  "stale_preview_closed": false,
+  "preclean_notes": [
+    "no stale preview detected"
+  ],
+  "clip_1_downloaded": true,
+  "clip_2_downloaded": true,
+  "clip_3_downloaded": true,
+  "clip_2_prompt_ready_checked": true,
+  "clip_2_prompt_ready_result": "ready",
+  "clip_2_generation_detected_after_prompt_timeout": false,
+  "clip_3_prompt_ready_checked": true,
+  "clip_3_prompt_ready_result": "ready",
+  "clip_3_generation_detected_after_prompt_timeout": false,
+  "clip_2_use_frame_handoff_checked": true,
+  "clip_2_use_frame_handoff_result": "composer_ready",
+  "clip_2_reference_thumbnail_detected": true,
+  "clip_2_prompt_interactable_after_use_frame": true,
+  "clip_3_use_frame_handoff_checked": true,
+  "clip_3_use_frame_handoff_result": "composer_ready",
+  "clip_3_reference_thumbnail_detected": true,
+  "clip_3_prompt_interactable_after_use_frame": true,
+  "clip_1_download_strategy": "cdp_fetch",
+  "clip_2_download_strategy": "cdp_fetch",
+  "clip_3_download_strategy": "cdp_fetch",
+  "clip_1_download_scoped_to_card": true,
+  "clip_2_download_scoped_to_card": true,
+  "clip_3_download_scoped_to_card": true,
+  "artifact_card_assignments": {
+    "starter_image_card": {
+      "card_index": 0,
+      "card_fingerprint": "554|1260|476|853|",
+      "card_type": "image",
+      "card_prompt_text": "",
+      "bounding_box": {
+        "x": 554.0703125,
+        "y": 1260.453125,
+        "width": 475.859375,
+        "height": 852.578125
+      },
+      "buttons_visible": [],
+      "media_src": "",
+      "media_urls": [],
+      "role": "starter_image_card",
+      "consumed": true
+    },
+    "latest_video_card": {
+      "card_index": 0,
+      "card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "card_type": "video",
+      "card_prompt_text": "Gen-4_5 - Clip 3 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Close \u2014 foc Apps Use frame Edit 4K",
+      "bounding_box": {
+        "x": 488.0,
+        "y": 1204.328125,
+        "width": 608.0,
+        "height": 438.875
+      },
+      "buttons_visible": [
+        "Reuse settings",
+        "See full prompt",
+        "feedback",
+        "Hide output",
+        "play",
+        "mute",
+        "playback time",
+        "Playback rate 1",
+        "enter fullscreen mode",
+        "Apps",
+        "Use frame",
+        "Use frame options",
+        "Edit",
+        "Share",
+        "Favorite",
+        "4K"
+      ],
+      "media_src": "https://dnznrvs05pmza.cloudfront.net/fbf71f29-aaaf-497e-8439-8fa6c14471a7.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiM2ZiNzNhNmQ3ZmI2YjY3NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MTQ1M30.u0JRBbiaSF0hEg9UtWfMzJJA11607vIgMW70hhMnaoE",
+      "media_urls": [
+        "https://dnznrvs05pmza.cloudfront.net/fbf71f29-aaaf-497e-8439-8fa6c14471a7.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiM2ZiNzNhNmQ3ZmI2YjY3NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MTQ1M30.u0JRBbiaSF0hEg9UtWfMzJJA11607vIgMW70hhMnaoE",
+        "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/compressed_image/result.jpg?input_image=https%3A%2F%2Fd2jqrm6oza8nb6.cloudfront.net%2Fextracted-frames%2F269e5776-ed2d-4bc5-b13a-9614c4084cc2.jpg%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZmNmMjU2OTU1NDUxOWMxZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MTEwOX0.Pi5EoiuH9F2AZuVxsRgMyKknp4TNOSeriAwa_2iL_ig&input_max_width=64&input_max_height=64&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c"
+      ],
+      "role": "latest_video_card",
+      "consumed": false
+    },
+    "clip_1_video_card": {
+      "card_index": 0,
+      "card_fingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "card_type": "video",
+      "card_prompt_text": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+      "bounding_box": {
+        "x": 488.0,
+        "y": 709.578125,
+        "width": 608.0,
+        "height": 438.875
+      },
+      "buttons_visible": [
+        "Reuse settings",
+        "See full prompt",
+        "feedback",
+        "Hide output",
+        "play",
+        "mute",
+        "playback time",
+        "Playback rate 1",
+        "enter fullscreen mode",
+        "Apps",
+        "Use frame",
+        "Use frame options",
+        "Edit",
+        "Share",
+        "Favorite",
+        "4K"
+      ],
+      "media_src": "https://dnznrvs05pmza.cloudfront.net/818759bb-cbce-4d65-ab7e-788cb4cd8cf0.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZTUzZDcwYjk5YTJjZGY3MyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA0OTAxN30.-GTYVH4ynhaJDPYh6iPMbn4j5JhBl08P4nT0kEl6oic",
+      "media_urls": [
+        "https://dnznrvs05pmza.cloudfront.net/818759bb-cbce-4d65-ab7e-788cb4cd8cf0.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZTUzZDcwYjk5YTJjZGY3MyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA0OTAxN30.-GTYVH4ynhaJDPYh6iPMbn4j5JhBl08P4nT0kEl6oic",
+        "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/scaled_image/result.png?input_image=https%3A%2F%2Fdnznrvs05pmza.cloudfront.net%2Fgemini%2Fgemini-3.1-flash-image-preview%2Fimages%2F02eb01b8-a2da-4836-8884-4b781ada8ce9%2FNano_Banana_2___cinematic_realistic_vertical_916_hero_starter_frame__Static_hold_composition_for_ref.png%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMGMzZTMyNmU4Yjk0MDMyYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA3OTUzNH0.wPpqRZIc_84BH_s3yuI3X-ZX837S9-pZzoIf8sinkJw&input_max_width=64&input_max_height=64&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c"
+      ],
+      "role": "clip_1_video_card",
+      "consumed": false
+    },
+    "clip_2_video_card": {
+      "card_index": 0,
+      "card_fingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "card_type": "video",
+      "card_prompt_text": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
+      "bounding_box": {
+        "x": 488.0,
+        "y": 709.453125,
+        "width": 608.0,
+        "height": 438.875
+      },
+      "buttons_visible": [
+        "Reuse settings",
+        "See full prompt",
+        "feedback",
+        "Hide output",
+        "play",
+        "mute",
+        "playback time",
+        "Playback rate 1",
+        "enter fullscreen mode",
+        "Apps",
+        "Use frame",
+        "Use frame options",
+        "Edit",
+        "Share",
+        "Favorite",
+        "4K"
+      ],
+      "media_src": "https://dnznrvs05pmza.cloudfront.net/012a4419-a148-4f94-a31c-60154c326a4f.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZGMzNmRkNzg2YTkyM2RkZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MjM2MH0.QCyh5pNcru8VxjuBoCmeMXHOTbUqgkvVYA75uaDZxrw",
+      "media_urls": [
+        "https://dnznrvs05pmza.cloudfront.net/012a4419-a148-4f94-a31c-60154c326a4f.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZGMzNmRkNzg2YTkyM2RkZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MjM2MH0.QCyh5pNcru8VxjuBoCmeMXHOTbUqgkvVYA75uaDZxrw",
+        "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/compressed_image/result.jpg?input_image=https%3A%2F%2Fd2jqrm6oza8nb6.cloudfront.net%2Fextracted-frames%2F673ccedd-40a1-4b9e-bd00-482f0d49760a.jpg%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiODcyNDBkMzdkM2RhZTA5ZSIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTExNDAzOX0.gke5q0kUqLCP44n4fWjSCxrh-7az-s5mWyzd63cLRHg&input_max_width=64&input_max_height=64&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c"
+      ],
+      "role": "clip_2_video_card",
+      "consumed": false
+    },
+    "clip_3_video_card": {
+      "card_index": 0,
+      "card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "card_type": "video",
+      "card_prompt_text": "Gen-4_5 - Clip 3 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Close \u2014 foc Apps Use frame Edit 4K",
+      "bounding_box": {
+        "x": 488.0,
+        "y": 1204.328125,
+        "width": 608.0,
+        "height": 438.875
+      },
+      "buttons_visible": [
+        "Reuse settings",
+        "See full prompt",
+        "feedback",
+        "Hide output",
+        "play",
+        "mute",
+        "playback time",
+        "Playback rate 1",
+        "enter fullscreen mode",
+        "Apps",
+        "Use frame",
+        "Use frame options",
+        "Edit",
+        "Share",
+        "Favorite",
+        "4K"
+      ],
+      "media_src": "https://dnznrvs05pmza.cloudfront.net/fbf71f29-aaaf-497e-8439-8fa6c14471a7.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiM2ZiNzNhNmQ3ZmI2YjY3NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MTQ1M30.u0JRBbiaSF0hEg9UtWfMzJJA11607vIgMW70hhMnaoE",
+      "media_urls": [
+        "https://dnznrvs05pmza.cloudfront.net/fbf71f29-aaaf-497e-8439-8fa6c14471a7.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiM2ZiNzNhNmQ3ZmI2YjY3NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MTQ1M30.u0JRBbiaSF0hEg9UtWfMzJJA11607vIgMW70hhMnaoE",
+        "https://images.streaming-inference.models.runwayml.cloud/streams-server-cpu/raw_image/commands/compressed_image/result.jpg?input_image=https%3A%2F%2Fd2jqrm6oza8nb6.cloudfront.net%2Fextracted-frames%2F269e5776-ed2d-4bc5-b13a-9614c4084cc2.jpg%3F_jwt%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZmNmMjU2OTU1NDUxOWMxZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4MTA4MTEwOX0.Pi5EoiuH9F2AZuVxsRgMyKknp4TNOSeriAwa_2iL_ig&input_max_width=64&input_max_height=64&hardware=cpu&priority=low&tok=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc1ODM1MjEsImVtYWlsIjoia2FtYW5nYXJwZWRyYW1AZ21haWwuY29tIiwiZXhwIjoxNzgxOTc4MzMxLjUwMiwiaWF0IjoxNzc5Mzg2MzMxLjUwMiwic3NvIjpmYWxzZX0.1iODrcTHVhIsjSD6Qbsg7QQpkr85xfRukH5SDoRRi-c"
+      ],
+      "role": "clip_3_video_card",
+      "consumed": false
+    }
+  },
+  "downloaded_file_paths": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_1_session_20260608_220814.mp4",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_2_session_20260608_222421.mp4",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_3_session_20260608_223643.mp4"
+  ],
+  "total_downloads_completed": 3,
+  "download_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway",
+  "download_records": [],
+  "clip_1_completion_verified": true,
+  "clip_2_completion_verified": true,
+  "clip_3_completion_verified": true,
+  "clip_1_completion_reason": "strict_complete",
+  "clip_2_completion_reason": "strict_complete",
+  "clip_3_completion_reason": "strict_complete",
+  "clip_1_download_gate_released_after_completion": false,
+  "clip_2_download_gate_released_after_completion": false,
+  "clip_3_download_gate_released_after_completion": false,
+  "early_approval_rejections_count": 0,
+  "approval_gate_safety_enabled": true,
+  "use_frame_last_frame_by_clip": {
+    "2": {
+      "use_frame_source_clip": 1,
+      "use_frame_source": "last_safe_frame",
+      "previous_clip_seeked_to_last_frame": true,
+      "seek_time_used": 9.2,
+      "seek_strategy": "duration_minus_0.7s",
+      "playback_seek_method": "html_video_currentTime",
+      "generation_controls_avoided": true,
+      "video_duration_seconds": 10.0,
+      "preview_not_first_frame": true,
+      "strict_previous_complete": true,
+      "scoped_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "use_frame_clicked": true,
+      "first_frame_fallback_used": false,
+      "fallback_requires_operator": false,
+      "notes": []
+    },
+    "3": {
+      "use_frame_source_clip": 2,
+      "use_frame_source": "last_safe_frame",
+      "previous_clip_seeked_to_last_frame": true,
+      "seek_time_used": 9.2,
+      "seek_strategy": "duration_minus_0.7s",
+      "playback_seek_method": "html_video_currentTime",
+      "generation_controls_avoided": true,
+      "video_duration_seconds": 10.0,
+      "preview_not_first_frame": true,
+      "strict_previous_complete": true,
+      "scoped_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "use_frame_clicked": true,
+      "first_frame_fallback_used": false,
+      "fallback_requires_operator": false,
+      "notes": []
+    }
+  },
+  "clip_2_use_frame_source_clip": 1,
+  "clip_2_use_frame_source": "last_safe_frame",
+  "clip_2_previous_clip_seeked_to_last_frame": true,
+  "clip_2_seek_time_used": 9.2,
+  "clip_2_seek_strategy": "duration_minus_0.7s",
+  "clip_3_use_frame_source_clip": 2,
+  "clip_3_use_frame_source": "last_safe_frame",
+  "clip_3_previous_clip_seeked_to_last_frame": true,
+  "clip_3_seek_time_used": 9.2,
+  "clip_3_seek_strategy": "duration_minus_0.7s",
+  "story_progression_audit": {
+    "three_unique_beats": true,
+    "discovery_present": false,
+    "escalation_present": true,
+    "payoff_present": true,
+    "prompts_three_unique": true,
+    "prompt_discovery_language": false,
+    "prompt_escalation_language": false,
+    "prompt_payoff_language": true,
+    "continuity_preserved_all_clips": true,
+    "character_locked": false,
+    "setting_locked": true,
+    "wardrobe_locked": true,
+    "all_pass": false
+  },
+  "final_status": "completed",
+  "stopped_reason": "",
+  "errors": [],
+  "warnings": [
+    "story progression audit flagged weak discovery/escalation/payoff separation"
+  ],
+  "screenshots": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_image_aspect_ratio_menu_1780947807.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_image_count_menu_1780947807.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_popover_open_image_count_menu_1780947818.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_option_before_image_count_menu_image_count__1780947840.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_option_after_image_count_menu_image_count_1_1780947847.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_after_image_count_menu_attempt_1_1780947855.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_image_quality_menu_1780947860.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_popover_open_image_quality_menu_1780947870.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_option_before_image_quality_menu_image_qual_1780947876.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_option_after_image_quality_menu_image_quali_1780947883.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_after_image_quality_menu_attempt_1_1780947890.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_starter_chips_initial_1780947895.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_image_aspect_ratio_menu_1780947900.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_image_count_menu_1780947907.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_image_quality_menu_1780947910.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_starter_chips_verified_1780947915.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_starter_image_preclean_1780947920.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_latest_image_before_scroll_1780948198.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_latest_image_after_scroll_1780948204.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_latest_image_app_menu_open_1780948212.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_latest_image_use_to_video_before_image_use_to_vi_1780948219.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_latest_image_use_to_video_after_image_use_to_vid_1780948229.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_latest_image_after_use_to_video_1780948236.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_use_starter_image_for_video_ok_1780948241.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_used_image_card_cleanup_deferred_1780948245.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780948252.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780948257.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_popover_open_duration_menu_1780948271.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_option_before_duration_menu_duration_10s_1780948276.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_option_after_duration_menu_duration_10s_1780948284.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_after_duration_menu_attempt_1_1780948294.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780948301.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780948305.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780948309.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780948316.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780948324.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780948333.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780948341.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780948345.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780948349.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780948356.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780948361.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780948365.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948386.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948432.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948477.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948522.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948568.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948613.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948659.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948704.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948749.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948795.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948840.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948886.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948931.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780948976.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780949021.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780949067.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780949112.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780949157.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780949203.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_1_1780949249.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_use_frame_handoff_ok_clip_2_1780949302.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780949303.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780949303.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780949304.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780949304.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780949304.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780949305.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780949305.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780949305.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780949306.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780949306.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780949306.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780949307.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780949307.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949308.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949354.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949399.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949444.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949490.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949535.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949581.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949626.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949671.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949717.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949762.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949808.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949853.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949898.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949944.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780949989.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780950034.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780950080.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780950125.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780950170.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_2_1780950216.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_use_frame_handoff_ok_clip_3_1780950269.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780950271.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780950271.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780950271.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780950272.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780950272.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780950272.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780950273.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780950273.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780950273.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_initial_1780950274.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_aspect_ratio_menu_1780950274.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_chip_detect_before_duration_menu_1780950274.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_video_chips_prepared_1780950275.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950277.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950322.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950368.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950413.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950459.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950504.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950550.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950595.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950640.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950686.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950731.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950776.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950821.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950867.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950912.png",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_strict_completion_pending_clip_3_1780950957.png"
+  ],
+  "action_log": [
+    {
+      "action": "navigate",
+      "control_key": "image_prompt_input",
+      "detail": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "navigate",
+      "control_key": "image_prompt_input",
+      "detail": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "fill_prompt",
+      "control_key": "image_prompt_input",
+      "detail": "chars=1932; selector=mapped",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "image_aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_open",
+      "control_key": "image_count_menu",
+      "detail": "kind=count; before=4; target=('1',)",
+      "approved": false
+    },
+    {
+      "action": "chip_popover_wait",
+      "control_key": "image_count_menu",
+      "detail": "delay_ms=1000",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_option_box",
+      "control_key": "image_count_1",
+      "detail": "text=1; x=283.8; y=1020.0; w=47.8; h=36.0; center=(307.7,1038.0)",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_hover",
+      "control_key": "image_count_1",
+      "detail": "text=1; hover_ms=400; x=307.7; y=1038.0",
+      "approved": false
+    },
+    {
+      "action": "chip_mouse_click",
+      "control_key": "image_count_1",
+      "detail": "text=1; after_click_ms=700",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_select",
+      "control_key": "image_count_1",
+      "detail": "text=1; before=4; after=1",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_ok",
+      "control_key": "image_count_menu",
+      "detail": "value=1; attempt=1",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_ok",
+      "control_key": "image_count_menu",
+      "detail": "value=1",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_open",
+      "control_key": "image_quality_menu",
+      "detail": "kind=quality; before=1K; target=('2K', '2k', '2 K')",
+      "approved": false
+    },
+    {
+      "action": "chip_popover_wait",
+      "control_key": "image_quality_menu",
+      "detail": "delay_ms=1000",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_option_box",
+      "control_key": "image_quality_2k",
+      "detail": "text=2K; x=391.7; y=1020.0; w=53.3; h=36.0; center=(418.4,1038.0)",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=1K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_hover",
+      "control_key": "image_quality_2k",
+      "detail": "text=2K; hover_ms=400; x=418.4; y=1038.0",
+      "approved": false
+    },
+    {
+      "action": "chip_mouse_click",
+      "control_key": "image_quality_2k",
+      "detail": "text=2K; after_click_ms=700",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_select",
+      "control_key": "image_quality_2k",
+      "detail": "text=2K; before=1K; after=2K",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_ok",
+      "control_key": "image_quality_menu",
+      "detail": "value=2K; attempt=1",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_ok",
+      "control_key": "image_quality_menu",
+      "detail": "value=2K",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "image_aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "image_count_menu",
+      "detail": "already=1",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "image_quality_menu",
+      "detail": "already=2K",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "starter_image_preclean",
+      "control_key": null,
+      "detail": "stale=False; closed=False; notes=['no stale preview detected']",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "image_cards_snapshot_before_generate",
+      "control_key": "image_generate_button",
+      "detail": "count=2; fingerprints=['488|718|608|439|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit', '554|-191|476|853|']",
+      "approved": false
+    },
+    {
+      "action": "click",
+      "control_key": "image_generate_button",
+      "detail": "text=Generate",
+      "approved": true
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=2; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=3; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_select",
+      "control_key": null,
+      "detail": "index=0; fingerprint=554|1260|476|853|; reason=new_card_diff_single_candidate; pre_count=2; candidates=1; prompt=''; box={'x': 554.0703125, 'y': 1260.453125, 'width': 475.859375, 'height': 852.578125}",
+      "approved": false
+    },
+    {
+      "action": "prompt_clear",
+      "control_key": "image_prompt_input",
+      "detail": "chars=1932",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_scan",
+      "control_key": null,
+      "detail": "count=3; pre_count=2",
+      "approved": false
+    },
+    {
+      "action": "latest_image_card_select",
+      "control_key": null,
+      "detail": "index=0; fingerprint=554|1260|476|853|; reason=new_card_diff_single_candidate; pre_count=2; candidates=1; prompt=''; box={'x': 554.0703125, 'y': 1260.453125, 'width': 475.859375, 'height': 852.578125}",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "latest_image_scroll",
+      "control_key": null,
+      "detail": "index=0",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "use_starter_image_for_video_direct_miss",
+      "control_key": null,
+      "detail": "index=0; candidates=[]",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "latest_image_app_menu_open",
+      "control_key": null,
+      "detail": "index=0; use_to_video=true",
+      "approved": false
+    },
+    {
+      "action": "chip_option_box",
+      "control_key": "image_use_to_video_option",
+      "detail": "text=Use in video; x=567.1; y=803.0; w=296.0; h=40.0; center=(715.1,823.0)",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
+      "approved": false
+    },
+    {
+      "action": "chip_hover",
+      "control_key": "image_use_to_video_option",
+      "detail": "text=Use in video; hover_ms=400; x=715.1; y=823.0",
+      "approved": false
+    },
+    {
+      "action": "chip_mouse_click",
+      "control_key": "image_use_to_video_option",
+      "detail": "text=Use in video; after_click_ms=700",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "latest_image_use_to_video",
+      "control_key": null,
+      "detail": "index=0; text=Use in video",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "latest_image_transition_verify",
+      "control_key": null,
+      "detail": "verified=True; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "use_starter_image_for_video",
+      "control_key": "image_use_to_video_option",
+      "detail": "index=0; action=Use to Video (app menu); candidates=[]; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "latest_image_transition_verify",
+      "control_key": null,
+      "detail": "verified=True; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "image_card_mark_consumed",
+      "control_key": "image_card_remove_button",
+      "detail": "fingerprint=554|1260|476|853|",
+      "approved": false
+    },
+    {
+      "action": "used_image_card_cleanup",
+      "control_key": "image_card_remove_button",
+      "detail": "fingerprint=554|1260|476|853|; index=0; deferred_physical_remove_on_video_page=true; marked_consumed=True",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "prompt_editor_ready",
+      "control_key": null,
+      "detail": "clip=1; selector=div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "prompt_clear_skip",
+      "control_key": "prompt_input",
+      "detail": "already empty",
+      "approved": false
+    },
+    {
+      "action": "fill_prompt",
+      "control_key": "prompt_input",
+      "detail": "chars=1198; selector=div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "clip_prompt_verified",
+      "control_key": "prompt_input",
+      "detail": "clip=1; attempt=2; marker='clip 1 of'",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "chip_open",
+      "control_key": "duration_menu",
+      "detail": "kind=duration; before=5s; target=('10s', '10S', '10 s', '10 seconds')",
+      "approved": false
+    },
+    {
+      "action": "chip_popover_wait",
+      "control_key": "duration_menu",
+      "detail": "delay_ms=1000",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "chip_option_box",
+      "control_key": "duration_10s",
+      "detail": "text=10 s; x=340.4; y=1056.0; w=103.5; h=36.0; center=(392.2,1074.0)",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=5s",
+      "approved": false
+    },
+    {
+      "action": "chip_hover",
+      "control_key": "duration_10s",
+      "detail": "text=10 s; hover_ms=400; x=392.2; y=1074.0",
+      "approved": false
+    },
+    {
+      "action": "chip_mouse_click",
+      "control_key": "duration_10s",
+      "detail": "text=10 s; after_click_ms=700",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_select",
+      "control_key": "duration_10s",
+      "detail": "text=10 s; before=5s; after=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_ok",
+      "control_key": "duration_menu",
+      "detail": "value=10s; attempt=1",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_ok",
+      "control_key": "duration_menu",
+      "detail": "value=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "video_settings_verify_ok",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "click",
+      "control_key": "generate_button",
+      "detail": "composer_once source=composer_scope; y=1162; text=generate",
+      "approved": true
+    },
+    {
+      "action": "generate_click_assumed",
+      "control_key": "generate_button",
+      "detail": "clip=1; confirm_timeout; feed_cards=0; single_submit_policy",
+      "approved": true
+    },
+    {
+      "action": "wait_strict_completion_start",
+      "control_key": null,
+      "detail": "clip=1; poll=45.0s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "wait_strict_completion_done",
+      "control_key": null,
+      "detail": "clip=1; reason=strict_complete; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "artifact_assign_clip_video",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit; type=video",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clip_download_attempt",
+      "control_key": null,
+      "detail": "clip=1; strategy=cdp_fetch; scoped=True; ok=True",
+      "approved": false
+    },
+    {
+      "action": "settle_after_download",
+      "control_key": null,
+      "detail": "clip=1; notes=['clip=1']",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "use_frame_scoped",
+      "control_key": null,
+      "detail": "target_clip=2; source_clip=1; role=clip_1_video_card; scope=source_clip_card; attempt=1",
+      "approved": false
+    },
+    {
+      "action": "last_frame_use_frame_prepare",
+      "control_key": null,
+      "detail": "target=2; source=1; seeked=True; seek=9.2; strategy=duration_minus_0.7s; source=last_safe_frame",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_focus_composer",
+      "control_key": null,
+      "detail": "div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "settle_after_use_frame",
+      "control_key": null,
+      "detail": "clip=2; partial_ready=True",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_verify_start",
+      "control_key": null,
+      "detail": "clip=2",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_verify_ok",
+      "control_key": null,
+      "detail": "clip=2; result=composer_ready; prompt=True; ref=True",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "prompt_editor_ready",
+      "control_key": null,
+      "detail": "clip=2; selector=div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "prompt_clear",
+      "control_key": "prompt_input",
+      "detail": "chars=1198",
+      "approved": false
+    },
+    {
+      "action": "fill_prompt",
+      "control_key": "prompt_input",
+      "detail": "chars=1331; selector=div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "clip_prompt_verified",
+      "control_key": "prompt_input",
+      "detail": "clip=2; attempt=2; marker='clip 2 of'",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "video_settings_verify_ok",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "click",
+      "control_key": "generate_button",
+      "detail": "composer_once source=composer_scope; y=1162; text=generate",
+      "approved": true
+    },
+    {
+      "action": "generate_click_confirmed",
+      "control_key": "generate_button",
+      "detail": "clip=2; feed_cards=2; signals=output_cards_detected",
+      "approved": true
+    },
+    {
+      "action": "wait_strict_completion_start",
+      "control_key": null,
+      "detail": "clip=2; poll=45.0s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "wait_strict_completion_done",
+      "control_key": null,
+      "detail": "clip=2; reason=strict_complete; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "artifact_assign_clip_video",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit; type=video",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clip_download_attempt",
+      "control_key": null,
+      "detail": "clip=2; strategy=cdp_fetch; scoped=True; ok=True",
+      "approved": false
+    },
+    {
+      "action": "settle_after_download",
+      "control_key": null,
+      "detail": "clip=2; notes=['clip=2']",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "use_frame_scoped",
+      "control_key": null,
+      "detail": "target_clip=3; source_clip=2; role=clip_2_video_card; scope=source_clip_card; attempt=1",
+      "approved": false
+    },
+    {
+      "action": "last_frame_use_frame_prepare",
+      "control_key": null,
+      "detail": "target=3; source=2; seeked=True; seek=9.2; strategy=duration_minus_0.7s; source=last_safe_frame",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=3; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_focus_composer",
+      "control_key": null,
+      "detail": "div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=3; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "settle_after_use_frame",
+      "control_key": null,
+      "detail": "clip=3; partial_ready=True",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_verify_start",
+      "control_key": null,
+      "detail": "clip=3",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=3; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_verify_ok",
+      "control_key": null,
+      "detail": "clip=3; result=composer_ready; prompt=True; ref=True",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=3; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=3; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=2; fp=488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "prompt_editor_ready",
+      "control_key": null,
+      "detail": "clip=3; selector=div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "prompt_clear",
+      "control_key": "prompt_input",
+      "detail": "chars=1331",
+      "approved": false
+    },
+    {
+      "action": "fill_prompt",
+      "control_key": "prompt_input",
+      "detail": "chars=1196; selector=div[aria-label=\"Prompt\"]",
+      "approved": false
+    },
+    {
+      "action": "clip_prompt_verified",
+      "control_key": "prompt_input",
+      "detail": "clip=3; attempt=2; marker='clip 3 of'",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "video_settings_verify_ok",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "aspect_ratio_menu",
+      "detail": "already=9:16",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_verify_skip",
+      "control_key": "duration_menu",
+      "detail": "already=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
+    {
+      "action": "click",
+      "control_key": "generate_button",
+      "detail": "composer_once source=composer_scope; y=1162; text=generate",
+      "approved": true
+    },
+    {
+      "action": "generate_click_confirmed",
+      "control_key": "generate_button",
+      "detail": "clip=3; feed_cards=4; signals=output_cards_detected",
+      "approved": true
+    },
+    {
+      "action": "wait_strict_completion_start",
+      "control_key": null,
+      "detail": "clip=3; poll=45.0s",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "wait_strict_completion_done",
+      "control_key": null,
+      "detail": "clip=3; reason=strict_complete; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "artifact_assign_clip_video",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit; type=video",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=3; fp=488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+      "approved": false
+    },
+    {
+      "action": "clip_download_attempt",
+      "control_key": null,
+      "detail": "clip=3; strategy=cdp_fetch; scoped=True; ok=True",
+      "approved": false
+    },
+    {
+      "action": "click",
+      "control_key": "remove_image",
+      "detail": "aria_label=Remove image",
+      "approved": false
+    }
+  ],
+  "prompt_source": "CONTENT_BRAIN_V83",
+  "content_brain_run_id": "cb_e2e_20260608_214146_fcbcf78e",
+  "prompt_cleanup_used": true,
+  "prompt_noise_score": 0.0867,
+  "prompt_efficiency_score": 1.0,
+  "handoff_loaded_from": "e2e_result",
+  "handoff_version": "content_brain_live_smoke_handoff_v1_1",
+  "content_brain_topic": "the ants",
+  "topic_label": "The Ants",
+  "seo_title": "Expert Guide to Identifying and Safely Managing Flying Ants in Your Home",
+  "story_summary": "An entomologist specializing in ants explores their evolutionary history, colony dynamics, and safe elimination methods through detailed observation in natural and lab settings, weaving in species-specific pheromone signaling pathways, division of labor optimization in polymorphic ant colonies, impact of invasive ant species on native biodiversity, ant-mediated soil bioturbation and nutrient cy...",
+  "starter_prompt_preview": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: entomologist specializing in ants. Environment: forest floor, ant colonies, laboratory observation. Lighting: natural motivated available light with soft cont...",
+  "execution_mode": "FULL_AUTO",
+  "auto_execution_timeline": [
+    {
+      "timestamp": "2026-06-08 21:45:24",
+      "step_id": "008_image_generate_manual_required",
+      "action": "auto_image_generate_button",
+      "reason": "validated",
+      "validation": {
+        "ok": true,
+        "action": "image_generate_button",
+        "reason": "",
+        "details": {
+          "settings_verified": true,
+          "detected_aspect_ratio": "9:16",
+          "detected_image_count": "1"
+        }
+      },
+      "runtime_state": "preparing"
+    },
+    {
+      "timestamp": "2026-06-08 21:49:50",
+      "step_id": "009_wait_for_image_ready_manual",
+      "action": "auto_image_ready",
+      "reason": "latest_image_card_detected_after_scan",
+      "validation": {
+        "ok": true,
+        "action": "image_ready",
+        "reason": "latest_image_card_detected_after_scan",
+        "details": {
+          "card_index": 0,
+          "step_id": "009_wait_for_image_ready_manual"
+        }
+      },
+      "runtime_state": "preparing"
+    },
+    {
+      "timestamp": "2026-06-08 21:52:29",
+      "step_id": "016_video_generate_manual_required_clip_1",
+      "action": "auto_generate_button",
+      "reason": "prompt_verified",
+      "validation": {
+        "ok": true,
+        "action": "prompt_input",
+        "reason": "prompt_verified",
+        "details": {
+          "overlap": 1.0
+        }
+      },
+      "runtime_state": "preparing"
+    },
+    {
+      "timestamp": "2026-06-08 22:08:14",
+      "step_id": "018_download_mp4_clip_1",
+      "action": "auto_download_mp4_button",
+      "reason": "validated",
+      "validation": {
+        "ok": true,
+        "action": "download_mp4_button",
+        "reason": "",
+        "details": {
+          "clip_index": 1,
+          "complete": true,
+          "reason": "strict_complete",
+          "generation_in_progress": false,
+          "progress_text": "",
+          "progress_percent": null,
+          "spinner_visible": false,
+          "stop_cancel_visible": false,
+          "output_loading": false,
+          "completed_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+          "download_in_assigned_card": true,
+          "playable_video_in_card": true,
+          "use_frame_in_prior_card": false,
+          "ignored_global_download": true,
+          "artifact_cards": [
+            {
+              "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+              "cardTop": 1204.453125,
+              "cardBottom": 1643.328125,
+              "cardViewportTop": 1204.453125,
+              "cardViewportBottom": 1643.328125,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": false,
+              "rejectedReason": "",
+              "completeCandidate": true
+            },
+            {
+              "cardFingerprint": "554|296|476|853|image|",
+              "cardType": "image",
+              "cardText": "",
+              "cardPromptText": "",
+              "cardTop": 295.875,
+              "cardBottom": 1148.453125,
+              "cardViewportTop": 295.875,
+              "cardViewportBottom": 1148.453125,
+              "cardViewportVisible": true,
+              "cardWidth": 475.859375,
+              "cardHeight": 852.578125,
+              "buttonsVisible": [
+                "feedback",
+                "Actions",
+                "Favorite"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": false,
+              "hasAppsMenu": false,
+              "playableVideo": false,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": false,
+              "rejectedReason": "",
+              "completeCandidate": false
+            },
+            {
+              "cardFingerprint": "488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about Lion Big Animal_ Primary story beat Open Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about Lion Big Animal_ Primary story beat Open Apps Use frame Edit 4K",
+              "cardTop": -247,
+              "cardBottom": 191.875,
+              "cardViewportTop": -247,
+              "cardViewportBottom": 191.875,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": true,
+              "rejectedReason": "negative_viewport_y",
+              "completeCandidate": false
+            }
+          ],
+          "download_button_candidates": [
+            "download all"
+          ],
+          "use_frame_candidates": [
+            "use frame",
+            "use frame options",
+            "use frame",
+            "use frame options"
+          ],
+          "assigned_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+          "candidate_cards": [
+            {
+              "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "cardType": "video",
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "hasDownload": false,
+              "hasAppsMenu": true,
+              "hasUseFrame": true,
+              "cardViewportVisible": true,
+              "cardViewportTop": 1204.453125,
+              "cardViewportBottom": 1643.328125,
+              "cardBottom": 1643.328125,
+              "completeCandidate": true
+            }
+          ],
+          "rejected_cards": [
+            {
+              "cardFingerprint": "488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+              "reason": "negative_viewport_y"
+            },
+            {
+              "cardFingerprint": "488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+              "reason": "negative_viewport_y"
+            },
+            {
+              "cardFingerprint": "488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+              "reason": "negative_viewport_y"
+            },
+            {
+              "cardFingerprint": "488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+              "reason": "negative_viewport_y"
+            },
+            {
+              "cardFingerprint": "488|-247|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about lion big animal_ primary story beat open apps use frame edit",
+              "reason": "negative_document_y",
+              "cardBottom": 191.875
+            }
+          ],
+          "card_scoped_state": {
+            "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+            "cardType": "video",
+            "playableVideo": true,
+            "videoLoading": false,
+            "cardLoading": false,
+            "cardSpinnerVisible": false,
+            "cardProgressVisible": false,
+            "hasDownload": false,
+            "hasAppsMenu": true,
+            "hasUseFrame": true,
+            "cardViewportVisible": true,
+            "cardViewportTop": 1204.453125,
+            "cardViewportBottom": 1643.328125,
+            "cardBottom": 1643.328125,
+            "completeCandidate": true
+          },
+          "global_generation_state": {
+            "in_progress": false,
+            "spinner_visible": false,
+            "stop_cancel_visible": false,
+            "progress_text": "",
+            "output_cards_detected": 7,
+            "output_loading": false,
+            "generate_button_disabled": false,
+            "pending_output_slot": true,
+            "signals": [
+              "output_cards_detected"
+            ]
+          },
+          "persisted_assignment_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+          "notes": []
+        }
+      },
+      "runtime_state": "waiting_completion"
+    },
+    {
+      "timestamp": "2026-06-08 22:08:26",
+      "step_id": "025_video_generate_manual_required_clip_2",
+      "action": "auto_generate_button",
+      "reason": "prompt_verified",
+      "validation": {
+        "ok": true,
+        "action": "prompt_input",
+        "reason": "prompt_verified",
+        "details": {
+          "overlap": 1.0
+        }
+      },
+      "runtime_state": "waiting_completion"
+    },
+    {
+      "timestamp": "2026-06-08 22:24:21",
+      "step_id": "027_download_mp4_clip_2",
+      "action": "auto_download_mp4_button",
+      "reason": "validated",
+      "validation": {
+        "ok": true,
+        "action": "download_mp4_button",
+        "reason": "",
+        "details": {
+          "clip_index": 2,
+          "complete": true,
+          "reason": "strict_complete",
+          "generation_in_progress": false,
+          "progress_text": "",
+          "progress_percent": null,
+          "spinner_visible": false,
+          "stop_cancel_visible": false,
+          "output_loading": false,
+          "completed_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+          "download_in_assigned_card": true,
+          "playable_video_in_card": true,
+          "use_frame_in_prior_card": true,
+          "ignored_global_download": true,
+          "artifact_cards": [
+            {
+              "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
+              "cardTop": 1204.453125,
+              "cardBottom": 1643.328125,
+              "cardViewportTop": 1204.453125,
+              "cardViewportBottom": 1643.328125,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": false,
+              "rejectedReason": "",
+              "completeCandidate": true
+            },
+            {
+              "cardFingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+              "cardTop": 709.578125,
+              "cardBottom": 1148.453125,
+              "cardViewportTop": 709.578125,
+              "cardViewportBottom": 1148.453125,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": true,
+              "rejectedReason": "excluded_fingerprint",
+              "completeCandidate": false
+            },
+            {
+              "cardFingerprint": "554|-199|476|853|image|",
+              "cardType": "image",
+              "cardText": "",
+              "cardPromptText": "",
+              "cardTop": -199,
+              "cardBottom": 653.578125,
+              "cardViewportTop": -199,
+              "cardViewportBottom": 653.578125,
+              "cardViewportVisible": true,
+              "cardWidth": 475.859375,
+              "cardHeight": 852.578125,
+              "buttonsVisible": [
+                "feedback",
+                "Actions",
+                "Favorite"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": false,
+              "hasAppsMenu": false,
+              "playableVideo": false,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": true,
+              "rejectedReason": "negative_viewport_y",
+              "completeCandidate": false
+            }
+          ],
+          "download_button_candidates": [
+            "download all"
+          ],
+          "use_frame_candidates": [
+            "use frame",
+            "use frame options",
+            "use frame",
+            "use frame options"
+          ],
+          "assigned_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+          "candidate_cards": [
+            {
+              "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "cardType": "video",
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "hasDownload": false,
+              "hasAppsMenu": true,
+              "hasUseFrame": true,
+              "cardViewportVisible": true,
+              "cardViewportTop": 1204.453125,
+              "cardViewportBottom": 1643.328125,
+              "cardBottom": 1643.328125,
+              "completeCandidate": true
+            }
+          ],
+          "rejected_cards": [
+            {
+              "cardFingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "554|-199|476|853|image|",
+              "reason": "negative_viewport_y"
+            },
+            {
+              "cardFingerprint": "488|710|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "reason": "prompt_token_mismatch",
+              "cardBottom": 1148.453125
+            }
+          ],
+          "card_scoped_state": {
+            "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+            "cardType": "video",
+            "playableVideo": true,
+            "videoLoading": false,
+            "cardLoading": false,
+            "cardSpinnerVisible": false,
+            "cardProgressVisible": false,
+            "hasDownload": false,
+            "hasAppsMenu": true,
+            "hasUseFrame": true,
+            "cardViewportVisible": true,
+            "cardViewportTop": 1204.453125,
+            "cardViewportBottom": 1643.328125,
+            "cardBottom": 1643.328125,
+            "completeCandidate": true
+          },
+          "global_generation_state": {
+            "in_progress": false,
+            "spinner_visible": false,
+            "stop_cancel_visible": false,
+            "progress_text": "",
+            "output_cards_detected": 7,
+            "output_loading": false,
+            "generate_button_disabled": false,
+            "pending_output_slot": true,
+            "signals": [
+              "output_cards_detected"
+            ]
+          },
+          "persisted_assignment_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+          "notes": []
+        }
+      },
+      "runtime_state": "waiting_completion"
+    },
+    {
+      "timestamp": "2026-06-08 22:24:34",
+      "step_id": "034_video_generate_manual_required_clip_3",
+      "action": "auto_generate_button",
+      "reason": "prompt_verified",
+      "validation": {
+        "ok": true,
+        "action": "prompt_input",
+        "reason": "prompt_verified",
+        "details": {
+          "overlap": 1.0
+        }
+      },
+      "runtime_state": "waiting_completion"
+    },
+    {
+      "timestamp": "2026-06-08 22:36:43",
+      "step_id": "036_final_download_clip_3",
+      "action": "auto_download_mp4_button",
+      "reason": "validated",
+      "validation": {
+        "ok": true,
+        "action": "download_mp4_button",
+        "reason": "",
+        "details": {
+          "clip_index": 3,
+          "complete": true,
+          "reason": "strict_complete",
+          "generation_in_progress": false,
+          "progress_text": "",
+          "progress_percent": null,
+          "spinner_visible": false,
+          "stop_cancel_visible": false,
+          "output_loading": false,
+          "completed_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+          "download_in_assigned_card": true,
+          "playable_video_in_card": true,
+          "use_frame_in_prior_card": true,
+          "ignored_global_download": true,
+          "artifact_cards": [
+            {
+              "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 3 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Close \u2014 foc Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 3 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Close \u2014 foc Apps Use frame Edit 4K",
+              "cardTop": 1204.328125,
+              "cardBottom": 1643.203125,
+              "cardViewportTop": 1204.328125,
+              "cardViewportBottom": 1643.203125,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": false,
+              "rejectedReason": "",
+              "completeCandidate": true
+            },
+            {
+              "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
+              "cardTop": 709.453125,
+              "cardBottom": 1148.328125,
+              "cardViewportTop": 709.453125,
+              "cardViewportBottom": 1148.328125,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": true,
+              "rejectedReason": "excluded_fingerprint",
+              "completeCandidate": false
+            },
+            {
+              "cardFingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "cardType": "video",
+              "cardText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+              "cardPromptText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
+              "cardTop": 214.578125,
+              "cardBottom": 653.453125,
+              "cardViewportTop": 214.578125,
+              "cardViewportBottom": 653.453125,
+              "cardViewportVisible": true,
+              "cardWidth": 608,
+              "cardHeight": 438.875,
+              "buttonsVisible": [
+                "Reuse settings",
+                "See full prompt",
+                "feedback",
+                "Hide output",
+                "play",
+                "mute",
+                "playback time",
+                "Playback rate 1",
+                "enter fullscreen mode",
+                "Apps",
+                "Use frame",
+                "Use frame options",
+                "Edit",
+                "Share",
+                "Favorite",
+                "4K"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": true,
+              "hasAppsMenu": true,
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": false,
+              "rejectedReason": "",
+              "completeCandidate": true
+            },
+            {
+              "cardFingerprint": "554|-694|476|853|image|",
+              "cardType": "image",
+              "cardText": "",
+              "cardPromptText": "",
+              "cardTop": -694,
+              "cardBottom": 158.578125,
+              "cardViewportTop": -694,
+              "cardViewportBottom": 158.578125,
+              "cardViewportVisible": true,
+              "cardWidth": 475.859375,
+              "cardHeight": 852.578125,
+              "buttonsVisible": [
+                "feedback",
+                "Actions",
+                "Favorite"
+              ],
+              "hasDownload": false,
+              "hasUseFrame": false,
+              "hasAppsMenu": false,
+              "playableVideo": false,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "excluded": true,
+              "rejectedReason": "negative_viewport_y",
+              "completeCandidate": false
+            }
+          ],
+          "download_button_candidates": [
+            "download all"
+          ],
+          "use_frame_candidates": [
+            "use frame",
+            "use frame options",
+            "use frame",
+            "use frame options",
+            "use frame",
+            "use frame options"
+          ],
+          "assigned_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+          "candidate_cards": [
+            {
+              "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+              "cardType": "video",
+              "playableVideo": true,
+              "videoLoading": false,
+              "cardLoading": false,
+              "cardSpinnerVisible": false,
+              "cardProgressVisible": false,
+              "hasDownload": false,
+              "hasAppsMenu": true,
+              "hasUseFrame": true,
+              "cardViewportVisible": true,
+              "cardViewportTop": 1204.328125,
+              "cardViewportBottom": 1643.203125,
+              "cardBottom": 1643.203125,
+              "completeCandidate": true
+            }
+          ],
+          "rejected_cards": [
+            {
+              "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "reason": "excluded_fingerprint"
+            },
+            {
+              "cardFingerprint": "554|-694|476|853|image|",
+              "reason": "negative_viewport_y"
+            },
+            {
+              "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+              "reason": "prompt_token_mismatch",
+              "cardBottom": 1148.328125
+            },
+            {
+              "cardFingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+              "reason": "prompt_token_mismatch",
+              "cardBottom": 653.453125
+            }
+          ],
+          "card_scoped_state": {
+            "cardFingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+            "cardType": "video",
+            "playableVideo": true,
+            "videoLoading": false,
+            "cardLoading": false,
+            "cardSpinnerVisible": false,
+            "cardProgressVisible": false,
+            "hasDownload": false,
+            "hasAppsMenu": true,
+            "hasUseFrame": true,
+            "cardViewportVisible": true,
+            "cardViewportTop": 1204.328125,
+            "cardViewportBottom": 1643.203125,
+            "cardBottom": 1643.203125,
+            "completeCandidate": true
+          },
+          "global_generation_state": {
+            "in_progress": false,
+            "spinner_visible": false,
+            "stop_cancel_visible": false,
+            "progress_text": "",
+            "output_cards_detected": 9,
+            "output_loading": false,
+            "generate_button_disabled": false,
+            "pending_output_slot": true,
+            "signals": [
+              "output_cards_detected"
+            ]
+          },
+          "persisted_assignment_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 3 of 3_ topic-first narrative sequence about the ants_ primary story beat close \u2014 foc apps use frame edit",
+          "notes": []
+        }
+      },
+      "runtime_state": "waiting_completion"
+    }
+  ],
+  "auto_execution_bridge_version": "runway_auto_execution_v2",
+  "current_step_id": "",
+  "last_auto_action": "wait_strict_completion",
+  "next_auto_action": "pipeline_running",
+  "auto_validation_state": "clip_3_no_completed_video_card"
+}

@@ -1,0 +1,970 @@
+{
+  "run_id": "cb_e2e_20260605_225109_3bcd0c5f",
+  "started_at": "2026-06-05 22:51:09",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "Can You Master perfume in One Day?",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v3",
+    "language_code": "es",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.08,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "Can You Master perfume in One Day?",
+        "detected_language_code": "es",
+        "extracted_subject": "Can You",
+        "extracted_environment": "",
+        "extracted_action": "",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "Can You Master perfume in One Day?",
+          "extracted_subject": "Can You",
+          "extracted_environment": "",
+          "extracted_action": "",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 2.44,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.09,
+            "confidence": 0.8645,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 22:51:09",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "mejores consejos de Can You Master perfume in One Day?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8591,
+              "niche_relevance_reason": "Matched audience interest semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8591,
+                "decision": "KEEP",
+                "reason": "Matched audience interest semantic cluster",
+                "matched_cluster_id": "audience_interest",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 22:51:09"
+            }
+          },
+          {
+            "trend": "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 81.61,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 22:51:09",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "c\u00f3mo Can You Master perfume in One Day?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.872,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.872,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 22:51:09"
+            }
+          },
+          {
+            "trend": "Can You Master perfume in One Day?",
+            "source": "manual_seed",
+            "score": 75.0,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 22:51:09"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "Can You Master perfume in One Day?",
+          "velocity": 100.0,
+          "saturation": 41.0,
+          "virality_score": 75.0,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.25,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "mock",
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 22:51:09",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "mejores consejos de Can You Master perfume in One Day?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8591,
+              "niche_relevance_reason": "Matched audience interest semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8591,
+                "decision": "KEEP",
+                "reason": "Matched audience interest semantic cluster",
+                "matched_cluster_id": "audience_interest",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 22:51:09"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 22:51:09",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "c\u00f3mo Can You Master perfume in One Day?",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.872,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.872,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 22:51:09"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 22:51:09"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification & Content Strategy",
+      "duration_ms": 0.04,
+      "api_sources": [
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "Can You Master perfume in One Day?",
+          "topic_category": "general",
+          "content_strategy": "cinematic_narrative",
+          "instructional_intent": false,
+          "confidence": 0.55,
+          "reasoning": "Default cinematic narrative fallback."
+        },
+        "content_strategy": {
+          "strategy_id": "cinematic_narrative",
+          "label": "Cinematic narrative strategy",
+          "purpose": "character-driven visual story",
+          "niche_style": "cinematic",
+          "effective_mood": "emotional",
+          "clip_beats": [
+            "opening beat for can you master perfume in one day?.",
+            "escalation around can you master perfume in one day?.",
+            "payoff for can you master perfume in one day?."
+          ],
+          "conflict": "What is at stake in Can You Master perfume in One Day??",
+          "visual_hook": "Strong visual detail tied to Can You Master perfume in One Day?.",
+          "seo_title_candidates": [
+            "can you master perfume in one day?",
+            "why can you master perfume in one day? matters"
+          ],
+          "required_terms": [],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.03,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.1,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "can you master perfume in one day?",
+        "title_candidates": [
+          "can you master perfume in one day?",
+          "why can you master perfume in one day? matters",
+          "El secreto de Can You en Can You Master perfume in One Day?",
+          "Por qu\u00e9 Can You lo cambia todo en Can You Master perfume in One Day?",
+          "Can You Master perfume in One Day?: el Why mejores consejos de Can You"
+        ],
+        "keywords": [
+          "Can You Master perfume in One Day?",
+          "Can You",
+          "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+          "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+          "Why mejores consejos de Can You Master"
+        ],
+        "trend_angle": "Why mejores consejos de Can You Master",
+        "language_code": "es",
+        "seo_score": 1.0,
+        "content_strategy": "cinematic_narrative"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 3958.71,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "openai_story_enricher"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "\u00bfPuedes dominar el perfume en un d\u00eda?",
+          "logline": "Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda?",
+          "main_character": "un sujeto concentrado en el arte de dominar el perfume",
+          "setting": "un solo ambiente continuo con profundidad marcada y encuadre vertical claro",
+          "conflict_tension": "\u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?",
+          "visual_hook": "Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado",
+          "emotional_arc": "una conexi\u00f3n que se profundiza hasta alcanzar una convicci\u00f3n firme",
+          "ending_beat": "la recompensa visual y emocional tras el intento de dominar el perfume en un d\u00eda",
+          "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a focused subject centered on Can You",
+            "location": "a single continuous environment with strong depth and readable vertical framing",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo",
+            "aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso",
+            "resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda"
+          ],
+          "source_topic": "Can You Master perfume in One Day?",
+          "target_platform": "youtube_shorts",
+          "niche_style": "cinematic",
+          "mood": "emotional",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v1",
+          "warnings": [],
+          "goal": "\u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?",
+          "conflict": "\u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?",
+          "tension": "\u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?",
+          "seo_title": "can you master perfume in one day?",
+          "language_code": "es",
+          "content_strategy": "cinematic_narrative",
+          "content_strategy_label": "Cinematic narrative strategy",
+          "topic_category": "general"
+        },
+        "seo_title": "can you master perfume in one day?",
+        "language_code": "es",
+        "content_strategy": {
+          "strategy_id": "cinematic_narrative",
+          "label": "Cinematic narrative strategy",
+          "purpose": "character-driven visual story",
+          "niche_style": "cinematic",
+          "effective_mood": "emotional",
+          "clip_beats": [
+            "opening beat for can you master perfume in one day?.",
+            "escalation around can you master perfume in one day?.",
+            "payoff for can you master perfume in one day?."
+          ],
+          "conflict": "What is at stake in Can You Master perfume in One Day??",
+          "visual_hook": "Strong visual detail tied to Can You Master perfume in One Day?.",
+          "seo_title_candidates": [
+            "can you master perfume in one day?",
+            "why can you master perfume in one day? matters"
+          ],
+          "required_terms": [],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "\u00bfPuedes dominar el perfume en un d\u00eda?",
+            "logline": "Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda?",
+            "main_character": "un sujeto concentrado en el arte de dominar el perfume",
+            "setting": "un solo ambiente continuo con profundidad marcada y encuadre vertical claro",
+            "conflict_tension": "\u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?",
+            "visual_hook": "Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado",
+            "emotional_arc": "una conexi\u00f3n que se profundiza hasta alcanzar una convicci\u00f3n firme",
+            "ending_beat": "la recompensa visual y emocional tras el intento de dominar el perfume en un d\u00eda",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a focused subject centered on Can You",
+              "location": "a single continuous environment with strong depth and readable vertical framing",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo",
+              "aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso",
+              "resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda"
+            ],
+            "source_topic": "Can You Master perfume in One Day?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v1+openai_story",
+            "warnings": [],
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo",
+            "role_label": "hook",
+            "story_beat": "introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo"
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso",
+            "role_label": "escalation",
+            "story_beat": "aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso"
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda",
+            "role_label": "payoff",
+            "story_beat": "resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda"
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 4.77,
+      "api_sources": [
+        "runway_prompt_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a focused subject centered on Can You. Environment: a single continuous environment with strong depth and readable vertical framing. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda?. Visual hook: Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado. Tension: \u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo. Story beat reference: aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso. Story beat reference: resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda.",
+        "starter_image_prompt_chars": 1901,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Continuity lock: same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 1 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Opens from the approved starter reference image via Use to Video \u2014 preserve identity, wardrobe, and environment from the hero frame. Primary action beat: introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo. Camera motion: begins with a slow discovery push-in. Narrative role (discovery): emotional beat \u2014 curiosity and unease awaken. Camera progression: medium-wide push-in; subject shifts from stillness to alerted attention. Environmental progression: introduce first environmental story beat (rain shift, distant lights, particles). Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Additional continuity detail: fabric, hair, or surface micro-movement reacts to the same air current. Additional continuity detail: vertical framing with intentional headroom for Shorts composition. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2672,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a focused subject centered on Can You. Environment: a single continuous environment with strong depth and readable vertical framing. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda?. Visual hook: Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado. Tension: \u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo. Story beat reference: aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso. Story beat reference: resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda.",
+            "image_prompt_chars": 1901,
+            "continuity_notes": "same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Continuity lock: same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 2 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso. Camera motion: maintains fluid lateral camera tracking during escalation. Narrative role (escalation): emotional beat \u2014 pressure and urgency rise. Camera progression: lateral tracking shot following motivated forward movement. Environmental progression: weather, lighting, or background motion intensifies while location stays fixed. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: handheld-inspired stability without chaotic shake. Additional continuity detail: skin and material specular response stays coherent. Additional continuity detail: distant city or nature elements drift slowly for depth. Additional continuity detail: 35mm anamorphic lens personality with natural edge falloff. Additional continuity detail: practical sources remain fixed in world space. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2715,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Continuity lock: same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 3 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda. Camera motion: eases into a final micro-motion reveal-ready pose. Narrative role (payoff): emotional beat \u2014 emotional consequence lands in a frame-ready end pose. Camera progression: push to hero close or crane down to reveal object/consequence. Environmental progression: environment frames the reveal detail without changing world location. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. Final clip resolves action but keeps the same world \u2014 no epilogue scene change. Additional continuity detail: motivated rack focus only when action demands it. Additional continuity detail: no sudden exposure jumps or white balance shifts. Additional continuity detail: background extras or particles move subtly in parallax. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2720,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "a focused subject centered on Can You",
+          "location": "a single continuous environment with strong depth and readable vertical framing",
+          "lighting": "motivated cinematic key with volumetric atmosphere",
+          "camera": "35mm anamorphic lens personality with natural edge falloff",
+          "palette": "teal and amber cinematic color grade",
+          "wardrobe": ""
+        },
+        "builder_version": "runway_starter_to_video_f_v1",
+        "validation_warnings": [],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 1901,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2672,
+            2715,
+            2720
+          ],
+          "clip_prompt_min": 2672,
+          "clip_prompt_max": 2720,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_1750b0f3",
+          "story_idea": "Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda? Character: un sujeto concentrado en el arte de dominar el perfume. Setting: un solo ambiente continuo con profundidad marcada y encuadre vertical claro. Conflict: \u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?. Visual hook: Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado. Emotional arc: una conexi\u00f3n que se profundiza hasta alcanzar una convicci\u00f3n firme. Ending: la recompensa visual y emocional tras el intento de dominar el perfume en un d\u00eda. Clip 1: introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo. Clip 2: aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso. Clip 3: resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda.",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a focused subject centered on Can You. Environment: a single continuous environment with strong depth and readable vertical framing. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda?. Visual hook: Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado. Tension: \u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo. Story beat reference: aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso. Story beat reference: resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda.",
+          "clip_prompts": [
+            "Continuity lock: same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 1 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Opens from the approved starter reference image via Use to Video \u2014 preserve identity, wardrobe, and environment from the hero frame. Primary action beat: introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo. Camera motion: begins with a slow discovery push-in. Narrative role (discovery): emotional beat \u2014 curiosity and unease awaken. Camera progression: medium-wide push-in; subject shifts from stillness to alerted attention. Environmental progression: introduce first environmental story beat (rain shift, distant lights, particles). Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Additional continuity detail: fabric, hair, or surface micro-movement reacts to the same air current. Additional continuity detail: vertical framing with intentional headroom for Shorts composition. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Continuity lock: same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 2 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso. Camera motion: maintains fluid lateral camera tracking during escalation. Narrative role (escalation): emotional beat \u2014 pressure and urgency rise. Camera progression: lateral tracking shot following motivated forward movement. Environmental progression: weather, lighting, or background motion intensifies while location stays fixed. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: handheld-inspired stability without chaotic shake. Additional continuity detail: skin and material specular response stays coherent. Additional continuity detail: distant city or nature elements drift slowly for depth. Additional continuity detail: 35mm anamorphic lens personality with natural edge falloff. Additional continuity detail: practical sources remain fixed in world space. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Continuity lock: same character (a focused subject centered on Can You), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Clip 3 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda. Camera motion: eases into a final micro-motion reveal-ready pose. Narrative role (payoff): emotional beat \u2014 emotional consequence lands in a frame-ready end pose. Camera progression: push to hero close or crane down to reveal object/consequence. Environmental progression: environment frames the reveal detail without changing world location. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. Final clip resolves action but keeps the same world \u2014 no epilogue scene change. Additional continuity detail: motivated rack focus only when action demands it. Additional continuity detail: no sudden exposure jumps or white balance shifts. Additional continuity detail: background extras or particles move subtly in parallax. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "a focused subject centered on Can You",
+            "location": "a single continuous environment with strong depth and readable vertical framing",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": ""
+          },
+          "warnings": [],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 1901,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2672,
+              2715,
+              2720
+            ],
+            "clip_prompt_min": 2672,
+            "clip_prompt_max": 2720,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v1",
+          "story_brief": {
+            "title": "\u00bfPuedes dominar el perfume en un d\u00eda?",
+            "logline": "Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda?",
+            "main_character": "un sujeto concentrado en el arte de dominar el perfume",
+            "setting": "un solo ambiente continuo con profundidad marcada y encuadre vertical claro",
+            "conflict_tension": "\u00bfEs posible realmente dominar el perfume en un solo d\u00eda y qu\u00e9 implica ese desaf\u00edo?",
+            "visual_hook": "Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado",
+            "emotional_arc": "una conexi\u00f3n que se profundiza hasta alcanzar una convicci\u00f3n firme",
+            "ending_beat": "la recompensa visual y emocional tras el intento de dominar el perfume en un d\u00eda",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a focused subject centered on Can You",
+              "location": "a single continuous environment with strong depth and readable vertical framing",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "introducci\u00f3n visual del sujeto concentrado en el perfume, mostrando frascos y notas olfativas en un entorno vertical y profundo",
+              "aumento de tensi\u00f3n visual con el sujeto experimentando, mezclando y evaluando aromas, reflejando la dificultad y el compromiso del proceso",
+              "resoluci\u00f3n con el sujeto mostrando confianza y satisfacci\u00f3n, entregando el resultado final que simboliza el dominio logrado en un solo d\u00eda"
+            ],
+            "source_topic": "Can You Master perfume in One Day?",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v1",
+            "warnings": []
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "can you master perfume in one day?",
+        "seo_description": "Un sujeto enfocado en '\u00bfPuedes dominar el perfume en un d\u00eda?' dentro de un ambiente continuo con gran profundidad y encuadre vertical legible. Tensi\u00f3n central: \u00bfQu\u00e9 est\u00e1 en juego al intentar dominar el perfume en un solo d\u00eda? Detalles visuales fuertes ligados a la exploraci\u00f3n y dominio del perfume en tiempo limitado",
+        "keywords": [
+          "Can You Master perfume in One Day?",
+          "Can You",
+          "Why mejores consejos de Can You Master perfume in One Day? is gaining traction via format gaining traction around topic",
+          "c\u00f3mo Can You Master perfume in One Day?: the question people keep asking about topic angle gaining comments this week",
+          "Why mejores consejos de Can You Master"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 1.0,
+        "title_candidates": [
+          "can you master perfume in one day?",
+          "why can you master perfume in one day? matters",
+          "El secreto de Can You en Can You Master perfume in One Day?",
+          "Por qu\u00e9 Can You lo cambia todo en Can You Master perfume in One Day?",
+          "Can You Master perfume in One Day?: el Why mejores consejos de Can You"
+        ],
+        "trend_angle": "Why mejores consejos de Can You Master",
+        "language_code": "es"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit",
+      "duration_ms": 0.19,
+      "api_sources": [
+        "content_brain_e2e_micro_test_studio",
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "topic_strategy_alignment_score": 0.75,
+        "topic_strategy_alignment": {
+          "topic": "Can You Master perfume in One Day?",
+          "content_strategy": "cinematic_narrative",
+          "topic_strategy_alignment_score": 0.75,
+          "seo_alignment": 0.75,
+          "story_alignment": 0.75,
+          "clip_alignment": 0.75,
+          "prompt_alignment": 0.75,
+          "generic_filler_hits": [
+            "frame-ready end pose"
+          ],
+          "required_term_hits": [],
+          "passed": true,
+          "notes": [
+            "generic_filler_detected:1"
+          ]
+        },
+        "story_quality_score": 1.0,
+        "seo_score": 1.0,
+        "trend_relevance_score": 0.6,
+        "prompt_completeness_score": 1.0,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.91,
+        "forbidden_drift": [],
+        "strategy_alignment_passed": true
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "topic_strategy_alignment_score": 0.75,
+    "topic_strategy_alignment": {
+      "topic": "Can You Master perfume in One Day?",
+      "content_strategy": "cinematic_narrative",
+      "topic_strategy_alignment_score": 0.75,
+      "seo_alignment": 0.75,
+      "story_alignment": 0.75,
+      "clip_alignment": 0.75,
+      "prompt_alignment": 0.75,
+      "generic_filler_hits": [
+        "frame-ready end pose"
+      ],
+      "required_term_hits": [],
+      "passed": true,
+      "notes": [
+        "generic_filler_detected:1"
+      ]
+    },
+    "story_quality_score": 1.0,
+    "seo_score": 1.0,
+    "trend_relevance_score": 0.6,
+    "prompt_completeness_score": 1.0,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.91,
+    "forbidden_drift": [],
+    "strategy_alignment_passed": true
+  },
+  "overall_content_score": 0.91,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

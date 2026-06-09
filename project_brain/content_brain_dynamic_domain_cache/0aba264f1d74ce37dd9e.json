@@ -1,0 +1,47 @@
+{
+  "topic": "zander fishing method",
+  "language_code": "en",
+  "payload": {
+    "category": "animal_intelligence",
+    "strategy": "scientific_explanation",
+    "domain_profile": {
+      "domain_name": "Zander Fishing Techniques",
+      "expert_role": "Professional Angler and Fishing Instructor",
+      "setting": "Freshwater lakes and rivers known for zander populations",
+      "core_concepts": [
+        "Zander behavior and habitat preferences",
+        "Effective bait and lure selection",
+        "Fishing gear setup specific to zander",
+        "Seasonal and time-of-day considerations",
+        "Casting and retrieval techniques"
+      ],
+      "timeline_beats": [
+        "Introduction to zander and their environment",
+        "Preparation of fishing gear and bait",
+        "Step-by-step fishing method demonstration",
+        "Tips for reading water and locating zander",
+        "Handling and releasing the catch"
+      ],
+      "visual_objects": [
+        "Zander fish close-up",
+        "Fishing rods and reels specialized for zander",
+        "Various lures and bait types",
+        "Water environment shots",
+        "Demonstration of casting and retrieval"
+      ],
+      "clip_structure": {
+        "clip_1": "Overview of zander species and their preferred habitats",
+        "clip_2": "Detailed demonstration of fishing gear setup and bait selection",
+        "clip_3": "Live fishing demonstration with tips on technique and fish handling"
+      }
+    },
+    "confidence": 0.95,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 252,
+    "completion_tokens": 299,
+    "total_tokens": 551
+  },
+  "estimated_cost_usd": 0.0005792
+}

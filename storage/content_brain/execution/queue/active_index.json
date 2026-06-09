@@ -1,17 +1,5 @@
 {
   "index_version": "10h_v1",
-  "updated_at": "2026-06-02 21:30:51",
-  "items": [
-    {
-      "queue_item_id": "queue_20260602_195409_307b92",
-      "queue_item_uuid": "9e11b529-104b-4ee1-9219-4891139dd6c2",
-      "execution_session_id": "exec_10k_val_cancelled",
-      "session_uuid": "a66dcea5-1920-48a7-a311-f60e2ff16679",
-      "queue_state": "QUEUED",
-      "effective_priority": 300091.0,
-      "priority_band": "high",
-      "enqueued_at": "2026-06-02 19:54:09",
-      "queue_position": 1
-    }
-  ]
+  "updated_at": "2026-06-04 00:43:33",
+  "items": []
 }

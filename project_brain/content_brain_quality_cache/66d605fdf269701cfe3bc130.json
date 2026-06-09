@@ -1,0 +1,23 @@
+{
+  "topic": "How to make pizza dough?",
+  "category": "cooking",
+  "strategy": "recipe_tutorial",
+  "enhancement_types": [
+    "seo"
+  ],
+  "payload": {
+    "seo_titles": [
+      "The Easiest Pizza Dough for Beginners",
+      "Why Your Pizza Dough Never Works",
+      "The Simple Pizza Dough Trick Most Beginners Miss",
+      "How to Make Pizza Dough Step by Step",
+      "Stop Making This Pizza Dough Mistake"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

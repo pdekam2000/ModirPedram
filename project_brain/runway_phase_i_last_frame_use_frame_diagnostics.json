@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-06-08 22:24:26",
+  "context": "use_frame_prepared",
+  "target_clip_index": 3,
+  "source_clip_index": 2,
+  "result": {
+    "use_frame_source_clip": 2,
+    "use_frame_source": "last_safe_frame",
+    "previous_clip_seeked_to_last_frame": true,
+    "seek_time_used": 9.2,
+    "seek_strategy": "duration_minus_0.7s",
+    "playback_seek_method": "html_video_currentTime",
+    "generation_controls_avoided": true,
+    "video_duration_seconds": 10.0,
+    "preview_not_first_frame": true,
+    "strict_previous_complete": true,
+    "scoped_card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+    "use_frame_clicked": true,
+    "first_frame_fallback_used": false,
+    "fallback_requires_operator": false,
+    "notes": []
+  },
+  "extra": {
+    "allow_first_frame_fallback": false
+  }
+}

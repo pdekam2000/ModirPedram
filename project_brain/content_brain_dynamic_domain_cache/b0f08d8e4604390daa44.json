@@ -1,0 +1,47 @@
+{
+  "topic": "lion big animal",
+  "language_code": "en",
+  "payload": {
+    "category": "natural_history",
+    "strategy": "documentary",
+    "domain_profile": {
+      "domain_name": "Lion Biology and Ecology",
+      "expert_role": "Wildlife Biologist",
+      "setting": "African Savanna",
+      "core_concepts": [
+        "Physical characteristics of lions",
+        "Social structure of lion prides",
+        "Hunting behavior and diet",
+        "Role as apex predator",
+        "Conservation status and threats"
+      ],
+      "timeline_beats": [
+        "Introduction to lion's size and appearance",
+        "Overview of pride dynamics and roles",
+        "Hunting techniques and prey species",
+        "Ecological impact and importance",
+        "Current conservation efforts"
+      ],
+      "visual_objects": [
+        "Close-up shots of lion mane and body",
+        "Footage of lion prides interacting",
+        "Scenes of hunting and feeding",
+        "Savanna landscape with other wildlife",
+        "Conservation activities and ranger patrols"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduce the lion as a big animal with distinctive physical traits and size comparison to other animals.",
+        "clip_2": "Show social behavior within prides and hunting strategies emphasizing their role as apex predators.",
+        "clip_3": "Highlight conservation challenges and efforts to protect lions in the wild."
+      }
+    },
+    "confidence": 0.9,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 247,
+    "completion_tokens": 296,
+    "total_tokens": 543
+  },
+  "estimated_cost_usd": 0.0005723999999999999
+}

@@ -1,0 +1,2140 @@
+{
+  "run_id": "cb_e2e_20260606_000134_122faea8",
+  "started_at": "2026-06-06 00:01:34",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "zander fishing method",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v5",
+    "language_code": "en",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.15,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "zander fishing method",
+        "detected_language_code": "en",
+        "extracted_subject": "angler",
+        "extracted_environment": "lakeside",
+        "extracted_action": "fishing",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "zander fishing method",
+          "extracted_subject": "angler",
+          "extracted_environment": "lakeside",
+          "extracted_action": "fishing",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 23.02,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.09,
+            "confidence": 0.8645,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best zander fishing method tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.857,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.857,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "trend": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 82.21,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to zander fishing method",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8693,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8693,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "trend": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why zander fishing method is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8604,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8604,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "trend": "zander fishing method",
+            "source": "manual_seed",
+            "score": 70.8,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "trend": "zander fishing method for beginners",
+            "source": "mock_trend_provider",
+            "score": 69.37,
+            "confidence": 0.5835,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "zander fishing method for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around zander fishing method for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "zander fishing method for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "zander fishing method for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.6228,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6228,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "zander fishing method",
+          "velocity": 100.0,
+          "saturation": 67.0,
+          "virality_score": 70.8,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.25,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "fallback_seed_expansion",
+        "trend_intelligence": {
+          "trend_mode": "fallback_seed_expansion",
+          "topic": "zander fishing method",
+          "items": [
+            {
+              "trend": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.09,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.8645,
+                "freshness_score": 0.79,
+                "niche_match": 0.98,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:01:34",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 1,
+                "seed_source": "best zander fishing method tips",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_000",
+                  "canonical_topic": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+                      "confidence": 0.8645,
+                      "niche_match": 0.98,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.9337
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.857,
+                "niche_relevance_reason": "Matched discovery angles semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.857,
+                  "decision": "KEEP",
+                  "reason": "Matched discovery angles semantic cluster",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:01:34"
+              }
+            },
+            {
+              "trend": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 82.21,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.823,
+                "freshness_score": 0.74,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:01:34",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 2,
+                "seed_source": "how to zander fishing method",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_001",
+                  "canonical_topic": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+                      "confidence": 0.823,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.8888
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8693,
+                "niche_relevance_reason": "Matched subject core semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8693,
+                  "decision": "KEEP",
+                  "reason": "Matched subject core semantic cluster",
+                  "matched_cluster_id": "subject_core",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:01:34"
+              }
+            },
+            {
+              "trend": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.06,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.718,
+                "freshness_score": 0.64,
+                "niche_match": 1.0,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:01:34",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 4,
+                "seed_source": "why zander fishing method is trending",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_003",
+                  "canonical_topic": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+                      "confidence": 0.718,
+                      "niche_match": 1.0,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.718
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8604,
+                "niche_relevance_reason": "Matched tension points semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8604,
+                  "decision": "KEEP",
+                  "reason": "Matched tension points semantic cluster",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:01:34"
+              }
+            },
+            {
+              "trend": "zander fishing method",
+              "source": "manual_seed",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 70.8,
+              "metadata": {
+                "priority": "user_topic",
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:01:34"
+              }
+            },
+            {
+              "trend": "zander fishing method for beginners",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 69.37,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.5835,
+                "freshness_score": 0.69,
+                "niche_match": 0.66,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:01:34",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 3,
+                "seed_source": "zander fishing method for beginners",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "trend_angle": "beginner vs expert views on topic framing around zander fishing method for beginners",
+                "aggregation": {
+                  "cluster_id": "cluster_004",
+                  "canonical_topic": "zander fishing method for beginners",
+                  "aggregation_score": 0.9304,
+                  "final_rank_score": 0.9304,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "zander fishing method for beginners",
+                      "confidence": 0.5835,
+                      "niche_match": 0.66,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.5835
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "niche_relevance_score": 0.6228,
+                "niche_relevance_reason": "Low overlap with general semantic universe",
+                "rejected_by_filter": false,
+                "filter_decision": "WARNING",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.6228,
+                  "decision": "WARNING",
+                  "reason": "Low overlap with general semantic universe",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:01:34"
+              }
+            }
+          ],
+          "best_trend_opportunity_score": 1.0,
+          "summary": {
+            "count": 5,
+            "rising": 0,
+            "evergreen": 5,
+            "seasonal": 0
+          }
+        },
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best zander fishing method tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.857,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.857,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to zander fishing method",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8693,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8693,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why zander fishing method is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8604,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8604,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:01:34",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "zander fishing method for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around zander fishing method for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "zander fishing method for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "zander fishing method for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.6228,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6228,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:01:34"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification & Content Strategy",
+      "duration_ms": 0.33,
+      "api_sources": [
+        "content_brain_topic_strategy",
+        "domain_knowledge_layer",
+        "topic_knowledge_graph",
+        "content_brain_character_builder",
+        "story_strategy_library"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "zander fishing method",
+          "topic_category": "fishing",
+          "content_strategy": "instructional_fishing",
+          "instructional_intent": true,
+          "confidence": 0.95,
+          "reasoning": "Fishing topic with instructional/method intent."
+        },
+        "content_strategy": {
+          "strategy_id": "instructional_fishing",
+          "label": "Instructional fishing strategy",
+          "purpose": "teach or demonstrate a fishing method step by step",
+          "niche_style": "documentary",
+          "effective_mood": "instructional",
+          "clip_beats": [
+            "lure/bait selection, rig setup, and spot choice.",
+            "casting, retrieve rhythm, and depth strategy.",
+            "strike, hook set, landing, and takeaway lesson."
+          ],
+          "conflict": "Will this exact zander fishing method produce a bite before conditions change?",
+          "visual_hook": "Macro on lure, hook knot, and rod setup that instantly signals a teachable fishing method.",
+          "seo_title_candidates": [
+            "how to zander fishing method (step-by-step)",
+            "zander fishing method: lure, cast, and hook-set method",
+            "the zander fishing fishing method explained in 30 seconds"
+          ],
+          "required_terms": [
+            "lure",
+            "cast",
+            "casting",
+            "hook",
+            "line",
+            "depth",
+            "technique",
+            "method",
+            "strike",
+            "fish",
+            "fishing",
+            "tackle",
+            "rod",
+            "reel",
+            "zander"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "domain_knowledge": {
+          "domain_id": "fishing",
+          "label": "Fishing",
+          "concepts": [
+            "angler",
+            "lure",
+            "bait",
+            "hook",
+            "cast",
+            "retrieve",
+            "depth",
+            "strike",
+            "hook set",
+            "water clarity",
+            "current",
+            "night fishing",
+            "shallow water",
+            "tackle",
+            "rod",
+            "reel"
+          ],
+          "default_role_en": "an experienced angler",
+          "default_role_fa": "",
+          "setting_en": "a readable lakeside or riverbank fishing spot",
+          "instructional_beats_en": [
+            "Lure/bait selection, rig setup, and spot choice.",
+            "Casting, retrieve rhythm, and depth strategy.",
+            "Strike, hook set, landing, and takeaway lesson."
+          ],
+          "review_beats_en": []
+        },
+        "knowledge_graph": {
+          "domain": "fishing",
+          "nodes": [
+            {
+              "node_id": "zander",
+              "label": "zander",
+              "node_type": "species",
+              "related": [
+                "lure fishing",
+                "night fishing",
+                "depth strategy"
+              ]
+            },
+            {
+              "node_id": "pike",
+              "label": "pike",
+              "node_type": "species",
+              "related": [
+                "lure fishing",
+                "weed edges"
+              ]
+            },
+            {
+              "node_id": "carp",
+              "label": "carp",
+              "node_type": "species",
+              "related": [
+                "bait fishing",
+                "lake fishing"
+              ]
+            },
+            {
+              "node_id": "bass",
+              "label": "bass",
+              "node_type": "species",
+              "related": [
+                "lure fishing",
+                "drop-offs"
+              ]
+            },
+            {
+              "node_id": "lure fishing",
+              "label": "lure fishing",
+              "node_type": "technique",
+              "related": [
+                "retrieve",
+                "depth strategy"
+              ]
+            },
+            {
+              "node_id": "night fishing",
+              "label": "night fishing",
+              "node_type": "technique",
+              "related": [
+                "shallow water",
+                "zander"
+              ]
+            },
+            {
+              "node_id": "knots",
+              "label": "fishing knots",
+              "node_type": "technique",
+              "related": [
+                "line",
+                "hook set"
+              ]
+            },
+            {
+              "node_id": "depth strategy",
+              "label": "depth strategy",
+              "node_type": "technique",
+              "related": [
+                "water temperature",
+                "current"
+              ]
+            }
+          ],
+          "matched_nodes": [
+            {
+              "node_id": "zander",
+              "label": "zander",
+              "node_type": "species",
+              "related": [
+                "lure fishing",
+                "night fishing",
+                "depth strategy"
+              ]
+            }
+          ],
+          "related_concepts": [
+            "lure fishing",
+            "night fishing",
+            "depth strategy"
+          ],
+          "seo_keywords": [
+            "zander",
+            "pike",
+            "carp",
+            "bass",
+            "lure fishing",
+            "night fishing",
+            "fishing knots",
+            "depth strategy"
+          ]
+        },
+        "character_builder": {
+          "character": "an experienced angler",
+          "domain": "fishing",
+          "source": "domain_role",
+          "quality_score": 0.92,
+          "warnings": [],
+          "builder_version": "character_builder_v3"
+        },
+        "story_strategy": {
+          "strategy_id": "instructional",
+          "label": "Instructional",
+          "hook_structure": "Common mistake or setup gap that the viewer recognizes immediately.",
+          "clip_beat_structure": [
+            "Clip 1 \u2014 setup / common mistake / preparation",
+            "Clip 2 \u2014 method / hands-on demonstration",
+            "Clip 3 \u2014 result / proof / takeaway"
+          ],
+          "conflict_type": "Will this method work before conditions change?",
+          "payoff_type": "Clear takeaway the viewer can replicate.",
+          "visual_language": "Hands-on detail, readable steps, documentary close-ups.",
+          "prompt_rules": [
+            "Show domain tools and technique clearly.",
+            "Avoid generic emotional walking shots unless they teach the method."
+          ]
+        },
+        "detected_language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.06,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 3.69,
+      "api_sources": [
+        "content_brain_seo_director",
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Zander Fishing Method",
+        "title_candidates": [
+          "Zander Fishing Method"
+        ],
+        "keywords": [
+          "zander fishing method",
+          "zander fishing",
+          "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+          "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+          "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+          "zander fishing method for beginners",
+          "Why best zander fishing method tips is"
+        ],
+        "trend_angle": "Why best zander fishing method tips is",
+        "language_code": "en",
+        "seo_score": 0.55,
+        "candidates_ranked": [
+          {
+            "title": "Zander Fishing Method",
+            "reason": "fallback_topic_title",
+            "seo_score": 0.55,
+            "ctr_score": 0.45,
+            "audience_fit": 0.5,
+            "keywords": [],
+            "selected": true
+          }
+        ],
+        "selection_reason": "fallback_topic_title",
+        "content_strategy": "instructional_fishing",
+        "selected_seo_title": "Zander Fishing Method"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 5793.49,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "content_brain_character_builder",
+        "openai_story_enricher"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "Zander Fishing Method",
+          "logline": "An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change?",
+          "main_character": "An experienced angler focused on technique",
+          "setting": "A readable lakeside or riverbank fishing spot with clear water and visible shoreline details",
+          "conflict_tension": "Will this exact zander fishing method produce a bite before conditions change?",
+          "visual_hook": "Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method",
+          "emotional_arc": "Instructional progression from gear setup through fishing technique to a proven catch",
+          "ending_beat": "Strike, hook set, landing, and takeaway lesson",
+          "style_direction": "premium documentary realism instructional demo for vertical 9:16 YouTube Shorts. Purpose: teach zander fishing method step by step with clear hands-on detail. Camera: handheld-inspired stability with observational framing. Lighting: natural motivated available light with soft contrast.",
+          "continuity_anchors": {
+            "character": "an experienced angler focused on technique",
+            "location": "a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": "weatherproof jacket and fishing vest with visible lure kit"
+          },
+          "clip_beats": [
+            "Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation",
+            "Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively",
+            "Capture the strike, execute the hook set, land the zander, and share key takeaway tips"
+          ],
+          "source_topic": "zander fishing method",
+          "target_platform": "youtube_shorts",
+          "niche_style": "documentary",
+          "mood": "tense hopeful",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "zander fishing method",
+            "subject": "Zander Fishing Method",
+            "facts": [
+              "The viewer learns a practical method related to Zander Fishing Method."
+            ],
+            "entities": [
+              "zander",
+              "fishing"
+            ],
+            "settings": [
+              "a readable lakeside or riverbank fishing spot",
+              "lakeside or riverbank with readable water and shoreline detail"
+            ],
+            "objects": [
+              "fishing rod",
+              "lure",
+              "tackle box",
+              "line tension"
+            ],
+            "narrative_beats": [
+              "Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.",
+              "Demonstrate the core action using fishing rod.",
+              "Deliver the takeaway tied to Zander Fishing Method."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "goal": "Will this exact zander fishing method produce a bite before conditions change?",
+          "conflict": "Will this exact zander fishing method produce a bite before conditions change?",
+          "tension": "Will this exact zander fishing method produce a bite before conditions change?",
+          "seo_title": "Zander Fishing Method",
+          "language_code": "en",
+          "content_strategy": "instructional_fishing",
+          "content_strategy_label": "Instructional fishing strategy",
+          "topic_category": "fishing",
+          "character_builder": {
+            "character": "an experienced angler",
+            "domain": "fishing",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          }
+        },
+        "seo_title": "Zander Fishing Method",
+        "language_code": "en",
+        "content_strategy": {
+          "strategy_id": "instructional_fishing",
+          "label": "Instructional fishing strategy",
+          "purpose": "teach or demonstrate a fishing method step by step",
+          "niche_style": "documentary",
+          "effective_mood": "instructional",
+          "clip_beats": [
+            "lure/bait selection, rig setup, and spot choice.",
+            "casting, retrieve rhythm, and depth strategy.",
+            "strike, hook set, landing, and takeaway lesson."
+          ],
+          "conflict": "Will this exact zander fishing method produce a bite before conditions change?",
+          "visual_hook": "Macro on lure, hook knot, and rod setup that instantly signals a teachable fishing method.",
+          "seo_title_candidates": [
+            "how to zander fishing method (step-by-step)",
+            "zander fishing method: lure, cast, and hook-set method",
+            "the zander fishing fishing method explained in 30 seconds"
+          ],
+          "required_terms": [
+            "lure",
+            "cast",
+            "casting",
+            "hook",
+            "line",
+            "depth",
+            "technique",
+            "method",
+            "strike",
+            "fish",
+            "fishing",
+            "tackle",
+            "rod",
+            "reel",
+            "zander"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "Zander Fishing Method",
+            "logline": "An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change?",
+            "main_character": "An experienced angler focused on technique",
+            "setting": "A readable lakeside or riverbank fishing spot with clear water and visible shoreline details",
+            "conflict_tension": "Will this exact zander fishing method produce a bite before conditions change?",
+            "visual_hook": "Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method",
+            "emotional_arc": "Instructional progression from gear setup through fishing technique to a proven catch",
+            "ending_beat": "Strike, hook set, landing, and takeaway lesson",
+            "style_direction": "premium documentary realism instructional demo for vertical 9:16 YouTube Shorts. Purpose: teach zander fishing method step by step with clear hands-on detail. Camera: handheld-inspired stability with observational framing. Lighting: natural motivated available light with soft contrast.",
+            "continuity_anchors": {
+              "character": "an experienced angler focused on technique",
+              "location": "a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": "weatherproof jacket and fishing vest with visible lure kit"
+            },
+            "clip_beats": [
+              "Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation",
+              "Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively",
+              "Capture the strike, execute the hook set, land the zander, and share key takeaway tips"
+            ],
+            "source_topic": "zander fishing method",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2+openai_story",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "zander fishing method",
+              "subject": "Zander Fishing Method",
+              "facts": [
+                "The viewer learns a practical method related to Zander Fishing Method."
+              ],
+              "entities": [
+                "zander",
+                "fishing"
+              ],
+              "settings": [
+                "a readable lakeside or riverbank fishing spot",
+                "lakeside or riverbank with readable water and shoreline detail"
+              ],
+              "objects": [
+                "fishing rod",
+                "lure",
+                "tackle box",
+                "line tension"
+              ],
+              "narrative_beats": [
+                "Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.",
+                "Demonstrate the core action using fishing rod.",
+                "Deliver the takeaway tied to Zander Fishing Method."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            },
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation",
+            "role_label": "hook",
+            "story_beat": "Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation"
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively",
+            "role_label": "escalation",
+            "story_beat": "Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively"
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "Capture the strike, execute the hook set, land the zander, and share key takeaway tips",
+            "role_label": "payoff",
+            "story_beat": "Capture the strike, execute the hook set, land the zander, and share key takeaway tips"
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 4.84,
+      "api_sources": [
+        "runway_prompt_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: an experienced angler focused on technique. Environment: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change?. Topic narrative: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Visual hook: Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method. Tension: Will this exact zander fishing method produce a bite before conditions change?. Style direction: premium documentary realism instructional demo for vertical 9:16 YouTube Shorts. Purpose: teach zander fishing method step by step with clear hands-on detail. Camera: handheld-inspired stability with observational framing. Lighting: natural motivated available light with soft contrast.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Wardrobe locked: weatherproof jacket and fishing vest with visible lure kit. Story beat reference: Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation. Story beat reference: Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively. Story beat reference: Capture the strike, execute the hook set, land the zander, and share key takeaway tips.",
+        "starter_image_prompt_chars": 2051,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Clip 1 of 3. Topic-first narrative sequence about Zander Fishing Method. Primary story beat: Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation. Subject identity: an experienced angler focused on technique. Location: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Topic facts and evidence: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Historical facts: The viewer learns a practical method related to Zander Fishing Method.. Key entities: zander; fishing. Visible objects: fishing rod; lure; tackle box. Setting details: a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Narrative progression: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Historical detail: lure. Historical detail: tackle box. Historical detail: line tension. Historical detail: a readable lakeside or riverbank fishing spot. Historical detail: lakeside or riverbank with readable water and shoreline detail. Historical detail: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2685,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: an experienced angler focused on technique. Environment: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change?. Topic narrative: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Visual hook: Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method. Tension: Will this exact zander fishing method produce a bite before conditions change?. Style direction: premium documentary realism instructional demo for vertical 9:16 YouTube Shorts. Purpose: teach zander fishing method step by step with clear hands-on detail. Camera: handheld-inspired stability with observational framing. Lighting: natural motivated available light with soft contrast.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Wardrobe locked: weatherproof jacket and fishing vest with visible lure kit. Story beat reference: Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation. Story beat reference: Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively. Story beat reference: Capture the strike, execute the hook set, land the zander, and share key takeaway tips.",
+            "image_prompt_chars": 2051,
+            "continuity_notes": "same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observation"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Clip 2 of 3. Topic-first narrative sequence about Zander Fishing Method. Primary story beat: Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively. Subject identity: an experienced angler focused on technique. Location: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Topic facts and evidence: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Historical facts: The viewer learns a practical method related to Zander Fishing Method.. Key entities: zander; fishing. Visible objects: fishing rod; lure; tackle box. Setting details: a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Narrative progression: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Historical detail: lure. Historical detail: tackle box. Historical detail: line tension. Historical detail: a readable lakeside or riverbank fishing spot. Historical detail: lakeside or riverbank with readable water and shoreline detail. Historical detail: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2679,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observation"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Clip 3 of 3. Topic-first narrative sequence about Zander Fishing Method. Primary story beat: Capture the strike, execute the hook set, land the zander, and share key takeaway tips. Subject identity: an experienced angler focused on technique. Location: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Topic facts and evidence: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Historical facts: The viewer learns a practical method related to Zander Fishing Method.. Key entities: zander; fishing. Visible objects: fishing rod; lure; tackle box. Setting details: a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Narrative progression: Deliver the takeaway tied to Zander Fishing Method.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Historical detail: lure. Historical detail: tackle box. Historical detail: line tension. Historical detail: a readable lakeside or riverbank fishing spot. Historical detail: lakeside or riverbank with readable water and shoreline detail. Historical detail: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2679,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observation"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "an experienced angler focused on technique",
+          "location": "a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail",
+          "lighting": "natural motivated available light with soft contrast",
+          "camera": "handheld-inspired stability with observational framing",
+          "palette": "neutral documentary color grade with selective warmth",
+          "wardrobe": "weatherproof jacket and fishing vest with visible lure kit"
+        },
+        "builder_version": "runway_starter_to_video_f_v3",
+        "validation_warnings": [
+          "clip 1 missing explicit 10-second motion language",
+          "clip 2 missing explicit 10-second motion language",
+          "clip 3 missing explicit 10-second motion language"
+        ],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 2051,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2685,
+            2679,
+            2679
+          ],
+          "clip_prompt_min": 2679,
+          "clip_prompt_max": 2685,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_1d0c1b11",
+          "story_idea": "An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change? Character: An experienced angler focused on technique. Setting: A readable lakeside or riverbank fishing spot with clear water and visible shoreline details. Conflict: Will this exact zander fishing method produce a bite before conditions change?. Visual hook: Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method. Emotional arc: Instructional progression from gear setup through fishing technique to a proven catch. Ending: Strike, hook set, landing, and takeaway lesson. Clip 1: Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation. Clip 2: Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively. Clip 3: Capture the strike, execute the hook set, land the zander, and share key takeaway tips.",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: an experienced angler focused on technique. Environment: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Lighting: natural motivated available light with soft contrast. Camera: handheld-inspired stability with observational framing. Palette: neutral documentary color grade with selective warmth. Scene essence: An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change?. Topic narrative: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Visual hook: Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method. Tension: Will this exact zander fishing method produce a bite before conditions change?. Style direction: premium documentary realism instructional demo for vertical 9:16 YouTube Shorts. Purpose: teach zander fishing method step by step with clear hands-on detail. Camera: handheld-inspired stability with observational framing. Lighting: natural motivated available light with soft contrast.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Wardrobe locked: weatherproof jacket and fishing vest with visible lure kit. Story beat reference: Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation. Story beat reference: Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively. Story beat reference: Capture the strike, execute the hook set, land the zander, and share key takeaway tips.",
+          "clip_prompts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Zander Fishing Method. Primary story beat: Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation. Subject identity: an experienced angler focused on technique. Location: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Topic facts and evidence: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Historical facts: The viewer learns a practical method related to Zander Fishing Method.. Key entities: zander; fishing. Visible objects: fishing rod; lure; tackle box. Setting details: a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Narrative progression: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Historical detail: lure. Historical detail: tackle box. Historical detail: line tension. Historical detail: a readable lakeside or riverbank fishing spot. Historical detail: lakeside or riverbank with readable water and shoreline detail. Historical detail: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Zander Fishing Method. Primary story beat: Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively. Subject identity: an experienced angler focused on technique. Location: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Topic facts and evidence: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Historical facts: The viewer learns a practical method related to Zander Fishing Method.. Key entities: zander; fishing. Visible objects: fishing rod; lure; tackle box. Setting details: a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Narrative progression: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Historical detail: lure. Historical detail: tackle box. Historical detail: line tension. Historical detail: a readable lakeside or riverbank fishing spot. Historical detail: lakeside or riverbank with readable water and shoreline detail. Historical detail: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Zander Fishing Method. Primary story beat: Capture the strike, execute the hook set, land the zander, and share key takeaway tips. Subject identity: an experienced angler focused on technique. Location: a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail. Topic facts and evidence: subject Zander Fishing Method; The viewer learns a practical method related to Zander Fishing Method.; zander; fishing; a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Historical facts: The viewer learns a practical method related to Zander Fishing Method.. Key entities: zander; fishing. Visible objects: fishing rod; lure; tackle box. Setting details: a readable lakeside or riverbank fishing spot; lakeside or riverbank with readable water and shoreline detail. Narrative progression: Deliver the takeaway tied to Zander Fishing Method.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Historical detail: lure. Historical detail: tackle box. Historical detail: line tension. Historical detail: a readable lakeside or riverbank fishing spot. Historical detail: lakeside or riverbank with readable water and shoreline detail. Historical detail: Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.. Historical detail: Demonstrate the core action using fishing rod.. Historical detail: The viewer learns a practical method related to Zander Fishing Method.. Historical detail: zander. Historical detail: fishing. Historical detail: fishing rod. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an experienced angler focused on technique), same wardrobe (weatherproof jacket and fishing vest with visible lure kit), same location (a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail), same lighting (natural motivated available light with soft contrast), same camera language (handheld-inspired stability with observational framing), same palette (neutral documentary color grade with selective warmth). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "an experienced angler focused on technique",
+            "location": "a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail",
+            "lighting": "natural motivated available light with soft contrast",
+            "camera": "handheld-inspired stability with observational framing",
+            "palette": "neutral documentary color grade with selective warmth",
+            "wardrobe": "weatherproof jacket and fishing vest with visible lure kit"
+          },
+          "warnings": [
+            "clip 1 missing explicit 10-second motion language",
+            "clip 2 missing explicit 10-second motion language",
+            "clip 3 missing explicit 10-second motion language"
+          ],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 2051,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2685,
+              2679,
+              2679
+            ],
+            "clip_prompt_min": 2679,
+            "clip_prompt_max": 2685,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v3",
+          "story_brief": {
+            "title": "Zander Fishing Method",
+            "logline": "An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change?",
+            "main_character": "An experienced angler focused on technique",
+            "setting": "A readable lakeside or riverbank fishing spot with clear water and visible shoreline details",
+            "conflict_tension": "Will this exact zander fishing method produce a bite before conditions change?",
+            "visual_hook": "Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method",
+            "emotional_arc": "Instructional progression from gear setup through fishing technique to a proven catch",
+            "ending_beat": "Strike, hook set, landing, and takeaway lesson",
+            "style_direction": "premium documentary realism instructional demo for vertical 9:16 YouTube Shorts. Purpose: teach zander fishing method step by step with clear hands-on detail. Camera: handheld-inspired stability with observational framing. Lighting: natural motivated available light with soft contrast.",
+            "continuity_anchors": {
+              "character": "an experienced angler focused on technique",
+              "location": "a readable lakeside or riverbank fishing spot, lakeside or riverbank with readable water and shoreline detail",
+              "lighting": "natural motivated available light with soft contrast",
+              "camera": "handheld-inspired stability with observational framing",
+              "palette": "neutral documentary color grade with selective warmth",
+              "wardrobe": "weatherproof jacket and fishing vest with visible lure kit"
+            },
+            "clip_beats": [
+              "Show lure and bait selection, rig setup, and choosing the fishing spot with clear explanation",
+              "Demonstrate casting technique, retrieve rhythm, and how to manage fishing depth effectively",
+              "Capture the strike, execute the hook set, land the zander, and share key takeaway tips"
+            ],
+            "source_topic": "zander fishing method",
+            "target_platform": "youtube_shorts",
+            "niche_style": "documentary",
+            "mood": "tense hopeful",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "zander fishing method",
+              "subject": "Zander Fishing Method",
+              "facts": [
+                "The viewer learns a practical method related to Zander Fishing Method."
+              ],
+              "entities": [
+                "zander",
+                "fishing"
+              ],
+              "settings": [
+                "a readable lakeside or riverbank fishing spot",
+                "lakeside or riverbank with readable water and shoreline detail"
+              ],
+              "objects": [
+                "fishing rod",
+                "lure",
+                "tackle box",
+                "line tension"
+              ],
+              "narrative_beats": [
+                "Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.",
+                "Demonstrate the core action using fishing rod.",
+                "Deliver the takeaway tied to Zander Fishing Method."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            }
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Zander Fishing Method",
+        "seo_description": "An experienced angler focused on technique teaches the zander fishing method. Will this exact method produce a bite before conditions change? Macro shots of lure, hook knot, and rod setup that clearly demonstrate the fishing method",
+        "keywords": [
+          "zander fishing method",
+          "zander fishing",
+          "Why best zander fishing method tips is gaining traction via format gaining traction around topic",
+          "how to zander fishing method: the question people keep asking about topic angle gaining comments this week",
+          "Why why zander fishing method is trending is gaining traction via popular advice vs real results in topic",
+          "zander fishing method for beginners",
+          "Why best zander fishing method tips is"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 0.55,
+        "title_candidates": [
+          "Zander Fishing Method"
+        ],
+        "trend_angle": "Why best zander fishing method tips is",
+        "language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.59,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8901,
+        "domain_knowledge_score": 1.0,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 1.0,
+        "strategy_alignment_score": 0.925,
+        "seo_title_quality_score": 0.55,
+        "clip_specificity_score": 1.0,
+        "prompt_specificity_score": 1.0,
+        "narrative_detail_score": 0.92,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.933,
+        "warnings": [],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8901,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.88,
+              "story_logline": 0.8914,
+              "story_character": 0.88,
+              "story_setting": 0.8971,
+              "story_beats": 0.9086,
+              "prompts": 0.889,
+              "hashtags": 0.88,
+              "trends": 0.8945
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "zander fishing method",
+            "content_strategy": "instructional_fishing",
+            "topic_strategy_alignment_score": 0.925,
+            "seo_alignment": 0.5,
+            "story_alignment": 1.0,
+            "clip_alignment": 1.0,
+            "prompt_alignment": 1.0,
+            "generic_filler_hits": [],
+            "required_term_hits": [
+              "lure",
+              "cast",
+              "casting",
+              "hook",
+              "line",
+              "depth",
+              "technique",
+              "method",
+              "strike",
+              "fish",
+              "fishing",
+              "tackle",
+              "rod",
+              "zander"
+            ],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "instructional",
+            "label": "Instructional",
+            "hook_structure": "Common mistake or setup gap that the viewer recognizes immediately.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 setup / common mistake / preparation",
+              "Clip 2 \u2014 method / hands-on demonstration",
+              "Clip 3 \u2014 result / proof / takeaway"
+            ],
+            "conflict_type": "Will this method work before conditions change?",
+            "payoff_type": "Clear takeaway the viewer can replicate.",
+            "visual_language": "Hands-on detail, readable steps, documentary close-ups.",
+            "prompt_rules": [
+              "Show domain tools and technique clearly.",
+              "Avoid generic emotional walking shots unless they teach the method."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "fishing",
+            "label": "Fishing",
+            "concepts": [
+              "angler",
+              "lure",
+              "bait",
+              "hook",
+              "cast",
+              "retrieve",
+              "depth",
+              "strike",
+              "hook set",
+              "water clarity",
+              "current",
+              "night fishing",
+              "shallow water",
+              "tackle",
+              "rod",
+              "reel"
+            ],
+            "default_role_en": "an experienced angler",
+            "default_role_fa": "",
+            "setting_en": "a readable lakeside or riverbank fishing spot",
+            "instructional_beats_en": [
+              "Lure/bait selection, rig setup, and spot choice.",
+              "Casting, retrieve rhythm, and depth strategy.",
+              "Strike, hook set, landing, and takeaway lesson."
+            ],
+            "review_beats_en": []
+          },
+          "topic_story_detail": {
+            "topic": "zander fishing method",
+            "subject": "Zander Fishing Method",
+            "facts": [
+              "The viewer learns a practical method related to Zander Fishing Method."
+            ],
+            "entities": [
+              "zander",
+              "fishing"
+            ],
+            "settings": [
+              "a readable lakeside or riverbank fishing spot",
+              "lakeside or riverbank with readable water and shoreline detail"
+            ],
+            "objects": [
+              "fishing rod",
+              "lure",
+              "tackle box",
+              "line tension"
+            ],
+            "narrative_beats": [
+              "Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.",
+              "Demonstrate the core action using fishing rod.",
+              "Deliver the takeaway tied to Zander Fishing Method."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "narrative_detail_hits": 0.92
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.925,
+        "story_quality_score": 1.0,
+        "seo_score": 0.55,
+        "prompt_completeness_score": 1.0,
+        "forbidden_drift": []
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "language_authority_score": 0.8901,
+    "domain_knowledge_score": 1.0,
+    "character_quality_score": 0.92,
+    "story_specificity_score": 1.0,
+    "strategy_alignment_score": 0.925,
+    "seo_title_quality_score": 0.55,
+    "clip_specificity_score": 1.0,
+    "prompt_specificity_score": 1.0,
+    "narrative_detail_score": 0.92,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.933,
+    "warnings": [],
+    "passed": true,
+    "details": {
+      "language_authority": {
+        "expected_language_code": "en",
+        "language_authority_score": 0.8901,
+        "drift_detected": [],
+        "field_scores": {
+          "seo_title": 0.88,
+          "story_logline": 0.8914,
+          "story_character": 0.88,
+          "story_setting": 0.8971,
+          "story_beats": 0.9086,
+          "prompts": 0.889,
+          "hashtags": 0.88,
+          "trends": 0.8945
+        },
+        "passed": true,
+        "notes": []
+      },
+      "strategy_alignment": {
+        "topic": "zander fishing method",
+        "content_strategy": "instructional_fishing",
+        "topic_strategy_alignment_score": 0.925,
+        "seo_alignment": 0.5,
+        "story_alignment": 1.0,
+        "clip_alignment": 1.0,
+        "prompt_alignment": 1.0,
+        "generic_filler_hits": [],
+        "required_term_hits": [
+          "lure",
+          "cast",
+          "casting",
+          "hook",
+          "line",
+          "depth",
+          "technique",
+          "method",
+          "strike",
+          "fish",
+          "fishing",
+          "tackle",
+          "rod",
+          "zander"
+        ],
+        "passed": true,
+        "notes": []
+      },
+      "story_strategy": {
+        "strategy_id": "instructional",
+        "label": "Instructional",
+        "hook_structure": "Common mistake or setup gap that the viewer recognizes immediately.",
+        "clip_beat_structure": [
+          "Clip 1 \u2014 setup / common mistake / preparation",
+          "Clip 2 \u2014 method / hands-on demonstration",
+          "Clip 3 \u2014 result / proof / takeaway"
+        ],
+        "conflict_type": "Will this method work before conditions change?",
+        "payoff_type": "Clear takeaway the viewer can replicate.",
+        "visual_language": "Hands-on detail, readable steps, documentary close-ups.",
+        "prompt_rules": [
+          "Show domain tools and technique clearly.",
+          "Avoid generic emotional walking shots unless they teach the method."
+        ]
+      },
+      "domain_profile": {
+        "domain_id": "fishing",
+        "label": "Fishing",
+        "concepts": [
+          "angler",
+          "lure",
+          "bait",
+          "hook",
+          "cast",
+          "retrieve",
+          "depth",
+          "strike",
+          "hook set",
+          "water clarity",
+          "current",
+          "night fishing",
+          "shallow water",
+          "tackle",
+          "rod",
+          "reel"
+        ],
+        "default_role_en": "an experienced angler",
+        "default_role_fa": "",
+        "setting_en": "a readable lakeside or riverbank fishing spot",
+        "instructional_beats_en": [
+          "Lure/bait selection, rig setup, and spot choice.",
+          "Casting, retrieve rhythm, and depth strategy.",
+          "Strike, hook set, landing, and takeaway lesson."
+        ],
+        "review_beats_en": []
+      },
+      "topic_story_detail": {
+        "topic": "zander fishing method",
+        "subject": "Zander Fishing Method",
+        "facts": [
+          "The viewer learns a practical method related to Zander Fishing Method."
+        ],
+        "entities": [
+          "zander",
+          "fishing"
+        ],
+        "settings": [
+          "a readable lakeside or riverbank fishing spot",
+          "lakeside or riverbank with readable water and shoreline detail"
+        ],
+        "objects": [
+          "fishing rod",
+          "lure",
+          "tackle box",
+          "line tension"
+        ],
+        "narrative_beats": [
+          "Establish Zander Fishing Method in a readable lakeside or riverbank fishing spot.",
+          "Demonstrate the core action using fishing rod.",
+          "Deliver the takeaway tied to Zander Fishing Method."
+        ],
+        "source": "generic_extractor",
+        "match_key": ""
+      },
+      "narrative_detail_hits": 0.92
+    },
+    "audit_version": "quality_audit_v2",
+    "strategy_alignment_passed": true,
+    "topic_strategy_alignment_score": 0.925,
+    "story_quality_score": 1.0,
+    "seo_score": 0.55,
+    "prompt_completeness_score": 1.0,
+    "forbidden_drift": []
+  },
+  "overall_content_score": 0.933,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

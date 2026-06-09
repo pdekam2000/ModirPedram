@@ -1,0 +1,50 @@
+{
+  "topic": "The history and evolution of snakes through the ages",
+  "category": "natural_history",
+  "strategy": "documentary",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "story",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Why The History and Evolution of Snakes Through the Ages Matters",
+      "The Truth About The History and Evolution of Snakes Through the Ages",
+      "What Everyone Gets Wrong About The History and Evolution of Snakes Through the Ages",
+      "The Real Story Behind The History and Evolution of Snakes Through the Ages",
+      "The History and Evolution of Snakes Through the Ages"
+    ],
+    "domain_concepts": [
+      "history",
+      "evolution",
+      "snakes",
+      "through",
+      "ages"
+    ],
+    "character_role": "a focused analyst",
+    "story": {
+      "logline": "A focused expert breaks down The history and evolution of snakes through the ages with concrete evidence, objects, and topic-specific stakes.",
+      "clip_beats": [
+        "Introduce the ancient origins of snakes with visuals of prehistoric landscapes and fossil beds, explaining their early evolutionary beginnings, highlighting history.",
+        "Showcase major evolutionary adaptations such as limb loss, venom development, and sensory enhancements with clear, engaging imagery.",
+        "Present modern snakes in rainforest habitats, highlighting their survival advantages and ecological roles today."
+      ]
+    },
+    "prompt_additions": [
+      "history",
+      "evolution",
+      "snakes",
+      "through",
+      "ages"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

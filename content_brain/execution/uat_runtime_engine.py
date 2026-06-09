@@ -44,6 +44,7 @@ from content_brain.execution.uat_runtime_profile import (
     apply_live_voice_smoke_duration_guard,
     build_uat_operations_block,
     generate_uat_session_id,
+    uat_routing_snapshot,
 )
 from content_brain.execution.uat_real_video_bridge import (
     uat_log,
@@ -865,6 +866,25 @@ def write_uat_report(session_id: str, data: dict[str, Any], *, project_root: Pat
         f"**Date:** {data.get('timestamp')}",
         f"**Status:** {'PASS' if data.get('success') else 'FAIL'}",
         "",
+        "## Runtime routing",
+        "",
+    ]
+    routing = data.get("routing") or {}
+    if routing:
+        lines.extend(
+            [
+                f"- **Runtime:** `{routing.get('runtime_name')}`",
+                f"- **Route:** `{routing.get('route_name')}`",
+                f"- **Phase I continuity:** `{routing.get('is_phase_i_continuity')}`",
+                f"- **Approval plan:** `{routing.get('approval_plan')}`",
+                "",
+                "> This UAT Runtime is generic and does not run Phase I 3-clip continuity chaining. "
+                "Use Execution Center → Runway Live Smoke → 3-Clip Continuity (Phase I) for Phase I.",
+                "",
+            ]
+        )
+    lines.extend(
+        [
         "## Inputs",
         "",
         f"- **Topic:** {config.get('topic')}",
@@ -895,7 +915,8 @@ def write_uat_report(session_id: str, data: dict[str, Any], *, project_root: Pat
         "",
         "## Warnings / errors",
         "",
-    ]
+        ]
+    )
     for item in data.get("warnings") or []:
         lines.append(f"- {item}")
     for item in data.get("errors") or []:
@@ -1110,6 +1131,9 @@ def run_uat_pipeline(
             "timestamp": _now(),
             "success": True,
             "session_id": session_id,
+            "routing": uat_routing_snapshot(
+                clip_count=int(stages.get("content_brain", {}).get("clip_count") or 0) or None,
+            ),
             "config": {
                 "topic": config.topic,
                 "platform": config.platform,
@@ -1219,9 +1243,32 @@ def build_uat_status_payload(session: dict[str, Any]) -> dict[str, Any]:
 
     session_id = str(session.get("execution_session_id") or uat_block.get("session_id") or "")
     runway_obs_payload = extract_runway_browser_obs_from_session(session)
+    routing = {
+        key: uat_block.get(key)
+        for key in (
+            "runtime_name",
+            "route_name",
+            "is_phase_i_continuity",
+            "continuity_enabled",
+            "use_starter_image",
+            "use_frame_chain",
+            "approval_plan",
+            "clip_count",
+            "expected_approval_gate_count",
+            "use_frame_after_clips",
+            "story_brief_present",
+            "starter_prompt_chars",
+            "continuity_notes",
+        )
+        if key in uat_block
+    }
     return {
         "session_id": session_id,
         "status": str(uat_block.get("status") or "unknown"),
+        "runtime_name": routing.get("runtime_name"),
+        "route_name": routing.get("route_name"),
+        "is_phase_i_continuity": routing.get("is_phase_i_continuity"),
+        "routing": routing,
         "current_stage": uat_block.get("current_stage"),
         "failed_stage": uat_block.get("failed_stage"),
         "stages": _dict(uat_block.get("stages")),

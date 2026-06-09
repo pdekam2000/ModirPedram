@@ -1,0 +1,45 @@
+{
+  "adapter_version": "10i_v1",
+  "adapter_source": "schema_director_shots",
+  "provider_category": "video_generation",
+  "clip_count": 2,
+  "target_clip_count": 2,
+  "provider_hint": "runway_browser",
+  "prompts": [
+    "topic-specific object in sharp focus highlighting mysterious during hook — specific to A mysterious astronaut stands alone on a rain-soaked neon platform above a futuristic cyberpunk city at night. A strange blue signal begins glowing beneath a puddle near their feet. Curious and cautious, the astronaut follows the signal across the platform while distant drones search the skyline through heavy rain. The signal grows stronger and guides the astronaut toward the edge of the platform. Finally, the glowing energy rises into the sky and forms a massive unknown symbol above the city, i, not generic stock footage.. Subject: mysterious evidence element. Action: Reveal mysterious detail entering frame. Mood: curiosity. Camera: Tight macro on evidence detail. Movement: shallow depth of field. Lighting: Natural motivated light with clear subject separation — high contrast accent on focal detail. Pacing: curiosity. Continuity: Follows opening;",
+    "contrasting before/after frame highlighting astronaut during escalation — specific to A mysterious astronaut stands alone on a rain-soaked neon platform above a futuristic cyberpunk city at night. A strange blue signal begins glowing beneath a puddle near their feet. Curious and cautious, the astronaut follows the signal across the platform while distant drones search the skyline through heavy rain. The signal grows stronger and guides the astronaut toward the edge of the platform. Finally, the glowing energy rises into the sky and forms a massive unknown symbol above the city, i, not generic stock footage.. Subject: astronaut evidence element. Action: Contrast two readings of astronaut. Mood: tension. Camera: Slow push-in on contradicting detail. Movement: Static hold. Lighting: Natural motivated light with clear subject separation. Pacing: tension. Continuity: Follows HOOK_BEAT; sets up close.."
+  ],
+  "clip_metadata": [
+    {
+      "clip_number": 1,
+      "duration_seconds": 2,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:3648570bc083aad9a5100f9f1ed20eb9d8059567230dbbb37b41ccf0be771b53",
+      "lineage": null,
+      "quality_score": null
+    },
+    {
+      "clip_number": 2,
+      "duration_seconds": 6,
+      "beat_id": null,
+      "source_shot_id": null,
+      "prompt_hash": "sha256:3a6855370f13b711efb888e98983904d15125e2a83bc2233cae7dd7fadcdd619",
+      "lineage": null,
+      "quality_score": null
+    }
+  ],
+  "metadata": {
+    "adapter_provenance": {
+      "engine": "SessionPromptAdapter",
+      "engine_version": "10i_v1",
+      "evaluated_at": "2026-06-04 00:43:33"
+    },
+    "sources_used": [
+      "schema_director_shots",
+      "video_format_plan",
+      "brief_snapshot"
+    ],
+    "warnings": []
+  }
+}

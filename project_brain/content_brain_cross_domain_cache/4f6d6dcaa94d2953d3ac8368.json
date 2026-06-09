@@ -1,0 +1,73 @@
+{
+  "topic": "Could AI design a billion-dollar perfume brand by 2030?",
+  "language_code": "en",
+  "payload": {
+    "topic": "Could AI design a billion-dollar perfume brand by 2030?",
+    "primary_domain": "business",
+    "secondary_domains": [
+      "perfume",
+      "ai"
+    ],
+    "supporting_domains": [
+      "future"
+    ],
+    "domain_weights": {
+      "business": 0.4,
+      "perfume": 0.35,
+      "ai": 0.25
+    },
+    "story_focus": "market disruption and luxury brand creation",
+    "strategic_angle": "Can AI-generated scent design create a billion-dollar fragrance brand?",
+    "domain_concepts_by_domain": {
+      "business": [
+        "brand positioning",
+        "luxury market",
+        "consumer adoption",
+        "market share",
+        "billion-dollar brand",
+        "distribution strategy"
+      ],
+      "perfume": [
+        "accord design",
+        "raw materials",
+        "longevity",
+        "projection",
+        "signature scent",
+        "fragrance evaluation"
+      ],
+      "ai": [
+        "generative design",
+        "prediction models",
+        "consumer preference modeling",
+        "algorithmic formulation",
+        "algorithmic scent model",
+        "consumer preference dashboard"
+      ]
+    },
+    "fused_conflict": "What cross-domain forces decide whether AI can build a billion-dollar perfume brand by 2030?",
+    "fused_clip_structure": [
+      "Market claim — frame the billion-dollar fragrance opportunity, future trend forecast, and 2030 prediction as AI enters luxury perfume design and brand creation.",
+      "Evidence — compare algorithmic formulation, algorithmic scent formulation, automation impact, consumer preference modeling, accord design, and longevity testing with visible market signals.",
+      "Verdict — can AI create a signature scent and build a real luxury brand by 2030, and what outcome still requires human taste and branding instinct?"
+    ],
+    "fused_character": "a fragrance entrepreneur",
+    "fused_setting": "a luxury fragrance innovation studio with brand strategy boards, scent evaluation strips, raw material bottles, and AI preference dashboards",
+    "missing_domain_warnings": [],
+    "multi_domain": true,
+    "domain_balance_score": 0.8684,
+    "cross_domain_fusion_score": 0.0,
+    "openai_applied": true,
+    "openai_fusion_used": true,
+    "cache_hit": false,
+    "estimated_cost_usd": 0.0,
+    "source": "openai_cross_domain_dry_run",
+    "classification_strategy": "educational_lifestyle",
+    "intent_primary": ""
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

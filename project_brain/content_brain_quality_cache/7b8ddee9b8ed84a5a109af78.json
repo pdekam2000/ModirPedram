@@ -1,0 +1,44 @@
+{
+  "topic": "Will AI eliminate most creative professions by 2040?",
+  "category": "technology",
+  "strategy": "future_analysis",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "generative design",
+      "prediction models",
+      "consumer preference modeling",
+      "algorithmic formulation",
+      "algorithmic scent model",
+      "consumer preference dashboard",
+      "labor displacement",
+      "creative labor market",
+      "automation impact",
+      "workforce transition",
+      "creative workflow",
+      "design craft",
+      "brand taste",
+      "human creativity",
+      "market disruption",
+      "future forecast",
+      "industry shift",
+      "2030 outlook",
+      "adoption curve"
+    ],
+    "story_angles": [
+      "Claim — AI automation threatens creative professions and reshapes the labor market by 2040 with future forecast evidence.",
+      "Evidence — compare workflow automation, generative tools, labor displacement, client demand, workforce economics, trend signals, and prediction models across creative industries.",
+      "Verdict — which creative roles shrink, which survive, and what human judgment still drives premium work by 2040?"
+    ],
+    "character_role": "a focused analyst"
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

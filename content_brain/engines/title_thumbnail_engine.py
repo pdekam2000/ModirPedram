@@ -37,6 +37,32 @@ CLICKBAIT_SPAM_TERMS = {
     "free money",
 }
 
+TITLE_NOUN_STOPWORDS = {
+    "concrete",
+    "specific",
+    "story",
+    "detail",
+    "sensory",
+    "anchor",
+    "topic",
+    "about",
+    "this",
+    "that",
+    "with",
+    "from",
+    "your",
+    "what",
+    "when",
+    "where",
+    "everyone",
+    "nobody",
+    "actually",
+    "really",
+    "tied",
+    "frame",
+    "one",
+}
+
 DEFAULT_TITLE_MAX_CHARACTERS = 80
 
 
@@ -677,14 +703,22 @@ class TitleThumbnailEngine:
         sensory_anchor: str,
         hook_text: str,
     ) -> str:
-        for source in (sensory_anchor, topic, hook_text):
+        for source in (topic, sensory_anchor, hook_text, topic):
             tokens = [
                 token.strip(".,!?;:'\"")
                 for token in re.split(r"\s+", source)
                 if len(token.strip(".,!?;:'\"")) >= 4
+                and token.strip(".,!?;:'\"").lower() not in TITLE_NOUN_STOPWORDS
             ]
             if tokens:
                 return max(tokens, key=len)
+        anchors = [
+            token
+            for token in re.findall(r"[\w\u0600-\u06FF]+", topic, flags=re.UNICODE)
+            if len(token) >= 3 and token.lower() not in TITLE_NOUN_STOPWORDS
+        ]
+        if anchors:
+            return max(anchors, key=len)
         return "story"
 
     def _extract_tension_phrase(

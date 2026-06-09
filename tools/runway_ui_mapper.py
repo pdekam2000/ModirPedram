@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Phase RUNWAY-UI-MAPPER-C — Safe Runway UI discovery + manual learning via Chrome CDP.
+Phase RUNWAY-UI-MAPPER-D — Safe Runway UI discovery + manual learning via Chrome CDP.
 
-Modes: --scan, --label, --observe, --click-label (click element in browser → terminal label).
+Modes: --scan, --label, --observe, --click-label, --hover-label (Alt+Click or Mapper ON → label popup).
 
 Never: auto-click Generate, create video, spend credits, store credentials/cookies/storage, auto-login.
+Hover-label (--hover-label): press L over target — no click, safe for Download / Generate / Buy controls.
 """
 
 from __future__ import annotations
@@ -45,16 +46,27 @@ BLOCKED_CLICK_SUBSTRINGS: tuple[str, ...] = (
 
 VALID_SEMANTIC_LABELS: tuple[str, ...] = (
     "prompt_box",
+    "prompt_input",
     "generate_button",
     "try_it_now_button",
     "duration_10s",
+    "duration_8s",
+    "duration_menu",
     "aspect_ratio_16_9",
+    "aspect_ratio_9_16",
+    "aspect_ratio_menu",
     "model_selector",
     "gen45_option",
+    "gen45_model_button",
+    "video_generation_button",
     "first_video_frame_upload",
     "reference_image_upload",
     "download_button",
+    "download_mp4_button",
+    "use_frame_button",
+    "remove_image",
     "generated_video_card",
+    "generation_status",
     "queue_status_text",
     "progress_status_text",
     "skip",
@@ -91,49 +103,320 @@ DEFAULT_SAFETY_V2: dict[str, Any] = {
     "requires_approval": ["generate_button"],
 }
 
-# Semantic labels where real click may pass through with --allow-safe-clicks.
+VALID_CONTROL_TYPES: tuple[str, ...] = (
+    "direct_button",
+    "dropdown_menu",
+    "hover_menu",
+    "menu_option",
+    "upload_area",
+    "status_text",
+    "input_box",
+)
+
+# Semantic labels where automation may click without approval (when map says allowed).
 SAFE_CLICK_SEMANTIC_LABELS: frozenset[str] = frozenset(
     {
         "prompt_box",
+        "prompt_input",
         "duration_10s",
+        "duration_8s",
+        "duration_menu",
         "aspect_ratio_16_9",
+        "aspect_ratio_9_16",
+        "aspect_ratio_menu",
         "gen45_option",
+        "gen45_model_button",
         "model_selector",
         "try_it_now_button",
         "first_video_frame_upload",
         "reference_image_upload",
         "download_button",
+        "download_mp4_button",
+        "use_frame_button",
+        "remove_image",
         "generated_video_card",
+        "generation_status",
         "queue_status_text",
         "progress_status_text",
     }
 )
 
+# Phase RUNWAY-BROWSER-CONTINUITY-C — completion via output controls (not status text)
+CONTINUITY_COMPLETION_SIGNAL_LABELS: tuple[str, ...] = (
+    "download_mp4_button",
+    "use_frame_button",
+)
+
+CONTINUITY_COMPLETION_POLL_SECONDS: tuple[int, int] = (30, 60)
+
+GENERATION_COMPLETE_RULE: dict[str, Any] = {
+    "strategy": "output_controls_visible",
+    "description": (
+        "generation_complete when download_mp4_button OR use_frame_button is visible "
+        "on the Gen-4.5 tools session output view"
+    ),
+    "expression": "download_mp4_button_visible OR use_frame_button_visible",
+    "poll_interval_seconds": list(CONTINUITY_COMPLETION_POLL_SECONDS),
+    "signals": list(CONTINUITY_COMPLETION_SIGNAL_LABELS),
+    "generation_status_required": False,
+}
+
+# Labels allowed with weak/generic selectors until operator re-labels (Phase C).
+WEAK_SELECTOR_TOLERANCE_LABELS: frozenset[str] = frozenset({"use_frame_button"})
+
+# Phase RUNWAY-BROWSER-CONTINUITY-B/C — relabeling targets + validation
+# Phase RUNWAY-STARTER-TO-VIDEO — starter image generation mapped labels (Image Gen tool).
+STARTER_IMAGE_CANONICAL_LABELS: tuple[str, ...] = (
+    "image_prompt_input",
+    "image_aspect_ratio_menu",
+    "image_aspect_ratio_9_16",
+    "image_count_menu",
+    "image_count_1",
+    "image_count_4",
+    "image_quality_menu",
+    "image_quality_1k",
+    "image_quality_2k",
+    "image_quality_4k",
+    "image_generate_button",
+    "image_app_menu_button",
+    "image_use_to_video_option",
+)
+
+STARTER_IMAGE_LABEL_ALIASES: dict[str, tuple[str, ...]] = {
+    "image_prompt_input": ("image_prompt_input", "Text to Image box", "Text to image box"),
+    "image_aspect_ratio_menu": ("image_aspect_ratio_menu", "image_aspect_ratio"),
+    "image_aspect_ratio_9_16": ("image_aspect_ratio_9_16", "aspect_ratio_9_16"),
+    "image_count_menu": ("image_count_menu", "image_count"),
+    "image_count_1": ("image_count_1", "1"),
+    "image_count_4": ("image_count_4", "4"),
+    "image_quality_menu": ("image_quality_menu", "image_quality", "Quality"),
+    "image_quality_1k": ("image_quality_1k", "1K", "1k"),
+    "image_quality_2k": ("image_quality_2k", "2K", "2k"),
+    "image_quality_4k": ("image_quality_4k", "4K", "4k"),
+    "image_generate_button": ("image_generate_button", "Generate Image", "Generate"),
+    "image_app_menu_button": ("image_app_menu_button",),
+    "image_use_to_video_option": (
+        "image_use_to_video_option",
+        "Use to Video",
+        "Use in video",
+    ),
+}
+
+CONTINUITY_CRITICAL_LABELS: tuple[str, ...] = (
+    "download_mp4_button",
+    "use_frame_button",
+    "remove_image",
+    "duration_menu",
+    "aspect_ratio_menu",
+    "duration_10s",
+    "aspect_ratio_9_16",
+    "aspect_ratio_16_9",
+)
+
+CONTINUITY_OPTIONAL_LABELS: tuple[str, ...] = (
+    "generation_status",
+    "queue_status_text",
+    "progress_status_text",
+)
+
+CONTINUITY_PREREQUISITE_LABELS: tuple[str, ...] = (
+    "prompt_input",
+    "gen45_model_button",
+    "try_it_now_button",
+    "generate_button",
+)
+
+CONTINUITY_ALL_REQUIRED_LABELS: tuple[str, ...] = CONTINUITY_PREREQUISITE_LABELS + CONTINUITY_CRITICAL_LABELS
+
+CONTINUITY_LABEL_ALIASES: dict[str, tuple[str, ...]] = {
+    "prompt_input": ("prompt_input", "prompt_box", "Prompt Box"),
+    "gen45_model_button": ("gen45_model_button", "gen45_option", "Gen-4.5", "Ge-4.5"),
+    "try_it_now_button": ("try_it_now_button", "Try it now"),
+    "generate_button": ("generate_button", "Geerate", "Generate"),
+    "download_mp4_button": ("download_mp4_button", "download_button", "DOWNLOAD MP4"),
+    "generation_status": ("generation_status", "queue_status_text", "progress_status_text"),
+    "use_frame_button": ("use_frame_button", "USE FRAME"),
+    "remove_image": (
+        "remove_image",
+        "REMOVE IMAGE",
+        "Remove image",
+        "remove image",
+        "Remove Image",
+    ),
+    "duration_menu": ("duration_menu", "VIEDO DURATION KONOPF"),
+    "aspect_ratio_menu": ("aspect_ratio_menu",),
+    "duration_10s": ("duration_10s", "10s duration", "10S"),
+    "aspect_ratio_9_16": (
+        "aspect_ratio_9_16",
+        "aspect_ratio_menu 9: 16",
+        "aspect_ratio_menu 9:16",
+    ),
+    "aspect_ratio_16_9": (
+        "aspect_ratio_16_9",
+        "aspect_ratio_menu 16:9",
+        "16:9",
+        "16.9 MODE",
+        "16.9",
+    ),
+}
+
+LABEL_NORMALIZATION_SUGGESTIONS: dict[str, str] = {
+    "DOWNLOAD MP4": "download_mp4_button",
+    "DOWNLOAD ALL": "download_mp4_button",
+    "USE FRAME": "use_frame_button",
+    "aspect_ratio_menu 9: 16": "aspect_ratio_9_16",
+    "aspect_ratio_menu 9:16": "aspect_ratio_9_16",
+    "aspect_ratio_menu 16:9": "aspect_ratio_16_9",
+    "Prompt Box": "prompt_input",
+    "Gen-4.5": "gen45_model_button",
+    "Ge-4.5": "gen45_model_button",
+    "Try it now": "try_it_now_button",
+    "Geerate": "generate_button",
+    "10s duration": "duration_10s",
+    "8s duration": "duration_8s",
+    "VIEDO DURATION KONOPF": "duration_menu",
+    "REMOVE IMAGE": "remove_image",
+    "Remove image": "remove_image",
+}
+
+CANONICAL_CONTINUITY_LABEL_ORDER: tuple[str, ...] = CONTINUITY_ALL_REQUIRED_LABELS
+
+FORBIDDEN_CAPTURE_TAGS: frozenset[str] = frozenset({"body", "html"})
+
+GENERIC_CSS_SELECTORS: frozenset[str] = frozenset(
+    {
+        "body",
+        "html",
+        "span",
+        "div",
+        "svg",
+        "a",
+        "button",
+        "label",
+        "video",
+        "input",
+        "select",
+        "textarea",
+    }
+)
+
+QUALIFIED_SELECTOR_MARKERS: tuple[str, ...] = (
+    "[",
+    "#",
+    ":",
+    "data-testid",
+    "aria-label",
+    "role=",
+    "nth-",
+)
+
+TOOLS_SESSION_URL_MARKERS: tuple[str, ...] = ("mode=tools", "tool=video")
+
+USE_FRAME_ALLOWED_URL_MARKERS: tuple[str, ...] = ("mode=tools", "tool=video")
+
+USE_FRAME_FORBIDDEN_URL_MARKERS: tuple[str, ...] = (
+    "mode=apps",
+    "mode=sessions",
+    "app=multi-shot",
+    "/recents",
+)
+
+DOWNLOAD_MP4_ALLOWED_TAGS: frozenset[str] = frozenset(
+    {"button", "a", "span", "div", "li", "menuitem"}
+)
+
+EXPECTED_CONTROL_TEXT: dict[str, tuple[str, ...]] = {
+    "download_mp4_button": ("download",),
+    "use_frame_button": ("use frame", "use frame image"),
+    "remove_image": ("remove", "remove image", "clear", "delete image"),
+    "generation_status": (
+        "queue",
+        "generating",
+        "processing",
+        "progress",
+        "ready",
+        "complete",
+        "minute",
+        "second",
+        "%",
+        "waiting",
+    ),
+    "duration_10s": ("10s", "10 seconds", "10 sec"),
+    "duration_8s": ("8s", "8 seconds", "8 sec"),
+    "aspect_ratio_9_16": ("9:16",),
+    "aspect_ratio_16_9": ("16:9",),
+    "duration_menu": ("5s", "8s", "10s", "duration", "second"),
+    "aspect_ratio_menu": ("16:9", "9:16", "aspect", "ratio"),
+}
+
+CONTINUITY_RELABEL_CHECKLIST: tuple[dict[str, str], ...] = (
+    {
+        "step": "1",
+        "label": "duration_menu",
+        "when": "Gen-4.5 editor open (mode=tools&tool=video), before opening menu",
+        "target": "Duration chip/button showing current value (e.g. 5s)",
+        "avoid": "Menu option rows — label those as duration_10s / duration_8s",
+    },
+    {
+        "step": "2",
+        "label": "duration_10s",
+        "when": "After clicking duration_menu",
+        "target": "Menu row with text '10 seconds' or '10s'",
+        "avoid": "Toolbar chip before menu opens",
+    },
+    {
+        "step": "3",
+        "label": "aspect_ratio_menu",
+        "when": "Gen-4.5 editor, before opening ratio dropdown",
+        "target": "Aspect ratio chip/button (shows 16:9 or 9:16)",
+        "avoid": "Individual menu options",
+    },
+    {
+        "step": "4",
+        "label": "aspect_ratio_16_9",
+        "when": "After clicking aspect_ratio_menu",
+        "target": "Menu option row '16:9'",
+        "avoid": "Multi-Shot or apps view",
+    },
+    {
+        "step": "5",
+        "label": "aspect_ratio_9_16",
+        "when": "After clicking aspect_ratio_menu",
+        "target": "Menu option row '9:16'",
+        "avoid": "Label key with space typo (use aspect_ratio_9_16)",
+    },
+    {
+        "step": "6",
+        "label": "download_mp4_button",
+        "when": "Generation complete — output view shows Download on the clip card",
+        "target": "Button/link/menu item whose text or aria-label includes 'Download'",
+        "avoid": "body/html, Download all batch icon, entire page — use --hover-label + L (no click)",
+    },
+    {
+        "step": "7",
+        "label": "use_frame_button",
+        "when": "Same completed output view (appears with download_mp4_button)",
+        "target": "Control with text 'Use frame' or 'Use frame image' on the video card",
+        "avoid": "mode=apps, recents, multi-shot; weak span OK temporarily — re-label when possible",
+    },
+    {
+        "step": "8",
+        "label": "remove_image",
+        "when": "After final clip — reference image still in upload/first-frame area",
+        "target": "Remove / clear / X control on the lingering reference image thumbnail",
+        "avoid": "Use frame (different action); do not capture page body",
+    },
+)
+
+CLICK_LABEL_SAVE_PREFIX = "__RUNWAY_MAPPER_SAVE__"
+
 CLICK_LABEL_INSTALL_JS = """
-(allowSafeClicks) => {
-  const BLOCKED = ['generate','create','submit','upgrade','purchase','buy','subscribe','delete'];
+() => {
+  const SAVE_PREFIX = '__RUNWAY_MAPPER_SAVE__';
   const HIGHLIGHT_CLASS = 'runway-mapper-click-highlight';
   const STYLE_ID = 'runway-mapper-click-style';
-
-  function labelOf(el) {
-    if (!el) return '';
-    const parts = [
-      el.innerText, el.textContent, el.getAttribute('aria-label'),
-      el.getAttribute('title'), el.getAttribute('placeholder'),
-      el.getAttribute('name'), el.getAttribute('value'),
-    ];
-    return parts.filter(Boolean).join(' ').replace(/\\s+/g, ' ').trim().slice(0, 240);
-  }
-
-  function nearbyText(el) {
-    let node = el && el.parentElement;
-    for (let i = 0; i < 3 && node; i++) {
-      const t = (node.innerText || '').replace(/\\s+/g, ' ').trim();
-      if (t && t.length > 3) return t.slice(0, 180);
-      node = node.parentElement;
-    }
-    return '';
-  }
+  const POPUP_ID = 'runway-mapper-popup';
+  const TOGGLE_ID = 'runway-mapper-toggle';
 
   function cssPath(el) {
     if (!el || el.nodeType !== 1) return '';
@@ -141,121 +424,649 @@ CLICK_LABEL_INSTALL_JS = """
       try { return '#' + CSS.escape(el.id); } catch (e) { return '#' + el.id; }
     }
     const testId = el.getAttribute('data-testid');
-    if (testId) return `[data-testid="${testId}"]`;
+    if (testId) return '[data-testid="' + testId + '"]';
     const aria = el.getAttribute('aria-label');
-    if (aria) {
-      return `${el.tagName.toLowerCase()}[aria-label="${aria.replace(/"/g, '\\\\"')}"]`;
-    }
+    if (aria) return el.tagName.toLowerCase() + '[aria-label="' + aria.replace(/"/g, '\\\\"') + '"]';
     return el.tagName.toLowerCase();
-  }
-
-  function isDangerous(el) {
-    const hay = labelOf(el).toLowerCase();
-    return BLOCKED.some(t => hay.includes(t));
-  }
-
-  function pickTarget(ev) {
-    let node = ev.target;
-    const interactive = ['BUTTON','A','INPUT','SELECT','TEXTAREA','LABEL','VIDEO'];
-    while (node && node !== document.body) {
-      const tag = (node.tagName || '').toUpperCase();
-      if (interactive.includes(tag) || node.isContentEditable || node.getAttribute('role') === 'button') {
-        return node;
-      }
-      node = node.parentElement;
-    }
-    return ev.target;
-  }
-
-  function highlight(el) {
-    document.querySelectorAll('.' + HIGHLIGHT_CLASS).forEach(n => n.classList.remove(HIGHLIGHT_CLASS));
-    if (el && el.classList) el.classList.add(HIGHLIGHT_CLASS);
   }
 
   function buildMeta(el) {
     const rect = el.getBoundingClientRect();
-    const combined = labelOf(el);
     return {
       tag: (el.tagName || '').toLowerCase(),
       role: el.getAttribute('role') || '',
-      type: el.getAttribute('type') || '',
       text: (el.innerText || el.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 200),
       aria_label: el.getAttribute('aria-label') || '',
-      placeholder: el.getAttribute('placeholder') || '',
-      title: el.getAttribute('title') || '',
-      name: el.getAttribute('name') || '',
-      href: el.getAttribute('href') || '',
-      disabled: !!el.disabled,
-      contenteditable: !!el.isContentEditable,
       css_selector: cssPath(el),
-      combined_label: combined,
-      nearby_text: nearbyText(el),
       bounding_box: {
         x: Math.round(rect.x), y: Math.round(rect.y),
         width: Math.round(rect.width), height: Math.round(rect.height),
       },
       page_url: location.href || '',
       page_title: document.title || '',
-      click_blocked: isDangerous(el),
-      captured_at: new Date().toISOString(),
     };
+  }
+
+  function clearHighlight() {
+    document.querySelectorAll('.' + HIGHLIGHT_CLASS).forEach(n => n.classList.remove(HIGHLIGHT_CLASS));
+  }
+
+  function emitSave(payload) {
+    payload._save_id = String(Date.now()) + '_' + Math.random().toString(16).slice(2);
+    const line = SAVE_PREFIX + JSON.stringify(payload);
+    try {
+      document.documentElement.setAttribute('data-runway-mapper-pending-save', line);
+    } catch (e) {}
+    try {
+      console.log(line);
+    } catch (e) {}
+    try {
+      if (typeof window.runwayMapperSaveLabel === 'function') {
+        window.runwayMapperSaveLabel(payload);
+      }
+    } catch (e) {}
+  }
+
+  function closePopup() {
+    const popup = document.getElementById(POPUP_ID);
+    if (popup) popup.remove();
+    window.__runwayMapperPendingMeta = null;
+    clearHighlight();
+  }
+
+  window.__runwayMapperDismissAfterSave = function() {
+    closePopup();
+  };
+
+  function highlight(el) {
+    clearHighlight();
+    if (el && el.classList) el.classList.add(HIGHLIGHT_CLASS);
+  }
+
+  function onPopupSaveClick(meta, labelInput, warnEl) {
+    console.log('MAPPER_POPUP_SAVE_CLICKED');
+    const labelName = (labelInput.value || '').trim();
+    if (!labelName) {
+      warnEl.style.display = 'block';
+      labelInput.focus();
+      return;
+    }
+    warnEl.style.display = 'none';
+    const payload = {
+      label_name: labelName,
+      metadata: window.__runwayMapperPendingMeta || meta,
+    };
+    payload._save_id = String(Date.now()) + '_' + Math.random().toString(16).slice(2);
+    const line = SAVE_PREFIX + JSON.stringify(payload);
+    try {
+      document.documentElement.setAttribute('data-runway-mapper-pending-save', line);
+    } catch (e) {}
+    try {
+      console.log(line);
+    } catch (e) {}
+    try {
+      if (typeof window.runwayMapperSaveLabel === 'function') {
+        window.runwayMapperSaveLabel(payload);
+      }
+    } catch (e) {}
+  }
+
+  function onPopupCancelClick() {
+    console.log('MAPPER_POPUP_CANCEL_CLICKED');
+    closePopup();
+  }
+
+  function openPopup(target, meta) {
+    closePopup();
+    highlight(target);
+    window.__runwayMapperPendingMeta = meta;
+    const rect = target.getBoundingClientRect();
+    const popup = document.createElement('div');
+    popup.id = POPUP_ID;
+    popup.innerHTML =
+      '<div class="rm-head">Label</div>' +
+      '<input type="text" id="rm-label" class="rm-label-input" autocomplete="off" placeholder="e.g. test_button" />' +
+      '<div id="rm-warn" class="rm-warn" style="display:none;color:#fca5a5;font-size:11px;margin:4px 0;">Enter a label first</div>' +
+      '<div class="rm-actions">' +
+      '<button type="button" id="rm-save">Save</button>' +
+      '<button type="button" id="rm-cancel">Cancel</button>' +
+      '</div>';
+    document.body.appendChild(popup);
+    popup.style.position = 'fixed';
+    popup.style.zIndex = '2147483647';
+    let left = rect.right + 8;
+    let top = rect.top;
+    const pw = 240;
+    const ph = 110;
+    if (left + pw > window.innerWidth - 8) left = Math.max(8, rect.left - pw - 8);
+    if (top + ph > window.innerHeight - 8) top = Math.max(8, window.innerHeight - ph - 8);
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+    const labelInput = popup.querySelector('#rm-label');
+    const warnEl = popup.querySelector('#rm-warn');
+    const saveBtn = popup.querySelector('#rm-save');
+    const cancelBtn = popup.querySelector('#rm-cancel');
+    labelInput.focus();
+    saveBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      onPopupSaveClick(meta, labelInput, warnEl);
+    });
+    cancelBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      onPopupCancelClick();
+    });
   }
 
   if (!document.getElementById(STYLE_ID)) {
     const style = document.createElement('style');
     style.id = STYLE_ID;
-    style.textContent = `
-      .${HIGHLIGHT_CLASS} { outline: 3px solid #00b4ff !important; outline-offset: 2px !important; }
-      #runway-mapper-click-banner {
-        position: fixed; top: 8px; left: 50%; transform: translateX(-50%);
-        z-index: 2147483646; background: rgba(0,20,40,0.92); color: #fff;
-        padding: 8px 14px; border-radius: 8px; font: 12px/1.4 sans-serif;
-        pointer-events: none; box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    style.textContent =
+      '.' + HIGHLIGHT_CLASS + ' { outline: 3px solid #00b4ff !important; outline-offset: 2px !important; }' +
+      '#' + POPUP_ID + ' { background:#0f172a; color:#e2e8f0; border:1px solid #334155; border-radius:8px;' +
+      ' padding:10px; width:240px; font:13px system-ui,sans-serif; box-shadow:0 6px 20px rgba(0,0,0,.4); }' +
+      '#' + POPUP_ID + ' .rm-head { font-weight:600; margin-bottom:8px; }' +
+      '#' + POPUP_ID + ' .rm-label-input { width:100%; box-sizing:border-box; padding:6px 8px; margin-bottom:8px;' +
+      ' border-radius:6px; border:1px solid #475569; background:#1e293b; color:#fff; }' +
+      '#' + POPUP_ID + ' .rm-actions { display:flex; gap:8px; }' +
+      '#' + POPUP_ID + ' .rm-actions button { flex:1; padding:6px; border:none; border-radius:6px; cursor:pointer; }' +
+      '#' + POPUP_ID + ' #rm-save { background:#0ea5e9; color:#fff; font-weight:600; }' +
+      '#' + POPUP_ID + ' #rm-cancel { background:#334155; color:#e2e8f0; }';
+    (document.head || document.documentElement).appendChild(style);
+  }
+
+  const CAPTURE_OPTS = { capture: true, passive: false };
+
+  window.__runwayMapperForceMode = false;
+  window.__runwayMapperAltDown = false;
+
+  function isInsideMapperUI(ev) {
+    const popup = document.getElementById(POPUP_ID);
+    const toggle = document.getElementById(TOGGLE_ID);
+    const t = ev.target;
+    if (!t) return false;
+    if (popup && popup.contains(t)) return true;
+    if (toggle && toggle.contains(t)) return true;
+    return false;
+  }
+
+  function isCaptureActive(ev) {
+    return !!(ev && (ev.altKey || window.__runwayMapperAltDown || window.__runwayMapperForceMode));
+  }
+
+  function logMapperClick(ev, phase) {
+    try {
+      console.log('MAPPER_CLICK', JSON.stringify({
+        phase: phase,
+        altKey: !!ev.altKey,
+        mapperAltDown: !!window.__runwayMapperAltDown,
+        forceMode: !!window.__runwayMapperForceMode,
+        captureActive: isCaptureActive(ev),
+        target: (ev.target && ev.target.tagName) || '',
+        type: ev.type || '',
+      }));
+    } catch (e) {}
+  }
+
+  function blockEvent(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+  }
+
+  function refreshToggleButton() {
+    const btn = document.getElementById(TOGGLE_ID);
+    if (!btn) return;
+    btn.textContent = window.__runwayMapperForceMode ? 'Mapper: ON' : 'Mapper: OFF';
+    btn.style.background = window.__runwayMapperForceMode ? '#0ea5e9' : '#475569';
+    btn.style.color = '#fff';
+  }
+
+  function installToggleButton() {
+    if (document.getElementById(TOGGLE_ID)) {
+      refreshToggleButton();
+      return;
+    }
+    const btn = document.createElement('button');
+    btn.id = TOGGLE_ID;
+    btn.type = 'button';
+    btn.style.cssText =
+      'position:fixed;top:12px;right:12px;z-index:2147483647;padding:8px 12px;border:none;border-radius:8px;' +
+      'font:600 12px system-ui,sans-serif;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.35);';
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.__runwayMapperForceMode = !window.__runwayMapperForceMode;
+      refreshToggleButton();
+    });
+    document.body.appendChild(btn);
+    refreshToggleButton();
+  }
+
+  let lastPopupTarget = null;
+  let lastPopupAt = 0;
+
+  function tryCapture(ev, phase) {
+    const popup = document.getElementById(POPUP_ID);
+    const toggle = document.getElementById(TOGGLE_ID);
+    if (
+      (popup && popup.contains(ev.target)) ||
+      (toggle && toggle.contains(ev.target))
+    ) {
+      return;
+    }
+    logMapperClick(ev, phase);
+    if (!isCaptureActive(ev)) return;
+
+    blockEvent(ev);
+
+    const target = ev.target;
+    if (!target || target.nodeType !== 1) return;
+
+    const now = Date.now();
+    if (lastPopupTarget === target && now - lastPopupAt < 500) return;
+
+    if (phase === 'pointerdown' || phase === 'mousedown' || phase === 'click') {
+      lastPopupTarget = target;
+      lastPopupAt = now;
+      openPopup(target, buildMeta(target));
+    }
+  }
+
+  function onKeyDown(ev) {
+    if (ev.key === 'Alt') window.__runwayMapperAltDown = true;
+    if (ev.key === 'Escape') closePopup();
+  }
+
+  function onKeyUp(ev) {
+    if (ev.key === 'Alt') window.__runwayMapperAltDown = false;
+  }
+
+  function onWindowBlur() {
+    window.__runwayMapperAltDown = false;
+  }
+
+  function onPointerDown(ev) { tryCapture(ev, 'pointerdown'); }
+  function onMouseDown(ev) { tryCapture(ev, 'mousedown'); }
+  function onClick(ev) { tryCapture(ev, 'click'); }
+
+  if (window.__runwayMapperTeardown) {
+    window.__runwayMapperTeardown();
+  }
+
+  window.__runwayMapperTeardown = () => {
+    document.removeEventListener('pointerdown', onPointerDown, true);
+    document.removeEventListener('mousedown', onMouseDown, true);
+    document.removeEventListener('click', onClick, true);
+    document.removeEventListener('keydown', onKeyDown, true);
+    document.removeEventListener('keyup', onKeyUp, true);
+    window.removeEventListener('blur', onWindowBlur, true);
+    closePopup();
+    const toggle = document.getElementById(TOGGLE_ID);
+    if (toggle) toggle.remove();
+    window.__runwayMapperAltDown = false;
+    window.__runwayMapperForceMode = false;
+    window.__runwayMapperClickLabelActive = false;
+  };
+
+  installToggleButton();
+  document.addEventListener('pointerdown', onPointerDown, CAPTURE_OPTS);
+  document.addEventListener('mousedown', onMouseDown, CAPTURE_OPTS);
+  document.addEventListener('click', onClick, CAPTURE_OPTS);
+  document.addEventListener('keydown', onKeyDown, true);
+  document.addEventListener('keyup', onKeyUp, true);
+  window.addEventListener('blur', onWindowBlur, true);
+  window.__runwayMapperClickLabelActive = true;
+  console.log('MAPPER_INSTALL', JSON.stringify({
+    href: location.href,
+    capture: true,
+    modes: ['alt_click', 'force_mode'],
+  }));
+  return true;
+}
+"""
+
+HOVER_LABEL_INSTALL_JS = """
+() => {
+  const SAVE_PREFIX = '__RUNWAY_MAPPER_SAVE__';
+  const HIGHLIGHT_CLASS = 'runway-mapper-hover-highlight';
+  const PREVIEW_CLASS = 'runway-mapper-hover-preview';
+  const STYLE_ID = 'runway-mapper-hover-style';
+  const POPUP_ID = 'runway-mapper-hover-popup';
+  const BADGE_ID = 'runway-mapper-hover-badge';
+  const L_FLASH_ID = 'runway-mapper-l-flash';
+  const KEY_OPTS = { capture: true, passive: false };
+
+  function cssPath(el) {
+    if (!el || el.nodeType !== 1) return '';
+    if (el.id) {
+      try { return '#' + CSS.escape(el.id); } catch (e) { return '#' + el.id; }
+    }
+    const testId = el.getAttribute('data-testid');
+    if (testId) return '[data-testid="' + testId + '"]';
+    const aria = el.getAttribute('aria-label');
+    if (aria) return el.tagName.toLowerCase() + '[aria-label="' + aria.replace(/"/g, '\\\\"') + '"]';
+    return el.tagName.toLowerCase();
+  }
+
+  function buildMeta(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      tag: (el.tagName || '').toLowerCase(),
+      role: el.getAttribute('role') || '',
+      text: (el.innerText || el.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 200),
+      aria_label: el.getAttribute('aria-label') || '',
+      css_selector: cssPath(el),
+      bounding_box: {
+        x: Math.round(rect.x), y: Math.round(rect.y),
+        width: Math.round(rect.width), height: Math.round(rect.height),
+      },
+      page_url: location.href || '',
+      page_title: document.title || '',
+      capture_mode: 'hover_label',
+    };
+  }
+
+  function clearHighlight() {
+    document.querySelectorAll('.' + HIGHLIGHT_CLASS).forEach(n => n.classList.remove(HIGHLIGHT_CLASS));
+  }
+
+  function clearPreview() {
+    document.querySelectorAll('.' + PREVIEW_CLASS).forEach(n => n.classList.remove(PREVIEW_CLASS));
+  }
+
+  function closePopup() {
+    const popup = document.getElementById(POPUP_ID);
+    if (popup) popup.remove();
+    window.__runwayMapperHoverPendingMeta = null;
+    clearHighlight();
+  }
+
+  window.__runwayMapperDismissAfterSave = function() {
+    closePopup();
+  };
+
+  function highlight(el) {
+    clearHighlight();
+    if (el && el.classList) el.classList.add(HIGHLIGHT_CLASS);
+  }
+
+  function isInsideMapperUI(target) {
+    if (!target) return false;
+    const popup = document.getElementById(POPUP_ID);
+    const badge = document.getElementById(BADGE_ID);
+    if (popup && popup.contains(target)) return true;
+    if (badge && badge.contains(target)) return true;
+    return false;
+  }
+
+  function isTypingContext() {
+    const active = document.activeElement;
+    if (!active) return false;
+    const tag = (active.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select') return true;
+    if (active.isContentEditable) return true;
+    return false;
+  }
+
+  function onPopupSaveClick(meta, labelInput, warnEl) {
+    const labelName = (labelInput.value || '').trim();
+    if (!labelName) {
+      warnEl.style.display = 'block';
+      labelInput.focus();
+      return;
+    }
+    warnEl.style.display = 'none';
+    const payload = {
+      label_name: labelName,
+      metadata: window.__runwayMapperHoverPendingMeta || meta,
+      capture_mode: 'hover_label',
+    };
+    payload._save_id = String(Date.now()) + '_' + Math.random().toString(16).slice(2);
+    const line = SAVE_PREFIX + JSON.stringify(payload);
+    try {
+      document.documentElement.setAttribute('data-runway-mapper-pending-save', line);
+    } catch (e) {}
+    try {
+      console.log(line);
+    } catch (e) {}
+    try {
+      if (typeof window.runwayMapperSaveLabel === 'function') {
+        window.runwayMapperSaveLabel(payload);
       }
-    `;
-    document.head.appendChild(style);
+    } catch (e) {}
   }
 
-  let banner = document.getElementById('runway-mapper-click-banner');
-  if (!banner) {
-    banner = document.createElement('div');
-    banner.id = 'runway-mapper-click-banner';
-    banner.textContent = 'Runway UI Mapper: click-label (dangerous clicks blocked)';
-    document.body.appendChild(banner);
+  function onPopupCancelClick() {
+    closePopup();
   }
 
-  const handler = (ev) => {
-    const target = pickTarget(ev);
-    if (!target) return;
-    const dangerous = isDangerous(target);
-    const prevent = dangerous || !allowSafeClicks;
-    if (prevent) {
+  function openPopup(target, meta) {
+    console.log('MAPPER_HOVER_POPUP_OPEN', JSON.stringify({
+      tag: (target && target.tagName) || '',
+      css: (meta && meta.css_selector) || '',
+    }));
+    closePopup();
+    highlight(target);
+    window.__runwayMapperHoverPendingMeta = meta;
+    const rect = target.getBoundingClientRect();
+    const popup = document.createElement('div');
+    popup.id = POPUP_ID;
+    popup.innerHTML =
+      '<div class="rm-head">Label (hover — no click)</div>' +
+      '<input type="text" id="rm-label" class="rm-label-input" autocomplete="off" placeholder="e.g. download_mp4_button" />' +
+      '<div id="rm-warn" class="rm-warn" style="display:none;color:#fca5a5;font-size:11px;margin:4px 0;">Enter a label first</div>' +
+      '<div class="rm-actions">' +
+      '<button type="button" id="rm-save">Save</button>' +
+      '<button type="button" id="rm-cancel">Cancel</button>' +
+      '</div>';
+    document.body.appendChild(popup);
+    popup.style.position = 'fixed';
+    popup.style.zIndex = '2147483647';
+    let left = rect.right + 8;
+    let top = rect.top;
+    const pw = 260;
+    const ph = 120;
+    if (left + pw > window.innerWidth - 8) left = Math.max(8, rect.left - pw - 8);
+    if (top + ph > window.innerHeight - 8) top = Math.max(8, window.innerHeight - ph - 8);
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+    const labelInput = popup.querySelector('#rm-label');
+    const warnEl = popup.querySelector('#rm-warn');
+    popup.querySelector('#rm-save').addEventListener('click', (e) => {
+      e.stopPropagation();
+      onPopupSaveClick(meta, labelInput, warnEl);
+    });
+    popup.querySelector('#rm-cancel').addEventListener('click', (e) => {
+      e.stopPropagation();
+      onPopupCancelClick();
+    });
+    labelInput.focus();
+  }
+
+  if (!document.getElementById(STYLE_ID)) {
+    const style = document.createElement('style');
+    style.id = STYLE_ID;
+    style.textContent =
+      '.' + HIGHLIGHT_CLASS + ' { outline: 3px solid #22c55e !important; outline-offset: 2px !important; }' +
+      '.' + PREVIEW_CLASS + ' { outline: 2px dashed #86efac !important; outline-offset: 1px !important; }' +
+      '#' + POPUP_ID + ' { background:#0f172a; color:#e2e8f0; border:1px solid #334155; border-radius:8px;' +
+      ' padding:10px; width:260px; font:13px system-ui,sans-serif; box-shadow:0 6px 20px rgba(0,0,0,.4); }' +
+      '#' + POPUP_ID + ' .rm-head { font-weight:600; margin-bottom:8px; font-size:12px; }' +
+      '#' + POPUP_ID + ' .rm-label-input { width:100%; box-sizing:border-box; padding:6px 8px; margin-bottom:8px;' +
+      ' border-radius:6px; border:1px solid #475569; background:#1e293b; color:#fff; }' +
+      '#' + POPUP_ID + ' .rm-actions { display:flex; gap:8px; }' +
+      '#' + POPUP_ID + ' .rm-actions button { flex:1; padding:6px; border:none; border-radius:6px; cursor:pointer; }' +
+      '#' + POPUP_ID + ' #rm-save { background:#22c55e; color:#fff; font-weight:600; }' +
+      '#' + POPUP_ID + ' #rm-cancel { background:#334155; color:#e2e8f0; }' +
+      '#' + BADGE_ID + ' { position:fixed; bottom:12px; left:12px; z-index:2147483646; padding:10px 14px;' +
+      ' background:#14532d; color:#dcfce7; border:2px solid #22c55e; border-radius:8px;' +
+      ' font:700 13px system-ui,sans-serif; pointer-events:none; box-shadow:0 2px 10px rgba(0,0,0,.35); }' +
+      '#' + L_FLASH_ID + ' { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2147483647;' +
+      ' padding:16px 28px; background:#14532d; color:#dcfce7; border:3px solid #22c55e; border-radius:12px;' +
+      ' font:700 20px system-ui,sans-serif; pointer-events:none; box-shadow:0 8px 32px rgba(0,0,0,.5); }';
+    (document.head || document.documentElement).appendChild(style);
+  }
+
+  function showLDetectedFlash() {
+    let flash = document.getElementById(L_FLASH_ID);
+    if (!flash) {
+      flash = document.createElement('div');
+      flash.id = L_FLASH_ID;
+      flash.textContent = 'L DETECTED';
+      document.body.appendChild(flash);
+    }
+    flash.style.display = 'block';
+    clearTimeout(window.__runwayMapperLFlashTimer);
+    window.__runwayMapperLFlashTimer = setTimeout(() => {
+      const node = document.getElementById(L_FLASH_ID);
+      if (node) node.style.display = 'none';
+    }, 1000);
+  }
+
+  if (!document.getElementById(BADGE_ID)) {
+    const badge = document.createElement('div');
+    badge.id = BADGE_ID;
+    badge.textContent = 'HOVER MODE ACTIVE';
+    document.body.appendChild(badge);
+  } else {
+    const badge = document.getElementById(BADGE_ID);
+    if (badge) badge.textContent = 'HOVER MODE ACTIVE';
+  }
+
+  let lastMouseX = Math.round(window.innerWidth / 2);
+  let lastMouseY = Math.round(window.innerHeight / 2);
+  let lastPreviewTarget = null;
+
+  function onMouseMove(ev) {
+    lastMouseX = ev.clientX;
+    lastMouseY = ev.clientY;
+    if (document.getElementById(POPUP_ID)) return;
+    const el = document.elementFromPoint(ev.clientX, ev.clientY);
+    if (!el || el.nodeType !== 1 || isInsideMapperUI(el)) {
+      clearPreview();
+      lastPreviewTarget = null;
+      return;
+    }
+    if (el === lastPreviewTarget) return;
+    clearPreview();
+    lastPreviewTarget = el;
+    if (el.classList) el.classList.add(PREVIEW_CLASS);
+  }
+
+  function captureUnderMouse() {
+    console.log('MAPPER_HOVER_CAPTURE_START', JSON.stringify({
+      x: lastMouseX,
+      y: lastMouseY,
+    }));
+    const target = document.elementFromPoint(lastMouseX, lastMouseY);
+    if (!target || target.nodeType !== 1) {
+      console.log('MAPPER_HOVER_CAPTURE_ABORT', JSON.stringify({ reason: 'no_element', x: lastMouseX, y: lastMouseY }));
+      return;
+    }
+    if (isInsideMapperUI(target)) {
+      console.log('MAPPER_HOVER_CAPTURE_ABORT', JSON.stringify({ reason: 'mapper_ui', tag: target.tagName }));
+      return;
+    }
+    clearPreview();
+    const meta = buildMeta(target);
+    openPopup(target, meta);
+    console.log('MAPPER_HOVER_CAPTURE', JSON.stringify({
+      tag: target.tagName,
+      x: lastMouseX,
+      y: lastMouseY,
+      text: (target.innerText || '').slice(0, 80),
+    }));
+  }
+
+  function isLKey(ev) {
+    const key = ev.key || '';
+    const code = ev.code || '';
+    return key === 'l' || key === 'L' || code === 'KeyL';
+  }
+
+  function onKeyDown(ev) {
+    if (ev && ev.__runwayMapperHoverKeyHandled) return;
+    if (ev) ev.__runwayMapperHoverKeyHandled = true;
+
+    const active = document.activeElement;
+    console.log('MAPPER_KEYDOWN', JSON.stringify({
+      key: ev.key,
+      code: ev.code,
+      activeElement: active ? active.tagName : null,
+      target: (ev.target && ev.target.tagName) || null,
+      typingContext: isTypingContext(),
+    }));
+
+    if (ev.key === 'Escape') {
+      closePopup();
+      return;
+    }
+
+    if (isLKey(ev)) {
+      console.log('MAPPER_L_DETECTED', JSON.stringify({
+        key: ev.key,
+        code: ev.code,
+        activeElement: active ? active.tagName : null,
+        typingContext: isTypingContext(),
+      }));
+      showLDetectedFlash();
+    } else {
+      return;
+    }
+
+    if (isInsideMapperUI(ev.target)) {
+      console.log('MAPPER_L_BLOCKED', JSON.stringify({ reason: 'mapper_ui' }));
+      return;
+    }
+    if (isTypingContext()) {
+      console.log('MAPPER_L_BLOCKED', JSON.stringify({
+        reason: 'typing_context',
+        activeElement: active ? active.tagName : null,
+        contentEditable: !!(active && active.isContentEditable),
+      }));
+      return;
+    }
+
+    try {
       ev.preventDefault();
       ev.stopPropagation();
       if (ev.stopImmediatePropagation) ev.stopImmediatePropagation();
-    }
-    highlight(target);
-    const meta = buildMeta(target);
-    meta.prevented_default = prevent;
-    meta.allow_safe_clicks_mode = !!allowSafeClicks;
-    try {
-      if (typeof window.runwayMapperReportClick === 'function') {
-        window.runwayMapperReportClick(meta);
-      }
-    } catch (err) {
-      console.log('RUNWAY_MAPPER_CLICK_ERROR ' + String(err));
-    }
+    } catch (e) {}
+
+    captureUnderMouse();
+  }
+
+  if (window.__runwayMapperHoverTeardown) {
+    window.__runwayMapperHoverTeardown();
+  }
+
+  window.__runwayMapperHoverTeardown = () => {
+    document.removeEventListener('mousemove', onMouseMove, true);
+    document.removeEventListener('keydown', onKeyDown, true);
+    window.removeEventListener('keydown', onKeyDown, true);
+    closePopup();
+    clearPreview();
+    const badge = document.getElementById(BADGE_ID);
+    if (badge) badge.remove();
+    const flash = document.getElementById(L_FLASH_ID);
+    if (flash) flash.remove();
+    if (window.__runwayMapperLFlashTimer) clearTimeout(window.__runwayMapperLFlashTimer);
+    window.__runwayMapperHoverLabelActive = false;
   };
 
-  window.__runwayMapperTeardown = () => {
-    document.removeEventListener('click', handler, true);
-    document.querySelectorAll('.' + HIGHLIGHT_CLASS).forEach(n => n.classList.remove(HIGHLIGHT_CLASS));
-    const b = document.getElementById('runway-mapper-click-banner');
-    if (b) b.remove();
-  };
-
-  document.addEventListener('click', handler, true);
-  window.__runwayMapperClickLabelActive = true;
+  document.addEventListener('mousemove', onMouseMove, { capture: true, passive: true });
+  document.addEventListener('keydown', onKeyDown, KEY_OPTS);
+  window.addEventListener('keydown', onKeyDown, KEY_OPTS);
+  window.__runwayMapperHoverLabelActive = true;
+  console.log('MAPPER_HOVER_INSTALL', JSON.stringify({
+    href: location.href,
+    mode: 'hover_label',
+    trigger: 'L_key',
+    no_click: true,
+    keydown_targets: ['document', 'window'],
+    keydown_capture: true,
+    badge: 'HOVER MODE ACTIVE',
+  }));
+  return true;
 }
 """
 
@@ -405,6 +1216,520 @@ def _is_runway_url(url: str) -> bool:
     return "runwayml.com" in host or "runway.com" in host
 
 
+def suggest_normalized_label_name(raw_label: str) -> str | None:
+    """Return canonical label name when operator used a legacy/raw label."""
+    key = str(raw_label or "").strip()
+    if not key:
+        return None
+    if key in CONTINUITY_ALL_REQUIRED_LABELS or key in VALID_SEMANTIC_LABELS:
+        return None
+    return LABEL_NORMALIZATION_SUGGESTIONS.get(key)
+
+
+def _label_entry_metadata(entry: dict[str, Any]) -> dict[str, Any]:
+    meta = dict(entry.get("metadata") or {})
+    for field in ("tag", "text", "aria_label", "role", "css_selector", "page_url", "combined_label"):
+        if field not in meta and entry.get(field) is not None:
+            meta[field] = entry.get(field)
+    if "page_url" not in meta and entry.get("url"):
+        meta["page_url"] = entry.get("url")
+    selector_candidates = entry.get("selector_candidates") or {}
+    if "css_selector" not in meta and selector_candidates.get("css"):
+        meta["css_selector"] = selector_candidates.get("css")
+    return meta
+
+
+def _label_css_selector(entry: dict[str, Any], meta: dict[str, Any]) -> str:
+    css = str(meta.get("css_selector") or "").strip()
+    if css:
+        return css
+    selector_candidates = entry.get("selector_candidates") or {}
+    return str(selector_candidates.get("css") or "").strip()
+
+
+def _label_page_url(entry: dict[str, Any], meta: dict[str, Any]) -> str:
+    return str(meta.get("page_url") or entry.get("url") or "").lower()
+
+
+def _label_visible_text(entry: dict[str, Any], meta: dict[str, Any]) -> str:
+    parts = [
+        str(meta.get("text") or ""),
+        str(meta.get("combined_label") or ""),
+        str(meta.get("aria_label") or ""),
+        str(entry.get("text") or ""),
+        str(entry.get("aria_label") or ""),
+        str(entry.get("label") or ""),
+    ]
+    return " ".join(parts).lower()
+
+
+def _selector_is_too_generic(css: str) -> bool:
+    normalized = str(css or "").strip().lower()
+    if not normalized:
+        return True
+    if normalized in GENERIC_CSS_SELECTORS:
+        return True
+    if any(marker in normalized for marker in QUALIFIED_SELECTOR_MARKERS):
+        return False
+    root = normalized.split()[0] if normalized else ""
+    return root in GENERIC_CSS_SELECTORS
+
+
+def _url_has_markers(url: str, markers: tuple[str, ...]) -> bool:
+    lower = str(url or "").lower()
+    return all(marker.lower() in lower for marker in markers) if markers else True
+
+
+def _url_has_any_marker(url: str, markers: tuple[str, ...]) -> bool:
+    lower = str(url or "").lower()
+    return any(marker.lower() in lower for marker in markers)
+
+
+def find_label_entry(
+    labels: dict[str, Any],
+    canonical_name: str,
+) -> tuple[str, dict[str, Any]] | None:
+    aliases = CONTINUITY_LABEL_ALIASES.get(canonical_name, (canonical_name,))
+    for alias in aliases:
+        entry = labels.get(alias)
+        if isinstance(entry, dict):
+            return alias, entry
+    return None
+
+
+def build_continuity_normalized_labels(ui_map: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Resolve operator labels to canonical continuity keys (read-only normalization view)."""
+    labels: dict[str, Any] = dict(ui_map.get("labels") or {})
+    normalized: dict[str, dict[str, Any]] = {}
+    for canonical in CANONICAL_CONTINUITY_LABEL_ORDER:
+        found = find_label_entry(labels, canonical)
+        if not found:
+            continue
+        alias, entry = found
+        meta = _label_entry_metadata(entry)
+        normalized[canonical] = {
+            "source_alias": alias,
+            "tag": meta.get("tag") or entry.get("tag") or "",
+            "css_selector": _label_css_selector(entry, meta),
+            "page_url": _label_page_url(entry, meta),
+            "text": _label_visible_text(entry, meta)[:120],
+            "suggested_rename": alias if alias != canonical else None,
+        }
+    return normalized
+
+
+def continuity_completion_rule() -> dict[str, Any]:
+    """Documented completion rule for orchestrator wait loops (Phase C)."""
+    return dict(GENERATION_COMPLETE_RULE)
+
+
+def map_has_valid_completion_signal(ui_map: dict[str, Any]) -> bool:
+    """True when map defines at least one non-body completion signal label."""
+    labels: dict[str, Any] = dict(ui_map.get("labels") or {})
+    for signal in CONTINUITY_COMPLETION_SIGNAL_LABELS:
+        found = find_label_entry(labels, signal)
+        if not found:
+            continue
+        _, entry = found
+        meta = _label_entry_metadata(entry)
+        tag = str(meta.get("tag") or entry.get("tag") or "").lower()
+        css = _label_css_selector(entry, meta)
+        if tag in FORBIDDEN_CAPTURE_TAGS or css.lower() in {"body", "html"}:
+            continue
+        return True
+    return False
+
+
+def _capture_error_blocks_validation(canonical: str, warn: dict[str, str]) -> bool:
+    code = str(warn.get("code") or "")
+    if warn.get("severity") != "error":
+        return False
+    if canonical in WEAK_SELECTOR_TOLERANCE_LABELS and code in {
+        "USE_FRAME_WRONG_PAGE",
+        "USE_FRAME_PAGE_UNCONFIRMED",
+        "GENERIC_SELECTOR",
+    }:
+        return False
+    return True
+
+
+def validate_label_capture(
+    label_name: str,
+    entry: dict[str, Any] | None = None,
+    *,
+    metadata: dict[str, Any] | None = None,
+) -> list[dict[str, str]]:
+    """Return warning dicts for a single label capture (non-blocking)."""
+    warnings: list[dict[str, str]] = []
+    canonical = suggest_normalized_label_name(label_name) or label_name
+    if suggest_normalized_label_name(label_name):
+        warnings.append(
+            {
+                "code": "NORMALIZE_LABEL",
+                "severity": "info",
+                "message": (
+                    f"Consider renaming '{label_name}' -> '{suggest_normalized_label_name(label_name)}' "
+                    "for orchestrator continuity keys."
+                ),
+            }
+        )
+
+    meta = dict(metadata or {})
+    if entry:
+        meta = _label_entry_metadata(entry)
+    tag = str(meta.get("tag") or entry.get("tag") if entry else meta.get("tag") or "").lower()
+    css = _label_css_selector(entry or {}, meta)
+    page_url = _label_page_url(entry or {}, meta)
+    visible = _label_visible_text(entry or {}, meta)
+
+    if tag in FORBIDDEN_CAPTURE_TAGS:
+        warnings.append(
+            {
+                "code": "FORBIDDEN_TAG",
+                "severity": "error",
+                "message": f"Label '{label_name}' captured tag '{tag}' — use button/link/menu item, not page root.",
+            }
+        )
+
+    if _selector_is_too_generic(css):
+        warnings.append(
+            {
+                "code": "GENERIC_SELECTOR",
+                "severity": "warning",
+                "message": (
+                    f"Label '{label_name}' selector '{css or '(empty)'}' is too generic — "
+                    "prefer aria-label, id suffix, or data-testid."
+                ),
+            }
+        )
+
+    expected_tokens = EXPECTED_CONTROL_TEXT.get(canonical) or EXPECTED_CONTROL_TEXT.get(label_name)
+    if expected_tokens and visible:
+        if not any(token in visible for token in expected_tokens):
+            warnings.append(
+                {
+                    "code": "TEXT_MISMATCH",
+                    "severity": "warning",
+                    "message": (
+                        f"Label '{label_name}' text/aria does not match expected control "
+                        f"(expected one of: {', '.join(expected_tokens)})."
+                    ),
+                }
+            )
+
+    if canonical == "download_mp4_button" or label_name in CONTINUITY_LABEL_ALIASES.get("download_mp4_button", ()):
+        if tag in FORBIDDEN_CAPTURE_TAGS:
+            warnings.append(
+                {
+                    "code": "DOWNLOAD_NOT_BODY",
+                    "severity": "error",
+                    "message": "download_mp4_button must be a button, link, or menu item — never body/html.",
+                }
+            )
+        elif tag and tag not in DOWNLOAD_MP4_ALLOWED_TAGS:
+            warnings.append(
+                {
+                    "code": "DOWNLOAD_UNEXPECTED_TAG",
+                    "severity": "warning",
+                    "message": f"download_mp4_button tag '{tag}' is unusual — confirm this is the per-clip download control.",
+                }
+            )
+
+    if canonical == "use_frame_button" or label_name in CONTINUITY_LABEL_ALIASES.get("use_frame_button", ()):
+        if _url_has_any_marker(page_url, USE_FRAME_FORBIDDEN_URL_MARKERS):
+            warnings.append(
+                {
+                    "code": "USE_FRAME_WRONG_PAGE",
+                    "severity": "warning",
+                    "message": (
+                        "use_frame_button captured on apps/recents/multi-shot path — "
+                        "prefer Gen-4.5 tools session output (mode=tools&tool=video). "
+                        "Allowed temporarily if control works at runtime."
+                    ),
+                }
+            )
+        elif page_url and not _url_has_markers(page_url, USE_FRAME_ALLOWED_URL_MARKERS):
+            warnings.append(
+                {
+                    "code": "USE_FRAME_PAGE_UNCONFIRMED",
+                    "severity": "warning",
+                    "message": (
+                        "use_frame_button page URL missing mode=tools&tool=video — "
+                        "confirm you are on the Gen-4.5 tools session output view."
+                    ),
+                }
+            )
+        if label_name in WEAK_SELECTOR_TOLERANCE_LABELS or canonical == "use_frame_button":
+            if _selector_is_too_generic(css):
+                warnings.append(
+                    {
+                        "code": "WEAK_SELECTOR_TOLERATED",
+                        "severity": "info",
+                        "message": (
+                            "use_frame_button has a weak selector — tolerated for Phase C; "
+                            "re-label when a stronger aria/id selector is available."
+                        ),
+                    }
+                )
+
+    if canonical == "remove_image" or label_name in CONTINUITY_LABEL_ALIASES.get("remove_image", ()):
+        if tag in FORBIDDEN_CAPTURE_TAGS:
+            warnings.append(
+                {
+                    "code": "REMOVE_IMAGE_NOT_BODY",
+                    "severity": "error",
+                    "message": "remove_image must target the image remove/clear control, not body/html.",
+                }
+            )
+
+    if canonical == "generation_status" or label_name in CONTINUITY_LABEL_ALIASES.get("generation_status", ()):
+        if tag in FORBIDDEN_CAPTURE_TAGS:
+            warnings.append(
+                {
+                    "code": "STATUS_NOT_BODY",
+                    "severity": "error",
+                    "message": "generation_status must target a status text/region element, not body/html.",
+                }
+            )
+
+    menu_labels = {"duration_menu", "aspect_ratio_menu", "duration_10s", "aspect_ratio_9_16", "aspect_ratio_16_9"}
+    if canonical in menu_labels and page_url and "mode=apps" in page_url:
+        warnings.append(
+            {
+                "code": "WRONG_WORKFLOW_PAGE",
+                "severity": "error",
+                "message": (
+                    f"Label '{label_name}' captured on mode=apps (Multi-Shot) — "
+                    "use Gen-4.5 tools path (mode=tools&tool=video) only."
+                ),
+            }
+        )
+
+    return warnings
+
+
+def print_label_capture_warnings(label_name: str, warnings: list[dict[str, str]]) -> None:
+    if not warnings:
+        return
+    print(f"[RunwayUIMapper] Label validation for '{label_name}':")
+    for item in warnings:
+        severity = str(item.get("severity") or "warning").upper()
+        code = item.get("code") or "WARN"
+        message = item.get("message") or ""
+        print(f"  [{severity}] {code}: {message}")
+
+
+def validate_continuity_mapping(ui_map: dict[str, Any]) -> dict[str, Any]:
+    """Validate runway_ui_map.json for Phase B/C continuity controls."""
+    labels: dict[str, Any] = dict(ui_map.get("labels") or {})
+    normalized = build_continuity_normalized_labels(ui_map)
+    results: dict[str, Any] = {
+        "ok": True,
+        "missing": [],
+        "invalid": [],
+        "warnings": [],
+        "present": {},
+        "optional_present": {},
+        "normalized_labels": normalized,
+        "completion_rule": continuity_completion_rule(),
+        "completion_signals_ready": map_has_valid_completion_signal(ui_map),
+    }
+
+    for canonical in CONTINUITY_ALL_REQUIRED_LABELS:
+        found = find_label_entry(labels, canonical)
+        if not found:
+            results["missing"].append(canonical)
+            results["ok"] = False
+            continue
+        alias, entry = found
+        results["present"][canonical] = alias
+        meta = _label_entry_metadata(entry)
+        css = _label_css_selector(entry, meta)
+        tag = str(meta.get("tag") or entry.get("tag") or "").lower()
+
+        if not css:
+            results["invalid"].append(
+                {"label": canonical, "reason": "empty selector_candidates.css / css_selector"}
+            )
+            results["ok"] = False
+
+        capture_warnings = validate_label_capture(canonical, entry)
+        for warn in capture_warnings:
+            if _capture_error_blocks_validation(canonical, warn):
+                results["invalid"].append({"label": canonical, "reason": warn.get("message")})
+                results["ok"] = False
+            elif warn.get("severity") in {"warning", "error"}:
+                results["warnings"].append({"label": canonical, "message": warn.get("message")})
+            elif warn.get("severity") == "info":
+                results["warnings"].append({"label": canonical, "message": warn.get("message")})
+
+        if canonical in {"download_mp4_button", "remove_image"} and tag in FORBIDDEN_CAPTURE_TAGS:
+            results["invalid"].append(
+                {"label": canonical, "reason": f"maps to forbidden tag '{tag}'"}
+            )
+            results["ok"] = False
+        if canonical == "use_frame_button" and tag in FORBIDDEN_CAPTURE_TAGS:
+            results["invalid"].append(
+                {"label": canonical, "reason": f"maps to forbidden tag '{tag}'"}
+            )
+            results["ok"] = False
+
+    for optional in CONTINUITY_OPTIONAL_LABELS:
+        found = find_label_entry(labels, optional)
+        if found:
+            results["optional_present"][optional] = found[0]
+
+    if not results["completion_signals_ready"]:
+        results["warnings"].append(
+            {
+                "label": "completion_rule",
+                "message": (
+                    "No valid completion signal yet — need download_mp4_button or use_frame_button "
+                    "with non-body selector after relabeling download from output view."
+                ),
+            }
+        )
+        if "download_mp4_button" not in results["missing"]:
+            results["ok"] = False
+
+    return results
+
+
+def format_continuity_checklist(*, include_prerequisites: bool = True) -> str:
+    lines = [
+        "RUNWAY BROWSER CONTINUITY — OPERATOR RELABELING CHECKLIST",
+        "=" * 60,
+        "",
+        "Safety: manual labeling only. Do NOT auto-click Generate. Do NOT spend credits via mapper.",
+        "Workflow: Gen-4.5 Video Generation (mode=tools&tool=video) — NOT Multi-Shot.",
+        "",
+    ]
+    if include_prerequisites:
+        lines.extend(
+            [
+                "Prerequisites (should already exist from Phase A):",
+                "  [ ] prompt_input  (or prompt_box / Prompt Box)",
+                "  [ ] gen45_model_button  (or gen45_option / Gen-4.5)",
+                "  [ ] try_it_now_button  (Try it now — NOT 'Try it' / Edit Studio)",
+                "  [ ] generate_button  (Generate — approval-gated, do not auto-click)",
+                "",
+                "Critical output controls to relabel after a REAL completed generation:",
+            ]
+        )
+    for item in CONTINUITY_RELABEL_CHECKLIST:
+        lines.extend(
+            [
+                f"Step {item['step']}: {item['label']}",
+                f"  When: {item['when']}",
+                f"  Target: {item['target']}",
+                f"  Avoid: {item['avoid']}",
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "Completion detection (Phase C — no generation_status required):",
+            "  Poll every 30-60s after Generate until:",
+            "    download_mp4_button visible  OR  use_frame_button visible",
+            "",
+            "Multi-clip loop:",
+            "  Clip 1: prompt -> aspect_ratio_9_16 -> duration_10s -> Generate (manual)",
+            "  Wait -> download_mp4_button -> save mp4",
+            "  Clip 2+: use_frame_button -> prompt -> Generate -> download",
+            "  Final clip: download -> save mp4 -> remove_image (do NOT use_frame)",
+            "",
+            "Normalization (type these exact names in the label popup when possible):",
+            "  DOWNLOAD MP4        -> download_mp4_button  (prefer: --hover-label + L)",
+            "  USE FRAME           -> use_frame_button",
+            "  REMOVE IMAGE        -> remove_image",
+            "  aspect_ratio_menu 9: 16 -> aspect_ratio_9_16",
+            "",
+            "Dangerous/output controls (Download, Generate, Buy):",
+            "  python tools/runway_ui_mapper.py --hover-label",
+            "  Move mouse over control, press L — no click, no download",
+            "",
+            "Validate after labeling:",
+            "  python tools/runway_ui_mapper.py --validate-continuity",
+            "  python tools/runway_ui_mapper.py --normalize-continuity",
+            "  python project_brain/validate_runway_mapping_continuity_controls.py",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def mode_continuity_checklist() -> int:
+    print(format_continuity_checklist())
+    return 0
+
+
+def mode_normalize_continuity(*, map_path: Path | None = None) -> int:
+    path = map_path or JSON_PATH
+    if not path.is_file():
+        print(f"[RunwayUIMapper] Missing map: {path}")
+        return 1
+    ui_map = json.loads(path.read_text(encoding="utf-8"))
+    normalized = build_continuity_normalized_labels(ui_map)
+    rule = continuity_completion_rule()
+    print("\n[RunwayUIMapper] Continuity label normalization (read-only)")
+    print(f"  Map: {path}")
+    print(f"  Completion rule: {rule['expression']}")
+    print(f"  Poll interval: {rule['poll_interval_seconds']}s")
+    print("\n  Canonical labels:")
+    for canonical in CANONICAL_CONTINUITY_LABEL_ORDER:
+        item = normalized.get(canonical)
+        if not item:
+            print(f"    {canonical}: MISSING")
+            continue
+        rename = item.get("suggested_rename")
+        rename_note = f" (rename from '{rename}')" if rename else ""
+        print(
+            f"    {canonical}{rename_note}\n"
+            f"      tag={item.get('tag')} selector={item.get('css_selector')!r}"
+        )
+    optional = ui_map.get("labels") or {}
+    for opt in CONTINUITY_OPTIONAL_LABELS:
+        if find_label_entry(optional, opt):
+            print(f"\n  Optional present: {opt}")
+    print(f"\n  Completion signals ready: {map_has_valid_completion_signal(ui_map)}")
+    return 0
+
+
+def mode_validate_continuity(*, map_path: Path | None = None) -> int:
+    path = map_path or JSON_PATH
+    if not path.is_file():
+        print(f"[RunwayUIMapper] Missing map: {path}")
+        return 1
+    ui_map = json.loads(path.read_text(encoding="utf-8"))
+    report = validate_continuity_mapping(ui_map)
+    print("\n[RunwayUIMapper] Continuity mapping validation")
+    print(f"  Map: {path}")
+    print(f"  OK: {report['ok']}")
+    print(f"  Completion rule: {report['completion_rule']['expression']}")
+    print(f"  Completion signals ready: {report['completion_signals_ready']}")
+    if report["present"]:
+        print("\n  Present:")
+        for canonical, alias in sorted(report["present"].items()):
+            print(f"    {canonical} <- '{alias}'")
+    if report["missing"]:
+        print("\n  Missing:")
+        for name in report["missing"]:
+            print(f"    - {name}")
+    if report["invalid"]:
+        print("\n  Invalid:")
+        for item in report["invalid"]:
+            print(f"    - {item['label']}: {item['reason']}")
+    if report["warnings"]:
+        print("\n  Warnings:")
+        for item in report["warnings"]:
+            print(f"    - {item['label']}: {item['message']}")
+    if report.get("optional_present"):
+        print("\n  Optional labels present:")
+        for name, alias in sorted(report["optional_present"].items()):
+            print(f"    {name} <- '{alias}'")
+    return 0 if report["ok"] else 1
+
+
 def _is_blocked_label(label: str) -> bool:
     lower = str(label or "").lower()
     return any(token in lower for token in BLOCKED_CLICK_SUBSTRINGS)
@@ -535,6 +1860,27 @@ def merge_clicked_element(
     return next(iter(assigned))
 
 
+def _nest_label_under_parent(
+    labels: dict[str, Any],
+    parent_label: str,
+    child_label: str,
+    entry: dict[str, Any],
+) -> None:
+    """Store menu option under labels[parent].options[child]."""
+    parent_entry = labels.get(parent_label)
+    if not isinstance(parent_entry, dict) or not parent_entry.get("element_id"):
+        parent_entry = {
+            "control_type": "dropdown_menu",
+            "options": {},
+            "notes": "Parent container for menu options (auto-created)",
+            "operator_confirmed": False,
+            "created_at": _now_iso(),
+        }
+        labels[parent_label] = parent_entry
+    options = parent_entry.setdefault("options", {})
+    options[child_label] = dict(entry)
+
+
 def persist_click_label(
     ui_map: dict[str, Any],
     *,
@@ -543,10 +1889,16 @@ def persist_click_label(
     metadata: dict[str, Any],
     notes: str = "",
     operator_confirmed: bool = True,
+    confirmed_by: str = "shift_click_popup",
+    control_type: str = "direct_button",
+    parent_label: str = "",
 ) -> dict[str, Any]:
     clean_meta = sanitize_click_metadata(metadata)
     safety = resolve_label_safety(label_name, clean_meta)
     css = str(clean_meta.get("css_selector") or "")
+    ctype = control_type if control_type in VALID_CONTROL_TYPES else "direct_button"
+    if parent_label and ctype == "direct_button":
+        ctype = "menu_option"
     entry: dict[str, Any] = {
         "element_id": element_id,
         "metadata": clean_meta,
@@ -555,21 +1907,83 @@ def persist_click_label(
             "playwright": f"page.locator({json.dumps(css)})" if css else "",
         },
         "operator_confirmed": operator_confirmed,
+        "confirmed_by": confirmed_by,
         "confirmed_at": _now_iso(),
         "notes": notes[:500],
+        "control_type": ctype,
         "auto_click_allowed": bool(safety.get("auto_click_allowed")),
         "requires_approval": bool(safety.get("requires_approval")),
     }
+    if parent_label:
+        entry["parent_label"] = parent_label
     if safety.get("requires_real_video_approval"):
         entry["requires_real_video_approval"] = True
     labels = ui_map.setdefault("labels", {})
     labels[label_name] = entry
+    if parent_label:
+        _nest_label_under_parent(labels, parent_label, label_name, entry)
     if label_name == "generate_button" or entry["requires_approval"]:
         ui_map.setdefault("safety", dict(DEFAULT_SAFETY_V2))
         req = set(ui_map["safety"].get("requires_approval") or [])
         req.add(label_name)
         ui_map["safety"]["requires_approval"] = sorted(req)
+    capture_warnings = validate_label_capture(label_name, entry)
+    print_label_capture_warnings(label_name, capture_warnings)
+    suggested = suggest_normalized_label_name(label_name)
+    if suggested and suggested != label_name:
+        print(
+            f"[RunwayUIMapper] Normalization suggestion: save future captures as '{suggested}' "
+            f"instead of '{label_name}'."
+        )
     return entry
+
+
+def process_popup_save_payload(
+    ui_map: dict[str, Any],
+    elements: dict[str, dict[str, Any]],
+    payload: dict[str, Any],
+) -> str:
+    """Apply in-page popup save payload to ui_map; returns saved label name."""
+    label_name = str(payload.get("label_name") or "").strip()
+    if not label_name:
+        raise ValueError("label_name required")
+    meta = sanitize_click_metadata(dict(payload.get("metadata") or {}))
+    capture_mode = str(payload.get("capture_mode") or meta.get("capture_mode") or "click_label_popup")
+    if capture_mode == "hover_label":
+        meta["capture_mode"] = "hover_label"
+    element_id = merge_clicked_element(elements, meta)
+    css = str(meta.get("css_selector") or "")
+    entry: dict[str, Any] = {
+        "label": label_name,
+        "element_id": element_id,
+        "text": meta.get("text") or "",
+        "aria_label": meta.get("aria_label") or "",
+        "role": meta.get("role") or "",
+        "tag": meta.get("tag") or "",
+        "bounding_box": meta.get("bounding_box") or {},
+        "url": _safe_url(meta.get("page_url") or ""),
+        "selector_candidates": {"css": css},
+        "metadata": meta,
+        "operator_confirmed": True,
+        "confirmed_at": _now_iso(),
+        "capture_mode": capture_mode,
+        "confirmed_by": "hover_label_l_key" if capture_mode == "hover_label" else "click_label_popup",
+    }
+    ui_map.setdefault("labels", {})[label_name] = entry
+    ui_map["page"] = {
+        "url": entry["url"],
+        "title": str(meta.get("page_title") or "")[:200],
+        "is_runway_url": _is_runway_url(meta.get("page_url") or ""),
+    }
+    capture_warnings = validate_label_capture(label_name, entry)
+    print_label_capture_warnings(label_name, capture_warnings)
+    suggested = suggest_normalized_label_name(label_name)
+    if suggested and suggested != label_name:
+        print(
+            f"[RunwayUIMapper] Normalization suggestion: save future captures as '{suggested}' "
+            f"instead of '{label_name}'."
+        )
+    return label_name
 
 
 def append_labeling_session(ui_map: dict[str, Any], session: dict[str, Any]) -> None:
@@ -678,21 +2092,23 @@ class RunwayUIMapper:
                 index += 1
         return tabs
 
-    def pick_page(self, tab_index: int | None = None):
+    def pick_page(self, tab_index: int | None = None, *, require_runway: bool = True):
         tabs = self.list_tabs()
         if not tabs:
-            raise RuntimeError("No open tabs in CDP browser. Open Runway in Chrome first.")
+            raise RuntimeError("No open tabs in CDP browser. Open a page in Chrome first.")
         runway_indices = [t["index"] for t in tabs if t.get("is_runway_url")]
-        if tab_index is None and not runway_indices:
-            raise RuntimeError(
-                "No Runway tab detected. Open https://app.runwayml.com and log in manually."
-            )
         if tab_index is not None:
             if tab_index < 0 or tab_index >= len(tabs):
                 raise RuntimeError(f"tab_index {tab_index} out of range (0..{len(tabs) - 1})")
             chosen = tab_index
-        else:
+        elif require_runway:
+            if not runway_indices:
+                raise RuntimeError(
+                    "No Runway tab detected. Open https://app.runwayml.com and log in manually."
+                )
             chosen = runway_indices[0]
+        else:
+            chosen = 0
         cursor = 0
         for context in self.browser.contexts:
             for page in context.pages:
@@ -1081,122 +2497,345 @@ def _print_click_capture(meta: dict[str, Any]) -> None:
     print(f"  prevented_default: {meta.get('prevented_default')}")
 
 
+def _enqueue_popup_save(save_queue: list[dict[str, Any]], payload: Any) -> None:
+    if isinstance(payload, dict):
+        save_queue.append(payload)
+
+
+def _parse_save_line(text: str, prefix: str = CLICK_LABEL_SAVE_PREFIX) -> dict[str, Any] | None:
+    if prefix not in text:
+        return None
+    raw = text[text.index(prefix) + len(prefix) :].strip()
+    if not raw:
+        return None
+    data = json.loads(raw)
+    if not isinstance(data, dict):
+        return None
+    return data
+
+
+def _ingest_save_payload(
+    save_queue: list[dict[str, Any]],
+    seen_ids: set[str],
+    payload: dict[str, Any] | None,
+) -> bool:
+    if not payload:
+        return False
+    save_id = str(payload.get("_save_id") or "")
+    if save_id:
+        if save_id in seen_ids:
+            return False
+        seen_ids.add(save_id)
+    _enqueue_popup_save(save_queue, payload)
+    return True
+
+
+def _install_cdp_console_listener(page, prefix: str, save_queue: list, seen_ids: set) -> Any | None:
+    """Listen via CDP Runtime.consoleAPICalled (works on connect_over_cdp tabs)."""
+    try:
+        cdp = page.context.new_cdp_session(page)
+        cdp.send("Runtime.enable")
+
+        def _on_console(params: dict[str, Any]) -> None:
+            try:
+                parts: list[str] = []
+                for arg in params.get("args") or []:
+                    if arg.get("type") == "string":
+                        parts.append(str(arg.get("value") or ""))
+                text = "".join(parts)
+                if prefix not in text:
+                    return
+                payload = _parse_save_line(text, prefix)
+                _ingest_save_payload(save_queue, seen_ids, payload)
+            except Exception:
+                pass
+
+        cdp.on("Runtime.consoleAPICalled", _on_console)
+        return cdp
+    except Exception:
+        return None
+
+
+def _poll_dom_save_bridge(page, prefix: str, save_queue: list, seen_ids: set, last_line: str) -> str:
+    """Read pending save line from DOM attribute (primary fallback for CDP tabs)."""
+    try:
+        line = page.evaluate(
+            """() => document.documentElement.getAttribute('data-runway-mapper-pending-save') || ''"""
+        )
+        if not line or not isinstance(line, str) or line == last_line:
+            return last_line
+        if prefix not in line:
+            return last_line
+        payload = _parse_save_line(line, prefix)
+        if _ingest_save_payload(save_queue, seen_ids, payload):
+            page.evaluate(
+                """() => {
+                  document.documentElement.removeAttribute('data-runway-mapper-pending-save');
+                }"""
+            )
+        return line
+    except Exception:
+        return last_line
+
+
 def mode_click_label(
     mapper: RunwayUIMapper,
     *,
     tab_index: int | None = None,
     allow_safe_clicks: bool = False,
 ) -> int:
-    """Click elements in live Runway; terminal prompts for semantic labels."""
+    """Alt+Click or Mapper ON opens in-page popup; normal clicks pass through."""
     import threading
 
-    click_queue: list[dict[str, Any]] = []
+    save_queue: list[dict[str, Any]] = []
+    seen_save_ids: set[str] = set()
+    prefix = CLICK_LABEL_SAVE_PREFIX
+    last_dom_line = ""
 
-    def _binding_click(_source, payload: dict[str, Any]) -> None:
+    def _on_console(msg) -> None:
+        try:
+            text = msg.text or ""
+            if prefix not in text:
+                for arg in getattr(msg, "args", []) or []:
+                    try:
+                        val = arg.json_value()
+                        if isinstance(val, str) and prefix in val:
+                            text = val
+                            break
+                    except Exception:
+                        pass
+            payload = _parse_save_line(text, prefix)
+            _ingest_save_payload(save_queue, seen_save_ids, payload)
+        except Exception as exc:
+            print(f"[RunwayUIMapper] Console parse warning: {exc}")
+
+    def _binding_save(_source, payload: Any) -> None:
         if isinstance(payload, dict):
-            click_queue.append(payload)
+            _ingest_save_payload(save_queue, seen_save_ids, payload)
 
     mapper.connect()
-    session_started = _now_iso()
-    labels_added: list[str] = []
+    cdp_session = None
     try:
-        page, tabs, chosen = mapper.pick_page(tab_index)
+        page, tabs, chosen = mapper.pick_page(tab_index, require_runway=False)
+        try:
+            title = page.title()
+        except Exception:
+            title = ""
         print(f"[RunwayUIMapper] CLICK-LABEL tab={chosen} url={_safe_url(page.url)}")
-        print("[RunwayUIMapper] Click controls in the Runway browser to label them.")
-        print("[RunwayUIMapper] Dangerous controls (Generate, Buy, etc.) never receive real clicks.")
+        print("[RunwayUIMapper] Normal click = website works as usual.")
+        print("[RunwayUIMapper] Alt+Click any element = label popup (blocks real click).")
+        print("[RunwayUIMapper] Or use top-right 'Mapper: OFF/ON' then single-click to label.")
+        print("[RunwayUIMapper] Ctrl+C here to stop (labels save immediately on Save).")
         if allow_safe_clicks:
-            print("[RunwayUIMapper] --allow-safe-clicks: non-dangerous clicks may pass through.")
-        else:
-            print("[RunwayUIMapper] All clicks blocked until you use --allow-safe-clicks.")
-        print("[RunwayUIMapper] Type 'q' + Enter here to finish and save.")
+            pass  # deprecated no-op
 
         ui_map = load_ui_map(allow_missing=True)
-        if not ui_map.get("elements"):
-            snap = mapper.capture_snapshot(page)
-            ui_map = init_v2_map(page=snap["page"], elements=snap["elements"], open_tabs=tabs)
-        else:
-            ui_map.setdefault("open_tabs", tabs)
-            ui_map["page"] = ui_map.get("page") or (tabs[chosen] if chosen < len(tabs) else {})
-
+        if not ui_map:
+            ui_map = init_v2_map(
+                page={"url": _safe_url(page.url), "title": str(title)[:200]},
+                elements={},
+                open_tabs=tabs,
+            )
+        ui_map.setdefault("open_tabs", tabs)
         elements: dict[str, dict[str, Any]] = dict(ui_map.get("elements") or {})
 
-        page.expose_binding("runwayMapperReportClick", _binding_click)
-        page.evaluate(CLICK_LABEL_INSTALL_JS, allow_safe_clicks)
+        page.on("console", _on_console)
+        cdp_session = _install_cdp_console_listener(page, prefix, save_queue, seen_save_ids)
+        try:
+            page.expose_binding("runwayMapperSaveLabel", _binding_save)
+        except Exception:
+            pass
+        def _inject_click_label_frames() -> int:
+            ok = 0
+            for frame in page.frames:
+                try:
+                    if frame.evaluate(CLICK_LABEL_INSTALL_JS):
+                        ok += 1
+                except Exception:
+                    pass
+            return ok
+
+        installed = _inject_click_label_frames()
+        if installed < 1:
+            raise RuntimeError("Failed to install Shift+Click label script on page.")
+        page.on("framenavigated", lambda _frame: _inject_click_label_frames())
+        print(
+            f"[RunwayUIMapper] Alt+Click / Force-mode capture installed on {installed} frame(s). "
+            "Debug: MAPPER_CLICK in page console."
+        )
+        print("[RunwayUIMapper] Save bridge: DOM attribute + CDP console + Playwright console.")
 
         stop_event = threading.Event()
         _start_quit_listener(stop_event)
 
         while not stop_event.is_set():
-            while click_queue and not stop_event.is_set():
-                meta = sanitize_click_metadata(click_queue.pop(0))
-                _print_click_capture(meta)
+            last_dom_line = _poll_dom_save_bridge(
+                page, prefix, save_queue, seen_save_ids, last_dom_line
+            )
+            while save_queue and not stop_event.is_set():
+                payload = save_queue.pop(0)
                 try:
-                    label_name = input("What is this control? ").strip()
-                except (EOFError, KeyboardInterrupt):
-                    stop_event.set()
-                    break
-                if not label_name or label_name.lower() in {"q", "quit", "exit"}:
-                    if label_name.lower() in {"q", "quit", "exit"}:
-                        stop_event.set()
+                    label_name = process_popup_save_payload(ui_map, elements, payload)
+                except (ValueError, json.JSONDecodeError) as exc:
+                    print(f"[RunwayUIMapper] Save skipped: {exc}")
                     continue
-                if label_name == "skip":
-                    continue
-                if label_name not in VALID_SEMANTIC_LABELS:
-                    print(f"  Unknown label. Valid: {', '.join(VALID_SEMANTIC_LABELS)}")
-                    continue
-                try:
-                    behavior = input("What does this control do? (optional): ").strip()
-                except (EOFError, KeyboardInterrupt):
-                    behavior = ""
-                    stop_event.set()
-
-                element_id = merge_clicked_element(elements, meta)
-                persist_click_label(
-                    ui_map,
-                    label_name=label_name,
-                    element_id=element_id,
-                    metadata=meta,
-                    notes=behavior,
-                    operator_confirmed=True,
-                )
-                labels_added.append(label_name)
                 ui_map["elements"] = elements
-                ui_map["page"] = {
-                    "url": _safe_url(meta.get("page_url") or page.url or ""),
-                    "title": str(meta.get("page_title") or "")[:200],
-                    "is_runway_url": _is_runway_url(meta.get("page_url") or ""),
-                }
-                ui_map.setdefault("scan", {})["last_click_label_at"] = _now_iso()
                 save_ui_map(ui_map)
-                print(f"[RunwayUIMapper] Saved label {label_name!r} -> {element_id}")
+                print(f"[RunwayUIMapper] Saved label '{label_name}' -> {JSON_PATH.name}")
+                try:
+                    page.evaluate(
+                        "() => window.__runwayMapperDismissAfterSave && window.__runwayMapperDismissAfterSave()"
+                    )
+                except Exception:
+                    pass
 
-            time.sleep(0.12)
+            time.sleep(0.08)
 
         try:
             page.evaluate("() => window.__runwayMapperTeardown && window.__runwayMapperTeardown()")
         except Exception:
             pass
-
-        append_labeling_session(
-            ui_map,
-            {
-                "session_id": f"click_label_{session_started.replace(':', '').replace('-', '')[:15]}",
-                "mode": "click-label",
-                "started_at": session_started,
-                "ended_at": _now_iso(),
-                "labels_added": labels_added,
-                "allow_safe_clicks": allow_safe_clicks,
-                "selected_tab_index": chosen,
-                "page_url": _safe_url((ui_map.get("page") or {}).get("url") or ""),
-            },
-        )
         save_ui_map(ui_map)
-        print(
-            f"[RunwayUIMapper] Click-label session saved "
-            f"({len(labels_added)} labels) -> {JSON_PATH}"
-        )
+        print(f"[RunwayUIMapper] Done. Labels: {len(ui_map.get('labels') or {})}")
         return 0
     finally:
+        if cdp_session is not None:
+            try:
+                cdp_session.detach()
+            except Exception:
+                pass
+        mapper.disconnect()
+
+
+def mode_hover_label(
+    mapper: RunwayUIMapper,
+    *,
+    tab_index: int | None = None,
+) -> int:
+    """Hover + L key opens label popup — no click, safe for Download / Generate / Buy controls."""
+    import threading
+
+    save_queue: list[dict[str, Any]] = []
+    seen_save_ids: set[str] = set()
+    prefix = CLICK_LABEL_SAVE_PREFIX
+    last_dom_line = ""
+
+    def _on_console(msg) -> None:
+        try:
+            text = msg.text or ""
+            if text.startswith("MAPPER_"):
+                print(f"[RunwayUIMapper][browser] {text}")
+            if prefix not in text:
+                for arg in getattr(msg, "args", []) or []:
+                    try:
+                        val = arg.json_value()
+                        if isinstance(val, str) and prefix in val:
+                            text = val
+                            break
+                    except Exception:
+                        pass
+            payload = _parse_save_line(text, prefix)
+            _ingest_save_payload(save_queue, seen_save_ids, payload)
+        except Exception as exc:
+            print(f"[RunwayUIMapper] Console parse warning: {exc}")
+
+    def _binding_save(_source, payload: Any) -> None:
+        if isinstance(payload, dict):
+            _ingest_save_payload(save_queue, seen_save_ids, payload)
+
+    mapper.connect()
+    cdp_session = None
+    try:
+        page, tabs, chosen = mapper.pick_page(tab_index, require_runway=False)
+        try:
+            title = page.title()
+        except Exception:
+            title = ""
+        print(f"[RunwayUIMapper] HOVER-LABEL tab={chosen} url={_safe_url(page.url)}")
+        print("[RunwayUIMapper] Badge on page: HOVER MODE ACTIVE")
+        print("[RunwayUIMapper] Move mouse over target — press L (browser window must have focus).")
+        print("[RunwayUIMapper] Debug: open DevTools Console — every key logs MAPPER_KEYDOWN; L logs MAPPER_L_DETECTED.")
+        print("[RunwayUIMapper] If L shows MAPPER_L_BLOCKED typing_context — click outside prompt box first.")
+        print("[RunwayUIMapper] Recommended for: download_mp4_button, generate_button, Buy, dangerous controls.")
+        print("[RunwayUIMapper] Normal clicks pass through — downloads are NOT triggered by L.")
+        print("[RunwayUIMapper] Ctrl+C here to stop (labels save immediately on Save).")
+
+        ui_map = load_ui_map(allow_missing=True)
+        if not ui_map:
+            ui_map = init_v2_map(
+                page={"url": _safe_url(page.url), "title": str(title)[:200]},
+                elements={},
+                open_tabs=tabs,
+            )
+        ui_map.setdefault("open_tabs", tabs)
+        elements: dict[str, dict[str, Any]] = dict(ui_map.get("elements") or {})
+
+        page.on("console", _on_console)
+        cdp_session = _install_cdp_console_listener(page, prefix, save_queue, seen_save_ids)
+        try:
+            page.expose_binding("runwayMapperSaveLabel", _binding_save)
+        except Exception:
+            pass
+
+        def _inject_hover_label_frames() -> int:
+            ok = 0
+            for frame in page.frames:
+                try:
+                    if frame.evaluate(HOVER_LABEL_INSTALL_JS):
+                        ok += 1
+                except Exception:
+                    pass
+            return ok
+
+        installed = _inject_hover_label_frames()
+        if installed < 1:
+            raise RuntimeError("Failed to install hover-label script on page.")
+        page.on("framenavigated", lambda _frame: _inject_hover_label_frames())
+        print(
+            f"[RunwayUIMapper] Hover-label (L key) installed on {installed} frame(s). "
+            "Debug: MAPPER_KEYDOWN / MAPPER_L_DETECTED in browser console + terminal."
+        )
+        print("[RunwayUIMapper] Save bridge: DOM attribute + CDP console + Playwright console.")
+
+        stop_event = threading.Event()
+        _start_quit_listener(stop_event)
+
+        while not stop_event.is_set():
+            last_dom_line = _poll_dom_save_bridge(
+                page, prefix, save_queue, seen_save_ids, last_dom_line
+            )
+            while save_queue and not stop_event.is_set():
+                payload = save_queue.pop(0)
+                try:
+                    label_name = process_popup_save_payload(ui_map, elements, payload)
+                except (ValueError, json.JSONDecodeError) as exc:
+                    print(f"[RunwayUIMapper] Save skipped: {exc}")
+                    continue
+                ui_map["elements"] = elements
+                save_ui_map(ui_map)
+                print(f"[RunwayUIMapper] Saved label '{label_name}' -> {JSON_PATH.name}")
+                try:
+                    page.evaluate(
+                        "() => window.__runwayMapperDismissAfterSave && window.__runwayMapperDismissAfterSave()"
+                    )
+                except Exception:
+                    pass
+
+            time.sleep(0.08)
+
+        try:
+            page.evaluate("() => window.__runwayMapperHoverTeardown && window.__runwayMapperHoverTeardown()")
+        except Exception:
+            pass
+        save_ui_map(ui_map)
+        print(f"[RunwayUIMapper] Done. Labels: {len(ui_map.get('labels') or {})}")
+        return 0
+    finally:
+        if cdp_session is not None:
+            try:
+                cdp_session.detach()
+            except Exception:
+                pass
         mapper.disconnect()
 
 
@@ -1229,12 +2868,32 @@ def build_arg_parser() -> argparse.ArgumentParser:
     mode.add_argument(
         "--click-label",
         action="store_true",
-        help="Click elements in browser; terminal prompts for labels",
+        help="Alt+Click or Mapper ON toggle opens label popup; normal click navigates",
+    )
+    mode.add_argument(
+        "--hover-label",
+        action="store_true",
+        help="Hover target + press L — label popup without click (safe for Download/Generate)",
+    )
+    mode.add_argument(
+        "--continuity-checklist",
+        action="store_true",
+        help="Print operator relabeling checklist for Gen-4.5 output controls (no browser)",
+    )
+    mode.add_argument(
+        "--validate-continuity",
+        action="store_true",
+        help="Validate runway_ui_map.json continuity labels (no browser)",
+    )
+    mode.add_argument(
+        "--normalize-continuity",
+        action="store_true",
+        help="Print canonical continuity label normalization view (no browser)",
     )
     parser.add_argument(
         "--allow-safe-clicks",
         action="store_true",
-        help="With --click-label: allow non-dangerous clicks through to Runway",
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--label-batch",
@@ -1253,6 +2912,16 @@ def build_arg_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     args = build_arg_parser().parse_args()
+
+    if args.continuity_checklist:
+        return mode_continuity_checklist()
+
+    if args.validate_continuity:
+        return mode_validate_continuity()
+
+    if args.normalize_continuity:
+        return mode_normalize_continuity()
+
     mapper = RunwayUIMapper(cdp_url=args.cdp_url)
 
     if args.label or args.label_batch:
@@ -1274,6 +2943,13 @@ def main() -> int:
             )
         except Exception as exc:
             print(f"[RunwayUIMapper] CLICK-LABEL FAILED: {exc}")
+            return 1
+
+    if args.hover_label:
+        try:
+            return mode_hover_label(mapper, tab_index=args.tab_index)
+        except Exception as exc:
+            print(f"[RunwayUIMapper] HOVER-LABEL FAILED: {exc}")
             return 1
 
     # Default and --scan and legacy --interactive-map (scan only, no auto clicks)

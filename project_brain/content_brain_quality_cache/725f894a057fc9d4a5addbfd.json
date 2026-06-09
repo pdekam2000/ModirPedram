@@ -1,0 +1,41 @@
+{
+  "topic": "zander fishing method",
+  "category": "fishing",
+  "strategy": "instructional_fishing",
+  "enhancement_types": [
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "The Zander Fishing Method That Actually Works",
+      "Why This Zander Retrieve Gets More Bites",
+      "The Simple Zander Fishing Setup Beginners Miss",
+      "How to Hook Zander With Better Depth Control",
+      "Stop Making This Zander Fishing Mistake"
+    ],
+    "domain_concepts": [
+      "lure",
+      "retrieve",
+      "hook set",
+      "depth",
+      "strike",
+      "tackle"
+    ],
+    "prompt_additions": [
+      "lure",
+      "retrieve",
+      "hook set",
+      "depth",
+      "strike",
+      "tackle"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

@@ -1,0 +1,33 @@
+{
+  "topic": "zander fishing method",
+  "category": "fishing",
+  "strategy": "cinematic_narrative",
+  "enhancement_types": [
+    "domain_knowledge",
+    "prompt"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "lure",
+      "retrieve",
+      "hook set",
+      "depth",
+      "strike",
+      "tackle"
+    ],
+    "prompt_additions": [
+      "lure",
+      "retrieve",
+      "hook set",
+      "depth",
+      "strike",
+      "tackle"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

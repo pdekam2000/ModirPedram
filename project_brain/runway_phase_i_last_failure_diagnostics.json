@@ -1,0 +1,170 @@
+{
+  "timestamp": "2026-06-08 21:37:05",
+  "step_id": "021_verify_use_frame_handoff_clip_2",
+  "clip_number": 2,
+  "error": "test",
+  "screenshot_path": "",
+  "current_url": "",
+  "page_title": "",
+  "visible_buttons": [],
+  "visible_dialogs_modals": [],
+  "image_result_area_text": "",
+  "selector_attempted": "",
+  "prompt_candidates_found": [
+    {
+      "selector": "simulate",
+      "label": "Prompt",
+      "visible": true,
+      "enabled": true,
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 100,
+        "height": 40
+      },
+      "coveredByModal": false
+    }
+  ],
+  "prompt_editor_ready_state": {
+    "clip_index": 2,
+    "checked": true,
+    "ready": true,
+    "ready_result": "ready",
+    "selector_used": "simulate",
+    "prompt_candidates": [],
+    "modal_detected": false,
+    "generate_button_visible": true,
+    "use_frame_button_visible": true,
+    "download_button_visible": true,
+    "generation_in_progress": false,
+    "generation_state": {},
+    "notes": []
+  },
+  "generation_state_candidates": {
+    "in_progress": false,
+    "spinner_visible": false,
+    "stop_cancel_visible": false,
+    "progress_text": "",
+    "output_cards_detected": 0,
+    "output_loading": false,
+    "generate_button_disabled": false,
+    "pending_output_slot": false,
+    "signals": []
+  },
+  "use_frame_handoff_state": {
+    "clip_number": 2,
+    "checked": true,
+    "handoff_result": "invalid_card_only",
+    "prompt_interactable": false,
+    "reference_thumbnail_detected": false,
+    "output_card_selected_only": true,
+    "generate_button_visible": true,
+    "generate_button_disabled": false,
+    "generation_in_progress": false,
+    "modal_detected": false,
+    "output_card_candidates": [],
+    "reference_thumbnail_candidates": [],
+    "prompt_candidates": [],
+    "retry_attempts": 3,
+    "use_frame_reclicked": false,
+    "notes": [
+      "timeout_after_3_retries"
+    ]
+  },
+  "output_card_candidates": [],
+  "reference_thumbnail_candidates": [],
+  "generate_button_state": {
+    "visible": true,
+    "disabled": false
+  },
+  "spinner_visible": false,
+  "stop_cancel_button_visible": false,
+  "output_cards_detected": 0,
+  "generate_button_disabled": false,
+  "progress_text_detected": "",
+  "generate_button_visible": true,
+  "use_frame_button_visible": true,
+  "download_button_visible": true,
+  "latest_video_card_fingerprint": "sim|video|1|clip_2_video_card",
+  "stale_image_preview_detected": false,
+  "stale_preview_closed": false,
+  "preclean_notes": [],
+  "use_for_video_candidates_visible": [],
+  "use_for_video_action_used": "",
+  "latest_image_card_index": -1,
+  "video_transition_verified": false,
+  "last_action_log_entries": [
+    {
+      "action": "use_frame_handoff_verify_start",
+      "control_key": null,
+      "detail": "clip=2",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_retry",
+      "control_key": null,
+      "detail": "clip=2; attempt=1; result=invalid_card_only",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_retry",
+      "control_key": null,
+      "detail": "clip=2; attempt=2; result=invalid_card_only",
+      "approved": false
+    },
+    {
+      "action": "latest_video_card_assigned",
+      "control_key": null,
+      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "approved": false
+    },
+    {
+      "action": "clear_stale_video_transition",
+      "control_key": null,
+      "detail": "clip=2; url=",
+      "approved": false
+    },
+    {
+      "action": "chip_detect",
+      "control_key": null,
+      "detail": "count=; aspect=; quality=; duration=",
+      "approved": false
+    },
+    {
+      "action": "use_frame_handoff_verify_fail",
+      "control_key": null,
+      "detail": "clip=2; result=invalid_card_only",
+      "approved": false
+    }
+  ]
+}

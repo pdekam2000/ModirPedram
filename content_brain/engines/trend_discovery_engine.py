@@ -492,12 +492,18 @@ class RealTrendProviderAdapter(TrendSourceAdapter):
                 return []
 
             platforms = [platform.value for platform in context.target_platforms]
+            locale = str(
+                context.profile.get("language")
+                or (context.profile.get("language_rules") or {}).get("output_language")
+                or "en"
+            ).strip()
             signals = provider.fetch_best_signals(
                 niche=context.niche,
                 topic=context.user_topic,
                 profile=context.profile,
                 platforms=platforms,
                 max_results=10,
+                locale=locale,
             )
             return [
                 _candidate_from_normalized_signal(signal)

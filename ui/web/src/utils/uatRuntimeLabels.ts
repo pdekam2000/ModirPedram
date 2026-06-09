@@ -2,10 +2,15 @@ import type { UatAssemblyMode, UatRunResponse, UatVideoProvider, UatVoiceProvide
 
 export const UAT_BRAND_TITLE = "MODIR AGENT OS";
 export const UAT_BRAND_SUBTITLE = "Pedram AI Content Factory";
+export const UAT_RUNTIME_MODE_LABEL = "Generic UAT Runtime";
 export const UAT_GENERATE_LABEL = "Generate UAT Video";
 
 export const UAT_SAFETY_WARNING =
   "This run may use real providers and generate billable content. One supervised run only — nothing is published automatically.";
+
+export const UAT_PHASE_I_ROUTING_WARNING =
+  "This UAT Runtime is generic and does not run Phase I continuity chaining (starter image → Use to Video → 3 clips → Use Frame ×2 → remove image). " +
+  "Use Execution Center → Runway Live Smoke → 3-Clip Continuity (Phase I) for Phase I.";
 
 export type UatStageKey =
   | "content_brain"

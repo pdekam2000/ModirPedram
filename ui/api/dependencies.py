@@ -70,6 +70,14 @@ def get_uat_runtime_service():
     return UatRuntimeService(get_session_store())
 
 
+def get_runway_live_smoke_service():
+    from ui.api.runway_live_smoke_service import RunwayLiveSmokeRuntimeService
+
+    if not hasattr(get_runway_live_smoke_service, "_instance"):
+        get_runway_live_smoke_service._instance = RunwayLiveSmokeRuntimeService()
+    return get_runway_live_smoke_service._instance
+
+
 def get_browser_operations_service():
     from ui.api.browser_operations_service import BrowserOperationsService
 

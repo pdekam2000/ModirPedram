@@ -1,10 +1,10 @@
 {
   "version": "runway_ui_mapper_v2",
   "created_at": "2026-06-02T19:47:23Z",
-  "updated_at": "2026-06-02T20:45:08Z",
+  "updated_at": "2026-06-04T19:50:37Z",
   "page": {
-    "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
-    "title": "Dashboard | Runway AI",
+    "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+    "title": "Runway",
     "is_runway_url": true
   },
   "open_tabs": [
@@ -17,33 +17,23 @@
   ],
   "elements": {
     "btn_001": {
-      "tag": "button",
-      "role": "",
-      "type": "button",
-      "text": "Pedram Personal \u00b7 Unlimited",
-      "aria_label": "",
-      "placeholder": "",
-      "title": "",
-      "name": "",
-      "href": "",
-      "disabled": false,
-      "visible": true,
-      "contenteditable": false,
-      "css_selector": "#react-aria9124564547-\\:r198\\:",
-      "playwright_locator": "get_by_text(\"Pedram Personal \u00b7 Unlimited PedramPersonal \u00b7 Unlimited\", exact=False)",
+      "tag": "media-play-button",
+      "role": "button",
+      "text": "",
+      "aria_label": "pause",
+      "css_selector": "media-play-button[aria-label=\"pause\"]",
       "bounding_box": {
-        "x": 16,
-        "y": 12,
-        "width": 228,
-        "height": 60
+        "x": 501,
+        "y": 1069,
+        "width": 16,
+        "height": 16
       },
-      "nearby_text": "Pedram Personal \u00b7 Unlimited",
-      "combined_label": "Pedram Personal \u00b7 Unlimited PedramPersonal \u00b7 Unlimited",
+      "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "page_title": "Runway",
+      "visible": true,
+      "combined_label": "",
       "element_id": "btn_001",
-      "click_blocked": false,
-      "screenshot_reference": "project_brain/runway_ui_mapping/screenshots/02_overlay_numbered.png",
-      "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
-      "page_title": "Dashboard | Runway AI"
+      "click_blocked": false
     },
     "input_001": {
       "tag": "input",
@@ -1378,9 +1368,2860 @@
       "screenshot_reference": "project_brain/runway_ui_mapping/screenshots/02_overlay_numbered.png",
       "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
       "page_title": "Dashboard | Runway AI"
+    },
+    "el_001": {
+      "tag": "body",
+      "role": "",
+      "text": "Apps Custom Agent Recents Workflow Characters Image Video Audio First Video Frame Upload Continuity lock: same character (a compelling lead subject with clear silhouette and emotional readability), sa",
+      "aria_label": "",
+      "css_selector": "body",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1218
+      },
+      "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+      "page_title": "Runway",
+      "visible": true,
+      "combined_label": "Apps Custom Agent Recents Workflow Characters Image Video Audio First Video Frame Upload Continuity lock: same character (a compelling lead subject with clear silhouette and emotional readability), sa",
+      "element_id": "el_001",
+      "click_blocked": false
     }
   },
-  "labels": {},
+  "labels": {
+    "Generate Video": {
+      "label": "Generate Video",
+      "element_id": "el_001",
+      "text": "Generate Video",
+      "aria_label": "",
+      "role": "",
+      "tag": "div",
+      "bounding_box": {
+        "x": 326,
+        "y": 357,
+        "width": 113,
+        "height": 24
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+      "selector_candidates": {
+        "css": "div"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "",
+        "text": "Generate Video",
+        "aria_label": "",
+        "css_selector": "div",
+        "bounding_box": {
+          "x": 326,
+          "y": 357,
+          "width": 113,
+          "height": 24
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:11:20Z"
+    },
+    "Gen-4.5": {
+      "label": "Gen-4.5",
+      "element_id": "el_001",
+      "text": "Gen-4.5",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 1036,
+        "y": 347,
+        "width": 77,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria7665257423-\\:rvs\\:-tab-gen45"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Gen-4.5",
+        "aria_label": "",
+        "css_selector": "#react-aria7665257423-\\:rvs\\:-tab-gen45",
+        "bounding_box": {
+          "x": 1036,
+          "y": 347,
+          "width": 77,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:11:45Z"
+    },
+    "Try it": {
+      "label": "Try it",
+      "element_id": "btn_001",
+      "text": "Try in Edit Studio",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 783,
+        "y": 853,
+        "width": 146,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria7665257423-\\:r104\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Try in Edit Studio",
+        "aria_label": "",
+        "css_selector": "#react-aria7665257423-\\:r104\\:",
+        "bounding_box": {
+          "x": 783,
+          "y": 853,
+          "width": 146,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:12:12Z"
+    },
+    "Geerate Video": {
+      "label": "Geerate Video",
+      "element_id": "el_001",
+      "text": "Generate Video",
+      "aria_label": "",
+      "role": "",
+      "tag": "div",
+      "bounding_box": {
+        "x": 326,
+        "y": 357,
+        "width": 113,
+        "height": 24
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+      "selector_candidates": {
+        "css": "div"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "",
+        "text": "Generate Video",
+        "aria_label": "",
+        "css_selector": "div",
+        "bounding_box": {
+          "x": 326,
+          "y": 357,
+          "width": 113,
+          "height": 24
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:34:59Z"
+    },
+    "Ge-4.5": {
+      "label": "Ge-4.5",
+      "element_id": "el_001",
+      "text": "Gen-4.5",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 1034,
+        "y": 419,
+        "width": 79,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:reh\\:-tab-gen45"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Gen-4.5",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:reh\\:-tab-gen45",
+        "bounding_box": {
+          "x": 1034,
+          "y": 419,
+          "width": 79,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:35:20Z"
+    },
+    "Try it now": {
+      "label": "Try it now",
+      "element_id": "btn_001",
+      "text": "Try it now",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 809,
+        "y": 926,
+        "width": 95,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:rep\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Try it now",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:rep\\:",
+        "bounding_box": {
+          "x": 809,
+          "y": 926,
+          "width": 95,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:35:40Z"
+    },
+    "Prompt Box": {
+      "label": "Prompt Box",
+      "element_id": "el_001",
+      "text": "",
+      "aria_label": "Prompt",
+      "role": "textbox",
+      "tag": "div",
+      "bounding_box": {
+        "x": 81,
+        "y": 700,
+        "width": 366,
+        "height": 403
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "div[aria-label=\"Prompt\"]"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "textbox",
+        "text": "",
+        "aria_label": "Prompt",
+        "css_selector": "div[aria-label=\"Prompt\"]",
+        "bounding_box": {
+          "x": 81,
+          "y": 700,
+          "width": 366,
+          "height": 403
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:36:15Z"
+    },
+    "Upload afairst video Frame": {
+      "label": "Upload afairst video Frame",
+      "element_id": "el_001",
+      "text": "Upload",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 234,
+        "y": 408,
+        "width": 46,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Upload",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 234,
+          "y": 408,
+          "width": 46,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:36:41Z"
+    },
+    "16:9": {
+      "label": "16:9",
+      "element_id": "el_001",
+      "text": "16:9",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 298,
+        "y": 1168,
+        "width": 26,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "16:9",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 298,
+          "y": 1168,
+          "width": 26,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:37:01Z"
+    },
+    "5s": {
+      "label": "5s",
+      "element_id": "el_001",
+      "text": "5s",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 360,
+        "y": 1168,
+        "width": 17,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "5s",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 360,
+          "y": 1168,
+          "width": 17,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:37:13Z"
+    },
+    "Geerate": {
+      "label": "Geerate",
+      "element_id": "btn_001",
+      "text": "Generate",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 337,
+        "y": 1221,
+        "width": 111,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:rhq\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Generate",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:rhq\\:",
+        "bounding_box": {
+          "x": 337,
+          "y": 1221,
+          "width": 111,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:37:47Z"
+    },
+    "Aleph 2,0": {
+      "label": "Aleph 2,0",
+      "element_id": "el_001",
+      "text": "Aleph 2.0",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 507,
+        "y": 419,
+        "width": 88,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:reh\\:-tab-edit-studio"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Aleph 2.0",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:reh\\:-tab-edit-studio",
+        "bounding_box": {
+          "x": 507,
+          "y": 419,
+          "width": 88,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:39:07Z"
+    },
+    "Seedance 2,0": {
+      "label": "Seedance 2,0",
+      "element_id": "el_001",
+      "text": "Seedance 2.0",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 605,
+        "y": 419,
+        "width": 116,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:reh\\:-tab-seedance-2"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Seedance 2.0",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:reh\\:-tab-seedance-2",
+        "bounding_box": {
+          "x": 605,
+          "y": 419,
+          "width": 116,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:39:22Z"
+    },
+    "Multi-Shot Video": {
+      "label": "Multi-Shot Video",
+      "element_id": "el_001",
+      "text": "Multi-Shot Video",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 730,
+        "y": 419,
+        "width": 134,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:reh\\:-tab-multi-shot"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Multi-Shot Video",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:reh\\:-tab-multi-shot",
+        "bounding_box": {
+          "x": 730,
+          "y": 419,
+          "width": 134,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:39:45Z"
+    },
+    "Runway Characters": {
+      "label": "Runway Characters",
+      "element_id": "el_001",
+      "text": "Runway Characters",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 872,
+        "y": 419,
+        "width": 153,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:reh\\:-tab-runway-characters"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Runway Characters",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:reh\\:-tab-runway-characters",
+        "bounding_box": {
+          "x": 872,
+          "y": 419,
+          "width": 153,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:40:13Z"
+    },
+    "Kling 3,0": {
+      "label": "Kling 3,0",
+      "element_id": "el_001",
+      "text": "Kling 3.0",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 1125,
+        "y": 419,
+        "width": 82,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:reh\\:-tab-kling-3"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Kling 3.0",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:reh\\:-tab-kling-3",
+        "bounding_box": {
+          "x": 1125,
+          "y": 419,
+          "width": 82,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:40:25Z"
+    },
+    "fIRST fRAME OF vIDEO": {
+      "label": "fIRST fRAME OF vIDEO",
+      "element_id": "el_001",
+      "text": "",
+      "aria_label": "",
+      "role": "",
+      "tag": "svg",
+      "bounding_box": {
+        "x": 100,
+        "y": 1106,
+        "width": 16,
+        "height": 16
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "svg"
+      },
+      "metadata": {
+        "tag": "svg",
+        "role": "",
+        "text": "",
+        "aria_label": "",
+        "css_selector": "svg",
+        "bounding_box": {
+          "x": 100,
+          "y": 1106,
+          "width": 16,
+          "height": 16
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:41:14Z"
+    },
+    "aUTO": {
+      "label": "aUTO",
+      "element_id": "btn_001",
+      "text": "Auto",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 317,
+        "y": 58,
+        "width": 54,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:rii\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Auto",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:rii\\:",
+        "bounding_box": {
+          "x": 317,
+          "y": 58,
+          "width": 54,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:49:14Z"
+    },
+    "CUSTOM": {
+      "label": "CUSTOM",
+      "element_id": "btn_001",
+      "text": "Custom",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 372,
+        "y": 58,
+        "width": 74,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:rik\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Custom",
+        "aria_label": "",
+        "css_selector": "#react-aria9301350402-\\:rik\\:",
+        "bounding_box": {
+          "x": 372,
+          "y": 58,
+          "width": 74,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:49:27Z"
+    },
+    "SELECT FIRST SHOT IMAGE IN CUSTOM MODE": {
+      "label": "SELECT FIRST SHOT IMAGE IN CUSTOM MODE",
+      "element_id": "el_001",
+      "text": "Select",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 253,
+        "y": 293,
+        "width": 41,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Select",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 253,
+          "y": 293,
+          "width": 41,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:49:54Z"
+    },
+    "ADD SHOT": {
+      "label": "ADD SHOT",
+      "element_id": "btn_001",
+      "text": "Add shot",
+      "aria_label": "Add shot",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 80,
+        "y": 1097,
+        "width": 368,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:rpk\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Add shot",
+        "aria_label": "Add shot",
+        "css_selector": "#react-aria9301350402-\\:rpk\\:",
+        "bounding_box": {
+          "x": 80,
+          "y": 1097,
+          "width": 368,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:50:13Z"
+    },
+    "16.9": {
+      "label": "16.9",
+      "element_id": "el_001",
+      "text": "16:9",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 305,
+        "y": 1169,
+        "width": 26,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "16:9",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 305,
+          "y": 1169,
+          "width": 26,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:50:25Z"
+    },
+    "720P": {
+      "label": "720P",
+      "element_id": "el_001",
+      "text": "720p",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 349,
+        "y": 1169,
+        "width": 33,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "720p",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 349,
+          "y": 1169,
+          "width": 33,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:50:36Z"
+    },
+    "10S": {
+      "label": "10S",
+      "element_id": "el_001",
+      "text": "10s",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 419,
+        "y": 1169,
+        "width": 22,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "10s",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 419,
+          "y": 1169,
+          "width": 22,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:50:41Z"
+    },
+    "CREDIT MODE": {
+      "label": "CREDIT MODE",
+      "element_id": "btn_001",
+      "text": "2.270 credits",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 926,
+        "y": 8,
+        "width": 109,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#credit-info-button"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "2.270 credits",
+        "aria_label": "",
+        "css_selector": "#credit-info-button",
+        "bounding_box": {
+          "x": 926,
+          "y": 8,
+          "width": 109,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:52:26Z"
+    },
+    "UNLIMIT MODE NACH KLICK CREDIT MODE": {
+      "label": "UNLIMIT MODE NACH KLICK CREDIT MODE",
+      "element_id": "btn_001",
+      "text": "Explore",
+      "aria_label": "",
+      "role": "radio",
+      "tag": "button",
+      "bounding_box": {
+        "x": 821,
+        "y": 58,
+        "width": 161,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "button"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "radio",
+        "text": "Explore",
+        "aria_label": "",
+        "css_selector": "button",
+        "bounding_box": {
+          "x": 821,
+          "y": 58,
+          "width": 161,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:52:59Z"
+    },
+    "CREDIT NACH CLICK CREDIT MODE": {
+      "label": "CREDIT NACH CLICK CREDIT MODE",
+      "element_id": "btn_001",
+      "text": "Credits",
+      "aria_label": "",
+      "role": "radio",
+      "tag": "button",
+      "bounding_box": {
+        "x": 982,
+        "y": 58,
+        "width": 161,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "button"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "radio",
+        "text": "Credits",
+        "aria_label": "",
+        "css_selector": "button",
+        "bounding_box": {
+          "x": 982,
+          "y": 58,
+          "width": 161,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&tool=video&app=multi-shot",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:53:20Z"
+    },
+    "GENERATE VIDEO": {
+      "label": "GENERATE VIDEO",
+      "element_id": "el_001",
+      "text": "Generate Video",
+      "aria_label": "",
+      "role": "",
+      "tag": "div",
+      "bounding_box": {
+        "x": 326,
+        "y": 357,
+        "width": 113,
+        "height": 24
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+      "selector_candidates": {
+        "css": "div"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "",
+        "text": "Generate Video",
+        "aria_label": "",
+        "css_selector": "div",
+        "bounding_box": {
+          "x": 326,
+          "y": 357,
+          "width": 113,
+          "height": 24
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:54:25Z"
+    },
+    "VIEDO DURATION KONOPF": {
+      "label": "VIEDO DURATION KONOPF",
+      "element_id": "el_001",
+      "text": "5s",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 360,
+        "y": 1168,
+        "width": 17,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "5s",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 360,
+          "y": 1168,
+          "width": 17,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:55:02Z"
+    },
+    "16.9 MODE": {
+      "label": "16.9 MODE",
+      "element_id": "el_001",
+      "text": "16:9",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 298,
+        "y": 1168,
+        "width": 26,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "16:9",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 298,
+          "y": 1168,
+          "width": 26,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:55:19Z"
+    },
+    "DOWNLOAD ALL": {
+      "label": "DOWNLOAD ALL",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Download all",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 1119,
+        "y": 112,
+        "width": 28,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:r26o\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "Download all",
+        "css_selector": "#react-aria9301350402-\\:r26o\\:",
+        "bounding_box": {
+          "x": 1119,
+          "y": 112,
+          "width": 28,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:55:58Z"
+    },
+    "APPS VIEDO ART MODUS ZU W\u00c4HLEN VIEDO ART": {
+      "label": "APPS VIEDO ART MODUS ZU W\u00c4HLEN VIEDO ART",
+      "element_id": "btn_001",
+      "text": "Apps",
+      "aria_label": "Helpful Apps when generating videos",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 80,
+        "y": 1221,
+        "width": 74,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#related-apps-trigger"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Apps",
+        "aria_label": "Helpful Apps when generating videos",
+        "css_selector": "#related-apps-trigger",
+        "bounding_box": {
+          "x": 80,
+          "y": 1221,
+          "width": 74,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:57:09Z"
+    },
+    "HOME": {
+      "label": "HOME",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Dashboard",
+      "role": "",
+      "tag": "a",
+      "bounding_box": {
+        "x": 16,
+        "y": 1193,
+        "width": 32,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "a[aria-label=\"Dashboard\"]"
+      },
+      "metadata": {
+        "tag": "a",
+        "role": "",
+        "text": "",
+        "aria_label": "Dashboard",
+        "css_selector": "a[aria-label=\"Dashboard\"]",
+        "bounding_box": {
+          "x": 16,
+          "y": 1193,
+          "width": 32,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:57:54Z"
+    },
+    "IMAGE": {
+      "label": "IMAGE",
+      "element_id": "el_001",
+      "text": "Image",
+      "aria_label": "",
+      "role": "",
+      "tag": "label",
+      "bounding_box": {
+        "x": 146,
+        "y": 10,
+        "width": 75,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "label"
+      },
+      "metadata": {
+        "tag": "label",
+        "role": "",
+        "text": "Image",
+        "aria_label": "",
+        "css_selector": "label",
+        "bounding_box": {
+          "x": 146,
+          "y": 10,
+          "width": 75,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:58:11Z"
+    },
+    "AUDIO": {
+      "label": "AUDIO",
+      "element_id": "el_001",
+      "text": "Audio",
+      "aria_label": "",
+      "role": "",
+      "tag": "label",
+      "bounding_box": {
+        "x": 310,
+        "y": 10,
+        "width": 72,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "label"
+      },
+      "metadata": {
+        "tag": "label",
+        "role": "",
+        "text": "Audio",
+        "aria_label": "",
+        "css_selector": "label",
+        "bounding_box": {
+          "x": 310,
+          "y": 10,
+          "width": 72,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T16:58:18Z"
+    },
+    "DOWNLOAD MP4": {
+      "label": "DOWNLOAD MP4",
+      "element_id": "el_001",
+      "text": "Apps Custom Agent Recents Workflow Characters My sessions Minimal Typography Logo 11m ago \u00b7 1 gen Girl Runner Evidence Reveal 21h ago \u00b7 1 gen Neon Rain Lonely Runner 22h ago \u00b7 1 gen Evidence Specific ",
+      "aria_label": "",
+      "role": "",
+      "tag": "body",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1249,
+        "height": 1277
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "body"
+      },
+      "metadata": {
+        "tag": "body",
+        "role": "",
+        "text": "Apps Custom Agent Recents Workflow Characters My sessions Minimal Typography Logo 11m ago \u00b7 1 gen Girl Runner Evidence Reveal 21h ago \u00b7 1 gen Neon Rain Lonely Runner 22h ago \u00b7 1 gen Evidence Specific ",
+        "aria_label": "",
+        "css_selector": "body",
+        "bounding_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1249,
+          "height": 1277
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=sessions&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Recent Generations | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:07:20Z"
+    },
+    "USE FRAME": {
+      "label": "USE FRAME",
+      "element_id": "el_001",
+      "text": "Use frame",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 604,
+        "y": 586,
+        "width": 66,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Use frame",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 604,
+          "y": 586,
+          "width": 66,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=apps&sessionId=8c09e2fd-02c8-4c11-8d00-c9193da5ea51",
+        "page_title": "Recent Generations | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:22:14Z"
+    },
+    "10s duration": {
+      "label": "10s duration",
+      "element_id": "el_001",
+      "text": "10 seconds",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 348,
+        "y": 1123,
+        "width": 69,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "10 seconds",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 348,
+          "y": 1123,
+          "width": 69,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:22:46Z"
+    },
+    "8s duration": {
+      "label": "8s duration",
+      "element_id": "el_001",
+      "text": "8 seconds",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 343,
+        "y": 1051,
+        "width": 64,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "8 seconds",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 343,
+          "y": 1051,
+          "width": 64,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:23:06Z"
+    },
+    "aspect_ratio_menu 16:9": {
+      "label": "aspect_ratio_menu 16:9",
+      "element_id": "el_001",
+      "text": "16:9",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 281,
+        "y": 943,
+        "width": 24,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "16:9",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 281,
+          "y": 943,
+          "width": 24,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:23:39Z"
+    },
+    "aspect_ratio_menu 9: 16": {
+      "label": "aspect_ratio_menu 9: 16",
+      "element_id": "el_001",
+      "text": "9:16",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 281,
+        "y": 979,
+        "width": 24,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "9:16",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 281,
+          "y": 979,
+          "width": 24,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:32:39Z"
+    },
+    "aspect_ratio_menu": {
+      "label": "aspect_ratio_menu",
+      "element_id": "el_001",
+      "text": "16:9",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 293,
+        "y": 1168,
+        "width": 26,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "16:9",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 293,
+          "y": 1168,
+          "width": 26,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:34:17Z"
+    },
+    "aspect_ratio_9_16": {
+      "label": "aspect_ratio_9_16",
+      "element_id": "el_001",
+      "text": "9:16",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 281,
+        "y": 979,
+        "width": 24,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "9:16",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 281,
+          "y": 979,
+          "width": 24,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:35:19Z"
+    },
+    "duration_menu": {
+      "label": "duration_menu",
+      "element_id": "el_001",
+      "text": "10s",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 355,
+        "y": 1168,
+        "width": 22,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "10s",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 355,
+          "y": 1168,
+          "width": 22,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:35:32Z"
+    },
+    "duration_10s": {
+      "label": "duration_10s",
+      "element_id": "el_001",
+      "text": "10 seconds",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 343,
+        "y": 1123,
+        "width": 69,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "10 seconds",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 343,
+          "y": 1123,
+          "width": 69,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:35:45Z"
+    },
+    "remove image": {
+      "label": "remove image",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Remove image",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 408,
+        "y": 60,
+        "width": 28,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria9301350402-\\:r8ft\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "Remove image",
+        "css_selector": "#react-aria9301350402-\\:r8ft\\:",
+        "bounding_box": {
+          "x": 408,
+          "y": 60,
+          "width": 28,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:47:30Z"
+    },
+    "use_frame_button": {
+      "label": "use_frame_button",
+      "element_id": "el_001",
+      "text": "Use frame",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 604,
+        "y": 655,
+        "width": 66,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Use frame",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 604,
+          "y": 655,
+          "width": 66,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T17:50:41Z"
+    },
+    "download_mp4_button": {
+      "label": "download_mp4_button",
+      "element_id": "el_001",
+      "text": "",
+      "aria_label": "",
+      "role": "",
+      "tag": "svg",
+      "bounding_box": {
+        "x": 1169,
+        "y": 658,
+        "width": 14,
+        "height": 14
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "svg"
+      },
+      "metadata": {
+        "tag": "svg",
+        "role": "",
+        "text": "",
+        "aria_label": "",
+        "css_selector": "svg",
+        "bounding_box": {
+          "x": 1169,
+          "y": 658,
+          "width": 14,
+          "height": 14
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=sessions&tool=video&sessionId=e284ed1a-131a-41b1-a4dc-d816d6ca890d",
+        "page_title": "Generative Session | Runway AI",
+        "capture_mode": "hover_label"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:40:26Z",
+      "capture_mode": "hover_label",
+      "confirmed_by": "hover_label_l_key"
+    },
+    "Generate Image": {
+      "label": "Generate Image",
+      "element_id": "el_001",
+      "text": "Generate Image",
+      "aria_label": "",
+      "role": "",
+      "tag": "div",
+      "bounding_box": {
+        "x": 326,
+        "y": 297,
+        "width": 117,
+        "height": 24
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+      "selector_candidates": {
+        "css": "div"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "",
+        "text": "Generate Image",
+        "aria_label": "",
+        "css_selector": "div",
+        "bounding_box": {
+          "x": 326,
+          "y": 297,
+          "width": 117,
+          "height": 24
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/dashboard",
+        "page_title": "Dashboard | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:43:03Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "Text to Image box": {
+      "label": "Text to Image box",
+      "element_id": "el_001",
+      "text": "",
+      "aria_label": "",
+      "role": "",
+      "tag": "p",
+      "bounding_box": {
+        "x": 93,
+        "y": 135,
+        "width": 342,
+        "height": 24
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "p"
+      },
+      "metadata": {
+        "tag": "p",
+        "role": "",
+        "text": "",
+        "aria_label": "",
+        "css_selector": "p",
+        "bounding_box": {
+          "x": 93,
+          "y": 135,
+          "width": 342,
+          "height": 24
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:43:43Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_model_button": {
+      "label": "image_model_button",
+      "element_id": "el_001",
+      "text": "Gen-4.5",
+      "aria_label": "",
+      "role": "tab",
+      "tag": "div",
+      "bounding_box": {
+        "x": 1034,
+        "y": 419,
+        "width": 79,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r2n5\\:-tab-gen45"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "tab",
+        "text": "Gen-4.5",
+        "aria_label": "",
+        "css_selector": "#react-aria235822764-\\:r2n5\\:-tab-gen45",
+        "bounding_box": {
+          "x": 1034,
+          "y": 419,
+          "width": 79,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:43:50Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_generate_button": {
+      "label": "image_generate_button",
+      "element_id": "btn_001",
+      "text": "Generate",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 337,
+        "y": 1221,
+        "width": 111,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r2t0\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Generate",
+        "aria_label": "",
+        "css_selector": "#react-aria235822764-\\:r2t0\\:",
+        "bounding_box": {
+          "x": 337,
+          "y": 1221,
+          "width": 111,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:44:28Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_aspect_ratio_9_16": {
+      "label": "image_aspect_ratio_9_16",
+      "element_id": "el_001",
+      "text": "9:16",
+      "aria_label": "",
+      "role": "option",
+      "tag": "div",
+      "bounding_box": {
+        "x": 325,
+        "y": 1115,
+        "width": 69,
+        "height": 36
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r2rl\\:-option-9\\:16"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "option",
+        "text": "9:16",
+        "aria_label": "",
+        "css_selector": "#react-aria235822764-\\:r2rl\\:-option-9\\:16",
+        "bounding_box": {
+          "x": 325,
+          "y": 1115,
+          "width": 69,
+          "height": 36
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:45:13Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_aspect_ratio": {
+      "label": "image_aspect_ratio",
+      "element_id": "el_001",
+      "text": "Auto",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 345,
+        "y": 1168,
+        "width": 31,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Auto",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 345,
+          "y": 1168,
+          "width": 31,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:45:24Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_prompt_input": {
+      "label": "image_prompt_input",
+      "element_id": "el_001",
+      "text": "A lone astronaut standing on a giant abandoned futuristic platform above a glowing cyberpunk city at night. Heavy rain, cinematic atmosphere, neon reflections, dramatic volumetric fog, ultra realistic",
+      "aria_label": "Text Prompt Input",
+      "role": "textbox",
+      "tag": "div",
+      "bounding_box": {
+        "x": 81,
+        "y": 123,
+        "width": 366,
+        "height": 980
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "div[aria-label=\"Text Prompt Input\"]"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "textbox",
+        "text": "A lone astronaut standing on a giant abandoned futuristic platform above a glowing cyberpunk city at night. Heavy rain, cinematic atmosphere, neon reflections, dramatic volumetric fog, ultra realistic",
+        "aria_label": "Text Prompt Input",
+        "css_selector": "div[aria-label=\"Text Prompt Input\"]",
+        "bounding_box": {
+          "x": 81,
+          "y": 123,
+          "width": 366,
+          "height": 980
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:46:29Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_aspect_ratio_menu": {
+      "label": "image_aspect_ratio_menu",
+      "element_id": "el_001",
+      "text": "9:16",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 350,
+        "y": 1168,
+        "width": 26,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "9:16",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 350,
+          "y": 1168,
+          "width": 26,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:46:46Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_generation_button2": {
+      "label": "image_generation_button2",
+      "element_id": "el_001",
+      "text": "Image",
+      "aria_label": "",
+      "role": "",
+      "tag": "label",
+      "bounding_box": {
+        "x": 146,
+        "y": 10,
+        "width": 75,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "label"
+      },
+      "metadata": {
+        "tag": "label",
+        "role": "",
+        "text": "Image",
+        "aria_label": "",
+        "css_selector": "label",
+        "bounding_box": {
+          "x": 146,
+          "y": 10,
+          "width": 75,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:47:55Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_download_button": {
+      "label": "image_download_button",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 980,
+        "y": 1072,
+        "width": 28,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r471\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "",
+        "css_selector": "#react-aria235822764-\\:r471\\:",
+        "bounding_box": {
+          "x": 980,
+          "y": 1072,
+          "width": 28,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=sessions&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI",
+        "capture_mode": "hover_label"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:57:24Z",
+      "capture_mode": "hover_label",
+      "confirmed_by": "hover_label_l_key"
+    },
+    "sed_to_video1": {
+      "label": "sed_to_video1",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Actions",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 619,
+        "y": 1072,
+        "width": 28,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r566\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "Actions",
+        "css_selector": "#react-aria235822764-\\:r566\\:",
+        "bounding_box": {
+          "x": 619,
+          "y": 1072,
+          "width": 28,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:58:02Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "sed_To_video2": {
+      "label": "sed_To_video2",
+      "element_id": "el_001",
+      "text": "Use in video",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 664,
+        "y": 773,
+        "width": 244,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Use in video",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 664,
+          "y": 773,
+          "width": 244,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:58:17Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_app_menu_button": {
+      "label": "image_app_menu_button",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Actions",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 619,
+        "y": 1072,
+        "width": 28,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r566\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "Actions",
+        "css_selector": "#react-aria235822764-\\:r566\\:",
+        "bounding_box": {
+          "x": 619,
+          "y": 1072,
+          "width": 28,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:58:33Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_use_to_video_option": {
+      "label": "image_use_to_video_option",
+      "element_id": "el_001",
+      "text": "Use in video",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 664,
+        "y": 773,
+        "width": 244,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Use in video",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 664,
+          "y": 773,
+          "width": 244,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:59:00Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "video_reference_image_area": {
+      "label": "video_reference_image_area",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "View image larger",
+      "role": "button",
+      "tag": "div",
+      "bounding_box": {
+        "x": 81,
+        "y": 49,
+        "width": 368,
+        "height": 635
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "div[aria-label=\"View image larger\"]"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "button",
+        "text": "",
+        "aria_label": "View image larger",
+        "css_selector": "div[aria-label=\"View image larger\"]",
+        "bounding_box": {
+          "x": 81,
+          "y": 49,
+          "width": 368,
+          "height": 635
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:59:12Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "prompt_input": {
+      "label": "prompt_input",
+      "element_id": "el_001",
+      "text": "wedd",
+      "aria_label": "Prompt",
+      "role": "textbox",
+      "tag": "div",
+      "bounding_box": {
+        "x": 81,
+        "y": 700,
+        "width": 366,
+        "height": 403
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "div[aria-label=\"Prompt\"]"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "textbox",
+        "text": "wedd",
+        "aria_label": "Prompt",
+        "css_selector": "div[aria-label=\"Prompt\"]",
+        "bounding_box": {
+          "x": 81,
+          "y": 700,
+          "width": 366,
+          "height": 403
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:59:24Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "generate_button": {
+      "label": "generate_button",
+      "element_id": "btn_001",
+      "text": "Generate",
+      "aria_label": "",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 337,
+        "y": 1221,
+        "width": 111,
+        "height": 40
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r5aq\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "Generate",
+        "aria_label": "",
+        "css_selector": "#react-aria235822764-\\:r5aq\\:",
+        "bounding_box": {
+          "x": 337,
+          "y": 1221,
+          "width": 111,
+          "height": 40
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T19:59:37Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "remove_image": {
+      "label": "remove_image",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Remove image",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 408,
+        "y": 60,
+        "width": 28,
+        "height": 28
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria235822764-\\:r59b\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "Remove image",
+        "css_selector": "#react-aria235822764-\\:r59b\\:",
+        "bounding_box": {
+          "x": 408,
+          "y": 60,
+          "width": 28,
+          "height": 28
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:00:17Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_quality_menu": {
+      "label": "image_quality_menu",
+      "element_id": "el_001",
+      "text": "2K",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 391,
+        "y": 1168,
+        "width": 18,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "2K",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 391,
+          "y": 1168,
+          "width": 18,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:53:14Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_quality_2k": {
+      "label": "image_quality_2k",
+      "element_id": "el_001",
+      "text": "2K",
+      "aria_label": "",
+      "role": "option",
+      "tag": "div",
+      "bounding_box": {
+        "x": 389,
+        "y": 1079,
+        "width": 56,
+        "height": 36
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria8759282770-\\:r1j1\\:-option-2K"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "option",
+        "text": "2K",
+        "aria_label": "",
+        "css_selector": "#react-aria8759282770-\\:r1j1\\:-option-2K",
+        "bounding_box": {
+          "x": 389,
+          "y": 1079,
+          "width": 56,
+          "height": 36
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:53:37Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_count_menu": {
+      "label": "image_count_menu",
+      "element_id": "el_001",
+      "text": "",
+      "aria_label": "",
+      "role": "",
+      "tag": "svg",
+      "bounding_box": {
+        "x": 286,
+        "y": 1171,
+        "width": 14,
+        "height": 14
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "svg"
+      },
+      "metadata": {
+        "tag": "svg",
+        "role": "",
+        "text": "",
+        "aria_label": "",
+        "css_selector": "svg",
+        "bounding_box": {
+          "x": 286,
+          "y": 1171,
+          "width": 14,
+          "height": 14
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:52:00Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_count_1": {
+      "label": "image_count_1",
+      "element_id": "el_001",
+      "text": "1",
+      "aria_label": "",
+      "role": "option",
+      "tag": "div",
+      "bounding_box": {
+        "x": 284,
+        "y": 1079,
+        "width": 48,
+        "height": 36
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria8759282770-\\:r1id\\:-option-1"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "option",
+        "text": "1",
+        "aria_label": "",
+        "css_selector": "#react-aria8759282770-\\:r1id\\:-option-1",
+        "bounding_box": {
+          "x": 284,
+          "y": 1079,
+          "width": 48,
+          "height": 36
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:52:12Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_count_4": {
+      "label": "image_count_4",
+      "element_id": "el_001",
+      "text": "4",
+      "aria_label": "",
+      "role": "option",
+      "tag": "div",
+      "bounding_box": {
+        "x": 284,
+        "y": 1115,
+        "width": 48,
+        "height": 36
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria8759282770-\\:r1id\\:-option-4"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "option",
+        "text": "4",
+        "aria_label": "",
+        "css_selector": "#react-aria8759282770-\\:r1id\\:-option-4",
+        "bounding_box": {
+          "x": 284,
+          "y": 1115,
+          "width": 48,
+          "height": 36
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:52:22Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_quality_1k": {
+      "label": "image_quality_1k",
+      "element_id": "el_001",
+      "text": "1K",
+      "aria_label": "",
+      "role": "option",
+      "tag": "div",
+      "bounding_box": {
+        "x": 389,
+        "y": 1043,
+        "width": 56,
+        "height": 36
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria8759282770-\\:r1j1\\:-option-1K"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "option",
+        "text": "1K",
+        "aria_label": "",
+        "css_selector": "#react-aria8759282770-\\:r1j1\\:-option-1K",
+        "bounding_box": {
+          "x": 389,
+          "y": 1043,
+          "width": 56,
+          "height": 36
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:53:28Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_quality_4k": {
+      "label": "image_quality_4k",
+      "element_id": "el_001",
+      "text": "4K",
+      "aria_label": "",
+      "role": "option",
+      "tag": "div",
+      "bounding_box": {
+        "x": 389,
+        "y": 1115,
+        "width": 56,
+        "height": 36
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria8759282770-\\:r1j1\\:-option-4K"
+      },
+      "metadata": {
+        "tag": "div",
+        "role": "option",
+        "text": "4K",
+        "aria_label": "",
+        "css_selector": "#react-aria8759282770-\\:r1j1\\:-option-4K",
+        "bounding_box": {
+          "x": 389,
+          "y": 1115,
+          "width": 56,
+          "height": 36
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T20:53:46Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "image_card_remove_button": {
+      "label": "image_card_remove_button",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "Hide output",
+      "role": "",
+      "tag": "button",
+      "bounding_box": {
+        "x": 1064,
+        "y": 170,
+        "width": 32,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "#react-aria5679703108-\\:r350\\:"
+      },
+      "metadata": {
+        "tag": "button",
+        "role": "",
+        "text": "",
+        "aria_label": "Hide output",
+        "css_selector": "#react-aria5679703108-\\:r350\\:",
+        "bounding_box": {
+          "x": 1064,
+          "y": 170,
+          "width": 32,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=sessions&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Generative Session | Runway AI"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-03T22:23:51Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "latest_video_card": {
+      "label": "latest_video_card",
+      "element_id": "el_001",
+      "text": "",
+      "aria_label": "",
+      "role": "",
+      "tag": "img",
+      "bounding_box": {
+        "x": 488,
+        "y": 710,
+        "width": 32,
+        "height": 32
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "img"
+      },
+      "metadata": {
+        "tag": "img",
+        "role": "",
+        "text": "",
+        "aria_label": "",
+        "css_selector": "img",
+        "bounding_box": {
+          "x": 488,
+          "y": 710,
+          "width": 32,
+          "height": 32
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Runway"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-04T19:48:20Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "latest_video_play_button": {
+      "label": "latest_video_play_button",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "play",
+      "role": "button",
+      "tag": "media-play-button",
+      "bounding_box": {
+        "x": 501,
+        "y": 1069,
+        "width": 16,
+        "height": 16
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "media-play-button[aria-label=\"play\"]"
+      },
+      "metadata": {
+        "tag": "media-play-button",
+        "role": "button",
+        "text": "",
+        "aria_label": "play",
+        "css_selector": "media-play-button[aria-label=\"play\"]",
+        "bounding_box": {
+          "x": 501,
+          "y": 1069,
+          "width": 16,
+          "height": 16
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Runway"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-04T19:49:05Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "latest_video_pause_button": {
+      "label": "latest_video_pause_button",
+      "element_id": "btn_001",
+      "text": "",
+      "aria_label": "pause",
+      "role": "button",
+      "tag": "media-play-button",
+      "bounding_box": {
+        "x": 501,
+        "y": 1069,
+        "width": 16,
+        "height": 16
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "media-play-button[aria-label=\"pause\"]"
+      },
+      "metadata": {
+        "tag": "media-play-button",
+        "role": "button",
+        "text": "",
+        "aria_label": "pause",
+        "css_selector": "media-play-button[aria-label=\"pause\"]",
+        "bounding_box": {
+          "x": 501,
+          "y": 1069,
+          "width": 16,
+          "height": 16
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Runway"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-04T19:49:23Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "latest_video_use_frame_button": {
+      "label": "latest_video_use_frame_button",
+      "element_id": "el_001",
+      "text": "Use frame",
+      "aria_label": "",
+      "role": "",
+      "tag": "span",
+      "bounding_box": {
+        "x": 604,
+        "y": 1122,
+        "width": 66,
+        "height": 20
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "span"
+      },
+      "metadata": {
+        "tag": "span",
+        "role": "",
+        "text": "Use frame",
+        "aria_label": "",
+        "css_selector": "span",
+        "bounding_box": {
+          "x": 604,
+          "y": 1122,
+          "width": 66,
+          "height": 20
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Runway"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-04T19:50:25Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    },
+    "latest_video_download_button": {
+      "label": "latest_video_download_button",
+      "element_id": "el_001",
+      "text": "Apps Custom Agent Recents Workflow Characters Image Video Audio First Video Frame Upload Continuity lock: same character (a compelling lead subject with clear silhouette and emotional readability), sa",
+      "aria_label": "",
+      "role": "",
+      "tag": "body",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1218
+      },
+      "url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+      "selector_candidates": {
+        "css": "body"
+      },
+      "metadata": {
+        "tag": "body",
+        "role": "",
+        "text": "Apps Custom Agent Recents Workflow Characters Image Video Audio First Video Frame Upload Continuity lock: same character (a compelling lead subject with clear silhouette and emotional readability), sa",
+        "aria_label": "",
+        "css_selector": "body",
+        "bounding_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        },
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+        "page_title": "Runway"
+      },
+      "operator_confirmed": true,
+      "confirmed_at": "2026-06-04T19:50:37Z",
+      "capture_mode": "click_label_popup",
+      "confirmed_by": "click_label_popup"
+    }
+  },
   "actions": {},
   "labeling_sessions": [],
   "safety": {

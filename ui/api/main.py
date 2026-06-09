@@ -19,6 +19,7 @@ from ui.api.dependencies import (
     get_operations_control_service,
     get_queue_service,
     get_runtime_service,
+    get_runway_live_smoke_service,
     get_session_service,
     get_session_store,
     get_assembly_approval_service,
@@ -59,6 +60,18 @@ from ui.api.schemas.assembly_approval import (
 from ui.api.schemas.assembly_run import AssemblyRunRequest, AssemblyRunResponse
 from ui.api.schemas.subtitle_run import SubtitleRunRequest, SubtitleRunResponse
 from ui.api.schemas.uat_runtime import UatReviewRequest, UatReviewResponse, UatRunRequest, UatRunResponse
+from ui.api.schemas.runway_live_smoke import (
+    RunwayLiveSmokeActionRequest,
+    RunwayLiveSmokeRuntimeResponse,
+    RunwayLiveSmokeStartRequest,
+)
+from ui.api.schemas.content_brain_test_studio import (
+    ContentBrainTestStudioOpenExportRequest,
+    ContentBrainTestStudioOpenExportResponse,
+    ContentBrainTestStudioPreflightResponse,
+    ContentBrainTestStudioRunRequest,
+    ContentBrainTestStudioRunResponse,
+)
 from ui.api.schemas.voice_run import VoiceRunRequest, VoiceRunResponse
 from ui.api.services.operations_control_service import OperationsControlService
 from ui.api.services.queue_service import QueueService
@@ -70,6 +83,18 @@ from ui.api.assembly_run_service import AssemblyRunService
 from ui.api.subtitle_run_service import SubtitleRunService
 from ui.api.voice_run_service import VoiceRunService
 from ui.api.uat_runtime_service import UatRuntimeService, map_uat_error
+from ui.api.runway_live_smoke_service import RunwayLiveSmokeRuntimeService
+from ui.api.content_brain_test_studio_service import get_content_brain_test_studio_service
+from ui.api.schemas.topic_universe_studio import (
+    TopicUniverseGenerateRequest,
+    TopicUniverseGenerateResponse,
+    TopicUniverseHandoffRequest,
+    TopicUniverseHandoffResponse,
+    TopicUniverseOpenExportRequest,
+    TopicUniverseOpenExportResponse,
+    TopicUniversePreflightResponse,
+)
+from ui.api.topic_universe_studio_service import get_topic_universe_studio_service
 
 API_HOST = os.getenv("MODIR_API_HOST", "127.0.0.1")
 API_PORT = int(os.getenv("MODIR_API_PORT", "8765"))
@@ -663,6 +688,191 @@ def uat_final_video(
         raise HTTPException(status_code=404, detail={"code": "UAT_VIDEO_NOT_FOUND", "message": "Final video not ready"})
 
     return FileResponse(video_path, media_type="video/mp4", filename=EXPECTED_OUTPUT)
+
+
+@app.post("/runway-live-smoke/start", response_model=RunwayLiveSmokeRuntimeResponse, status_code=202)
+def runway_live_smoke_start(
+    body: RunwayLiveSmokeStartRequest,
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    """Start Phase H live smoke run with Runtime Studio UI approval surface."""
+    result = service.start_run(
+        story_idea=body.story_idea,
+        project_id=body.project_id,
+        operator=body.operator,
+        simulate=body.simulate,
+        clip_count=body.clip_count,
+        execution_mode=body.execution_mode,
+    )
+    if not result.get("ok"):
+        raise HTTPException(status_code=409, detail=result)
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.get("/runway-live-smoke/status", response_model=RunwayLiveSmokeRuntimeResponse)
+def runway_live_smoke_status(
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    result = service.snapshot()
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.get("/runway-live-smoke/handoff-preview", response_model=RunwayLiveSmokeRuntimeResponse)
+def runway_live_smoke_handoff_preview(
+    story_idea: str = "",
+    clip_count: int = 3,
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    result = service.handoff_preview(story_idea=story_idea, clip_count=clip_count)
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.post("/runway-live-smoke/connect-ui", response_model=RunwayLiveSmokeRuntimeResponse)
+def runway_live_smoke_connect_ui(
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    result = service.connect_ui()
+    if not result.get("ok"):
+        raise HTTPException(status_code=404, detail=result)
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.post("/runway-live-smoke/approve", response_model=RunwayLiveSmokeRuntimeResponse)
+def runway_live_smoke_approve(
+    body: RunwayLiveSmokeActionRequest,
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    result = service.approve(operator=body.operator)
+    if not result.get("ok"):
+        raise HTTPException(status_code=409, detail=result)
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.post("/runway-live-smoke/image-ready", response_model=RunwayLiveSmokeRuntimeResponse)
+def runway_live_smoke_image_ready(
+    body: RunwayLiveSmokeActionRequest,
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    result = service.image_ready(operator=body.operator)
+    if not result.get("ok"):
+        raise HTTPException(status_code=409, detail=result)
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.post("/runway-live-smoke/cancel", response_model=RunwayLiveSmokeRuntimeResponse)
+def runway_live_smoke_cancel(
+    body: RunwayLiveSmokeActionRequest,
+    service: RunwayLiveSmokeRuntimeService = Depends(get_runway_live_smoke_service),
+):
+    result = service.cancel(operator=body.operator, reason=body.reason or "ui_cancel")
+    return RunwayLiveSmokeRuntimeResponse(**result)
+
+
+@app.get(
+    "/content-brain-test-studio/preflight",
+    response_model=ContentBrainTestStudioPreflightResponse,
+)
+def content_brain_test_studio_preflight(
+    service=Depends(get_content_brain_test_studio_service),
+):
+    return ContentBrainTestStudioPreflightResponse(**service.preflight())
+
+
+@app.post(
+    "/content-brain-test-studio/open-export",
+    response_model=ContentBrainTestStudioOpenExportResponse,
+)
+def content_brain_test_studio_open_export(
+    body: ContentBrainTestStudioOpenExportRequest,
+    service=Depends(get_content_brain_test_studio_service),
+):
+    result = service.open_export_folder(body.path)
+    if not result.get("ok"):
+        raise HTTPException(status_code=500, detail=result)
+    return ContentBrainTestStudioOpenExportResponse(**result)
+
+
+@app.post(
+    "/content-brain-test-studio/run",
+    response_model=ContentBrainTestStudioRunResponse,
+)
+def content_brain_test_studio_run(
+    body: ContentBrainTestStudioRunRequest,
+    service=Depends(get_content_brain_test_studio_service),
+):
+    """Run Content Brain intelligence pipeline (no Runway / no media generation)."""
+    result = service.run_test(body.model_dump())
+    if not result.get("ok"):
+        raise HTTPException(status_code=500, detail=result)
+    return ContentBrainTestStudioRunResponse(**result)
+
+
+@app.get("/content-brain-test-studio/status")
+def content_brain_test_studio_status(
+    service=Depends(get_content_brain_test_studio_service),
+):
+    return service.status()
+
+
+@app.get(
+    "/topic-universe-studio/preflight",
+    response_model=TopicUniversePreflightResponse,
+)
+def topic_universe_studio_preflight(
+    service=Depends(get_topic_universe_studio_service),
+):
+    return TopicUniversePreflightResponse(**service.preflight())
+
+
+@app.post(
+    "/topic-universe-studio/generate",
+    response_model=TopicUniverseGenerateResponse,
+)
+def topic_universe_studio_generate(
+    body: TopicUniverseGenerateRequest,
+    service=Depends(get_topic_universe_studio_service),
+):
+    """Generate SEO title bank from broad category topics (no media generation)."""
+    result = service.generate(body.model_dump())
+    if not result.get("ok"):
+        raise HTTPException(status_code=500, detail=result)
+    return TopicUniverseGenerateResponse(**result)
+
+
+@app.post(
+    "/topic-universe-studio/handoff-e2e",
+    response_model=TopicUniverseHandoffResponse,
+)
+def topic_universe_studio_handoff_e2e(
+    body: TopicUniverseHandoffRequest,
+    service=Depends(get_topic_universe_studio_service),
+):
+    """Pass a selected title into Content Brain E2E Micro Test."""
+    result = service.handoff_to_e2e(body.model_dump())
+    if not result.get("ok"):
+        raise HTTPException(status_code=500, detail=result)
+    return TopicUniverseHandoffResponse(**result)
+
+
+@app.post(
+    "/topic-universe-studio/open-export",
+    response_model=TopicUniverseOpenExportResponse,
+)
+def topic_universe_studio_open_export(
+    body: TopicUniverseOpenExportRequest,
+    service=Depends(get_topic_universe_studio_service),
+):
+    result = service.open_export_folder(body.path)
+    if not result.get("ok"):
+        raise HTTPException(status_code=500, detail=result)
+    return TopicUniverseOpenExportResponse(**result)
+
+
+@app.get("/topic-universe-studio/status")
+def topic_universe_studio_status(
+    service=Depends(get_topic_universe_studio_service),
+):
+    return service.status()
 
 
 def main():

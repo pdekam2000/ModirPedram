@@ -1,0 +1,2174 @@
+{
+  "run_id": "cb_e2e_20260606_004648_89436d12",
+  "started_at": "2026-06-06 00:46:48",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "best perfume for winter",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v5",
+    "language_code": "en",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "openai_classification": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI classification enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for weak-local classification fallback."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.12,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "best perfume for winter",
+        "detected_language_code": "en",
+        "extracted_subject": "perfume winter",
+        "extracted_environment": "",
+        "extracted_action": "",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "best perfume for winter",
+          "extracted_subject": "perfume winter",
+          "extracted_environment": "",
+          "extracted_action": "",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 3.08,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.71,
+            "confidence": 0.8755,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8755,
+              "freshness_score": 0.79,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best best perfume for winter tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8755,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9455
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "trend": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 82.21,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to best perfume for winter",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "trend": "best perfume for winter",
+            "source": "manual_seed",
+            "score": 76.5,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "trend": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why best perfume for winter is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8604,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8604,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "trend": "best perfume for winter for beginners",
+            "source": "mock_trend_provider",
+            "score": 69.37,
+            "confidence": 0.5835,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "best perfume for winter for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around best perfume for winter for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "best perfume for winter for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "best perfume for winter for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.6228,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6228,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "best perfume for winter",
+          "velocity": 100.0,
+          "saturation": 37.0,
+          "virality_score": 76.5,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.25,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "fallback_seed_expansion",
+        "trend_intelligence": {
+          "trend_mode": "fallback_seed_expansion",
+          "topic": "best perfume for winter",
+          "items": [
+            {
+              "trend": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "source": "mock_trend_provider",
+              "classification": "seasonal",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.71,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.8755,
+                "freshness_score": 0.79,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:46:48",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 1,
+                "seed_source": "best best perfume for winter tips",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_000",
+                  "canonical_topic": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+                      "confidence": 0.8755,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.9455
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8688,
+                "niche_relevance_reason": "Matched discovery angles semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8688,
+                  "decision": "KEEP",
+                  "reason": "Matched discovery angles semantic cluster",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:46:48"
+              }
+            },
+            {
+              "trend": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "source": "mock_trend_provider",
+              "classification": "seasonal",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 82.21,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.823,
+                "freshness_score": 0.74,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:46:48",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 2,
+                "seed_source": "how to best perfume for winter",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_001",
+                  "canonical_topic": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+                      "confidence": 0.823,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.8888
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8688,
+                "niche_relevance_reason": "Matched subject core semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8688,
+                  "decision": "KEEP",
+                  "reason": "Matched subject core semantic cluster",
+                  "matched_cluster_id": "subject_core",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:46:48"
+              }
+            },
+            {
+              "trend": "best perfume for winter",
+              "source": "manual_seed",
+              "classification": "seasonal",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.5,
+              "metadata": {
+                "priority": "user_topic",
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:46:48"
+              }
+            },
+            {
+              "trend": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "source": "mock_trend_provider",
+              "classification": "seasonal",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.06,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.718,
+                "freshness_score": 0.64,
+                "niche_match": 1.0,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:46:48",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 4,
+                "seed_source": "why best perfume for winter is trending",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_003",
+                  "canonical_topic": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+                      "confidence": 0.718,
+                      "niche_match": 1.0,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.718
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8604,
+                "niche_relevance_reason": "Matched discovery angles semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8604,
+                  "decision": "KEEP",
+                  "reason": "Matched discovery angles semantic cluster",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:46:48"
+              }
+            },
+            {
+              "trend": "best perfume for winter for beginners",
+              "source": "mock_trend_provider",
+              "classification": "seasonal",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 69.37,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.5835,
+                "freshness_score": 0.69,
+                "niche_match": 0.66,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:46:48",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 3,
+                "seed_source": "best perfume for winter for beginners",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "trend_angle": "beginner vs expert views on topic framing around best perfume for winter for beginners",
+                "aggregation": {
+                  "cluster_id": "cluster_004",
+                  "canonical_topic": "best perfume for winter for beginners",
+                  "aggregation_score": 0.9304,
+                  "final_rank_score": 0.9304,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "best perfume for winter for beginners",
+                      "confidence": 0.5835,
+                      "niche_match": 0.66,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.5835
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "niche_relevance_score": 0.6228,
+                "niche_relevance_reason": "Low overlap with general semantic universe",
+                "rejected_by_filter": false,
+                "filter_decision": "WARNING",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.6228,
+                  "decision": "WARNING",
+                  "reason": "Low overlap with general semantic universe",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:46:48"
+              }
+            }
+          ],
+          "best_trend_opportunity_score": 1.0,
+          "summary": {
+            "count": 5,
+            "rising": 0,
+            "evergreen": 0,
+            "seasonal": 5
+          }
+        },
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8755,
+              "freshness_score": 0.79,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best best perfume for winter tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8755,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9455
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to best perfume for winter",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why best perfume for winter is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8604,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8604,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:46:48",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "best perfume for winter for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around best perfume for winter for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "best perfume for winter for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "best perfume for winter for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.6228,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6228,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:46:48"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification & Content Strategy",
+      "duration_ms": 0.9,
+      "api_sources": [
+        "content_brain_topic_strategy",
+        "domain_knowledge_layer",
+        "topic_knowledge_graph",
+        "content_brain_character_builder",
+        "story_strategy_library",
+        "openai_classification_enricher_skipped"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "best perfume for winter",
+          "topic_category": "perfume",
+          "content_strategy": "cinematic_narrative",
+          "instructional_intent": false,
+          "confidence": 0.9,
+          "reasoning": "Perfume/fragrance topic detected."
+        },
+        "content_strategy": {
+          "strategy_id": "cinematic_narrative",
+          "label": "Cinematic narrative strategy",
+          "purpose": "character-driven visual story",
+          "niche_style": "cinematic",
+          "effective_mood": "emotional",
+          "clip_beats": [
+            "fragrance reveal and first impression on evaluation strip.",
+            "wear test for projection, longevity, and season fit.",
+            "verdict and who this scent is best for."
+          ],
+          "conflict": "What is at stake in best perfume for winter?",
+          "visual_hook": "Strong visual detail tied to best perfume for winter.",
+          "seo_title_candidates": [
+            "best perfume for winter",
+            "why best perfume for winter matters"
+          ],
+          "required_terms": [],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "domain_knowledge": {
+          "domain_id": "perfume",
+          "label": "Perfume & fragrance",
+          "concepts": [
+            "perfumer",
+            "fragrance oils",
+            "raw materials",
+            "top notes",
+            "heart notes",
+            "base notes",
+            "accord",
+            "blending",
+            "evaluation strip",
+            "maceration",
+            "longevity",
+            "projection",
+            "layering",
+            "niche perfume"
+          ],
+          "default_role_en": "an aspiring perfumer",
+          "default_role_fa": "\u0639\u0637\u0631\u0633\u0627\u0632 \u062a\u0627\u0632\u0647\u200c\u06a9\u0627\u0631",
+          "setting_en": "a compact fragrance lab with evaluation strips and raw material bottles",
+          "instructional_beats_en": [
+            "Raw materials and top/heart/base note selection for the topic.",
+            "Blending, accord balance, and maceration technique demonstration.",
+            "Evaluation strip test, longevity/projection takeaway."
+          ],
+          "review_beats_en": [
+            "Fragrance reveal and first impression on evaluation strip.",
+            "Wear test for projection, longevity, and season fit.",
+            "Verdict and who this scent is best for."
+          ]
+        },
+        "knowledge_graph": {
+          "domain": "perfume",
+          "nodes": [
+            {
+              "node_id": "oud",
+              "label": "oud",
+              "node_type": "material",
+              "related": [
+                "accord building",
+                "niche perfume"
+              ]
+            },
+            {
+              "node_id": "vanilla",
+              "label": "vanilla",
+              "node_type": "material",
+              "related": [
+                "base notes",
+                "longevity"
+              ]
+            },
+            {
+              "node_id": "amber",
+              "label": "amber",
+              "node_type": "material",
+              "related": [
+                "accord building",
+                "projection"
+              ]
+            },
+            {
+              "node_id": "projection",
+              "label": "projection",
+              "node_type": "concept",
+              "related": [
+                "longevity",
+                "layering"
+              ]
+            },
+            {
+              "node_id": "maceration",
+              "label": "maceration",
+              "node_type": "process",
+              "related": [
+                "blending",
+                "raw materials"
+              ]
+            },
+            {
+              "node_id": "layering",
+              "label": "layering",
+              "node_type": "technique",
+              "related": [
+                "top notes",
+                "heart notes"
+              ]
+            }
+          ],
+          "matched_nodes": [],
+          "related_concepts": [
+            "accord building",
+            "niche perfume",
+            "base notes",
+            "longevity",
+            "accord building",
+            "projection",
+            "longevity",
+            "layering"
+          ],
+          "seo_keywords": [
+            "oud",
+            "vanilla",
+            "amber",
+            "projection",
+            "maceration",
+            "layering",
+            "accord building",
+            "niche perfume",
+            "base notes",
+            "longevity"
+          ]
+        },
+        "character_builder": {
+          "character": "an aspiring perfumer",
+          "domain": "perfume",
+          "source": "domain_role",
+          "quality_score": 0.92,
+          "warnings": [],
+          "builder_version": "character_builder_v3"
+        },
+        "story_strategy": {
+          "strategy_id": "documentary",
+          "label": "Documentary",
+          "hook_structure": "Context that frames why this matters now.",
+          "clip_beat_structure": [
+            "Clip 1 \u2014 context",
+            "Clip 2 \u2014 evidence / escalation",
+            "Clip 3 \u2014 conclusion"
+          ],
+          "conflict_type": "What is the most important unanswered question?",
+          "payoff_type": "Evidence-backed conclusion.",
+          "visual_language": "Observational framing, evidence inserts, grounded realism.",
+          "prompt_rules": [
+            "Prioritize evidence over spectacle."
+          ]
+        },
+        "detected_language_code": "en",
+        "openai_classification": {
+          "applied": false,
+          "provider": "openai_classification_enricher",
+          "model": "",
+          "trigger_reason": "",
+          "cache_hit": false,
+          "classification": {
+            "topic": "best perfume for winter",
+            "topic_category": "perfume",
+            "content_strategy": "cinematic_narrative",
+            "instructional_intent": false,
+            "confidence": 0.9,
+            "reasoning": "Perfume/fragrance topic detected."
+          },
+          "strategy_plan": {},
+          "enrichment": {},
+          "domain_profile": {},
+          "notes": [
+            "openai_classification_not_needed"
+          ],
+          "usage": {},
+          "estimated_cost_usd": 0.0
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.03,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.39,
+      "api_sources": [
+        "content_brain_seo_director",
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Why perfume for winter matters",
+        "title_candidates": [
+          "Why perfume for winter matters",
+          "Perfume for Winter",
+          "Why Your Perfume for Winter Never Works",
+          "Stop Making This Perfume for Winter Mistake",
+          "The Simple Perfume for Winter Trick Most Beginners Miss",
+          "How to Perfume for Winter Step by Step"
+        ],
+        "keywords": [
+          "best perfume for winter",
+          "perfume winter",
+          "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+          "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+          "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+          "best perfume for winter for beginners",
+          "Why best best perfume for winter tips"
+        ],
+        "trend_angle": "Why best best perfume for winter tips",
+        "language_code": "en",
+        "seo_score": 0.6,
+        "candidates_ranked": [
+          {
+            "title": "Why perfume for winter matters",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.6,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "best perfume for winter",
+              "perfume winter",
+              "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "best perfume for winter for beginners"
+            ],
+            "selected": true
+          },
+          {
+            "title": "Perfume for Winter",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.9,
+            "ctr_score": 0.45,
+            "audience_fit": 0.55,
+            "keywords": [
+              "best perfume for winter",
+              "perfume winter",
+              "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "best perfume for winter for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Why Your Perfume for Winter Never Works",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.45,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "best perfume for winter",
+              "perfume winter",
+              "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "best perfume for winter for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Stop Making This Perfume for Winter Mistake",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.45,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "best perfume for winter",
+              "perfume winter",
+              "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "best perfume for winter for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "The Simple Perfume for Winter Trick Most Beginners Miss",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.36,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "best perfume for winter",
+              "perfume winter",
+              "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "best perfume for winter for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "How to Perfume for Winter Step by Step",
+            "reason": "balanced SEO/CTR/topic authority",
+            "seo_score": 0.45,
+            "ctr_score": 0.55,
+            "audience_fit": 0.7,
+            "keywords": [
+              "best perfume for winter",
+              "perfume winter",
+              "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+              "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+              "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+              "best perfume for winter for beginners"
+            ],
+            "selected": false
+          }
+        ],
+        "selection_reason": "high CTR hook with topic authority",
+        "content_strategy": "cinematic_narrative",
+        "selected_seo_title": "Why perfume for winter matters"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 4155.44,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "content_brain_character_builder",
+        "openai_story_enricher"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "Why perfume for winter matters",
+          "logline": "An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter.",
+          "main_character": "an aspiring perfumer",
+          "setting": "a compact fragrance lab with evaluation strips and raw material bottles",
+          "conflict_tension": "What is at stake in best perfume for winter?",
+          "visual_hook": "Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.",
+          "emotional_arc": "Connection deepening into conviction as the perfumer discovers the perfect winter scent.",
+          "ending_beat": "The perfumer delivers a clear verdict on the ideal winter perfume and identifies who will benefit most from it.",
+          "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "an aspiring perfumer",
+            "location": "a compact fragrance lab with evaluation strips and raw material bottles",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.",
+            "Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.",
+            "Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why."
+          ],
+          "source_topic": "best perfume for winter",
+          "target_platform": "youtube_shorts",
+          "niche_style": "cinematic",
+          "mood": "emotional",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "best perfume for winter",
+            "subject": "Perfume for Winter",
+            "facts": [
+              "The narrative stays anchored to Perfume for Winter."
+            ],
+            "entities": [
+              "perfume",
+              "winter"
+            ],
+            "settings": [
+              "a compact fragrance lab with evaluation strips and raw material bottles"
+            ],
+            "objects": [
+              "evaluation strip",
+              "raw material bottles",
+              "blending tools"
+            ],
+            "narrative_beats": [
+              "Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.",
+              "Demonstrate the core action using evaluation strip.",
+              "Deliver the takeaway tied to Perfume for Winter."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "goal": "What is at stake in best perfume for winter?",
+          "conflict": "What is at stake in best perfume for winter?",
+          "tension": "What is at stake in best perfume for winter?",
+          "seo_title": "Why perfume for winter matters",
+          "language_code": "en",
+          "content_strategy": "cinematic_narrative",
+          "content_strategy_label": "Cinematic narrative strategy",
+          "topic_category": "perfume",
+          "character_builder": {
+            "character": "an aspiring perfumer",
+            "domain": "perfume",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          }
+        },
+        "seo_title": "Why perfume for winter matters",
+        "language_code": "en",
+        "content_strategy": {
+          "strategy_id": "cinematic_narrative",
+          "label": "Cinematic narrative strategy",
+          "purpose": "character-driven visual story",
+          "niche_style": "cinematic",
+          "effective_mood": "emotional",
+          "clip_beats": [
+            "fragrance reveal and first impression on evaluation strip.",
+            "wear test for projection, longevity, and season fit.",
+            "verdict and who this scent is best for."
+          ],
+          "conflict": "What is at stake in best perfume for winter?",
+          "visual_hook": "Strong visual detail tied to best perfume for winter.",
+          "seo_title_candidates": [
+            "best perfume for winter",
+            "why best perfume for winter matters"
+          ],
+          "required_terms": [],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "Why perfume for winter matters",
+            "logline": "An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter.",
+            "main_character": "an aspiring perfumer",
+            "setting": "a compact fragrance lab with evaluation strips and raw material bottles",
+            "conflict_tension": "What is at stake in best perfume for winter?",
+            "visual_hook": "Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.",
+            "emotional_arc": "Connection deepening into conviction as the perfumer discovers the perfect winter scent.",
+            "ending_beat": "The perfumer delivers a clear verdict on the ideal winter perfume and identifies who will benefit most from it.",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "an aspiring perfumer",
+              "location": "a compact fragrance lab with evaluation strips and raw material bottles",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.",
+              "Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.",
+              "Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why."
+            ],
+            "source_topic": "best perfume for winter",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2+openai_story",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "best perfume for winter",
+              "subject": "Perfume for Winter",
+              "facts": [
+                "The narrative stays anchored to Perfume for Winter."
+              ],
+              "entities": [
+                "perfume",
+                "winter"
+              ],
+              "settings": [
+                "a compact fragrance lab with evaluation strips and raw material bottles"
+              ],
+              "objects": [
+                "evaluation strip",
+                "raw material bottles",
+                "blending tools"
+              ],
+              "narrative_beats": [
+                "Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.",
+                "Demonstrate the core action using evaluation strip.",
+                "Deliver the takeaway tied to Perfume for Winter."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            },
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.",
+            "role_label": "hook",
+            "story_beat": "Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction."
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.",
+            "role_label": "escalation",
+            "story_beat": "Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter."
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why.",
+            "role_label": "payoff",
+            "story_beat": "Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why."
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 5.3,
+      "api_sources": [
+        "runway_prompt_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: an aspiring perfumer. Environment: a compact fragrance lab with evaluation strips and raw material bottles. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter.. Topic narrative: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Visual hook: Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.. Tension: What is at stake in best perfume for winter?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.. Story beat reference: Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.. Story beat reference: Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why..",
+        "starter_image_prompt_chars": 1990,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Clip 1 of 3. Topic-first narrative sequence about Perfume for Winter. Primary story beat: Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.. Subject identity: an aspiring perfumer. Location: a compact fragrance lab with evaluation strips and raw material bottles. Topic facts and evidence: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Historical facts: The narrative stays anchored to Perfume for Winter.. Key entities: perfume; winter. Visible objects: evaluation strip; raw material bottles; blending tools. Setting details: a compact fragrance lab with evaluation strips and raw material bottles. Narrative progression: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2595,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: an aspiring perfumer. Environment: a compact fragrance lab with evaluation strips and raw material bottles. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter.. Topic narrative: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Visual hook: Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.. Tension: What is at stake in best perfume for winter?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.. Story beat reference: Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.. Story beat reference: Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why..",
+            "image_prompt_chars": 1990,
+            "continuity_notes": "same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Clip 2 of 3. Topic-first narrative sequence about Perfume for Winter. Primary story beat: Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.. Subject identity: an aspiring perfumer. Location: a compact fragrance lab with evaluation strips and raw material bottles. Topic facts and evidence: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Historical facts: The narrative stays anchored to Perfume for Winter.. Key entities: perfume; winter. Visible objects: evaluation strip; raw material bottles; blending tools. Setting details: a compact fragrance lab with evaluation strips and raw material bottles. Narrative progression: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2548,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Clip 3 of 3. Topic-first narrative sequence about Perfume for Winter. Primary story beat: Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why.. Subject identity: an aspiring perfumer. Location: a compact fragrance lab with evaluation strips and raw material bottles. Topic facts and evidence: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Historical facts: The narrative stays anchored to Perfume for Winter.. Key entities: perfume; winter. Visible objects: evaluation strip; raw material bottles; blending tools. Setting details: a compact fragrance lab with evaluation strips and raw material bottles. Narrative progression: Deliver the takeaway tied to Perfume for Winter.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2658,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "an aspiring perfumer",
+          "location": "a compact fragrance lab with evaluation strips and raw material bottles",
+          "lighting": "motivated cinematic key with volumetric atmosphere",
+          "camera": "35mm anamorphic lens personality with natural edge falloff",
+          "palette": "teal and amber cinematic color grade",
+          "wardrobe": ""
+        },
+        "builder_version": "runway_starter_to_video_f_v3",
+        "validation_warnings": [
+          "clip 1 missing explicit 10-second motion language",
+          "clip 2 missing explicit 10-second motion language",
+          "clip 3 missing explicit 10-second motion language"
+        ],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 1990,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2595,
+            2548,
+            2658
+          ],
+          "clip_prompt_min": 2548,
+          "clip_prompt_max": 2658,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_fffe5629",
+          "story_idea": "An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter. Character: an aspiring perfumer. Setting: a compact fragrance lab with evaluation strips and raw material bottles. Conflict: What is at stake in best perfume for winter?. Visual hook: Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.. Emotional arc: Connection deepening into conviction as the perfumer discovers the perfect winter scent.. Ending: The perfumer delivers a clear verdict on the ideal winter perfume and identifies who will benefit most from it.. Clip 1: Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.. Clip 2: Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.. Clip 3: Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why..",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: an aspiring perfumer. Environment: a compact fragrance lab with evaluation strips and raw material bottles. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter.. Topic narrative: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Visual hook: Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.. Tension: What is at stake in best perfume for winter?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.. Story beat reference: Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.. Story beat reference: Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why..",
+          "clip_prompts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Perfume for Winter. Primary story beat: Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.. Subject identity: an aspiring perfumer. Location: a compact fragrance lab with evaluation strips and raw material bottles. Topic facts and evidence: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Historical facts: The narrative stays anchored to Perfume for Winter.. Key entities: perfume; winter. Visible objects: evaluation strip; raw material bottles; blending tools. Setting details: a compact fragrance lab with evaluation strips and raw material bottles. Narrative progression: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Perfume for Winter. Primary story beat: Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.. Subject identity: an aspiring perfumer. Location: a compact fragrance lab with evaluation strips and raw material bottles. Topic facts and evidence: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Historical facts: The narrative stays anchored to Perfume for Winter.. Key entities: perfume; winter. Visible objects: evaluation strip; raw material bottles; blending tools. Setting details: a compact fragrance lab with evaluation strips and raw material bottles. Narrative progression: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Perfume for Winter. Primary story beat: Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why.. Subject identity: an aspiring perfumer. Location: a compact fragrance lab with evaluation strips and raw material bottles. Topic facts and evidence: subject Perfume for Winter; The narrative stays anchored to Perfume for Winter.; perfume; winter; a compact fragrance lab with evaluation strips and raw material bottles; evaluation strip. Historical facts: The narrative stays anchored to Perfume for Winter.. Key entities: perfume; winter. Visible objects: evaluation strip; raw material bottles; blending tools. Setting details: a compact fragrance lab with evaluation strips and raw material bottles. Narrative progression: Deliver the takeaway tied to Perfume for Winter.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Historical detail: Demonstrate the core action using evaluation strip.. Historical detail: The narrative stays anchored to Perfume for Winter.. Historical detail: perfume. Historical detail: winter. Historical detail: evaluation strip. Historical detail: raw material bottles. Historical detail: blending tools. Historical detail: a compact fragrance lab with evaluation strips and raw material bottles. Historical detail: Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (an aspiring perfumer), same wardrobe, same location (a compact fragrance lab with evaluation strips and raw material bottles), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "an aspiring perfumer",
+            "location": "a compact fragrance lab with evaluation strips and raw material bottles",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": ""
+          },
+          "warnings": [
+            "clip 1 missing explicit 10-second motion language",
+            "clip 2 missing explicit 10-second motion language",
+            "clip 3 missing explicit 10-second motion language"
+          ],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 1990,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2595,
+              2548,
+              2658
+            ],
+            "clip_prompt_min": 2548,
+            "clip_prompt_max": 2658,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v3",
+          "story_brief": {
+            "title": "Why perfume for winter matters",
+            "logline": "An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter.",
+            "main_character": "an aspiring perfumer",
+            "setting": "a compact fragrance lab with evaluation strips and raw material bottles",
+            "conflict_tension": "What is at stake in best perfume for winter?",
+            "visual_hook": "Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.",
+            "emotional_arc": "Connection deepening into conviction as the perfumer discovers the perfect winter scent.",
+            "ending_beat": "The perfumer delivers a clear verdict on the ideal winter perfume and identifies who will benefit most from it.",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "an aspiring perfumer",
+              "location": "a compact fragrance lab with evaluation strips and raw material bottles",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Reveal the fragrance by spraying on an evaluation strip, capturing the initial scent and the perfumer's intrigued reaction.",
+              "Show the perfumer applying the scent on skin, testing projection and longevity, emphasizing its warmth and suitability for winter.",
+              "Conclude with the perfumer confidently sharing the verdict, explaining who this winter perfume is perfect for and why."
+            ],
+            "source_topic": "best perfume for winter",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "best perfume for winter",
+              "subject": "Perfume for Winter",
+              "facts": [
+                "The narrative stays anchored to Perfume for Winter."
+              ],
+              "entities": [
+                "perfume",
+                "winter"
+              ],
+              "settings": [
+                "a compact fragrance lab with evaluation strips and raw material bottles"
+              ],
+              "objects": [
+                "evaluation strip",
+                "raw material bottles",
+                "blending tools"
+              ],
+              "narrative_beats": [
+                "Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.",
+                "Demonstrate the core action using evaluation strip.",
+                "Deliver the takeaway tied to Perfume for Winter."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            }
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.02,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Why perfume for winter matters",
+        "seo_description": "An aspiring perfumer experiments in a compact fragrance lab, evaluating scents on strips and raw materials, exploring what makes the best perfume for winter truly matter. Close-up shots of vibrant raw ingredient bottles and detailed evaluation strips highlighting the essence of winter perfumes.",
+        "keywords": [
+          "best perfume for winter",
+          "perfume winter",
+          "Why best best perfume for winter tips is gaining traction via format gaining traction around topic",
+          "how to best perfume for winter: the question people keep asking about topic angle gaining comments this week",
+          "Why why best perfume for winter is trending is gaining traction via popular advice vs real results in topic",
+          "best perfume for winter for beginners",
+          "Why best best perfume for winter tips"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 0.6,
+        "title_candidates": [
+          "Why perfume for winter matters",
+          "Perfume for Winter",
+          "Why Your Perfume for Winter Never Works",
+          "Stop Making This Perfume for Winter Mistake",
+          "The Simple Perfume for Winter Trick Most Beginners Miss",
+          "How to Perfume for Winter Step by Step"
+        ],
+        "trend_angle": "Why best best perfume for winter tips",
+        "language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.61,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8999,
+        "domain_knowledge_score": 0.625,
+        "character_quality_score": 0.92,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.75,
+        "seo_title_quality_score": 0.6,
+        "clip_specificity_score": 0.625,
+        "prompt_specificity_score": 0.625,
+        "narrative_detail_score": 0.92,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.8058,
+        "warnings": [],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8999,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.928,
+              "story_logline": 0.8985,
+              "story_character": 0.88,
+              "story_setting": 0.9018,
+              "story_beats": 0.9143,
+              "prompts": 0.8938,
+              "hashtags": 0.88,
+              "trends": 0.9029
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "best perfume for winter",
+            "content_strategy": "cinematic_narrative",
+            "topic_strategy_alignment_score": 0.75,
+            "seo_alignment": 0.75,
+            "story_alignment": 0.75,
+            "clip_alignment": 0.75,
+            "prompt_alignment": 0.75,
+            "generic_filler_hits": [],
+            "required_term_hits": [],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "documentary",
+            "label": "Documentary",
+            "hook_structure": "Context that frames why this matters now.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 context",
+              "Clip 2 \u2014 evidence / escalation",
+              "Clip 3 \u2014 conclusion"
+            ],
+            "conflict_type": "What is the most important unanswered question?",
+            "payoff_type": "Evidence-backed conclusion.",
+            "visual_language": "Observational framing, evidence inserts, grounded realism.",
+            "prompt_rules": [
+              "Prioritize evidence over spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "perfume",
+            "label": "Perfume & fragrance",
+            "concepts": [
+              "perfumer",
+              "fragrance oils",
+              "raw materials",
+              "top notes",
+              "heart notes",
+              "base notes",
+              "accord",
+              "blending",
+              "evaluation strip",
+              "maceration",
+              "longevity",
+              "projection",
+              "layering",
+              "niche perfume"
+            ],
+            "default_role_en": "an aspiring perfumer",
+            "default_role_fa": "\u0639\u0637\u0631\u0633\u0627\u0632 \u062a\u0627\u0632\u0647\u200c\u06a9\u0627\u0631",
+            "setting_en": "a compact fragrance lab with evaluation strips and raw material bottles",
+            "instructional_beats_en": [
+              "Raw materials and top/heart/base note selection for the topic.",
+              "Blending, accord balance, and maceration technique demonstration.",
+              "Evaluation strip test, longevity/projection takeaway."
+            ],
+            "review_beats_en": [
+              "Fragrance reveal and first impression on evaluation strip.",
+              "Wear test for projection, longevity, and season fit.",
+              "Verdict and who this scent is best for."
+            ]
+          },
+          "topic_story_detail": {
+            "topic": "best perfume for winter",
+            "subject": "Perfume for Winter",
+            "facts": [
+              "The narrative stays anchored to Perfume for Winter."
+            ],
+            "entities": [
+              "perfume",
+              "winter"
+            ],
+            "settings": [
+              "a compact fragrance lab with evaluation strips and raw material bottles"
+            ],
+            "objects": [
+              "evaluation strip",
+              "raw material bottles",
+              "blending tools"
+            ],
+            "narrative_beats": [
+              "Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.",
+              "Demonstrate the core action using evaluation strip.",
+              "Deliver the takeaway tied to Perfume for Winter."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "narrative_detail_hits": 0.92
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.75,
+        "story_quality_score": 0.83,
+        "seo_score": 0.6,
+        "prompt_completeness_score": 0.625,
+        "forbidden_drift": []
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "language_authority_score": 0.8999,
+    "domain_knowledge_score": 0.625,
+    "character_quality_score": 0.92,
+    "story_specificity_score": 0.83,
+    "strategy_alignment_score": 0.75,
+    "seo_title_quality_score": 0.6,
+    "clip_specificity_score": 0.625,
+    "prompt_specificity_score": 0.625,
+    "narrative_detail_score": 0.92,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.8058,
+    "warnings": [],
+    "passed": true,
+    "details": {
+      "language_authority": {
+        "expected_language_code": "en",
+        "language_authority_score": 0.8999,
+        "drift_detected": [],
+        "field_scores": {
+          "seo_title": 0.928,
+          "story_logline": 0.8985,
+          "story_character": 0.88,
+          "story_setting": 0.9018,
+          "story_beats": 0.9143,
+          "prompts": 0.8938,
+          "hashtags": 0.88,
+          "trends": 0.9029
+        },
+        "passed": true,
+        "notes": []
+      },
+      "strategy_alignment": {
+        "topic": "best perfume for winter",
+        "content_strategy": "cinematic_narrative",
+        "topic_strategy_alignment_score": 0.75,
+        "seo_alignment": 0.75,
+        "story_alignment": 0.75,
+        "clip_alignment": 0.75,
+        "prompt_alignment": 0.75,
+        "generic_filler_hits": [],
+        "required_term_hits": [],
+        "passed": true,
+        "notes": []
+      },
+      "story_strategy": {
+        "strategy_id": "documentary",
+        "label": "Documentary",
+        "hook_structure": "Context that frames why this matters now.",
+        "clip_beat_structure": [
+          "Clip 1 \u2014 context",
+          "Clip 2 \u2014 evidence / escalation",
+          "Clip 3 \u2014 conclusion"
+        ],
+        "conflict_type": "What is the most important unanswered question?",
+        "payoff_type": "Evidence-backed conclusion.",
+        "visual_language": "Observational framing, evidence inserts, grounded realism.",
+        "prompt_rules": [
+          "Prioritize evidence over spectacle."
+        ]
+      },
+      "domain_profile": {
+        "domain_id": "perfume",
+        "label": "Perfume & fragrance",
+        "concepts": [
+          "perfumer",
+          "fragrance oils",
+          "raw materials",
+          "top notes",
+          "heart notes",
+          "base notes",
+          "accord",
+          "blending",
+          "evaluation strip",
+          "maceration",
+          "longevity",
+          "projection",
+          "layering",
+          "niche perfume"
+        ],
+        "default_role_en": "an aspiring perfumer",
+        "default_role_fa": "\u0639\u0637\u0631\u0633\u0627\u0632 \u062a\u0627\u0632\u0647\u200c\u06a9\u0627\u0631",
+        "setting_en": "a compact fragrance lab with evaluation strips and raw material bottles",
+        "instructional_beats_en": [
+          "Raw materials and top/heart/base note selection for the topic.",
+          "Blending, accord balance, and maceration technique demonstration.",
+          "Evaluation strip test, longevity/projection takeaway."
+        ],
+        "review_beats_en": [
+          "Fragrance reveal and first impression on evaluation strip.",
+          "Wear test for projection, longevity, and season fit.",
+          "Verdict and who this scent is best for."
+        ]
+      },
+      "topic_story_detail": {
+        "topic": "best perfume for winter",
+        "subject": "Perfume for Winter",
+        "facts": [
+          "The narrative stays anchored to Perfume for Winter."
+        ],
+        "entities": [
+          "perfume",
+          "winter"
+        ],
+        "settings": [
+          "a compact fragrance lab with evaluation strips and raw material bottles"
+        ],
+        "objects": [
+          "evaluation strip",
+          "raw material bottles",
+          "blending tools"
+        ],
+        "narrative_beats": [
+          "Establish Perfume for Winter in a compact fragrance lab with evaluation strips and raw material bottles.",
+          "Demonstrate the core action using evaluation strip.",
+          "Deliver the takeaway tied to Perfume for Winter."
+        ],
+        "source": "generic_extractor",
+        "match_key": ""
+      },
+      "narrative_detail_hits": 0.92
+    },
+    "audit_version": "quality_audit_v2",
+    "strategy_alignment_passed": true,
+    "topic_strategy_alignment_score": 0.75,
+    "story_quality_score": 0.83,
+    "seo_score": 0.6,
+    "prompt_completeness_score": 0.625,
+    "forbidden_drift": []
+  },
+  "overall_content_score": 0.8058,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

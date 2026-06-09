@@ -1,0 +1,27 @@
+{
+  "topic": "Why do some perfumes last all day while others disappear in one hour?",
+  "category": "perfume",
+  "strategy": "scientific_explanation",
+  "enhancement_types": [
+    "domain_knowledge"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "Volatility profiles of fragrance raw materials including essential oils, aroma chemicals, and fixatives",
+      "Molecular weight impact on evaporation rates influencing top, heart, and base note persistence",
+      "Role of solvent systems and alcohol concentration in fragrance diffusion and longevity",
+      "Accord composition strategies balancing hydrophobic and hydrophilic ingredients for sustained release",
+      "Maceration and aging processes enhancing molecular integration and scent stability",
+      "Use of fixatives such as benzoin, musk compounds, and resins to slow evaporation and increase tenacity",
+      "Influence of skin chemistry, pH, and sebum production on perfume absorption and scent projection",
+      "Techniques in fragrance layering and concentration formats (eau de toilette vs. parfum) affecting lasting power",
+      "Application methods and impact of environmental factors like temperature and humidity on perfume degradation"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1939,
+    "completion_tokens": 185,
+    "total_tokens": 2124
+  },
+  "estimated_cost_usd": 0.0010716
+}

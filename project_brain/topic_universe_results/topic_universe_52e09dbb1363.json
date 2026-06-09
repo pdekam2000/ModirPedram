@@ -1,0 +1,92 @@
+{
+  "run_id": "topic_universe_52e09dbb1363",
+  "status": "running",
+  "started_at": "2026-06-05 23:21:30",
+  "completed_at": "",
+  "total_duration_ms": 0.0,
+  "input": {
+    "topic": "zander fishing method",
+    "language_code": "en",
+    "platform": "youtube_shorts",
+    "audience_level": "general",
+    "niche_style": "general",
+    "title_target": 100,
+    "use_live_trends": false,
+    "suggested_duration": 30,
+    "scope": {
+      "topic": "zander fishing method",
+      "scope": "specific",
+      "token_count": 2,
+      "instructional_intent": true,
+      "domain": "fishing",
+      "anchor_tokens": [
+        "zander",
+        "fishing"
+      ],
+      "reasoning": "Instructional phrasing with enough detail for one video plan."
+    },
+    "studio_version": "topic_universe_studio_v1"
+  },
+  "title_bank": {
+    "run_id": "topic_universe_fc8d05e35d6f",
+    "topic": "zander fishing method",
+    "scope": {
+      "topic": "zander fishing method",
+      "scope": "specific",
+      "token_count": 2,
+      "instructional_intent": true,
+      "domain": "fishing",
+      "anchor_tokens": [
+        "zander",
+        "fishing"
+      ],
+      "reasoning": "Instructional phrasing with enough detail for one video plan."
+    },
+    "mode": "specific_video_plan",
+    "trend_mode": "fallback_seed_expansion",
+    "title_target": 1,
+    "title_count": 1,
+    "titles": [
+      {
+        "title_id": "title_9080f56f05",
+        "title": "Zander Fishing Method",
+        "subtopic": "fishing",
+        "category": "fishing",
+        "intent": "how_to",
+        "difficulty": "intermediate",
+        "estimated_viral_potential": 0.55,
+        "educational_value": 0.9,
+        "trend_score": 0.5,
+        "source_provider": "specific_topic_plan",
+        "keywords": [
+          "zander",
+          "fishing",
+          "method"
+        ],
+        "suggested_duration": 30,
+        "suggested_clip_count": 3,
+        "content_strategy": "instructional_fishing",
+        "duplicate_status": "unique",
+        "normalized_title": ""
+      }
+    ],
+    "deduplication": {
+      "removed_exact": 0,
+      "removed_near": 0,
+      "removed_subtopic_cap": 0
+    },
+    "notes": [
+      "Specific topic detected \u2014 generated one detailed video plan instead of title bank."
+    ],
+    "builder_version": "topic_universe_builder_v1"
+  },
+  "export_paths": {},
+  "e2e_handoff": {
+    "ready": true,
+    "recommended_topic_field": "Zander Fishing Method",
+    "mode": "specific_video_plan",
+    "instructions": "Select any generated title and pass it as the topic into Content Brain E2E Micro Test."
+  },
+  "errors": [],
+  "studio_version": "topic_universe_studio_v1"
+}

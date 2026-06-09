@@ -1,0 +1,29 @@
+{
+  "review_version": "12d_v1",
+  "session_id": "exec_uat_20260604_004331",
+  "submitted_at": null,
+  "submitted_by": null,
+  "uat_inputs": {
+    "topic": "A mysterious astronaut stands alone on a rain-soaked neon platform above a futuristic cyberpunk city at night. A strange blue signal begins glowing beneath a puddle near their feet. Curious and cautious, the astronaut follows the signal across the platform while distant drones search the skyline through heavy rain. The signal grows stronger and guides the astronaut toward the edge of the platform. Finally, the glowing energy rises into the sky and forms a massive unknown symbol above the city, i",
+    "platform": "instagram_reels",
+    "target_duration_seconds": 10,
+    "video_provider": "runway_browser",
+    "voice_provider": "elevenlabs"
+  },
+  "artifact_paths": {
+    "artifact_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_20260604_004331",
+    "final_video": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\content_brain\\execution\\artifacts\\exec_uat_20260604_004331\\assembly_generation\\FINAL_PUBLISH_READY.mp4"
+  },
+  "story_quality_score": null,
+  "visual_quality_score": null,
+  "voice_quality_score": null,
+  "subtitle_quality_score": null,
+  "continuity_score": null,
+  "overall_quality_score": null,
+  "comments": {
+    "felt_good": "",
+    "felt_wrong": "",
+    "should_improve": ""
+  },
+  "publishable": null
+}

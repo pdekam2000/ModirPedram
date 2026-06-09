@@ -28,11 +28,12 @@ def _static_checks() -> None:
     _pass("click_label_flag", "--click-label" in src)
     _pass("allow_safe_clicks_flag", "--allow-safe-clicks" in src)
     _pass("click_label_install_js", "CLICK_LABEL_INSTALL_JS" in src)
-    _pass("expose_binding", "expose_binding" in src and "runwayMapperReportClick" in src)
+    _pass("expose_binding", "expose_binding" in src and "runwayMapperSaveLabel" in src)
+    _pass("shift_click_mode", "shiftKey" in mapper_mod.CLICK_LABEL_INSTALL_JS)
     _pass("persist_click_label", "persist_click_label" in src)
     _pass("labeling_sessions", "labeling_sessions" in src)
     _pass("sanitize_click_metadata", "sanitize_click_metadata" in src)
-    _pass("dangerous_blocked_in_js", "isDangerous" in src)
+    _pass("shift_blocks_in_js", "!ev.shiftKey" in mapper_mod.CLICK_LABEL_INSTALL_JS and "preventDefault" in mapper_mod.CLICK_LABEL_INSTALL_JS)
     _pass("no_local_storage_in_sanitize", "sessionstorage" in src.lower())
     _pass("scan_still_present", "--scan" in src)
     _pass("label_still_present", "def mode_label" in src)
@@ -123,8 +124,7 @@ def _unit_dangerous_labels_blocked() -> None:
         _pass(f"blocked_semantic_{token}", safety.get("auto_click_allowed") is False)
 
     js = mapper_mod.CLICK_LABEL_INSTALL_JS
-    for word in ("generate", "subscribe", "delete"):
-        _pass(f"js_blocks_{word}", word in js.lower())
+    _pass("js_shift_only_capture", "!ev.shiftKey" in js)
 
 
 def _unit_json_valid(tmp: Path) -> None:

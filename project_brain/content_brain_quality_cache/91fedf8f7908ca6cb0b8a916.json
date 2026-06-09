@@ -1,0 +1,36 @@
+{
+  "topic": "old man walking on a beach",
+  "category": "general",
+  "strategy": "cinematic_narrative",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "story",
+    "prompt"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "walking",
+      "beach"
+    ],
+    "character_role": "a focused analyst",
+    "story": {
+      "logline": "A focused expert breaks down old man walking on a beach with concrete evidence, objects, and topic-specific stakes.",
+      "clip_beats": [
+        "Introduce the knowledgeable presenter standing near the beach, briefly framing the old man walking with clear, focused visuals emphasizing the beach setting and the man's deliberate steps.",
+        "The presenter elaborates on the deeper significance of the old man's walk, using close-ups of the man's feet in the sand and subtle environmental details to heighten the emotional resonance and tension, highlighting beach.",
+        "Conclude with the presenter delivering the payoff message about why this simple act matters, paired with a steady shot of the old man walking confidently, symbolizing connection and conviction."
+      ]
+    },
+    "prompt_additions": [
+      "walking",
+      "beach"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

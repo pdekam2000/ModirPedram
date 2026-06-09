@@ -1,0 +1,53 @@
+{
+  "topic": "Why did Blockbuster disappear?",
+  "category": "business_history",
+  "strategy": "business_case_study",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "story",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "The Fatal Mistake That Killed Blockbuster",
+      "How Netflix Beat a $5 Billion Giant",
+      "Why Blockbuster Ignored the Future",
+      "The Business Decision That Changed Entertainment Forever",
+      "What Blockbuster Got Wrong About Streaming"
+    ],
+    "domain_concepts": [
+      "Netflix",
+      "DVD by mail",
+      "Reed Hastings",
+      "late fees",
+      "subscription model",
+      "digital transformation",
+      "customer retention"
+    ],
+    "character_role": "a business analyst",
+    "story": {
+      "logline": "A focused expert breaks down Why did Blockbuster disappear with concrete evidence, objects, and topic-specific stakes, weaving in Netflix, DVD by mail, Reed Hastings, late fees.",
+      "clip_beats": [
+        "a, highlighting Netflix.",
+        "b, highlighting DVD by mail.",
+        "c, highlighting Reed Hastings."
+      ]
+    },
+    "prompt_additions": [
+      "Netflix",
+      "DVD by mail",
+      "Reed Hastings",
+      "late fees",
+      "subscription model",
+      "digital transformation"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

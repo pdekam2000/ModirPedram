@@ -1,0 +1,59 @@
+{
+  "topic": "Can chemistry predict which perfume will become a bestseller?",
+  "category": "perfume",
+  "strategy": "scientific_explanation",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Can You Master Perfume in One Day?",
+      "The One-Day Perfume Challenge Explained",
+      "Why Most Beginners Fail at Perfume Blending",
+      "What Perfume Notes Actually Do",
+      "The Fastest Way to Learn Perfume Basics"
+    ],
+    "domain_concepts": [
+      "chemical prediction",
+      "molecular analysis",
+      "formulation science",
+      "test data",
+      "evidence model",
+      "accord design",
+      "raw materials",
+      "longevity",
+      "projection",
+      "signature scent",
+      "fragrance evaluation",
+      "brand positioning",
+      "luxury market",
+      "consumer adoption",
+      "market share",
+      "billion-dollar brand",
+      "distribution strategy"
+    ],
+    "story_angles": [
+      "Question — can chemistry and data predict which perfume becomes a bestseller?",
+      "Mechanism — compare formulation science, consumer testing, market signals, and brand launch evidence.",
+      "Takeaway — what prediction models get right and what branding still decides."
+    ],
+    "character_role": "an aspiring perfumer",
+    "prompt_additions": [
+      "chemical prediction",
+      "molecular analysis",
+      "formulation science",
+      "test data",
+      "evidence model",
+      "accord design"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

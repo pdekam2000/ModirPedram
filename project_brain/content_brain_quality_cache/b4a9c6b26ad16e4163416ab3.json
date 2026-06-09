@@ -1,0 +1,53 @@
+{
+  "topic": "Can AI destroy traditional marketing agencies by 2026?",
+  "category": "business",
+  "strategy": "business_debate",
+  "enhancement_types": [
+    "character",
+    "story",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Can AI destroy traditional marketing agencies by 2026?",
+      "The Truth About AI Disruption of Marketing Agencies",
+      "What AI Disruption of Marketing Agencies Means for the Market",
+      "What Everyone Gets Wrong About AI Disruption of Marketing Agencies",
+      "AI Disruption of Marketing Agencies"
+    ],
+    "domain_concepts": [
+      "generative design",
+      "market disruption",
+      "marketing agency",
+      "brand positioning",
+      "prediction models",
+      "future forecast",
+      "client acquisition",
+      "luxury market",
+      "consumer preference modeling",
+      "industry shift",
+      "campaign management",
+      "consumer adoption"
+    ],
+    "story_angles": [
+      "Claim — AI automation threatens traditional marketing agencies by 2026 with future forecast and agency economics evidence.",
+      "Evidence — compare generative design, campaign management, client acquisition, media buying, prediction models, and market disruption across agency workflows.",
+      "Verdict — which agency roles shrink, which survive, and what human judgment still drives premium client work by 2026?"
+    ],
+    "prompt_additions": [
+      "generative design",
+      "market disruption",
+      "marketing agency",
+      "brand positioning",
+      "prediction models",
+      "future forecast"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

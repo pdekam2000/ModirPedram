@@ -1,0 +1,2086 @@
+{
+  "run_id": "cb_e2e_20260606_000255_d892b685",
+  "started_at": "2026-06-06 00:02:55",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "old man walking on a beach",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v5",
+    "language_code": "en",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.09,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "old man walking on a beach",
+        "detected_language_code": "en",
+        "extracted_subject": "old man",
+        "extracted_environment": "beach",
+        "extracted_action": "walking",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "old man walking on a beach",
+          "extracted_subject": "old man",
+          "extracted_environment": "beach",
+          "extracted_action": "walking",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 3.18,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.09,
+            "confidence": 0.8645,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best old man walking on a beach tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8557,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8557,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "trend": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 82.21,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to old man walking on a beach",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8677,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8677,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "trend": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why old man walking on a beach is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8594,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8594,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "trend": "old man walking on a beach",
+            "source": "manual_seed",
+            "score": 71.4,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "trend": "old man walking on a beach for beginners",
+            "source": "mock_trend_provider",
+            "score": 69.37,
+            "confidence": 0.5835,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "old man walking on a beach for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around old man walking on a beach for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "old man walking on a beach for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "old man walking on a beach for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.6217,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6217,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "old man walking on a beach",
+          "velocity": 100.0,
+          "saturation": 59.0,
+          "virality_score": 71.4,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.25,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "fallback_seed_expansion",
+        "trend_intelligence": {
+          "trend_mode": "fallback_seed_expansion",
+          "topic": "old man walking on a beach",
+          "items": [
+            {
+              "trend": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.09,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.8645,
+                "freshness_score": 0.79,
+                "niche_match": 0.98,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:02:55",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 1,
+                "seed_source": "best old man walking on a beach tips",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_000",
+                  "canonical_topic": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+                      "confidence": 0.8645,
+                      "niche_match": 0.98,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.9337
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8557,
+                "niche_relevance_reason": "Matched discovery angles semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8557,
+                  "decision": "KEEP",
+                  "reason": "Matched discovery angles semantic cluster",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:02:55"
+              }
+            },
+            {
+              "trend": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 82.21,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.823,
+                "freshness_score": 0.74,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:02:55",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 2,
+                "seed_source": "how to old man walking on a beach",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_001",
+                  "canonical_topic": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+                      "confidence": 0.823,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.8888
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8677,
+                "niche_relevance_reason": "Matched subject core semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8677,
+                  "decision": "KEEP",
+                  "reason": "Matched subject core semantic cluster",
+                  "matched_cluster_id": "subject_core",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:02:55"
+              }
+            },
+            {
+              "trend": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.06,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.718,
+                "freshness_score": 0.64,
+                "niche_match": 1.0,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:02:55",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 4,
+                "seed_source": "why old man walking on a beach is trending",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_003",
+                  "canonical_topic": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+                      "confidence": 0.718,
+                      "niche_match": 1.0,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.718
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8594,
+                "niche_relevance_reason": "Matched tension points semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8594,
+                  "decision": "KEEP",
+                  "reason": "Matched tension points semantic cluster",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:02:55"
+              }
+            },
+            {
+              "trend": "old man walking on a beach",
+              "source": "manual_seed",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 71.4,
+              "metadata": {
+                "priority": "user_topic",
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:02:55"
+              }
+            },
+            {
+              "trend": "old man walking on a beach for beginners",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 69.37,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.5835,
+                "freshness_score": 0.69,
+                "niche_match": 0.66,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-06 00:02:55",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 3,
+                "seed_source": "old man walking on a beach for beginners",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "trend_angle": "beginner vs expert views on topic framing around old man walking on a beach for beginners",
+                "aggregation": {
+                  "cluster_id": "cluster_004",
+                  "canonical_topic": "old man walking on a beach for beginners",
+                  "aggregation_score": 0.9304,
+                  "final_rank_score": 0.9304,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "old man walking on a beach for beginners",
+                      "confidence": 0.5835,
+                      "niche_match": 0.66,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.5835
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "niche_relevance_score": 0.6217,
+                "niche_relevance_reason": "Low overlap with general semantic universe",
+                "rejected_by_filter": false,
+                "filter_decision": "WARNING",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.6217,
+                  "decision": "WARNING",
+                  "reason": "Low overlap with general semantic universe",
+                  "matched_cluster_id": "discovery_angles",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-06 00:02:55"
+              }
+            }
+          ],
+          "best_trend_opportunity_score": 1.0,
+          "summary": {
+            "count": 5,
+            "rising": 3,
+            "evergreen": 2,
+            "seasonal": 0
+          }
+        },
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8645,
+              "freshness_score": 0.79,
+              "niche_match": 0.98,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best old man walking on a beach tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8645,
+                    "niche_match": 0.98,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9337
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8557,
+              "niche_relevance_reason": "Matched discovery angles semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8557,
+                "decision": "KEEP",
+                "reason": "Matched discovery angles semantic cluster",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to old man walking on a beach",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8677,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8677,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why old man walking on a beach is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8594,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8594,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.5835,
+              "freshness_score": 0.69,
+              "niche_match": 0.66,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-06 00:02:55",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "old man walking on a beach for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around old man walking on a beach for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "old man walking on a beach for beginners",
+                "aggregation_score": 0.9304,
+                "final_rank_score": 0.9304,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "old man walking on a beach for beginners",
+                    "confidence": 0.5835,
+                    "niche_match": 0.66,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.5835
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 0.9304,
+              "final_rank_score": 0.9304,
+              "niche_relevance_score": 0.6217,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6217,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "discovery_angles",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-06 00:02:55"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification & Content Strategy",
+      "duration_ms": 0.37,
+      "api_sources": [
+        "content_brain_topic_strategy",
+        "domain_knowledge_layer",
+        "topic_knowledge_graph",
+        "content_brain_character_builder",
+        "story_strategy_library"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "old man walking on a beach",
+          "topic_category": "general",
+          "content_strategy": "cinematic_narrative",
+          "instructional_intent": false,
+          "confidence": 0.55,
+          "reasoning": "Default cinematic narrative fallback."
+        },
+        "content_strategy": {
+          "strategy_id": "cinematic_narrative",
+          "label": "Cinematic narrative strategy",
+          "purpose": "character-driven visual story",
+          "niche_style": "cinematic",
+          "effective_mood": "emotional",
+          "clip_beats": [
+            "opening beat for old man walking on a beach.",
+            "escalation around old man walking on a beach.",
+            "payoff for old man walking on a beach."
+          ],
+          "conflict": "What is at stake in old man walking on a beach?",
+          "visual_hook": "Strong visual detail tied to old man walking on a beach.",
+          "seo_title_candidates": [
+            "old man walking on a beach",
+            "why old man walking on a beach matters"
+          ],
+          "required_terms": [],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "domain_knowledge": {
+          "domain_id": "general",
+          "label": "General",
+          "concepts": [
+            "method",
+            "technique",
+            "setup",
+            "result",
+            "takeaway",
+            "demonstration"
+          ],
+          "default_role_en": "a knowledgeable presenter",
+          "default_role_fa": "",
+          "setting_en": "",
+          "instructional_beats_en": [
+            "Setup and context for the topic.",
+            "Core method demonstration.",
+            "Result and takeaway."
+          ],
+          "review_beats_en": []
+        },
+        "knowledge_graph": {
+          "domain": "general",
+          "nodes": [],
+          "matched_nodes": [],
+          "related_concepts": [],
+          "seo_keywords": []
+        },
+        "character_builder": {
+          "character": "a man",
+          "domain": "general",
+          "source": "topic_keyword",
+          "quality_score": 0.9,
+          "warnings": [],
+          "builder_version": "character_builder_v3"
+        },
+        "story_strategy": {
+          "strategy_id": "documentary",
+          "label": "Documentary",
+          "hook_structure": "Context that frames why this matters now.",
+          "clip_beat_structure": [
+            "Clip 1 \u2014 context",
+            "Clip 2 \u2014 evidence / escalation",
+            "Clip 3 \u2014 conclusion"
+          ],
+          "conflict_type": "What is the most important unanswered question?",
+          "payoff_type": "Evidence-backed conclusion.",
+          "visual_language": "Observational framing, evidence inserts, grounded realism.",
+          "prompt_rules": [
+            "Prioritize evidence over spectacle."
+          ]
+        },
+        "detected_language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.04,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.47,
+      "api_sources": [
+        "content_brain_seo_director",
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "why old man walking on a beach matters",
+        "title_candidates": [
+          "why old man walking on a beach matters",
+          "Why Your Old Man Walking on a Beach Never Works",
+          "Stop Making This Old Man Walking on a Beach Mistake",
+          "Old Man Walking on a Beach: Why old man walking on a That Actually Works",
+          "The Simple Old Man Walking on a Beach Trick Most Beginners Miss",
+          "How to Old Man Walking on a Beach Step by Step"
+        ],
+        "keywords": [
+          "old man walking on a beach",
+          "old man",
+          "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+          "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+          "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+          "old man walking on a beach for beginners",
+          "Why best old man walking on a"
+        ],
+        "trend_angle": "Why best old man walking on a",
+        "language_code": "en",
+        "seo_score": 1.0,
+        "candidates_ranked": [
+          {
+            "title": "why old man walking on a beach matters",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 1.0,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": true
+          },
+          {
+            "title": "Why Your Old Man Walking on a Beach Never Works",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.92,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Stop Making This Old Man Walking on a Beach Mistake",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.92,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Old Man Walking on a Beach: Why old man walking on a That Actually Works",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.92,
+            "ctr_score": 0.7,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "The Simple Old Man Walking on a Beach Trick Most Beginners Miss",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.8,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "How to Old Man Walking on a Beach Step by Step",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.92,
+            "ctr_score": 0.55,
+            "audience_fit": 0.7,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "The Easiest Old Man Walking on a Beach for Beginners",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.92,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "old man walking on a beach",
+            "reason": "strong SEO relevance",
+            "seo_score": 1.0,
+            "ctr_score": 0.45,
+            "audience_fit": 0.55,
+            "keywords": [
+              "old man walking on a beach",
+              "old man",
+              "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+              "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+              "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+              "old man walking on a beach for beginners"
+            ],
+            "selected": false
+          }
+        ],
+        "selection_reason": "high CTR hook with topic authority",
+        "content_strategy": "cinematic_narrative",
+        "selected_seo_title": "why old man walking on a beach matters"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 5086.88,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "content_brain_character_builder",
+        "openai_story_enricher"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "why old man walking on a beach matters",
+          "logline": "A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment.",
+          "main_character": "a man",
+          "setting": "beach",
+          "conflict_tension": "What is at stake in old man walking on a beach?",
+          "visual_hook": "Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.",
+          "emotional_arc": "connection deepening into conviction",
+          "ending_beat": "payoff for old man walking on a beach.",
+          "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a man",
+            "location": "beach",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.",
+            "Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.",
+            "Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey."
+          ],
+          "source_topic": "old man walking on a beach",
+          "target_platform": "youtube_shorts",
+          "niche_style": "cinematic",
+          "mood": "emotional",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v2",
+          "warnings": [],
+          "topic_story_detail": {
+            "topic": "old man walking on a beach",
+            "subject": "Old Man Walking on a Beach",
+            "facts": [
+              "The narrative stays anchored to Old Man Walking on a Beach."
+            ],
+            "entities": [
+              "old",
+              "man",
+              "walking",
+              "on",
+              "beach"
+            ],
+            "settings": [],
+            "objects": [
+              "method",
+              "technique",
+              "setup",
+              "result"
+            ],
+            "narrative_beats": [
+              "Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.",
+              "Demonstrate the core action using method.",
+              "Deliver the takeaway tied to Old Man Walking on a Beach."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "goal": "What is at stake in old man walking on a beach?",
+          "conflict": "What is at stake in old man walking on a beach?",
+          "tension": "What is at stake in old man walking on a beach?",
+          "seo_title": "why old man walking on a beach matters",
+          "language_code": "en",
+          "content_strategy": "cinematic_narrative",
+          "content_strategy_label": "Cinematic narrative strategy",
+          "topic_category": "general",
+          "character_builder": {
+            "character": "a man",
+            "domain": "general",
+            "source": "topic_keyword",
+            "quality_score": 0.9,
+            "warnings": [],
+            "builder_version": "character_builder_v3"
+          }
+        },
+        "seo_title": "why old man walking on a beach matters",
+        "language_code": "en",
+        "content_strategy": {
+          "strategy_id": "cinematic_narrative",
+          "label": "Cinematic narrative strategy",
+          "purpose": "character-driven visual story",
+          "niche_style": "cinematic",
+          "effective_mood": "emotional",
+          "clip_beats": [
+            "opening beat for old man walking on a beach.",
+            "escalation around old man walking on a beach.",
+            "payoff for old man walking on a beach."
+          ],
+          "conflict": "What is at stake in old man walking on a beach?",
+          "visual_hook": "Strong visual detail tied to old man walking on a beach.",
+          "seo_title_candidates": [
+            "old man walking on a beach",
+            "why old man walking on a beach matters"
+          ],
+          "required_terms": [],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "why old man walking on a beach matters",
+            "logline": "A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment.",
+            "main_character": "a man",
+            "setting": "beach",
+            "conflict_tension": "What is at stake in old man walking on a beach?",
+            "visual_hook": "Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.",
+            "emotional_arc": "connection deepening into conviction",
+            "ending_beat": "payoff for old man walking on a beach.",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a man",
+              "location": "beach",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.",
+              "Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.",
+              "Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey."
+            ],
+            "source_topic": "old man walking on a beach",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2+openai_story",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "old man walking on a beach",
+              "subject": "Old Man Walking on a Beach",
+              "facts": [
+                "The narrative stays anchored to Old Man Walking on a Beach."
+              ],
+              "entities": [
+                "old",
+                "man",
+                "walking",
+                "on",
+                "beach"
+              ],
+              "settings": [],
+              "objects": [
+                "method",
+                "technique",
+                "setup",
+                "result"
+              ],
+              "narrative_beats": [
+                "Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.",
+                "Demonstrate the core action using method.",
+                "Deliver the takeaway tied to Old Man Walking on a Beach."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            },
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.",
+            "role_label": "hook",
+            "story_beat": "Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand."
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.",
+            "role_label": "escalation",
+            "story_beat": "Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk."
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey.",
+            "role_label": "payoff",
+            "story_beat": "Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey."
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 4.45,
+      "api_sources": [
+        "runway_prompt_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a man. Environment: beach. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment.. Topic narrative: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Visual hook: Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.. Tension: What is at stake in old man walking on a beach?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.. Story beat reference: Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.. Story beat reference: Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey..",
+        "starter_image_prompt_chars": 1931,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Clip 1 of 3. Topic-first narrative sequence about Old Man Walking on a Beach. Primary story beat: Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.. Subject identity: a man. Location: beach. Topic facts and evidence: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Historical facts: The narrative stays anchored to Old Man Walking on a Beach.. Key entities: old; man; walking. Visible objects: method; technique; setup. Narrative progression: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2279,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a man. Environment: beach. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment.. Topic narrative: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Visual hook: Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.. Tension: What is at stake in old man walking on a beach?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.. Story beat reference: Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.. Story beat reference: Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey..",
+            "image_prompt_chars": 1931,
+            "continuity_notes": "same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Clip 2 of 3. Topic-first narrative sequence about Old Man Walking on a Beach. Primary story beat: Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.. Subject identity: a man. Location: beach. Topic facts and evidence: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Historical facts: The narrative stays anchored to Old Man Walking on a Beach.. Key entities: old; man; walking. Visible objects: method; technique; setup. Narrative progression: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2219,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Clip 3 of 3. Topic-first narrative sequence about Old Man Walking on a Beach. Primary story beat: Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey.. Subject identity: a man. Location: beach. Topic facts and evidence: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Historical facts: The narrative stays anchored to Old Man Walking on a Beach.. Key entities: old; man; walking. Visible objects: method; technique; setup. Narrative progression: Deliver the takeaway tied to Old Man Walking on a Beach.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2230,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade)"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "a man",
+          "location": "beach",
+          "lighting": "motivated cinematic key with volumetric atmosphere",
+          "camera": "35mm anamorphic lens personality with natural edge falloff",
+          "palette": "teal and amber cinematic color grade",
+          "wardrobe": ""
+        },
+        "builder_version": "runway_starter_to_video_f_v3",
+        "validation_warnings": [
+          "clip 1 below soft min (2279 < 2500)",
+          "clip 1 missing explicit 10-second motion language",
+          "clip 2 below soft min (2219 < 2500)",
+          "clip 2 missing explicit 10-second motion language",
+          "clip 3 below soft min (2230 < 2500)",
+          "clip 3 missing explicit 10-second motion language"
+        ],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 1931,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2279,
+            2219,
+            2230
+          ],
+          "clip_prompt_min": 2219,
+          "clip_prompt_max": 2279,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_a77c1cf3",
+          "story_idea": "A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment. Character: a man. Setting: beach. Conflict: What is at stake in old man walking on a beach?. Visual hook: Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.. Emotional arc: connection deepening into conviction. Ending: payoff for old man walking on a beach.. Clip 1: Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.. Clip 2: Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.. Clip 3: Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey..",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a man. Environment: beach. Lighting: motivated cinematic key with volumetric atmosphere. Camera: 35mm anamorphic lens personality with natural edge falloff. Palette: teal and amber cinematic color grade. Scene essence: A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment.. Topic narrative: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Visual hook: Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.. Tension: What is at stake in old man walking on a beach?. Style direction: cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.. Story beat reference: Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.. Story beat reference: Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey..",
+          "clip_prompts": [
+            "Clip 1 of 3. Topic-first narrative sequence about Old Man Walking on a Beach. Primary story beat: Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.. Subject identity: a man. Location: beach. Topic facts and evidence: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Historical facts: The narrative stays anchored to Old Man Walking on a Beach.. Key entities: old; man; walking. Visible objects: method; technique; setup. Narrative progression: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Opens from approved starter reference via Use to Video. cinematic realistic vertical 9:16. Continuity lock: same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 2 of 3. Topic-first narrative sequence about Old Man Walking on a Beach. Primary story beat: Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.. Subject identity: a man. Location: beach. Topic facts and evidence: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Historical facts: The narrative stays anchored to Old Man Walking on a Beach.. Key entities: old; man; walking. Visible objects: method; technique; setup. Narrative progression: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Clip 3 of 3. Topic-first narrative sequence about Old Man Walking on a Beach. Primary story beat: Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey.. Subject identity: a man. Location: beach. Topic facts and evidence: subject Old Man Walking on a Beach; The narrative stays anchored to Old Man Walking on a Beach.; old; man; method; technique. Historical facts: The narrative stays anchored to Old Man Walking on a Beach.. Key entities: old; man; walking. Visible objects: method; technique; setup. Narrative progression: Deliver the takeaway tied to Old Man Walking on a Beach.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Historical detail: Demonstrate the core action using method.. Historical detail: The narrative stays anchored to Old Man Walking on a Beach.. Historical detail: old. Historical detail: man. Historical detail: walking. Historical detail: on. Historical detail: method. Historical detail: technique. Historical detail: setup. Historical detail: result. Historical detail: Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.. Continues from previous clip last frame via Use Frame. cinematic realistic vertical 9:16. Continuity lock: same character (a man), same wardrobe, same location (beach), same lighting (motivated cinematic key with volumetric atmosphere), same camera language (35mm anamorphic lens personality with natural edge falloff), same palette (teal and amber cinematic color grade). No scene jump. No unrelated location change. Maintain same character, wardrobe, and location. Single continuous 10-second motivated action with stable end pose for frame handoff. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "a man",
+            "location": "beach",
+            "lighting": "motivated cinematic key with volumetric atmosphere",
+            "camera": "35mm anamorphic lens personality with natural edge falloff",
+            "palette": "teal and amber cinematic color grade",
+            "wardrobe": ""
+          },
+          "warnings": [
+            "clip 1 below soft min (2279 < 2500)",
+            "clip 1 missing explicit 10-second motion language",
+            "clip 2 below soft min (2219 < 2500)",
+            "clip 2 missing explicit 10-second motion language",
+            "clip 3 below soft min (2230 < 2500)",
+            "clip 3 missing explicit 10-second motion language"
+          ],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 1931,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2279,
+              2219,
+              2230
+            ],
+            "clip_prompt_min": 2219,
+            "clip_prompt_max": 2279,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v3",
+          "story_brief": {
+            "title": "why old man walking on a beach matters",
+            "logline": "A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment.",
+            "main_character": "a man",
+            "setting": "beach",
+            "conflict_tension": "What is at stake in old man walking on a beach?",
+            "visual_hook": "Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.",
+            "emotional_arc": "connection deepening into conviction",
+            "ending_beat": "payoff for old man walking on a beach.",
+            "style_direction": "cinematic realistic for vertical 9:16 YouTube Shorts. Mood: emotional. Pacing: hook in first second, payoff before loop point. Palette: teal and amber cinematic color grade. Camera: 35mm anamorphic lens personality with natural edge falloff. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a man",
+              "location": "beach",
+              "lighting": "motivated cinematic key with volumetric atmosphere",
+              "camera": "35mm anamorphic lens personality with natural edge falloff",
+              "palette": "teal and amber cinematic color grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "Opening beat showing the old man beginning his walk on the beach, emphasizing his slow, purposeful steps and the tactile connection to the sand.",
+              "Escalation beat focusing on the old man's expression and movements, illustrating the significance and emotional weight behind the walk.",
+              "Payoff beat capturing the old man reaching a meaningful point on the beach, symbolizing the deeper value and impact of his journey."
+            ],
+            "source_topic": "old man walking on a beach",
+            "target_platform": "youtube_shorts",
+            "niche_style": "cinematic",
+            "mood": "emotional",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v2",
+            "warnings": [],
+            "topic_story_detail": {
+              "topic": "old man walking on a beach",
+              "subject": "Old Man Walking on a Beach",
+              "facts": [
+                "The narrative stays anchored to Old Man Walking on a Beach."
+              ],
+              "entities": [
+                "old",
+                "man",
+                "walking",
+                "on",
+                "beach"
+              ],
+              "settings": [],
+              "objects": [
+                "method",
+                "technique",
+                "setup",
+                "result"
+              ],
+              "narrative_beats": [
+                "Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.",
+                "Demonstrate the core action using method.",
+                "Deliver the takeaway tied to Old Man Walking on a Beach."
+              ],
+              "source": "generic_extractor",
+              "match_key": ""
+            }
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "why old man walking on a beach matters",
+        "seo_description": "A man walks on a beach, revealing why the act of an old man walking on a beach holds deeper meaning and significance. The central tension explores what is truly at stake in this simple yet profound moment. Strong visual detail tied to old man walking on a beach, focusing on his deliberate steps and the textures of sand beneath his feet.",
+        "keywords": [
+          "old man walking on a beach",
+          "old man",
+          "Why best old man walking on a beach tips is gaining traction via format gaining traction around topic",
+          "how to old man walking on a beach: the question people keep asking about topic angle gaining comments this week",
+          "Why why old man walking on a beach is trending is gaining traction via popular advice vs real results in topic",
+          "old man walking on a beach for beginners",
+          "Why best old man walking on a"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 1.0,
+        "title_candidates": [
+          "why old man walking on a beach matters",
+          "Why Your Old Man Walking on a Beach Never Works",
+          "Stop Making This Old Man Walking on a Beach Mistake",
+          "Old Man Walking on a Beach: Why old man walking on a That Actually Works",
+          "The Simple Old Man Walking on a Beach Trick Most Beginners Miss",
+          "How to Old Man Walking on a Beach Step by Step"
+        ],
+        "trend_angle": "Why best old man walking on a",
+        "language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.44,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8898,
+        "domain_knowledge_score": 0.0,
+        "character_quality_score": 0.75,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.75,
+        "seo_title_quality_score": 1.0,
+        "clip_specificity_score": 0.0,
+        "prompt_specificity_score": 0.8333,
+        "narrative_detail_score": 0.62,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.6895,
+        "warnings": [
+          "domain knowledge missing",
+          "clip beats too generic"
+        ],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8898,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.895,
+              "story_logline": 0.8989,
+              "story_character": 0.88,
+              "story_setting": 0.88,
+              "story_beats": 0.9055,
+              "prompts": 0.8871,
+              "hashtags": 0.88,
+              "trends": 0.8915
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "old man walking on a beach",
+            "content_strategy": "cinematic_narrative",
+            "topic_strategy_alignment_score": 0.75,
+            "seo_alignment": 0.75,
+            "story_alignment": 0.75,
+            "clip_alignment": 0.75,
+            "prompt_alignment": 0.75,
+            "generic_filler_hits": [],
+            "required_term_hits": [],
+            "passed": true,
+            "notes": []
+          },
+          "story_strategy": {
+            "strategy_id": "documentary",
+            "label": "Documentary",
+            "hook_structure": "Context that frames why this matters now.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 context",
+              "Clip 2 \u2014 evidence / escalation",
+              "Clip 3 \u2014 conclusion"
+            ],
+            "conflict_type": "What is the most important unanswered question?",
+            "payoff_type": "Evidence-backed conclusion.",
+            "visual_language": "Observational framing, evidence inserts, grounded realism.",
+            "prompt_rules": [
+              "Prioritize evidence over spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "general",
+            "label": "General",
+            "concepts": [
+              "method",
+              "technique",
+              "setup",
+              "result",
+              "takeaway",
+              "demonstration"
+            ],
+            "default_role_en": "a knowledgeable presenter",
+            "default_role_fa": "",
+            "setting_en": "",
+            "instructional_beats_en": [
+              "Setup and context for the topic.",
+              "Core method demonstration.",
+              "Result and takeaway."
+            ],
+            "review_beats_en": []
+          },
+          "topic_story_detail": {
+            "topic": "old man walking on a beach",
+            "subject": "Old Man Walking on a Beach",
+            "facts": [
+              "The narrative stays anchored to Old Man Walking on a Beach."
+            ],
+            "entities": [
+              "old",
+              "man",
+              "walking",
+              "on",
+              "beach"
+            ],
+            "settings": [],
+            "objects": [
+              "method",
+              "technique",
+              "setup",
+              "result"
+            ],
+            "narrative_beats": [
+              "Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.",
+              "Demonstrate the core action using method.",
+              "Deliver the takeaway tied to Old Man Walking on a Beach."
+            ],
+            "source": "generic_extractor",
+            "match_key": ""
+          },
+          "narrative_detail_hits": 0.62
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": true,
+        "topic_strategy_alignment_score": 0.75,
+        "story_quality_score": 0.83,
+        "seo_score": 1.0,
+        "prompt_completeness_score": 0.8333333333333334,
+        "forbidden_drift": []
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "language_authority_score": 0.8898,
+    "domain_knowledge_score": 0.0,
+    "character_quality_score": 0.75,
+    "story_specificity_score": 0.83,
+    "strategy_alignment_score": 0.75,
+    "seo_title_quality_score": 1.0,
+    "clip_specificity_score": 0.0,
+    "prompt_specificity_score": 0.8333,
+    "narrative_detail_score": 0.62,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.6895,
+    "warnings": [
+      "domain knowledge missing",
+      "clip beats too generic"
+    ],
+    "passed": true,
+    "details": {
+      "language_authority": {
+        "expected_language_code": "en",
+        "language_authority_score": 0.8898,
+        "drift_detected": [],
+        "field_scores": {
+          "seo_title": 0.895,
+          "story_logline": 0.8989,
+          "story_character": 0.88,
+          "story_setting": 0.88,
+          "story_beats": 0.9055,
+          "prompts": 0.8871,
+          "hashtags": 0.88,
+          "trends": 0.8915
+        },
+        "passed": true,
+        "notes": []
+      },
+      "strategy_alignment": {
+        "topic": "old man walking on a beach",
+        "content_strategy": "cinematic_narrative",
+        "topic_strategy_alignment_score": 0.75,
+        "seo_alignment": 0.75,
+        "story_alignment": 0.75,
+        "clip_alignment": 0.75,
+        "prompt_alignment": 0.75,
+        "generic_filler_hits": [],
+        "required_term_hits": [],
+        "passed": true,
+        "notes": []
+      },
+      "story_strategy": {
+        "strategy_id": "documentary",
+        "label": "Documentary",
+        "hook_structure": "Context that frames why this matters now.",
+        "clip_beat_structure": [
+          "Clip 1 \u2014 context",
+          "Clip 2 \u2014 evidence / escalation",
+          "Clip 3 \u2014 conclusion"
+        ],
+        "conflict_type": "What is the most important unanswered question?",
+        "payoff_type": "Evidence-backed conclusion.",
+        "visual_language": "Observational framing, evidence inserts, grounded realism.",
+        "prompt_rules": [
+          "Prioritize evidence over spectacle."
+        ]
+      },
+      "domain_profile": {
+        "domain_id": "general",
+        "label": "General",
+        "concepts": [
+          "method",
+          "technique",
+          "setup",
+          "result",
+          "takeaway",
+          "demonstration"
+        ],
+        "default_role_en": "a knowledgeable presenter",
+        "default_role_fa": "",
+        "setting_en": "",
+        "instructional_beats_en": [
+          "Setup and context for the topic.",
+          "Core method demonstration.",
+          "Result and takeaway."
+        ],
+        "review_beats_en": []
+      },
+      "topic_story_detail": {
+        "topic": "old man walking on a beach",
+        "subject": "Old Man Walking on a Beach",
+        "facts": [
+          "The narrative stays anchored to Old Man Walking on a Beach."
+        ],
+        "entities": [
+          "old",
+          "man",
+          "walking",
+          "on",
+          "beach"
+        ],
+        "settings": [],
+        "objects": [
+          "method",
+          "technique",
+          "setup",
+          "result"
+        ],
+        "narrative_beats": [
+          "Establish Old Man Walking on a Beach in the environment tied to Old Man Walking on a Beach.",
+          "Demonstrate the core action using method.",
+          "Deliver the takeaway tied to Old Man Walking on a Beach."
+        ],
+        "source": "generic_extractor",
+        "match_key": ""
+      },
+      "narrative_detail_hits": 0.62
+    },
+    "audit_version": "quality_audit_v2",
+    "strategy_alignment_passed": true,
+    "topic_strategy_alignment_score": 0.75,
+    "story_quality_score": 0.83,
+    "seo_score": 1.0,
+    "prompt_completeness_score": 0.8333333333333334,
+    "forbidden_drift": []
+  },
+  "overall_content_score": 0.6895,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

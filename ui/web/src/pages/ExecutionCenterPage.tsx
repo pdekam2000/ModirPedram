@@ -20,9 +20,12 @@ import {
 import { useRuntimeStatusPoll, useRuntimeStatusPollMap } from "../hooks/useRuntimeStatusPoll";
 import { RunwayBrowserPanel } from "../components/RunwayBrowserPanel";
 import { UatRuntimePage } from "./UatRuntimePage";
+import { RunwayLiveSmokePage } from "./RunwayLiveSmokePage";
+import { ContentBrainTestStudioPage } from "./ContentBrainTestStudioPage";
+import { TopicUniverseStudioPage } from "./TopicUniverseStudioPage";
 import { shouldPollRuntimeStatus } from "../utils/runtimeObservability";
 
-type ExecutionCenterTab = "sessions" | "uat";
+type ExecutionCenterTab = "sessions" | "uat" | "runway_smoke" | "content_brain_test" | "topic_universe";
 
 export function ExecutionCenterPage() {
   const [centerTab, setCenterTab] = useState<ExecutionCenterTab>("sessions");
@@ -125,7 +128,7 @@ export function ExecutionCenterPage() {
   }
 
   return (
-    <div className={`execution-layout ${centerTab === "uat" ? "execution-layout-uat" : ""}`}>
+    <div className={`execution-layout ${centerTab !== "sessions" ? "execution-layout-uat" : ""}`}>
       <section className="execution-main">
         <header className="header">
           <div>
@@ -134,7 +137,13 @@ export function ExecutionCenterPage() {
             <p className="subtitle">
               {centerTab === "uat"
                 ? "Supervised user acceptance test workspace"
-                : "Session dashboard with runtime observability and operator actions"}
+                : centerTab === "runway_smoke"
+                  ? "Phase H live smoke with Runtime Studio approval buttons"
+                  : centerTab === "content_brain_test"
+                    ? "Content Brain intelligence pipeline — no Runway credits"
+                    : centerTab === "topic_universe"
+                      ? "Expand broad topics into SEO title banks before video planning"
+                      : "Session dashboard with runtime observability and operator actions"}
             </p>
           </div>
           {centerTab === "sessions" && (
@@ -162,12 +171,39 @@ export function ExecutionCenterPage() {
           >
             UAT Runtime
           </button>
+          <button
+            type="button"
+            className={`uat-center-tab ${centerTab === "content_brain_test" ? "active" : ""}`}
+            onClick={() => setCenterTab("content_brain_test")}
+          >
+            Content Brain Test Studio
+          </button>
+          <button
+            type="button"
+            className={`uat-center-tab ${centerTab === "topic_universe" ? "active" : ""}`}
+            onClick={() => setCenterTab("topic_universe")}
+          >
+            Topic Universe Studio
+          </button>
+          <button
+            type="button"
+            className={`uat-center-tab ${centerTab === "runway_smoke" ? "active" : ""}`}
+            onClick={() => setCenterTab("runway_smoke")}
+          >
+            Runway Live Smoke
+          </button>
         </div>
 
-        <RunwayBrowserPanel compact={centerTab === "uat"} />
+        <RunwayBrowserPanel compact={centerTab !== "sessions"} />
 
         {centerTab === "uat" ? (
           <UatRuntimePage />
+        ) : centerTab === "runway_smoke" ? (
+          <RunwayLiveSmokePage />
+        ) : centerTab === "content_brain_test" ? (
+          <ContentBrainTestStudioPage />
+        ) : centerTab === "topic_universe" ? (
+          <TopicUniverseStudioPage />
         ) : (
           <>
             {error && <div className="error-banner">{error}</div>}

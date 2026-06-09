@@ -1,0 +1,47 @@
+{
+  "topic": "forelle fishing method",
+  "language_code": "en",
+  "payload": {
+    "category": "animal_intelligence",
+    "strategy": "scientific_explanation",
+    "domain_profile": {
+      "domain_name": "Forelle Fishing Method",
+      "expert_role": "Fishing Instructor",
+      "setting": "Freshwater streams and rivers",
+      "core_concepts": [
+        "Forelle fish behavior",
+        "Fishing tackle and bait selection",
+        "Casting techniques",
+        "Reading water currents",
+        "Catch and release ethics"
+      ],
+      "timeline_beats": [
+        "Introduction to Forelle fish and habitat",
+        "Preparation of fishing gear",
+        "Step-by-step casting and lure presentation",
+        "Detecting bites and hooking the fish",
+        "Handling and releasing the catch"
+      ],
+      "visual_objects": [
+        "Forelle fish close-up",
+        "Fishing rod and reel",
+        "Lures and bait",
+        "Water currents and riverbed",
+        "Angler demonstrating casting"
+      ],
+      "clip_structure": {
+        "clip_1": "Overview of Forelle fish and ideal fishing locations",
+        "clip_2": "Demonstration of gear setup and casting technique",
+        "clip_3": "Catching, handling, and releasing the Forelle fish"
+      }
+    },
+    "confidence": 0.95,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 252,
+    "completion_tokens": 271,
+    "total_tokens": 523
+  },
+  "estimated_cost_usd": 0.0005344
+}

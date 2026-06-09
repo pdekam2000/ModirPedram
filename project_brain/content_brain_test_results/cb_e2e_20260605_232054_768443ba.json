@@ -1,0 +1,1955 @@
+{
+  "run_id": "cb_e2e_20260605_232054_768443ba",
+  "started_at": "2026-06-05 23:20:54",
+  "completed_at": "",
+  "status": "completed",
+  "input": {
+    "topic": "the mystery of dyatlov pass",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "niche": "general",
+    "mood": "emotional",
+    "clip_length_preference": null,
+    "studio_version": "content_brain_e2e_micro_test_studio_v4",
+    "language_code": "en",
+    "preflight": {
+      "ok": true,
+      "trend_mode": "live",
+      "live_trend_providers_ready": [
+        "dataforseo",
+        "serpapi"
+      ],
+      "openai_story_ready": true,
+      "recommended_mode": "live_trends_plus_openai_story",
+      "checks": {
+        "dataforseo": {
+          "ready": true,
+          "mode": "api",
+          "label": "dataforseo",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "serpapi": {
+          "ready": true,
+          "mode": "api",
+          "label": "serpapi",
+          "active": false,
+          "notes": "Credentials found but provider is not in active trend sources."
+        },
+        "openai_story": {
+          "ready": true,
+          "mode": "api",
+          "label": "OpenAI story enrichment",
+          "active": true,
+          "notes": "OPENAI_API_KEY available for optional story enrichment."
+        },
+        "mock_trend_fallback": {
+          "ready": true,
+          "mode": "local",
+          "label": "Mock / related-topic fallback",
+          "notes": "Always available when live trend APIs are not configured."
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "step_key": "topic_authority",
+      "title": "User Topic Authority Test",
+      "duration_ms": 0.2,
+      "api_sources": [
+        "content_brain_topic_authority",
+        "content_brain_topic_locale"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "original_topic": "the mystery of dyatlov pass",
+        "detected_language_code": "en",
+        "extracted_subject": "mystery of",
+        "extracted_environment": "",
+        "extracted_action": "",
+        "preserved_subject": true,
+        "preserved_environment": true,
+        "preserved_action": true,
+        "topic_preservation_score": 1.0,
+        "forbidden_drift_detected": [],
+        "story_preservation": {
+          "original_topic": "the mystery of dyatlov pass",
+          "extracted_subject": "mystery of",
+          "extracted_environment": "",
+          "extracted_action": "",
+          "preserved_subject": true,
+          "preserved_environment": true,
+          "preserved_action": true,
+          "topic_preservation_score": 1.0,
+          "forbidden_drift_detected": [],
+          "allowed_synonyms_used": [],
+          "notes": []
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 2,
+      "step_key": "trend_discovery",
+      "title": "Live Trend Discovery",
+      "duration_ms": 3.89,
+      "api_sources": [
+        "manual_seed",
+        "mock_trend_provider"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "trends": [
+          {
+            "trend": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+            "source": "mock_trend_provider",
+            "score": 83.71,
+            "confidence": 0.8755,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8755,
+              "freshness_score": 0.79,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best the mystery of dyatlov pass tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8755,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9455
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8667,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8667,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "trend": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+            "source": "mock_trend_provider",
+            "score": 82.21,
+            "confidence": 0.823,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to the mystery of dyatlov pass",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "trend": "the mystery of dyatlov pass",
+            "source": "manual_seed",
+            "score": 76.8,
+            "confidence": 0.0,
+            "provider_id": "",
+            "metadata": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "trend": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+            "source": "mock_trend_provider",
+            "score": 76.06,
+            "confidence": 0.718,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why the mystery of dyatlov pass is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8707,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8707,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "trend": "the mystery of dyatlov pass for beginners",
+            "source": "mock_trend_provider",
+            "score": 71.91,
+            "confidence": 0.6275,
+            "provider_id": "",
+            "metadata": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.6275,
+              "freshness_score": 0.69,
+              "niche_match": 0.74,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "the mystery of dyatlov pass for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around the mystery of dyatlov pass for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "the mystery of dyatlov pass for beginners",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "the mystery of dyatlov pass for beginners",
+                    "confidence": 0.6275,
+                    "niche_match": 0.74,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.6275
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.6915,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6915,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          }
+        ],
+        "best_signal": {
+          "topic": "the mystery of dyatlov pass",
+          "velocity": 100.0,
+          "saturation": 35.0,
+          "virality_score": 76.8,
+          "platform": "youtube_shorts",
+          "source": "user_topic",
+          "emotional_vector": {
+            "curiosity": 0.25,
+            "surprise": 0.25,
+            "desire": 0.25,
+            "belonging": 0.25,
+            "urgency": 0.25
+          },
+          "platform_fit": {
+            "youtube_shorts": 68.0
+          },
+          "expiry_window_hours": 72
+        },
+        "sources_used": [
+          "manual_seed",
+          "mock_trend_provider"
+        ],
+        "trend_mode": "fallback_seed_expansion",
+        "trend_intelligence": {
+          "trend_mode": "fallback_seed_expansion",
+          "topic": "the mystery of dyatlov pass",
+          "items": [
+            {
+              "trend": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 83.71,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.8755,
+                "freshness_score": 0.79,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-05 23:20:54",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 1,
+                "seed_source": "best the mystery of dyatlov pass tips",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_000",
+                  "canonical_topic": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+                      "confidence": 0.8755,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.9455
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8667,
+                "niche_relevance_reason": "Matched tension points semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8667,
+                  "decision": "KEEP",
+                  "reason": "Matched tension points semantic cluster",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-05 23:20:54"
+              }
+            },
+            {
+              "trend": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "source": "mock_trend_provider",
+              "classification": "evergreen",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "high educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 82.21,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.823,
+                "freshness_score": 0.74,
+                "niche_match": 1.0,
+                "momentum": "rising",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-05 23:20:54",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 2,
+                "seed_source": "how to the mystery of dyatlov pass",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_001",
+                  "canonical_topic": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+                      "confidence": 0.823,
+                      "niche_match": 1.0,
+                      "momentum": "rising",
+                      "weight": 1.0,
+                      "provider_base": 0.8888
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8688,
+                "niche_relevance_reason": "Matched subject core semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8688,
+                  "decision": "KEEP",
+                  "reason": "Matched subject core semantic cluster",
+                  "matched_cluster_id": "subject_core",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-05 23:20:54"
+              }
+            },
+            {
+              "trend": "the mystery of dyatlov pass",
+              "source": "manual_seed",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.8,
+              "metadata": {
+                "priority": "user_topic",
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-05 23:20:54"
+              }
+            },
+            {
+              "trend": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "high CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 76.06,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.718,
+                "freshness_score": 0.64,
+                "niche_match": 1.0,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-05 23:20:54",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 4,
+                "seed_source": "why the mystery of dyatlov pass is trending",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "aggregation": {
+                  "cluster_id": "cluster_003",
+                  "canonical_topic": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+                      "confidence": 0.718,
+                      "niche_match": 1.0,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.718
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.8707,
+                "niche_relevance_reason": "Matched tension points semantic cluster",
+                "rejected_by_filter": false,
+                "filter_decision": "KEEP",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.8707,
+                  "decision": "KEEP",
+                  "reason": "Matched tension points semantic cluster",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-05 23:20:54"
+              }
+            },
+            {
+              "trend": "the mystery of dyatlov pass for beginners",
+              "source": "mock_trend_provider",
+              "classification": "rising",
+              "competition_level": "low competition",
+              "ctr_potential": "medium CTR potential",
+              "educational_value": "medium educational value",
+              "viral_potential": "medium viral potential",
+              "trend_opportunity_score": 1.0,
+              "score": 71.91,
+              "metadata": {
+                "provider_backed": true,
+                "provider_name": "mock_trend_provider",
+                "source": "mock_local_seed",
+                "provider_confidence": 0.6275,
+                "freshness_score": 0.69,
+                "niche_match": 0.74,
+                "momentum": "stable",
+                "attribution": "mock://content_brain/mock_trend_provider/general",
+                "collected_at": "2026-06-05 23:20:54",
+                "platforms": [
+                  "youtube_shorts"
+                ],
+                "mock": true,
+                "seed_index": 3,
+                "seed_source": "the mystery of dyatlov pass for beginners",
+                "niche": "general",
+                "bridge": {
+                  "future_sources": [
+                    "youtube_trends",
+                    "reddit",
+                    "google_trends",
+                    "tiktok_discovery",
+                    "shorts_reels_trends",
+                    "news_trends"
+                  ]
+                },
+                "trend_angle": "beginner vs expert views on topic framing around the mystery of dyatlov pass for beginners",
+                "aggregation": {
+                  "cluster_id": "cluster_004",
+                  "canonical_topic": "the mystery of dyatlov pass for beginners",
+                  "aggregation_score": 1.0,
+                  "final_rank_score": 1.0,
+                  "corroboration_boost": 0.0,
+                  "provider_count": 1,
+                  "providers": [
+                    {
+                      "provider_id": "mock_trend_provider",
+                      "source": "mock_local_seed",
+                      "original_topic": "the mystery of dyatlov pass for beginners",
+                      "confidence": 0.6275,
+                      "niche_match": 0.74,
+                      "momentum": "stable",
+                      "weight": 1.0,
+                      "provider_base": 0.6275
+                    }
+                  ],
+                  "duplicate_members": [],
+                  "engine_version": "trend_signal_aggregation_v1"
+                },
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "niche_relevance_score": 0.6915,
+                "niche_relevance_reason": "Low overlap with general semantic universe",
+                "rejected_by_filter": false,
+                "filter_decision": "WARNING",
+                "niche_relevance": {
+                  "engine_version": "niche_relevance_filter_v1",
+                  "score": 0.6915,
+                  "decision": "WARNING",
+                  "reason": "Low overlap with general semantic universe",
+                  "matched_cluster_id": "tension_points",
+                  "negative_hits": []
+                },
+                "expiry_window_hours": 72,
+                "discovered_at": "2026-06-05 23:20:54"
+              }
+            }
+          ],
+          "best_trend_opportunity_score": 1.0,
+          "summary": {
+            "count": 5,
+            "rising": 3,
+            "evergreen": 2,
+            "seasonal": 0
+          }
+        },
+        "raw_provider_outputs": [
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.8755,
+              "freshness_score": 0.79,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 1,
+              "seed_source": "best the mystery of dyatlov pass tips",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_000",
+                "canonical_topic": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+                    "confidence": 0.8755,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.9455
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8667,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8667,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.823,
+              "freshness_score": 0.74,
+              "niche_match": 1.0,
+              "momentum": "rising",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 2,
+              "seed_source": "how to the mystery of dyatlov pass",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_001",
+                "canonical_topic": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+                    "confidence": 0.823,
+                    "niche_match": 1.0,
+                    "momentum": "rising",
+                    "weight": 1.0,
+                    "provider_base": 0.8888
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8688,
+              "niche_relevance_reason": "Matched subject core semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8688,
+                "decision": "KEEP",
+                "reason": "Matched subject core semantic cluster",
+                "matched_cluster_id": "subject_core",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "provider_id": "manual_seed",
+            "raw": {
+              "priority": "user_topic",
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.718,
+              "freshness_score": 0.64,
+              "niche_match": 1.0,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 4,
+              "seed_source": "why the mystery of dyatlov pass is trending",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "aggregation": {
+                "cluster_id": "cluster_003",
+                "canonical_topic": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+                    "confidence": 0.718,
+                    "niche_match": 1.0,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.718
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.8707,
+              "niche_relevance_reason": "Matched tension points semantic cluster",
+              "rejected_by_filter": false,
+              "filter_decision": "KEEP",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.8707,
+                "decision": "KEEP",
+                "reason": "Matched tension points semantic cluster",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          },
+          {
+            "provider_id": "mock_trend_provider",
+            "raw": {
+              "provider_backed": true,
+              "provider_name": "mock_trend_provider",
+              "source": "mock_local_seed",
+              "provider_confidence": 0.6275,
+              "freshness_score": 0.69,
+              "niche_match": 0.74,
+              "momentum": "stable",
+              "attribution": "mock://content_brain/mock_trend_provider/general",
+              "collected_at": "2026-06-05 23:20:54",
+              "platforms": [
+                "youtube_shorts"
+              ],
+              "mock": true,
+              "seed_index": 3,
+              "seed_source": "the mystery of dyatlov pass for beginners",
+              "niche": "general",
+              "bridge": {
+                "future_sources": [
+                  "youtube_trends",
+                  "reddit",
+                  "google_trends",
+                  "tiktok_discovery",
+                  "shorts_reels_trends",
+                  "news_trends"
+                ]
+              },
+              "trend_angle": "beginner vs expert views on topic framing around the mystery of dyatlov pass for beginners",
+              "aggregation": {
+                "cluster_id": "cluster_004",
+                "canonical_topic": "the mystery of dyatlov pass for beginners",
+                "aggregation_score": 1.0,
+                "final_rank_score": 1.0,
+                "corroboration_boost": 0.0,
+                "provider_count": 1,
+                "providers": [
+                  {
+                    "provider_id": "mock_trend_provider",
+                    "source": "mock_local_seed",
+                    "original_topic": "the mystery of dyatlov pass for beginners",
+                    "confidence": 0.6275,
+                    "niche_match": 0.74,
+                    "momentum": "stable",
+                    "weight": 1.0,
+                    "provider_base": 0.6275
+                  }
+                ],
+                "duplicate_members": [],
+                "engine_version": "trend_signal_aggregation_v1"
+              },
+              "aggregation_score": 1.0,
+              "final_rank_score": 1.0,
+              "niche_relevance_score": 0.6915,
+              "niche_relevance_reason": "Low overlap with general semantic universe",
+              "rejected_by_filter": false,
+              "filter_decision": "WARNING",
+              "niche_relevance": {
+                "engine_version": "niche_relevance_filter_v1",
+                "score": 0.6915,
+                "decision": "WARNING",
+                "reason": "Low overlap with general semantic universe",
+                "matched_cluster_id": "tension_points",
+                "negative_hits": []
+              },
+              "expiry_window_hours": 72,
+              "discovered_at": "2026-06-05 23:20:54"
+            }
+          }
+        ],
+        "niche": "general"
+      },
+      "error": ""
+    },
+    {
+      "step": 3,
+      "step_key": "topic_classification",
+      "title": "Topic Classification & Content Strategy",
+      "duration_ms": 0.1,
+      "api_sources": [
+        "content_brain_topic_strategy",
+        "domain_knowledge_layer",
+        "topic_knowledge_graph",
+        "content_brain_character_builder",
+        "story_strategy_library"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "classification": {
+          "topic": "the mystery of dyatlov pass",
+          "topic_category": "mystery",
+          "content_strategy": "narrative_mystery",
+          "instructional_intent": false,
+          "confidence": 0.88,
+          "reasoning": "Matched category 'mystery' from topic keywords."
+        },
+        "content_strategy": {
+          "strategy_id": "narrative_mystery",
+          "label": "Narrative mystery strategy",
+          "purpose": "build curiosity and reveal",
+          "niche_style": "mystery",
+          "effective_mood": "mysterious",
+          "clip_beats": [
+            "hook \u2014 unsettling clue about the mystery of dyatlov pass.",
+            "escalation \u2014 evidence intensifies around the mystery of dyatlov pass.",
+            "reveal \u2014 partial answer to the mystery of dyatlov pass."
+          ],
+          "conflict": "What does mystery of hide about the mystery of dyatlov pass?",
+          "visual_hook": "One unexplained detail in frame that demands answers about the mystery of dyatlov pass.",
+          "seo_title_candidates": [
+            "the mystery of mystery behind the mystery of dyatlov pass",
+            "why the mystery of dyatlov pass still confuses people"
+          ],
+          "required_terms": [
+            "clue",
+            "mystery",
+            "reveal",
+            "secret",
+            "question"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "domain_knowledge": {
+          "domain_id": "mystery",
+          "label": "Mystery & investigation",
+          "concepts": [
+            "clue",
+            "investigation",
+            "evidence",
+            "timeline",
+            "contradiction",
+            "witness",
+            "theory",
+            "reveal"
+          ],
+          "default_role_en": "a careful investigator",
+          "default_role_fa": "",
+          "setting_en": "",
+          "instructional_beats_en": [
+            "Strange clue or unsettling detail.",
+            "Investigation escalation and evidence comparison.",
+            "Reveal or open-loop payoff."
+          ],
+          "review_beats_en": []
+        },
+        "knowledge_graph": {
+          "domain": "mystery",
+          "nodes": [],
+          "matched_nodes": [],
+          "related_concepts": [],
+          "seo_keywords": []
+        },
+        "character_builder": {
+          "character": "a careful investigator",
+          "domain": "mystery",
+          "source": "domain_role",
+          "quality_score": 0.92,
+          "warnings": []
+        },
+        "story_strategy": {
+          "strategy_id": "mystery",
+          "label": "Mystery",
+          "hook_structure": "Strange clue or contradiction that demands explanation.",
+          "clip_beat_structure": [
+            "Clip 1 \u2014 strange clue",
+            "Clip 2 \u2014 investigation / escalation",
+            "Clip 3 \u2014 reveal / open loop"
+          ],
+          "conflict_type": "What really happened and what detail does not fit?",
+          "payoff_type": "Reveal or compelling open loop.",
+          "visual_language": "Clue-first framing, tension through detail, controlled reveal.",
+          "prompt_rules": [
+            "Every clip must advance the mystery.",
+            "No unrelated spectacle."
+          ]
+        },
+        "detected_language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 4,
+      "step_key": "duration_planner",
+      "title": "Duration Planner",
+      "duration_ms": 0.04,
+      "api_sources": [
+        "video_format_planner"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "duration_seconds": 30,
+        "clip_count": 3,
+        "clip_duration_seconds": 10,
+        "target_duration_seconds": 30,
+        "format_type": "multi_clip",
+        "reasoning": [
+          "Used user-requested duration 30s for youtube_shorts (short) with 3x10s clips via runway."
+        ],
+        "examples": {
+          "10s": "1 clip @ 10s",
+          "30s": "3 clips @ 10s",
+          "50s": "5 clips @ 10s"
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 5,
+      "step_key": "seo_title",
+      "title": "SEO Title Generation",
+      "duration_ms": 0.29,
+      "api_sources": [
+        "content_brain_seo_director",
+        "content_brain_topic_strategy"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+        "title_candidates": [
+          "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+          "why the mystery of dyatlov pass still confuses people",
+          "The Simple Mystery of Dyatlov Pass Trick Most Beginners Miss",
+          "the mystery of mystery behind the mystery of dyatlov pass",
+          "Why Your Mystery of Dyatlov Pass Never Works",
+          "Stop Making This Mystery of Dyatlov Pass Mistake"
+        ],
+        "keywords": [
+          "the mystery of dyatlov pass",
+          "mystery of",
+          "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+          "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+          "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+          "the mystery of dyatlov pass for beginners",
+          "Why best the mystery of dyatlov pass"
+        ],
+        "trend_angle": "Why best the mystery of dyatlov pass",
+        "language_code": "en",
+        "seo_score": 0.95,
+        "candidates_ranked": [
+          {
+            "title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.95,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": true
+          },
+          {
+            "title": "why the mystery of dyatlov pass still confuses people",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.8667,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "The Simple Mystery of Dyatlov Pass Trick Most Beginners Miss",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.8,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "the mystery of mystery behind the mystery of dyatlov pass",
+            "reason": "strong SEO relevance",
+            "seo_score": 1.0,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Why Your Mystery of Dyatlov Pass Never Works",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.7333,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "Stop Making This Mystery of Dyatlov Pass Mistake",
+            "reason": "high CTR hook with topic authority",
+            "seo_score": 0.7333,
+            "ctr_score": 0.8,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "The Easiest Mystery of Dyatlov Pass for Beginners",
+            "reason": "strong SEO relevance",
+            "seo_score": 0.95,
+            "ctr_score": 0.55,
+            "audience_fit": 0.55,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          },
+          {
+            "title": "How to Mystery of Dyatlov Pass Step by Step",
+            "reason": "balanced SEO/CTR/topic authority",
+            "seo_score": 0.7333,
+            "ctr_score": 0.55,
+            "audience_fit": 0.7,
+            "keywords": [
+              "the mystery of dyatlov pass",
+              "mystery of",
+              "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+              "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+              "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+              "the mystery of dyatlov pass for beginners"
+            ],
+            "selected": false
+          }
+        ],
+        "selection_reason": "high CTR hook with topic authority",
+        "content_strategy": "narrative_mystery",
+        "selected_seo_title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That"
+      },
+      "error": ""
+    },
+    {
+      "step": 6,
+      "step_key": "story_generation",
+      "title": "Story Generation",
+      "duration_ms": 3423.93,
+      "api_sources": [
+        "runway_story_brief_builder",
+        "content_brain_topic_strategy",
+        "content_brain_character_builder",
+        "openai_story_enricher"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "story": {
+          "title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+          "logline": "A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides.",
+          "main_character": "a knowledgeable presenter",
+          "setting": "a single continuous environment with strong depth and readable vertical framing",
+          "conflict_tension": "What does mystery of hide about the mystery of Dyatlov Pass?",
+          "visual_hook": "One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.",
+          "emotional_arc": "curiosity deepening into revelation",
+          "ending_beat": "reveal \u2014 partial answer to the mystery of Dyatlov Pass.",
+          "style_direction": "dark atmospheric mystery for vertical 9:16 YouTube Shorts. Mood: mysterious. Pacing: hook in first second, payoff before loop point. Palette: desaturated blue-green mystery grade. Camera: slow push-ins with shallow depth of field. Audience: mobile-first scroll-stopping viewer.",
+          "continuity_anchors": {
+            "character": "a knowledgeable presenter",
+            "location": "a single continuous environment with strong depth and readable vertical framing",
+            "lighting": "low-key motivated practicals with cold undertones",
+            "camera": "slow push-ins with shallow depth of field",
+            "palette": "desaturated blue-green mystery grade",
+            "wardrobe": ""
+          },
+          "clip_beats": [
+            "hook \u2014 unsettling clue about the mystery of Dyatlov Pass.",
+            "escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.",
+            "reveal \u2014 partial answer to the mystery of Dyatlov Pass."
+          ],
+          "source_topic": "the mystery of dyatlov pass",
+          "target_platform": "youtube_shorts",
+          "niche_style": "mystery",
+          "mood": "mysterious",
+          "clip_count": 3,
+          "duration_seconds": 10,
+          "builder_version": "runway_story_brief_v1",
+          "warnings": [],
+          "goal": "What does mystery of hide about the mystery of Dyatlov Pass?",
+          "conflict": "What does mystery of hide about the mystery of Dyatlov Pass?",
+          "tension": "What does mystery of hide about the mystery of Dyatlov Pass?",
+          "seo_title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+          "language_code": "en",
+          "content_strategy": "narrative_mystery",
+          "content_strategy_label": "Narrative mystery strategy",
+          "topic_category": "mystery",
+          "character_builder": {
+            "character": "a careful investigator",
+            "domain": "mystery",
+            "source": "domain_role",
+            "quality_score": 0.92,
+            "warnings": []
+          }
+        },
+        "seo_title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+        "language_code": "en",
+        "content_strategy": {
+          "strategy_id": "narrative_mystery",
+          "label": "Narrative mystery strategy",
+          "purpose": "build curiosity and reveal",
+          "niche_style": "mystery",
+          "effective_mood": "mysterious",
+          "clip_beats": [
+            "hook \u2014 unsettling clue about the mystery of dyatlov pass.",
+            "escalation \u2014 evidence intensifies around the mystery of dyatlov pass.",
+            "reveal \u2014 partial answer to the mystery of dyatlov pass."
+          ],
+          "conflict": "What does mystery of hide about the mystery of dyatlov pass?",
+          "visual_hook": "One unexplained detail in frame that demands answers about the mystery of dyatlov pass.",
+          "seo_title_candidates": [
+            "the mystery of mystery behind the mystery of dyatlov pass",
+            "why the mystery of dyatlov pass still confuses people"
+          ],
+          "required_terms": [
+            "clue",
+            "mystery",
+            "reveal",
+            "secret",
+            "question"
+          ],
+          "forbidden_filler": [
+            "walking on the shore",
+            "walking along the shore",
+            "staring at the horizon",
+            "emotional journey",
+            "contemplation",
+            "holds a final stillness",
+            "frame-ready end pose",
+            "compelling lead subject",
+            "emotional readability",
+            "discover the first narrative clue",
+            "environment reacts to rising pressure",
+            "danger and possibility coexisting"
+          ]
+        },
+        "openai_enrichment": {
+          "applied": true,
+          "provider": "openai_story_enricher",
+          "model": "gpt-4.1-mini",
+          "story": {
+            "title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+            "logline": "A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides.",
+            "main_character": "a knowledgeable presenter",
+            "setting": "a single continuous environment with strong depth and readable vertical framing",
+            "conflict_tension": "What does mystery of hide about the mystery of Dyatlov Pass?",
+            "visual_hook": "One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.",
+            "emotional_arc": "curiosity deepening into revelation",
+            "ending_beat": "reveal \u2014 partial answer to the mystery of Dyatlov Pass.",
+            "style_direction": "dark atmospheric mystery for vertical 9:16 YouTube Shorts. Mood: mysterious. Pacing: hook in first second, payoff before loop point. Palette: desaturated blue-green mystery grade. Camera: slow push-ins with shallow depth of field. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a knowledgeable presenter",
+              "location": "a single continuous environment with strong depth and readable vertical framing",
+              "lighting": "low-key motivated practicals with cold undertones",
+              "camera": "slow push-ins with shallow depth of field",
+              "palette": "desaturated blue-green mystery grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "hook \u2014 unsettling clue about the mystery of Dyatlov Pass.",
+              "escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.",
+              "reveal \u2014 partial answer to the mystery of Dyatlov Pass."
+            ],
+            "source_topic": "the mystery of dyatlov pass",
+            "target_platform": "youtube_shorts",
+            "niche_style": "mystery",
+            "mood": "mysterious",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v1+openai_story",
+            "warnings": [],
+            "openai_enriched": true
+          },
+          "notes": [
+            "openai_story_enrichment_applied"
+          ]
+        }
+      },
+      "error": ""
+    },
+    {
+      "step": 7,
+      "step_key": "clip_planner",
+      "title": "Clip Planner",
+      "duration_ms": 0.0,
+      "api_sources": [
+        "runway_story_brief_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "clip_count": 3,
+        "clips": [
+          {
+            "clip_index": 1,
+            "purpose": "hook",
+            "scene": "hook \u2014 unsettling clue about the mystery of Dyatlov Pass.",
+            "role_label": "hook",
+            "story_beat": "hook \u2014 unsettling clue about the mystery of Dyatlov Pass."
+          },
+          {
+            "clip_index": 2,
+            "purpose": "escalation",
+            "scene": "escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.",
+            "role_label": "escalation",
+            "story_beat": "escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass."
+          },
+          {
+            "clip_index": 3,
+            "purpose": "payoff",
+            "scene": "reveal \u2014 partial answer to the mystery of Dyatlov Pass.",
+            "role_label": "payoff",
+            "story_beat": "reveal \u2014 partial answer to the mystery of Dyatlov Pass."
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "step": 8,
+      "step_key": "prompt_generation",
+      "title": "Prompt Generation",
+      "duration_ms": 4.6,
+      "api_sources": [
+        "runway_prompt_builder"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a knowledgeable presenter. Environment: a single continuous environment with strong depth and readable vertical framing. Lighting: low-key motivated practicals with cold undertones. Camera: slow push-ins with shallow depth of field. Palette: desaturated blue-green mystery grade. Scene essence: A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides.. Visual hook: One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.. Tension: What does mystery of hide about the mystery of Dyatlov Pass?. Style direction: dark atmospheric mystery for vertical 9:16 YouTube Shorts. Mood: mysterious. Pacing: hook in first second, payoff before loop point. Palette: desaturated blue-green mystery grade. Camera: slow push-ins with shallow depth of field. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: hook \u2014 unsettling clue about the mystery of Dyatlov Pass.. Story beat reference: escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.. Story beat reference: reveal \u2014 partial answer to the mystery of Dyatlov Pass.. Reference detail: 35mm anamorphic lens personality with natural edge falloff. Maintain photoreal texture, material fidelity, and vertical framing readability. Reference detail: practical sources remain fixed in world space. Maintain photoreal texture, material fidelity, and vertical framing readability.",
+        "starter_image_prompt_chars": 1858,
+        "runway_prompt_max_chars": 5000,
+        "clip_prompts": [
+          {
+            "clip_index": 1,
+            "video_prompt": "Continuity lock: same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade). No scene jump. No unrelated location change. Clip 1 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Opens from the approved starter reference image via Use to Video \u2014 preserve identity, wardrobe, and environment from the hero frame. Primary action beat: hook \u2014 unsettling clue about the mystery of Dyatlov Pass.. Camera motion: begins with a slow discovery push-in. Narrative role (discovery): emotional beat \u2014 curiosity and unease awaken. Camera progression: medium-wide push-in; subject shifts from stillness to alerted attention. Environmental progression: introduce first environmental story beat (rain shift, distant lights, particles). Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Additional continuity detail: fabric, hair, or surface micro-movement reacts to the same air current. Additional continuity detail: vertical framing with intentional headroom for Shorts composition. Additional continuity detail: consistent motivated key light direction across the sequence. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2664,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a knowledgeable presenter. Environment: a single continuous environment with strong depth and readable vertical framing. Lighting: low-key motivated practicals with cold undertones. Camera: slow push-ins with shallow depth of field. Palette: desaturated blue-green mystery grade. Scene essence: A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides.. Visual hook: One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.. Tension: What does mystery of hide about the mystery of Dyatlov Pass?. Style direction: dark atmospheric mystery for vertical 9:16 YouTube Shorts. Mood: mysterious. Pacing: hook in first second, payoff before loop point. Palette: desaturated blue-green mystery grade. Camera: slow push-ins with shallow depth of field. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: hook \u2014 unsettling clue about the mystery of Dyatlov Pass.. Story beat reference: escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.. Story beat reference: reveal \u2014 partial answer to the mystery of Dyatlov Pass.. Reference detail: 35mm anamorphic lens personality with natural edge falloff. Maintain photoreal texture, material fidelity, and vertical framing readability. Reference detail: practical sources remain fixed in world space. Maintain photoreal texture, material fidelity, and vertical framing readability.",
+            "image_prompt_chars": 1858,
+            "continuity_notes": "same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade)"
+          },
+          {
+            "clip_index": 2,
+            "video_prompt": "Continuity lock: same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade). No scene jump. No unrelated location change. Clip 2 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.. Camera motion: maintains fluid lateral camera tracking during escalation. Narrative role (escalation): emotional beat \u2014 pressure and urgency rise. Camera progression: lateral tracking shot following motivated forward movement. Environmental progression: weather, lighting, or background motion intensifies while location stays fixed. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: handheld-inspired stability without chaotic shake. Additional continuity detail: skin and material specular response stays coherent. Additional continuity detail: distant city or nature elements drift slowly for depth. Additional continuity detail: 35mm anamorphic lens personality with natural edge falloff. Additional continuity detail: practical sources remain fixed in world space. Additional continuity detail: practical lights flicker minimally within realistic bounds. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2706,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade)"
+          },
+          {
+            "clip_index": 3,
+            "video_prompt": "Continuity lock: same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade). No scene jump. No unrelated location change. Clip 3 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: reveal \u2014 partial answer to the mystery of Dyatlov Pass.. Camera motion: eases into a final micro-motion reveal-ready pose. Narrative role (payoff): emotional beat \u2014 emotional consequence lands in a frame-ready end pose. Camera progression: push to hero close or crane down to reveal object/consequence. Environmental progression: environment frames the reveal detail without changing world location. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. Final clip resolves action but keeps the same world \u2014 no epilogue scene change. Additional continuity detail: motivated rack focus only when action demands it. Additional continuity detail: no sudden exposure jumps or white balance shifts. Additional continuity detail: background extras or particles move subtly in parallax. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Additional continuity detail: fabric, hair, or surface micro-movement reacts to the same air current. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "video_prompt_chars": 2709,
+            "video_prompt_max_chars": 5000,
+            "image_prompt": "",
+            "image_prompt_chars": 0,
+            "continuity_notes": "same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade)"
+          }
+        ],
+        "continuity_anchors": {
+          "character": "a knowledgeable presenter",
+          "location": "a single continuous environment with strong depth and readable vertical framing",
+          "lighting": "low-key motivated practicals with cold undertones",
+          "camera": "slow push-ins with shallow depth of field",
+          "palette": "desaturated blue-green mystery grade",
+          "wardrobe": ""
+        },
+        "builder_version": "runway_starter_to_video_f_v1",
+        "validation_warnings": [],
+        "char_stats": {
+          "runway_prompt_max_chars": 5000,
+          "starter_image_chars": 1858,
+          "starter_image_max": 5000,
+          "clip_prompt_chars": [
+            2664,
+            2706,
+            2709
+          ],
+          "clip_prompt_min": 2664,
+          "clip_prompt_max": 2709,
+          "clip_prompt_hard_max": 5000
+        },
+        "raw_bundle": {
+          "project_id": "cb_test_158c969d",
+          "story_idea": "A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides. Character: a knowledgeable presenter. Setting: a single continuous environment with strong depth and readable vertical framing. Conflict: What does mystery of hide about the mystery of Dyatlov Pass?. Visual hook: One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.. Emotional arc: curiosity deepening into revelation. Ending: reveal \u2014 partial answer to the mystery of Dyatlov Pass.. Clip 1: hook \u2014 unsettling clue about the mystery of Dyatlov Pass.. Clip 2: escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.. Clip 3: reveal \u2014 partial answer to the mystery of Dyatlov Pass..",
+          "clip_count": 3,
+          "starter_image_prompt": "cinematic realistic vertical 9:16 hero starter frame. Static hold composition for reference image generation. Subject: a knowledgeable presenter. Environment: a single continuous environment with strong depth and readable vertical framing. Lighting: low-key motivated practicals with cold undertones. Camera: slow push-ins with shallow depth of field. Palette: desaturated blue-green mystery grade. Scene essence: A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides.. Visual hook: One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.. Tension: What does mystery of hide about the mystery of Dyatlov Pass?. Style direction: dark atmospheric mystery for vertical 9:16 YouTube Shorts. Mood: mysterious. Pacing: hook in first second, payoff before loop point. Palette: desaturated blue-green mystery grade. Camera: slow push-ins with shallow depth of field. Audience: mobile-first scroll-stopping viewer.. Frame the subject for vertical Shorts with clear silhouette readability. Ultra-detailed textures, realistic materials, natural skin and fabric response. No motion blur priority \u2014 this is a still hero frame that seeds clip 1. No text, no, no, no, no. Story beat reference: hook \u2014 unsettling clue about the mystery of Dyatlov Pass.. Story beat reference: escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.. Story beat reference: reveal \u2014 partial answer to the mystery of Dyatlov Pass.. Reference detail: 35mm anamorphic lens personality with natural edge falloff. Maintain photoreal texture, material fidelity, and vertical framing readability. Reference detail: practical sources remain fixed in world space. Maintain photoreal texture, material fidelity, and vertical framing readability.",
+          "clip_prompts": [
+            "Continuity lock: same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade). No scene jump. No unrelated location change. Clip 1 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Opens from the approved starter reference image via Use to Video \u2014 preserve identity, wardrobe, and environment from the hero frame. Primary action beat: hook \u2014 unsettling clue about the mystery of Dyatlov Pass.. Camera motion: begins with a slow discovery push-in. Narrative role (discovery): emotional beat \u2014 curiosity and unease awaken. Camera progression: medium-wide push-in; subject shifts from stillness to alerted attention. Environmental progression: introduce first environmental story beat (rain shift, distant lights, particles). Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Additional continuity detail: fabric, hair, or surface micro-movement reacts to the same air current. Additional continuity detail: vertical framing with intentional headroom for Shorts composition. Additional continuity detail: consistent motivated key light direction across the sequence. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Continuity lock: same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade). No scene jump. No unrelated location change. Clip 2 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.. Camera motion: maintains fluid lateral camera tracking during escalation. Narrative role (escalation): emotional beat \u2014 pressure and urgency rise. Camera progression: lateral tracking shot following motivated forward movement. Environmental progression: weather, lighting, or background motion intensifies while location stays fixed. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. End frame must remain in the same spatial layout to enable Use Frame for the next clip. Additional continuity detail: handheld-inspired stability without chaotic shake. Additional continuity detail: skin and material specular response stays coherent. Additional continuity detail: distant city or nature elements drift slowly for depth. Additional continuity detail: 35mm anamorphic lens personality with natural edge falloff. Additional continuity detail: practical sources remain fixed in world space. Additional continuity detail: practical lights flicker minimally within realistic bounds. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame.",
+            "Continuity lock: same character (a knowledgeable presenter), same wardrobe, same location (a single continuous environment with strong depth and readable vertical framing), same lighting (low-key motivated practicals with cold undertones), same camera language (slow push-ins with shallow depth of field), same palette (desaturated blue-green mystery grade). No scene jump. No unrelated location change. Clip 3 of 3. Exactly 10 seconds of continuous on-screen motion and action. cinematic realistic vertical 9:16. Seamless continuation from the previous clip last frame via Use Frame \u2014 do not reset location or character identity. Primary action beat: reveal \u2014 partial answer to the mystery of Dyatlov Pass.. Camera motion: eases into a final micro-motion reveal-ready pose. Narrative role (payoff): emotional beat \u2014 emotional consequence lands in a frame-ready end pose. Camera progression: push to hero close or crane down to reveal object/consequence. Environmental progression: environment frames the reveal detail without changing world location. Preserve the same character, location, and wardrobe \u2014 change story energy, not world identity. Motion design for the full 10 seconds: second 0-2 establish continuity and micro-movement; second 2-7 execute the main motivated action without cuts; second 7-10 decelerate into a stable end pose suitable for frame handoff. Cinematography continuity: 35mm anamorphic lens personality with natural edge falloff; shallow depth of field keeping background softly readable; handheld-inspired stability without chaotic shake. Lighting continuity: consistent motivated key light direction across the sequence; practical sources remain fixed in world space; volumetric atmosphere density unchanged between beats. Environment continuity: background extras or particles move subtly in parallax; ambient particulate catches the same light angle throughout; practical lights flicker minimally within realistic bounds. Final clip resolves action but keeps the same world \u2014 no epilogue scene change. Additional continuity detail: motivated rack focus only when action demands it. Additional continuity detail: no sudden exposure jumps or white balance shifts. Additional continuity detail: background extras or particles move subtly in parallax. Additional continuity detail: shallow depth of field keeping background softly readable. Additional continuity detail: volumetric atmosphere density unchanged between beats. Additional continuity detail: fabric, hair, or surface micro-movement reacts to the same air current. Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, no title cards, no scene jump, no unrelated new characters entering frame."
+          ],
+          "continuity_anchors": {
+            "character": "a knowledgeable presenter",
+            "location": "a single continuous environment with strong depth and readable vertical framing",
+            "lighting": "low-key motivated practicals with cold undertones",
+            "camera": "slow push-ins with shallow depth of field",
+            "palette": "desaturated blue-green mystery grade",
+            "wardrobe": ""
+          },
+          "warnings": [],
+          "char_stats": {
+            "runway_prompt_max_chars": 5000,
+            "starter_image_chars": 1858,
+            "starter_image_max": 5000,
+            "clip_prompt_chars": [
+              2664,
+              2706,
+              2709
+            ],
+            "clip_prompt_min": 2664,
+            "clip_prompt_max": 2709,
+            "clip_prompt_hard_max": 5000
+          },
+          "builder_version": "runway_starter_to_video_f_v1",
+          "story_brief": {
+            "title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+            "logline": "A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides.",
+            "main_character": "a knowledgeable presenter",
+            "setting": "a single continuous environment with strong depth and readable vertical framing",
+            "conflict_tension": "What does mystery of hide about the mystery of Dyatlov Pass?",
+            "visual_hook": "One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.",
+            "emotional_arc": "curiosity deepening into revelation",
+            "ending_beat": "reveal \u2014 partial answer to the mystery of Dyatlov Pass.",
+            "style_direction": "dark atmospheric mystery for vertical 9:16 YouTube Shorts. Mood: mysterious. Pacing: hook in first second, payoff before loop point. Palette: desaturated blue-green mystery grade. Camera: slow push-ins with shallow depth of field. Audience: mobile-first scroll-stopping viewer.",
+            "continuity_anchors": {
+              "character": "a knowledgeable presenter",
+              "location": "a single continuous environment with strong depth and readable vertical framing",
+              "lighting": "low-key motivated practicals with cold undertones",
+              "camera": "slow push-ins with shallow depth of field",
+              "palette": "desaturated blue-green mystery grade",
+              "wardrobe": ""
+            },
+            "clip_beats": [
+              "hook \u2014 unsettling clue about the mystery of Dyatlov Pass.",
+              "escalation \u2014 evidence intensifies around the mystery of Dyatlov Pass.",
+              "reveal \u2014 partial answer to the mystery of Dyatlov Pass."
+            ],
+            "source_topic": "the mystery of dyatlov pass",
+            "target_platform": "youtube_shorts",
+            "niche_style": "mystery",
+            "mood": "mysterious",
+            "clip_count": 3,
+            "duration_seconds": 10,
+            "builder_version": "runway_story_brief_v1",
+            "warnings": []
+          }
+        },
+        "runway_calls": false,
+        "media_generation": false
+      },
+      "error": ""
+    },
+    {
+      "step": 9,
+      "step_key": "seo_generation",
+      "title": "SEO Generation",
+      "duration_ms": 0.01,
+      "api_sources": [
+        "content_brain_seo_title_builder",
+        "profile_seo_rules",
+        "story_brief"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "seo_title": "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+        "seo_description": "A knowledgeable presenter explores an unexplained detail in a single continuous environment, challenging viewers to uncover what the Dyatlov Pass mystery truly hides. One unexplained detail in frame that demands answers about the mystery of Dyatlov Pass.",
+        "keywords": [
+          "the mystery of dyatlov pass",
+          "mystery of",
+          "Why best the mystery of dyatlov pass tips is gaining traction via format gaining traction around topic",
+          "how to the mystery of dyatlov pass: the question people keep asking about topic angle gaining comments this week",
+          "Why why the mystery of dyatlov pass is trending is gaining traction via popular advice vs real results in topic",
+          "the mystery of dyatlov pass for beginners",
+          "Why best the mystery of dyatlov pass"
+        ],
+        "hashtags": [
+          "#general",
+          "#shorts"
+        ],
+        "seo_score": 0.95,
+        "title_candidates": [
+          "Mystery of Dyatlov Pass: Why best the mystery of dyatlov pass That",
+          "why the mystery of dyatlov pass still confuses people",
+          "The Simple Mystery of Dyatlov Pass Trick Most Beginners Miss",
+          "the mystery of mystery behind the mystery of dyatlov pass",
+          "Why Your Mystery of Dyatlov Pass Never Works",
+          "Stop Making This Mystery of Dyatlov Pass Mistake"
+        ],
+        "trend_angle": "Why best the mystery of dyatlov pass",
+        "language_code": "en"
+      },
+      "error": ""
+    },
+    {
+      "step": 10,
+      "step_key": "quality_audit",
+      "title": "Quality Audit V2",
+      "duration_ms": 1.64,
+      "api_sources": [
+        "content_brain_quality_audit_v2",
+        "content_brain_language_authority"
+      ],
+      "provider_costs": {},
+      "payload": {
+        "topic_preservation_score": 1.0,
+        "language_authority_score": 0.8931,
+        "domain_knowledge_score": 0.375,
+        "character_quality_score": 0.75,
+        "story_specificity_score": 0.83,
+        "strategy_alignment_score": 0.3,
+        "seo_title_quality_score": 0.95,
+        "clip_specificity_score": 0.375,
+        "prompt_specificity_score": 0.375,
+        "continuity_score": 1.0,
+        "overall_content_score": 0.6788,
+        "warnings": [
+          "topic intent not preserved"
+        ],
+        "passed": true,
+        "details": {
+          "language_authority": {
+            "expected_language_code": "en",
+            "language_authority_score": 0.8931,
+            "drift_detected": [],
+            "field_scores": {
+              "seo_title": 0.91,
+              "story_logline": 0.8904,
+              "story_character": 0.88,
+              "story_setting": 0.9018,
+              "story_beats": 0.8933,
+              "prompts": 0.8878,
+              "hashtags": 0.88,
+              "trends": 0.9012
+            },
+            "passed": true,
+            "notes": []
+          },
+          "strategy_alignment": {
+            "topic": "the mystery of dyatlov pass",
+            "content_strategy": "narrative_mystery",
+            "topic_strategy_alignment_score": 0.3,
+            "seo_alignment": 0.2,
+            "story_alignment": 0.2,
+            "clip_alignment": 0.6,
+            "prompt_alignment": 0.6,
+            "generic_filler_hits": [
+              "frame-ready end pose"
+            ],
+            "required_term_hits": [
+              "clue",
+              "mystery",
+              "reveal"
+            ],
+            "passed": false,
+            "notes": [
+              "generic_filler_detected:1",
+              "topic_strategy_alignment_failed"
+            ]
+          },
+          "story_strategy": {
+            "strategy_id": "mystery",
+            "label": "Mystery",
+            "hook_structure": "Strange clue or contradiction that demands explanation.",
+            "clip_beat_structure": [
+              "Clip 1 \u2014 strange clue",
+              "Clip 2 \u2014 investigation / escalation",
+              "Clip 3 \u2014 reveal / open loop"
+            ],
+            "conflict_type": "What really happened and what detail does not fit?",
+            "payoff_type": "Reveal or compelling open loop.",
+            "visual_language": "Clue-first framing, tension through detail, controlled reveal.",
+            "prompt_rules": [
+              "Every clip must advance the mystery.",
+              "No unrelated spectacle."
+            ]
+          },
+          "domain_profile": {
+            "domain_id": "mystery",
+            "label": "Mystery & investigation",
+            "concepts": [
+              "clue",
+              "investigation",
+              "evidence",
+              "timeline",
+              "contradiction",
+              "witness",
+              "theory",
+              "reveal"
+            ],
+            "default_role_en": "a careful investigator",
+            "default_role_fa": "",
+            "setting_en": "",
+            "instructional_beats_en": [
+              "Strange clue or unsettling detail.",
+              "Investigation escalation and evidence comparison.",
+              "Reveal or open-loop payoff."
+            ],
+            "review_beats_en": []
+          }
+        },
+        "audit_version": "quality_audit_v2",
+        "strategy_alignment_passed": false,
+        "forbidden_drift": []
+      },
+      "error": ""
+    }
+  ],
+  "quality_audit": {
+    "topic_preservation_score": 1.0,
+    "language_authority_score": 0.8931,
+    "domain_knowledge_score": 0.375,
+    "character_quality_score": 0.75,
+    "story_specificity_score": 0.83,
+    "strategy_alignment_score": 0.3,
+    "seo_title_quality_score": 0.95,
+    "clip_specificity_score": 0.375,
+    "prompt_specificity_score": 0.375,
+    "continuity_score": 1.0,
+    "overall_content_score": 0.6788,
+    "warnings": [
+      "topic intent not preserved"
+    ],
+    "passed": true,
+    "details": {
+      "language_authority": {
+        "expected_language_code": "en",
+        "language_authority_score": 0.8931,
+        "drift_detected": [],
+        "field_scores": {
+          "seo_title": 0.91,
+          "story_logline": 0.8904,
+          "story_character": 0.88,
+          "story_setting": 0.9018,
+          "story_beats": 0.8933,
+          "prompts": 0.8878,
+          "hashtags": 0.88,
+          "trends": 0.9012
+        },
+        "passed": true,
+        "notes": []
+      },
+      "strategy_alignment": {
+        "topic": "the mystery of dyatlov pass",
+        "content_strategy": "narrative_mystery",
+        "topic_strategy_alignment_score": 0.3,
+        "seo_alignment": 0.2,
+        "story_alignment": 0.2,
+        "clip_alignment": 0.6,
+        "prompt_alignment": 0.6,
+        "generic_filler_hits": [
+          "frame-ready end pose"
+        ],
+        "required_term_hits": [
+          "clue",
+          "mystery",
+          "reveal"
+        ],
+        "passed": false,
+        "notes": [
+          "generic_filler_detected:1",
+          "topic_strategy_alignment_failed"
+        ]
+      },
+      "story_strategy": {
+        "strategy_id": "mystery",
+        "label": "Mystery",
+        "hook_structure": "Strange clue or contradiction that demands explanation.",
+        "clip_beat_structure": [
+          "Clip 1 \u2014 strange clue",
+          "Clip 2 \u2014 investigation / escalation",
+          "Clip 3 \u2014 reveal / open loop"
+        ],
+        "conflict_type": "What really happened and what detail does not fit?",
+        "payoff_type": "Reveal or compelling open loop.",
+        "visual_language": "Clue-first framing, tension through detail, controlled reveal.",
+        "prompt_rules": [
+          "Every clip must advance the mystery.",
+          "No unrelated spectacle."
+        ]
+      },
+      "domain_profile": {
+        "domain_id": "mystery",
+        "label": "Mystery & investigation",
+        "concepts": [
+          "clue",
+          "investigation",
+          "evidence",
+          "timeline",
+          "contradiction",
+          "witness",
+          "theory",
+          "reveal"
+        ],
+        "default_role_en": "a careful investigator",
+        "default_role_fa": "",
+        "setting_en": "",
+        "instructional_beats_en": [
+          "Strange clue or unsettling detail.",
+          "Investigation escalation and evidence comparison.",
+          "Reveal or open-loop payoff."
+        ],
+        "review_beats_en": []
+      }
+    },
+    "audit_version": "quality_audit_v2",
+    "strategy_alignment_passed": false,
+    "forbidden_drift": []
+  },
+  "overall_content_score": 0.6788,
+  "export_paths": {},
+  "errors": [],
+  "total_duration_ms": 0.0
+}

@@ -80,10 +80,14 @@ class TrendProviderConfigLoader:
 
     def _get_ready_trend_sources(self) -> list[str]:
         engine = self._get_engine()
-        ready = engine.get_ready_trend_sources()
-        if not isinstance(ready, list):
-            return []
-        return [str(item).strip() for item in ready if str(item).strip()]
+        active_ready = engine.get_ready_trend_sources()
+        live_active = [item for item in active_ready if item != "mock_trend_provider"]
+        if live_active:
+            return active_ready
+        credential_ready = engine.get_credential_ready_trend_sources()
+        if credential_ready:
+            return credential_ready
+        return active_ready
 
     def _instantiate_provider(
         self,

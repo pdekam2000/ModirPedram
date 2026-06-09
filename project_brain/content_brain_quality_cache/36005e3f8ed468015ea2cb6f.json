@@ -1,0 +1,23 @@
+{
+  "topic": "What Really Happened to the Roanoke Colony?",
+  "category": "history_mystery",
+  "strategy": "historical_investigation",
+  "enhancement_types": [
+    "domain_knowledge"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "Croatoan",
+      "settlers",
+      "Roanoke Island",
+      "archaeological evidence",
+      "colonial settlement"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

@@ -1,0 +1,52 @@
+{
+  "topic": "Could Nokia have survived if it had adopted Android earlier?",
+  "category": "general",
+  "strategy": "business_case_study",
+  "enhancement_types": [
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Could Nokia have survived if it had adopted Android earlier?",
+      "The Truth About Could Nokia",
+      "Why Could Nokia Matters",
+      "What Everyone Gets Wrong About Could Nokia",
+      "Could Nokia"
+    ],
+    "domain_concepts": [
+      "strategic mistake",
+      "platform strategy",
+      "market timing",
+      "platform shift",
+      "ecosystem shift",
+      "market share",
+      "competitive response",
+      "operating system adoption",
+      "consumer adoption",
+      "missed adoption window",
+      "smartphone market",
+      "distribution strategy"
+    ],
+    "story_angles": [
+      "Setup — revisit Nokia's strategic mistake and market timing before the smartphone platform shift.",
+      "Counterfactual — compare Android adoption timing, platform strategy, ecosystem lock-in, and smartphone market windows.",
+      "Verdict — whether earlier Android adoption could have changed Nokia's survival outcome and competitive response."
+    ],
+    "prompt_additions": [
+      "strategic mistake",
+      "platform strategy",
+      "market timing",
+      "platform shift",
+      "ecosystem shift",
+      "market share"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

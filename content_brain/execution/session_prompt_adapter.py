@@ -4,6 +4,7 @@ Session → provider-ready prompts adapter (Phase 10I, video_generation category
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 from datetime import datetime
 from hashlib import sha256
@@ -11,11 +12,16 @@ from typing import Any
 
 from content_brain.execution.provider_categories import CATEGORY_VIDEO, normalize_provider_key
 
+try:
+    from content_brain.execution.runway_prompt_builder import RUNWAY_PROMPT_MAX_CHARS
+except ImportError:  # pragma: no cover
+    RUNWAY_PROMPT_MAX_CHARS = 5000
+
 ENGINE_NAME = "SessionPromptAdapter"
 ENGINE_VERSION = "10i_v1"
 COMPOSER_VERSION_12J_C = "12j_c_v1"
 TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S"
-RUNWAY_MAX_PROMPT_CHARS = 950
+RUNWAY_MAX_PROMPT_CHARS = int(os.getenv("RUNWAY_MAX_PROMPT_CHARS", str(RUNWAY_PROMPT_MAX_CHARS)))
 
 
 def _dict(value: Any) -> dict[str, Any]:

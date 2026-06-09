@@ -1,0 +1,41 @@
+{
+  "topic": "Will AI replace graphic designers?",
+  "category": "technology",
+  "strategy": "technology_forecast",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "story",
+    "seo"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Why Will AI Replace Graphic Designers Matters",
+      "The Truth About Will AI Replace Graphic Designers",
+      "What Everyone Gets Wrong About Will AI Replace Graphic Designers",
+      "The Real Story Behind Will AI Replace Graphic Designers",
+      "Will AI Replace Graphic Designers?"
+    ],
+    "domain_concepts": [
+      "Will",
+      "replace",
+      "graphic",
+      "designers?"
+    ],
+    "character_role": "a focused analyst",
+    "story": {
+      "logline": "A focused expert breaks down Will AI replace graphic designers with concrete evidence, objects, and topic-specific stakes.",
+      "clip_beats": [
+        "Introduce the digital creator at their modern desk, showing their laptop and graphic design tools. Present the question: Will AI replace graphic designers? Highlight current AI tools influencing the workflow.",
+        "Demonstrate step-by-step how AI assists in graphic design tasks—generating concepts, automating repetitive work, and enhancing creativity—while the creator interacts with the AI tools on screen, highlighting replace.",
+        "Show a side-by-side comparison of AI-generated and human-refined designs. Conclude with practical insights on which design aspects AI can handle and which require human expertise, emphasizing collaboration over replacement, highlighting graphic."
+      ]
+    }
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}

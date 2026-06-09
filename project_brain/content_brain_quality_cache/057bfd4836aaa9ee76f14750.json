@@ -1,0 +1,34 @@
+{
+  "topic": "Why did Blockbuster disappear?",
+  "category": "business_history",
+  "strategy": "business_case_study",
+  "enhancement_types": [
+    "domain_knowledge",
+    "prompt"
+  ],
+  "payload": {
+    "domain_concepts": [
+      "Netflix",
+      "DVD by mail",
+      "Reed Hastings",
+      "late fees",
+      "subscription model",
+      "digital transformation",
+      "customer retention"
+    ],
+    "prompt_additions": [
+      "Netflix",
+      "DVD by mail",
+      "Reed Hastings",
+      "late fees",
+      "subscription model",
+      "digital transformation"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "estimated_cost_usd": 0.0
+}
