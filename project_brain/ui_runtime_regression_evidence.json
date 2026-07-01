@@ -1,0 +1,25 @@
+{
+  "preflight": {
+    "platform": "youtube_shorts",
+    "aspect_ratio": "9:16",
+    "clip1_generation_mode": "text_to_video_prompt_only",
+    "clip1_starter_frame_required": false,
+    "first_clip_source": "prompt_only"
+  },
+  "payload": {
+    "topic_mode": "custom",
+    "custom_topic": "A boy finds a dragon egg in a glowing forest",
+    "duration_seconds": 30,
+    "platform": "youtube_shorts",
+    "aspect_ratio": "9:16",
+    "aspect_ratio_manual": false,
+    "provider": "kling_3_0_pro_native_audio",
+    "audio_strategy": "kling_native_audio"
+  },
+  "generate_runtime": {
+    "first_frame_path_passed_to_runtime": null,
+    "aspect_ratio_in_payload": "9:16",
+    "clip1_starter_frame_required": false,
+    "generate_status": "completed"
+  }
+}

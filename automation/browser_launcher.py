@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -109,6 +110,23 @@ def is_cdp_reachable(cdp_url: str, *, timeout_seconds: float = 1.5) -> bool:
     return ok
 
 
+def wait_for_cdp_reachable(
+    cdp_url: str,
+    *,
+    timeout_seconds: float = 20.0,
+    poll_interval_seconds: float = 0.5,
+) -> tuple[bool, str]:
+    """Poll CDP socket until reachable or timeout."""
+    deadline = time.time() + max(1.0, float(timeout_seconds))
+    while time.time() < deadline:
+        ok, msg = probe_cdp_socket(cdp_url, timeout_seconds=1.0)
+        if ok:
+            return True, msg
+        time.sleep(max(0.1, float(poll_interval_seconds)))
+    port = _parse_cdp_port(cdp_url)
+    return False, f"CDP not reachable on 127.0.0.1:{port} within {timeout_seconds:.0f}s"
+
+
 def probe_runway_login_detected(cdp_url: str, *, timeout_ms: int = 4000) -> tuple[bool, str]:
     """
     Heuristic: inspect open CDP tabs for Runway workspace (no credential storage).
@@ -184,11 +202,13 @@ def launch_controlled_chrome(
         return {
             "success": True,
             "already_running": True,
-            "message": "Controlled browser already listening on CDP (port in use).",
+            "cdp_reachable": True,
+            "message": "Browser Connected — CDP already reachable on port.",
             "chrome_executable": str(chrome_exe),
             "profile_path": str(profile_path),
             "cdp_url": cdp_url,
             "cdp_port": _parse_cdp_port(cdp_url),
+            "browser_kind": "chrome",
         }
 
     port = _parse_cdp_port(cdp_url)
@@ -212,15 +232,26 @@ def launch_controlled_chrome(
     }
     _write_state(root, payload)
 
+    cdp_reachable, cdp_wait_msg = wait_for_cdp_reachable(cdp_url)
+    if cdp_reachable:
+        launch_message = "Browser Connected — CDP reachable on port."
+    else:
+        launch_message = (
+            "Chrome launched with remote debugging enabled, but CDP is not reachable yet. "
+            f"{cdp_wait_msg}"
+        )
+
     return {
         "success": True,
         "already_running": False,
-        "message": "Chrome launched with controlled profile. Log into Runway manually and keep the browser open.",
+        "cdp_reachable": cdp_reachable,
+        "message": launch_message,
         "chrome_executable": str(chrome_exe),
         "profile_path": str(profile_path),
         "cdp_url": cdp_url,
         "cdp_port": port,
         "pid": process.pid,
+        "browser_kind": "chrome",
     }
 
 
@@ -274,7 +305,11 @@ def get_browser_operator_status(
     return {
         "launcher_version": LAUNCHER_VERSION,
         "browser_running": browser_running,
+        "browser_connected": browser_running,
         "cdp_connected": cdp_connected,
+        "cdp_reachable": browser_running,
+        "cdp_port": _parse_cdp_port(cdp_url),
+        "browser_kind": "chrome",
         "profile_loaded": profile_loaded,
         "runway_login_detected": runway_login_detected,
         "ready_for_runway_browser": ready,
@@ -303,4 +338,5 @@ __all__ = [
     "get_browser_operator_status",
     "probe_runway_login_detected",
     "is_cdp_reachable",
+    "wait_for_cdp_reachable",
 ]

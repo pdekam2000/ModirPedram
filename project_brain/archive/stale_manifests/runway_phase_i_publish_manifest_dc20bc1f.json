@@ -1,0 +1,94 @@
+{
+  "version": "runway_live_post_processing_v1",
+  "status": "PUBLISHED_PACKAGE_CREATED",
+  "final_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\FINAL_RUNWAY_PHASE_I_VIDEO.mp4",
+  "narrated_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\FINAL_RUNWAY_PHASE_I_NARRATED.mp4",
+  "branded_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\FINAL_BRANDED_VIDEO_v3.mp4",
+  "branding_status": "completed",
+  "music_status": "Music: PASS \u2014 mixed in cinematic audio bed",
+  "subtitle_status": "Subtitle: PASS \u2014 visible lower-third subtitles burned",
+  "branding_steps": {
+    "subtitles": {
+      "status": "PASS",
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\branding_staging\\FINAL_RUNWAY_PHASE_I_SUBTITLED.mp4",
+      "input_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+      "ffmpeg_executed": true,
+      "ffmpeg_available": true,
+      "error": "",
+      "warnings": [],
+      "metadata": {
+        "vf_filter": "subtitles=burn_subtitles.ass",
+        "version": "subtitle_burn_engine_v4",
+        "subtitle_style": "tiktok",
+        "subtitle_position": "lower_third",
+        "subtitle_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles_styled.ass",
+        "staged_subtitle_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\burn_subtitles.ass",
+        "srt_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles_styled.ass",
+        "font_size": 58,
+        "margin_v": 179,
+        "border_style": 1,
+        "layout_quality_issues": [],
+        "burn_psnr_avg": 41.153456,
+        "burn_visible_enough": true
+      },
+      "burn_visible_enough": true,
+      "burn_psnr_avg": 41.153456,
+      "font_size": 58
+    },
+    "logo": {
+      "status": "SKIP",
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\branding_staging\\logo_overlay.mp4",
+      "input_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\branding_staging\\FINAL_RUNWAY_PHASE_I_SUBTITLED.mp4",
+      "ffmpeg_executed": false,
+      "ffmpeg_available": false,
+      "error": "",
+      "warnings": [
+        "logo_missing"
+      ],
+      "metadata": {}
+    },
+    "cta": {
+      "status": "PASS",
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\branding_staging\\cta_overlay.mp4",
+      "input_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\branding_staging\\FINAL_RUNWAY_PHASE_I_SUBTITLED.mp4",
+      "ffmpeg_executed": true,
+      "ffmpeg_available": true,
+      "error": "",
+      "warnings": [],
+      "metadata": {
+        "vf_filter": "drawtext=text='Follow for more':fontcolor=0xFF7A1A:fontsize=20:borderw=2:bordercolor=black@0.85:box=1:boxcolor=black@0.35:boxborderw=10:x=(w-text_w)/2:y=h-th-88:alpha='if(lt(t,10.00),0,if(gt(t,12.00),0,min(if(lt(t,10.45),(t-10.00)/0.45,1),if(gt(t,11.55),(12.00-t)/0.45,1))))'",
+        "version": "cta_engine_v3",
+        "cta_text": "Follow for more",
+        "cta_position": "bottom_center",
+        "cta_frequency": "end",
+        "cta_window": {
+          "start": 10.0,
+          "end": 12.0
+        },
+        "cta_fade_seconds": 0.45,
+        "cta_accent_colour": "0xFF7A1A"
+      }
+    },
+    "intro": {
+      "status": "SKIP"
+    },
+    "outro": {
+      "status": "SKIP"
+    }
+  },
+  "package_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish",
+  "metadata_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\metadata.json",
+  "prompts_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\prompts\\runway_prompts.txt",
+  "subtitle_paths": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.srt",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.vtt"
+  ],
+  "narration_script_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\narration\\narration_script.txt",
+  "narration_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\narration\\narration.mp3",
+  "narration_plan_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\narration\\narration_plan.json",
+  "narration_provider": "elevenlabs",
+  "voice_id": "",
+  "duration_seconds": 12.0,
+  "warnings": [],
+  "created_at": "2026-06-12 21:58:25"
+}

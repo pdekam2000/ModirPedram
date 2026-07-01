@@ -106,6 +106,7 @@ class ContentBrainE2ETestInput:
     niche: str = "general"
     mood: str = "emotional"
     clip_length_preference: int | None = None
+    requested_clip_count: int | None = None
 
 
 @dataclass
@@ -191,6 +192,7 @@ class ContentBrainE2EMicroTestStudio:
             "niche": payload.niche,
             "mood": payload.mood,
             "clip_length_preference": payload.clip_length_preference,
+            "requested_clip_count": payload.requested_clip_count,
             "studio_version": self.STUDIO_VERSION,
         }
 
@@ -201,6 +203,13 @@ class ContentBrainE2EMicroTestStudio:
         preflight = run_content_brain_studio_preflight()
         result.input["language_code"] = language_code
         result.input["preflight"] = preflight
+
+        authority_clip_count = int(payload.requested_clip_count or 0)
+        strategy_clip_count = (
+            authority_clip_count
+            if authority_clip_count > 0
+            else max(1, payload.duration_seconds // 10)
+        )
 
         try:
             step1 = self._step_topic_authority(payload, language_code)
@@ -213,7 +222,7 @@ class ContentBrainE2EMicroTestStudio:
                 payload,
                 language_code,
                 mood=payload.mood,
-                clip_count=max(1, payload.duration_seconds // 10),
+                clip_count=strategy_clip_count,
             )
             result.steps.append(step_strategy)
 
@@ -223,12 +232,45 @@ class ContentBrainE2EMicroTestStudio:
                 strategy_plan,
                 language_code=language_code,
                 intent_payload=dict(step_strategy.payload.get("intent_intelligence") or {}),
-                clip_count=max(1, payload.duration_seconds // 10),
+                clip_count=strategy_clip_count,
             )
             result.steps.append(step_fusion)
 
             duration_plan, step4 = self._step_duration_plan(payload, profile, platform)
             result.steps.append(step4)
+
+            if authority_clip_count > 0:
+                from content_brain.platform.clip_count_authority import (
+                    apply_authoritative_clip_count,
+                    assert_clip_count_authority,
+                    build_clip_count_authority,
+                )
+
+                authority = build_clip_count_authority(
+                    requested_clip_count=authority_clip_count,
+                    duration_seconds=payload.duration_seconds,
+                    provider="runway",
+                )
+                duration_plan = apply_authoritative_clip_count(duration_plan, authority)
+                step4.payload.update(
+                    {
+                        key: duration_plan[key]
+                        for key in (
+                            "clip_count",
+                            "requested_clip_count",
+                            "duration_seconds",
+                            "target_duration_seconds",
+                            "clip_count_authority_source",
+                            "clip_count_authority_version",
+                        )
+                        if key in duration_plan
+                    }
+                )
+                assert_clip_count_authority(
+                    requested=authority_clip_count,
+                    actual=int(duration_plan.get("clip_count") or 0),
+                    stage="duration_planner",
+                )
 
             seo_package, step_seo_title = self._step_seo_title(
                 payload,
@@ -257,6 +299,15 @@ class ContentBrainE2EMicroTestStudio:
                 cross_domain_fusion=fusion_result.to_dict(),
             )
             result.steps.append(step3)
+
+            if authority_clip_count > 0:
+                from content_brain.platform.clip_count_authority import assert_clip_count_authority
+
+                assert_clip_count_authority(
+                    requested=authority_clip_count,
+                    actual=int(getattr(story_brief, "clip_count", 0) or 0),
+                    stage="story_package",
+                )
 
             preservation = audit_story_brief_preservation(payload.topic, step3.payload.get("story") or {})
             step1.payload["story_preservation"] = preservation.to_dict()
@@ -292,8 +343,26 @@ class ContentBrainE2EMicroTestStudio:
             )
             result.steps.append(step6)
 
-            step6b = self._step_prompt_cleanup(step6, payload)
+            if authority_clip_count > 0:
+                from content_brain.platform.clip_count_authority import assert_clip_count_authority
+
+                assert_clip_count_authority(
+                    requested=authority_clip_count,
+                    actual=len(step6.payload.get("clip_prompts") or []),
+                    stage="prompt_builder",
+                )
+
+            step6b = self._step_prompt_cleanup(step6, payload, expected_clip_count=authority_clip_count or None)
             result.steps.append(step6b)
+
+            if authority_clip_count > 0:
+                from content_brain.platform.clip_count_authority import assert_clip_count_authority
+
+                assert_clip_count_authority(
+                    requested=authority_clip_count,
+                    actual=int(step6b.payload.get("clip_count") or len(step6b.payload.get("clip_prompts") or [])),
+                    stage="prompt_cleanup",
+                )
 
             step7 = self._step_seo_generation(
                 payload,
@@ -1127,6 +1196,8 @@ class ContentBrainE2EMicroTestStudio:
         self,
         prompt_step: StudioStepResult,
         payload: ContentBrainE2ETestInput,
+        *,
+        expected_clip_count: int | None = None,
     ) -> StudioStepResult:
         start = time.perf_counter()
         cleanup = resolve_prompt_cleanup(
@@ -1134,6 +1205,19 @@ class ContentBrainE2EMicroTestStudio:
             starter_image_prompt=str(prompt_step.payload.get("starter_image_prompt") or ""),
             clip_prompts=list(prompt_step.payload.get("clip_prompts") or []),
         )
+        authoritative_clip_count = int(
+            expected_clip_count
+            or payload.requested_clip_count
+            or len(cleanup.clip_prompts)
+        )
+        if expected_clip_count and len(cleanup.clip_prompts) != int(expected_clip_count):
+            from content_brain.platform.clip_count_authority import assert_clip_count_authority
+
+            assert_clip_count_authority(
+                requested=int(expected_clip_count),
+                actual=len(cleanup.clip_prompts),
+                stage="prompt_cleanup",
+            )
         prompt_texts = [str(item.get("video_prompt") or "") for item in cleanup.clip_prompts]
         gates_passed, gate_failures = validate_prompt_cleanup_gates(
             prompt_texts=prompt_texts,
@@ -1159,8 +1243,11 @@ class ContentBrainE2EMicroTestStudio:
                 "prompt_cleanup_gate_failures": gate_failures,
                 "raw_prompt_generation": {
                     "original_total_chars": cleanup.original_total_chars,
-                    "clip_count": len(cleanup.clip_prompts),
+                    "clip_count": authoritative_clip_count,
+                    "prompt_list_length": len(cleanup.clip_prompts),
                 },
+                "clip_count": authoritative_clip_count,
+                "requested_clip_count": int(payload.requested_clip_count or expected_clip_count or 0),
             },
         )
 
@@ -1688,6 +1775,7 @@ def run_content_brain_e2e_micro_test(
     niche: str = "general",
     mood: str = "emotional",
     clip_length_preference: int | None = None,
+    requested_clip_count: int | None = None,
     project_root: str | Path = ROOT,
 ) -> dict[str, Any]:
     studio = ContentBrainE2EMicroTestStudio(project_root=project_root)
@@ -1699,6 +1787,7 @@ def run_content_brain_e2e_micro_test(
             niche=niche,
             mood=mood,
             clip_length_preference=clip_length_preference,
+            requested_clip_count=requested_clip_count,
         )
     )
     return result.to_dict()

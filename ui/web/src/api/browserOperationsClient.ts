@@ -8,7 +8,11 @@ export type BrowserCheck = {
 
 export type BrowserStatusResponse = {
   browser_running: boolean;
+  browser_connected?: boolean;
   cdp_connected: boolean;
+  cdp_reachable?: boolean;
+  cdp_port?: number;
+  browser_kind?: string;
   profile_loaded: boolean;
   runway_login_detected: boolean;
   ready_for_runway_browser: boolean;
@@ -26,11 +30,13 @@ export type BrowserStatusResponse = {
 export type BrowserLaunchResponse = {
   success: boolean;
   already_running: boolean;
+  cdp_reachable?: boolean;
   message: string;
   profile_path: string;
   cdp_url: string;
   chrome_executable?: string | null;
   cdp_port: number;
+  browser_kind?: string;
   pid?: number | null;
   api_version?: string;
 };

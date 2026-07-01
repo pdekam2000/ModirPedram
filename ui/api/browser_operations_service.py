@@ -24,11 +24,13 @@ class BrowserOperationsService:
         return BrowserLaunchResponse(
             success=bool(payload.get("success")),
             already_running=bool(payload.get("already_running")),
+            cdp_reachable=bool(payload.get("cdp_reachable")),
             message=str(payload.get("message") or ""),
             profile_path=str(payload.get("profile_path") or ""),
             cdp_url=str(payload.get("cdp_url") or ""),
             chrome_executable=payload.get("chrome_executable"),
             cdp_port=int(payload.get("cdp_port") or 9222),
+            browser_kind=str(payload.get("browser_kind") or "chrome"),
             pid=payload.get("pid"),
         )
 
@@ -44,7 +46,11 @@ class BrowserOperationsService:
         ]
         return BrowserStatusResponse(
             browser_running=bool(payload.get("browser_running")),
+            browser_connected=bool(payload.get("browser_connected", payload.get("browser_running"))),
             cdp_connected=bool(payload.get("cdp_connected")),
+            cdp_reachable=bool(payload.get("cdp_reachable", payload.get("browser_running"))),
+            cdp_port=int(payload.get("cdp_port") or 9222),
+            browser_kind=str(payload.get("browser_kind") or "chrome"),
             profile_loaded=bool(payload.get("profile_loaded")),
             runway_login_detected=bool(payload.get("runway_login_detected")),
             ready_for_runway_browser=bool(payload.get("ready_for_runway_browser")),

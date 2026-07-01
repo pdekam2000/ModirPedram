@@ -286,10 +286,19 @@ def _payload_from_e2e_result(result: dict[str, Any], *, loaded_from: str) -> _Cl
     )
 
 
+def _topic_matches_story(*, story_idea: str, payload: _CleanedPromptPayload) -> bool:
+    normalized_story = _normalize_topic(story_idea)
+    if not normalized_story:
+        return True
+    candidate = _normalize_topic(payload.content_brain_topic or payload.topic_label)
+    return not candidate or candidate == normalized_story
+
+
 def _load_from_e2e_candidates(
     *,
     e2e_result: dict[str, Any] | None,
     story_idea: str,
+    strict_topic_authority: bool = False,
 ) -> _CleanedPromptPayload | None:
     candidates: list[tuple[str, dict[str, Any] | None]] = [
         ("e2e_result", _unwrap_e2e_result(e2e_result)),
@@ -305,6 +314,11 @@ def _load_from_e2e_candidates(
         topic = _normalize_topic(loaded.topic_label or str((candidate.get("input") or {}).get("topic") or ""))
         if normalized_story and topic and normalized_story != topic:
             loaded.warnings.append(f"story_idea differs from E2E topic ({source_name})")
+            if strict_topic_authority or normalized_story:
+                continue
+        if normalized_story and not _topic_matches_story(story_idea=story_idea, payload=loaded):
+            if strict_topic_authority or normalized_story:
+                continue
         return loaded
     return None
 
@@ -407,6 +421,8 @@ def _build_scaffold_bundle(
     clip_count: int,
     niche_style: str,
     mood: str,
+    auto_director: bool = False,
+    auto_prompt_critic: bool = False,
 ) -> RunwayContinuityPromptBundle:
     return build_continuity_prompts(
         story_idea,
@@ -414,6 +430,8 @@ def _build_scaffold_bundle(
         clip_count=clip_count,
         niche_style=niche_style,
         mood=mood,
+        auto_director=auto_director,
+        auto_prompt_critic=auto_prompt_critic,
     )
 
 
@@ -426,7 +444,7 @@ def _bundle_from_cleaned_payload(
     niche_style: str,
     mood: str,
 ) -> RunwayContinuityPromptBundle:
-    effective_story = str(payload.content_brain_topic or story_idea or "").strip()
+    effective_story = str(story_idea or payload.content_brain_topic or "").strip()
     scaffold = _build_scaffold_bundle(
         story_idea=effective_story,
         project_id=project_id,
@@ -471,6 +489,9 @@ def preview_live_smoke_handoff(
     e2e_result: dict[str, Any] | None = None,
     export_dir: Path | str | None = None,
     project_root: Path | str | None = None,
+    strict_topic_authority: bool = False,
+    auto_director: bool = False,
+    auto_prompt_critic: bool = False,
 ) -> LiveSmokeHandoffMeta:
     """Resolve handoff metadata without building the full prompt bundle."""
     _, meta = resolve_live_smoke_prompts(
@@ -480,6 +501,9 @@ def preview_live_smoke_handoff(
         e2e_result=e2e_result,
         export_dir=export_dir,
         project_root=project_root,
+        strict_topic_authority=strict_topic_authority,
+        auto_director=auto_director,
+        auto_prompt_critic=auto_prompt_critic,
     )
     return meta
 
@@ -494,6 +518,9 @@ def resolve_live_smoke_prompts(
     project_root: Path | str | None = None,
     niche_style: str | None = None,
     mood: str | None = None,
+    strict_topic_authority: bool = False,
+    auto_director: bool = False,
+    auto_prompt_critic: bool = False,
 ) -> tuple[RunwayContinuityPromptBundle, LiveSmokeHandoffMeta]:
     """
     Resolve Live Smoke prompts with Content Brain V8.3 handoff priority.
@@ -514,6 +541,7 @@ def resolve_live_smoke_prompts(
     cleaned: _CleanedPromptPayload | None = _load_from_e2e_candidates(
         e2e_result=e2e_result,
         story_idea=story_idea,
+        strict_topic_authority=strict_topic_authority,
     )
     latest_json_path = export_path / "latest.json"
     latest_txt_path = export_path / "latest.runway_prompts.txt"
@@ -524,11 +552,15 @@ def resolve_live_smoke_prompts(
         except (OSError, json.JSONDecodeError):
             metrics_result = None
 
-    if cleaned is None and latest_txt_path.is_file():
-        cleaned = _load_from_runway_prompts_txt(latest_txt_path, metrics_result=metrics_result)
+    if cleaned is None and latest_txt_path.is_file() and not strict_topic_authority:
+        candidate = _load_from_runway_prompts_txt(latest_txt_path, metrics_result=metrics_result)
+        if candidate and _topic_matches_story(story_idea=story_idea, payload=candidate):
+            cleaned = candidate
 
-    if cleaned is None:
-        cleaned = _load_from_latest_json(latest_json_path)
+    if cleaned is None and not strict_topic_authority:
+        candidate = _load_from_latest_json(latest_json_path)
+        if candidate and _topic_matches_story(story_idea=story_idea, payload=candidate):
+            cleaned = candidate
 
     if cleaned is not None:
         bundle = _bundle_from_cleaned_payload(
@@ -561,6 +593,8 @@ def resolve_live_smoke_prompts(
         clip_count=clip_total,
         niche_style=resolved_niche,
         mood=resolved_mood,
+        auto_director=auto_director,
+        auto_prompt_critic=auto_prompt_critic,
     )
     meta = LiveSmokeHandoffMeta(
         prompt_source=PROMPT_SOURCE_FALLBACK,

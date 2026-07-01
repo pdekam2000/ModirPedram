@@ -1,0 +1,47 @@
+{
+  "topic": "A boy finds a dragon egg in the forest and hides it from everyone",
+  "language_code": "en",
+  "payload": {
+    "category": "fantasy_storytelling",
+    "strategy": "cinematic_narrative",
+    "domain_profile": {
+      "domain_name": "fantasy_storytelling",
+      "expert_role": "screenwriter and narrative designer",
+      "setting": "mystical forest and hidden village",
+      "core_concepts": [
+        "discovery of magical artifact",
+        "secrecy and protection",
+        "bond between boy and dragon egg",
+        "conflict with external threats",
+        "growth and responsibility"
+      ],
+      "timeline_beats": [
+        "boy discovers dragon egg in forest",
+        "boy hides egg from family and villagers",
+        "egg begins to show signs of hatching",
+        "boy faces challenges to keep egg safe",
+        "dragon hatches and boy forms bond"
+      ],
+      "visual_objects": [
+        "dense enchanted forest",
+        "glowing dragon egg",
+        "boy’s secret hiding spot",
+        "village scenes",
+        "emerging baby dragon"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduction to the boy and discovery of the dragon egg in the forest",
+        "clip_2": "The boy hides the egg and faces challenges keeping it secret",
+        "clip_3": "The dragon egg hatches and the boy bonds with the baby dragon"
+      }
+    },
+    "confidence": 0.9,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 269,
+    "completion_tokens": 294,
+    "total_tokens": 563
+  },
+  "estimated_cost_usd": 0.000578
+}

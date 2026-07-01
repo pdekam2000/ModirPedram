@@ -1,0 +1,73 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "cb_test_7de92876",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "purpose": "Establish world, location, and scale before subject focus.",
+      "scene_progression": "Overview of essential boxing techniques and equipment",
+      "emotional_beat": "Instructional arc from setup through technique to proven result",
+      "transition_out": "cut_to_medium"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "purpose": "Follow subject through space to build momentum.",
+      "scene_progression": "Training routines and mental strategies to build a champion mindset",
+      "emotional_beat": "Instructional arc from setup through technique to proven result",
+      "transition_out": "hero_shot"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "purpose": "Present subject at peak visual power for final impression.",
+      "scene_progression": "Inspiration from legendary boxers and tips for career advancement",
+      "emotional_beat": "Instructional arc from setup through technique to proven result",
+      "transition_out": "hold_end_frame"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: establishing_shot \u2014 Overview of essential boxing techniques and equipment",
+    "Clip 2: tracking_shot \u2014 Training routines and mental strategies to build a champion mindset",
+    "Clip 3: hero_shot \u2014 Inspiration from legendary boxers and tips for career advancement"
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "framing": "wide vertical establishing frame",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Overview of essential boxing techniques and equipment \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "camera_movement": "Lateral or forward tracking matched to subject speed.",
+      "lens": "50mm cinematic prime",
+      "framing": "mid-wide tracking frame with lead room",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Training routines and mental strategies to build a champion mindset \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "framing": "centered hero frame with chin-safe headroom",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Inspiration from legendary boxers and tips for career advancement \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\cb_test_7de92876\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

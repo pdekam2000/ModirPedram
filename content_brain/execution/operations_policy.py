@@ -34,6 +34,8 @@ class OperationsPolicy:
     allow_partial_artifacts: bool = False
     auto_requeue_on_retriable_failure: bool = False
     worker_log_capture: bool = True
+    free_credit_first: bool = True
+    operator_paid_approval: bool = False
 
     def to_runtime_policy(self) -> RuntimePolicy:
         """Map to 10I RuntimePolicy for unchanged dispatch paths."""
@@ -69,6 +71,8 @@ class OperationsPolicy:
             "allow_partial_artifacts": self.allow_partial_artifacts,
             "auto_requeue_on_retriable_failure": self.auto_requeue_on_retriable_failure,
             "worker_log_capture": self.worker_log_capture,
+            "free_credit_first": self.free_credit_first,
+            "operator_paid_approval": self.operator_paid_approval,
         }
 
 

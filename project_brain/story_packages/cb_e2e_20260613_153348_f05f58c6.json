@@ -1,0 +1,940 @@
+{
+  "version": "story_package_v3",
+  "run_id": "cb_e2e_20260613_153348_f05f58c6",
+  "topic": "hhow to be legende in boxing",
+  "created_at": "2026-06-13T13:34:08.865775+00:00",
+  "story_blueprint": {
+    "version": "story_architect_v1",
+    "title": "Questions in the Light",
+    "genre": "educational",
+    "hook": "A curious student notices a pattern no textbook explains.",
+    "setup": "In a bright lab, simple tools reveal a surprising result.",
+    "conflict": "The experiment fails twice and doubt spreads.",
+    "discovery": "A tiny change in temperature unlocks the answer.",
+    "escalation": "Time runs out before the science fair.",
+    "climax": "They present the finding with clear, honest proof.",
+    "resolution": "Understanding spreads and questions multiply.",
+    "ending_cta": "Follow for more learning adventures.",
+    "scene_progression": [
+      "Discovery: Wide establishing view of the journey beginning (opening landscape)",
+      "Escalation: Tight dramatic space where obstacles intensify (conflict zone)",
+      "Reward: Reward space with clear visual transformation (payoff reveal)"
+    ],
+    "metadata": {
+      "topic": "hhow to be legende in boxing",
+      "clip_count": 3,
+      "source_brief_keys": []
+    }
+  },
+  "character_profiles": [
+    {
+      "name": "Alex",
+      "role": "protagonist",
+      "age": "teen",
+      "gender": "neutral",
+      "personality": [
+        "curious",
+        "determined"
+      ],
+      "visual_traits": [
+        "student explorer"
+      ],
+      "voice_style": "youthful clear",
+      "emotional_traits": [
+        "focus"
+      ]
+    },
+    {
+      "name": "Narrator",
+      "role": "narrator",
+      "age": "adult",
+      "gender": "neutral",
+      "personality": [
+        "clear",
+        "friendly"
+      ],
+      "visual_traits": [
+        "voice only"
+      ],
+      "voice_style": "warm educator",
+      "emotional_traits": [
+        "clarity"
+      ]
+    }
+  ],
+  "dialogue_plan": {
+    "version": "dialogue_engine_v1",
+    "genre": "educational",
+    "scenes": [
+      {
+        "scene_index": 0,
+        "scene_title": "A curious student notices a pattern no textbook explains.",
+        "dialogue_lines": [
+          {
+            "speaker": "Alex",
+            "line": "We have to keep going.",
+            "emotion": "determination"
+          },
+          {
+            "speaker": "Narrator",
+            "line": "",
+            "emotion": "tension"
+          }
+        ],
+        "narration": "A curious student notices a pattern no textbook explains.",
+        "emotional_intent": "forward momentum"
+      },
+      {
+        "scene_index": 1,
+        "scene_title": "The experiment fails twice and doubt spreads.",
+        "dialogue_lines": [
+          {
+            "speaker": "Alex",
+            "line": "We have to keep going.",
+            "emotion": "determination"
+          },
+          {
+            "speaker": "Narrator",
+            "line": "",
+            "emotion": "tension"
+          }
+        ],
+        "narration": "The experiment fails twice and doubt spreads.",
+        "emotional_intent": "forward momentum"
+      },
+      {
+        "scene_index": 2,
+        "scene_title": "They present the finding with clear, honest proof.",
+        "dialogue_lines": [
+          {
+            "speaker": "Alex",
+            "line": "We have to keep going.",
+            "emotion": "determination"
+          },
+          {
+            "speaker": "Narrator",
+            "line": "",
+            "emotion": "tension"
+          }
+        ],
+        "narration": "They present the finding with clear, honest proof.",
+        "emotional_intent": "forward momentum"
+      }
+    ]
+  },
+  "emotion_plan": {
+    "version": "emotion_engine_v1",
+    "arc_summary": "hook \u2192 discovery \u2192 conflict",
+    "scenes": [
+      {
+        "scene_index": 0,
+        "dominant_emotion": "curiosity",
+        "scores": {
+          "joy": 30,
+          "curiosity": 90,
+          "fear": 10,
+          "surprise": 55,
+          "sadness": 10,
+          "excitement": 50,
+          "tension": 10,
+          "relief": 10
+        },
+        "pacing": "snap"
+      },
+      {
+        "scene_index": 1,
+        "dominant_emotion": "tension",
+        "scores": {
+          "joy": 10,
+          "curiosity": 10,
+          "fear": 65,
+          "surprise": 50,
+          "sadness": 10,
+          "excitement": 45,
+          "tension": 75,
+          "relief": 10
+        },
+        "pacing": "tight"
+      },
+      {
+        "scene_index": 2,
+        "dominant_emotion": "joy",
+        "scores": {
+          "joy": 95,
+          "curiosity": 40,
+          "fear": 10,
+          "surprise": 10,
+          "sadness": 10,
+          "excitement": 65,
+          "tension": 10,
+          "relief": 90
+        },
+        "pacing": "release"
+      }
+    ]
+  },
+  "voice_cast_plan": {
+    "version": "voice_casting_director_v1",
+    "narrator": {
+      "character": "Narrator",
+      "voice_style": "warm educator",
+      "voice_id": "",
+      "provider_slot": "elevenlabs"
+    },
+    "characters": [
+      {
+        "character": "Alex",
+        "role": "protagonist",
+        "voice_style": "youthful clear",
+        "voice_id": "",
+        "provider_slot": "elevenlabs",
+        "emotional_traits": [
+          "focus"
+        ]
+      }
+    ],
+    "provider": "elevenlabs",
+    "multi_track": true,
+    "warnings": [
+      "missing_voice_id:Alex"
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai",
+      "local"
+    ]
+  },
+  "environment_plan": {
+    "version": "environment_designer_v1",
+    "environment": "snow",
+    "ambience": [
+      {
+        "tag": "forest_birds",
+        "volume": 0.186,
+        "layer": "bed",
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\forest_birds.mp3",
+        "presence_boosted": true
+      },
+      {
+        "tag": "wind_leaves",
+        "volume": 0.16,
+        "layer": "bed",
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\wind_leaves.mp3",
+        "presence_boosted": true
+      }
+    ],
+    "weather": [],
+    "movement_sounds": [
+      {
+        "tag": "footsteps_soft",
+        "at_seconds": 1.5,
+        "volume": 0.225,
+        "presence_boosted": true
+      }
+    ],
+    "animal_sounds": [
+      {
+        "tag": "cat_meow",
+        "at_seconds": 0.8,
+        "volume": 0.28,
+        "presence_boosted": true
+      }
+    ],
+    "resolved_files": [
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\forest_birds.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\wind_leaves.mp3"
+    ],
+    "warnings": [
+      "missing_asset:footsteps_soft",
+      "missing_asset:cat_meow"
+    ]
+  },
+  "music_plan": {
+    "version": "music_director_v1",
+    "mood": "adventure",
+    "track_hint": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\music\\whimsical_adventure.mp3",
+    "intensity_curve": [
+      {
+        "scene_index": 0,
+        "start_seconds": 0.0,
+        "end_seconds": 10.0,
+        "intensity": 0.22,
+        "dominant_emotion": "curiosity"
+      },
+      {
+        "scene_index": 1,
+        "start_seconds": 10.0,
+        "end_seconds": 20.0,
+        "intensity": 0.31,
+        "dominant_emotion": "tension"
+      },
+      {
+        "scene_index": 2,
+        "start_seconds": 20.0,
+        "end_seconds": 30.0,
+        "intensity": 0.38,
+        "dominant_emotion": "joy"
+      }
+    ],
+    "scene_transitions": [
+      {
+        "at_seconds": 10.0,
+        "type": "crossfade",
+        "duration_seconds": 0.6
+      },
+      {
+        "at_seconds": 20.0,
+        "type": "crossfade",
+        "duration_seconds": 0.6
+      }
+    ],
+    "climax_boost_db": 2.5,
+    "ending_fade_seconds": 2.0,
+    "ducking_under_dialogue": 0.18,
+    "metadata": {
+      "genre": "educational",
+      "title": "Questions in the Light",
+      "music_mood_selector": {
+        "version": "music_mood_selector_v1",
+        "mood": "adventure",
+        "track_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\music\\whimsical_adventure.mp3",
+        "style_label": "Playful orchestral adventure",
+        "description": "Light percussion, bouncy melody, Pixar-style momentum",
+        "asset_quality": "local_procedural",
+        "warnings": [
+          "honest_report:local_music_is_procedural_placeholder_not_professional_orchestral"
+        ],
+        "metadata": {
+          "genre": "educational",
+          "title": "Questions in the Light"
+        }
+      },
+      "style_label": "Playful orchestral adventure",
+      "asset_quality": "local_procedural"
+    }
+  },
+  "dialogue_timeline": {
+    "version": "dialogue_timeline_builder_v1",
+    "duration_seconds": 30.0,
+    "tracks": [
+      {
+        "track_id": "track_1_alex",
+        "speaker": "Alex",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 0.0,
+            "duration_seconds": 1.75,
+            "text": "We have to keep going.",
+            "emotion": "determination",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 10.0,
+            "duration_seconds": 1.75,
+            "text": "We have to keep going.",
+            "emotion": "determination",
+            "scene_index": 1
+          },
+          {
+            "start_seconds": 20.0,
+            "duration_seconds": 1.75,
+            "text": "We have to keep going.",
+            "emotion": "determination",
+            "scene_index": 2
+          }
+        ]
+      },
+      {
+        "track_id": "track_2_narrator",
+        "speaker": "Narrator",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 1.9,
+            "duration_seconds": 2.88,
+            "text": "A curious student notices a pattern no textbook explains.",
+            "emotion": "forward momentum",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 11.9,
+            "duration_seconds": 2.24,
+            "text": "The experiment fails twice and doubt spreads.",
+            "emotion": "forward momentum",
+            "scene_index": 1
+          },
+          {
+            "start_seconds": 21.9,
+            "duration_seconds": 2.56,
+            "text": "They present the finding with clear, honest proof.",
+            "emotion": "forward momentum",
+            "scene_index": 2
+          }
+        ]
+      }
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai"
+    ]
+  },
+  "metadata": {
+    "clip_count": 3,
+    "duration_seconds": 30,
+    "character_performance": [
+      {
+        "name": "Alex",
+        "age_profile": "adult",
+        "personality_profile": [
+          "warm",
+          "cinematic",
+          "storyteller"
+        ],
+        "energy_profile": "medium",
+        "emotion_profile": [
+          "wonder",
+          "tension",
+          "relief"
+        ],
+        "speaking_style": "warm_storyteller",
+        "voice_modifiers": {
+          "speed_multiplier": 0.98,
+          "pitch_shift": 1.0,
+          "stability": 0.52,
+          "style": 0.5,
+          "similarity_boost": 0.86
+        }
+      },
+      {
+        "name": "Narrator",
+        "age_profile": "adult",
+        "personality_profile": [
+          "warm",
+          "cinematic",
+          "storyteller"
+        ],
+        "energy_profile": "medium",
+        "emotion_profile": [
+          "wonder",
+          "tension",
+          "relief"
+        ],
+        "speaking_style": "warm_storyteller",
+        "voice_modifiers": {
+          "speed_multiplier": 0.98,
+          "pitch_shift": 1.0,
+          "stability": 0.52,
+          "style": 0.5,
+          "similarity_boost": 0.86
+        }
+      }
+    ],
+    "story_emotion_arc": {
+      "version": "story_emotion_engine_v1",
+      "beats": [
+        {
+          "scene_index": 0,
+          "story_beat": "hook",
+          "dominant_emotion": "curiosity",
+          "scene_title": "A curious student notices a pattern no textbook explains.",
+          "intent": "forward momentum"
+        },
+        {
+          "scene_index": 1,
+          "story_beat": "conflict",
+          "dominant_emotion": "tension",
+          "scene_title": "The experiment fails twice and doubt spreads.",
+          "intent": "forward momentum"
+        },
+        {
+          "scene_index": 2,
+          "story_beat": "reward",
+          "dominant_emotion": "joy",
+          "scene_title": "They present the finding with clear, honest proof.",
+          "intent": "forward momentum"
+        }
+      ],
+      "arc_summary": "hook \u2192 discovery \u2192 conflict",
+      "emotion_plan": {
+        "version": "emotion_engine_v1",
+        "arc_summary": "hook \u2192 discovery \u2192 conflict",
+        "scenes": [
+          {
+            "scene_index": 0,
+            "dominant_emotion": "curiosity",
+            "scores": {
+              "joy": 30,
+              "curiosity": 90,
+              "fear": 10,
+              "surprise": 55,
+              "sadness": 10,
+              "excitement": 50,
+              "tension": 10,
+              "relief": 10
+            },
+            "pacing": "snap"
+          },
+          {
+            "scene_index": 1,
+            "dominant_emotion": "tension",
+            "scores": {
+              "joy": 10,
+              "curiosity": 10,
+              "fear": 65,
+              "surprise": 50,
+              "sadness": 10,
+              "excitement": 45,
+              "tension": 75,
+              "relief": 10
+            },
+            "pacing": "tight"
+          },
+          {
+            "scene_index": 2,
+            "dominant_emotion": "joy",
+            "scores": {
+              "joy": 95,
+              "curiosity": 40,
+              "fear": 10,
+              "surprise": 10,
+              "sadness": 10,
+              "excitement": 65,
+              "tension": 10,
+              "relief": 90
+            },
+            "pacing": "release"
+          }
+        ]
+      },
+      "metadata": {
+        "genre": "educational",
+        "title": "Questions in the Light"
+      }
+    },
+    "scene_sync_plan": {
+      "version": "scene_sync_engine_v1",
+      "duration_seconds": 30.0,
+      "cues": [
+        {
+          "scene_index": 0,
+          "scene_start": 0.0,
+          "scene_end": 10.0,
+          "story_beat": "hook",
+          "reaction_at": 3.5,
+          "narration_at": 1.2,
+          "dialogue_offsets": [
+            {
+              "speaker": "Alex",
+              "text": "We have to keep going.",
+              "start_in_scene": 3.5,
+              "emotion": "determination"
+            }
+          ]
+        },
+        {
+          "scene_index": 1,
+          "scene_start": 10.0,
+          "scene_end": 20.0,
+          "story_beat": "conflict",
+          "reaction_at": 12.8,
+          "narration_at": 11.2,
+          "dialogue_offsets": [
+            {
+              "speaker": "Alex",
+              "text": "We have to keep going.",
+              "start_in_scene": 2.8,
+              "emotion": "determination"
+            }
+          ]
+        },
+        {
+          "scene_index": 2,
+          "scene_start": 20.0,
+          "scene_end": 30.0,
+          "story_beat": "reward",
+          "reaction_at": 25.0,
+          "narration_at": 21.2,
+          "dialogue_offsets": [
+            {
+              "speaker": "Alex",
+              "text": "We have to keep going.",
+              "start_in_scene": 5.0,
+              "emotion": "determination"
+            }
+          ]
+        }
+      ]
+    },
+    "environment_presence_warnings": [
+      "missing_asset:footsteps_soft",
+      "missing_asset:cat_meow"
+    ],
+    "environment_mix_gain": 1.0,
+    "environment_presence_score": 0.944625,
+    "music_mood_warnings": [
+      "honest_report:local_music_is_procedural_placeholder_not_professional_orchestral"
+    ],
+    "story_visual_quality": {
+      "scene_diversity_score": 100,
+      "emotion_coverage_score": 100,
+      "story_progression_score": 100,
+      "repetition_score": 90,
+      "reaction_coverage_score": 100,
+      "pass_visual_diversity": true,
+      "unique_locations": [
+        "opening landscape",
+        "conflict zone",
+        "payoff reveal"
+      ],
+      "clip_objectives": [
+        {
+          "clip_index": 1,
+          "location": "opening landscape",
+          "visual_objective": "Wide establishing view of the journey beginning",
+          "setting_type": "exterior_wide",
+          "story_beat": "discovery"
+        },
+        {
+          "clip_index": 2,
+          "location": "conflict zone",
+          "visual_objective": "Tight dramatic space where obstacles intensify",
+          "setting_type": "interior_tension",
+          "story_beat": "escalation"
+        },
+        {
+          "clip_index": 3,
+          "location": "payoff reveal",
+          "visual_objective": "Reward space with clear visual transformation",
+          "setting_type": "interior_payoff",
+          "story_beat": "reward"
+        }
+      ]
+    },
+    "story_visual_plan": {
+      "version": "story_visual_orchestrator_v1",
+      "scene_diversity": {
+        "version": "scene_diversity_engine_v1",
+        "clip_objectives": [
+          {
+            "clip_index": 1,
+            "location": "opening landscape",
+            "visual_objective": "Wide establishing view of the journey beginning",
+            "setting_type": "exterior_wide",
+            "story_beat": "discovery"
+          },
+          {
+            "clip_index": 2,
+            "location": "conflict zone",
+            "visual_objective": "Tight dramatic space where obstacles intensify",
+            "setting_type": "interior_tension",
+            "story_beat": "escalation"
+          },
+          {
+            "clip_index": 3,
+            "location": "payoff reveal",
+            "visual_objective": "Reward space with clear visual transformation",
+            "setting_type": "interior_payoff",
+            "story_beat": "reward"
+          }
+        ],
+        "scene_diversity_score": 100,
+        "unique_locations": [
+          "opening landscape",
+          "conflict zone",
+          "payoff reveal"
+        ],
+        "unique_setting_types": [
+          "exterior_wide",
+          "interior_tension",
+          "interior_payoff"
+        ],
+        "warnings": [],
+        "metadata": {
+          "genre": "educational",
+          "clip_count": 3,
+          "title": "Questions in the Light"
+        }
+      },
+      "character_emotion": {
+        "version": "character_emotion_engine_v1",
+        "scenes": [
+          {
+            "clip_index": 1,
+            "scene_label": "A curious student notices a pattern no textbook explains.",
+            "dominant_emotion": "curiosity",
+            "emotions": {
+              "curiosity": 90,
+              "fear": 15,
+              "surprise": 45,
+              "excitement": 55,
+              "relief": 10,
+              "wonder": 70
+            },
+            "character_notes": {
+              "hero": "Express curiosity through eyes, posture, and reaction timing.",
+              "companion": "Mirror tension then contrast with calmer relief beats."
+            }
+          },
+          {
+            "clip_index": 2,
+            "scene_label": "The experiment fails twice and doubt spreads.",
+            "dominant_emotion": "fear",
+            "emotions": {
+              "curiosity": 60,
+              "fear": 70,
+              "surprise": 65,
+              "excitement": 50,
+              "relief": 20,
+              "wonder": 40
+            },
+            "character_notes": {
+              "hero": "Express fear through eyes, posture, and reaction timing.",
+              "companion": "Mirror tension then contrast with calmer relief beats."
+            }
+          },
+          {
+            "clip_index": 3,
+            "scene_label": "They present the finding with clear, honest proof.",
+            "dominant_emotion": "wonder",
+            "emotions": {
+              "curiosity": 55,
+              "fear": 10,
+              "surprise": 80,
+              "excitement": 90,
+              "relief": 85,
+              "wonder": 95
+            },
+            "character_notes": {
+              "hero": "Express wonder through eyes, posture, and reaction timing.",
+              "companion": "Mirror tension then contrast with calmer relief beats."
+            }
+          }
+        ],
+        "emotion_coverage_score": 100,
+        "covered_axes": [
+          "curiosity",
+          "excitement",
+          "fear",
+          "relief",
+          "surprise",
+          "wonder"
+        ],
+        "metadata": {
+          "title": "Questions in the Light",
+          "genre": "educational"
+        }
+      },
+      "visual_progression": {
+        "version": "visual_story_progression_engine_v1",
+        "beats": [
+          {
+            "clip_index": 1,
+            "role": "discovery",
+            "narrative_goal": "A tiny change in temperature unlocks the answer.",
+            "visual_objective": "Wide establishing view of the journey beginning",
+            "location": "opening landscape",
+            "must_not_repeat": []
+          },
+          {
+            "clip_index": 2,
+            "role": "escalation",
+            "narrative_goal": "Time runs out before the science fair.",
+            "visual_objective": "Tight dramatic space where obstacles intensify",
+            "location": "conflict zone",
+            "must_not_repeat": [
+              "wide establishing view of the journey beginning"
+            ]
+          },
+          {
+            "clip_index": 3,
+            "role": "reward",
+            "narrative_goal": "Understanding spreads and questions multiply.",
+            "visual_objective": "Reward space with clear visual transformation",
+            "location": "payoff reveal",
+            "must_not_repeat": [
+              "wide establishing view of the journey beginning",
+              "tight dramatic space where obstacles intensify"
+            ]
+          }
+        ],
+        "story_progression_score": 100,
+        "repeated_roles": [],
+        "metadata": {
+          "title": "Questions in the Light",
+          "genre": "educational"
+        }
+      },
+      "reaction_shots": {
+        "version": "reaction_shot_planner_v1",
+        "moments": [
+          {
+            "clip_index": 1,
+            "trigger": "Character reacts to discovery: Wide establishing view of the journey beginning",
+            "reaction_type": "look_left",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 1,
+            "trigger": "Character reacts to discovery: Wide establishing view of the journey beginning",
+            "reaction_type": "curiosity_widen_eyes",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 1,
+            "trigger": "Companion reacts after hero discovers opening landscape",
+            "reaction_type": "look_left",
+            "character": "companion",
+            "framing": "over_shoulder_reaction",
+            "duration_hint": "0.6-1.2s"
+          },
+          {
+            "clip_index": 2,
+            "trigger": "Character reacts to escalation: Tight dramatic space where obstacles intensify",
+            "reaction_type": "look_up",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 2,
+            "trigger": "Character reacts to escalation: Tight dramatic space where obstacles intensify",
+            "reaction_type": "fear",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 2,
+            "trigger": "Companion reacts after hero discovers conflict zone",
+            "reaction_type": "excitement",
+            "character": "companion",
+            "framing": "over_shoulder_reaction",
+            "duration_hint": "0.6-1.2s"
+          },
+          {
+            "clip_index": 3,
+            "trigger": "Character reacts to reward: Reward space with clear visual transformation",
+            "reaction_type": "smile",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 3,
+            "trigger": "Character reacts to reward: Reward space with clear visual transformation",
+            "reaction_type": "excitement",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 3,
+            "trigger": "Companion reacts after hero discovers payoff reveal",
+            "reaction_type": "excitement",
+            "character": "companion",
+            "framing": "over_shoulder_reaction",
+            "duration_hint": "0.6-1.2s"
+          }
+        ],
+        "reaction_coverage_score": 100,
+        "metadata": {
+          "moment_count": 9
+        }
+      },
+      "repetition_report": {
+        "version": "visual_repetition_detector_v1",
+        "findings": [
+          {
+            "category": "action",
+            "severity": "low",
+            "clip_indices": [
+              2,
+              3
+            ],
+            "detail": "Reaction 'excitement' reused across multiple clips"
+          },
+          {
+            "category": "camera_angle",
+            "severity": "low",
+            "clip_indices": [
+              1,
+              2,
+              3
+            ],
+            "detail": "Some reaction framings repeat across clips"
+          }
+        ],
+        "repetition_score": 90,
+        "repeated_locations": [],
+        "repeated_objectives": [],
+        "pass_visual_diversity": true,
+        "metadata": {
+          "scene_diversity_score": 100,
+          "story_progression_score": 100
+        }
+      },
+      "scene_progression": [
+        "Discovery: Wide establishing view of the journey beginning (opening landscape)",
+        "Escalation: Tight dramatic space where obstacles intensify (conflict zone)",
+        "Reward: Reward space with clear visual transformation (payoff reveal)"
+      ],
+      "story_visual_quality": {
+        "scene_diversity_score": 100,
+        "emotion_coverage_score": 100,
+        "story_progression_score": 100,
+        "repetition_score": 90,
+        "reaction_coverage_score": 100,
+        "pass_visual_diversity": true,
+        "unique_locations": [
+          "opening landscape",
+          "conflict zone",
+          "payoff reveal"
+        ],
+        "clip_objectives": [
+          {
+            "clip_index": 1,
+            "location": "opening landscape",
+            "visual_objective": "Wide establishing view of the journey beginning",
+            "setting_type": "exterior_wide",
+            "story_beat": "discovery"
+          },
+          {
+            "clip_index": 2,
+            "location": "conflict zone",
+            "visual_objective": "Tight dramatic space where obstacles intensify",
+            "setting_type": "interior_tension",
+            "story_beat": "escalation"
+          },
+          {
+            "clip_index": 3,
+            "location": "payoff reveal",
+            "visual_objective": "Reward space with clear visual transformation",
+            "setting_type": "interior_payoff",
+            "story_beat": "reward"
+          }
+        ]
+      },
+      "metadata": {
+        "clip_count": 3,
+        "genre": "educational"
+      }
+    },
+    "story_visual_artifact_paths": {
+      "character_emotion_plan": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\character_emotion_plan_cb_e2e_20260613_153348_f05f58c6.json",
+      "visual_repetition_report": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\visual_repetition_report_cb_e2e_20260613_153348_f05f58c6.json",
+      "scene_diversity_report": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_153408_348_f05f58c6\\debug\\story_visual_1\\scene_diversity_report.json",
+      "run_character_emotion_plan": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_153408_348_f05f58c6\\metadata\\character_emotion_plan.json",
+      "run_visual_repetition_report": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_153408_348_f05f58c6\\metadata\\visual_repetition_report.json",
+      "story_visual_summary": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_153408_348_f05f58c6\\debug\\story_visual_1\\story_visual_summary.json"
+    }
+  }
+}

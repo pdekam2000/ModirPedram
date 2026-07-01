@@ -1,0 +1,45 @@
+{
+  "topic": "how to be legende in boxing",
+  "category": "sports_training",
+  "strategy": "instructional_general",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "How to Become a Boxing Legend: Proven Techniques from a Pro Coach",
+      "Master Boxing Fundamentals: Your Step-by-Step Guide to Legendary Status",
+      "Train Like a Legend: Essential Boxing Skills and Mental Toughness Tips",
+      "Unlock Legendary Boxing Skills with Pro Training and Discipline",
+      "From Gym to Glory: The Real Path to Becoming a Boxing Legend"
+    ],
+    "domain_concepts": [
+      "advanced footwork patterns and ring generalship",
+      "periodization training for peak fight readiness",
+      "tactical fight IQ development and opponent analysis",
+      "recovery protocols including active rest and injury prevention",
+      "psychological resilience training including visualization and stress inoculation",
+      "historical case studies of legendary fighters’ training regimens and adaptations",
+      "integration of sparring feedback loops for continuous skill refinement"
+    ],
+    "character_role": "Experienced boxing coach and former professional boxer specializing in elite athlete development and fight strategy, guiding aspiring boxers through the nuanced path to legendary status.",
+    "prompt_additions": [
+      "Include detailed demonstrations of advanced footwork drills emphasizing ring control and evasive maneuvers.",
+      "Showcase periodized training cycles that build peak conditioning timed for fight competition.",
+      "Integrate mental conditioning exercises such as visualization techniques and stress management strategies.",
+      "Highlight tactical analysis segments explaining how to read opponents and adapt mid-fight.",
+      "Demonstrate recovery methods including active rest days and injury prevention protocols.",
+      "Use real-world examples of legendary boxers’ styles and training adaptations to inspire and instruct.",
+      "Emphasize the importance of disciplined sparring sessions with feedback for continuous improvement."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 2055,
+    "completion_tokens": 347,
+    "total_tokens": 2402
+  },
+  "estimated_cost_usd": 0.0013771999999999999
+}

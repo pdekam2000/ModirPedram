@@ -1,0 +1,32 @@
+{
+  "version": "scene_recall_engine_v1",
+  "run_id": "memory_5ad4f4f57d7c",
+  "clip_count": 2,
+  "packages": [
+    {
+      "version": "scene_recall_engine_v1",
+      "clip_index": 1,
+      "run_id": "memory_5ad4f4f57d7c",
+      "subject_position": "center-left hero plane, facing camera three-quarter",
+      "motion_direction": "slow forward discovery push",
+      "camera_angle": "low hero angle, slight upward tilt",
+      "environment_state": "a single continuous environment with strong depth and readable vertical framing",
+      "lighting_state": "rain-soaked reflective neon practicals and volumetric fog",
+      "emotional_state": "fear converting into forward motion",
+      "created_at": "2026-06-13T13:40:14.937251+00:00"
+    },
+    {
+      "version": "scene_recall_engine_v1",
+      "clip_index": 2,
+      "run_id": "memory_5ad4f4f57d7c",
+      "subject_position": "center frame hero hold, eyeline locked to lens",
+      "motion_direction": "decelerating settle into final pose",
+      "camera_angle": "eye-level tracking with subtle parallax",
+      "environment_state": "a single continuous environment with strong depth and readable vertical framing",
+      "lighting_state": "rain-soaked reflective neon practicals and volumetric fog",
+      "emotional_state": "fear converting into forward motion",
+      "created_at": "2026-06-13T13:40:14.937257+00:00"
+    }
+  ],
+  "created_at": "2026-06-13T13:40:14.937259+00:00"
+}

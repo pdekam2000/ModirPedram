@@ -1,0 +1,46 @@
+{
+  "topic": "Dog Training like pro",
+  "category": "fitness",
+  "strategy": "recipe_tutorial",
+  "enhancement_types": [
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Master Dog Training Like a Pro: Avoid These Common Pitfalls",
+      "Stop Failing Your Dog Training Like a Pro: Expert Tips Revealed",
+      "The Essential Dog Training Like a Pro Technique Every Trainer Must Know",
+      "Step-by-Step Guide to Dog Training Like a Pro for Lasting Results",
+      "How to Train Your Dog Like a Pro: Proven Methods for Success"
+    ],
+    "domain_concepts": [
+      "operant conditioning",
+      "positive reinforcement schedules",
+      "behavior shaping",
+      "clicker training",
+      "impulse control",
+      "behavior generalization",
+      "socialization protocols",
+      "training session structuring",
+      "environmental distraction management",
+      "trainer-dog communication cues"
+    ],
+    "prompt_additions": [
+      "Include demonstration of operant conditioning principles with clear timing of commands and rewards.",
+      "Showcase how consistent positive reinforcement schedules improve puppy recall reliability.",
+      "Highlight the importance of behavior shaping through incremental command mastery.",
+      "Demonstrate use of clicker training as a precise reward marker to enhance learning speed.",
+      "Illustrate managing environmental distractions to maintain dog focus during training.",
+      "Emphasize trainer-dog communication cues to strengthen mutual understanding.",
+      "Show structuring of short, frequent training sessions to optimize puppy engagement and retention."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 2061,
+    "completion_tokens": 282,
+    "total_tokens": 2343
+  },
+  "estimated_cost_usd": 0.0012756
+}

@@ -1,0 +1,54 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "cb_test_978b99e5",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "purpose": "Establish world, location, and scale before subject focus.",
+      "scene_progression": "Opening scene showing the park and characters approaching each other",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "cut_to_medium"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "reveal_shot",
+      "purpose": "Uncover key information or payoff element.",
+      "scene_progression": "Close-up shots of the girl and man engaging in conversation with emotional cues",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "hero_shot"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: establishing_shot \u2014 Opening scene showing the park and characters approaching each other",
+    "Clip 2: reveal_shot \u2014 Close-up shots of the girl and man engaging in conversation with emotional cues"
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "framing": "wide vertical establishing frame",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Opening scene showing the park and characters approaching each other \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "reveal_shot",
+      "camera_movement": "Motivated move from partial occlusion to full reveal.",
+      "lens": "50mm cinematic prime",
+      "framing": "partial occlusion to full reveal framing",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Close-up shots of the girl and man engaging in conversation with emotional cues \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\cb_test_978b99e5\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

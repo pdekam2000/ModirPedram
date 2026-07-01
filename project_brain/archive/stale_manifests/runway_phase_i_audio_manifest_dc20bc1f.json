@@ -1,0 +1,1040 @@
+{
+  "version": "audio_design_post_v5",
+  "status": "completed",
+  "narration_provider": "elevenlabs",
+  "voice_id": "",
+  "music_provider": "local",
+  "narration_script_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\cinematic_narration_script.txt",
+  "narration_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+  "narrated_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+  "subtitle_paths": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.srt",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.vtt"
+  ],
+  "duration_seconds": 12.0,
+  "warnings": [],
+  "errors": [],
+  "audio_design_plan": {
+    "version": "audio_design_engine_v1",
+    "narrator_voice_style": "warm, gentle, playful, child-storyteller",
+    "character_voices": [
+      {
+        "character": "narrator",
+        "voice_role": "narrator",
+        "voice_style": "warm, gentle, playful, child-storyteller",
+        "voice_id": ""
+      },
+      {
+        "character": "cat",
+        "voice_role": "character",
+        "voice_style": "cute kitten chirps, soft playful",
+        "voice_id": "",
+        "fallback_sfx": "cat_meow"
+      }
+    ],
+    "ambience_tracks": [
+      {
+        "tag": "forest_birds",
+        "layer": "ambience",
+        "volume": 0.12
+      },
+      {
+        "tag": "wind_leaves",
+        "layer": "ambience",
+        "volume": 0.12
+      },
+      {
+        "tag": "magical_chimes",
+        "layer": "ambience",
+        "volume": 0.12
+      }
+    ],
+    "sound_effects": [
+      {
+        "tag": "cat_meow",
+        "at_seconds": 1.0,
+        "volume": 0.2,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      },
+      {
+        "tag": "footsteps_soft",
+        "at_seconds": 2.0,
+        "volume": 0.18,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      },
+      {
+        "tag": "sparkle",
+        "at_seconds": 0.0,
+        "volume": 0.22,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      },
+      {
+        "tag": "discovery_chime",
+        "at_seconds": 0.0,
+        "volume": 0.24,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      }
+    ],
+    "music_mood": "soft whimsical adventure",
+    "audio_timeline": [
+      {
+        "index": 1,
+        "start_seconds": 0.0,
+        "label": "Introduce the cute orange cat and its explorer personality",
+        "ambience": "forest",
+        "sfx": []
+      },
+      {
+        "index": 2,
+        "start_seconds": 2.5,
+        "label": "Showcase the cat navigating through various animated terrains",
+        "ambience": "forest",
+        "sfx": [
+          "footsteps_soft"
+        ]
+      },
+      {
+        "index": 3,
+        "start_seconds": 5.0,
+        "label": "Highlight a key discovery or adventure climax",
+        "ambience": "forest",
+        "sfx": []
+      }
+    ],
+    "narration_style": "child_story",
+    "environment": "forest",
+    "topic": "Cute orange cartoon cat explorer",
+    "duration_seconds": 0.0,
+    "metadata": {
+      "platform": "youtube_shorts",
+      "run_id": "cb_e2e_20260611_225308_dc20bc1f",
+      "character_count": 2,
+      "news_tone_rejected": false
+    }
+  },
+  "voice_cast_plan": {
+    "version": "voice_casting_director_v1",
+    "narrator": {
+      "character": "Narrator",
+      "voice_style": "warm storyteller",
+      "voice_id": "",
+      "provider_slot": "elevenlabs"
+    },
+    "characters": [
+      {
+        "character": "Whiskers",
+        "role": "protagonist",
+        "voice_style": "child friendly",
+        "voice_id": "",
+        "provider_slot": "elevenlabs",
+        "emotional_traits": [
+          "wonder",
+          "excitement",
+          "determination"
+        ]
+      },
+      {
+        "character": "Sage",
+        "role": "mentor",
+        "voice_style": "young female",
+        "voice_id": "",
+        "provider_slot": "elevenlabs",
+        "emotional_traits": [
+          "caution",
+          "loyalty",
+          "relief"
+        ]
+      }
+    ],
+    "provider": "elevenlabs",
+    "multi_track": true,
+    "warnings": [
+      "missing_voice_id:Whiskers",
+      "missing_voice_id:Sage"
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai",
+      "local"
+    ]
+  },
+  "environment_sound_plan": {
+    "version": "environment_sound_engine_v1",
+    "environment": "forest",
+    "ambience_tags": [
+      "forest_birds",
+      "wind_leaves",
+      "magical_chimes"
+    ],
+    "sfx_events": [
+      {
+        "tag": "cat_meow",
+        "at_seconds": 1.0,
+        "volume": 0.2,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      },
+      {
+        "tag": "footsteps_soft",
+        "at_seconds": 2.0,
+        "volume": 0.18,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      },
+      {
+        "tag": "sparkle",
+        "at_seconds": 0.0,
+        "volume": 0.22,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      },
+      {
+        "tag": "discovery_chime",
+        "at_seconds": 0.0,
+        "volume": 0.24,
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+      }
+    ],
+    "resolved_ambience_files": [
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\forest_birds.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\wind_leaves.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\forest_birds.mp3"
+    ],
+    "resolved_sfx_files": [
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+    ],
+    "warnings": [],
+    "status": "planned"
+  },
+  "music_debug_manifest_path": "",
+  "music_status": "Music: PASS \u2014 mixed in cinematic audio bed",
+  "music_status_code": "completed",
+  "subtitle_status": "Subtitle: pending burn \u2014 styled ASS ready for branding",
+  "ambience_status": "Ambience: PASS \u2014 7 cinematic layer(s)",
+  "sfx_status": "SFX: PASS \u2014 included in cinematic mix",
+  "subtitle_style_status": "Subtitle style: colorful lower-third active.",
+  "character_voice_status": "Character voices: cinematic multi-voice \u2014 3 voices, 9 dialogue lines",
+  "story_package_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\story_packages\\cb_e2e_20260611_225308_dc20bc1f.json",
+  "story_audio_audit": {
+    "version": "story_audio_auditor_v1",
+    "status": "PASS",
+    "story_score": 50,
+    "dialogue_score": 100,
+    "emotion_score": 70,
+    "character_count": 2,
+    "voice_count": 3,
+    "checks": {
+      "story_arc_exists": true,
+      "dialogue_exists": true,
+      "multiple_characters_exist": true,
+      "emotion_progression_exists": true,
+      "ambience_exists": true,
+      "music_exists": true,
+      "voice_casting_exists": true,
+      "timeline_exists": true
+    },
+    "failures": [],
+    "warnings": [
+      "missing_voice_id:Whiskers",
+      "missing_voice_id:Sage",
+      "missing_asset:magical_chimes",
+      "missing_asset:footsteps_soft",
+      "missing_asset:distant_birds",
+      "missing_asset:cat_meow"
+    ]
+  },
+  "cinematic_audio": {
+    "version": "cinematic_audio_runtime_v1",
+    "status": "completed",
+    "cinematic_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+    "cinematic_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+    "voice_cast_runtime_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\voice_cast_runtime.json",
+    "dialogue_timeline_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\timeline\\dialogue_timeline.json",
+    "environment_timeline_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\timeline\\environment_timeline.json",
+    "music_timeline_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\timeline\\music_timeline.json",
+    "manifest_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\cinematic_audio_manifest.json",
+    "character_count": 2,
+    "voice_count": 3,
+    "dialogue_line_count": 9,
+    "emotion_states": [
+      "curiosity",
+      "tension",
+      "joy"
+    ],
+    "environment_layers": 7,
+    "music_layers": 3,
+    "audio_quality_score": 100,
+    "speech_result": {
+      "version": "dialogue_to_speech_engine_v1",
+      "status": "completed",
+      "output_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue",
+      "clips": [
+        {
+          "line_id": "line_001",
+          "speaker": "Whiskers",
+          "emotion": "curiosity",
+          "text": "Wow! What is that?",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_001.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 1.44
+        },
+        {
+          "line_id": "line_002",
+          "speaker": "Sage",
+          "emotion": "tension",
+          "text": "Be careful, Whiskers!",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_001.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 1.393
+        },
+        {
+          "line_id": "line_003",
+          "speaker": "Narrator",
+          "emotion": "curiosity",
+          "text": "The adventure had begun beneath the ancient jungle arch.",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_001.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 3.297
+        },
+        {
+          "line_id": "line_004",
+          "speaker": "Sage",
+          "emotion": "fear",
+          "text": "That stone is moving!",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_002.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 1.579
+        },
+        {
+          "line_id": "line_005",
+          "speaker": "Whiskers",
+          "emotion": "surprise",
+          "text": "I think something is calling us.",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_002.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 1.95
+        },
+        {
+          "line_id": "line_006",
+          "speaker": "Narrator",
+          "emotion": "tension",
+          "text": "Roots shifted and the path ahead stopped making sense.",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_002.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 3.204
+        },
+        {
+          "line_id": "line_007",
+          "speaker": "Whiskers",
+          "emotion": "excitement",
+          "text": "I can carry it! I know I can!",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_003.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 1.95
+        },
+        {
+          "line_id": "line_008",
+          "speaker": "Sage",
+          "emotion": "relief",
+          "text": "Then I am with you.",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_003.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 1.207
+        },
+        {
+          "line_id": "line_009",
+          "speaker": "Narrator",
+          "emotion": "joy",
+          "text": "The crystal seed pulsed like a heartbeat of light.",
+          "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_003.mp3",
+          "provider_id": "elevenlabs",
+          "source": "elevenlabs",
+          "duration_seconds": 2.879
+        }
+      ],
+      "speaker_files": {
+        "whiskers": [
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_001.mp3",
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_002.mp3",
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_003.mp3"
+        ],
+        "sage": [
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_001.mp3",
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_002.mp3",
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_003.mp3"
+        ],
+        "narrator": [
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_001.mp3",
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_002.mp3",
+          "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_003.mp3"
+        ]
+      },
+      "warnings": [],
+      "errors": []
+    },
+    "mix_result": {
+      "version": "cinematic_audio_mixer_v1",
+      "status": "completed",
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+      "dialogue_track_count": 9,
+      "environment_layer_count": 2,
+      "music_segment_count": 3,
+      "mean_volume_db": -25.7,
+      "warnings": [],
+      "created_at": "2026-06-12T19:58:19.064306+00:00"
+    },
+    "video_result": {
+      "version": "cinematic_video_audio_builder_v1",
+      "status": "completed",
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+      "input_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_VIDEO.mp4",
+      "cinematic_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+      "warnings": [],
+      "created_at": "2026-06-12 21:58:19"
+    },
+    "audio_reality_audit": {
+      "version": "audio_reality_auditor_v1",
+      "status": "PASS",
+      "quality_score": 100,
+      "checks": {
+        "dialogue_generated": true,
+        "multiple_speakers_generated": true,
+        "multiple_voice_files_exist": true,
+        "environment_audio_exists": true,
+        "music_exists": true,
+        "dialogue_timeline_exists": true,
+        "environment_timeline_exists": true,
+        "music_timeline_exists": true,
+        "final_cinematic_audio_exists": true,
+        "final_cinematic_audio_audible": true,
+        "final_cinematic_video_exists": true
+      },
+      "failures": [],
+      "warnings": []
+    },
+    "voice_presence_audit": {
+      "version": "voice_presence_auditor_v1",
+      "status": "PASS",
+      "speaker_count": 3,
+      "voice_count": 3,
+      "character_count": 2,
+      "detected_speakers": [
+        "Narrator",
+        "Sage",
+        "Whiskers"
+      ],
+      "checks": {
+        "speaker_count_gt_1": true,
+        "multiple_character_voices": true,
+        "narrator_present": true,
+        "distinct_voice_files": true,
+        "not_single_narration_track": true
+      },
+      "failures": []
+    }
+  },
+  "cinematic_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+  "cinematic_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+  "audio_reality_audit": {
+    "version": "audio_reality_auditor_v1",
+    "status": "PASS",
+    "quality_score": 100,
+    "checks": {
+      "dialogue_generated": true,
+      "multiple_speakers_generated": true,
+      "multiple_voice_files_exist": true,
+      "environment_audio_exists": true,
+      "music_exists": true,
+      "dialogue_timeline_exists": true,
+      "environment_timeline_exists": true,
+      "music_timeline_exists": true,
+      "final_cinematic_audio_exists": true,
+      "final_cinematic_audio_audible": true,
+      "final_cinematic_video_exists": true
+    },
+    "failures": [],
+    "warnings": []
+  },
+  "voice_presence_audit": {
+    "version": "voice_presence_auditor_v1",
+    "status": "PASS",
+    "speaker_count": 3,
+    "voice_count": 3,
+    "character_count": 2,
+    "detected_speakers": [
+      "Narrator",
+      "Sage",
+      "Whiskers"
+    ],
+    "checks": {
+      "speaker_count_gt_1": true,
+      "multiple_character_voices": true,
+      "narrator_present": true,
+      "distinct_voice_files": true,
+      "not_single_narration_track": true
+    },
+    "failures": []
+  },
+  "created_at": "2026-06-12 21:58:04",
+  "music_runtime": {
+    "status": "completed",
+    "audibility_pass": true,
+    "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+    "source": "cinematic_audio_mixer"
+  },
+  "styled_ass_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles_styled.ass",
+  "subtitle_style_preview_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\debug\\subtitle_style_preview.png",
+  "metadata": {
+    "narration": {
+      "version": "narration_engine_v2",
+      "status": "completed",
+      "provider_id": "elevenlabs",
+      "script_result": {
+        "version": "narration_script_builder_v2",
+        "script": "Whiskers: Wow! What is that?\nSage: Be careful, Whiskers!\nNarrator: The adventure had begun beneath the ancient jungle arch.\nSage: That stone is moving!\nWhiskers: I think something is calling us.\nNarrator: Roots shifted and the path ahead stopped making sense.\nWhiskers: I can carry it! I know I can!\nSage: Then I am with you.\nNarrator: The crystal seed pulsed like a heartbeat of light.",
+        "script_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\cinematic_narration_script.txt",
+        "platform": "youtube_shorts",
+        "topic": "Cute orange cartoon cat explorer",
+        "clip_count": 3,
+        "source": "cinematic_dialogue",
+        "segments": [
+          "Whiskers: Wow! What is that?",
+          "Sage: Be careful, Whiskers!",
+          "Narrator: The adventure had begun beneath the ancient jungle arch.",
+          "Sage: That stone is moving!",
+          "Whiskers: I think something is calling us.",
+          "Narrator: Roots shifted and the path ahead stopped making sense.",
+          "Whiskers: I can carry it! I know I can!",
+          "Sage: Then I am with you.",
+          "Narrator: The crystal seed pulsed like a heartbeat of light."
+        ],
+        "metadata": {
+          "source": "cinematic_dialogue"
+        }
+      },
+      "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+      "metadata": {
+        "source": "cinematic_audio_runtime",
+        "voice_cast_plan": {
+          "version": "voice_casting_director_v1",
+          "narrator": {
+            "character": "Narrator",
+            "voice_style": "warm storyteller",
+            "voice_id": "",
+            "provider_slot": "elevenlabs"
+          },
+          "characters": [
+            {
+              "character": "Whiskers",
+              "role": "protagonist",
+              "voice_style": "child friendly",
+              "voice_id": "",
+              "provider_slot": "elevenlabs",
+              "emotional_traits": [
+                "wonder",
+                "excitement",
+                "determination"
+              ]
+            },
+            {
+              "character": "Sage",
+              "role": "mentor",
+              "voice_style": "young female",
+              "voice_id": "",
+              "provider_slot": "elevenlabs",
+              "emotional_traits": [
+                "caution",
+                "loyalty",
+                "relief"
+              ]
+            }
+          ],
+          "provider": "elevenlabs",
+          "multi_track": true,
+          "warnings": [
+            "missing_voice_id:Whiskers",
+            "missing_voice_id:Sage"
+          ],
+          "provider_ready": [
+            "elevenlabs",
+            "minimax",
+            "openai",
+            "local"
+          ]
+        }
+      },
+      "warnings": [],
+      "errors": []
+    },
+    "merge": {
+      "version": "elevenlabs_runtime_v1",
+      "status": "MERGED",
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+      "input_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_VIDEO.mp4",
+      "narration_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+      "music_audio_path": "",
+      "ffmpeg_executed": false,
+      "ffmpeg_available": false,
+      "error": "",
+      "warnings": [],
+      "metadata": {
+        "source": "cinematic_video_audio_builder"
+      },
+      "created_at": "2026-06-12 21:58:19"
+    },
+    "subtitles": {
+      "version": "elevenlabs_runtime_v1",
+      "status": "GENERATED",
+      "srt_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.srt",
+      "vtt_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.vtt",
+      "duration_seconds": 12.0,
+      "cue_count": 9,
+      "warnings": [],
+      "metadata": {
+        "timing_mode": "proportional_by_segment_length",
+        "shorts_format": {
+          "version": "subtitle_format_engine_v4",
+          "platform": "youtube_shorts",
+          "max_words_per_line": 4,
+          "max_lines_per_cue": 2,
+          "safe_margin_v": 155,
+          "cue_count": 9,
+          "max_lines_seen": 2,
+          "ass_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\publish\\subtitles\\subtitles.ass"
+        }
+      },
+      "created_at": "2026-06-12 21:58:19"
+    },
+    "music_runtime": {
+      "status": "completed",
+      "audibility_pass": true,
+      "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+      "source": "cinematic_audio_mixer"
+    },
+    "environment_mix": {
+      "status": "skipped_cinematic_prebuilt"
+    },
+    "music_provider": "local",
+    "audio_design_plan": {
+      "version": "audio_design_engine_v1",
+      "narrator_voice_style": "warm, gentle, playful, child-storyteller",
+      "character_voices": [
+        {
+          "character": "narrator",
+          "voice_role": "narrator",
+          "voice_style": "warm, gentle, playful, child-storyteller",
+          "voice_id": ""
+        },
+        {
+          "character": "cat",
+          "voice_role": "character",
+          "voice_style": "cute kitten chirps, soft playful",
+          "voice_id": "",
+          "fallback_sfx": "cat_meow"
+        }
+      ],
+      "ambience_tracks": [
+        {
+          "tag": "forest_birds",
+          "layer": "ambience",
+          "volume": 0.12
+        },
+        {
+          "tag": "wind_leaves",
+          "layer": "ambience",
+          "volume": 0.12
+        },
+        {
+          "tag": "magical_chimes",
+          "layer": "ambience",
+          "volume": 0.12
+        }
+      ],
+      "sound_effects": [
+        {
+          "tag": "cat_meow",
+          "at_seconds": 1.0,
+          "volume": 0.2,
+          "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+        },
+        {
+          "tag": "footsteps_soft",
+          "at_seconds": 2.0,
+          "volume": 0.18,
+          "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+        },
+        {
+          "tag": "sparkle",
+          "at_seconds": 0.0,
+          "volume": 0.22,
+          "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+        },
+        {
+          "tag": "discovery_chime",
+          "at_seconds": 0.0,
+          "volume": 0.24,
+          "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\sfx\\sparkle.mp3"
+        }
+      ],
+      "music_mood": "soft whimsical adventure",
+      "audio_timeline": [
+        {
+          "index": 1,
+          "start_seconds": 0.0,
+          "label": "Introduce the cute orange cat and its explorer personality",
+          "ambience": "forest",
+          "sfx": []
+        },
+        {
+          "index": 2,
+          "start_seconds": 2.5,
+          "label": "Showcase the cat navigating through various animated terrains",
+          "ambience": "forest",
+          "sfx": [
+            "footsteps_soft"
+          ]
+        },
+        {
+          "index": 3,
+          "start_seconds": 5.0,
+          "label": "Highlight a key discovery or adventure climax",
+          "ambience": "forest",
+          "sfx": []
+        }
+      ],
+      "narration_style": "child_story",
+      "environment": "forest",
+      "topic": "Cute orange cartoon cat explorer",
+      "duration_seconds": 0.0,
+      "metadata": {
+        "platform": "youtube_shorts",
+        "run_id": "cb_e2e_20260611_225308_dc20bc1f",
+        "character_count": 2,
+        "news_tone_rejected": false
+      }
+    },
+    "voice_cast_plan": {
+      "version": "voice_casting_director_v1",
+      "narrator": {
+        "character": "Narrator",
+        "voice_style": "warm storyteller",
+        "voice_id": "",
+        "provider_slot": "elevenlabs"
+      },
+      "characters": [
+        {
+          "character": "Whiskers",
+          "role": "protagonist",
+          "voice_style": "child friendly",
+          "voice_id": "",
+          "provider_slot": "elevenlabs",
+          "emotional_traits": [
+            "wonder",
+            "excitement",
+            "determination"
+          ]
+        },
+        {
+          "character": "Sage",
+          "role": "mentor",
+          "voice_style": "young female",
+          "voice_id": "",
+          "provider_slot": "elevenlabs",
+          "emotional_traits": [
+            "caution",
+            "loyalty",
+            "relief"
+          ]
+        }
+      ],
+      "provider": "elevenlabs",
+      "multi_track": true,
+      "warnings": [
+        "missing_voice_id:Whiskers",
+        "missing_voice_id:Sage"
+      ],
+      "provider_ready": [
+        "elevenlabs",
+        "minimax",
+        "openai",
+        "local"
+      ]
+    },
+    "story_package_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\story_packages\\cb_e2e_20260611_225308_dc20bc1f.json",
+    "story_audio_audit": {
+      "version": "story_audio_auditor_v1",
+      "status": "PASS",
+      "story_score": 50,
+      "dialogue_score": 100,
+      "emotion_score": 70,
+      "character_count": 2,
+      "voice_count": 3,
+      "checks": {
+        "story_arc_exists": true,
+        "dialogue_exists": true,
+        "multiple_characters_exist": true,
+        "emotion_progression_exists": true,
+        "ambience_exists": true,
+        "music_exists": true,
+        "voice_casting_exists": true,
+        "timeline_exists": true
+      },
+      "failures": [],
+      "warnings": [
+        "missing_voice_id:Whiskers",
+        "missing_voice_id:Sage",
+        "missing_asset:magical_chimes",
+        "missing_asset:footsteps_soft",
+        "missing_asset:distant_birds",
+        "missing_asset:cat_meow"
+      ]
+    },
+    "cinematic_audio": {
+      "version": "cinematic_audio_runtime_v1",
+      "status": "completed",
+      "cinematic_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+      "cinematic_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+      "voice_cast_runtime_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\voice_cast_runtime.json",
+      "dialogue_timeline_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\timeline\\dialogue_timeline.json",
+      "environment_timeline_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\timeline\\environment_timeline.json",
+      "music_timeline_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\timeline\\music_timeline.json",
+      "manifest_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\cinematic_audio_manifest.json",
+      "character_count": 2,
+      "voice_count": 3,
+      "dialogue_line_count": 9,
+      "emotion_states": [
+        "curiosity",
+        "tension",
+        "joy"
+      ],
+      "environment_layers": 7,
+      "music_layers": 3,
+      "audio_quality_score": 100,
+      "speech_result": {
+        "version": "dialogue_to_speech_engine_v1",
+        "status": "completed",
+        "output_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue",
+        "clips": [
+          {
+            "line_id": "line_001",
+            "speaker": "Whiskers",
+            "emotion": "curiosity",
+            "text": "Wow! What is that?",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_001.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 1.44
+          },
+          {
+            "line_id": "line_002",
+            "speaker": "Sage",
+            "emotion": "tension",
+            "text": "Be careful, Whiskers!",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_001.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 1.393
+          },
+          {
+            "line_id": "line_003",
+            "speaker": "Narrator",
+            "emotion": "curiosity",
+            "text": "The adventure had begun beneath the ancient jungle arch.",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_001.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 3.297
+          },
+          {
+            "line_id": "line_004",
+            "speaker": "Sage",
+            "emotion": "fear",
+            "text": "That stone is moving!",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_002.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 1.579
+          },
+          {
+            "line_id": "line_005",
+            "speaker": "Whiskers",
+            "emotion": "surprise",
+            "text": "I think something is calling us.",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_002.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 1.95
+          },
+          {
+            "line_id": "line_006",
+            "speaker": "Narrator",
+            "emotion": "tension",
+            "text": "Roots shifted and the path ahead stopped making sense.",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_002.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 3.204
+          },
+          {
+            "line_id": "line_007",
+            "speaker": "Whiskers",
+            "emotion": "excitement",
+            "text": "I can carry it! I know I can!",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_003.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 1.95
+          },
+          {
+            "line_id": "line_008",
+            "speaker": "Sage",
+            "emotion": "relief",
+            "text": "Then I am with you.",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_003.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 1.207
+          },
+          {
+            "line_id": "line_009",
+            "speaker": "Narrator",
+            "emotion": "joy",
+            "text": "The crystal seed pulsed like a heartbeat of light.",
+            "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_003.mp3",
+            "provider_id": "elevenlabs",
+            "source": "elevenlabs",
+            "duration_seconds": 2.879
+          }
+        ],
+        "speaker_files": {
+          "whiskers": [
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_001.mp3",
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_002.mp3",
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\whiskers_003.mp3"
+          ],
+          "sage": [
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_001.mp3",
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_002.mp3",
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\sage_003.mp3"
+          ],
+          "narrator": [
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_001.mp3",
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_002.mp3",
+            "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\dialogue\\narrator_003.mp3"
+          ]
+        },
+        "warnings": [],
+        "errors": []
+      },
+      "mix_result": {
+        "version": "cinematic_audio_mixer_v1",
+        "status": "completed",
+        "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+        "dialogue_track_count": 9,
+        "environment_layer_count": 2,
+        "music_segment_count": 3,
+        "mean_volume_db": -25.7,
+        "warnings": [],
+        "created_at": "2026-06-12T19:58:19.064306+00:00"
+      },
+      "video_result": {
+        "version": "cinematic_video_audio_builder_v1",
+        "status": "completed",
+        "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_CINEMATIC.mp4",
+        "input_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\final\\FINAL_RUNWAY_PHASE_I_VIDEO.mp4",
+        "cinematic_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260611_235927_308_dc20bc1f\\audio\\FINAL_CINEMATIC_AUDIO.mp3",
+        "warnings": [],
+        "created_at": "2026-06-12 21:58:19"
+      },
+      "audio_reality_audit": {
+        "version": "audio_reality_auditor_v1",
+        "status": "PASS",
+        "quality_score": 100,
+        "checks": {
+          "dialogue_generated": true,
+          "multiple_speakers_generated": true,
+          "multiple_voice_files_exist": true,
+          "environment_audio_exists": true,
+          "music_exists": true,
+          "dialogue_timeline_exists": true,
+          "environment_timeline_exists": true,
+          "music_timeline_exists": true,
+          "final_cinematic_audio_exists": true,
+          "final_cinematic_audio_audible": true,
+          "final_cinematic_video_exists": true
+        },
+        "failures": [],
+        "warnings": []
+      },
+      "voice_presence_audit": {
+        "version": "voice_presence_auditor_v1",
+        "status": "PASS",
+        "speaker_count": 3,
+        "voice_count": 3,
+        "character_count": 2,
+        "detected_speakers": [
+          "Narrator",
+          "Sage",
+          "Whiskers"
+        ],
+        "checks": {
+          "speaker_count_gt_1": true,
+          "multiple_character_voices": true,
+          "narrator_present": true,
+          "distinct_voice_files": true,
+          "not_single_narration_track": true
+        },
+        "failures": []
+      }
+    },
+    "audio_reality_audit": {
+      "version": "audio_reality_auditor_v1",
+      "status": "PASS",
+      "quality_score": 100,
+      "checks": {
+        "dialogue_generated": true,
+        "multiple_speakers_generated": true,
+        "multiple_voice_files_exist": true,
+        "environment_audio_exists": true,
+        "music_exists": true,
+        "dialogue_timeline_exists": true,
+        "environment_timeline_exists": true,
+        "music_timeline_exists": true,
+        "final_cinematic_audio_exists": true,
+        "final_cinematic_audio_audible": true,
+        "final_cinematic_video_exists": true
+      },
+      "failures": [],
+      "warnings": []
+    },
+    "voice_presence_audit": {
+      "version": "voice_presence_auditor_v1",
+      "status": "PASS",
+      "speaker_count": 3,
+      "voice_count": 3,
+      "character_count": 2,
+      "detected_speakers": [
+        "Narrator",
+        "Sage",
+        "Whiskers"
+      ],
+      "checks": {
+        "speaker_count_gt_1": true,
+        "multiple_character_voices": true,
+        "narrator_present": true,
+        "distinct_voice_files": true,
+        "not_single_narration_track": true
+      },
+      "failures": []
+    }
+  }
+}

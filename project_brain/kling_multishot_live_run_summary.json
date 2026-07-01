@@ -1,0 +1,150 @@
+{
+  "version": "kling_multishot_live_v1",
+  "ok": false,
+  "status": "failed",
+  "run_id": "kling_ms_20260616T190102_1157d08a",
+  "dry_run_prepare": false,
+  "generate_clicked": true,
+  "credits_spent": true,
+  "approved_by": "Pedram",
+  "approved_at": "2026-06-16 21:04:49",
+  "approval_checklist": {
+    "provider_selected": "Kling 3.0 Pro",
+    "multishot_selected": true,
+    "audio_on": true,
+    "shot_1_duration_seconds": 12,
+    "shot_2_duration_seconds": 3,
+    "shot_1_prompt_filled": true,
+    "shot_2_prompt_filled": true,
+    "shot_1_prompt_chars": 345,
+    "shot_2_prompt_chars": 286,
+    "first_frame_uploaded": false,
+    "first_frame_path": "",
+    "estimated_credit_risk": "Kling 3.0 Pro Multishot 15s (12s+3s) \u2014 Runway subscription credits consumed on Generate",
+    "confirmation_required": true,
+    "all_ready": true
+  },
+  "output_path": "",
+  "download_path": "",
+  "duration_seconds": null,
+  "audio_present": null,
+  "native_audio_notes": "Audio ON in UI; native audio quality requires post-download probe",
+  "multishot_strategy": "two_shot_continuity",
+  "clip_duration_seconds": 15,
+  "steps": [
+    {
+      "step_id": "browser",
+      "label": "cdp",
+      "status": "passed",
+      "detail": "http://127.0.0.1:9222"
+    },
+    {
+      "step_id": "browser",
+      "label": "runway_tab",
+      "status": "passed",
+      "detail": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video"
+    },
+    {
+      "step_id": "01",
+      "label": "provider_kling_3_pro",
+      "status": "passed",
+      "detail": "strategy=text_kling_3_pro; text=Kling 3.0 Pro; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_01_provider_kling_3_pro_20260616T190416.png"
+    },
+    {
+      "step_id": "02",
+      "label": "multishot_tab",
+      "status": "passed",
+      "detail": "strategy=text_multishot; selected=True; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_02_multishot_tab_20260616T190420.png"
+    },
+    {
+      "step_id": "03",
+      "label": "audio_toggle_on",
+      "status": "passed",
+      "detail": "\u00b7 On; strategy=role_button_audio_settings; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_03_audio_toggle_on_20260616T190422.png"
+    },
+    {
+      "step_id": "04",
+      "label": "first_frame_upload",
+      "status": "detected",
+      "detail": "strategy=role_button_upload"
+    },
+    {
+      "step_id": "05",
+      "label": "shot_1_duration_12s",
+      "status": "passed",
+      "detail": "12s; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_05_shot_1_duration_12s_20260616T190425.png"
+    },
+    {
+      "step_id": "06",
+      "label": "shot_2_duration_3s",
+      "status": "passed",
+      "detail": "3s"
+    },
+    {
+      "step_id": "07",
+      "label": "shot_1_prompt",
+      "status": "passed",
+      "detail": "345 chars; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_07_shot_1_prompt_20260616T190443.png"
+    },
+    {
+      "step_id": "08",
+      "label": "shot_2_prompt",
+      "status": "passed",
+      "detail": "286 chars; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_08_shot_2_prompt_20260616T190443.png"
+    },
+    {
+      "step_id": "10",
+      "label": "approval_checklist",
+      "status": "ready",
+      "detail": "{\"provider_selected\": \"Kling 3.0 Pro\", \"multishot_selected\": true, \"audio_on\": true, \"shot_1_duration_seconds\": 12, \"shot_2_duration_seconds\": 3, \"shot_1_prompt_filled\": true, \"shot_2_prompt_filled\": true, \"shot_1_prompt_chars\": 345, \"shot_2_prompt_chars\": 286, \"first_frame_uploaded\": false, \"first_frame_path\": \"\", \"estimated_credit_risk\": \"Kling 3.0 Pro Multishot 15s (12s+3s) \u2014 Runway subscription credits consumed on Generate\", \"confirmation_required\": true, \"all_ready\": true}; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_10_approval_checklist_20260616T190447.png"
+    },
+    {
+      "step_id": "11",
+      "label": "generate_button",
+      "status": "clicked",
+      "detail": "approved_by=Pedram"
+    },
+    {
+      "step_id": "12",
+      "label": "generation_wait",
+      "status": "passed",
+      "detail": "download_button_visible"
+    },
+    {
+      "step_id": "13",
+      "label": "download",
+      "status": "failed",
+      "detail": "Could not download MP4 output"
+    }
+  ],
+  "screenshots": [
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_01_provider_kling_3_pro_20260616T190416.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_02_multishot_tab_20260616T190420.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_03_audio_toggle_on_20260616T190422.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_05_shot_1_duration_12s_20260616T190425.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_07_shot_1_prompt_20260616T190443.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_08_shot_2_prompt_20260616T190443.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_10_approval_checklist_20260616T190447.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_11_generate_clicked_20260616T190449.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live/kling_ms_20260616T190102_1157d08a_12_generation_complete_20260616T190453.png"
+  ],
+  "locator_strategies": {
+    "provider_kling_3_pro": "text_kling_3_pro",
+    "multishot_tab": "text_multishot",
+    "audio_toggle_on": "role_button_audio_settings",
+    "shot_1_duration_menu": "role_button_shot_duration_first",
+    "shot_1_duration_12s": "role_option_12_seconds",
+    "shot_2_duration_menu": "role_button_shot_duration_nth1",
+    "shot_1_prompt": "role_textbox_shot_1",
+    "shot_2_prompt": "role_textbox_shot_2",
+    "generate_button": "role_button_generate"
+  },
+  "errors": [
+    "Could not download MP4 output"
+  ],
+  "warnings": [
+    "screenshot_failed:shot_2_duration_3s:Page.screenshot: Timeout 15000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n"
+  ],
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+  "created_at": "2026-06-16T19:08:57.624120+00:00"
+}

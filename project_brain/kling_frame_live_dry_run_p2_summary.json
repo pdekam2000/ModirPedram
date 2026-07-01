@@ -1,0 +1,253 @@
+{
+  "version": "kling_frame_live_dry_run_p2_v2",
+  "ok": true,
+  "dry_run": true,
+  "connect_browser": false,
+  "generate_clicked": false,
+  "download_clicked": false,
+  "credits_spent": false,
+  "duration_seconds": null,
+  "duration_display": "",
+  "duration_before_dismiss": "",
+  "duration_after_dismiss": "",
+  "duration_seconds_before_dismiss": null,
+  "duration_seconds_after_dismiss": null,
+  "popover_open_before_dismiss": false,
+  "popover_open_after_dismiss": false,
+  "starter_frame_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/kling_frame_to_video/kling_ft_20260617T202616_1e37f8a6/starter_frame/frame_001.png",
+  "starter_frame_ready": true,
+  "starter_frame_checks": {
+    "frame_exists": true,
+    "frame_is_image": true,
+    "prompt_matches_topic": true,
+    "ready_for_first_frame_upload": true
+  },
+  "duration_slider_15s": true,
+  "audio_state": "",
+  "checks": {
+    "frame_mode": true,
+    "prompt": true,
+    "first_frame_upload": true,
+    "duration_reaches_15s": true,
+    "duration_popover_closed": true,
+    "duration_stable_after_dismiss": true,
+    "audio_on": true,
+    "generate_visible": true
+  },
+  "steps": [
+    {
+      "check_id": "00",
+      "label": "map_snapshot",
+      "status": "passed",
+      "detail": "labels=12"
+    },
+    {
+      "check_id": "starter_frame",
+      "label": "first_frame_upload_ready",
+      "status": "passed",
+      "detail": "{'frame_exists': True, 'frame_is_image': True, 'prompt_matches_topic': True, 'ready_for_first_frame_upload': True}"
+    },
+    {
+      "check_id": "01",
+      "label": "cdp",
+      "status": "skipped",
+      "detail": "map-only mode"
+    }
+  ],
+  "errors": [],
+  "locator_strategies": {},
+  "page_url": "",
+  "map_snapshot": {
+    "version": "kling_frame_to_video_map_loader_v1",
+    "map_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_ui_mapping\\runway_ui_map.json",
+    "ok": true,
+    "controls": {
+      "kling_frame_to_video_mode": {
+        "canonical_key": "kling_frame_to_video_mode",
+        "source_label": "kling_frame_to_video_mode",
+        "tag": "label",
+        "css_selector": "label",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Frames",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "frame_prompt_box": {
+        "canonical_key": "frame_prompt_box",
+        "source_label": "frame_prompt_box",
+        "tag": "p",
+        "css_selector": "p",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "first_frame_upload": {
+        "canonical_key": "first_frame_upload",
+        "source_label": "first_frame_upload",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Upload",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "end_frame_upload": {
+        "canonical_key": "end_frame_upload",
+        "source_label": "end_frame_upload",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Upload",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "duration_slider_handle": {
+        "canonical_key": "duration_slider_handle",
+        "source_label": "duration_slider_handle",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "duration_slider_track": {
+        "canonical_key": "duration_slider_track",
+        "source_label": "duration_slider_track",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "duration_display_value": {
+        "canonical_key": "duration_display_value",
+        "source_label": "duration_display_value",
+        "tag": "input",
+        "css_selector": "input[aria-label=\"Duration in seconds\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "Duration in seconds",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "audio_toggle_on": {
+        "canonical_key": "audio_toggle_on",
+        "source_label": "audio_toggle_on",
+        "tag": "body",
+        "css_selector": "body",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Apps Custom Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "generate_button": {
+        "canonical_key": "generate_button",
+        "source_label": "generate_button",
+        "tag": "button",
+        "css_selector": "#react-aria4962795761-\\:rb3\\:",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Generate",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "download_button": {
+        "canonical_key": "download_button",
+        "source_label": "download_mp4_button",
+        "tag": "svg",
+        "css_selector": "svg",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=sessions&tool=video&sessionId=e284ed1a-131a-41b1-a4dc-d816d6ca890d",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "use_frame_button": {
+        "canonical_key": "use_frame_button",
+        "source_label": "use_frame_button",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "text": "Use frame",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "provider_kling_3_pro": {
+        "canonical_key": "provider_kling_3_pro",
+        "source_label": "provider_kling_3_pro",
+        "tag": "button",
+        "css_selector": "button:has-text(\"Kling 3.0 Pro\")",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "Kling 3.0 Pro",
+        "aria_label": "Video models",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      }
+    },
+    "missing": [],
+    "invalid": [],
+    "warnings": [
+      "kling_frame_to_video_mode: map css weak (label) \u2014 using role/text locator",
+      "first_frame_upload: map css weak (span) \u2014 using role/text locator",
+      "end_frame_upload: map css weak (span) \u2014 using role/text locator",
+      "duration_slider_handle: map css weak (span) \u2014 using role/text locator",
+      "duration_slider_track: map css weak (span) \u2014 using role/text locator",
+      "audio_toggle_on: map css weak (body) \u2014 using role/text locator",
+      "download_button: map css weak (svg) \u2014 using role/text locator",
+      "use_frame_button: map css weak (span) \u2014 using role/text locator",
+      "optional download_mp4_button: generic or weak selector (svg)",
+      "optional latest_video_download_button: forbidden tag (body)"
+    ],
+    "aliases": {
+      "download_button": "download_mp4_button"
+    },
+    "safety": {
+      "no_credentials_stored": true,
+      "no_cookies_stored": true,
+      "no_storage_stored": true,
+      "generate_never_auto_clicked": true,
+      "auto_click_blocklist": [
+        "generate",
+        "create",
+        "submit",
+        "upgrade",
+        "purchase",
+        "buy",
+        "subscribe",
+        "delete"
+      ],
+      "requires_approval": [
+        "generate_button"
+      ]
+    }
+  },
+  "blocked_actions": [
+    "credit_spend",
+    "download",
+    "generate_click",
+    "upload_file"
+  ]
+}

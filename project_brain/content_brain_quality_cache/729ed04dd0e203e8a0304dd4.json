@@ -1,0 +1,41 @@
+{
+  "topic": "scorpion",
+  "category": "natural_history",
+  "strategy": "documentary",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Unearthing Giant Prehistoric Scorpions: Insights from Fossil Discoveries",
+      "Tracing Scorpion Evolution Through the Largest Prehistoric Fossils",
+      "Ancient Giants: The Largest Prehistoric Scorpions Revealed by Arachnologists",
+      "From Fossil to Field: Exploring the Evolutionary History of Massive Prehistoric Scorpions",
+      "Revealing the Secrets of Prehistoric Scorpions: Largest Fossils and Evolutionary Adaptations"
+    ],
+    "domain_concepts": [
+      "Paleontological methodologies for scorpion fossil excavation and analysis",
+      "Comparative morphology between extant and prehistoric scorpion species",
+      "Phylogenetic implications of fossil discoveries on scorpion lineage diversification",
+      "Adaptations in exoskeletal structure linked to paleoenvironmental conditions",
+      "Venom evolution and its role in predation strategies across geological eras"
+    ],
+    "character_role": "Expert Arachnologist specializing in paleoarachnology and evolutionary biology of scorpions",
+    "prompt_additions": [
+      "Highlight the significance of fossil stratigraphy in dating prehistoric scorpion specimens.",
+      "Emphasize the morphological differences between ancient giant scorpions and modern species.",
+      "Incorporate discussion of how climatic shifts influenced scorpion evolutionary adaptations.",
+      "Showcase the arachnologist utilizing advanced imaging techniques to analyze fossilized exoskeletons.",
+      "Detail the ecological niches occupied by prehistoric scorpions in desert and forest paleo-habitats."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1325,
+    "completion_tokens": 317,
+    "total_tokens": 1642
+  },
+  "estimated_cost_usd": 0.0010371999999999998
+}

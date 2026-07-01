@@ -1,0 +1,61 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "memory_993e20d5fc61",
+  "topic": "a knowledgeable presenter in a single continuous environment with strong depth and readable vertical framing. Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Documentary About Coral Reef Recovery visible in frame. Central tension: stakes centered on Documentary coral; What conflicting evidence still surrounds Documentary About Coral Reef Recovery? danger and possibility coexisting in the same frame. Subject: Documentary About Coral Reef Recovery. Character: a knowledgeable presenter. Environment: a single continuous environment with strong depth and readable vertical framing. Conflict: stakes centered on Documentary coral; What conflicting evidence still surrounds Documentary About Coral Reef Recovery? danger and possibility coexisting in the same frame. Stakes: If the central question fails, stakes centered on Documentary coral \u2014 viewer must feel the cost immediately.. Opening hook: Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Documentary About Coral Reef Recovery visible in frame.. Escalation: Continuous action around Documentary about coral reef recovery in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Documentary coral; What conflicting evidence still surrounds Documentary About Coral Reef Recovery? danger and possibility coexisting in the same frame intensifies.. Visual hook: Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Documentary About Coral Reef Recovery visible in frame.. Emotional arc: fear converting into forward motion. Payoff: a knowledgeable presenter holds a final stillness that pays off the tension without changing location, creating a frame-ready end pose for the last clip.. Clip 1: a knowledgeable presenter opens with Documentary about coral reef recovery in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Documentary About Coral Reef Recovery visible in frame.; camera pushes in on hands and tackle while location stays locked.. Clip 2: Continuous action around Documentary about coral reef recovery in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Documentary coral; What conflicting evidence still surrounds Documentary About Coral Reef Recovery? danger and possibility coexisting in the same frame intensifies.. Clip 3: a knowledgeable presenter closes Documentary about coral reef recovery with a frame-ready end pose that pays off the method and mood..",
+  "clip_count": 3,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "transition_type": "cut_to_medium",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "open",
+      "scene_progression": "a knowledgeable presenter opens with Documentary about coral reef recovery in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Documentary About Coral Reef Recovery visible in frame.; camera pushes in on hands and tackle while location stays locked.",
+      "camera_movement": "slow dramatic push-in \u2014 Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "composition": "symmetrical framing with depth layers and practical light"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "dolly_in",
+      "transition_type": "close_up",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "build",
+      "scene_progression": "Continuous action around Documentary about coral reef recovery in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Documentary coral; What conflicting evidence still surrounds Documentary About Coral Reef Recovery? danger and possibility coexisting in the same frame intensifies.",
+      "camera_movement": "slow dramatic push-in \u2014 Smooth forward dolly push with tightening composition.",
+      "lens": "50mm anamorphic-style dramatic lens",
+      "composition": "symmetrical framing with depth layers and practical light"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "transition_type": "hold_end_frame",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "payoff",
+      "scene_progression": "a knowledgeable presenter closes Documentary about coral reef recovery with a frame-ready end pose that pays off the method and mood.",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "composition": "symmetrical framing with depth layers and practical light"
+    }
+  ],
+  "edges": [
+    {
+      "from_clip": 1,
+      "to_clip": 2,
+      "transition": "close_up",
+      "pacing_shift": "open->build"
+    },
+    {
+      "from_clip": 2,
+      "to_clip": 3,
+      "transition": "hold_end_frame",
+      "pacing_shift": "build->payoff"
+    }
+  ],
+  "pacing_curve": [
+    "open",
+    "build",
+    "payoff"
+  ],
+  "created_at": "2026-06-11T19:40:54.155930+00:00"
+}

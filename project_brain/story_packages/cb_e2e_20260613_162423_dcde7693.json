@@ -1,0 +1,756 @@
+{
+  "version": "story_package_v3",
+  "run_id": "cb_e2e_20260613_162423_dcde7693",
+  "topic": "Dog Training like pro",
+  "created_at": "2026-06-13T15:03:09.185038+00:00",
+  "story_blueprint": {
+    "version": "story_architect_v1",
+    "title": "Why Your Dog Training Like Pro Never Works",
+    "genre": "technology",
+    "hook": "A dormant drone wakes to a message buried in cosmic noise.",
+    "setup": "Engineers trace the ping to a forgotten orbital relay.",
+    "conflict": "Can this Dog Training method deliver the intended result on the first try?",
+    "discovery": "The signal carries coordinates to a missing colony ship.",
+    "escalation": "timing, reward, and technique demonstration.",
+    "climax": "They reroute through a manual antenna at the last second.",
+    "resolution": "The colony answers \u2014 alive, waiting, grateful.",
+    "ending_cta": "Follow for more future-tech stories.",
+    "scene_progression": [
+      "Discovery: Wide establishing view of the journey beginning (opening landscape)",
+      "Escalation: Tight dramatic space where obstacles intensify (conflict zone)"
+    ],
+    "metadata": {
+      "topic": "Dog Training like pro",
+      "clip_count": 2,
+      "source_brief_keys": [
+        "builder_version",
+        "clip_assigned_concepts",
+        "clip_beats",
+        "clip_count",
+        "concept_distribution",
+        "conflict",
+        "conflict_tension",
+        "content_strategy",
+        "continuity_anchors",
+        "cross_domain_fusion",
+        "domain_concepts",
+        "duration_seconds",
+        "emotional_arc",
+        "ending_beat",
+        "environment",
+        "escalation",
+        "logline",
+        "main_character",
+        "mood",
+        "niche_style",
+        "opening_hook",
+        "payoff",
+        "scene_progression",
+        "setting",
+        "source_topic",
+        "stakes",
+        "style_direction",
+        "subject",
+        "target_platform",
+        "title",
+        "topic_label",
+        "topic_label_quality_score",
+        "topic_story_detail",
+        "visual_hook",
+        "warnings"
+      ]
+    }
+  },
+  "character_profiles": [
+    {
+      "name": "Alex",
+      "role": "protagonist",
+      "age": "teen",
+      "gender": "neutral",
+      "personality": [
+        "curious",
+        "determined"
+      ],
+      "visual_traits": [
+        "student explorer"
+      ],
+      "voice_style": "youthful clear",
+      "emotional_traits": [
+        "focus"
+      ]
+    },
+    {
+      "name": "Narrator",
+      "role": "narrator",
+      "age": "adult",
+      "gender": "neutral",
+      "personality": [
+        "clear",
+        "friendly"
+      ],
+      "visual_traits": [
+        "voice only"
+      ],
+      "voice_style": "warm educator",
+      "emotional_traits": [
+        "clarity"
+      ]
+    }
+  ],
+  "dialogue_plan": {
+    "version": "dialogue_engine_v1",
+    "genre": "technology",
+    "scenes": [
+      {
+        "scene_index": 0,
+        "scene_title": "setup, command context, and common mistake.",
+        "dialogue_lines": [
+          {
+            "speaker": "Alex",
+            "line": "We have to keep going.",
+            "emotion": "determination"
+          },
+          {
+            "speaker": "Narrator",
+            "line": "",
+            "emotion": "tension"
+          }
+        ],
+        "narration": "setup, command context, and common mistake.",
+        "emotional_intent": "forward momentum"
+      },
+      {
+        "scene_index": 1,
+        "scene_title": "timing, reward, and technique demonstration.",
+        "dialogue_lines": [
+          {
+            "speaker": "Alex",
+            "line": "We have to keep going.",
+            "emotion": "determination"
+          },
+          {
+            "speaker": "Narrator",
+            "line": "",
+            "emotion": "tension"
+          }
+        ],
+        "narration": "timing, reward, and technique demonstration.",
+        "emotional_intent": "forward momentum"
+      }
+    ]
+  },
+  "emotion_plan": {
+    "version": "emotion_engine_v1",
+    "arc_summary": "hook \u2192 discovery",
+    "scenes": [
+      {
+        "scene_index": 0,
+        "dominant_emotion": "curiosity",
+        "scores": {
+          "joy": 30,
+          "curiosity": 90,
+          "fear": 10,
+          "surprise": 55,
+          "sadness": 10,
+          "excitement": 50,
+          "tension": 10,
+          "relief": 10
+        },
+        "pacing": "snap"
+      },
+      {
+        "scene_index": 1,
+        "dominant_emotion": "joy",
+        "scores": {
+          "joy": 95,
+          "curiosity": 40,
+          "fear": 10,
+          "surprise": 10,
+          "sadness": 10,
+          "excitement": 65,
+          "tension": 10,
+          "relief": 90
+        },
+        "pacing": "release"
+      }
+    ]
+  },
+  "voice_cast_plan": {
+    "version": "voice_casting_director_v1",
+    "narrator": {
+      "character": "Narrator",
+      "voice_style": "warm educator",
+      "voice_id": "",
+      "provider_slot": "elevenlabs"
+    },
+    "characters": [
+      {
+        "character": "Alex",
+        "role": "protagonist",
+        "voice_style": "youthful clear",
+        "voice_id": "",
+        "provider_slot": "elevenlabs",
+        "emotional_traits": [
+          "focus"
+        ]
+      }
+    ],
+    "provider": "elevenlabs",
+    "multi_track": true,
+    "warnings": [
+      "missing_voice_id:Alex"
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai",
+      "local"
+    ]
+  },
+  "environment_plan": {
+    "version": "environment_designer_v1",
+    "environment": "space",
+    "ambience": [
+      {
+        "tag": "space_drone",
+        "volume": 0.186,
+        "layer": "bed",
+        "presence_boosted": true
+      }
+    ],
+    "weather": [],
+    "movement_sounds": [],
+    "animal_sounds": [],
+    "resolved_files": [],
+    "warnings": [
+      "missing_asset:space_drone",
+      "honest_report:environment_assets_are_procedural_placeholders"
+    ]
+  },
+  "music_plan": {
+    "version": "music_director_v1",
+    "mood": "adventure",
+    "track_hint": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\music\\whimsical_adventure.mp3",
+    "intensity_curve": [
+      {
+        "scene_index": 0,
+        "start_seconds": 0.0,
+        "end_seconds": 6.0,
+        "intensity": 0.22,
+        "dominant_emotion": "curiosity"
+      },
+      {
+        "scene_index": 1,
+        "start_seconds": 6.0,
+        "end_seconds": 12.0,
+        "intensity": 0.34,
+        "dominant_emotion": "joy"
+      }
+    ],
+    "scene_transitions": [
+      {
+        "at_seconds": 6.0,
+        "type": "crossfade",
+        "duration_seconds": 0.6
+      }
+    ],
+    "climax_boost_db": 2.5,
+    "ending_fade_seconds": 2.0,
+    "ducking_under_dialogue": 0.18,
+    "metadata": {
+      "genre": "technology",
+      "title": "Why Your Dog Training Like Pro Never Works",
+      "music_mood_selector": {
+        "version": "music_mood_selector_v1",
+        "mood": "adventure",
+        "track_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\music\\whimsical_adventure.mp3",
+        "style_label": "Playful orchestral adventure",
+        "description": "Light percussion, bouncy melody, Pixar-style momentum",
+        "asset_quality": "local_procedural",
+        "warnings": [
+          "honest_report:local_music_is_procedural_placeholder_not_professional_orchestral"
+        ],
+        "metadata": {
+          "genre": "technology",
+          "title": "Why Your Dog Training Like Pro Never Works"
+        }
+      },
+      "style_label": "Playful orchestral adventure",
+      "asset_quality": "local_procedural"
+    }
+  },
+  "dialogue_timeline": {
+    "version": "dialogue_timeline_builder_v1",
+    "duration_seconds": 12.0,
+    "tracks": [
+      {
+        "track_id": "track_1_alex",
+        "speaker": "Alex",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 0.0,
+            "duration_seconds": 1.75,
+            "text": "We have to keep going.",
+            "emotion": "determination",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 6.0,
+            "duration_seconds": 1.75,
+            "text": "We have to keep going.",
+            "emotion": "determination",
+            "scene_index": 1
+          }
+        ]
+      },
+      {
+        "track_id": "track_2_narrator",
+        "speaker": "Narrator",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 1.9,
+            "duration_seconds": 1.92,
+            "text": "setup, command context, and common mistake.",
+            "emotion": "forward momentum",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 7.9,
+            "duration_seconds": 1.6,
+            "text": "timing, reward, and technique demonstration.",
+            "emotion": "forward momentum",
+            "scene_index": 1
+          }
+        ]
+      }
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai"
+    ]
+  },
+  "metadata": {
+    "clip_count": 2,
+    "duration_seconds": 0.0,
+    "character_performance": [
+      {
+        "name": "Alex",
+        "age_profile": "adult",
+        "personality_profile": [
+          "warm",
+          "cinematic",
+          "storyteller"
+        ],
+        "energy_profile": "medium",
+        "emotion_profile": [
+          "wonder",
+          "tension",
+          "relief"
+        ],
+        "speaking_style": "warm_storyteller",
+        "voice_modifiers": {
+          "speed_multiplier": 0.98,
+          "pitch_shift": 1.0,
+          "stability": 0.52,
+          "style": 0.5,
+          "similarity_boost": 0.86
+        }
+      },
+      {
+        "name": "Narrator",
+        "age_profile": "adult",
+        "personality_profile": [
+          "warm",
+          "cinematic",
+          "storyteller"
+        ],
+        "energy_profile": "medium",
+        "emotion_profile": [
+          "wonder",
+          "tension",
+          "relief"
+        ],
+        "speaking_style": "warm_storyteller",
+        "voice_modifiers": {
+          "speed_multiplier": 0.98,
+          "pitch_shift": 1.0,
+          "stability": 0.52,
+          "style": 0.5,
+          "similarity_boost": 0.86
+        }
+      }
+    ],
+    "story_emotion_arc": {
+      "version": "story_emotion_engine_v1",
+      "beats": [
+        {
+          "scene_index": 0,
+          "story_beat": "hook",
+          "dominant_emotion": "curiosity",
+          "scene_title": "setup, command context, and common mistake.",
+          "intent": "forward momentum"
+        },
+        {
+          "scene_index": 1,
+          "story_beat": "reward",
+          "dominant_emotion": "joy",
+          "scene_title": "timing, reward, and technique demonstration.",
+          "intent": "forward momentum"
+        }
+      ],
+      "arc_summary": "hook \u2192 discovery",
+      "emotion_plan": {
+        "version": "emotion_engine_v1",
+        "arc_summary": "hook \u2192 discovery",
+        "scenes": [
+          {
+            "scene_index": 0,
+            "dominant_emotion": "curiosity",
+            "scores": {
+              "joy": 30,
+              "curiosity": 90,
+              "fear": 10,
+              "surprise": 55,
+              "sadness": 10,
+              "excitement": 50,
+              "tension": 10,
+              "relief": 10
+            },
+            "pacing": "snap"
+          },
+          {
+            "scene_index": 1,
+            "dominant_emotion": "joy",
+            "scores": {
+              "joy": 95,
+              "curiosity": 40,
+              "fear": 10,
+              "surprise": 10,
+              "sadness": 10,
+              "excitement": 65,
+              "tension": 10,
+              "relief": 90
+            },
+            "pacing": "release"
+          }
+        ]
+      },
+      "metadata": {
+        "genre": "technology",
+        "title": "Why Your Dog Training Like Pro Never Works"
+      }
+    },
+    "scene_sync_plan": {
+      "version": "scene_sync_engine_v1",
+      "duration_seconds": 12.0,
+      "cues": [
+        {
+          "scene_index": 0,
+          "scene_start": 0.0,
+          "scene_end": 6.0,
+          "story_beat": "hook",
+          "reaction_at": 2.1,
+          "narration_at": 0.72,
+          "dialogue_offsets": [
+            {
+              "speaker": "Alex",
+              "text": "We have to keep going.",
+              "start_in_scene": 2.1,
+              "emotion": "determination"
+            }
+          ]
+        },
+        {
+          "scene_index": 1,
+          "scene_start": 6.0,
+          "scene_end": 12.0,
+          "story_beat": "reward",
+          "reaction_at": 9.0,
+          "narration_at": 6.72,
+          "dialogue_offsets": [
+            {
+              "speaker": "Alex",
+              "text": "We have to keep going.",
+              "start_in_scene": 3.0,
+              "emotion": "determination"
+            }
+          ]
+        }
+      ]
+    },
+    "environment_presence_warnings": [
+      "missing_asset:space_drone",
+      "honest_report:environment_assets_are_procedural_placeholders"
+    ],
+    "environment_mix_gain": 1.007,
+    "environment_presence_score": 0.7010000000000001,
+    "music_mood_warnings": [
+      "honest_report:local_music_is_procedural_placeholder_not_professional_orchestral"
+    ],
+    "story_visual_quality": {
+      "scene_diversity_score": 100,
+      "emotion_coverage_score": 83,
+      "story_progression_score": 100,
+      "repetition_score": 95,
+      "reaction_coverage_score": 67,
+      "pass_visual_diversity": true,
+      "unique_locations": [
+        "opening landscape",
+        "conflict zone"
+      ],
+      "clip_objectives": [
+        {
+          "clip_index": 1,
+          "location": "opening landscape",
+          "visual_objective": "Wide establishing view of the journey beginning",
+          "setting_type": "exterior_wide",
+          "story_beat": "discovery"
+        },
+        {
+          "clip_index": 2,
+          "location": "conflict zone",
+          "visual_objective": "Tight dramatic space where obstacles intensify",
+          "setting_type": "interior_tension",
+          "story_beat": "escalation"
+        }
+      ]
+    },
+    "story_visual_plan": {
+      "version": "story_visual_orchestrator_v1",
+      "scene_diversity": {
+        "version": "scene_diversity_engine_v1",
+        "clip_objectives": [
+          {
+            "clip_index": 1,
+            "location": "opening landscape",
+            "visual_objective": "Wide establishing view of the journey beginning",
+            "setting_type": "exterior_wide",
+            "story_beat": "discovery"
+          },
+          {
+            "clip_index": 2,
+            "location": "conflict zone",
+            "visual_objective": "Tight dramatic space where obstacles intensify",
+            "setting_type": "interior_tension",
+            "story_beat": "escalation"
+          }
+        ],
+        "scene_diversity_score": 100,
+        "unique_locations": [
+          "opening landscape",
+          "conflict zone"
+        ],
+        "unique_setting_types": [
+          "exterior_wide",
+          "interior_tension"
+        ],
+        "warnings": [],
+        "metadata": {
+          "genre": "technology",
+          "clip_count": 2,
+          "title": "Why Your Dog Training Like Pro Never Works"
+        }
+      },
+      "character_emotion": {
+        "version": "character_emotion_engine_v1",
+        "scenes": [
+          {
+            "clip_index": 1,
+            "scene_label": "setup, command context, and common mistake.",
+            "dominant_emotion": "curiosity",
+            "emotions": {
+              "curiosity": 90,
+              "fear": 15,
+              "surprise": 45,
+              "excitement": 55,
+              "relief": 10,
+              "wonder": 70
+            },
+            "character_notes": {
+              "hero": "Express curiosity through eyes, posture, and reaction timing.",
+              "companion": "Mirror tension then contrast with calmer relief beats."
+            }
+          },
+          {
+            "clip_index": 2,
+            "scene_label": "timing, reward, and technique demonstration.",
+            "dominant_emotion": "fear",
+            "emotions": {
+              "curiosity": 60,
+              "fear": 70,
+              "surprise": 65,
+              "excitement": 50,
+              "relief": 20,
+              "wonder": 40
+            },
+            "character_notes": {
+              "hero": "Express fear through eyes, posture, and reaction timing.",
+              "companion": "Mirror tension then contrast with calmer relief beats."
+            }
+          }
+        ],
+        "emotion_coverage_score": 83,
+        "covered_axes": [
+          "curiosity",
+          "excitement",
+          "fear",
+          "surprise",
+          "wonder"
+        ],
+        "metadata": {
+          "title": "Why Your Dog Training Like Pro Never Works",
+          "genre": "technology"
+        }
+      },
+      "visual_progression": {
+        "version": "visual_story_progression_engine_v1",
+        "beats": [
+          {
+            "clip_index": 1,
+            "role": "discovery",
+            "narrative_goal": "The signal carries coordinates to a missing colony ship.",
+            "visual_objective": "Wide establishing view of the journey beginning",
+            "location": "opening landscape",
+            "must_not_repeat": []
+          },
+          {
+            "clip_index": 2,
+            "role": "escalation",
+            "narrative_goal": "timing, reward, and technique demonstration.",
+            "visual_objective": "Tight dramatic space where obstacles intensify",
+            "location": "conflict zone",
+            "must_not_repeat": [
+              "wide establishing view of the journey beginning"
+            ]
+          }
+        ],
+        "story_progression_score": 100,
+        "repeated_roles": [],
+        "metadata": {
+          "title": "Why Your Dog Training Like Pro Never Works",
+          "genre": "technology"
+        }
+      },
+      "reaction_shots": {
+        "version": "reaction_shot_planner_v1",
+        "moments": [
+          {
+            "clip_index": 1,
+            "trigger": "Character reacts to discovery: Wide establishing view of the journey beginning",
+            "reaction_type": "look_left",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 1,
+            "trigger": "Character reacts to discovery: Wide establishing view of the journey beginning",
+            "reaction_type": "curiosity_widen_eyes",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 1,
+            "trigger": "Companion reacts after hero discovers opening landscape",
+            "reaction_type": "look_left",
+            "character": "companion",
+            "framing": "over_shoulder_reaction",
+            "duration_hint": "0.6-1.2s"
+          },
+          {
+            "clip_index": 2,
+            "trigger": "Character reacts to escalation: Tight dramatic space where obstacles intensify",
+            "reaction_type": "look_up",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 2,
+            "trigger": "Character reacts to escalation: Tight dramatic space where obstacles intensify",
+            "reaction_type": "fear",
+            "character": "hero",
+            "framing": "medium_close_reaction",
+            "duration_hint": "0.8-1.5s"
+          },
+          {
+            "clip_index": 2,
+            "trigger": "Companion reacts after hero discovers conflict zone",
+            "reaction_type": "excitement",
+            "character": "companion",
+            "framing": "over_shoulder_reaction",
+            "duration_hint": "0.6-1.2s"
+          }
+        ],
+        "reaction_coverage_score": 67,
+        "metadata": {
+          "moment_count": 6
+        }
+      },
+      "repetition_report": {
+        "version": "visual_repetition_detector_v1",
+        "findings": [
+          {
+            "category": "camera_angle",
+            "severity": "low",
+            "clip_indices": [
+              1,
+              2
+            ],
+            "detail": "Some reaction framings repeat across clips"
+          }
+        ],
+        "repetition_score": 95,
+        "repeated_locations": [],
+        "repeated_objectives": [],
+        "pass_visual_diversity": true,
+        "metadata": {
+          "scene_diversity_score": 100,
+          "story_progression_score": 100
+        }
+      },
+      "scene_progression": [
+        "Discovery: Wide establishing view of the journey beginning (opening landscape)",
+        "Escalation: Tight dramatic space where obstacles intensify (conflict zone)"
+      ],
+      "story_visual_quality": {
+        "scene_diversity_score": 100,
+        "emotion_coverage_score": 83,
+        "story_progression_score": 100,
+        "repetition_score": 95,
+        "reaction_coverage_score": 67,
+        "pass_visual_diversity": true,
+        "unique_locations": [
+          "opening landscape",
+          "conflict zone"
+        ],
+        "clip_objectives": [
+          {
+            "clip_index": 1,
+            "location": "opening landscape",
+            "visual_objective": "Wide establishing view of the journey beginning",
+            "setting_type": "exterior_wide",
+            "story_beat": "discovery"
+          },
+          {
+            "clip_index": 2,
+            "location": "conflict zone",
+            "visual_objective": "Tight dramatic space where obstacles intensify",
+            "setting_type": "interior_tension",
+            "story_beat": "escalation"
+          }
+        ]
+      },
+      "metadata": {
+        "clip_count": 2,
+        "genre": "technology"
+      }
+    }
+  }
+}

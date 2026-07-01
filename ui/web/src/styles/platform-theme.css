@@ -1,0 +1,105 @@
+/* PHASE PLATFORM-1 — black + orange + diamond white product theme */
+
+.platform-shell {
+  --platform-bg: #070708;
+  --platform-panel: #121214;
+  --platform-card: #17171b;
+  --platform-border: rgba(255, 122, 26, 0.22);
+  --platform-accent: #ff7a1a;
+  --platform-accent-dark: #c85a00;
+  --platform-text: #f8f8ff;
+  --platform-muted: #b8b8c7;
+}
+
+.platform-shell,
+.platform-shell .product-page,
+.platform-shell .login-page {
+  color: var(--platform-text);
+}
+
+.platform-shell {
+  background: radial-gradient(circle at top, rgba(255, 122, 26, 0.08) 0%, var(--platform-bg) 42%);
+}
+
+.platform-sidebar {
+  background: linear-gradient(180deg, #0d0d10 0%, #09090b 100%);
+  border-right: 1px solid var(--platform-border);
+  box-shadow: inset -1px 0 0 rgba(255, 122, 26, 0.08);
+}
+
+.platform-shell .eyebrow {
+  color: var(--platform-accent);
+}
+
+.platform-shell .sidebar-user {
+  margin: 0.35rem 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--platform-muted);
+}
+
+.platform-shell .nav-button.active,
+.platform-shell .nav-item.active {
+  background: rgba(255, 122, 26, 0.16);
+  color: var(--platform-text);
+  border: 1px solid rgba(255, 122, 26, 0.35);
+}
+
+.platform-shell .card {
+  background: var(--platform-card);
+  border: 1px solid var(--platform-border);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.platform-shell .primary-btn,
+.platform-shell .runway-browser-launch-btn {
+  background: linear-gradient(180deg, var(--platform-accent) 0%, var(--platform-accent-dark) 100%);
+  border-color: rgba(255, 122, 26, 0.55);
+  color: #111;
+  font-weight: 600;
+}
+
+.platform-shell .chip-btn.active {
+  background: rgba(255, 122, 26, 0.18);
+  border-color: rgba(255, 122, 26, 0.45);
+}
+
+.platform-shell .success-banner {
+  background: rgba(255, 122, 26, 0.12);
+  border-color: rgba(255, 122, 26, 0.35);
+  color: var(--platform-text);
+}
+
+.platform-shell .success-text {
+  color: #ffb36a;
+}
+
+.platform-shell .subtitle,
+.platform-shell .muted {
+  color: var(--platform-muted);
+}
+
+.platform-shell h1,
+.platform-shell h2,
+.platform-shell strong {
+  color: var(--platform-text);
+}
+
+.platform-shell .filter-input,
+.platform-shell select.filter-input,
+.platform-shell textarea.filter-input {
+  background: #0f0f12;
+  border-color: rgba(255, 122, 26, 0.18);
+  color: var(--platform-text);
+}
+
+.platform-shell .login-card {
+  max-width: 420px;
+}
+
+.platform-shell .runway-browser-card {
+  border-color: rgba(255, 122, 26, 0.28);
+}
+
+.platform-shell .runway-browser-status-tile.ok {
+  border-color: rgba(255, 122, 26, 0.35);
+}

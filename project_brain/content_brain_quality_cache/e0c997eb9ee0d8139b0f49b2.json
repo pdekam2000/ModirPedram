@@ -1,0 +1,48 @@
+{
+  "topic": "best grafig carte for pc",
+  "category": "technology",
+  "strategy": "product_comparison_explainer",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Top Graphics Cards for PC: Expert Picks for Performance and Value",
+      "Best PC Graphics Cards 2024: Ultimate Guide to GPUs That Deliver",
+      "Choosing the Best Graphics Card for Your PC: Expert Comparison & Tips",
+      "High-Performance GPUs for Gaming and Productivity: What to Buy Now",
+      "Best Graphics Cards for PC Builds: Balancing Power, Price & Compatibility"
+    ],
+    "domain_concepts": [
+      "GPU architecture advancements such as NVIDIA Ada Lovelace and AMD RDNA 3",
+      "Thermal design power (TDP) and its impact on cooling solutions",
+      "PCIe 4.0 and 5.0 interface bandwidth considerations for future-proofing",
+      "VRAM types and capacities: GDDR6X vs GDDR6 and their effect on texture loading",
+      "Real-time ray tracing performance metrics and DLSS 3.0 upscaling benefits",
+      "Compatibility with CPU bottlenecking and motherboard chipset support",
+      "Power delivery requirements including 12VHPWR connectors and PSU wattage recommendations",
+      "Overclocking headroom and factory boost clock stability",
+      "Use case segmentation: 4K gaming, 1440p high refresh rate, professional 3D rendering, and AI workloads",
+      "Impact of driver optimization and software ecosystem on gaming and creative applications"
+    ],
+    "character_role": "hardware_technology_expert specializing in GPU architecture, performance benchmarking, and PC component integration",
+    "story": {
+      "logline": "A seasoned hardware_technology_expert in a tech_review_studio_and_computer_lab guides viewers through selecting the best graphics card for PC, emphasizing cutting-edge GPU architectures, benchmark-driven performance, and compatibility to optimize gaming and professional workflows.",
+      "clip_beats": [
+        "Introduce the critical role of graphics cards in modern PCs, focusing on seamless integration with motherboards, CPU compatibility, and PCIe slot standards to ensure optimal data throughput.",
+        "Analyze leading GPUs by architecture generation, showcasing detailed performance benchmarks across gaming titles and creative software, highlighting the price-to-performance ratio for informed decisions.",
+        "Discuss power consumption metrics, TDP values, and cooling system requirements, explaining how efficient power delivery influences system stability and longevity.",
+        "Present premium GPU options featuring advanced ray tracing cores, DLSS 3.0 support, and expanded VRAM capacities tailored for enthusiasts and professional content creators.",
+        "Compare mid-range GPUs that balance high frame rates and creative workload efficiency with affordability, emphasizing thermal performance and upgrade paths.",
+        "Conclude with practical buying advice: verify PSU wattage and connector compatibility, consider your PC’s CPU and motherboard to avoid bottlenecks, and select GPUs aligned with your primary use cases such as gaming resolution or professional rendering."
+      ]
+    }
+  },
+  "usage": {
+    "prompt_tokens": 3528,
+    "completion_tokens": 578,
+    "total_tokens": 4106
+  },
+  "estimated_cost_usd": 0.002336
+}

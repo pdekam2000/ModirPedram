@@ -1,0 +1,19 @@
+{
+  "version": "kling_starter_frame_generator_p3_v1",
+  "ok": true,
+  "run_id": "kling_ft_20260617T202616_1e37f8a6",
+  "run_dir": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/kling_frame_to_video/kling_ft_20260617T202616_1e37f8a6",
+  "starter_frame_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/kling_frame_to_video/kling_ft_20260617T202616_1e37f8a6/starter_frame/frame_001.png",
+  "starter_image_prompt": "Cinematic hero starter frame for Kling Frame-to-Video clip 1. Static still composition, ultra-detailed, filmic lighting, no motion blur. Subject: young woman, wounded robot dog. Environment: neon cyberpunk city during heavy rain. Mood: cinematic emotional sci-fi. Style: cinematic emotional sci-fi. Opening story beat: A young woman and a wounded robot dog escape through a neon city during heavy rain. Camera: medium-wide hero framing with clear silhouette readability, shallow depth of field. Continuity seed for native-audio video \u2014 this still becomes first_frame upload. No text, subtitles, logos, watermarks, or UI overlays.",
+  "topic": "A young woman and a wounded robot dog escape through a neon city during heavy rain. The robot dog limps and makes soft mechanical whimpsers. The woman whispers: \"Stay with me... we're almost safe.\" Cinematic emotional sci-fi. Native audio.",
+  "clip_prompt_preview": "Story beat: A young woman and a wounded robot dog escape through a neon city during heavy rain. young woman and wounded robot dog in neon cyberpunk city during heavy rain. Character continuity: Same young woman and wounded robot dog with consistent appearance, scale, costume, and emotional through-line across clips Environment continuity: Same neon cyberpunk city during heavy rain; preserve weathe",
+  "frame_bytes": 9495,
+  "frame_is_image": true,
+  "prompt_matches_topic": true,
+  "ready_for_first_frame_upload": true,
+  "generation_mode": "local_pil_prepare",
+  "credits_spent": false,
+  "runway_generate_clicked": false,
+  "errors": [],
+  "warnings": []
+}

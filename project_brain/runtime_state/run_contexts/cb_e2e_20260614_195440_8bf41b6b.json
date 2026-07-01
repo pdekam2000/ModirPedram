@@ -1,0 +1,24 @@
+{
+  "version": "run_isolation_v1",
+  "run_id": "cb_e2e_20260614_195440_8bf41b6b",
+  "topic": "A boy finds a dragon egg in the forest and hides it from everyone",
+  "story_package_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\story_packages\\cb_e2e_20260614_195440_8bf41b6b.json",
+  "visual_memory_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\visual_memory\\run_cb_e2e_20260614_195440_8bf41b6b.json",
+  "voice_registry_scope": "cb_e2e_20260614_195440_8bf41b6b",
+  "output_run_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_195450_440_8bf41b6b",
+  "downloaded_clip_paths": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_1_session_20260614_201432.mp4",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_2_session_20260614_203102.mp4",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_3_session_20260614_204752.mp4",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_4_session_20260614_210318.mp4"
+  ],
+  "clip_count": 4,
+  "status": "completed",
+  "failure_reason": "",
+  "created_at": "2026-06-14T17:54:50.207601+00:00",
+  "updated_at": "2026-06-14T19:04:26.765371+00:00",
+  "metadata": {
+    "story_package_version": "story_package_v3",
+    "genre": "educational"
+  }
+}

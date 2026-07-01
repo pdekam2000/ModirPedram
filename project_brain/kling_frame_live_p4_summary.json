@@ -1,0 +1,87 @@
+{
+  "version": "kling_frame_to_video_live_p4_v1",
+  "ok": false,
+  "status": "failed",
+  "run_id": "kling_ft_20260617T202616_1e37f8a6",
+  "provider_mode": "kling_frame_to_video_native_audio",
+  "dry_run_prepare": false,
+  "generate_clicked": false,
+  "credits_spent": false,
+  "generation_completed": false,
+  "output_ready": false,
+  "recovery_available": false,
+  "download_status": "pending",
+  "recovery_mode": false,
+  "download_strategies": [],
+  "approved_by": null,
+  "approved_at": null,
+  "approval_checklist": {},
+  "starter_frame_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/kling_frame_to_video/kling_ft_20260617T202616_1e37f8a6/starter_frame/frame_001.png",
+  "frame_prompt": "Story beat: A young woman and a wounded robot dog escape through a neon city during heavy rain. The characters in cinematic natural environment. Character continuity: Same The characters with consistent appearance, scale, costume, and emotional through-line across clips Environment continuity: Same cinematic natural environment; preserve weather, lighting direction, and spatial layout Emotional tone: emotional. Cinematic cinematic fantasy, emotional sci-fi fantasy framing. Camera: Slow push-in with shallow depth of field, gentle handheld drift, hold final frame Ambience: forest ambience, distant wind. Foley: soft breathing, leaves moving. Voice acting: natural in-scene voices, breathing, no external narration. Native cinematic in-video audio only \u2014 no external narration or music track Final clip ending frame target: The characters held at the edge of glowing path deeper into the scene in cinematic natural environment, emotional, final frame ready for handoff. Hold emotional closure. Motion from uploaded starter frame: rain streaks, neon reflections on wet pavement, subtle character micro-movements, limping robot dog gait, emotional eye-line continuity. Lighting: cinematic teal-magenta neon contrast, volumetric rain, soft rim light, shallow depth of field, film grain, anamorphic emotional sci-fi framing.",
+  "output_path": "",
+  "clip_output_path": "",
+  "root_output_path": "",
+  "duration_seconds": null,
+  "audio_present": null,
+  "native_audio_notes": "Audio ON in UI; native audio verified post-download via ffprobe",
+  "steps": [
+    {
+      "step_id": "01",
+      "label": "cdp",
+      "status": "passed",
+      "detail": "http://127.0.0.1:9222"
+    },
+    {
+      "step_id": "01",
+      "label": "runway_tab",
+      "status": "passed",
+      "detail": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools&sessionId=bb1c3f01-54b"
+    },
+    {
+      "step_id": "02",
+      "label": "provider_kling_3_pro",
+      "status": "passed",
+      "detail": "Kling 3.0 Pro"
+    },
+    {
+      "step_id": "03",
+      "label": "kling_frame_to_video_mode",
+      "status": "passed",
+      "detail": "Frames mode active"
+    },
+    {
+      "step_id": "04",
+      "label": "first_frame_upload",
+      "status": "passed",
+      "detail": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\kling_frame_to_video\\kling_ft_20260617T202616_1e37f8a6\\starter_frame\\frame_001.png"
+    },
+    {
+      "step_id": "05",
+      "label": "frame_prompt_box",
+      "status": "passed",
+      "detail": "1324 chars"
+    },
+    {
+      "step_id": "06",
+      "label": "duration_slider_15s",
+      "status": "failed",
+      "detail": "Locator.wait_for: Timeout 4000ms exceeded.\nCall log:\n  - waiting for locator(\"[class*=\\\"Slider__Root\\\"]\").first to be visible\n"
+    }
+  ],
+  "screenshots": [
+    "project_brain/runway_ui_mapping/screenshots/kling_frame_live_p4/kling_ft_20260617T202616_1e37f8a6_03_frame_mode_selected_20260617T214933.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_frame_live_p4/kling_ft_20260617T202616_1e37f8a6_04_first_frame_uploaded_20260617T215013.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_frame_live_p4/kling_ft_20260617T202616_1e37f8a6_05_prompt_filled_20260617T215014.png"
+  ],
+  "locator_strategies": {
+    "provider_kling_3_pro": "text_kling_3_pro",
+    "kling_frame_to_video_mode": "text_frames_exact",
+    "first_frame_upload": "map_css_stable"
+  },
+  "errors": [
+    "Locator.wait_for: Timeout 4000ms exceeded.\nCall log:\n  - waiting for locator(\"[class*=\\\"Slider__Root\\\"]\").first to be visible\n"
+  ],
+  "warnings": [],
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools&sessionId=bb1c3f01-54b4-4dd9-8a5f-c755786a58c7",
+  "created_at": "2026-06-17T21:50:18.445569+00:00"
+}

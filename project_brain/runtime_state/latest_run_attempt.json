@@ -1,0 +1,17 @@
+{
+  "version": "run_isolation_v1",
+  "run_id": "pwmap_20260701T034722_27d9bb5e",
+  "topic": "",
+  "status": "failed",
+  "clips_completed": 0,
+  "downloaded_clip_count": 0,
+  "downloaded_clip_paths": [],
+  "message": "Run failed before video generation \u2014 no final video created.",
+  "run_ok": false,
+  "versioned_run_dir": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260701T034722_27d9bb5e",
+  "final_branded_video_path": "",
+  "canonical_deliverable_path": "",
+  "delivery_status": "",
+  "delivery_gate_failures": [],
+  "updated_at": "2026-07-01T03:47:32.872131+00:00"
+}

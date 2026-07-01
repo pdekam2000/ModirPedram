@@ -1,0 +1,42 @@
+{
+  "topic": "Educational documentary mystery about science facts",
+  "category": "scientific_explanation",
+  "strategy": "documentary",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Unveiling Scientific Mysteries: An Educational Documentary Journey",
+      "The Science Behind the Mystery: Educational Documentary Exploration",
+      "Decoding Science Facts: A Documentary Mystery Revealed",
+      "What Really Happened? Investigating Science Mysteries Documented",
+      "Scientific Truths Exposed: An Educational Mystery Documentary"
+    ],
+    "domain_concepts": [
+      "Hypothesis Formulation and Testing",
+      "Peer Review and Reproducibility in Science",
+      "Historical Scientific Paradigm Shifts",
+      "Experimental Design and Data Interpretation",
+      "Science Communication and Public Understanding",
+      "Cognitive Biases in Scientific Inquiry",
+      "Role of Anomalies and Outliers in Scientific Discovery"
+    ],
+    "character_role": "Expert Science Communicator and Investigator specializing in unraveling complex scientific phenomena through evidence-based storytelling and critical analysis.",
+    "prompt_additions": [
+      "Incorporate visual metaphors illustrating the iterative nature of hypothesis testing and refinement.",
+      "Highlight archival footage and reenactments of landmark scientific experiments related to the mystery.",
+      "Include close-ups of data charts and experimental apparatus to emphasize evidence-based reasoning.",
+      "Use subtle visual cues to represent cognitive biases and how they are overcome through rigorous methodology.",
+      "Integrate expert interviews or voice-over narrations explaining paradigm shifts and their impact on scientific understanding."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 2734,
+    "completion_tokens": 285,
+    "total_tokens": 3019
+  },
+  "estimated_cost_usd": 0.0015496
+}

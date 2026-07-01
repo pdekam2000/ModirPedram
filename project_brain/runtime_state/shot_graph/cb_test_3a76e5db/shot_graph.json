@@ -1,0 +1,61 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "cb_test_3a76e5db",
+  "topic": "Educational documentary mystery about science facts",
+  "clip_count": 3,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "transition_type": "cut_to_medium",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "open",
+      "scene_progression": "Introduce the mysterious scientific fact or phenomenon with engaging visuals and questions",
+      "camera_movement": "slow dramatic push-in \u2014 Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "composition": "symmetrical framing with depth layers and practical light"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "dolly_in",
+      "transition_type": "close_up",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "build",
+      "scene_progression": "Explore different scientific perspectives and experiments related to the mystery",
+      "camera_movement": "slow dramatic push-in \u2014 Smooth forward dolly push with tightening composition.",
+      "lens": "50mm anamorphic-style dramatic lens",
+      "composition": "symmetrical framing with depth layers and practical light"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "transition_type": "hold_end_frame",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "payoff",
+      "scene_progression": "Reveal the scientific explanation and evidence resolving the mystery, encouraging critical thinking",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "composition": "symmetrical framing with depth layers and practical light"
+    }
+  ],
+  "edges": [
+    {
+      "from_clip": 1,
+      "to_clip": 2,
+      "transition": "close_up",
+      "pacing_shift": "open->build"
+    },
+    {
+      "from_clip": 2,
+      "to_clip": 3,
+      "transition": "hold_end_frame",
+      "pacing_shift": "build->payoff"
+    }
+  ],
+  "pacing_curve": [
+    "open",
+    "build",
+    "payoff"
+  ],
+  "created_at": "2026-06-16T20:52:33.555093+00:00"
+}

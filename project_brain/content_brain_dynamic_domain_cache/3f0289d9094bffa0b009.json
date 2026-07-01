@@ -1,0 +1,47 @@
+{
+  "topic": "hhow to be legende in boxing",
+  "language_code": "en",
+  "payload": {
+    "category": "sports_training",
+    "strategy": "instructional_general",
+    "domain_profile": {
+      "domain_name": "boxing",
+      "expert_role": "professional boxing coach",
+      "setting": "boxing gym and training facility",
+      "core_concepts": [
+        "fundamental boxing techniques",
+        "physical conditioning",
+        "mental toughness and strategy",
+        "famous boxing legends and their styles",
+        "career progression and discipline"
+      ],
+      "timeline_beats": [
+        "introduction to boxing basics",
+        "training regimen and skill development",
+        "mental preparation and fight strategy",
+        "emulating legendary boxers",
+        "building a professional boxing career"
+      ],
+      "visual_objects": [
+        "boxing gloves and gear",
+        "training drills and sparring sessions",
+        "highlight reels of legendary boxers",
+        "gym workouts and conditioning exercises",
+        "boxing match footage"
+      ],
+      "clip_structure": {
+        "clip_1": "Overview of essential boxing techniques and equipment",
+        "clip_2": "Training routines and mental strategies to build a champion mindset",
+        "clip_3": "Inspiration from legendary boxers and tips for career advancement"
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 258,
+    "completion_tokens": 266,
+    "total_tokens": 524
+  },
+  "estimated_cost_usd": 0.0005288
+}

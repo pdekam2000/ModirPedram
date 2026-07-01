@@ -1,80 +1,78 @@
 {
-  "timestamp": "2026-06-08 21:37:05",
-  "step_id": "021_verify_use_frame_handoff_clip_2",
-  "clip_number": 2,
-  "error": "test",
-  "screenshot_path": "",
-  "current_url": "",
-  "page_title": "",
-  "visible_buttons": [],
+  "timestamp": "2026-06-13 12:08:18",
+  "step_id": "011_use_starter_image_for_video",
+  "clip_number": 0,
+  "error": "step failed at 011_use_starter_image_for_video: video generation UI not visible after Use for Video / Use to Video routing (candidates=[]; action=Use to Video (app menu))",
+  "screenshot_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_live_smoke_artifacts\\phase_i_live_phase_i_failure_1781345293.png",
+  "current_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
+  "page_title": "Generative Session | Runway AI",
+  "visible_buttons": [
+    "Sessions",
+    "Apps",
+    "Custom",
+    "Agent",
+    "Recents",
+    "Workflow",
+    "Characters",
+    "Reset settings",
+    "Reference",
+    "add image references",
+    "sketch a scene",
+    "Generate prompt from image",
+    "References",
+    "1",
+    "9:16",
+    "2K",
+    "View generation cost",
+    "Apps",
+    "Nano Banana 2",
+    "Generate",
+    "Cyberpunk Astronaut Platform",
+    "Open session switcher",
+    "Unlimited",
+    "1/3 Quests",
+    "Share session",
+    "Help",
+    "Don't show again",
+    "Later",
+    "Enable",
+    "Filter by media type: All media",
+    "Download all",
+    "Feed view",
+    "Grid view",
+    "Reuse settings",
+    "See full prompt",
+    "feedback",
+    "Hide output",
+    "play",
+    "mute",
+    "playback time"
+  ],
   "visible_dialogs_modals": [],
   "image_result_area_text": "",
-  "selector_attempted": "",
+  "selector_attempted": "image_use_to_video_option",
   "prompt_candidates_found": [
     {
-      "selector": "simulate",
-      "label": "Prompt",
+      "selector": "[role=\"textbox\"]",
+      "label": "Text Prompt Input",
       "visible": true,
       "enabled": true,
       "bbox": {
-        "x": 0,
-        "y": 0,
-        "width": 100,
-        "height": 40
+        "x": 81,
+        "y": 123,
+        "width": 366,
+        "height": 921
       },
       "coveredByModal": false
     }
   ],
-  "prompt_editor_ready_state": {
-    "clip_index": 2,
-    "checked": true,
-    "ready": true,
-    "ready_result": "ready",
-    "selector_used": "simulate",
-    "prompt_candidates": [],
-    "modal_detected": false,
-    "generate_button_visible": true,
-    "use_frame_button_visible": true,
-    "download_button_visible": true,
-    "generation_in_progress": false,
-    "generation_state": {},
-    "notes": []
-  },
-  "generation_state_candidates": {
-    "in_progress": false,
-    "spinner_visible": false,
-    "stop_cancel_visible": false,
-    "progress_text": "",
-    "output_cards_detected": 0,
-    "output_loading": false,
-    "generate_button_disabled": false,
-    "pending_output_slot": false,
-    "signals": []
-  },
-  "use_frame_handoff_state": {
-    "clip_number": 2,
-    "checked": true,
-    "handoff_result": "invalid_card_only",
-    "prompt_interactable": false,
-    "reference_thumbnail_detected": false,
-    "output_card_selected_only": true,
-    "generate_button_visible": true,
-    "generate_button_disabled": false,
-    "generation_in_progress": false,
-    "modal_detected": false,
-    "output_card_candidates": [],
-    "reference_thumbnail_candidates": [],
-    "prompt_candidates": [],
-    "retry_attempts": 3,
-    "use_frame_reclicked": false,
-    "notes": [
-      "timeout_after_3_retries"
-    ]
-  },
+  "prompt_editor_ready_state": {},
+  "generation_state_candidates": {},
+  "use_frame_handoff_state": {},
   "output_card_candidates": [],
   "reference_thumbnail_candidates": [],
   "generate_button_state": {
-    "visible": true,
+    "visible": false,
     "disabled": false
   },
   "spinner_visible": false,
@@ -82,88 +80,78 @@
   "output_cards_detected": 0,
   "generate_button_disabled": false,
   "progress_text_detected": "",
-  "generate_button_visible": true,
+  "generate_button_visible": false,
   "use_frame_button_visible": true,
   "download_button_visible": true,
-  "latest_video_card_fingerprint": "sim|video|1|clip_2_video_card",
+  "latest_video_card_fingerprint": "488|234|608|439|video|gen-4_5 - continue exactly from previous frame_ continue from previous clip_ clip 3 of 3_ exactly 10 apps use frame edit",
   "stale_image_preview_detected": false,
   "stale_preview_closed": false,
-  "preclean_notes": [],
+  "preclean_notes": [
+    "no stale preview detected"
+  ],
   "use_for_video_candidates_visible": [],
   "use_for_video_action_used": "",
-  "latest_image_card_index": -1,
+  "latest_image_card_index": 0,
   "video_transition_verified": false,
   "last_action_log_entries": [
     {
-      "action": "use_frame_handoff_verify_start",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=2",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "latest_video_card_assigned",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "clear_stale_video_transition",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=2; url=",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "use_frame_handoff_retry",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=2; attempt=1; result=invalid_card_only",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "latest_video_card_assigned",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "latest_video_card_assigned",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "clear_stale_video_transition",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=2; url=",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "use_frame_handoff_retry",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=2; attempt=2; result=invalid_card_only",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
-      "action": "latest_video_card_assigned",
+      "action": "latest_image_transition_verify",
       "control_key": null,
-      "detail": "clip=1; fp=sim|video|0|clip_1_video_card",
-      "approved": false
-    },
-    {
-      "action": "clear_stale_video_transition",
-      "control_key": null,
-      "detail": "clip=2; url=",
+      "detail": "verified=False; url=https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=image&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=; aspect=; quality=; duration=",
-      "approved": false
-    },
-    {
-      "action": "use_frame_handoff_verify_fail",
-      "control_key": null,
-      "detail": "clip=2; result=invalid_card_only",
+      "detail": "count=1; aspect=9:16; quality=2K; duration=",
       "approved": false
     }
   ]

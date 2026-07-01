@@ -14,6 +14,16 @@ __pycache__/
 *.key
 *.pem
 *.token
+secrets/
+**/client_secret_*.json
+**/youtube_oauth_token.json
+**/youtube_auth_result.json
+*.token.json
+project_brain/local_credentials/
+project_brain/local_user/
+
+# Browser automation profiles (local session data)
+chrome_mapper_profile/
 
 # Outputs / generated media
 outputs/

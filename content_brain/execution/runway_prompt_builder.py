@@ -15,6 +15,12 @@ from typing import Any
 
 from content_brain.execution.runway_continuity_dry_run import build_continuity_plan
 from content_brain.execution.runway_continuity_models import RunwayContinuityPlan
+from content_brain.execution.content_brain_topic_authority import (
+    assert_topic_fidelity,
+    extract_topic_facets,
+    is_generic_subject_replacement,
+    score_topic_fidelity,
+)
 
 try:
     from content_brain.execution.runway_story_brief_builder import (
@@ -25,7 +31,13 @@ except ImportError:  # pragma: no cover
     RunwayStoryBrief = Any  # type: ignore[misc, assignment]
     build_runway_story_brief = None  # type: ignore[assignment]
 
-BUILDER_VERSION = "runway_starter_to_video_f_v4"
+try:
+    from content_brain.director.visual_subject_lock import VisualSubjectLock, extract_visual_subject_lock
+except ImportError:  # pragma: no cover
+    VisualSubjectLock = Any  # type: ignore[misc, assignment]
+    extract_visual_subject_lock = None  # type: ignore[assignment]
+
+BUILDER_VERSION = "runway_starter_to_video_f_v7"
 NARRATIVE_PROMPT_WEIGHT = 0.7
 CONTINUITY_PROMPT_WEIGHT = 0.3
 
@@ -140,6 +152,12 @@ CLIP_NARRATIVE_ROLES: dict[int, dict[str, str]] = {
         "environment": "environment frames the reveal detail without changing world location",
         "emotion": "emotional consequence lands in a frame-ready end pose",
     },
+    4: {
+        "role": "resolution",
+        "camera": "medium-wide pullback or hero frame revealing full consequence",
+        "environment": "payoff detail lands while world identity stays fixed",
+        "emotion": "release, consequence, or final emotional landing",
+    },
 }
 
 CAMERA_CONTINUITY_LIBRARY: tuple[str, ...] = (
@@ -227,9 +245,10 @@ class ContinuityAnchors:
     camera: str
     palette: str
     wardrobe: str = ""
+    visual_subject_lock: VisualSubjectLock | None = None
 
     def to_dict(self) -> dict[str, str]:
-        return {
+        payload = {
             "character": self.character,
             "location": self.location,
             "lighting": self.lighting,
@@ -237,9 +256,28 @@ class ContinuityAnchors:
             "palette": self.palette,
             "wardrobe": self.wardrobe,
         }
+        if self.visual_subject_lock is not None and hasattr(self.visual_subject_lock, "to_dict"):
+            payload["visual_subject_lock"] = self.visual_subject_lock.to_dict()  # type: ignore[assignment]
+        return payload
 
     def lock_line(self) -> str:
         wardrobe = f", same wardrobe ({self.wardrobe})" if self.wardrobe else ", same wardrobe"
+        if self.visual_subject_lock is not None:
+            lock = self.visual_subject_lock
+            human_line = ""
+            if lock.human_presenter_role and lock.subject_type != "person":
+                human_line = f" Human role: {lock.human_presenter_role} — secondary observer only."
+            feature_hint = ""
+            if lock.required_visible_features:
+                feature_hint = f" with {', '.join(lock.required_visible_features[:3])}"
+            return (
+                f"Continuity lock: same primary visual subject ({lock.primary_visual_subject}{feature_hint})"
+                f"{human_line} "
+                f"same species or object identity, same key anatomy and silhouette, same scale, "
+                f"same location ({self.location}), same lighting ({self.lighting}), "
+                f"same camera language ({self.camera}), same palette ({self.palette}){wardrobe}. "
+                f"No scene jump. No unrelated location change."
+            )
         return (
             f"Continuity lock: same character ({self.character}){wardrobe}, "
             f"same location ({self.location}), same lighting ({self.lighting}), "
@@ -256,15 +294,28 @@ class RunwayContinuityPromptBundle:
     starter_image_prompt: str
     clip_prompts: list[str]
     continuity_anchors: ContinuityAnchors
+    topic: str = ""
+    subject: str = ""
+    visual_subject: str = ""
+    topic_fidelity_score: int = 0
     warnings: list[str] = field(default_factory=list)
     char_stats: dict[str, Any] = field(default_factory=dict)
     builder_version: str = BUILDER_VERSION
     story_brief: Any | None = None
+    director_layer: Any | None = None
+    visual_subject_lock: Any | None = None
+    prompt_review: Any | None = None
+    visual_memory_report: dict[str, Any] | None = None
+    ai_director_v2_report: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         payload = {
             "project_id": self.project_id,
             "story_idea": self.story_idea,
+            "topic": self.topic or self.story_idea,
+            "subject": self.subject,
+            "visual_subject": self.visual_subject,
+            "topic_fidelity_score": int(self.topic_fidelity_score or 0),
             "clip_count": self.clip_count,
             "starter_image_prompt": self.starter_image_prompt,
             "clip_prompts": list(self.clip_prompts),
@@ -275,6 +326,16 @@ class RunwayContinuityPromptBundle:
         }
         if self.story_brief is not None and hasattr(self.story_brief, "to_dict"):
             payload["story_brief"] = self.story_brief.to_dict()
+        if self.director_layer is not None and hasattr(self.director_layer, "to_dict"):
+            payload["director_layer"] = self.director_layer.to_dict()
+        if self.visual_subject_lock is not None and hasattr(self.visual_subject_lock, "to_dict"):
+            payload["visual_subject_lock"] = self.visual_subject_lock.to_dict()
+        if self.prompt_review is not None and hasattr(self.prompt_review, "to_dict"):
+            payload["prompt_review"] = self.prompt_review.to_dict()
+        if self.visual_memory_report:
+            payload["visual_memory_report"] = dict(self.visual_memory_report)
+        if self.ai_director_v2_report:
+            payload["ai_director_v2_report"] = dict(self.ai_director_v2_report)
         return payload
 
     def to_continuity_plan(self, **plan_kwargs: Any) -> RunwayContinuityPlan:
@@ -301,8 +362,17 @@ class PromptBuilderInput:
     visual_style: str = DEFAULT_VISUAL_STYLE
     aspect_label: str = DEFAULT_ASPECT_LABEL
     story_brief: Any | None = None
+    visual_subject_lock: Any | None = None
     auto_story_brief: bool = False
+    auto_director: bool = False
+    director_layer: Any | None = None
+    director_dry_run: bool = False
+    auto_prompt_critic: bool = False
+    prompt_critic_dry_run: bool = False
+    audience: str = ""
     target_platform: str = "youtube_shorts"
+    run_id: str = ""
+    project_root: str = ""
     niche_style: str = "cinematic"
     mood: str = "tense hopeful"
 
@@ -329,6 +399,12 @@ class RunwayPromptBuilder:
                 aspect_label=str(spec.get("aspect_label") or DEFAULT_ASPECT_LABEL),
                 story_brief=spec.get("story_brief"),
                 auto_story_brief=bool(spec.get("auto_story_brief", False)),
+                auto_director=bool(spec.get("auto_director", False)),
+                director_layer=spec.get("director_layer"),
+                director_dry_run=bool(spec.get("director_dry_run", False)),
+                auto_prompt_critic=bool(spec.get("auto_prompt_critic", False)),
+                prompt_critic_dry_run=bool(spec.get("prompt_critic_dry_run", False)),
+                audience=str(spec.get("audience") or ""),
                 target_platform=str(spec.get("target_platform") or spec.get("platform") or "youtube_shorts"),
                 niche_style=str(spec.get("niche_style") or spec.get("niche") or "cinematic"),
                 mood=str(spec.get("mood") or "tense hopeful"),
@@ -336,16 +412,17 @@ class RunwayPromptBuilder:
         else:
             payload = spec
 
-        story = _normalize(payload.story_idea)
-        if not story:
+        authoritative_topic = _normalize(payload.story_idea)
+        if not authoritative_topic:
             raise ValueError("story_idea is required")
         if payload.clip_count < 1:
             raise ValueError("clip_count must be >= 1")
 
+        narrative_story = authoritative_topic
         story_brief = payload.story_brief
         if story_brief is None and payload.auto_story_brief and build_runway_story_brief is not None:
             story_brief = build_runway_story_brief(
-                story,
+                authoritative_topic,
                 target_platform=payload.target_platform,
                 niche_style=payload.niche_style,
                 mood=payload.mood,
@@ -356,7 +433,7 @@ class RunwayPromptBuilder:
             )
 
         if story_brief is not None:
-            story = story_brief.rich_story_text() if hasattr(story_brief, "rich_story_text") else story
+            narrative_story = story_brief.rich_story_text() if hasattr(story_brief, "rich_story_text") else authoritative_topic
             if not payload.character and hasattr(story_brief, "main_character"):
                 payload.character = str(story_brief.main_character or payload.character)
             if not payload.location and hasattr(story_brief, "setting"):
@@ -371,23 +448,51 @@ class RunwayPromptBuilder:
                 elif not payload.visual_style or payload.visual_style == DEFAULT_VISUAL_STYLE:
                     payload.visual_style = DEFAULT_VISUAL_STYLE
 
+        director_layer = payload.director_layer
+        if director_layer is None and payload.auto_director:
+            from content_brain.director.director_pipeline import build_director_layer
+
+            brief_dict: dict[str, Any] = {}
+            if story_brief is not None and hasattr(story_brief, "to_dict"):
+                brief_dict = dict(story_brief.to_dict())
+            director_layer = build_director_layer(
+                topic=authoritative_topic,
+                story_brief=brief_dict,
+                niche=payload.niche_style,
+                target_platform=payload.target_platform,
+                duration=payload.clip_count * CLIP_DURATION_SECONDS,
+                clip_count=payload.clip_count,
+                style=payload.visual_style,
+                audience=payload.audience,
+                mood=payload.mood,
+                dry_run=payload.director_dry_run,
+            )
+            payload.director_shots = director_layer.to_director_shots(payload.clip_count)
+            if director_layer.storyboard.main_character and not payload.character:
+                payload.character = director_layer.storyboard.main_character
+            if director_layer.storyboard.setting and not payload.location:
+                payload.location = director_layer.storyboard.setting
+            if director_layer.storyboard.visual_style:
+                payload.visual_style = director_layer.storyboard.visual_style
+
         warnings: list[str] = []
-        forbidden_hits = _contains_forbidden_visual(story)
+        forbidden_hits = _contains_forbidden_visual(narrative_story)
         if forbidden_hits:
             warnings.append(
                 "story_idea contained forbidden visual terms; sanitized in output "
                 f"({len(forbidden_hits)} patterns)"
             )
-            story = _strip_forbidden_visual(story)
+            narrative_story = _strip_forbidden_visual(narrative_story)
 
-        anchors = self._resolve_anchors(story, payload, story_brief)
-        beats = self._resolve_beats(story, payload, story_brief)
+        anchors = self._resolve_anchors(narrative_story, payload, story_brief, director_layer=director_layer)
+        beats = self._resolve_beats(narrative_story, payload, story_brief)
         starter = self._build_starter_image_prompt(
-            story=story,
+            story=narrative_story,
             anchors=anchors,
             visual_style=payload.visual_style,
             aspect_label=payload.aspect_label,
             story_brief=story_brief,
+            director_layer=director_layer,
         )
         clips = [
             self._build_clip_prompt(
@@ -399,20 +504,113 @@ class RunwayPromptBuilder:
                 aspect_label=payload.aspect_label,
                 director_shot=self._director_shot(payload, index),
                 story_brief=story_brief,
+                director_layer=director_layer,
             )
             for index in range(1, payload.clip_count + 1)
         ]
 
+        from content_brain.director.ai_director_v2_pipeline import apply_ai_director_v2
+        from content_brain.director.visual_memory_pipeline import apply_visual_memory_pipeline
+        from content_brain.execution.cinematic_prompt_expander import expand_clip_prompt, expand_starter_prompt
+
+        memory_result = apply_visual_memory_pipeline(
+            clip_prompts=clips,
+            topic=authoritative_topic,
+            story_brief=story_brief,
+            director_layer=director_layer,
+            visual_subject_lock=anchors.visual_subject_lock,
+            anchors=anchors,
+            clip_beats=beats,
+            run_id=payload.run_id,
+            project_id=payload.project_id,
+            project_root=payload.project_root or None,
+        )
+        clips = memory_result.clip_prompts
+
+        director_v2_result = apply_ai_director_v2(
+            clip_prompts=clips,
+            topic=authoritative_topic,
+            clip_count=payload.clip_count,
+            story_brief=story_brief,
+            run_id=memory_result.run_id or payload.run_id,
+            project_id=payload.project_id,
+            project_root=payload.project_root or None,
+        )
+        clips = director_v2_result.clip_prompts
+
+        from content_brain.director.camera_language_engine import DIRECTOR_CAMERA_PLAN_MARKER
+        from content_brain.director.visual_memory_injector import MEMORY_LOCK_MARKER
+        from content_brain.execution.seamless_continuity_engine import CONTINUE_MARKER, EXACT_FRAME_MARKER
+
+        expanded_clips: list[str] = []
+        for index, prompt in enumerate(clips, start=1):
+            expanded = expand_clip_prompt(
+                base_prompt=prompt,
+                clip_index=index,
+                clip_count=payload.clip_count,
+                beat=beats[index - 1],
+                story_brief=story_brief,
+                anchors=anchors,
+                visual_style=payload.visual_style,
+                aspect_label=payload.aspect_label,
+            )
+            for marker in (DIRECTOR_CAMERA_PLAN_MARKER, MEMORY_LOCK_MARKER, CONTINUE_MARKER, EXACT_FRAME_MARKER):
+                if marker in prompt and marker not in expanded:
+                    expanded = f"{marker}. {expanded}"
+            expanded_clips.append(expanded)
+        clips = expanded_clips
+        starter = expand_starter_prompt(
+            base_prompt=starter,
+            story_brief=story_brief,
+            anchors=anchors,
+            visual_style=payload.visual_style,
+            aspect_label=payload.aspect_label,
+        )
+
+        topic, subject, visual_subject = _resolve_topic_alignment_fields(
+            authoritative_topic=authoritative_topic,
+            anchors=anchors,
+            story_brief=story_brief,
+        )
+        topic_fidelity_score = assert_topic_fidelity(
+            authoritative_topic,
+            subject=subject,
+            visual_subject=visual_subject,
+            generated_texts=[starter, *clips],
+        )
+
         bundle = RunwayContinuityPromptBundle(
             project_id=payload.project_id,
-            story_idea=story,
+            story_idea=authoritative_topic,
+            topic=topic,
+            subject=subject,
+            visual_subject=visual_subject,
+            topic_fidelity_score=topic_fidelity_score,
             clip_count=payload.clip_count,
             starter_image_prompt=starter,
             clip_prompts=clips,
             continuity_anchors=anchors,
             warnings=warnings,
             story_brief=story_brief,
+            director_layer=director_layer,
+            visual_subject_lock=anchors.visual_subject_lock,
+            visual_memory_report=memory_result.results_panel,
+            ai_director_v2_report=director_v2_result.results_panel,
         )
+        if payload.auto_prompt_critic:
+            from content_brain.director.prompt_review_pipeline import review_and_rewrite_prompts
+
+            review_result = review_and_rewrite_prompts(
+                topic=authoritative_topic,
+                starter_image_prompt=bundle.starter_image_prompt,
+                clip_prompts=list(bundle.clip_prompts),
+                story_brief=story_brief,
+                director_layer=director_layer,
+                dry_run=payload.prompt_critic_dry_run,
+            )
+            bundle.starter_image_prompt = review_result.starter_image_prompt
+            bundle.clip_prompts = review_result.clip_prompts
+            bundle.prompt_review = review_result.metadata
         bundle.warnings.extend(validate_prompt_bundle(bundle))
         bundle.char_stats = _char_stats(bundle)
         return bundle
@@ -433,7 +631,14 @@ class RunwayPromptBuilder:
         story: str,
         payload: PromptBuilderInput,
         story_brief: Any | None = None,
+        director_layer: Any | None = None,
     ) -> ContinuityAnchors:
+        visual_lock = self._resolve_visual_subject_lock(
+            story=story,
+            payload=payload,
+            story_brief=story_brief,
+            director_layer=director_layer,
+        )
         if story_brief is not None and hasattr(story_brief, "continuity_anchors"):
             brief_anchors = story_brief.continuity_anchors
             return ContinuityAnchors(
@@ -443,6 +648,7 @@ class RunwayPromptBuilder:
                 camera=_normalize(getattr(brief_anchors, "camera", "") or payload.camera),
                 palette=_normalize(getattr(brief_anchors, "palette", "") or payload.palette),
                 wardrobe=_normalize(getattr(brief_anchors, "wardrobe", "") or payload.wardrobe),
+                visual_subject_lock=visual_lock,
             )
         sentences = _sentences(story)
         lead = sentences[0] if sentences else story
@@ -461,6 +667,45 @@ class RunwayPromptBuilder:
             camera=camera,
             palette=palette,
             wardrobe=wardrobe,
+            visual_subject_lock=visual_lock,
+        )
+
+    def _resolve_visual_subject_lock(
+        self,
+        *,
+        story: str,
+        payload: PromptBuilderInput,
+        story_brief: Any | None = None,
+        director_layer: Any | None = None,
+    ) -> VisualSubjectLock | None:
+        if payload.visual_subject_lock is not None:
+            if hasattr(payload.visual_subject_lock, "primary_visual_subject"):
+                return payload.visual_subject_lock
+            return VisualSubjectLock.from_dict(dict(payload.visual_subject_lock))
+        if director_layer is not None and getattr(director_layer, "visual_subject_lock", None) is not None:
+            lock = director_layer.visual_subject_lock
+            if hasattr(lock, "primary_visual_subject"):
+                return lock
+            return VisualSubjectLock.from_dict(dict(lock))
+        if extract_visual_subject_lock is None:
+            return None
+        brief_dict: dict[str, Any] = {}
+        if story_brief is not None and hasattr(story_brief, "to_dict"):
+            brief_dict = dict(story_brief.to_dict())
+        elif isinstance(story_brief, dict):
+            brief_dict = dict(story_brief)
+        storyboard_dict: dict[str, Any] = {}
+        scene_dict: dict[str, Any] = {}
+        if director_layer is not None:
+            if hasattr(director_layer, "storyboard"):
+                storyboard_dict = director_layer.storyboard.to_dict()
+            if hasattr(director_layer, "scene_breakdown"):
+                scene_dict = director_layer.scene_breakdown.to_dict()
+        return extract_visual_subject_lock(
+            topic=str(payload.story_idea or story),
+            story_brief=brief_dict or None,
+            storyboard=storyboard_dict or None,
+            scene_breakdown=scene_dict or None,
         )
 
     def _infer_character(self, lead: str, story: str) -> str:
@@ -574,14 +819,20 @@ class RunwayPromptBuilder:
         visual_style: str,
         aspect_label: str,
         story_brief: Any | None = None,
+        director_layer: Any | None = None,
     ) -> str:
         lead = _sentences(story)[0] if _sentences(story) else story
         if story_brief is not None:
             lead = _normalize(getattr(story_brief, "logline", "") or lead)
+        if director_layer is not None and hasattr(director_layer, "storyboard"):
+            lead = _normalize(director_layer.storyboard.logline or lead)
+        subject_line = anchors.character
+        if anchors.visual_subject_lock is not None:
+            subject_line = anchors.visual_subject_lock.starter_subject_line(human_presenter=anchors.character)
         body = (
             f"{visual_style} {aspect_label} hero starter frame. "
             f"Static hold composition for reference image generation. "
-            f"Subject: {anchors.character}. Environment: {anchors.location}. "
+            f"Subject: {subject_line}. Environment: {anchors.location}. "
             f"Lighting: {anchors.lighting}. Camera: {anchors.camera}. "
             f"Palette: {anchors.palette}. "
             f"Scene essence: {lead}. "
@@ -601,6 +852,19 @@ class RunwayPromptBuilder:
                 body += f"Tension: {conflict}. "
             if style:
                 body += f"Style direction: {style}. "
+        if director_layer is not None and hasattr(director_layer, "storyboard"):
+            sb = director_layer.storyboard
+            body += (
+                f"Director storyboard title: {sb.title}. Emotional arc: {sb.emotional_arc}. "
+                f"Visual style direction: {sb.visual_style}. "
+            )
+            if director_layer.continuity_plan.continuity_rules:
+                body += "Director continuity rules: " + "; ".join(director_layer.continuity_plan.continuity_rules[:3]) + ". "
+        if anchors.visual_subject_lock is not None:
+            body += f"Visual subject lock: {anchors.visual_subject_lock.identity_lock_sentence} "
+            negative_fragment = anchors.visual_subject_lock.strict_negative_fragment()
+            if negative_fragment:
+                body += f"Forbidden confusions: {negative_fragment}. "
         body += (
             f"Frame the subject for vertical Shorts with clear silhouette readability. "
             f"Ultra-detailed textures, realistic materials, natural skin and fabric response. "
@@ -649,9 +913,25 @@ class RunwayPromptBuilder:
         aspect_label: str,
         director_shot: dict[str, Any],
         story_brief: Any | None = None,
+        director_layer: Any | None = None,
     ) -> str:
         phase = _clip_phase(clip_index, clip_count)
         motion_seed = MOTION_VERBS_BY_PHASE[phase][(clip_index - 1) % len(MOTION_VERBS_BY_PHASE[phase])]
+
+        storyboard_clip = None
+        scene_spec = None
+        if director_layer is not None:
+            storyboard_clip = next((c for c in director_layer.storyboard.clips if c.clip_index == clip_index), None)
+            scene_spec = director_layer.scene_breakdown.primary_scene(clip_index)
+            if storyboard_clip and not director_shot.get("action"):
+                director_shot = {
+                    **director_shot,
+                    "action": storyboard_clip.goal or storyboard_clip.summary,
+                    "camera_shot": director_shot.get("camera_shot") or (scene_spec.camera_direction if scene_spec else ""),
+                    "camera_movement": director_shot.get("camera_movement") or (scene_spec.camera_direction if scene_spec else ""),
+                    "continuity_notes": director_shot.get("continuity_notes") or storyboard_clip.continuity_anchor,
+                    "emotion": director_shot.get("emotion") or (storyboard_clip.emotion if storyboard_clip else ""),
+                }
 
         director_camera = _normalize(director_shot.get("camera_shot") or director_shot.get("camera") or "")
         director_move = _normalize(director_shot.get("camera_movement") or "")
@@ -779,6 +1059,24 @@ class RunwayPromptBuilder:
         if continuity_notes:
             core_sections.append(f"Director continuity note: {continuity_notes}.")
 
+        if director_layer is not None and storyboard_clip is not None:
+            core_sections.append(
+                f"Cinematic storyboard beat: {storyboard_clip.summary}. Key visual: {storyboard_clip.key_visual}. "
+                f"Emotional target: {storyboard_clip.emotion}."
+            )
+            if storyboard_clip.ending_transition and clip_index < clip_count:
+                core_sections.append(f"Transition out: {storyboard_clip.ending_transition}.")
+            if scene_spec is not None:
+                core_sections.append(
+                    f"Scene direction: {scene_spec.purpose}. Environment: {scene_spec.environment}. Mood: {scene_spec.mood}."
+                )
+            rules = list(director_layer.continuity_plan.continuity_rules[:3])
+            forbidden = list(director_layer.continuity_plan.forbidden_changes[:2])
+            if rules:
+                core_sections.append("Continuity planner rules: " + "; ".join(rules) + ".")
+            if forbidden:
+                core_sections.append("Forbidden changes: " + "; ".join(forbidden) + ".")
+
         if clip_index < clip_count:
             core_sections.append(
                 "End frame must remain in the same spatial layout to enable Use Frame for the next clip."
@@ -788,12 +1086,11 @@ class RunwayPromptBuilder:
                 "Final clip resolves action but keeps the same world — no epilogue scene change."
             )
 
-        strict_suffix = (
-            "Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, "
-            "no title cards, no scene jump, no unrelated new characters entering frame."
-        )
+        strict_suffix = _build_strict_negative_suffix(visual_subject_lock=anchors.visual_subject_lock)
+        from content_brain.execution.product_visual_diversity_guard import append_visual_diversity_rules
 
         core = _strip_forbidden_visual(" ".join(core_sections))
+        core = append_visual_diversity_rules(core, clip_index=clip_index, clip_count=clip_count, use_frame=True)
         core = self._expand_to_soft_target(
             core,
             clip_index=clip_index,
@@ -844,10 +1141,7 @@ class RunwayPromptBuilder:
             visual_style=visual_style,
             aspect_label=aspect_label,
         )
-        strict_suffix = (
-            "Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, "
-            "no title cards, no scene jump, no unrelated new characters entering frame."
-        )
+        strict_suffix = _build_strict_negative_suffix(visual_subject_lock=anchors.visual_subject_lock)
         narrative_target = int(CLIP_PROMPT_SOFT_MIN * NARRATIVE_PROMPT_WEIGHT)
         continuity_target = int(CLIP_PROMPT_SOFT_MIN * CONTINUITY_PROMPT_WEIGHT)
         narrative_block = self._expand_topic_narrative_block(
@@ -857,7 +1151,15 @@ class RunwayPromptBuilder:
             clip_scoped=clip_scoped,
         )
         continuity_block = _truncate_words(continuity_block, max(400, continuity_target + 120))
-        core = _strip_forbidden_visual(f"{narrative_block} {continuity_block}")
+        from content_brain.execution.product_visual_diversity_guard import append_visual_diversity_rules
+
+        diversity_block = append_visual_diversity_rules(
+            "",
+            clip_index=clip_index,
+            clip_count=clip_count,
+            use_frame=True,
+        )
+        core = _strip_forbidden_visual(f"{narrative_block} {continuity_block} {diversity_block}")
         prompt = _normalize(f"{core} {strict_suffix}")
         return _truncate_preserving_suffix(prompt, strict_suffix, CLIP_PROMPT_HARD_MAX)
 
@@ -987,6 +1289,41 @@ def _contains_generic_prompt_entities(text: str) -> list[str]:
     return hits
 
 
+def _build_strict_negative_suffix(*, visual_subject_lock: VisualSubjectLock | None = None) -> str:
+    base = (
+        "Strict negatives: no text, no subtitles, no captions, no logos, no watermarks, "
+        "no title cards, no scene jump, no unrelated new characters entering frame"
+    )
+    if visual_subject_lock is not None:
+        fragment = visual_subject_lock.strict_negative_fragment()
+        if fragment:
+            return f"{base}, {fragment}."
+    return f"{base}."
+
+
+def _subject_identity_for_prompt(*, anchors: ContinuityAnchors) -> str:
+    if anchors.visual_subject_lock is not None:
+        lock = anchors.visual_subject_lock
+        if lock.subject_type == "person":
+            return lock.primary_visual_subject or anchors.character
+        features = ", ".join(lock.required_visible_features[:4])
+        if features:
+            return f"same {lock.primary_visual_subject} specimen with {features}"
+        return f"same {lock.primary_visual_subject} specimen"
+    return anchors.character
+
+
+def _human_role_for_prompt(*, anchors: ContinuityAnchors) -> str:
+    if anchors.visual_subject_lock is not None and anchors.visual_subject_lock.human_presenter_role:
+        return anchors.visual_subject_lock.human_presenter_role
+    if anchors.character and (
+        anchors.visual_subject_lock is None
+        or anchors.character.lower() != anchors.visual_subject_lock.primary_visual_subject.lower()
+    ):
+        return f"{anchors.character} observer / presenter"
+    return ""
+
+
 def _build_topic_narrative_prompt_block(
     topic_detail: dict[str, Any],
     *,
@@ -1003,8 +1340,16 @@ def _build_topic_narrative_prompt_block(
     sections = [
         f"Clip {clip_index} of {clip_count}. Topic-first narrative sequence about {subject or 'the case'}.",
         f"Primary story beat: {beat}.",
-        f"Subject identity: {anchors.character}. Location: {anchors.location}.",
+        f"Subject identity: {_subject_identity_for_prompt(anchors=anchors)}. Location: {anchors.location}.",
+        f"Exactly {CLIP_DURATION_SECONDS} seconds of continuous on-screen motion and action.",
     ]
+    human_role = _human_role_for_prompt(anchors=anchors)
+    if human_role:
+        sections.append(
+            f"Human role: {human_role}. Do not make human the primary visual subject unless the user topic is a person."
+        )
+    if anchors.visual_subject_lock is not None and anchors.visual_subject_lock.subject_type != "person":
+        sections.append(f"Visual subject lock: {anchors.visual_subject_lock.identity_lock_sentence}")
     scoped_concepts = filter_prompt_section_values(list(clip_concepts or []))
     if str(content_strategy or "").strip().lower() == "scientific_explanation":
         frame_source = (
@@ -1069,9 +1414,10 @@ def _build_compact_continuity_block(
     )
     return _normalize(
         f"{handoff} {visual_style} {aspect_label}. "
+        f"Exactly {CLIP_DURATION_SECONDS} seconds of continuous on-screen motion and action. "
         f"{anchors.lock_line()} "
-        "Maintain same character, wardrobe, and location. "
-        "Single continuous 10-second motivated action with stable end pose for frame handoff."
+        "Maintain same visual subject identity, wardrobe when visible, and location. "
+        "Stable end pose for frame handoff."
     )
 
 
@@ -1159,9 +1505,53 @@ def validate_prompt_entity_gates(
     return failures
 
 
+def _resolve_topic_alignment_fields(
+    *,
+    authoritative_topic: str,
+    anchors: ContinuityAnchors,
+    story_brief: Any | None,
+) -> tuple[str, str, str]:
+    """Return topic, subject, visual_subject aligned to authoritative topic."""
+    topic = _normalize(authoritative_topic)
+    subject = ""
+    visual_subject = ""
+
+    if story_brief is not None:
+        if hasattr(story_brief, "subject"):
+            subject = _normalize(str(story_brief.subject or ""))
+        if hasattr(story_brief, "main_character") and not subject:
+            subject = _normalize(str(story_brief.main_character or ""))
+        if hasattr(story_brief, "source_topic") and not topic:
+            topic = _normalize(str(story_brief.source_topic or ""))
+
+    if not subject:
+        subject = _normalize(anchors.character)
+    if anchors.visual_subject_lock is not None and hasattr(anchors.visual_subject_lock, "primary_visual_subject"):
+        visual_subject = _normalize(str(anchors.visual_subject_lock.primary_visual_subject or ""))
+    if not visual_subject:
+        visual_subject = subject
+
+    topic_subject, _, _ = extract_topic_facets(topic)
+    if is_generic_subject_replacement(subject) and topic_subject:
+        subject = _normalize(topic_subject)
+    if is_generic_subject_replacement(visual_subject):
+        visual_subject = subject
+
+    if "boxing" in topic.lower():
+        if "box" not in subject.lower():
+            subject = "young boxer training for championship"
+        if "box" not in visual_subject.lower():
+            visual_subject = subject
+
+    return topic, subject, visual_subject
+
+
 def validate_prompt_bundle(bundle: RunwayContinuityPromptBundle) -> list[str]:
     """Return warnings (non-fatal quality notes). Empty list means within all targets."""
     warnings: list[str] = []
+
+    if bundle.topic_fidelity_score and bundle.topic_fidelity_score < 80:
+        warnings.append(f"topic_fidelity_score below target ({bundle.topic_fidelity_score} < 80)")
 
     if len(bundle.starter_image_prompt) > STARTER_IMAGE_MAX_CHARS:
         warnings.append(
@@ -1204,6 +1594,8 @@ def build_continuity_prompts(
     project_id: str = "continuity_project",
     clip_count: int = DEFAULT_CLIP_COUNT,
     auto_story_brief: bool = True,
+    auto_director: bool = False,
+    auto_prompt_critic: bool = False,
     target_platform: str = "youtube_shorts",
     niche_style: str = "cinematic",
     mood: str = "tense hopeful",
@@ -1218,6 +1610,8 @@ def build_continuity_prompts(
             project_id=project_id,
             clip_count=clip_count,
             auto_story_brief=auto_story_brief,
+            auto_director=auto_director,
+            auto_prompt_critic=auto_prompt_critic,
             target_platform=target_platform,
             niche_style=niche_style,
             mood=mood,

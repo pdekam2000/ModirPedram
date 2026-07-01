@@ -1,0 +1,61 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "memory_c38d31269d6d",
+  "topic": "A lone astronaut in a weathered EVA suit stands on a giant abandoned futuristic platform above a glowing cyberpunk city at night. Heavy rain, cinematic atmosphere, neon teal and amber reflections, dramatic volumetric fog, ultra realistic detail. Clip 1: rain intensifies as she turns toward the skyline. Clip 2: she walks along the platform edge with city lights pulsing below. Clip 3: she reaches a dormant launch cradle and places her gloved hand on its surface.",
+  "clip_count": 3,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "transition_type": "cut_to_medium",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "open",
+      "scene_progression": "rain intensifies as she turns toward the skyline.",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "composition": "rule-of-thirds vertical hero framing"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "transition_type": "hero_shot",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "build",
+      "scene_progression": "she walks along the platform edge with city lights pulsing below.",
+      "camera_movement": "Lateral or forward tracking matched to subject speed.",
+      "lens": "50mm cinematic prime",
+      "composition": "rule-of-thirds vertical hero framing"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "transition_type": "hold_end_frame",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "payoff",
+      "scene_progression": "she reaches a dormant launch cradle and places her gloved hand on its surface.",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "composition": "rule-of-thirds vertical hero framing"
+    }
+  ],
+  "edges": [
+    {
+      "from_clip": 1,
+      "to_clip": 2,
+      "transition": "hero_shot",
+      "pacing_shift": "open->build"
+    },
+    {
+      "from_clip": 2,
+      "to_clip": 3,
+      "transition": "hold_end_frame",
+      "pacing_shift": "build->payoff"
+    }
+  ],
+  "pacing_curve": [
+    "open",
+    "build",
+    "payoff"
+  ],
+  "created_at": "2026-06-16T19:39:07.751226+00:00"
+}

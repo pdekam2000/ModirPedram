@@ -1,0 +1,44 @@
+{
+  "static": {
+    "bring_to_front_used": false,
+    "cdp_page_bring_to_front_used": false,
+    "visibility_state_checked": false,
+    "connect_over_cdp": true,
+    "ensure_generate_page_navigates": true,
+    "generate_click_instrumented": true,
+    "find_page_no_activation": true
+  },
+  "artifact_count": 0,
+  "live_snapshot": {
+    "timestamp": "2026-06-20T21:42:52.528020+00:00",
+    "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools&sessionId=4b91f4d1-3dfe-4cbd-85f8-ea2d4957c4da",
+    "visibility_state": "visible",
+    "document_hidden": false,
+    "has_focus": true,
+    "ready_state": "complete",
+    "overlay_count": 0,
+    "overlays": [],
+    "generate_button": {
+      "label": "Generate",
+      "disabled": false,
+      "ariaDisabled": null,
+      "visible": true,
+      "pointerEvents": "auto",
+      "opacity": "1",
+      "inViewport": true
+    },
+    "tab_active_hint": "foreground",
+    "errors": []
+  },
+  "conclusion": {
+    "focus_dependent": "likely_yes",
+    "generate_queued_before_operator_click": "likely_yes",
+    "delay_cause": "background_tab_or_hidden_document_no_activation",
+    "recommended_fix": "Before Generate: call page.bring_to_front() + CDP Page.bringToFront, wait until document.visibilityState==='visible' && document.hasFocus(), log focus_probe (now instrumented), retry click with force=true only if probe still blocked.",
+    "notes": [
+      "no_page_activation_before_generate_in_code",
+      "runtime_attaches_via_cdp_to_existing_chrome_tab",
+      "generate_tab_selected_without_foreground_activation"
+    ]
+  }
+}

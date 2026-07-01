@@ -16,18 +16,24 @@ class BrowserCheckDTO(BaseModel):
 class BrowserLaunchResponse(BaseModel):
     success: bool = True
     already_running: bool = False
+    cdp_reachable: bool = False
     message: str = ""
     profile_path: str
     cdp_url: str = "http://127.0.0.1:9222"
     chrome_executable: Optional[str] = None
     cdp_port: int = 9222
+    browser_kind: str = "chrome"
     pid: Optional[int] = None
     api_version: str = "12i_a_v1"
 
 
 class BrowserStatusResponse(BaseModel):
     browser_running: bool = False
+    browser_connected: bool = False
     cdp_connected: bool = False
+    cdp_reachable: bool = False
+    cdp_port: int = 9222
+    browser_kind: str = "chrome"
     profile_loaded: bool = False
     runway_login_detected: bool = False
     ready_for_runway_browser: bool = False

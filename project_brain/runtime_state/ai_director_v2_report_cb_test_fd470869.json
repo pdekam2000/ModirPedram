@@ -1,0 +1,54 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "cb_test_fd470869",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "purpose": "Establish world, location, and scale before subject focus.",
+      "scene_progression": "Introduction to what it means to be a boxing legend and overview of fundamentals",
+      "emotional_beat": "Instructional arc from setup through technique to proven result",
+      "transition_out": "cut_to_medium"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "reveal_shot",
+      "purpose": "Uncover key information or payoff element.",
+      "scene_progression": "Demonstration of key training exercises, techniques, and mental preparation",
+      "emotional_beat": "Instructional arc from setup through technique to proven result",
+      "transition_out": "hero_shot"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: establishing_shot \u2014 Introduction to what it means to be a boxing legend and overview of fundamentals",
+    "Clip 2: reveal_shot \u2014 Demonstration of key training exercises, techniques, and mental preparation"
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "framing": "wide vertical establishing frame",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Introduction to what it means to be a boxing legend and overview of fundamentals \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "reveal_shot",
+      "camera_movement": "Motivated move from partial occlusion to full reveal.",
+      "lens": "50mm cinematic prime",
+      "framing": "partial occlusion to full reveal framing",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Demonstration of key training exercises, techniques, and mental preparation \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\cb_test_fd470869\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

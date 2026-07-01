@@ -1,0 +1,332 @@
+{
+  "version": "kling_multishot_shadow_runner_v2",
+  "ok": true,
+  "dry_run": true,
+  "connect_browser": true,
+  "multishot_strategy": "two_shot_continuity",
+  "shot_1_duration_seconds": 12,
+  "shot_2_duration_seconds": 3,
+  "clip_duration_seconds": 15,
+  "add_shot_used": false,
+  "generate_clicked": false,
+  "credits_spent": false,
+  "steps": [
+    {
+      "step_id": "map_validate",
+      "label": "runway_ui_map",
+      "status": "passed",
+      "detail": "11 required labels"
+    },
+    {
+      "step_id": "approval_gate",
+      "label": "generate_button",
+      "status": "passed",
+      "detail": "requires_approval=true"
+    },
+    {
+      "step_id": "browser",
+      "label": "cdp",
+      "status": "passed",
+      "detail": "http://127.0.0.1:9222"
+    },
+    {
+      "step_id": "browser",
+      "label": "runway_tab",
+      "status": "passed",
+      "detail": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video"
+    },
+    {
+      "step_id": "01",
+      "label": "provider_kling_3_pro",
+      "status": "passed",
+      "detail": "strategy=text_kling_3_pro; text=Kling 3.0 Pro; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/01_provider_kling_3_pro_20260616T185445.png"
+    },
+    {
+      "step_id": "02",
+      "label": "multishot_tab",
+      "status": "passed",
+      "detail": "strategy=text_multishot; already_selected=True; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/02_multishot_tab_20260616T185448.png"
+    },
+    {
+      "step_id": "03",
+      "label": "audio_toggle_on",
+      "status": "passed",
+      "detail": "\u00b7 On; strategy=role_button_audio_settings; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/03_audio_toggle_on_20260616T185451.png"
+    },
+    {
+      "step_id": "04",
+      "label": "first_frame_upload",
+      "status": "passed",
+      "detail": "detected; strategy=role_button_upload; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/04_first_frame_upload_20260616T185453.png"
+    },
+    {
+      "step_id": "05",
+      "label": "shot_1_duration_12s",
+      "status": "passed",
+      "detail": "12s; strategy=role_option_12_seconds"
+    },
+    {
+      "step_id": "06",
+      "label": "shot_2_duration_3s",
+      "status": "passed",
+      "detail": "3s; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/06_shot_2_duration_3s_20260616T185539.png"
+    },
+    {
+      "step_id": "07",
+      "label": "shot_1_prompt",
+      "status": "passed",
+      "detail": "50 chars; strategy=role_textbox_shot_1; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/07_shot_1_prompt_20260616T185542.png"
+    },
+    {
+      "step_id": "08",
+      "label": "shot_2_prompt",
+      "status": "passed",
+      "detail": "54 chars; strategy=role_textbox_shot_2; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/08_shot_2_prompt_20260616T185546.png"
+    },
+    {
+      "step_id": "09",
+      "label": "generate_button",
+      "status": "blocked",
+      "detail": "dry_run \u2014 not clicked; strategy=role_button_generate; screenshot=project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/09_generate_button_20260616T185549.png"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "screenshot_failed:shot_1_duration_12s:Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n",
+    "optional_label_present_not_used:shot_3_prompt",
+    "optional_label_present_not_used:shot_4_prompt",
+    "optional_label_present_not_used:shot_5_prompt"
+  ],
+  "map_snapshot": {
+    "version": "kling_multishot_map_loader_v1",
+    "map_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_ui_mapping\\runway_ui_map.json",
+    "ok": true,
+    "controls": {
+      "provider_kling_3_pro": {
+        "canonical_key": "provider_kling_3_pro",
+        "source_label": "provider_kling_3_pro",
+        "tag": "button",
+        "css_selector": "button:has-text(\"Kling 3.0 Pro\")",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "Kling 3.0 Pro",
+        "aria_label": "Video models",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "multishot_tab": {
+        "canonical_key": "multishot_tab",
+        "source_label": "multishot_tab",
+        "tag": "input",
+        "css_selector": "label:has-text(\"Multishot\")",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "audio_toggle_on": {
+        "canonical_key": "audio_toggle_on",
+        "source_label": "audio_toggle_on",
+        "tag": "button",
+        "css_selector": "button[aria-label=\"Audio settings\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "\u00b7 On",
+        "aria_label": "Audio settings",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "first_frame_upload": {
+        "canonical_key": "first_frame_upload",
+        "source_label": "first_frame_upload",
+        "tag": "button",
+        "css_selector": "button[aria-label=\"Upload\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "Upload",
+        "aria_label": "Upload",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_1_prompt": {
+        "canonical_key": "shot_1_prompt",
+        "source_label": "shot_1_prompt",
+        "tag": "div",
+        "css_selector": "div[aria-label=\"Shot 1 prompt\"][contenteditable=\"true\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "Shot 1 prompt",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_2_prompt": {
+        "canonical_key": "shot_2_prompt",
+        "source_label": "shot_2_prompt",
+        "tag": "div",
+        "css_selector": "div[aria-label=\"Shot 2 prompt\"][contenteditable=\"true\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "Shot 2 prompt",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_1_duration_menu": {
+        "canonical_key": "shot_1_duration_menu",
+        "source_label": "shot_1_duration_menu",
+        "tag": "button",
+        "css_selector": "button[aria-label=\"Shot duration\"]:nth-of-type(1)",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "3s",
+        "aria_label": "Shot duration",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_1_duration_12s": {
+        "canonical_key": "shot_1_duration_12s",
+        "source_label": "shot_1_duration_12s",
+        "tag": "button",
+        "css_selector": "[role=\"listbox\"] [role=\"option\"]:last-child",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+        "text": "3s",
+        "aria_label": "Shot duration",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_2_duration_menu": {
+        "canonical_key": "shot_2_duration_menu",
+        "source_label": "shot_2_duration_menu",
+        "tag": "button",
+        "css_selector": "button[aria-label=\"Shot duration\"]:nth-of-type(2)",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "3s",
+        "aria_label": "Shot duration",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_2_duration_3s": {
+        "canonical_key": "shot_2_duration_3s",
+        "source_label": "shot_2_duration_3s",
+        "tag": "button",
+        "css_selector": "[role=\"listbox\"] [role=\"option\"]:first-child",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+        "text": "3s",
+        "aria_label": "Shot duration",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "generate_button": {
+        "canonical_key": "generate_button",
+        "source_label": "generate_button",
+        "tag": "button",
+        "css_selector": "button:has-text(\"Generate\")",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "Generate",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "add_shot_button": {
+        "canonical_key": "add_shot_button",
+        "source_label": "add_shot_button",
+        "tag": "button",
+        "css_selector": "button[aria-label=\"Add shot\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate",
+        "text": "Add shot",
+        "aria_label": "Add shot",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_3_prompt": {
+        "canonical_key": "shot_3_prompt",
+        "source_label": "shot_3_prompt",
+        "tag": "div",
+        "css_selector": "div[aria-label=\"Shot 3 prompt\"][contenteditable=\"true\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "Shot 3 prompt",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_4_prompt": {
+        "canonical_key": "shot_4_prompt",
+        "source_label": "shot_4_prompt",
+        "tag": "div",
+        "css_selector": "div[aria-label=\"Shot 4 prompt\"][contenteditable=\"true\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "Shot 4 prompt",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "shot_5_prompt": {
+        "canonical_key": "shot_5_prompt",
+        "source_label": "shot_5_prompt",
+        "tag": "div",
+        "css_selector": "div[aria-label=\"Shot 5 prompt\"][contenteditable=\"true\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "",
+        "aria_label": "Shot 5 prompt",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      }
+    },
+    "missing": [],
+    "invalid": [],
+    "warnings": [],
+    "safety": {
+      "no_credentials_stored": true,
+      "no_cookies_stored": true,
+      "no_storage_stored": true,
+      "generate_never_auto_clicked": true,
+      "auto_click_blocklist": [
+        "generate",
+        "create",
+        "submit",
+        "upgrade",
+        "purchase",
+        "buy",
+        "subscribe",
+        "delete"
+      ],
+      "requires_approval": [
+        "generate_button"
+      ]
+    }
+  },
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+  "screenshots": [
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/01_provider_kling_3_pro_20260616T185445.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/02_multishot_tab_20260616T185448.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/03_audio_toggle_on_20260616T185451.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/04_first_frame_upload_20260616T185453.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/06_shot_2_duration_3s_20260616T185539.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/07_shot_1_prompt_20260616T185542.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/08_shot_2_prompt_20260616T185546.png",
+    "project_brain/runway_ui_mapping/screenshots/kling_multishot_live_dry_run/09_generate_button_20260616T185549.png"
+  ],
+  "locator_strategies": {
+    "provider_kling_3_pro": "text_kling_3_pro",
+    "multishot_tab": "text_multishot",
+    "audio_toggle_on": "role_button_audio_settings",
+    "shot_1_duration_menu": "role_button_shot_duration_first",
+    "shot_1_duration_12s": "role_option_12_seconds",
+    "shot_2_duration_menu": "role_button_shot_duration_nth1",
+    "shot_1_prompt": "role_textbox_shot_1",
+    "shot_2_prompt": "role_textbox_shot_2",
+    "generate_button": "role_button_generate"
+  },
+  "created_at": "2026-06-16T18:55:50.853457+00:00"
+}

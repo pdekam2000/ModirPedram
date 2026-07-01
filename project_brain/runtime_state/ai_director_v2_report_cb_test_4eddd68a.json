@@ -1,0 +1,111 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "cb_test_4eddd68a",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "wide_shot",
+      "purpose": "Show subject in full environmental context.",
+      "scene_progression": "Introduction to the boy and discovery of the dragon egg in the forest",
+      "emotional_beat": "Fear transforms into determined action as the boy protects the dragon egg.",
+      "transition_out": "tracking_shot"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "purpose": "Follow subject through space to build momentum.",
+      "scene_progression": "The boy hides the egg and faces challenges keeping it secret",
+      "emotional_beat": "Fear transforms into determined action as the boy protects the dragon egg.",
+      "transition_out": "hero_shot"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "medium_shot",
+      "purpose": "Balance subject performance with surrounding context.",
+      "scene_progression": "The dragon egg hatches and the boy bonds with the baby dragon",
+      "emotional_beat": "Fear transforms into determined action as the boy protects the dragon egg.",
+      "transition_out": "close_up"
+    },
+    {
+      "clip_index": 4,
+      "shot_type": "close_up",
+      "purpose": "Focus attention on face, detail, or emotional reaction.",
+      "scene_progression": "The dragon egg hatches and the boy bonds with the baby dragon",
+      "emotional_beat": "Fear transforms into determined action as the boy protects the dragon egg.",
+      "transition_out": "extreme_close_up"
+    },
+    {
+      "clip_index": 5,
+      "shot_type": "hero_shot",
+      "purpose": "Present subject at peak visual power for final impression.",
+      "scene_progression": "beat 5",
+      "emotional_beat": "Fear transforms into determined action as the boy protects the dragon egg.",
+      "transition_out": "hold_end_frame"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: wide_shot \u2014 Introduction to the boy and discovery of the dragon egg in the forest",
+    "Clip 2: tracking_shot \u2014 The boy hides the egg and faces challenges keeping it secret",
+    "Clip 3: medium_shot \u2014 The dragon egg hatches and the boy bonds with the baby dragon",
+    "Clip 4: close_up \u2014 The dragon egg hatches and the boy bonds with the baby dragon",
+    "Clip 5: hero_shot \u2014 beat 5"
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "wide_shot",
+      "camera_movement": "Static or gentle lateral drift; subject readable in frame thirds.",
+      "lens": "24mm wide establishing lens",
+      "framing": "subject in lower two-thirds with habitat depth",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "Introduction to the boy and discovery of the dragon egg in the forest \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "camera_movement": "telephoto documentary tracking \u2014 Lateral or forward tracking matched to subject speed.",
+      "lens": "telephoto 85\u2013135mm equivalent",
+      "framing": "mid-wide tracking frame with lead room",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "The boy hides the egg and faces challenges keeping it secret \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "medium_shot",
+      "camera_movement": "Waist-up or mid-body framing with stable handheld or tripod base.",
+      "lens": "telephoto 85\u2013135mm equivalent",
+      "framing": "subject in lower two-thirds with habitat depth",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "The dragon egg hatches and the boy bonds with the baby dragon \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    },
+    {
+      "clip_index": 4,
+      "shot_type": "close_up",
+      "camera_movement": "Tight framing with shallow depth of field and minimal drift.",
+      "lens": "85\u2013100mm portrait-macro lens",
+      "framing": "subject in lower two-thirds with habitat depth",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "The dragon egg hatches and the boy bonds with the baby dragon \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    },
+    {
+      "clip_index": 5,
+      "shot_type": "hero_shot",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "framing": "centered hero frame with chin-safe headroom",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "beat 5 \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    }
+  ],
+  "rhythm_score": 86,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\cb_test_4eddd68a\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

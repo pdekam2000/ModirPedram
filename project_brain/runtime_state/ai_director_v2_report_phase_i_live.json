@@ -1,0 +1,73 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "phase_i_live",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "purpose": "Establish world, location, and scale before subject focus.",
+      "scene_progression": "a careful investigator opens with Educational documentary mystery about science facts in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material \u2014 Opening visual hook: a careful investigator examines case file in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material, with one unexplained detail about Educational Documentary Mystery About Science Facts visible in frame.; camera pushes in on hands and tackle while location stays locked.",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "cut_to_medium"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "dolly_in",
+      "purpose": "Escalate focus toward subject or revelation.",
+      "scene_progression": "Continuous action around Educational documentary mystery about science facts in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material; camera tracks the subject while stakes centered on Educational documentary; What conflicting evidence still surrounds Educational Documentary Mystery About Science Facts? danger and possibility coexisting in the same frame intensifies.",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "close_up"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "purpose": "Present subject at peak visual power for final impression.",
+      "scene_progression": "a careful investigator closes Educational documentary mystery about science facts with a frame-ready end pose that pays off the method and mood.",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "hold_end_frame"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: establishing_shot \u2014 a careful investigator opens with Educational documentary mystery about science facts in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material \u2014 Opening visual hook: a careful investigator examines case file in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material, with one unexplained detail about Educational Documentary Mystery About Science Facts visible in frame.; camera pushes in on hands and tackle while location stays locked.",
+    "Clip 2: dolly_in \u2014 Continuous action around Educational documentary mystery about science facts in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material; camera tracks the subject while stakes centered on Educational documentary; What conflicting evidence still surrounds Educational Documentary Mystery About Science Facts? danger and possibility coexisting in the same frame intensifies.",
+    "Clip 3: hero_shot \u2014 a careful investigator closes Educational documentary mystery about science facts with a frame-ready end pose that pays off the method and mood."
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "camera_movement": "slow dramatic push-in \u2014 Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "framing": "wide vertical establishing frame",
+      "composition": "symmetrical framing with depth layers and practical light",
+      "visual_objective": "a careful investigator opens with Educational documentary mystery about science facts in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material \u2014 Opening visual hook: a careful investigator examines case file in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material, with one unexplained detail about Educational Documentary Mystery About Science Facts visible in frame.; camera pushes in on hands and tackle while location stays locked. \u2014 evoke period weight and narrative gravitas",
+      "domain": "history"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "dolly_in",
+      "camera_movement": "slow dramatic push-in \u2014 Smooth forward dolly push with tightening composition.",
+      "lens": "50mm anamorphic-style dramatic lens",
+      "framing": "symmetrical framing with depth layers and practical light",
+      "composition": "symmetrical framing with depth layers and practical light",
+      "visual_objective": "Continuous action around Educational documentary mystery about science facts in documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material; camera tracks the subject while stakes centered on Educational documentary; What conflicting evidence still surrounds Educational Documentary Mystery About Science Facts? danger and possibility coexisting in the same frame intensifies. \u2014 evoke period weight and narrative gravitas",
+      "domain": "history"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "framing": "centered hero frame with chin-safe headroom",
+      "composition": "symmetrical framing with depth layers and practical light",
+      "visual_objective": "a careful investigator closes Educational documentary mystery about science facts with a frame-ready end pose that pays off the method and mood. \u2014 evoke period weight and narrative gravitas",
+      "domain": "history"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\phase_i_live\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

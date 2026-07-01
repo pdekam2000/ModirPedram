@@ -148,6 +148,31 @@ DOMAIN_PROFILES: dict[str, DomainKnowledgeProfile] = {
             "Result, progression tip, and takeaway.",
         ),
     ),
+    "sports": DomainKnowledgeProfile(
+        domain_id="sports",
+        label="Sports & combat training",
+        concepts=(
+            "boxer",
+            "boxing",
+            "ring",
+            "gloves",
+            "heavy bag",
+            "sparring",
+            "footwork",
+            "punch",
+            "coach",
+            "championship",
+            "training montage",
+            "corner",
+        ),
+        default_role_en="a dedicated young boxer",
+        setting_en="a gritty boxing gym with heavy bags, ring ropes, and chalk dust in the air",
+        instructional_beats_en=(
+            "Training setup, discipline, and the path to mastery.",
+            "Technique drill, sparring pressure, and coach correction.",
+            "Breakthrough moment and championship mindset payoff.",
+        ),
+    ),
     "technology": DomainKnowledgeProfile(
         domain_id="technology",
         label="Technology & AI",
@@ -366,6 +391,21 @@ def resolve_domain(topic: str, *, topic_category: str = "") -> str:
         return "cooking"
     if "dog" in lowered or "puppy" in lowered or "leash" in lowered or "training" in lowered:
         return "fitness"
+    if any(
+        word in lowered
+        for word in (
+            "boxing",
+            "boxer",
+            "heavyweight",
+            "knockout",
+            "sparring",
+            "championship fight",
+            "fight camp",
+            "punch",
+            "ring",
+        )
+    ):
+        return "sports"
     if any(word in lowered for word in ("mystery", "unsolved", "dyatlov", "cold case", "disappearance", "roanoke", "colony", "croatoan")):
         return "mystery"
     if any(word in lowered for word in ("historical", "archaeological", "colonial", "ancient", "empire", "archival")):

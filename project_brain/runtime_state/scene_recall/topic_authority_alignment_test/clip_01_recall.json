@@ -1,0 +1,12 @@
+{
+  "version": "scene_recall_engine_v1",
+  "clip_index": 1,
+  "run_id": "topic_authority_alignment_test",
+  "subject_position": "center-left hero plane, facing camera three-quarter",
+  "motion_direction": "slow forward discovery push",
+  "camera_angle": "low hero angle, slight upward tilt",
+  "environment_state": "a gritty boxing gym with heavy bags, ring ropes, and chalk dust in the air",
+  "lighting_state": "motivated cinematic key with volumetric atmosphere",
+  "emotional_state": "fear converting into forward motion",
+  "created_at": "2026-06-13T13:40:25.926874+00:00"
+}

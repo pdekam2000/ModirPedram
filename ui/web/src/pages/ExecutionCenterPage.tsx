@@ -194,7 +194,7 @@ export function ExecutionCenterPage() {
           </button>
         </div>
 
-        <RunwayBrowserPanel compact={centerTab !== "sessions"} />
+        <RunwayBrowserPanel compact={centerTab !== "sessions"} showRunwayDetails />
 
         {centerTab === "uat" ? (
           <UatRuntimePage />

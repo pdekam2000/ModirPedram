@@ -116,6 +116,13 @@ def build_character(
         character = "a home baker"
     elif "perfume" in lowered or "fragrance" in lowered:
         character = "an aspiring perfumer"
+    elif any(
+        word in lowered
+        for word in ("boxing", "boxer", "heavyweight", "knockout", "sparring", "championship", "punch")
+    ):
+        character = "a dedicated young boxer"
+    elif domain == "sports":
+        character = "a dedicated young boxer"
     elif domain == "fishing":
         character = "an experienced angler"
     elif domain == "mystery" or any(word in lowered for word in ("mystery", "unsolved", "dyatlov", "case")):

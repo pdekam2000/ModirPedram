@@ -1,0 +1,499 @@
+{
+  "version": "story_package_v1",
+  "run_id": "cb_e2e_20260611_225308_dc20bc1f",
+  "topic": "Cute orange cartoon cat explorer",
+  "created_at": "2026-06-12T19:58:04.213105+00:00",
+  "story_blueprint": {
+    "version": "story_architect_v1",
+    "title": "the truth about cute orange cartoon cat explorer",
+    "genre": "cartoon",
+    "hook": "A tiny orange explorer spots something impossible glowing beneath the vines.",
+    "setup": "Whiskers the cat and Sage the fox enter a sunlit jungle path full of wonder.",
+    "conflict": "Introduce the cute orange cat and its explorer personality",
+    "discovery": "They uncover a crystal seed that hums with warm golden light.",
+    "escalation": "Showcase the cat navigating through various animated terrains",
+    "climax": "Whiskers must choose courage over fear to carry the spark to safety.",
+    "resolution": "The jungle brightens as the spark blooms into a bridge of light.",
+    "ending_cta": "Follow for more magical adventures with Whiskers and Sage.",
+    "scene_progression": [
+      "Introduce the cute orange cat and its explorer personality",
+      "Showcase the cat navigating through various animated terrains",
+      "Highlight a key discovery or adventure climax"
+    ],
+    "metadata": {
+      "topic": "Cute orange cartoon cat explorer",
+      "clip_count": 3,
+      "source_brief_keys": [
+        "builder_version",
+        "clip_assigned_concepts",
+        "clip_beats",
+        "clip_count",
+        "concept_distribution",
+        "conflict",
+        "conflict_tension",
+        "content_strategy",
+        "continuity_anchors",
+        "cross_domain_fusion",
+        "domain_concepts",
+        "duration_seconds",
+        "emotional_arc",
+        "ending_beat",
+        "environment",
+        "escalation",
+        "logline",
+        "main_character",
+        "mood",
+        "niche_style",
+        "openai_quality_enhanced",
+        "opening_hook",
+        "payoff",
+        "scene_progression",
+        "setting",
+        "source_topic",
+        "stakes",
+        "style_direction",
+        "subject",
+        "target_platform",
+        "title",
+        "topic_label",
+        "topic_label_quality_score",
+        "topic_story_detail",
+        "visual_hook",
+        "warnings"
+      ]
+    }
+  },
+  "character_profiles": [
+    {
+      "name": "Whiskers",
+      "role": "protagonist",
+      "age": "young",
+      "gender": "neutral",
+      "personality": [
+        "playful",
+        "curious",
+        "optimistic",
+        "brave"
+      ],
+      "visual_traits": [
+        "small orange tabby cat",
+        "explorer backpack",
+        "bright green eyes"
+      ],
+      "voice_style": "child friendly",
+      "emotional_traits": [
+        "wonder",
+        "excitement",
+        "determination"
+      ]
+    },
+    {
+      "name": "Sage",
+      "role": "mentor",
+      "age": "young adult",
+      "gender": "female",
+      "personality": [
+        "smart",
+        "careful",
+        "protective",
+        "warm"
+      ],
+      "visual_traits": [
+        "sleek fox companion",
+        "calm posture"
+      ],
+      "voice_style": "young female",
+      "emotional_traits": [
+        "caution",
+        "loyalty",
+        "relief"
+      ]
+    },
+    {
+      "name": "Narrator",
+      "role": "narrator",
+      "age": "adult",
+      "gender": "neutral",
+      "personality": [
+        "warm",
+        "storytelling",
+        "cinematic"
+      ],
+      "visual_traits": [
+        "voice only"
+      ],
+      "voice_style": "warm storyteller",
+      "emotional_traits": [
+        "wonder",
+        "tension",
+        "relief"
+      ]
+    }
+  ],
+  "dialogue_plan": {
+    "version": "dialogue_engine_v1",
+    "genre": "cartoon",
+    "scenes": [
+      {
+        "scene_index": 0,
+        "scene_title": "Introduce the cute orange cat and its explorer personality",
+        "dialogue_lines": [
+          {
+            "speaker": "Whiskers",
+            "line": "Wow! What is that?",
+            "emotion": "curiosity"
+          },
+          {
+            "speaker": "Sage",
+            "line": "Be careful, Whiskers!",
+            "emotion": "tension"
+          }
+        ],
+        "narration": "The adventure had begun beneath the ancient jungle arch.",
+        "emotional_intent": "curiosity with cautious wonder"
+      },
+      {
+        "scene_index": 1,
+        "scene_title": "Showcase the cat navigating through various animated terrains",
+        "dialogue_lines": [
+          {
+            "speaker": "Sage",
+            "line": "That stone is moving!",
+            "emotion": "fear"
+          },
+          {
+            "speaker": "Whiskers",
+            "line": "I think something is calling us.",
+            "emotion": "surprise"
+          }
+        ],
+        "narration": "Roots shifted and the path ahead stopped making sense.",
+        "emotional_intent": "rising fear and discovery"
+      },
+      {
+        "scene_index": 2,
+        "scene_title": "Highlight a key discovery or adventure climax",
+        "dialogue_lines": [
+          {
+            "speaker": "Whiskers",
+            "line": "I can carry it! I know I can!",
+            "emotion": "excitement"
+          },
+          {
+            "speaker": "Sage",
+            "line": "Then I am with you.",
+            "emotion": "relief"
+          }
+        ],
+        "narration": "The crystal seed pulsed like a heartbeat of light.",
+        "emotional_intent": "excitement and courage"
+      }
+    ]
+  },
+  "emotion_plan": {
+    "version": "emotion_engine_v1",
+    "arc_summary": "curiosity \u2192 tension \u2192 joy",
+    "scenes": [
+      {
+        "scene_index": 0,
+        "dominant_emotion": "curiosity",
+        "scores": {
+          "joy": 5,
+          "curiosity": 80,
+          "fear": 5,
+          "surprise": 35,
+          "sadness": 5,
+          "excitement": 40,
+          "tension": 5,
+          "relief": 5
+        },
+        "pacing": "slow-build"
+      },
+      {
+        "scene_index": 1,
+        "dominant_emotion": "tension",
+        "scores": {
+          "joy": 5,
+          "curiosity": 65,
+          "fear": 70,
+          "surprise": 45,
+          "sadness": 5,
+          "excitement": 5,
+          "tension": 75,
+          "relief": 5
+        },
+        "pacing": "rising"
+      },
+      {
+        "scene_index": 2,
+        "dominant_emotion": "joy",
+        "scores": {
+          "joy": 90,
+          "curiosity": 5,
+          "fear": 5,
+          "surprise": 5,
+          "sadness": 5,
+          "excitement": 60,
+          "tension": 40,
+          "relief": 85
+        },
+        "pacing": "release"
+      }
+    ]
+  },
+  "voice_cast_plan": {
+    "version": "voice_casting_director_v1",
+    "narrator": {
+      "character": "Narrator",
+      "voice_style": "warm storyteller",
+      "voice_id": "",
+      "provider_slot": "elevenlabs"
+    },
+    "characters": [
+      {
+        "character": "Whiskers",
+        "role": "protagonist",
+        "voice_style": "child friendly",
+        "voice_id": "",
+        "provider_slot": "elevenlabs",
+        "emotional_traits": [
+          "wonder",
+          "excitement",
+          "determination"
+        ]
+      },
+      {
+        "character": "Sage",
+        "role": "mentor",
+        "voice_style": "young female",
+        "voice_id": "",
+        "provider_slot": "elevenlabs",
+        "emotional_traits": [
+          "caution",
+          "loyalty",
+          "relief"
+        ]
+      }
+    ],
+    "provider": "elevenlabs",
+    "multi_track": true,
+    "warnings": [
+      "missing_voice_id:Whiskers",
+      "missing_voice_id:Sage"
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai",
+      "local"
+    ]
+  },
+  "environment_plan": {
+    "version": "environment_designer_v1",
+    "environment": "jungle",
+    "ambience": [
+      {
+        "tag": "forest_birds",
+        "volume": 0.14,
+        "layer": "canopy",
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\forest_birds.mp3"
+      },
+      {
+        "tag": "wind_leaves",
+        "volume": 0.1,
+        "layer": "understory",
+        "resolved_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\wind_leaves.mp3"
+      },
+      {
+        "tag": "magical_chimes",
+        "volume": 0.06,
+        "layer": "accent"
+      }
+    ],
+    "weather": [
+      {
+        "tag": "light_mist",
+        "volume": 0.05,
+        "notes": "humid air"
+      }
+    ],
+    "movement_sounds": [
+      {
+        "tag": "footsteps_soft",
+        "at_seconds": 1.5,
+        "volume": 0.18
+      }
+    ],
+    "animal_sounds": [
+      {
+        "tag": "distant_birds",
+        "at_seconds": 0.5,
+        "volume": 0.12
+      },
+      {
+        "tag": "cat_meow",
+        "at_seconds": 2.0,
+        "volume": 0.16
+      }
+    ],
+    "resolved_files": [
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\forest_birds.mp3",
+      "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\assets\\audio\\ambience\\wind_leaves.mp3"
+    ],
+    "warnings": [
+      "missing_asset:magical_chimes",
+      "missing_asset:footsteps_soft",
+      "missing_asset:distant_birds",
+      "missing_asset:cat_meow"
+    ]
+  },
+  "music_plan": {
+    "version": "music_director_v1",
+    "mood": "cute",
+    "track_hint": "assets/audio/music/whimsical_adventure.mp3",
+    "intensity_curve": [
+      {
+        "scene_index": 0,
+        "start_seconds": 0.0,
+        "end_seconds": 4.0,
+        "intensity": 0.22,
+        "dominant_emotion": "curiosity"
+      },
+      {
+        "scene_index": 1,
+        "start_seconds": 4.0,
+        "end_seconds": 8.0,
+        "intensity": 0.31,
+        "dominant_emotion": "tension"
+      },
+      {
+        "scene_index": 2,
+        "start_seconds": 8.0,
+        "end_seconds": 12.0,
+        "intensity": 0.38,
+        "dominant_emotion": "joy"
+      }
+    ],
+    "scene_transitions": [
+      {
+        "at_seconds": 4.0,
+        "type": "crossfade",
+        "duration_seconds": 0.6
+      },
+      {
+        "at_seconds": 8.0,
+        "type": "crossfade",
+        "duration_seconds": 0.6
+      }
+    ],
+    "climax_boost_db": 2.5,
+    "ending_fade_seconds": 2.0,
+    "ducking_under_dialogue": 0.18,
+    "metadata": {
+      "genre": "cartoon",
+      "title": "the truth about cute orange cartoon cat explorer"
+    }
+  },
+  "dialogue_timeline": {
+    "version": "dialogue_timeline_builder_v1",
+    "duration_seconds": 12.0,
+    "tracks": [
+      {
+        "track_id": "track_1_whiskers",
+        "speaker": "Whiskers",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 0.0,
+            "duration_seconds": 1.4,
+            "text": "Wow! What is that?",
+            "emotion": "curiosity",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 5.55,
+            "duration_seconds": 2.1,
+            "text": "I think something is calling us.",
+            "emotion": "surprise",
+            "scene_index": 1
+          },
+          {
+            "start_seconds": 8.0,
+            "duration_seconds": 2.8,
+            "text": "I can carry it! I know I can!",
+            "emotion": "excitement",
+            "scene_index": 2
+          }
+        ]
+      },
+      {
+        "track_id": "track_2_sage",
+        "speaker": "Sage",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 1.55,
+            "duration_seconds": 1.2,
+            "text": "Be careful, Whiskers!",
+            "emotion": "tension",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 4.0,
+            "duration_seconds": 1.4,
+            "text": "That stone is moving!",
+            "emotion": "fear",
+            "scene_index": 1
+          },
+          {
+            "start_seconds": 10.95,
+            "duration_seconds": 1.75,
+            "text": "Then I am with you.",
+            "emotion": "relief",
+            "scene_index": 2
+          }
+        ]
+      },
+      {
+        "track_id": "track_3_narrator",
+        "speaker": "Narrator",
+        "voice_id": "",
+        "provider": "elevenlabs",
+        "clips": [
+          {
+            "start_seconds": 2.9,
+            "duration_seconds": 2.88,
+            "text": "The adventure had begun beneath the ancient jungle arch.",
+            "emotion": "curiosity with cautious wonder",
+            "scene_index": 0
+          },
+          {
+            "start_seconds": 7.8,
+            "duration_seconds": 2.88,
+            "text": "Roots shifted and the path ahead stopped making sense.",
+            "emotion": "rising fear and discovery",
+            "scene_index": 1
+          },
+          {
+            "start_seconds": 12.85,
+            "duration_seconds": 2.88,
+            "text": "The crystal seed pulsed like a heartbeat of light.",
+            "emotion": "excitement and courage",
+            "scene_index": 2
+          }
+        ]
+      }
+    ],
+    "provider_ready": [
+      "elevenlabs",
+      "minimax",
+      "openai"
+    ]
+  },
+  "metadata": {
+    "clip_count": 3,
+    "duration_seconds": 0.0
+  }
+}

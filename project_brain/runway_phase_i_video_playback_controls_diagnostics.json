@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-06-08 22:24:25",
-  "context": "clip_3_use_frame",
+  "timestamp": "2026-06-14 20:47:56",
+  "context": "clip_4_use_frame",
   "audit": {
-    "clip_index": 2,
-    "card_fingerprint": "488|1204|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
+    "clip_index": 3,
+    "card_fingerprint": "488|1204|608|439|video|gen-4_5 - continue exactly from previous frame_ continue from previous clip_ clip 3 of 4_ exactly 10 apps use frame edit",
     "video_element_present": true,
     "video_duration": 10.041667,
     "video_paused": true,
@@ -15,7 +15,7 @@
     ],
     "in_card_generation_abort_buttons": [],
     "global_generation_abort_visible": [
-      "cinematic realistic vertical 9:16 hero starter frame. Static hold composition fo"
+      "Clip 1 of 1. Exactly 10 seconds continuous on-screen motion. cinematic realistic"
     ],
     "notes": []
   },

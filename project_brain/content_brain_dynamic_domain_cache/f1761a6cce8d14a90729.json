@@ -1,0 +1,47 @@
+{
+  "topic": "Dog Training like pro",
+  "language_code": "en",
+  "payload": {
+    "category": "animal_intelligence",
+    "strategy": "instructional_general",
+    "domain_profile": {
+      "domain_name": "Dog Training",
+      "expert_role": "Professional Dog Trainer",
+      "setting": "Training Facility and Home Environment",
+      "core_concepts": [
+        "Positive Reinforcement",
+        "Basic Commands (Sit, Stay, Come)",
+        "Behavior Correction",
+        "Leash Training",
+        "Socialization",
+        "Consistency and Patience"
+      ],
+      "timeline_beats": [
+        "Introduction to Dog Training Principles",
+        "Demonstration of Basic Commands",
+        "Techniques for Behavior Correction",
+        "Advanced Training Tips and Tricks"
+      ],
+      "visual_objects": [
+        "Dog Treats",
+        "Clicker",
+        "Leash and Collar",
+        "Training Mat",
+        "Toys for Engagement"
+      ],
+      "clip_structure": {
+        "clip_1": "Explain the importance of positive reinforcement and introduce basic commands with demonstrations.",
+        "clip_2": "Show techniques for correcting unwanted behaviors and emphasize consistency.",
+        "clip_3": "Present advanced training tips, including leash training and socialization exercises."
+      }
+    },
+    "confidence": 0.95,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 251,
+    "completion_tokens": 261,
+    "total_tokens": 512
+  },
+  "estimated_cost_usd": 0.000518
+}

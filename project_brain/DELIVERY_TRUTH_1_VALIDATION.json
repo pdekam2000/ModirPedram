@@ -1,0 +1,33 @@
+{
+  "run_id": "cb_e2e_20260613_162423_dcde7693",
+  "topic": "Dog Training like pro",
+  "validation_topic": "Sunrise coastal kayak guide for beginners",
+  "final_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_170300_423_dcde7693\\publish\\FINAL_BRANDED_VIDEO.mp4",
+  "subtitle_audit": {
+    "label": "Subtitles",
+    "status": "FAIL"
+  },
+  "music_audit": {
+    "label": "Music",
+    "status": "PASS"
+  },
+  "ambience_audit": {
+    "label": "Ambience",
+    "status": "PASS"
+  },
+  "dialogue_audit": {
+    "label": "Dialogue",
+    "status": "PASS"
+  },
+  "voice_separation_result": {
+    "label": "Voice Separation",
+    "status": "PASS"
+  },
+  "story_quality_result": {
+    "label": "Story Quality",
+    "status": "PASS"
+  },
+  "approved": false,
+  "delivery_truth_status": "FAIL",
+  "archive_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\archive\\delivery_truth_1\\20260613_154410"
+}

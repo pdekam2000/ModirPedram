@@ -1,0 +1,47 @@
+{
+  "topic": "kochen mittagessen",
+  "language_code": "en",
+  "payload": {
+    "category": "culinary_arts",
+    "strategy": "documentary",
+    "domain_profile": {
+      "domain_name": "Culinary Arts",
+      "expert_role": "Chef and Food Educator",
+      "setting": "Home kitchen and professional cooking environment",
+      "core_concepts": [
+        "meal preparation techniques",
+        "ingredient selection and freshness",
+        "cooking methods (boiling, frying, baking)",
+        "nutritional balance",
+        "recipe structure and timing"
+      ],
+      "timeline_beats": [
+        "introduction to the concept of cooking lunch",
+        "selection and preparation of ingredients",
+        "step-by-step cooking process",
+        "plating and presentation",
+        "serving and enjoying the meal"
+      ],
+      "visual_objects": [
+        "fresh vegetables and meats",
+        "cooking utensils and appliances",
+        "stove and oven in use",
+        "finished plated dishes",
+        "close-ups of cooking techniques"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduction to the lunch meal concept and ingredient overview",
+        "clip_2": "Demonstration of cooking techniques and preparation steps",
+        "clip_3": "Final plating, presentation, and serving of the lunch meal"
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 251,
+    "completion_tokens": 283,
+    "total_tokens": 534
+  },
+  "estimated_cost_usd": 0.0005532
+}

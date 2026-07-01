@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-08 22:35:58",
+  "timestamp": "2026-06-19 22:20:52",
   "context": "pending:no_completed_video_card",
-  "clip_index": 3,
+  "clip_index": 1,
   "complete": false,
   "reason": "no_completed_video_card",
   "progress_text": "71%",
@@ -11,98 +11,14 @@
   "generation_in_progress": false,
   "artifact_cards": [
     {
-      "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-      "cardType": "video",
-      "cardText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
-      "cardPromptText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
-      "cardTop": 709.453125,
-      "cardBottom": 1148.328125,
-      "cardViewportTop": 709.453125,
-      "cardViewportBottom": 1148.328125,
-      "cardViewportVisible": true,
-      "cardWidth": 608,
-      "cardHeight": 438.875,
-      "buttonsVisible": [
-        "Reuse settings",
-        "See full prompt",
-        "feedback",
-        "Hide output",
-        "play",
-        "mute",
-        "playback time",
-        "Playback rate 1",
-        "enter fullscreen mode",
-        "Apps",
-        "Use frame",
-        "Use frame options",
-        "Edit",
-        "Share",
-        "Favorite",
-        "4K"
-      ],
-      "hasDownload": false,
-      "hasUseFrame": true,
-      "hasAppsMenu": true,
-      "playableVideo": true,
-      "videoLoading": false,
-      "cardLoading": false,
-      "cardSpinnerVisible": false,
-      "cardProgressVisible": false,
-      "excluded": true,
-      "rejectedReason": "excluded_fingerprint",
-      "completeCandidate": false
-    },
-    {
-      "cardFingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
-      "cardType": "video",
-      "cardText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
-      "cardPromptText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
-      "cardTop": 214.578125,
-      "cardBottom": 653.453125,
-      "cardViewportTop": 214.578125,
-      "cardViewportBottom": 653.453125,
-      "cardViewportVisible": true,
-      "cardWidth": 608,
-      "cardHeight": 438.875,
-      "buttonsVisible": [
-        "Reuse settings",
-        "See full prompt",
-        "feedback",
-        "Hide output",
-        "play",
-        "mute",
-        "playback time",
-        "Playback rate 1",
-        "enter fullscreen mode",
-        "Apps",
-        "Use frame",
-        "Use frame options",
-        "Edit",
-        "Share",
-        "Favorite",
-        "4K"
-      ],
-      "hasDownload": false,
-      "hasUseFrame": true,
-      "hasAppsMenu": true,
-      "playableVideo": true,
-      "videoLoading": false,
-      "cardLoading": false,
-      "cardSpinnerVisible": false,
-      "cardProgressVisible": false,
-      "excluded": false,
-      "rejectedReason": "",
-      "completeCandidate": true
-    },
-    {
-      "cardFingerprint": "554|-694|476|853|image|",
+      "cardFingerprint": "554|-336|476|853|image|",
       "cardType": "image",
       "cardText": "",
       "cardPromptText": "",
-      "cardTop": -694,
-      "cardBottom": 158.578125,
-      "cardViewportTop": -694,
-      "cardViewportBottom": 158.578125,
+      "cardTop": -336,
+      "cardBottom": 516.578125,
+      "cardViewportTop": -336,
+      "cardViewportBottom": 516.578125,
       "cardViewportVisible": true,
       "cardWidth": 475.859375,
       "cardHeight": 852.578125,
@@ -124,49 +40,20 @@
       "completeCandidate": false
     }
   ],
-  "assigned_card_fingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+  "assigned_card_fingerprint": "",
   "completed_card_fingerprint": "",
   "download_button_candidates": [
     "download all"
   ],
   "use_frame_candidates": [
-    "use frame",
-    "use frame options",
-    "use frame",
-    "use frame options"
+    "clip 1 of 1. exactly 10 seconds continuous on-screen motion. cinematic realistic"
   ],
   "ignored_global_download": true,
   "candidate_cards": [],
   "rejected_cards": [
     {
-      "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-      "reason": "excluded_fingerprint"
-    },
-    {
-      "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-      "reason": "excluded_fingerprint"
-    },
-    {
-      "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-      "reason": "excluded_fingerprint"
-    },
-    {
-      "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-      "reason": "excluded_fingerprint"
-    },
-    {
-      "cardFingerprint": "554|-694|476|853|image|",
+      "cardFingerprint": "554|-336|476|853|image|",
       "reason": "negative_viewport_y"
-    },
-    {
-      "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-      "reason": "prompt_token_mismatch",
-      "cardBottom": 1148.328125
-    },
-    {
-      "cardFingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
-      "reason": "prompt_token_mismatch",
-      "cardBottom": 653.453125
     }
   ],
   "card_scoped_state": {},
@@ -175,7 +62,7 @@
     "spinner_visible": false,
     "stop_cancel_visible": false,
     "progress_text": "71%",
-    "output_cards_detected": 7,
+    "output_cards_detected": 3,
     "output_loading": false,
     "generate_button_disabled": false,
     "pending_output_slot": true,
@@ -185,10 +72,16 @@
     ],
     "progress_blocks_completion": true
   },
-  "persisted_assignment_fingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+  "persisted_assignment_fingerprint": "",
   "current_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=5920152d-ba9d-4d74-81c0-534f4b43486c",
   "screenshot_path": null,
   "last_20_action_logs": [
+    {
+      "action": "video_settings_prepare",
+      "control_key": null,
+      "detail": "aspect=9:16; duration=10s; verified=True",
+      "approved": false
+    },
     {
       "action": "click",
       "control_key": "generate_button",
@@ -196,122 +89,116 @@
       "approved": true
     },
     {
-      "action": "generate_click_confirmed",
+      "action": "generate_click_assumed",
       "control_key": "generate_button",
-      "detail": "clip=3; feed_cards=4; signals=output_cards_detected",
+      "detail": "clip=1; confirm_timeout; feed_cards=0; single_submit_policy",
       "approved": true
     },
     {
       "action": "wait_strict_completion_start",
       "control_key": null,
-      "detail": "clip=3; poll=45.0s",
-      "approved": false
-    },
-    {
-      "action": "latest_video_card_assigned",
-      "control_key": null,
-      "detail": "clip=3; fp=488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+      "detail": "clip=1; poll=45.0s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     },
     {
       "action": "chip_detect",
       "control_key": null,
-      "detail": "count=4; aspect=9:16; quality=4K; duration=10s",
+      "detail": "count=; aspect=9:16; quality=; duration=10s",
       "approved": false
     }
   ],
   "result": {
-    "clip_index": 3,
+    "clip_index": 1,
     "complete": false,
     "reason": "no_completed_video_card",
     "generation_in_progress": false,
@@ -323,102 +210,18 @@
     "completed_card_fingerprint": "",
     "download_in_assigned_card": false,
     "playable_video_in_card": false,
-    "use_frame_in_prior_card": true,
+    "use_frame_in_prior_card": false,
     "ignored_global_download": true,
     "artifact_cards": [
       {
-        "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-        "cardType": "video",
-        "cardText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
-        "cardPromptText": "Gen-4_5 - Clip 2 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Middle \u2014 fo Apps Use frame Edit 4K",
-        "cardTop": 709.453125,
-        "cardBottom": 1148.328125,
-        "cardViewportTop": 709.453125,
-        "cardViewportBottom": 1148.328125,
-        "cardViewportVisible": true,
-        "cardWidth": 608,
-        "cardHeight": 438.875,
-        "buttonsVisible": [
-          "Reuse settings",
-          "See full prompt",
-          "feedback",
-          "Hide output",
-          "play",
-          "mute",
-          "playback time",
-          "Playback rate 1",
-          "enter fullscreen mode",
-          "Apps",
-          "Use frame",
-          "Use frame options",
-          "Edit",
-          "Share",
-          "Favorite",
-          "4K"
-        ],
-        "hasDownload": false,
-        "hasUseFrame": true,
-        "hasAppsMenu": true,
-        "playableVideo": true,
-        "videoLoading": false,
-        "cardLoading": false,
-        "cardSpinnerVisible": false,
-        "cardProgressVisible": false,
-        "excluded": true,
-        "rejectedReason": "excluded_fingerprint",
-        "completeCandidate": false
-      },
-      {
-        "cardFingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
-        "cardType": "video",
-        "cardText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
-        "cardPromptText": "Gen-4_5 - Clip 1 of 3_ Topic-first narrative sequence about The Ants_ Primary story beat Open \u2014 focu Apps Use frame Edit 4K",
-        "cardTop": 214.578125,
-        "cardBottom": 653.453125,
-        "cardViewportTop": 214.578125,
-        "cardViewportBottom": 653.453125,
-        "cardViewportVisible": true,
-        "cardWidth": 608,
-        "cardHeight": 438.875,
-        "buttonsVisible": [
-          "Reuse settings",
-          "See full prompt",
-          "feedback",
-          "Hide output",
-          "play",
-          "mute",
-          "playback time",
-          "Playback rate 1",
-          "enter fullscreen mode",
-          "Apps",
-          "Use frame",
-          "Use frame options",
-          "Edit",
-          "Share",
-          "Favorite",
-          "4K"
-        ],
-        "hasDownload": false,
-        "hasUseFrame": true,
-        "hasAppsMenu": true,
-        "playableVideo": true,
-        "videoLoading": false,
-        "cardLoading": false,
-        "cardSpinnerVisible": false,
-        "cardProgressVisible": false,
-        "excluded": false,
-        "rejectedReason": "",
-        "completeCandidate": true
-      },
-      {
-        "cardFingerprint": "554|-694|476|853|image|",
+        "cardFingerprint": "554|-336|476|853|image|",
         "cardType": "image",
         "cardText": "",
         "cardPromptText": "",
-        "cardTop": -694,
-        "cardBottom": 158.578125,
-        "cardViewportTop": -694,
-        "cardViewportBottom": 158.578125,
+        "cardTop": -336,
+        "cardBottom": 516.578125,
+        "cardViewportTop": -336,
+        "cardViewportBottom": 516.578125,
         "cardViewportVisible": true,
         "cardWidth": 475.859375,
         "cardHeight": 852.578125,
@@ -444,43 +247,14 @@
       "download all"
     ],
     "use_frame_candidates": [
-      "use frame",
-      "use frame options",
-      "use frame",
-      "use frame options"
+      "clip 1 of 1. exactly 10 seconds continuous on-screen motion. cinematic realistic"
     ],
-    "assigned_card_fingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+    "assigned_card_fingerprint": "",
     "candidate_cards": [],
     "rejected_cards": [
       {
-        "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-        "reason": "excluded_fingerprint"
-      },
-      {
-        "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-        "reason": "excluded_fingerprint"
-      },
-      {
-        "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-        "reason": "excluded_fingerprint"
-      },
-      {
-        "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-        "reason": "excluded_fingerprint"
-      },
-      {
-        "cardFingerprint": "554|-694|476|853|image|",
+        "cardFingerprint": "554|-336|476|853|image|",
         "reason": "negative_viewport_y"
-      },
-      {
-        "cardFingerprint": "488|709|608|439|video|gen-4_5 - clip 2 of 3_ topic-first narrative sequence about the ants_ primary story beat middle \u2014 fo apps use frame edit",
-        "reason": "prompt_token_mismatch",
-        "cardBottom": 1148.328125
-      },
-      {
-        "cardFingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
-        "reason": "prompt_token_mismatch",
-        "cardBottom": 653.453125
       }
     ],
     "card_scoped_state": {},
@@ -489,7 +263,7 @@
       "spinner_visible": false,
       "stop_cancel_visible": false,
       "progress_text": "71%",
-      "output_cards_detected": 7,
+      "output_cards_detected": 3,
       "output_loading": false,
       "generate_button_disabled": false,
       "pending_output_slot": true,
@@ -499,7 +273,7 @@
       ],
       "progress_blocks_completion": true
     },
-    "persisted_assignment_fingerprint": "488|215|608|439|video|gen-4_5 - clip 1 of 3_ topic-first narrative sequence about the ants_ primary story beat open \u2014 focu apps use frame edit",
+    "persisted_assignment_fingerprint": "",
     "notes": [
       "ignored_global_download_only"
     ]

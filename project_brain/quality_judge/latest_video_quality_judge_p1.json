@@ -1,0 +1,102 @@
+{
+  "version": "video_quality_judge_p1",
+  "run_id": "20260619_222210_run",
+  "video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260619_222210_run\\final\\FINAL_BRANDED_VIDEO_CANONICAL.mp4",
+  "overall_score": 68,
+  "story_score": 40,
+  "character_score": 65,
+  "dialogue_score": 50,
+  "visual_score": 100,
+  "audio_score": 80,
+  "continuity_score": 60,
+  "viral_score": 65,
+  "strengths": [
+    "Strong visual quality with excellent lighting and composition.",
+    "Consistent character appearance and setting throughout the clip.",
+    "Audio is clear and immersive, supporting the mood effectively."
+  ],
+  "weaknesses": [
+    "Story progression feels minimal and lacks emotional depth.",
+    "Dialogue is somewhat generic and does not strongly engage the viewer.",
+    "Continuity between shots is adequate but could be smoother to enhance narrative flow.",
+    "The viral hook is moderate but not compelling enough to strongly hold viewer attention."
+  ],
+  "improvement_actions": [
+    {
+      "action_id": "increase_conflict_strength",
+      "reason": "story arc lacks rising conflict",
+      "target_score": "story_score",
+      "current_score": 40,
+      "suggested_delta": {
+        "conflict_weight": 0.1
+      }
+    },
+    {
+      "action_id": "strengthen_character_consistency",
+      "reason": "character identity or performance inconsistent",
+      "target_score": "character_score",
+      "current_score": 65,
+      "suggested_delta": {
+        "character_consistency_weight": 0.1
+      }
+    },
+    {
+      "action_id": "improve_visual_storytelling",
+      "reason": "frames lack cinematic storytelling",
+      "target_score": "visual_score",
+      "current_score": 100,
+      "suggested_delta": {
+        "visual_storytelling_weight": 0.1
+      }
+    },
+    {
+      "action_id": "improve_continuity_handoff",
+      "reason": "clip-to-clip continuity weak",
+      "target_score": "continuity_score",
+      "current_score": 60,
+      "suggested_delta": {
+        "continuity_strictness": 0.1
+      }
+    },
+    {
+      "action_id": "increase_emotional_arc",
+      "reason": "emotional progression flat across clips",
+      "target_score": "story_score",
+      "current_score": 40,
+      "suggested_delta": {
+        "emotional_arc_weight": 0.12
+      }
+    },
+    {
+      "action_id": "increase_dialogue_emphasis",
+      "reason": "dialogue weak or missing emotional delivery",
+      "target_score": "dialogue_score",
+      "current_score": 50,
+      "suggested_delta": {
+        "dialogue_weight": 0.12
+      }
+    }
+  ],
+  "used_sources": [
+    "ffprobe_audio_stream",
+    "openai_semantic",
+    "openai_semantic_applied:gpt-4.1-mini",
+    "p0_baseline"
+  ],
+  "judge_mode": "semantic_openai",
+  "created_at": "2026-06-19T20:22:36.643568+00:00",
+  "metadata": {
+    "semantic_context": {
+      "topic": "",
+      "clip_count": 1,
+      "story_progression": {},
+      "chapters": [],
+      "clip_prompts": [],
+      "story_blueprint": {},
+      "use_frame_chain": {},
+      "continuity_method": "",
+      "audio_strategy": ""
+    },
+    "openai_applied": true
+  }
+}

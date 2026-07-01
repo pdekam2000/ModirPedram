@@ -1,0 +1,22 @@
+{
+  "version": "run_isolation_v1",
+  "run_id": "cb_e2e_20260613_162423_dcde7693",
+  "topic": "Dog Training like pro",
+  "story_package_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\story_packages\\cb_e2e_20260613_162423_dcde7693.json",
+  "visual_memory_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\visual_memory\\run_cb_e2e_20260613_162423_dcde7693.json",
+  "voice_registry_scope": "cb_e2e_20260613_162423_dcde7693",
+  "output_run_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_162436_423_dcde7693",
+  "downloaded_clip_paths": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_1_session_20260613_164940.mp4",
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_2_session_20260613_170228.mp4"
+  ],
+  "clip_count": 2,
+  "status": "completed",
+  "failure_reason": "",
+  "created_at": "2026-06-13T14:24:36.439800+00:00",
+  "updated_at": "2026-06-13T15:03:18.365665+00:00",
+  "metadata": {
+    "story_package_version": "story_package_v3",
+    "genre": "technology"
+  }
+}

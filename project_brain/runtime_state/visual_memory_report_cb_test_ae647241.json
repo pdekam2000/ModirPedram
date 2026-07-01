@@ -1,0 +1,25 @@
+{
+  "version": "consistency_score_engine_v1",
+  "run_id": "cb_test_ae647241",
+  "subject": "discovery of magical artifact",
+  "subject_type": "concept",
+  "visual_memory_status": "PASS",
+  "consistency_score": 100,
+  "consistency_pass": true,
+  "continuity_status": "PASS",
+  "metrics": {
+    "version": "consistency_score_engine_v1",
+    "visual_consistency_score": 99.7,
+    "subject_consistency": 100.0,
+    "environment_consistency": 100.0,
+    "color_consistency": 98.0,
+    "camera_consistency": 100.0,
+    "continuity_consistency": 100.0,
+    "pass": true,
+    "pass_threshold": 70.0
+  },
+  "memory_path_hint": "project_brain/visual_memory/run_cb_test_ae647241.json",
+  "vision_verifier_ready": true,
+  "recall_manifest_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\scene_recall\\cb_test_ae647241\\manifest.json",
+  "memory_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\visual_memory\\run_cb_test_ae647241.json"
+}

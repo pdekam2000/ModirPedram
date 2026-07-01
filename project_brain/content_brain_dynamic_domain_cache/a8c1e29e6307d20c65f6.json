@@ -1,0 +1,47 @@
+{
+  "topic": "test wiring topic",
+  "language_code": "en",
+  "payload": {
+    "category": "engineering",
+    "strategy": "scientific_explanation",
+    "domain_profile": {
+      "domain_name": "Electrical Engineering",
+      "expert_role": "Electrical Engineer",
+      "setting": "Laboratory and Workshop",
+      "core_concepts": [
+        "circuit continuity",
+        "multimeter usage",
+        "wire insulation",
+        "signal integrity",
+        "fault detection"
+      ],
+      "timeline_beats": [
+        "Introduction to wiring and its importance",
+        "Demonstration of testing tools and techniques",
+        "Step-by-step wiring test procedure",
+        "Common wiring faults and troubleshooting",
+        "Safety precautions and best practices"
+      ],
+      "visual_objects": [
+        "multimeter",
+        "wires and cables",
+        "circuit boards",
+        "test probes",
+        "safety gloves"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduce the concept of wiring and why testing is essential in electrical systems.",
+        "clip_2": "Show how to use a multimeter to test wiring continuity and detect faults.",
+        "clip_3": "Demonstrate troubleshooting common wiring issues and emphasize safety measures."
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 247,
+    "completion_tokens": 261,
+    "total_tokens": 508
+  },
+  "estimated_cost_usd": 0.0005164
+}

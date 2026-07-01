@@ -1,0 +1,19 @@
+{
+  "version": "run_isolation_v1",
+  "run_id": "trace_test_run",
+  "topic": "indoor herb garden tips",
+  "story_package_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\story_packages\\trace_test_run.json",
+  "visual_memory_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\visual_memory\\run_trace_test_run.json",
+  "voice_registry_scope": "trace_test_run",
+  "output_run_folder": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260613_154027_ace_test_run",
+  "downloaded_clip_paths": [],
+  "clip_count": 2,
+  "status": "pending",
+  "failure_reason": "",
+  "created_at": "2026-06-13T13:40:27.126396+00:00",
+  "updated_at": "2026-06-13T13:40:27.127197+00:00",
+  "metadata": {
+    "story_package_version": "story_package_v3",
+    "genre": "educational"
+  }
+}

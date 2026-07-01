@@ -39,6 +39,7 @@ from content_brain.execution.runway_phase_i_download_tracker import (
     RunwayPhaseIDownloadTracker,
     default_runway_download_dir,
 )
+from content_brain.platform.run_isolation import record_latest_run_attempt
 from content_brain.execution.content_brain_live_smoke_handoff import resolve_live_smoke_prompts
 from content_brain.execution.runway_auto_execution_controller import (
     AUTO_BRIDGE_VERSION,
@@ -54,6 +55,10 @@ from content_brain.execution.runway_ui_map_loader import (
     DEFAULT_MAP_PATH,
     STARTER_TO_VIDEO_CANONICAL_CONTROLS,
     resolve_runway_ui_controls,
+)
+from content_brain.execution.runway_live_post_processor import (
+    evaluate_post_processing_eligibility,
+    run_live_post_processing,
 )
 from content_brain.execution.runway_ui_navigator import MappedRunwayUINavigator
 
@@ -318,6 +323,17 @@ class RunwayLiveSmokeReport:
     last_auto_action: str = ""
     next_auto_action: str = ""
     auto_validation_state: str = ""
+    post_processing_enabled: bool = False
+    post_processing_status: str = ""
+    assembly_status: str = ""
+    final_video_path: str = ""
+    publish_package_status: str = ""
+    publish_package_folder: str = ""
+    post_processing_warnings: list[str] = field(default_factory=list)
+    visual_continuity_status: str = ""
+    visual_continuity_report_path: str = ""
+    visual_continuity_overall_pass: bool = False
+    visual_continuity_overall_score: float = 0.0
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -467,6 +483,17 @@ class RunwayLiveSmokeReport:
             "last_auto_action": self.last_auto_action,
             "next_auto_action": self.next_auto_action,
             "auto_validation_state": self.auto_validation_state,
+            "post_processing_enabled": self.post_processing_enabled,
+            "post_processing_status": self.post_processing_status,
+            "assembly_status": self.assembly_status,
+            "final_video_path": self.final_video_path,
+            "publish_package_status": self.publish_package_status,
+            "publish_package_folder": self.publish_package_folder,
+            "post_processing_warnings": list(self.post_processing_warnings),
+            "visual_continuity_status": self.visual_continuity_status,
+            "visual_continuity_report_path": self.visual_continuity_report_path,
+            "visual_continuity_overall_pass": self.visual_continuity_overall_pass,
+            "visual_continuity_overall_score": self.visual_continuity_overall_score,
         }
 
 
@@ -790,6 +817,9 @@ class RunwayLiveSmokeRunner:
         approval_runtime: Any | None = None,
         e2e_result: dict[str, Any] | None = None,
         execution_mode: str = DEFAULT_LIVE_SMOKE_EXECUTION_MODE,
+        strict_topic_authority: bool = False,
+        auto_director: bool = False,
+        auto_prompt_critic: bool = False,
     ) -> None:
         self.story_idea = story_idea.strip()
         self.project_id = project_id
@@ -804,6 +834,9 @@ class RunwayLiveSmokeRunner:
         self.download_confirm_callback = download_confirm_callback
         self._approval_runtime = approval_runtime
         self.e2e_result = e2e_result
+        self.strict_topic_authority = bool(strict_topic_authority)
+        self.auto_director = bool(auto_director)
+        self.auto_prompt_critic = bool(auto_prompt_critic)
         phase = PHASE_I_VERSION if self.clip_count > 1 else LIVE_SMOKE_VERSION
         is_phase_i = self.clip_count == PHASE_I_CLIP_COUNT
         self.report = RunwayLiveSmokeReport(
@@ -847,6 +880,9 @@ class RunwayLiveSmokeRunner:
                 e2e_result=self.e2e_result,
                 niche_style="cyberpunk" if self.clip_count > 1 else "cinematic",
                 mood="tense hopeful",
+                strict_topic_authority=self.strict_topic_authority,
+                auto_director=self.auto_director,
+                auto_prompt_critic=self.auto_prompt_critic,
             )
             self._apply_handoff_meta(handoff)
             self._capture_prompt_bundle_diagnostics(bundle)
@@ -976,6 +1012,18 @@ class RunwayLiveSmokeRunner:
                     self.report.page_url = str(self._page.url or "")
                 except Exception:
                     pass
+            eligible, _reason, _context = evaluate_post_processing_eligibility(self.report)
+            if eligible and not self.simulate:
+                try:
+                    run_live_post_processing(self.report, project_root=ROOT)
+                except Exception as exc:
+                    self.report.post_processing_enabled = True
+                    self.report.post_processing_status = "failed"
+                    self.report.post_processing_warnings.append(str(exc))
+            elif not self.simulate and not eligible:
+                self.report.post_processing_enabled = False
+                self.report.post_processing_status = "skipped"
+                self.report.post_processing_warnings.append(_reason)
             self._persist_report()
             if self._browser is not None:
                 try:
@@ -1884,6 +1932,10 @@ class RunwayLiveSmokeRunner:
             return ""
 
     def _persist_report(self) -> None:
+        try:
+            record_latest_run_attempt(ROOT, self.report.to_dict())
+        except Exception:
+            pass
         if self.clip_count > 1:
             json_path = DEFAULT_PHASE_I_REPORT_JSON
             md_path = DEFAULT_PHASE_I_REPORT_MD

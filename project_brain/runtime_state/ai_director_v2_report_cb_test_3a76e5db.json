@@ -1,0 +1,73 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "cb_test_3a76e5db",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "purpose": "Establish world, location, and scale before subject focus.",
+      "scene_progression": "Introduce the mysterious scientific fact or phenomenon with engaging visuals and questions",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "cut_to_medium"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "dolly_in",
+      "purpose": "Escalate focus toward subject or revelation.",
+      "scene_progression": "Explore different scientific perspectives and experiments related to the mystery",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "close_up"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "purpose": "Present subject at peak visual power for final impression.",
+      "scene_progression": "Reveal the scientific explanation and evidence resolving the mystery, encouraging critical thinking",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "hold_end_frame"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: establishing_shot \u2014 Introduce the mysterious scientific fact or phenomenon with engaging visuals and questions",
+    "Clip 2: dolly_in \u2014 Explore different scientific perspectives and experiments related to the mystery",
+    "Clip 3: hero_shot \u2014 Reveal the scientific explanation and evidence resolving the mystery, encouraging critical thinking"
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "camera_movement": "slow dramatic push-in \u2014 Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "framing": "wide vertical establishing frame",
+      "composition": "symmetrical framing with depth layers and practical light",
+      "visual_objective": "Introduce the mysterious scientific fact or phenomenon with engaging visuals and questions \u2014 evoke period weight and narrative gravitas",
+      "domain": "history"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "dolly_in",
+      "camera_movement": "slow dramatic push-in \u2014 Smooth forward dolly push with tightening composition.",
+      "lens": "50mm anamorphic-style dramatic lens",
+      "framing": "symmetrical framing with depth layers and practical light",
+      "composition": "symmetrical framing with depth layers and practical light",
+      "visual_objective": "Explore different scientific perspectives and experiments related to the mystery \u2014 evoke period weight and narrative gravitas",
+      "domain": "history"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "framing": "centered hero frame with chin-safe headroom",
+      "composition": "symmetrical framing with depth layers and practical light",
+      "visual_objective": "Reveal the scientific explanation and evidence resolving the mystery, encouraging critical thinking \u2014 evoke period weight and narrative gravitas",
+      "domain": "history"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\cb_test_3a76e5db\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

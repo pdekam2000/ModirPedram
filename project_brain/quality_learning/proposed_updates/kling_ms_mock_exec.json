@@ -1,0 +1,49 @@
+{
+  "version": "video_learning_loop_p0",
+  "run_id": "kling_ms_mock_exec",
+  "channel_id": "default",
+  "created_at": "2026-06-17T03:47:12.923329+00:00",
+  "judge_version": "video_quality_judge_p0",
+  "overall_score": 41,
+  "mode": "corrective",
+  "overall_threshold": 70,
+  "proposed_actions": [
+    {
+      "action_id": "boost_dialogue_emphasis",
+      "reason": "dialogue too weak or narration inaudible",
+      "target_score": "audio_score",
+      "current_score": 25,
+      "suggested_delta": {
+        "dialogue_weight": 0.15
+      }
+    },
+    {
+      "action_id": "increase_cinematic_language",
+      "reason": "visual stream or resolution weak",
+      "target_score": "visual_score",
+      "current_score": 20,
+      "suggested_delta": {
+        "cinematic_prompt_weight": 0.1
+      }
+    }
+  ],
+  "aggregated_deltas": {
+    "dialogue_weight": 0.15,
+    "cinematic_prompt_weight": 0.1
+  },
+  "weaknesses": [
+    "no video stream detected",
+    "zero or unreadable duration",
+    "resolution metadata unavailable",
+    "missing audio stream",
+    "missing story package",
+    "duration outside short-form heuristic range",
+    "hook missing from story package"
+  ],
+  "strengths": [
+    "Single-clip run \u2014 continuity metadata optional",
+    "Topic/title present for distribution"
+  ],
+  "applied": false,
+  "note": "Proposed updates only \u2014 live Content Brain weights were not mutated."
+}

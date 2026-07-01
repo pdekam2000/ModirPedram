@@ -1,0 +1,44 @@
+{
+  "topic": "snak python",
+  "language_code": "en",
+  "payload": {
+    "category": "natural_history",
+    "strategy": "documentary",
+    "domain_profile": {
+      "domain_name": "Herpetology",
+      "expert_role": "Herpetologist",
+      "setting": "Tropical rainforest and natural habitats",
+      "core_concepts": [
+        "Python species identification",
+        "Habitat and distribution",
+        "Behavior and hunting techniques",
+        "Physical characteristics and adaptations"
+      ],
+      "timeline_beats": [
+        "Introduction to the python species",
+        "Exploration of natural habitat",
+        "Observation of hunting and feeding behavior",
+        "Discussion of physical adaptations"
+      ],
+      "visual_objects": [
+        "Close-up shots of python scales and eyes",
+        "Wide shots of rainforest environment",
+        "Footage of python hunting prey",
+        "Diagrams of python anatomy"
+      ],
+      "clip_structure": {
+        "clip_1": "Introduction to the python, highlighting its size and significance in the ecosystem",
+        "clip_2": "Detailed look at the python’s habitat and behavior in the wild",
+        "clip_3": "Explanation of physical adaptations that enable the python to be an effective predator"
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 247,
+    "completion_tokens": 261,
+    "total_tokens": 508
+  },
+  "estimated_cost_usd": 0.0005164
+}

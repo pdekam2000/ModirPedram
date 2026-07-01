@@ -1,0 +1,24 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "acf_test_01_20260619T194627_3e1aa9d2",
+  "topic": "Luxury men's fashion cinematic test",
+  "clip_count": 1,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "hero_shot",
+      "transition_type": "hold_end_frame",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "resolve",
+      "scene_progression": "Luxury men's fashion cinematic test",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "composition": "rule-of-thirds vertical hero framing"
+    }
+  ],
+  "edges": [],
+  "pacing_curve": [
+    "resolve"
+  ],
+  "created_at": "2026-06-19T19:46:29.389257+00:00"
+}

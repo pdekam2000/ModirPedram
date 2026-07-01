@@ -1,0 +1,1534 @@
+{
+  "version": "kling_aspect_dom_probe_v1",
+  "run_id": "kling_ft_20260619T205033_c4b525b9",
+  "started_at": "2026-06-19T20:58:04.286609+00:00",
+  "cdp_url": "http://127.0.0.1:9222",
+  "search_terms": [
+    "16:9",
+    "9:16",
+    "Aspect",
+    "ratio",
+    "5s",
+    "On"
+  ],
+  "read_only": true,
+  "credits_spent": false,
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+  "dom": {
+    "pageUrl": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+    "pageTitle": "Generative Session | Runway AI",
+    "viewport": {
+      "width": 1254,
+      "height": 1218
+    },
+    "panelRoots": [
+      {
+        "selector": "[class*=\"leftPanel\"]",
+        "className": "leftPanel-PUxvB1",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 400,
+          "height": 1218
+        }
+      },
+      {
+        "selector": "[class*=\"panel\"]",
+        "className": "panelGroup-xMtFH6",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "selector": "[class*=\"panel\"]",
+        "className": "panelWrapper-iqRe6S",
+        "boundingBox": {
+          "x": 64,
+          "y": 48,
+          "width": 400,
+          "height": 1170
+        }
+      }
+    ],
+    "anchors": [
+      {
+        "selector": "[contenteditable=\"true\"]",
+        "placeholder": "",
+        "ariaLabel": "Prompt",
+        "innerText": "",
+        "boundingBox": {
+          "x": 81,
+          "y": 245,
+          "width": 366,
+          "height": 799
+        }
+      }
+    ],
+    "promptHints": [
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "App-KF5JxL",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "MainWrapper-DCYGFL",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "MainContent-GrUg9l",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "container-ysVjON",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "content-zTs11H",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "tagName": "DIV",
+        "className": "root-VXWE0f",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "content-NKpsge",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "Block__StyledBlock-iTOQIA horrXJ",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "Base__Box-hQrlpv hLQvdH mainContainer-v9O5b9",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "persistentSidebarLayout-cx5Z56",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "mainContentArea-GacuJu",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "Base__Box-hQrlpv hLQvdH container-djGfQ5",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "Base__Box-hQrlpv gRCZwy",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "panelGroup-xMtFH6",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "leftPanel-PUxvB1",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 400,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "Base__Box-hQrlpv dfNzId",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 400,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "tagName": "DIV",
+        "className": "generateImageContainer-XL2Fec",
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 400,
+          "height": 1218
+        }
+      },
+      {
+        "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+        "tagName": "DIV",
+        "className": "panelWrapper-iqRe6S",
+        "boundingBox": {
+          "x": 64,
+          "y": 48,
+          "width": 400,
+          "height": 1170
+        }
+      },
+      {
+        "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "main-Tx2vpX",
+        "boundingBox": {
+          "x": 64,
+          "y": 48,
+          "width": 400,
+          "height": 1045
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "",
+        "boundingBox": {
+          "x": 64,
+          "y": 244,
+          "width": 400,
+          "height": 849
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "textPromptPanel-h2tJ26",
+        "boundingBox": {
+          "x": 64,
+          "y": 244,
+          "width": 400,
+          "height": 849
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "dropzone-CcCyPy",
+        "boundingBox": {
+          "x": 64,
+          "y": 244,
+          "width": 400,
+          "height": 849
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "textPromptContainer-UxqGcO",
+        "boundingBox": {
+          "x": 64,
+          "y": 244,
+          "width": 400,
+          "height": 849
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "textEditorContainer-TngEDc",
+        "boundingBox": {
+          "x": 80,
+          "y": 244,
+          "width": 368,
+          "height": 849
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "DIV",
+        "className": "root-etZLoJ fullHeight-wdfkll textEditor-HQRl_A",
+        "boundingBox": {
+          "x": 81,
+          "y": 245,
+          "width": 366,
+          "height": 847
+        }
+      },
+      {
+        "innerText": "Describe your shot, or add a first video frame",
+        "tagName": "SPAN",
+        "className": "Text__BaseText-ffoDbG jGskfO PlaceholderText__Placeholder-kgDnRa gJmtHo",
+        "boundingBox": {
+          "x": 93,
+          "y": 257,
+          "width": 342,
+          "height": 24
+        }
+      }
+    ],
+    "settingsRowCandidates": [
+      {
+        "matchReason": "settings_chip_candidate",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Aspect ratio",
+        "title": "",
+        "innerText": "16:9",
+        "textContent": "16:9",
+        "className": "button-NkQreF",
+        "id": "react-aria2396975771-:rfc:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 305,
+          "y": 1105,
+          "width": 58,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "settings_chip_candidate",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Duration",
+        "title": "",
+        "innerText": "5s",
+        "textContent": "5s",
+        "className": "button-NkQreF",
+        "id": "react-aria2396975771-:rfl:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 367,
+          "y": 1105,
+          "width": 49,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "settings_chip_candidate",
+        "tagName": "SPAN",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "5s",
+        "textContent": "5s",
+        "className": "durationTriggerText-C6VTl6",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 392,
+          "y": 1109,
+          "width": 17,
+          "height": 20
+        }
+      }
+    ],
+    "matchedElements": [
+      {
+        "matchReason": "search_term",
+        "tagName": "LABEL",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "On Off",
+        "textContent": "OnOff",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": -1,
+          "y": -2,
+          "width": 40,
+          "height": 18
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "LABEL",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "16:9 9:16 1:1",
+        "textContent": "16:99:161:1",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": -1,
+          "y": -2,
+          "width": 45,
+          "height": 18
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "On Off",
+        "textContent": "OnOff",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {
+          "data-react-aria-prevent-focus": "true",
+          "data-a11y-ignore": "aria-hidden-focus",
+          "data-testid": "hidden-select-container"
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": -1,
+          "y": -1,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "SELECT",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "On Off",
+        "textContent": "OnOff",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": -1,
+          "y": -1,
+          "width": 40,
+          "height": 19
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "16:9 9:16 1:1",
+        "textContent": "16:99:161:1",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {
+          "data-react-aria-prevent-focus": "true",
+          "data-a11y-ignore": "aria-hidden-focus",
+          "data-testid": "hidden-select-container"
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": -1,
+          "y": -1,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "SELECT",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "16:9 9:16 1:1",
+        "textContent": "16:99:161:1",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": -1,
+          "y": -1,
+          "width": 45,
+          "height": 19
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "HTML",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "textContent": "@layer { [data-react-aria-pressable] { touch-action: pan-x pan-y pinch-zoom; } } Generative Session | Runway AI #root { height: 100%; min-height: 100%; } [data-",
+        "className": "light",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "BODY",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "textContent": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-W6BFH73\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe> You need to enable J",
+        "className": "",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or ",
+        "textContent": "AppsCustomStudioAgentRecentsWorkflowCharactersImageVideoAudioFramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first vide",
+        "className": "",
+        "id": "root",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+        "textContent": "ImageVideoAudioFramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff1",
+        "className": "content-NKpsge",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": {
+          "tagName": "DIV",
+          "role": "",
+          "ariaLabel": "",
+          "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Vi",
+          "className": "",
+          "id": "root",
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 1254,
+            "height": 1218
+          }
+        },
+        "boundingBox": {
+          "x": 64,
+          "y": 0,
+          "width": 1190,
+          "height": 1218
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Untitled session Unlimited 1/3 Quests Everything you need to make anything you want Studio Aleph 2.0 Seedance 2.0 Multi-Shot Video Gen-4.5 Kling 3.0 Try it now",
+        "textContent": "Untitled sessionUnlimited1/3QuestsEverything you need to make anything you wantEverything you need to make anything you wantStudioAleph 2.0Seedance 2.0Multi-Sho",
+        "className": "rightPanel-dl5llb",
+        "id": ":rg9:",
+        "type": "",
+        "dataAttributes": {
+          "data-panel-group-id": ":rdn:",
+          "data-panel": "",
+          "data-panel-id": ":rg9:",
+          "data-panel-size": "75.0"
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 464,
+          "y": 0,
+          "width": 790,
+          "height": 1218
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Untitled session Unlimited 1/3 Quests",
+        "textContent": "Untitled sessionUnlimited1/3Quests",
+        "className": "Header__TopBarContainer-cwbbXp KPzVl container-h0Xo7h",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 464,
+          "y": 0,
+          "width": 790,
+          "height": 48
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Untitled session",
+        "textContent": "Untitled session",
+        "className": "centerTitle-HDuaHX",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 474,
+          "y": 8,
+          "width": 373,
+          "height": 32
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Untitled session",
+        "textContent": "Untitled session",
+        "className": "titleWrapper-mKcKbi",
+        "id": "",
+        "type": "",
+        "dataAttributes": {
+          "data-testid": "session-title-without-session"
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 482,
+          "y": 8,
+          "width": 149,
+          "height": 32
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "",
+        "title": "Click to rename",
+        "innerText": "Untitled session",
+        "textContent": "Untitled session",
+        "className": "titleButton-zU6XwH",
+        "id": "",
+        "type": "button",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 482,
+          "y": 8,
+          "width": 124,
+          "height": 32
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Open session switcher",
+        "title": "",
+        "innerText": "",
+        "textContent": "",
+        "className": "chevronButton-QXiTtW",
+        "id": "react-aria2396975771-:rgb:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 607,
+          "y": 8,
+          "width": 24,
+          "height": 32
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Sessions",
+        "title": "",
+        "innerText": "",
+        "textContent": "",
+        "className": "sidebarButton-RKfz11",
+        "id": "react-aria2396975771-:rcn:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 10,
+          "y": 12,
+          "width": 44,
+          "height": 34
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "SPAN",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Untitled session",
+        "textContent": "Untitled session",
+        "className": "titleText-djfavZ",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 487,
+          "y": 12,
+          "width": 114,
+          "height": 24
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+        "textContent": "FramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15",
+        "className": "panelWrapper-iqRe6S",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 64,
+          "y": 48,
+          "width": 400,
+          "height": 1170
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "SECTION",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+        "textContent": "FramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15",
+        "className": "section-QehVHM",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 64,
+          "y": 48,
+          "width": 400,
+          "height": 1170
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "FORM",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+        "textContent": "FramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15",
+        "className": "form-DYICXa",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 64,
+          "y": 48,
+          "width": 400,
+          "height": 1170
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "DIV",
+        "role": "toolbar",
+        "ariaLabel": "Settings Toolbar",
+        "title": "",
+        "innerText": "\u00b7 On On Off 16:9 16:9 9:16 1:1 5s",
+        "textContent": "Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15s",
+        "className": "settingsToolbar-_Quw48",
+        "id": "",
+        "type": "",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-orientation": "horizontal"
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 64,
+          "y": 1093,
+          "width": 400,
+          "height": 52
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "\u00b7 On On Off",
+        "textContent": "\u00b7 OnOnOff",
+        "className": "react-aria-Select",
+        "id": "",
+        "type": "",
+        "dataAttributes": {
+          "data-rac": ""
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 239,
+          "y": 1105,
+          "width": 62,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Audio settings",
+        "title": "",
+        "innerText": "\u00b7 On",
+        "textContent": "\u00b7 On",
+        "className": "triggerButton-fagXuh",
+        "id": "react-aria2396975771-:rf2:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 239,
+          "y": 1105,
+          "width": 62,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "16:9 16:9 9:16 1:1",
+        "textContent": "16:916:99:161:1",
+        "className": "select-skPgrl",
+        "id": "",
+        "type": "",
+        "dataAttributes": {
+          "data-rac": ""
+        },
+        "isClickable": false,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 305,
+          "y": 1105,
+          "width": 58,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Aspect ratio",
+        "title": "",
+        "innerText": "16:9",
+        "textContent": "16:9",
+        "className": "button-NkQreF",
+        "id": "react-aria2396975771-:rfc:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 305,
+          "y": 1105,
+          "width": 58,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "aspect_aria",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "Duration",
+        "title": "",
+        "innerText": "5s",
+        "textContent": "5s",
+        "className": "button-NkQreF",
+        "id": "react-aria2396975771-:rfl:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 367,
+          "y": 1105,
+          "width": 49,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "aspect_aria",
+        "tagName": "BUTTON",
+        "role": "",
+        "ariaLabel": "View generation cost",
+        "title": "",
+        "innerText": "",
+        "textContent": "",
+        "className": "button-NkQreF",
+        "id": "react-aria2396975771-:rfp:",
+        "type": "button",
+        "dataAttributes": {
+          "data-rac": "",
+          "data-react-aria-pressable": "true"
+        },
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 420,
+          "y": 1105,
+          "width": 28,
+          "height": 28
+        }
+      },
+      {
+        "matchReason": "search_term",
+        "tagName": "SPAN",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "\u00b7 On",
+        "textContent": "\u00b7 On",
+        "className": "audioStatus-sAitnJ",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 266,
+          "y": 1109,
+          "width": 24,
+          "height": 20
+        }
+      },
+      {
+        "matchReason": "aspect_ratio_text",
+        "tagName": "SPAN",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "16:9",
+        "textContent": "16:9",
+        "className": "selectTriggerText-xZVRnY",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 330,
+          "y": 1109,
+          "width": 26,
+          "height": 20
+        }
+      },
+      {
+        "matchReason": "duration_text",
+        "tagName": "SPAN",
+        "role": "",
+        "ariaLabel": "",
+        "title": "",
+        "innerText": "5s",
+        "textContent": "5s",
+        "className": "durationTriggerText-C6VTl6",
+        "id": "",
+        "type": "",
+        "dataAttributes": {},
+        "isClickable": true,
+        "nearestClickableAncestor": null,
+        "boundingBox": {
+          "x": 392,
+          "y": 1109,
+          "width": 17,
+          "height": 20
+        }
+      }
+    ]
+  },
+  "helperDiagnostics": {
+    "panelScope": {
+      "strategy": "unknown",
+      "visible": true,
+      "count": 1,
+      "boundingBox": {
+        "x": 64,
+        "y": 244,
+        "width": 400,
+        "height": 849
+      },
+      "className": "textPromptPanel-h2tJ26",
+      "left_panel_class": {
+        "count": 0,
+        "visible": false
+      },
+      "LeftPanel_class": {
+        "count": 0,
+        "visible": false
+      }
+    },
+    "currentHelper": {
+      "strategy": null,
+      "found": false
+    },
+    "playwrightProbes": [
+      {
+        "scope": "page",
+        "probe": "role_button_aspect_regex",
+        "count": 1,
+        "visible": true,
+        "innerText": "16:9",
+        "ariaLabel": "Aspect ratio",
+        "boundingBox": {
+          "x": 304.921875,
+          "y": 1105,
+          "width": 58.0625,
+          "height": 28
+        }
+      },
+      {
+        "scope": "page",
+        "probe": "role_button_16_9",
+        "count": 0
+      },
+      {
+        "scope": "page",
+        "probe": "role_button_9_16",
+        "count": 0
+      },
+      {
+        "scope": "page",
+        "probe": "text_exact_16_9",
+        "count": 1,
+        "visible": true,
+        "innerText": "16:9",
+        "ariaLabel": "",
+        "boundingBox": {
+          "x": 329.921875,
+          "y": 1109,
+          "width": 26.0625,
+          "height": 20
+        }
+      },
+      {
+        "scope": "page",
+        "probe": "text_exact_9_16",
+        "count": 1,
+        "visible": false
+      },
+      {
+        "scope": "page",
+        "probe": "text_exact_5s",
+        "count": 1,
+        "visible": true,
+        "innerText": "5s",
+        "ariaLabel": "",
+        "boundingBox": {
+          "x": 391.984375,
+          "y": 1109,
+          "width": 17.015625,
+          "height": 20
+        }
+      },
+      {
+        "scope": "page",
+        "probe": "text_exact_On",
+        "count": 1,
+        "visible": false
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "role_button_aspect_regex",
+        "count": 0
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "role_button_16_9",
+        "count": 0
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "role_button_9_16",
+        "count": 0
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "text_exact_16_9",
+        "count": 0
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "text_exact_9_16",
+        "count": 0
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "text_exact_5s",
+        "count": 0
+      },
+      {
+        "scope": "left_panel_scope",
+        "probe": "text_exact_On",
+        "count": 0
+      }
+    ]
+  },
+  "aspectCandidates": [
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "LABEL",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "16:9 9:16 1:1",
+      "textContent": "16:99:161:1",
+      "className": "",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": -1,
+        "y": -2,
+        "width": 45,
+        "height": 18
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "DIV",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "16:9 9:16 1:1",
+      "textContent": "16:99:161:1",
+      "className": "",
+      "id": "",
+      "type": "",
+      "dataAttributes": {
+        "data-react-aria-prevent-focus": "true",
+        "data-a11y-ignore": "aria-hidden-focus",
+        "data-testid": "hidden-select-container"
+      },
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": -1,
+        "y": -1,
+        "width": 1,
+        "height": 1
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "SELECT",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "16:9 9:16 1:1",
+      "textContent": "16:99:161:1",
+      "className": "",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": -1,
+        "y": -1,
+        "width": 45,
+        "height": 19
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "DIV",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:",
+      "textContent": "ImageVideoAudioFramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff1",
+      "className": "content-NKpsge",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": false,
+      "nearestClickableAncestor": {
+        "tagName": "DIV",
+        "role": "",
+        "ariaLabel": "",
+        "innerText": "Apps Custom Studio Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Vi",
+        "className": "",
+        "id": "root",
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1218
+        }
+      },
+      "boundingBox": {
+        "x": 64,
+        "y": 0,
+        "width": 1190,
+        "height": 1218
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "DIV",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+      "textContent": "FramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15",
+      "className": "panelWrapper-iqRe6S",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 64,
+        "y": 48,
+        "width": 400,
+        "height": 1170
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "SECTION",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+      "textContent": "FramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15",
+      "className": "section-QehVHM",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 64,
+        "y": 48,
+        "width": 400,
+        "height": 1170
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "FORM",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9:16 1:1 5s Apps Kling 3.",
+      "textContent": "FramesMultishotFirst Video FrameUploadLast Video FrameUploadDescribe your shot, or add a first video frame Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15",
+      "className": "form-DYICXa",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 64,
+        "y": 48,
+        "width": 400,
+        "height": 1170
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "DIV",
+      "role": "toolbar",
+      "ariaLabel": "Settings Toolbar",
+      "title": "",
+      "innerText": "\u00b7 On On Off 16:9 16:9 9:16 1:1 5s",
+      "textContent": "Audio settings & credit cost\u00b7 OnOnOff16:916:99:161:15s",
+      "className": "settingsToolbar-_Quw48",
+      "id": "",
+      "type": "",
+      "dataAttributes": {
+        "data-rac": "",
+        "data-orientation": "horizontal"
+      },
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 64,
+        "y": 1093,
+        "width": 400,
+        "height": 52
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "DIV",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "16:9 16:9 9:16 1:1",
+      "textContent": "16:916:99:161:1",
+      "className": "select-skPgrl",
+      "id": "",
+      "type": "",
+      "dataAttributes": {
+        "data-rac": ""
+      },
+      "isClickable": false,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 305,
+        "y": 1105,
+        "width": 58,
+        "height": 28
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "BUTTON",
+      "role": "",
+      "ariaLabel": "Aspect ratio",
+      "title": "",
+      "innerText": "16:9",
+      "textContent": "16:9",
+      "className": "button-NkQreF",
+      "id": "react-aria2396975771-:rfc:",
+      "type": "button",
+      "dataAttributes": {
+        "data-rac": "",
+        "data-react-aria-pressable": "true"
+      },
+      "isClickable": true,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 305,
+        "y": 1105,
+        "width": 58,
+        "height": 28
+      }
+    },
+    {
+      "matchReason": "aspect_ratio_text",
+      "tagName": "SPAN",
+      "role": "",
+      "ariaLabel": "",
+      "title": "",
+      "innerText": "16:9",
+      "textContent": "16:9",
+      "className": "selectTriggerText-xZVRnY",
+      "id": "",
+      "type": "",
+      "dataAttributes": {},
+      "isClickable": true,
+      "nearestClickableAncestor": null,
+      "boundingBox": {
+        "x": 330,
+        "y": 1109,
+        "width": 26,
+        "height": 20
+      }
+    }
+  ],
+  "ok": true,
+  "finished_at": "2026-06-19T20:58:05.308277+00:00"
+}

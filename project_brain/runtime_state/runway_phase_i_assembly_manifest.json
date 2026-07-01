@@ -1,0 +1,14 @@
+{
+  "version": "runway_live_post_processing_v1",
+  "status": "ASSEMBLED",
+  "clip_count": 1,
+  "input_files": [
+    "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_1_session_20260619_222137.mp4"
+  ],
+  "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260619_222210_run\\final\\FINAL_RUNWAY_PHASE_I_VIDEO.mp4",
+  "ffmpeg_available": true,
+  "ffmpeg_executed": true,
+  "error": "",
+  "created_at": "2026-06-19 22:22:16",
+  "duration_seconds": 10.041667
+}

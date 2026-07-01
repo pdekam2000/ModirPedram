@@ -1,0 +1,316 @@
+{
+  "version": "kling_frame_to_video_shadow_runner_v1",
+  "ok": false,
+  "dry_run": true,
+  "connect_browser": true,
+  "generate_clicked": false,
+  "credits_spent": false,
+  "duration_before": "",
+  "duration_after_min": "",
+  "duration_after_max": "",
+  "duration_seconds_max": null,
+  "steps": [
+    {
+      "step_id": "00",
+      "label": "map_snapshot",
+      "status": "passed",
+      "detail": "labels=12"
+    },
+    {
+      "step_id": "01",
+      "label": "cdp",
+      "status": "passed",
+      "detail": "http://127.0.0.1:9222"
+    },
+    {
+      "step_id": "01",
+      "label": "runway_tab",
+      "status": "passed",
+      "detail": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools"
+    },
+    {
+      "step_id": "19",
+      "label": "frames_mode",
+      "status": "failed",
+      "detail": "Frames tab not found"
+    },
+    {
+      "step_id": "02",
+      "label": "kling_frame_to_video_mode",
+      "status": "failed",
+      "detail": "not found"
+    },
+    {
+      "step_id": "03",
+      "label": "frame_prompt_box",
+      "status": "passed",
+      "detail": "strategy=placeholder_describe_shot"
+    },
+    {
+      "step_id": "04",
+      "label": "first_frame_upload",
+      "status": "failed",
+      "detail": "not found"
+    },
+    {
+      "step_id": "05",
+      "label": "end_frame_upload",
+      "status": "failed",
+      "detail": "not found"
+    },
+    {
+      "step_id": "08",
+      "label": "duration_display_value",
+      "status": "failed",
+      "detail": "not found"
+    },
+    {
+      "step_id": "09",
+      "label": "audio_toggle_on",
+      "status": "passed",
+      "detail": "strategy=map_css_stable"
+    },
+    {
+      "step_id": "11",
+      "label": "download_button",
+      "status": "skipped",
+      "detail": "not visible until needed"
+    },
+    {
+      "step_id": "12",
+      "label": "use_frame_button",
+      "status": "skipped",
+      "detail": "not visible until needed"
+    },
+    {
+      "step_id": "21",
+      "label": "duration_panel",
+      "status": "failed",
+      "detail": "Locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Duration\")\n"
+    },
+    {
+      "step_id": "23",
+      "label": "audio_on",
+      "status": "passed",
+      "detail": "map_css_stable"
+    },
+    {
+      "step_id": "24",
+      "label": "generate_button",
+      "status": "passed",
+      "detail": "strategy=role_button_generate"
+    },
+    {
+      "step_id": "24",
+      "label": "generate_visible",
+      "status": "passed",
+      "detail": "visible only \u2014 not clicked"
+    },
+    {
+      "step_id": "25",
+      "label": "generate_not_clicked",
+      "status": "passed",
+      "detail": "dry_run guard"
+    }
+  ],
+  "errors": [
+    "unable to locate kling_frame_to_video_mode",
+    "unable to locate first_frame_upload",
+    "unable to locate end_frame_upload",
+    "unable to locate duration_display_value",
+    "duration panel: Locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Duration\")\n"
+  ],
+  "locator_strategies": {
+    "frame_prompt_box": "placeholder_describe_shot",
+    "audio_toggle_on": "map_css_stable",
+    "generate_button": "role_button_generate"
+  },
+  "screenshots": {
+    "frame_mode_selected": "C:/Users/kaman/Desktop/ModirAgentOS/project_brain/runway_ui_mapping/screenshots/kling_frame_to_video_p1/frame_mode_selected.png",
+    "audio_on": "C:/Users/kaman/Desktop/ModirAgentOS/project_brain/runway_ui_mapping/screenshots/kling_frame_to_video_p1/audio_on.png",
+    "generate_visible": "C:/Users/kaman/Desktop/ModirAgentOS/project_brain/runway_ui_mapping/screenshots/kling_frame_to_video_p1/generate_visible.png"
+  },
+  "map_snapshot": {
+    "version": "kling_frame_to_video_map_loader_v1",
+    "map_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_ui_mapping\\runway_ui_map.json",
+    "ok": true,
+    "controls": {
+      "kling_frame_to_video_mode": {
+        "canonical_key": "kling_frame_to_video_mode",
+        "source_label": "kling_frame_to_video_mode",
+        "tag": "label",
+        "css_selector": "label",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Frames",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "frame_prompt_box": {
+        "canonical_key": "frame_prompt_box",
+        "source_label": "frame_prompt_box",
+        "tag": "p",
+        "css_selector": "p",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "first_frame_upload": {
+        "canonical_key": "first_frame_upload",
+        "source_label": "first_frame_upload",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Upload",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "end_frame_upload": {
+        "canonical_key": "end_frame_upload",
+        "source_label": "end_frame_upload",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Upload",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "duration_slider_handle": {
+        "canonical_key": "duration_slider_handle",
+        "source_label": "duration_slider_handle",
+        "tag": "span",
+        "css_selector": "[role=\"slider\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "duration_slider_track": {
+        "canonical_key": "duration_slider_track",
+        "source_label": "duration_slider_track",
+        "tag": "span",
+        "css_selector": "[class*=\"Slider__Root\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "duration_display_value": {
+        "canonical_key": "duration_display_value",
+        "source_label": "duration_display_value",
+        "tag": "button",
+        "css_selector": "button[aria-label=\"Duration\"]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "15s",
+        "aria_label": "Duration",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "audio_toggle_on": {
+        "canonical_key": "audio_toggle_on",
+        "source_label": "audio_toggle_on",
+        "tag": "body",
+        "css_selector": "body",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Apps Custom Agent Recents Workflow Characters Image Video Audio Frames Multishot First Video Frame Upload Last Video Frame Upload Describe your shot, or add a first video frame \u00b7 On On Off 16:9 16:9 9",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "generate_button": {
+        "canonical_key": "generate_button",
+        "source_label": "generate_button",
+        "tag": "button",
+        "css_selector": "#react-aria4962795761-\\:rb3\\:",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "Generate",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "download_button": {
+        "canonical_key": "download_button",
+        "source_label": "download_button",
+        "tag": "button",
+        "css_selector": "button[aria-label*=\"Download\" i]",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools",
+        "text": "",
+        "aria_label": "Download",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      },
+      "use_frame_button": {
+        "canonical_key": "use_frame_button",
+        "source_label": "use_frame_button",
+        "tag": "span",
+        "css_selector": "span",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video&sessionId=bf1b716f-d20b-4cec-a920-2c7dbb056962",
+        "text": "Use frame",
+        "aria_label": "",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": true
+      },
+      "provider_kling_3_pro": {
+        "canonical_key": "provider_kling_3_pro",
+        "source_label": "provider_kling_3_pro",
+        "tag": "button",
+        "css_selector": "button:has-text(\"Kling 3.0 Pro\")",
+        "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+        "text": "Kling 3.0 Pro",
+        "aria_label": "Video models",
+        "valid": true,
+        "invalid_reason": "",
+        "weak_selector": false
+      }
+    },
+    "missing": [],
+    "invalid": [],
+    "warnings": [
+      "kling_frame_to_video_mode: map css weak (label) \u2014 using role/text locator",
+      "first_frame_upload: map css weak (span) \u2014 using role/text locator",
+      "end_frame_upload: map css weak (span) \u2014 using role/text locator",
+      "audio_toggle_on: map css weak (body) \u2014 using role/text locator",
+      "use_frame_button: map css weak (span) \u2014 using role/text locator",
+      "optional download_mp4_button: generic or weak selector (svg)",
+      "optional latest_video_download_button: forbidden tag (body)"
+    ],
+    "aliases": {},
+    "safety": {
+      "no_credentials_stored": true,
+      "no_cookies_stored": true,
+      "no_storage_stored": true,
+      "generate_never_auto_clicked": true,
+      "auto_click_blocklist": [
+        "generate",
+        "create",
+        "submit",
+        "upgrade",
+        "purchase",
+        "buy",
+        "subscribe",
+        "delete"
+      ],
+      "requires_approval": [
+        "generate_button"
+      ]
+    }
+  },
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?tool=video&mode=tools"
+}

@@ -1,0 +1,39 @@
+{
+  "version": "video_quality_judge_p0",
+  "run_id": "20260619_222210_run",
+  "video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260619_222210_run\\final\\FINAL_BRANDED_VIDEO_CANONICAL.mp4",
+  "overall_score": 68,
+  "story_score": 40,
+  "audio_score": 80,
+  "visual_score": 100,
+  "continuity_score": 60,
+  "viral_score": 65,
+  "strengths": [
+    "Video stream present",
+    "Resolution present (720x1280)",
+    "Audio level healthy (-16.1 dB)",
+    "Single-clip run \u2014 continuity metadata optional",
+    "Short-form duration supported"
+  ],
+  "weaknesses": [
+    "missing story package",
+    "topic missing",
+    "hook missing from story package"
+  ],
+  "improvement_actions": [],
+  "used_sources": [
+    "ffmpeg_mean_volume",
+    "ffprobe_audio_stream",
+    "ffprobe_duration",
+    "ffprobe_file_size",
+    "ffprobe_resolution",
+    "ffprobe_video_stream",
+    "publish_metadata",
+    "short_form_duration"
+  ],
+  "created_at": "2026-06-19T20:22:32.262195+00:00",
+  "metadata": {
+    "duration_seconds": 10.042,
+    "judge_mode": "rules_only_p0"
+  }
+}

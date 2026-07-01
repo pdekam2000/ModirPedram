@@ -1,0 +1,43 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "cb_test_978b99e5",
+  "topic": "film director and screenwriter in urban park during daytime. why fantezy girl and man talking together in park matters. Central tension: Opening scene showing the park and characters approaching each other. Subject: Fantezy Girl. Character: film director and screenwriter. Environment: urban park during daytime. Conflict: Opening scene showing the park and characters approaching each other. Stakes: If the central question fails, Opening scene showing the park and characters approaching each other \u2014 viewer must feel the cost immediately.. Opening hook: Visual anchor in urban park during daytime tied directly to fantezy girl and man talking together in park.. Escalation: Close-up shots of the girl and man engaging in conversation with emotional cues. Visual hook: Visual anchor in urban park during daytime tied directly to fantezy girl and man talking together in park.. Emotional arc: fear converting into forward motion. Payoff: Close-up shots of the girl and man engaging in conversation with emotional cues. Clip 1: Wide shot of the urban park showing the girl and man noticing each other and starting to walk toward one another with purposeful steps.. Clip 2: Close-up shots of the girl and man\u2019s faces as they begin talking, showing subtle emotional expressions and engaged body language..",
+  "clip_count": 2,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "transition_type": "cut_to_medium",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "build",
+      "scene_progression": "Opening scene showing the park and characters approaching each other",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "composition": "rule-of-thirds vertical hero framing"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "reveal_shot",
+      "transition_type": "hero_shot",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "payoff",
+      "scene_progression": "Close-up shots of the girl and man engaging in conversation with emotional cues",
+      "camera_movement": "Motivated move from partial occlusion to full reveal.",
+      "lens": "50mm cinematic prime",
+      "composition": "rule-of-thirds vertical hero framing"
+    }
+  ],
+  "edges": [
+    {
+      "from_clip": 1,
+      "to_clip": 2,
+      "transition": "hero_shot",
+      "pacing_shift": "build->payoff"
+    }
+  ],
+  "pacing_curve": [
+    "build",
+    "payoff"
+  ],
+  "created_at": "2026-06-13T10:02:29.024672+00:00"
+}

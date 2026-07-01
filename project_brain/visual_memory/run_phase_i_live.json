@@ -1,0 +1,37 @@
+{
+  "version": "visual_memory_store_v1",
+  "run_id": "phase_i_live",
+  "subject_name": "case file",
+  "subject_type": "concept",
+  "appearance": {
+    "face_shape": "",
+    "eye_shape": "",
+    "eye_color": "",
+    "skin_color": "",
+    "fur_color": "",
+    "scale_color": "",
+    "markings": "The same case file remains the main on-screen subject in every clip.",
+    "body_shape": "",
+    "clothing": "",
+    "accessories": ""
+  },
+  "environment": {
+    "location": "documentary investigation space with evidence boards, maps, and archival photographs, documentary investigation space with evidence boards and archival material",
+    "weather": "consistent atmospheric conditions",
+    "lighting": "rain-soaked reflective neon practicals and volumetric fog",
+    "color_palette": "teal, magenta, and amber neon color grade"
+  },
+  "camera": {
+    "camera_style": "wide anamorphic with neon edge bloom",
+    "lens": "50mm equivalent vertical hero lens",
+    "framing": "vertical 9:16 subject-dominant lower two-thirds"
+  },
+  "vision_verifier_ready": true,
+  "frame_analysis_hooks": {
+    "extractor_version": "subject_memory_extractor_v1",
+    "director_4_vision_verifier": "ready",
+    "openai_vision_frame_analysis": "pending_clip_frames",
+    "character_recognition": "pending_clip_frames"
+  },
+  "created_at": "2026-06-16T20:52:37.399067+00:00"
+}

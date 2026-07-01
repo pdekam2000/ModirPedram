@@ -1,0 +1,61 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "memory_414c0eb74b62",
+  "topic": "a knowledgeable presenter in a single continuous environment with strong depth and readable vertical framing. Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Black Scorpion Hunting At Night visible in frame. Central tension: stakes centered on Black scorpion; What conflicting evidence still surrounds Black Scorpion Hunting At Night? danger and possibility coexisting in the same frame. Subject: Black Scorpion Hunting At Night. Character: a knowledgeable presenter. Environment: a single continuous environment with strong depth and readable vertical framing. Conflict: stakes centered on Black scorpion; What conflicting evidence still surrounds Black Scorpion Hunting At Night? danger and possibility coexisting in the same frame. Stakes: If the central question fails, stakes centered on Black scorpion \u2014 viewer must feel the cost immediately.. Opening hook: Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Black Scorpion Hunting At Night visible in frame.. Escalation: Continuous action around Black scorpion hunting at night in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Black scorpion; What conflicting evidence still surrounds Black Scorpion Hunting At Night? danger and possibility coexisting in the same frame intensifies.. Visual hook: Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Black Scorpion Hunting At Night visible in frame.. Emotional arc: fear converting into forward motion. Payoff: a knowledgeable presenter holds a final stillness that pays off the tension without changing location, creating a frame-ready end pose for the last clip.. Clip 1: a knowledgeable presenter opens with Black scorpion hunting at night in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Black Scorpion Hunting At Night visible in frame.; camera pushes in on hands and tackle while location stays locked.. Clip 2: Continuous action around Black scorpion hunting at night in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Black scorpion; What conflicting evidence still surrounds Black Scorpion Hunting At Night? danger and possibility coexisting in the same frame intensifies.. Clip 3: a knowledgeable presenter closes Black scorpion hunting at night with a frame-ready end pose that pays off the method and mood..",
+  "clip_count": 3,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "transition_type": "cut_to_medium",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "open",
+      "scene_progression": "a knowledgeable presenter opens with Black scorpion hunting at night in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Black Scorpion Hunting At Night visible in frame.; camera pushes in on hands and tackle while location stays locked.",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "composition": "subject in lower two-thirds with habitat depth"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "transition_type": "hero_shot",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "build",
+      "scene_progression": "Continuous action around Black scorpion hunting at night in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Black scorpion; What conflicting evidence still surrounds Black Scorpion Hunting At Night? danger and possibility coexisting in the same frame intensifies.",
+      "camera_movement": "telephoto documentary tracking \u2014 Lateral or forward tracking matched to subject speed.",
+      "lens": "telephoto 85\u2013135mm equivalent",
+      "composition": "subject in lower two-thirds with habitat depth"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "transition_type": "hold_end_frame",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "payoff",
+      "scene_progression": "a knowledgeable presenter closes Black scorpion hunting at night with a frame-ready end pose that pays off the method and mood.",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "composition": "subject in lower two-thirds with habitat depth"
+    }
+  ],
+  "edges": [
+    {
+      "from_clip": 1,
+      "to_clip": 2,
+      "transition": "hero_shot",
+      "pacing_shift": "open->build"
+    },
+    {
+      "from_clip": 2,
+      "to_clip": 3,
+      "transition": "hold_end_frame",
+      "pacing_shift": "build->payoff"
+    }
+  ],
+  "pacing_curve": [
+    "open",
+    "build",
+    "payoff"
+  ],
+  "created_at": "2026-06-11T19:40:46.222210+00:00"
+}

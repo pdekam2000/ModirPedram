@@ -1,0 +1,117 @@
+{
+  "phase": "KLING-MULTISHOT-RELABEL-P0",
+  "map_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_ui_mapping\\runway_ui_map.json",
+  "labels_patched": 17,
+  "validation_pass_count": 17,
+  "validation_total": 17,
+  "validation_pass_rate": 1.0,
+  "blocking_errors": 0,
+  "generic_selector_warnings": 0,
+  "all_pass": true,
+  "validation": {
+    "provider_kling_3_pro": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "audio_toggle_on": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_1_prompt": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_2_prompt": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "multishot_tab": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "first_frame_upload": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_1_duration_menu": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_1_duration_12s": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_2_duration_menu": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_2_duration_3s": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "add_shot_button": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_3_prompt": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_4_prompt": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot_5_prompt": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot 1 duration menu": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "shot 1 duration 12 s": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    },
+    "+Add shot": {
+      "warnings": [],
+      "error_count": 0,
+      "generic_selector": false,
+      "pass": true
+    }
+  },
+  "generate_clicked": false,
+  "credits_spent": false
+}

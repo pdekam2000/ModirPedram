@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Callable, Protocol
 from urllib.parse import urlparse
 
+from content_brain.execution.kling_real_mp4_download_extractor import is_rejected_placeholder_url
 from content_brain.execution.runway_phase_i_artifact_tracker import (
     DOWNLOAD_LABELS,
     PhaseIArtifactTracker,
@@ -205,6 +206,9 @@ class RunwayPhaseICdpDownloader:
         for url in urls:
             if not self._is_downloadable_url(url):
                 attempt.notes.append(f"skip_non_http_url:{url[:40]}")
+                continue
+            if is_rejected_placeholder_url(url):
+                attempt.notes.append(f"skip_placeholder_url:{url[:80]}")
                 continue
             if self.simulate:
                 dest.parent.mkdir(parents=True, exist_ok=True)

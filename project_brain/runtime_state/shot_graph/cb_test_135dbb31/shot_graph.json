@@ -1,0 +1,43 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "cb_test_135dbb31",
+  "topic": "Chef and Food Educator in Home kitchen and professional cooking environment. the truth about kochen mittagessen. Central tension: Introduction to the lunch meal concept and ingredient overview. Subject: Kochen Mittagessen. Character: Chef and Food Educator. Environment: Home kitchen and professional cooking environment. Conflict: Introduction to the lunch meal concept and ingredient overview. Stakes: If the central question fails, Introduction to the lunch meal concept and ingredient overview \u2014 viewer must feel the cost immediately.. Opening hook: Visual anchor in Home kitchen and professional cooking environment tied directly to kochen mittagessen.. Escalation: Demonstration of cooking techniques and preparation steps. Visual hook: Visual anchor in Home kitchen and professional cooking environment tied directly to kochen mittagessen.. Emotional arc: fear converting into forward motion. Payoff: Demonstration of cooking techniques and preparation steps. Clip 1: Introduction to the lunch meal concept and ingredient overview. Clip 2: Demonstration of cooking techniques and preparation steps.",
+  "clip_count": 2,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "transition_type": "cut_to_medium",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "build",
+      "scene_progression": "Introduction to the lunch meal concept and ingredient overview",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "composition": "rule-of-thirds vertical hero framing"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "reveal_shot",
+      "transition_type": "hero_shot",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "payoff",
+      "scene_progression": "Demonstration of cooking techniques and preparation steps",
+      "camera_movement": "Motivated move from partial occlusion to full reveal.",
+      "lens": "50mm cinematic prime",
+      "composition": "rule-of-thirds vertical hero framing"
+    }
+  ],
+  "edges": [
+    {
+      "from_clip": 1,
+      "to_clip": 2,
+      "transition": "hero_shot",
+      "pacing_shift": "build->payoff"
+    }
+  ],
+  "pacing_curve": [
+    "build",
+    "payoff"
+  ],
+  "created_at": "2026-06-13T12:33:28.966883+00:00"
+}

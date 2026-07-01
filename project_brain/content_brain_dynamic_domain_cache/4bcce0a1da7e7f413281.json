@@ -1,0 +1,47 @@
+{
+  "topic": "fantezy girl and man talking together in park",
+  "language_code": "en",
+  "payload": {
+    "category": "cinematic_narrative",
+    "strategy": "character_interaction_analysis",
+    "domain_profile": {
+      "domain_name": "cinematic storytelling",
+      "expert_role": "film director and screenwriter",
+      "setting": "urban park during daytime",
+      "core_concepts": [
+        "character development",
+        "dialogue dynamics",
+        "setting influence",
+        "emotional tone",
+        "visual framing"
+      ],
+      "timeline_beats": [
+        "establishing shot of park environment",
+        "introduction of characters",
+        "dialogue exchange revealing relationship",
+        "emotional or plot turning point",
+        "closing shot with implied future interaction"
+      ],
+      "visual_objects": [
+        "park benches",
+        "trees and greenery",
+        "characters' facial expressions",
+        "body language",
+        "background passersby"
+      ],
+      "clip_structure": {
+        "clip_1": "Opening scene showing the park and characters approaching each other",
+        "clip_2": "Close-up shots of the girl and man engaging in conversation with emotional cues",
+        "clip_3": "Wide shot showing their interaction in the context of the park, ending with a meaningful gesture or expression"
+      }
+    },
+    "confidence": 0.85,
+    "language_code": "en"
+  },
+  "usage": {
+    "prompt_tokens": 261,
+    "completion_tokens": 273,
+    "total_tokens": 534
+  },
+  "estimated_cost_usd": 0.0005411999999999999
+}

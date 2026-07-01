@@ -1,0 +1,47 @@
+{
+  "topic": "snak python",
+  "category": "natural_history",
+  "strategy": "documentary",
+  "enhancement_types": [
+    "character",
+    "domain_knowledge",
+    "seo",
+    "prompt"
+  ],
+  "payload": {
+    "seo_titles": [
+      "Unveiling the Secrets of the Snak Python: A Herpetologist's Insight",
+      "Snak Python Exposed: Behavior, Habitat, and Species Identification",
+      "The Snak Python in Focus: Ecology and Adaptations in Tropical Rainforests",
+      "Inside the World of the Snak Python: Hunting Strategies and Habitat Range",
+      "Snak Python Revealed: Expert Analysis on Species and Environmental Role"
+    ],
+    "domain_concepts": [
+      "Thermoregulation strategies in pythons",
+      "Ambush predation techniques and prey selection",
+      "Role of pythons in controlling invasive species populations",
+      "Genetic variation and phylogenetics within the Python genus",
+      "Impact of habitat fragmentation on python distribution and behavior",
+      "Co-evolutionary dynamics between pythons and prey species",
+      "Morphological adaptations for arboreal versus terrestrial hunting",
+      "Conservation status and threats from illegal wildlife trade"
+    ],
+    "character_role": "Experienced Herpetologist specializing in python ecology and conservation, providing expert commentary on species-specific behaviors, ecological significance, and habitat interactions within tropical rainforest ecosystems.",
+    "prompt_additions": [
+      "Include detailed observations of the python’s ambush hunting tactics and energy-efficient movement patterns within dense rainforest undergrowth.",
+      "Highlight the herpetologist’s explanation of thermoregulatory behavior as the python adjusts its position relative to sunlight and shade for optimal body temperature control.",
+      "Showcase the python’s morphological traits such as heat-sensing pits and muscular constriction techniques that enable effective predation.",
+      "Incorporate expert commentary on the python’s geographic distribution, emphasizing microhabitat preferences and seasonal migration within the tropical rainforest.",
+      "Demonstrate the ecological role of the snak python in maintaining prey population balance and its influence on the rainforest food web dynamics.",
+      "Detail the identification markers used by the herpetologist to distinguish the snak python from sympatric python species, including scale patterns and coloration.",
+      "Capture the herpetologist discussing the impact of environmental changes and human activity on the python’s habitat connectivity and survival prospects.",
+      "Emphasize naturalistic filming techniques that reveal the python’s stealth and camouflage adaptations in its native environment."
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1252,
+    "completion_tokens": 470,
+    "total_tokens": 1722
+  },
+  "estimated_cost_usd": 0.0012528
+}

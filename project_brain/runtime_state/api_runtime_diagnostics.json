@@ -1,0 +1,12 @@
+{
+  "version": "api_runtime_diagnostics_v1",
+  "api_version": "0.6.0",
+  "api_build_id": "783b5228d5162f3b",
+  "orchestrator_version": "product_multiclip_orchestrator_v3",
+  "startup_time": "2026-06-30T21:31:53.010394+00:00",
+  "assembly_bridge_enabled": true,
+  "branding_publish_enabled": true,
+  "youtube_metadata_enabled": true,
+  "youtube_upload_enabled": true,
+  "auto_upload_enabled": true
+}

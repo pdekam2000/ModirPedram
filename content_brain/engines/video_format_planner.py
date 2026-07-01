@@ -34,7 +34,7 @@ class PacingProfile(str, Enum):
     SLOW_BURN = "slow_burn"
 
 
-SUPPORTED_SHORT_DURATIONS = [15, 30, 45, 60]
+SUPPORTED_SHORT_DURATIONS = [15, 20, 30, 40, 45, 60]
 
 STANDARD_STORY_BEATS = [
     "HOOK_BEAT",

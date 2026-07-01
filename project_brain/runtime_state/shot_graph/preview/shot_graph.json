@@ -1,0 +1,24 @@
+{
+  "version": "shot_graph_engine_v1",
+  "run_id": "preview",
+  "topic": "Educational documentary mystery about science facts",
+  "clip_count": 1,
+  "nodes": [
+    {
+      "clip_index": 1,
+      "shot_type": "hero_shot",
+      "transition_type": "hold_end_frame",
+      "emotional_progression": "fear converting into forward motion",
+      "pacing": "resolve",
+      "scene_progression": "Educational documentary mystery about science facts",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "composition": "symmetrical framing with depth layers and practical light"
+    }
+  ],
+  "edges": [],
+  "pacing_curve": [
+    "resolve"
+  ],
+  "created_at": "2026-06-18T16:41:10.301548+00:00"
+}

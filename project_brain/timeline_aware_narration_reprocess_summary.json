@@ -1,0 +1,144 @@
+{
+  "ok": true,
+  "runway_started": false,
+  "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\FINAL_BRANDED_VIDEO_CANONICAL_TIMELINE_FIXED.mp4",
+  "timeline_result": {
+    "version": "timeline_aware_narration_v1",
+    "status": "completed",
+    "segments": [
+      {
+        "segment_id": "segment_01",
+        "clip_index": 1,
+        "text": "A boy discovers a glowing dragon egg beneath forest leaves.",
+        "start_seconds": 1.9,
+        "planned_duration_seconds": 3.2,
+        "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\segment_01.mp3",
+        "audio_duration_seconds": 3.529,
+        "role": "narrator"
+      },
+      {
+        "segment_id": "segment_02",
+        "clip_index": 2,
+        "text": "He wraps the egg and hides it from passing travelers.",
+        "start_seconds": 11.94,
+        "planned_duration_seconds": 3.2,
+        "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\segment_02.mp3",
+        "audio_duration_seconds": 2.926,
+        "role": "narrator"
+      },
+      {
+        "segment_id": "segment_03",
+        "clip_index": 3,
+        "text": "Footsteps approach as the egg begins to warm.",
+        "start_seconds": 21.98,
+        "planned_duration_seconds": 2.56,
+        "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\segment_03.mp3",
+        "audio_duration_seconds": 2.833,
+        "role": "narrator"
+      },
+      {
+        "segment_id": "segment_04",
+        "clip_index": 4,
+        "text": "He escapes deeper into the trees clutching the secret.",
+        "start_seconds": 32.03,
+        "planned_duration_seconds": 2.88,
+        "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\segment_04.mp3",
+        "audio_duration_seconds": 3.158,
+        "role": "narrator"
+      },
+      {
+        "segment_id": "segment_cta",
+        "clip_index": 0,
+        "text": "Follow for more learning adventures.",
+        "start_seconds": 37.367,
+        "planned_duration_seconds": 2.8,
+        "audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\segment_cta.mp3",
+        "audio_duration_seconds": 2.09,
+        "role": "cta"
+      }
+    ],
+    "narration_audio_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\narration.mp3",
+    "narration_script_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\narration_script.txt",
+    "narration_plan_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\narration_plan.json",
+    "duration_seconds": 40.167,
+    "coverage_ratio": 1.0,
+    "provider_id": "elevenlabs",
+    "warnings": [],
+    "errors": [],
+    "metadata": {
+      "compose": {
+        "status": "completed",
+        "output_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\publish\\narration\\narration_timeline.mp3",
+        "duration_seconds": 40.167,
+        "segment_count": 5,
+        "ffmpeg_filter": "[0:a]adelay=1900|1900[n0];[1:a]adelay=11940|11940[n1];[2:a]adelay=21980|21980[n2];[3:a]adelay=32030|32030[n3];[4:a]adelay=37366|37366[n4];[n0][n1][n2][n3][n4]amix=inputs=5:duration=longest:dropout_transition=0,apad=whole_dur=40.167[aout]"
+      }
+    },
+    "created_at": "2026-06-15T06:14:39.567714+00:00"
+  },
+  "coverage_ratio": 1.0,
+  "delivery_gate": {
+    "version": "delivery_quality_gate_v1",
+    "delivery_status": "PASS",
+    "upload_ready": true,
+    "failures": [],
+    "warnings": [],
+    "checks": [
+      {
+        "id": "F4",
+        "name": "assembly_ready",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "F5",
+        "name": "canonical_video_exists",
+        "passed": true,
+        "detail": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\final\\FINAL_BRANDED_VIDEO_CANONICAL_TIMELINE_FIXED.mp4"
+      },
+      {
+        "id": "F1",
+        "name": "duration_preservation",
+        "passed": true,
+        "detail": "40.17s vs 40.17s"
+      },
+      {
+        "id": "F2",
+        "name": "subtitle_burn",
+        "passed": true,
+        "detail": "PASS"
+      },
+      {
+        "id": "F3",
+        "name": "audio_stream_present",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "W2",
+        "name": "narration_speech_level",
+        "passed": true,
+        "detail": "-19.3 dB"
+      }
+    ],
+    "assembled_duration_seconds": 40.166667,
+    "deliverable_duration_seconds": 40.167,
+    "canonical_video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\runs\\20260614_210353_440_8bf41b6b\\final\\FINAL_BRANDED_VIDEO_CANONICAL_TIMELINE_FIXED.mp4",
+    "metadata": {
+      "duration_loss_ratio": 0.0,
+      "assembly_status": "ASSEMBLED",
+      "branding_status": "completed",
+      "publish_status": "PUBLISHED_PACKAGE_CREATED"
+    },
+    "evaluated_at": "2026-06-15T06:14:39.567732+00:00"
+  },
+  "subtitle_visible": true,
+  "clip_speech_levels_db": {
+    "clip1": -19.5,
+    "clip2": -19.3,
+    "clip3": -18.3,
+    "clip4": -17.1
+  },
+  "duration_seconds": 40.167,
+  "merge_warnings": []
+}

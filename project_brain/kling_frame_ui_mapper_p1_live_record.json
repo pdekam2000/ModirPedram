@@ -1,0 +1,22 @@
+{
+  "phase": "KLING-FRAME-TO-VIDEO-UI-MAPPER-P1-CLOSEOUT",
+  "recorded_at": "2026-06-17T19:31:00Z",
+  "dry_run": true,
+  "generate_clicked": false,
+  "credits_spent": false,
+  "duration_seconds_max": 15,
+  "duration_before_sample": "15s",
+  "locator_strategies": {
+    "kling_frame_to_video_mode": "text_frames_exact",
+    "frame_prompt_box": "contenteditable_first",
+    "first_frame_upload": "role_button_upload_first",
+    "end_frame_upload": "role_button_upload_nth1",
+    "duration_slider_handle": "role_slider",
+    "duration_slider_track": "slider_root_class",
+    "duration_display_value": "role_button_duration",
+    "audio_toggle_on": "role_button_audio_settings",
+    "generate_button": "role_button_generate"
+  },
+  "static_validation": "PASS",
+  "notes": "Live CDP dry-run with Frames mode selected. Slider confirmed not dropdown. No Generate click."
+}

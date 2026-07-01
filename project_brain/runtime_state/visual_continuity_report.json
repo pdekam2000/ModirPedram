@@ -1,0 +1,59 @@
+{
+  "version": "visual_continuity_pipeline_v1",
+  "status": "completed",
+  "run_id": "",
+  "topic": "",
+  "overall_pass": false,
+  "overall_score": 53.5,
+  "visual_subject_lock": {
+    "version": "visual_subject_lock_v1",
+    "primary_visual_subject": "",
+    "subject_type": "concept",
+    "required_visible_features": [],
+    "forbidden_confusions": [],
+    "continuity_phrase": "Maintain the same  visual identity across all clips.",
+    "negative_prompt_terms": [],
+    "identity_lock_sentence": "The same  remains the main on-screen subject in every clip.",
+    "human_presenter_role": ""
+  },
+  "clips": [
+    {
+      "clip_index": 1,
+      "video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_1_session_20260619_222137.mp4",
+      "pass": false,
+      "score": 53.5,
+      "expected_subject": "",
+      "detected_subject": "Middle-aged man in a suit holding a small metallic object",
+      "similarity_score": 0.0,
+      "issues": [
+        "subject_mismatch"
+      ],
+      "warnings": [
+        "openai_vision_applied:gpt-4.1-mini"
+      ],
+      "notes": "The primary subject is a middle-aged man dressed in a suit, holding a small metallic object, possibly a key or a tool. There is no expected visual subject or forbidden confusion provided for comparison, so it cannot be confirmed if it matches the expected subject. The man appears in different suits in the images, indicating different scenes or moments. No forbidden confusion is detected.",
+      "frame_paths": {
+        "video_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\downloads\\runway\\runway_clip_1_session_20260619_222137.mp4",
+        "output_dir": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\vision\\latest\\clip_1",
+        "first_frame": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\vision\\latest\\clip_1\\frame_first.jpg",
+        "middle_frame": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\vision\\latest\\clip_1\\frame_middle.jpg",
+        "last_frame": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\outputs\\vision\\latest\\clip_1\\frame_last.jpg"
+      },
+      "vision_review": {
+        "primary_subject": "Middle-aged man in a suit holding a small metallic object",
+        "matches_expected": false,
+        "forbidden_confusion_detected": false,
+        "forbidden_confusion_label": "",
+        "same_species_or_object": false,
+        "confidence_score": 85.0,
+        "notes": "The primary subject is a middle-aged man dressed in a suit, holding a small metallic object, possibly a key or a tool. There is no expected visual subject or forbidden confusion provided for comparison, so it cannot be confirmed if it matches the expected subject. The man appears in different suits in the images, indicating different scenes or moments. No forbidden confusion is detected.",
+        "source": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    }
+  ],
+  "warnings": [
+    "clip_1_visual_continuity_fail"
+  ],
+  "created_at": "2026-06-19T20:22:16.437457+00:00"
+}

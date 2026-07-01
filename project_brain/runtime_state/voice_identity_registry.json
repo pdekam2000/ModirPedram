@@ -1,0 +1,27 @@
+{
+  "version": "voice_identity_registry_v1",
+  "characters": {
+    "narrator": {
+      "character": "Narrator",
+      "voice_id": "",
+      "provider": "elevenlabs",
+      "speaking_style": "warm storyteller"
+    },
+    "whiskers": {
+      "character": "Whiskers",
+      "voice_id": "",
+      "provider": "elevenlabs",
+      "speaking_style": "fast_excited_cartoon"
+    },
+    "sage": {
+      "character": "Sage",
+      "voice_id": "",
+      "provider": "elevenlabs",
+      "speaking_style": "slow_caring_mentor"
+    }
+  },
+  "updated_at": "2026-06-19T20:22:17.839869+00:00",
+  "approved": false,
+  "delivery_reality_passed": false,
+  "archived_snapshot": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\archive\\delivery_truth_1\\20260613_154410\\runtime_state_snapshots\\voice_identity_registry.json"
+}

@@ -1,0 +1,49 @@
+{
+  "phase": "KLING-MULTISHOT-LIVE-DRY-RUN-STABILIZATION",
+  "cdp_url": "http://127.0.0.1:9222",
+  "map_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runway_ui_mapping\\runway_ui_map.json",
+  "refreshed": {
+    "provider_kling_3_pro": {
+      "strategy": "text_kling_3_pro",
+      "css": "button:has-text(\"Kling 3.0 Pro\")"
+    },
+    "multishot_tab": {
+      "strategy": "text_multishot",
+      "css": "label:has-text(\"Multishot\")"
+    },
+    "audio_toggle_on": {
+      "strategy": "role_button_audio_settings",
+      "css": "button[aria-label=\"Audio settings\"]"
+    },
+    "first_frame_upload": {
+      "strategy": "role_button_upload",
+      "css": "button[aria-label=\"Upload\"]"
+    },
+    "shot_1_prompt": {
+      "strategy": "role_textbox_shot_1",
+      "css": "div[aria-label=\"Shot 1 prompt\"][contenteditable=\"true\"]"
+    },
+    "shot_2_prompt": {
+      "strategy": "role_textbox_shot_2",
+      "css": "div[aria-label=\"Shot 2 prompt\"][contenteditable=\"true\"]"
+    },
+    "shot_1_duration_menu": {
+      "strategy": "role_button_shot_duration_first",
+      "css": "button[aria-label=\"Shot duration\"]:nth-of-type(1)"
+    },
+    "shot_2_duration_menu": {
+      "strategy": "role_button_shot_duration_nth1",
+      "css": "button[aria-label=\"Shot duration\"]:nth-of-type(2)"
+    },
+    "generate_button": {
+      "strategy": "role_button_generate",
+      "css": "button:has-text(\"Generate\")"
+    }
+  },
+  "skipped_unstable": [],
+  "errors": [],
+  "generate_clicked": false,
+  "credits_spent": false,
+  "page_url": "https://app.runwayml.com/video-tools/teams/kamangarpedram/ai-tools/generate?mode=tools&tool=video",
+  "ok": true
+}

@@ -23,6 +23,18 @@ FORBIDDEN_TOPIC_DRIFT: tuple[str, ...] = (
     "dragon",
 )
 
+GENERIC_SUBJECT_REPLACEMENTS: tuple[str, ...] = (
+    "knowledgeable presenter",
+    "generic narrator",
+    "generic expert",
+    "generic host",
+    "generic presenter",
+    "compelling lead subject",
+    "focused subject centered on",
+)
+
+TOPIC_FIDELITY_MIN_SCORE = 80
+
 SUBJECT_SYNONYMS: dict[str, tuple[str, ...]] = {
     "man": ("man", "men", "male", "gentleman", "elder", "elderly", "old man", "fisherman", "walker"),
     "woman": ("woman", "women", "female", "lady", "girl"),
@@ -89,6 +101,24 @@ TOPIC_DOMAIN_HINTS: dict[str, dict[str, tuple[str, ...]]] = {
         "subject": ("athlete", "trainer"),
         "environment": ("gym floor", "training space"),
         "action": ("training", "exercising"),
+    },
+    "sports": {
+        "keywords": (
+            "boxing",
+            "boxer",
+            "heavyweight",
+            "knockout",
+            "sparring",
+            "championship",
+            "ring",
+            "punch",
+            "footwork",
+            "legende",
+            "legend",
+        ),
+        "subject": ("boxer", "young boxer", "boxing coach"),
+        "environment": ("boxing gym", "training ring", "boxing ring"),
+        "action": ("training", "sparring", "fighting"),
     },
 }
 
@@ -321,10 +351,108 @@ def _action_variants(action: str) -> tuple[str, ...]:
     return tuple(variants)
 
 
+def is_generic_subject_replacement(text: str) -> bool:
+    lowered = _normalize(text)
+    if not lowered:
+        return False
+    if any(pattern in lowered for pattern in GENERIC_SUBJECT_REPLACEMENTS):
+        return True
+    if lowered in {"presenter", "narrator", "host", "expert"}:
+        return True
+    return False
+
+
+def topic_explicitly_requests_presenter(topic: str) -> bool:
+    lowered = _normalize(topic)
+    return bool(re.search(r"\b(presenter|narrator|host|talking head|expert explainer)\b", lowered))
+
+
+def score_topic_fidelity(
+    authoritative_topic: str,
+    *,
+    subject: str = "",
+    visual_subject: str = "",
+    generated_texts: list[str] | None = None,
+) -> int:
+    """Return 0-100 score where 100 means topic preserved and 0 means replaced."""
+    topic = str(authoritative_topic or "").strip()
+    if not topic:
+        return 0
+
+    subject_text = str(subject or "").strip()
+    visual_text = str(visual_subject or "").strip()
+    alignment_parts = [topic, subject_text, visual_text]
+    alignment_corpus = _normalize(" ".join(part for part in alignment_parts if part))
+
+    if not topic_explicitly_requests_presenter(topic):
+        for candidate in (subject_text, visual_text):
+            if candidate and is_generic_subject_replacement(candidate):
+                return max(0, int(round(_token_preservation_score(topic, alignment_corpus) * 40)))
+
+    alignment_audit = audit_topic_preservation(topic, generated_texts=alignment_parts)
+    score = int(round(alignment_audit.topic_preservation_score * 100))
+
+    anchors = extract_topic_anchor_tokens(topic, limit=8)
+    if anchors:
+        anchor_hits = sum(
+            1
+            for token in anchors
+            if token.lower() in alignment_corpus or token in alignment_corpus
+        )
+        anchor_ratio = anchor_hits / len(anchors)
+        if anchor_ratio >= 0.5:
+            score = max(score, 85)
+        elif anchor_ratio < 0.34:
+            score = min(score, 65)
+
+    topic_lower = _normalize(topic)
+    if any(word in topic_lower for word in ("boxing", "boxer", "legende", "legend")):
+        boxing_markers = ("box", "ring", "punch", "sparring", "glove", "champion", "coach")
+        alignment_markers = _normalize(f"{subject_text} {visual_text}")
+        if not any(marker in alignment_markers for marker in boxing_markers):
+            score = min(score, 40)
+
+    if generated_texts:
+        prompt_corpus = _normalize(" ".join(str(item) for item in generated_texts if item))
+        prompt_token_score = int(round(_token_preservation_score(topic, prompt_corpus) * 100))
+        if prompt_token_score >= 50:
+            score = max(score, 80)
+
+    return max(0, min(100, score))
+
+
+def assert_topic_fidelity(
+    authoritative_topic: str,
+    *,
+    subject: str = "",
+    visual_subject: str = "",
+    generated_texts: list[str] | None = None,
+    min_score: int = TOPIC_FIDELITY_MIN_SCORE,
+) -> int:
+    score = score_topic_fidelity(
+        authoritative_topic,
+        subject=subject,
+        visual_subject=visual_subject,
+        generated_texts=generated_texts,
+    )
+    if score < min_score:
+        raise ValueError(
+            f"Topic fidelity score too low ({score}/{min_score}). "
+            f"authoritative_topic={authoritative_topic!r}, subject={subject!r}, visual_subject={visual_subject!r}"
+        )
+    return score
+
+
 __all__ = [
+    "GENERIC_SUBJECT_REPLACEMENTS",
+    "TOPIC_FIDELITY_MIN_SCORE",
     "TopicAuthorityResult",
+    "assert_topic_fidelity",
     "audit_story_brief_preservation",
     "audit_topic_preservation",
     "extract_topic_domain",
     "extract_topic_facets",
+    "is_generic_subject_replacement",
+    "score_topic_fidelity",
+    "topic_explicitly_requests_presenter",
 ]

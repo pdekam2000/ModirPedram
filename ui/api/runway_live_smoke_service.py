@@ -38,6 +38,10 @@ class RunwayLiveSmokeRuntimeService:
         simulate: bool = False,
         clip_count: int = 1,
         execution_mode: str = "FULL_AUTO",
+        e2e_result: dict[str, Any] | None = None,
+        strict_topic_authority: bool = False,
+        auto_director: bool = False,
+        auto_prompt_critic: bool = False,
     ) -> dict[str, Any]:
         story = str(story_idea or "").strip()
         if not story:
@@ -60,17 +64,21 @@ class RunwayLiveSmokeRuntimeService:
 
             def _worker() -> None:
                 try:
+                    resolved_e2e = e2e_result if e2e_result is not None else get_registered_e2e_result()
                     report = run_live_smoke_test(
                         story,
                         project_id=project_id,
                         operator=operator,
                         simulate=simulate,
-                    clip_count=clip_count,
-                    execution_mode=execution_mode,
-                    approval_callback=approval_cb,
+                        clip_count=clip_count,
+                        execution_mode=execution_mode,
+                        approval_callback=approval_cb,
                         manual_ack_callback=manual_cb,
                         approval_runtime=runtime,
-                        e2e_result=get_registered_e2e_result(),
+                        e2e_result=resolved_e2e,
+                        strict_topic_authority=strict_topic_authority,
+                        auto_director=auto_director,
+                        auto_prompt_critic=auto_prompt_critic,
                     )
                     payload = report.to_dict()
                 except Exception as exc:
@@ -101,6 +109,10 @@ class RunwayLiveSmokeRuntimeService:
             handoff_preview = preview_live_smoke_handoff(
                 story_idea=story,
                 clip_count=clip_count,
+                e2e_result=e2e_result,
+                strict_topic_authority=strict_topic_authority,
+                auto_director=auto_director,
+                auto_prompt_critic=auto_prompt_critic,
             ).to_dict()
 
             return {

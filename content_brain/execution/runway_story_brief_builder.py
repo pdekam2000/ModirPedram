@@ -26,7 +26,7 @@ from content_brain.execution.content_brain_topic_locale import (
 from content_brain.execution.content_brain_topic_story_detail import TopicStoryDetail, build_topic_story_detail
 from content_brain.execution.domain_knowledge_layer import get_domain_profile
 
-BUILDER_VERSION = "runway_story_brief_v2"
+BUILDER_VERSION = "runway_story_brief_v3"
 DEFAULT_PLATFORM = "youtube_shorts"
 DEFAULT_NICHE_STYLE = "cinematic"
 DEFAULT_MOOD = "tense hopeful"
@@ -212,15 +212,23 @@ class StoryBriefInput:
 class RunwayStoryBrief:
     title: str
     logline: str
+    subject: str
     main_character: str
+    environment: str
     setting: str
+    conflict: str
     conflict_tension: str
-    visual_hook: str
+    stakes: str
     emotional_arc: str
+    visual_hook: str
+    opening_hook: str
+    escalation: str
+    payoff: str
     ending_beat: str
     style_direction: str
     continuity_anchors: StoryBriefAnchors
     clip_beats: list[str]
+    scene_progression: list[str]
     source_topic: str = ""
     target_platform: str = DEFAULT_PLATFORM
     niche_style: str = DEFAULT_NICHE_STYLE
@@ -242,15 +250,23 @@ class RunwayStoryBrief:
         return {
             "title": self.title,
             "logline": self.logline,
+            "subject": self.subject,
             "main_character": self.main_character,
+            "environment": self.environment,
             "setting": self.setting,
+            "conflict": self.conflict,
             "conflict_tension": self.conflict_tension,
-            "visual_hook": self.visual_hook,
+            "stakes": self.stakes,
             "emotional_arc": self.emotional_arc,
+            "visual_hook": self.visual_hook,
+            "opening_hook": self.opening_hook,
+            "escalation": self.escalation,
+            "payoff": self.payoff,
             "ending_beat": self.ending_beat,
             "style_direction": self.style_direction,
             "continuity_anchors": self.continuity_anchors.to_dict(),
             "clip_beats": list(self.clip_beats),
+            "scene_progression": list(self.scene_progression),
             "source_topic": self.source_topic,
             "target_platform": self.target_platform,
             "niche_style": self.niche_style,
@@ -278,10 +294,12 @@ class RunwayStoryBrief:
             for index, beat in enumerate(self.clip_beats)
         )
         return _normalize(
-            f"{self.logline} Character: {self.main_character}. "
-            f"Setting: {self.setting}. Conflict: {self.conflict_tension}. "
+            f"{self.logline} Subject: {self.subject}. "
+            f"Character: {self.main_character}. Environment: {self.environment}. "
+            f"Conflict: {self.conflict}. Stakes: {self.stakes}. "
+            f"Opening hook: {self.opening_hook}. Escalation: {self.escalation}. "
             f"Visual hook: {self.visual_hook}. Emotional arc: {self.emotional_arc}. "
-            f"Ending: {self.ending_beat}. {beats}"
+            f"Payoff: {self.payoff}. {beats}"
         )
 
 
@@ -343,13 +361,18 @@ class RunwayStoryBriefBuilder:
             topic_category=topic_category or domain or "",
             content_strategy=payload.content_strategy,
         )
-        main_character = _normalize(payload.character) or domain_preset.get("character") or self._infer_character(
-            lead,
-            topic,
-            topic_category=topic_category or domain or "",
-            language_code=language_code,
-        )
-        if (
+        main_character = _normalize(payload.character)
+        if not main_character:
+            from content_brain.execution.content_brain_character_builder import build_character
+
+            character_result = build_character(
+                topic,
+                explicit_character=(payload.openai_enrichment or {}).get("domain_role", ""),
+                topic_category=topic_category or domain or "",
+                language_code=language_code,
+            )
+            main_character = character_result.character
+        elif (
             topic_detail.source in {"topic_pack", "openai_classification"}
             or payload.content_strategy
             in {
@@ -514,18 +537,48 @@ class RunwayStoryBriefBuilder:
             wardrobe=wardrobe,
         )
 
+        subject = str(topic_detail_payload.get("subject") or topic_detail.subject or main_character)
+        from content_brain.execution.content_brain_topic_authority import (
+            extract_topic_facets,
+            is_generic_subject_replacement,
+        )
+
+        topic_subject, _, _ = extract_topic_facets(topic)
+        if is_generic_subject_replacement(subject) or is_generic_subject_replacement(main_character):
+            if topic_subject:
+                subject = topic_subject
+        if is_generic_subject_replacement(main_character) and not is_generic_subject_replacement(subject):
+            main_character = subject
+        if "boxing" in topic.lower() and "box" not in subject.lower():
+            subject = "young boxer training for championship"
+            if is_generic_subject_replacement(main_character):
+                main_character = "a dedicated young boxer"
+        stakes = self._build_stakes(conflict, topic, language_code)
+        opening_hook = self._build_opening_hook(visual_hook, topic, main_character, setting)
+        escalation = clip_beats[1] if len(clip_beats) >= 2 else self._build_escalation(conflict, topic, language_code)
+        payoff = ending_beat
+        scene_progression = list(clip_beats)
+
         brief = RunwayStoryBrief(
             title=title,
             logline=logline,
+            subject=subject,
             main_character=main_character,
+            environment=setting,
             setting=setting,
+            conflict=conflict,
             conflict_tension=conflict,
+            stakes=stakes,
             visual_hook=visual_hook,
+            opening_hook=opening_hook,
+            escalation=escalation,
             emotional_arc=emotional_arc,
+            payoff=payoff,
             ending_beat=ending_beat,
             style_direction=style_direction,
             continuity_anchors=anchors,
             clip_beats=clip_beats,
+            scene_progression=scene_progression,
             source_topic=topic,
             target_platform=platform_key,
             niche_style=niche_key,
@@ -839,6 +892,24 @@ class RunwayStoryBriefBuilder:
         return _normalize(f"{subject} — {place} — {tension_word}")
 
     @staticmethod
+    def _build_stakes(conflict: str, topic: str, language_code: str = "en") -> str:
+        if language_code == "fa":
+            return _normalize(f"اگر {topic} شکست بخورد، {conflict.split(';')[0]}")
+        return _normalize(f"If the central question fails, {conflict.split(';')[0]} — viewer must feel the cost immediately.")
+
+    @staticmethod
+    def _build_opening_hook(visual_hook: str, topic: str, character: str, setting: str) -> str:
+        if visual_hook:
+            return _normalize(visual_hook)
+        return _normalize(f"First-second hook: {character} in {setting} reveals why {topic} matters now.")
+
+    @staticmethod
+    def _build_escalation(conflict: str, topic: str, language_code: str = "en") -> str:
+        if language_code == "fa":
+            return _normalize(f"فشار داستان درباره {topic} بالا می‌رود — {conflict}")
+        return _normalize(f"Midpoint escalation: pressure around {topic} intensifies — {conflict}")
+
+    @staticmethod
     def _build_style_direction(
         *,
         niche: dict[str, str],
@@ -927,10 +998,15 @@ def validate_story_brief(brief: RunwayStoryBrief) -> list[str]:
     required = {
         "title": brief.title,
         "logline": brief.logline,
+        "subject": brief.subject,
         "main_character": brief.main_character,
-        "setting": brief.setting,
-        "conflict_tension": brief.conflict_tension,
+        "environment": brief.environment,
+        "conflict": brief.conflict,
+        "stakes": brief.stakes,
         "visual_hook": brief.visual_hook,
+        "opening_hook": brief.opening_hook,
+        "escalation": brief.escalation,
+        "payoff": brief.payoff,
         "ending_beat": brief.ending_beat,
         "style_direction": brief.style_direction,
     }

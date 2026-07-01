@@ -78,7 +78,39 @@ def get_runway_live_smoke_service():
     return get_runway_live_smoke_service._instance
 
 
+def get_runway_runtime_bridge_service():
+    from ui.api.runway_runtime_bridge_service import RunwayRuntimeBridgeService
+
+    if not hasattr(get_runway_runtime_bridge_service, "_instance"):
+        get_runway_runtime_bridge_service._instance = RunwayRuntimeBridgeService(get_project_root())
+    return get_runway_runtime_bridge_service._instance
+
+
 def get_browser_operations_service():
     from ui.api.browser_operations_service import BrowserOperationsService
 
     return BrowserOperationsService(get_project_root())
+
+
+def get_product_studio_service():
+    from ui.api.product_studio_service import get_product_studio_service
+
+    return get_product_studio_service(get_project_root())
+
+
+def get_platform_service():
+    from ui.api.platform_service import get_platform_service
+
+    return get_platform_service(get_project_root())
+
+
+def get_automation_service():
+    from ui.api.automation_service import get_automation_service
+
+    return get_automation_service(get_project_root())
+
+
+def get_upload_service():
+    from ui.api.upload_service import get_upload_service
+
+    return get_upload_service(get_project_root())

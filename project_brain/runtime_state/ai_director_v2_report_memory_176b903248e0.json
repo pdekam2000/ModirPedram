@@ -1,0 +1,73 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "memory_176b903248e0",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "purpose": "Establish world, location, and scale before subject focus.",
+      "scene_progression": "a knowledgeable presenter opens with Wildlife documentary about a lion with scar above eye in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Wildlife Documentary About a Lion With Scar Above Eye visible in frame.; camera pushes in on hands and tackle while location stays locked.",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "cut_to_medium"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "purpose": "Follow subject through space to build momentum.",
+      "scene_progression": "Continuous action around Wildlife documentary about a lion with scar above eye in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Wildlife documentary; What conflicting evidence still surrounds Wildlife Documentary About a Lion With Scar Above Eye? danger and possibility coexisting in the same frame intensifies.",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "hero_shot"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "purpose": "Present subject at peak visual power for final impression.",
+      "scene_progression": "a knowledgeable presenter closes Wildlife documentary about a lion with scar above eye with a frame-ready end pose that pays off the method and mood.",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "hold_end_frame"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: establishing_shot \u2014 a knowledgeable presenter opens with Wildlife documentary about a lion with scar above eye in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Wildlife Documentary About a Lion With Scar Above Eye visible in frame.; camera pushes in on hands and tackle while location stays locked.",
+    "Clip 2: tracking_shot \u2014 Continuous action around Wildlife documentary about a lion with scar above eye in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Wildlife documentary; What conflicting evidence still surrounds Wildlife Documentary About a Lion With Scar Above Eye? danger and possibility coexisting in the same frame intensifies.",
+    "Clip 3: hero_shot \u2014 a knowledgeable presenter closes Wildlife documentary about a lion with scar above eye with a frame-ready end pose that pays off the method and mood."
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "establishing_shot",
+      "camera_movement": "Slow wide push or locked wide frame with environmental depth layers.",
+      "lens": "24mm wide establishing lens",
+      "framing": "wide vertical establishing frame",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "a knowledgeable presenter opens with Wildlife documentary about a lion with scar above eye in a single continuous environment with strong depth and readable vertical framing \u2014 Opening visual hook: a knowledgeable presenter examines method in a single continuous environment with strong depth and readable vertical framing, with one unexplained detail about Wildlife Documentary About a Lion With Scar Above Eye visible in frame.; camera pushes in on hands and tackle while location stays locked. \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    },
+    {
+      "clip_index": 2,
+      "shot_type": "tracking_shot",
+      "camera_movement": "telephoto documentary tracking \u2014 Lateral or forward tracking matched to subject speed.",
+      "lens": "telephoto 85\u2013135mm equivalent",
+      "framing": "mid-wide tracking frame with lead room",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "Continuous action around Wildlife documentary about a lion with scar above eye in a single continuous environment with strong depth and readable vertical framing; camera tracks the subject while stakes centered on Wildlife documentary; What conflicting evidence still surrounds Wildlife Documentary About a Lion With Scar Above Eye? danger and possibility coexisting in the same frame intensifies. \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    },
+    {
+      "clip_index": 3,
+      "shot_type": "hero_shot",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "framing": "centered hero frame with chin-safe headroom",
+      "composition": "subject in lower two-thirds with habitat depth",
+      "visual_objective": "a knowledgeable presenter closes Wildlife documentary about a lion with scar above eye with a frame-ready end pose that pays off the method and mood. \u2014 capture authentic animal behavior with cinematic tension",
+      "domain": "wildlife"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\memory_176b903248e0\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}

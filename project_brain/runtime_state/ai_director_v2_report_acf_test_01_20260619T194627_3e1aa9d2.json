@@ -1,0 +1,35 @@
+{
+  "version": "ai_director_v2_v1",
+  "run_id": "acf_test_01_20260619T194627_3e1aa9d2",
+  "director_version": "AI Director V2",
+  "shot_plan": [
+    {
+      "clip_index": 1,
+      "shot_type": "hero_shot",
+      "purpose": "Present subject at peak visual power for final impression.",
+      "scene_progression": "Luxury men's fashion cinematic test",
+      "emotional_beat": "fear converting into forward motion",
+      "transition_out": "hold_end_frame"
+    }
+  ],
+  "shot_plan_summary": [
+    "Clip 1: hero_shot \u2014 Luxury men's fashion cinematic test"
+  ],
+  "camera_language": [
+    {
+      "clip_index": 1,
+      "shot_type": "hero_shot",
+      "camera_movement": "Low or centered hero framing with controlled push-in or hold.",
+      "lens": "35\u201350mm hero lens with subtle compression",
+      "framing": "centered hero frame with chin-safe headroom",
+      "composition": "rule-of-thirds vertical hero framing",
+      "visual_objective": "Luxury men's fashion cinematic test \u2014 advance story beat with clear visual hierarchy",
+      "domain": "general"
+    }
+  ],
+  "rhythm_score": 100,
+  "rhythm_pass": true,
+  "shot_graph_status": "PASS",
+  "shot_graph_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\runtime_state\\shot_graph\\acf_test_01_20260619T194627_3e1aa9d2\\shot_graph.json",
+  "director_camera_plan_marker": "DIRECTOR CAMERA PLAN"
+}
