@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import os
 import sys
 import tempfile
 from pathlib import Path
@@ -12,8 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-PWMAP_ROOT = Path(os.environ.get("MODIR_PWMAP_ROOT", r"C:\Users\kaman\Desktop\pwmap"))
-if PWMAP_ROOT.is_dir() and str(PWMAP_ROOT) not in sys.path:
+from content_brain.execution.pwmap_runway_agent_adapter import DEFAULT_PWMAP_ROOT, resolve_pwmap_root
+
+PWMAP_ROOT = resolve_pwmap_root()
+if str(PWMAP_ROOT) not in sys.path:
     sys.path.insert(0, str(PWMAP_ROOT))
 
 PASS = 0

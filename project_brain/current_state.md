@@ -2,6 +2,12 @@
 
 Generated: `2026-05-31 05:19:21`
 
+## pwmap runtime (vendored)
+
+- **Repo source:** `external/pwmap/` — canonical pwmap code in ModirAgentOS (Runway agent + download selection repair).
+- **Local production default:** `C:\Users\kaman\Desktop\pwmap` when that folder exists (browser profile, downloads stay outside git).
+- **Override:** set `MODIR_PWMAP_ROOT` to point at either path. Resolution logic: `content_brain/execution/pwmap_runway_agent_adapter.py`.
+
 ## Status
 
 Runtime Editing V1 is working.

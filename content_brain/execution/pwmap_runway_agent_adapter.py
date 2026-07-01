@@ -15,9 +15,26 @@ from typing import Any
 ADAPTER_VERSION = "pwmap_runway_agent_adapter_v1"
 LEGACY_INTERNAL_RUNTIME = "legacy_internal"
 PWMAP_AGENT_RUNTIME = "pwmap_agent"
-DEFAULT_PWMAP_ROOT = Path(os.environ.get("MODIR_PWMAP_ROOT", r"C:\Users\kaman\Desktop\pwmap"))
+MODIR_ROOT = Path(__file__).resolve().parents[2]
+VENDORED_PWMAP_ROOT = MODIR_ROOT / "external" / "pwmap"
+DESKTOP_PWMAP_ROOT = Path(r"C:\Users\kaman\Desktop\pwmap")
 OUTPUT_ROOT_NAME = "pwmap_agent_runs"
 MIN_REAL_MP4_BYTES = 1_000_000
+
+
+def resolve_default_pwmap_root() -> Path:
+    """Resolve pwmap runtime root: env override, then Desktop production path, then vendored repo copy."""
+    env = os.environ.get("MODIR_PWMAP_ROOT", "").strip()
+    if env:
+        return Path(env)
+    if DESKTOP_PWMAP_ROOT.is_dir() and (DESKTOP_PWMAP_ROOT / "runway_agent.py").is_file():
+        return DESKTOP_PWMAP_ROOT
+    if VENDORED_PWMAP_ROOT.is_dir() and (VENDORED_PWMAP_ROOT / "runway_agent.py").is_file():
+        return VENDORED_PWMAP_ROOT
+    return DESKTOP_PWMAP_ROOT
+
+
+DEFAULT_PWMAP_ROOT = resolve_default_pwmap_root()
 
 
 class PwmapAdapterError(Exception):
@@ -88,7 +105,8 @@ def resolve_pwmap_root(pwmap_root: str | Path | None = None) -> Path:
     root = Path(pwmap_root or DEFAULT_PWMAP_ROOT).resolve()
     if not root.is_dir():
         raise PwmapAdapterError(
-            f"pwmap root not found: {root}. Set MODIR_PWMAP_ROOT or install pwmap at the default path."
+            f"pwmap root not found: {root}. Set MODIR_PWMAP_ROOT, use vendored "
+            f"{VENDORED_PWMAP_ROOT}, or install pwmap at {DESKTOP_PWMAP_ROOT}."
         )
     agent_script = root / "runway_agent.py"
     if not agent_script.is_file():

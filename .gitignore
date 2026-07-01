@@ -25,6 +25,16 @@ project_brain/local_user/
 # Browser automation profiles (local session data)
 chrome_mapper_profile/
 
+# Vendored pwmap runtime — local execution artifacts only
+external/pwmap/runway_downloads/
+external/pwmap/pwmap_profile/
+external/pwmap/agent_inbox/job.json
+external/pwmap/agent_inbox/batch.json
+external/pwmap/**/*.mp4
+external/pwmap/**/*.log
+external/pwmap/**/client_secret*.json
+external/pwmap/**/*token*.json
+
 # Outputs / generated media
 outputs/
 downloads/

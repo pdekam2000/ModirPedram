@@ -1,0 +1,10 @@
+{
+  "prompts": [
+    "Clip 1: A vertical cinematic shot of a calm ocean at golden hour, soft waves, slow camera push-in.",
+    "Clip 2: The camera continues along the coastline, seagulls flying, warm sunset light reflecting on water.",
+    "Clip 3: Close-up of waves crashing on sand, foam details, dreamy slow motion, golden hour."
+  ],
+  "model": "Kling 3.0 Pro",
+  "duration": 15,
+  "aspect": "9:16"
+}

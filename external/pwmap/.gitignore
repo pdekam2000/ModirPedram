@@ -1,0 +1,43 @@
+# Generated downloads and run artifacts
+runway_downloads/
+pwmap_screenshots/
+*.mp4
+*.webm
+
+# Live job payloads (use *.example.json instead)
+agent_inbox/job.json
+agent_inbox/batch.json
+agent_inbox/agent5_test_input.json
+
+# Browser profiles and session data
+pwmap_profile/
+runway_profile/
+chrome_mapper_profile/
+**/BrowserMetrics/
+**/Crashpad/
+
+# Secrets and tokens
+.env
+.env.*
+secrets/
+**/client_secret_*.json
+**/*oauth*token*.json
+**/*auth_result*.json
+*.token.json
+
+# Python / build
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Generated reports and exports
+pwmap_export_*.csv
+pwmap_report_*.md
+pwmap_data.json
+runway_agent_export.zip
+
+# OS
+.DS_Store
+Thumbs.db
