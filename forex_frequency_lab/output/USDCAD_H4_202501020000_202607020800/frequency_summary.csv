@@ -1,0 +1,3 @@
+name,window_size,pattern_code,count,mean_angle_degrees,mean_gap_candles,cv_gap,mean_forward_return_pct,forward_win_rate
+Frequency 1,3,UM1|UM2|UM2,8,50.7,168.0,0.860155090693156,-0.0539,0.375
+Frequency 2,3,DM2|UM3|DM2,6,9.98,406.6,0.7402625774173638,-0.1941,0.5

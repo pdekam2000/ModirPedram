@@ -20,7 +20,7 @@ def _find_column(columns, aliases):
 
 
 def load_ohlc_csv(path):
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, sep=None, engine="python")
     df.columns = [str(c).strip() for c in df.columns]
 
     time_col = _find_column(df.columns, _COLUMN_ALIASES["time"])
