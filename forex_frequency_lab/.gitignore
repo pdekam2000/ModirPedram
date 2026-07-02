@@ -1,0 +1,3 @@
+data/*.csv
+output/*.json
+output/*.csv
