@@ -204,11 +204,59 @@ positive, 0.19&ndash;0.22R), and four different train/test split points
 across pairs, parameters, and splits is what the other ideas above lacked,
 and it lines up with a real, structurally sensible cause: FX liquidity is
 thin right at the weekend reopen, which is exactly the kind of overreaction
-that would partially retrace once normal liquidity resumes. It is still
-367 trades over roughly 5 years and 1.5-pip spread was the only cost
-modeled (no commission/slippage) — promising enough to paper-trade or dig
-into further, not yet enough to call proven. `output/idea_lab/all_ideas_combined.csv`
-and `idea_type_summary.csv` have the full breakdown.
+that would partially retrace once normal liquidity resumes.
+`output/idea_lab/all_ideas_combined.csv` and `idea_type_summary.csv` have
+the full breakdown.
+
+## Stress-testing the gap-fade finding further
+
+A single 70/30 split and a flat 1.5-pip spread aren't enough to actually
+trust a result — two follow-up checks, both in `walk_forward_validate.py`:
+
+**1. Rolling (anchored) walk-forward, 5 sequential out-of-sample folds per
+pair**, instead of one static split — each fold discovers the rule only on
+history up to that point and tests on the next chunk, so the "edge" gets
+checked against 5 different, non-overlapping time periods per pair rather
+than one:
+
+```bash
+python3 -c "
+from forex_frequency_lab.data_loader import load_ohlc_csv
+from forex_frequency_lab.walk_forward_validate import rolling_walk_forward_gap_fill
+df = load_ohlc_csv('data/AUDUSD_H4.csv')
+for f in rolling_walk_forward_gap_fill(df, n_folds=5, min_in_sample_frac=0.3, forward_k=10):
+    print(f)
+"
+```
+
+Result: on the four pairs with a full ~5-year history (AUDUSD, GBPUSD,
+USDCHF, USDJPY), 19 of 20 folds correctly re-discovered "fill" mode and 16
+of 20 (80%) came out with positive average R; pooled trade-weighted average
+across all 716 of those folds' trades was **+0.183R**, in line with the
+single-split result. On the two pairs with shorter history (EURUSD: 2.5
+years; USDCAD: ~1 year), the picture is weaker — EURUSD's discovery flipped
+between "fill" and "continuation" across folds (only 2 of 5 landed on
+"fill") and came out slightly negative overall (&minus;0.055R), most likely
+because a shorter history means too few weekly-gap events per fold to
+reliably tell the two modes apart. **The gap-fade edge looks real and
+consistent specifically where there's enough history to test it properly;
+it is not yet established on the newer/shorter series.**
+`output/idea_lab/gap_fill_rolling_walk_forward.csv` has every fold.
+
+**2. Spread stress test** — the earlier result used a flat 1.5-pip
+round-trip cost, but real spreads can widen sharply right at the illiquid
+Sunday/Monday reopen, which is exactly when this strategy enters:
+
+| Spread (pips) | 1.5 | 3 | 5 | 8 | 12 | 18 | 25 |
+|---|---|---|---|---|---|---|---|
+| Avg R (367 trades) | +0.201 | +0.165 | +0.118 | +0.046 | &minus;0.049 | &minus;0.192 | &minus;0.358 |
+
+The edge survives realistic widening up to roughly 8 pips and breaks even
+somewhere between 8 and 12. **Before trading this, check your broker's
+actual spread in the first hour after the Sunday/Monday reopen** — if it
+routinely exceeds ~10 pips on the pairs you'd trade, this edge is likely
+gone in practice even though it looks solid at typical mid-week spreads.
+`output/idea_lab/gap_fill_spread_stress_test.csv` has the full sweep.
 
 ## Validating the pipeline with synthetic data
 

@@ -19,6 +19,7 @@ from forex_frequency_lab.mean_reversion import (
     signal_end_indices_and_directions as mean_reversion_signal,
 )
 from forex_frequency_lab.seasonality import discover_seasonal_bias, signal_end_indices as seasonality_signal
+from forex_frequency_lab.walk_forward_validate import rolling_walk_forward_gap_fill
 from forex_frequency_lab.volatility_regime import (
     discover_volatility_regime_bias,
     signal_end_indices_and_directions as vol_regime_signal,
@@ -248,16 +249,13 @@ def test_align_pairs_and_compute_residuals_smoke():
     assert len(residuals) == n - 1
 
 
-def test_gap_fill_recovers_injected_fill_bias():
-    n = 2500
-    rng = np.random.default_rng(5)
+def _generate_gap_fill_series(n, seed, forward_k=10, freq_hours=4, gap_period=42):
+    rng = np.random.default_rng(seed)
     step = 0.0008
-    freq_hours = 4
-    forward_k = 10
 
     times = [pd.Timestamp("2015-01-01")]
     for i in range(1, n):
-        if i % 42 == 0:
+        if i % gap_period == 0:
             times.append(times[-1] + pd.Timedelta(hours=64))  # weekend-style gap
         else:
             times.append(times[-1] + pd.Timedelta(hours=freq_hours))
@@ -286,7 +284,7 @@ def test_gap_fill_recovers_injected_fill_bias():
         closes[i] = opens[i] + bar_return
         price = closes[i]
 
-    df = pd.DataFrame(
+    return pd.DataFrame(
         {
             "Time": times,
             "Open": opens,
@@ -296,6 +294,11 @@ def test_gap_fill_recovers_injected_fill_bias():
             "Volume": 100.0,
         }
     )
+
+
+def test_gap_fill_recovers_injected_fill_bias():
+    forward_k = 10
+    df = _generate_gap_fill_series(2500, seed=5, forward_k=forward_k)
 
     split = int(len(df) * 0.7)
     df_in, df_out = df.iloc[:split].reset_index(drop=True), df.iloc[split:].reset_index(drop=True)
@@ -353,3 +356,18 @@ def test_mean_reversion_recovers_injected_reversion():
     summary = summarize_trades(trades)
     assert summary["trade_count"] > 0
     assert summary["avg_r"] > 0
+
+
+def test_rolling_walk_forward_gap_fill_recovers_edge_across_folds():
+    forward_k = 10
+    df = _generate_gap_fill_series(6000, seed=7, forward_k=forward_k)
+
+    fold_results = rolling_walk_forward_gap_fill(
+        df, n_folds=5, min_in_sample_frac=0.3, forward_k=forward_k,
+        gap_multiplier=1.5, min_samples=10, stop_atr_mult=1.0, reward_risk_ratio=1.5, spread_pips=0.0,
+    )
+
+    tested_folds = [f for f in fold_results if f.get("rule_found") and f.get("out_trade_count", 0) > 0]
+    assert len(tested_folds) >= 3
+    assert all(f["mode"] == "fill" for f in tested_folds)
+    assert all(f["out_avg_r"] > 0 for f in tested_folds)
