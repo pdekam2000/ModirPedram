@@ -22,13 +22,18 @@ export const TONE_PRESETS = [
 
 export const VISUAL_STYLE_PRESETS = [
   "cinematic realistic",
+  "anime/animation",
+  "3d animated",
+  "photorealistic",
+  "watercolor/painterly",
+  "noir (black and white)",
+  "retro vhs/analog horror",
+  "stop-motion/claymation",
   "nature documentary",
   "dark mystery",
   "soft relaxing",
   "product ad",
   "educational explainer",
-  "anime-inspired",
-  "papercraft",
   "custom",
 ] as const;
 

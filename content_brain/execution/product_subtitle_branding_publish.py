@@ -65,7 +65,7 @@ def _resolve_settings(
             overrides.get("watermark_enabled", channel_profile.get("watermark_enabled", base["logo_enabled"]))
         ),
         "logo_enabled": bool(overrides.get("logo_enabled", base["logo_enabled"])),
-        "cta_enabled": bool(overrides.get("cta_enabled", base["cta_enabled"])),
+        "cta_enabled": bool(overrides.get("cta_enabled", channel_profile.get("cta_enabled", base["cta_enabled"]))),
         "intro_enabled": bool(overrides.get("intro_enabled", base["intro_enabled"])),
         "outro_enabled": bool(overrides.get("outro_enabled", base["outro_enabled"])),
         "intro_text": str(overrides.get("intro_text") or base.get("intro_text") or ""),
@@ -94,6 +94,27 @@ def _resolve_settings(
             or preflight.get("external_subtitle_path")
             or channel_profile.get("external_subtitle_path")
             or ""
+        ),
+        "cta_position": str(
+            overrides.get("cta_position")
+            or preflight.get("cta_position")
+            or channel_profile.get("cta_position")
+            or base.get("cta_position")
+            or "top_right"
+        ),
+        "cta_start_seconds": float(
+            overrides.get("cta_start_seconds")
+            or preflight.get("cta_start_seconds")
+            or channel_profile.get("cta_start_seconds")
+            or base.get("cta_start_seconds")
+            or 5
+        ),
+        "cta_end_seconds": float(
+            overrides.get("cta_end_seconds")
+            or preflight.get("cta_end_seconds")
+            or channel_profile.get("cta_end_seconds")
+            or base.get("cta_end_seconds")
+            or 24
         ),
     }
     return resolved
@@ -348,7 +369,9 @@ def run_product_subtitle_branding_publish(
                 cta_text=cta_text,
                 cta_position=settings["cta_position"],
                 cta_frequency=settings.get("cta_frequency") or CTA_FREQUENCY_END,
-                duration_seconds=30.0,
+                cta_start_seconds=settings.get("cta_start_seconds"),
+                cta_end_seconds=settings.get("cta_end_seconds"),
+                duration_seconds=float(settings.get("cta_end_seconds") or 30.0),
                 ffmpeg_probe=probe,
             )
             if cta.status == "COMPLETED" and cta_out.is_file():

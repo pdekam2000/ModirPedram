@@ -143,8 +143,20 @@ def suggest_cta_texts(
     return fallback[:4], "rule_based"
 
 
-def _cta_window(duration_seconds: float, frequency: str) -> tuple[float, float]:
+def _cta_window(
+    duration_seconds: float,
+    frequency: str,
+    *,
+    cta_start_seconds: float | None = None,
+    cta_end_seconds: float | None = None,
+) -> tuple[float, float]:
     duration = max(1.0, float(duration_seconds or 10.0))
+    if cta_start_seconds is not None and cta_end_seconds is not None:
+        start = max(0.0, float(cta_start_seconds))
+        end = min(duration, float(cta_end_seconds))
+        if end <= start:
+            end = min(duration, start + CTA_DURATION_SECONDS)
+        return start, end
     span = min(CTA_DURATION_SECONDS, max(2.0, duration * 0.12))
     if frequency == CTA_FREQUENCY_BEGINNING:
         return 0.0, min(span, duration * 0.25)
@@ -155,6 +167,15 @@ def _cta_window(duration_seconds: float, frequency: str) -> tuple[float, float]:
     return start, duration
 
 
+def _cta_position_exprs(position: str) -> tuple[str, str]:
+    normalized = str(position or "bottom_center").strip().lower()
+    if normalized == "top_left":
+        return "48", "96"
+    if normalized == "top_right":
+        return "w-text_w-48", "96"
+    return "(w-text_w)/2", "h-th-88"
+
+
 def apply_cta_overlay(
     *,
     input_video_path: str | Path,
@@ -162,6 +183,8 @@ def apply_cta_overlay(
     cta_text: str,
     cta_position: str = "bottom_center",
     cta_frequency: str = CTA_FREQUENCY_END,
+    cta_start_seconds: float | None = None,
+    cta_end_seconds: float | None = None,
     duration_seconds: float | None = None,
     ffmpeg_probe: Any | None = None,
 ) -> BrandingFfmpegResult:
@@ -177,17 +200,22 @@ def apply_cta_overlay(
         )
 
     duration = float(duration_seconds or 30.0)
-    start, end = _cta_window(duration, cta_frequency)
+    start, end = _cta_window(
+        duration,
+        cta_frequency,
+        cta_start_seconds=cta_start_seconds,
+        cta_end_seconds=cta_end_seconds,
+    )
     fade = min(CTA_FADE_SECONDS, max(0.2, (end - start) * 0.25))
-    y_expr = "h-th-88" if cta_position == "bottom_center" else "96"
+    x_expr, y_expr = _cta_position_exprs(cta_position)
     alpha_in = f"if(lt(t,{start + fade:.2f}),(t-{start:.2f})/{fade:.2f},1)"
     alpha_out = f"if(gt(t,{end - fade:.2f}),({end:.2f}-t)/{fade:.2f},1)"
     alpha_expr = f"if(lt(t,{start:.2f}),0,if(gt(t,{end:.2f}),0,min({alpha_in},{alpha_out})))"
 
     vf = (
-        f"drawtext=text='{text}':fontcolor={CTA_ACCENT_COLOUR}:fontsize=20:borderw=2:bordercolor=black@0.85:"
-        f"box=1:boxcolor=black@0.35:boxborderw=10:"
-        f"x=(w-text_w)/2:y={y_expr}:alpha='{alpha_expr}'"
+        f"drawtext=text='{text}':fontcolor={CTA_ACCENT_COLOUR}:fontsize=22:borderw=2:bordercolor=black@0.9:"
+        f"box=1:boxcolor=black@0.45:boxborderw=14:"
+        f"x={x_expr}:y={y_expr}:alpha='{alpha_expr}'"
     )
     result = run_ffmpeg_filter(
         input_path=video,
@@ -201,6 +229,8 @@ def apply_cta_overlay(
             "cta_text": cta_text,
             "cta_position": cta_position,
             "cta_frequency": cta_frequency,
+            "cta_start_seconds": cta_start_seconds,
+            "cta_end_seconds": cta_end_seconds,
             "cta_window": {"start": start, "end": end},
             "cta_fade_seconds": fade,
             "cta_accent_colour": CTA_ACCENT_COLOUR,

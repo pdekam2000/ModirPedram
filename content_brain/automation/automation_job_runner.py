@@ -229,6 +229,19 @@ class AutomationJobRunner:
         return output, publish
 
     def _load_scheduled_jobs(self) -> list[dict[str, Any]]:
+        from content_brain.scheduling.schedule_planner import sync_today_jobs_for_default_plans
+
+        profile = ProductChannelProfileStore(self.project_root).load()
+        try:
+            sync_today_jobs_for_default_plans(
+                self.project_root,
+                channel_niche=str(profile.get("main_niche") or ""),
+                channel_topic=str(profile.get("channel_topic") or ""),
+                tiktok_channel_topic=str(profile.get("tiktok_channel_topic") or ""),
+                instagram_channel_topic=str(profile.get("instagram_channel_topic") or ""),
+            )
+        except Exception:
+            pass
         jobs_dir = self.project_root / "storage" / "content_brain" / "schedules" / "jobs"
         if not jobs_dir.is_dir():
             return []

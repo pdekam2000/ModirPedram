@@ -148,6 +148,8 @@ class ProductStudioService:
             "main_niche": str(saved.get("main_niche") or ""),
             "sub_niche": str(saved.get("sub_niche") or ""),
             "channel_topic": str(saved.get("channel_topic") or saved.get("sub_niche") or saved.get("main_niche") or ""),
+            "tiktok_channel_topic": str(saved.get("tiktok_channel_topic") or saved.get("channel_topic") or ""),
+            "instagram_channel_topic": str(saved.get("instagram_channel_topic") or saved.get("channel_topic") or ""),
             "target_audience": str(saved.get("target_audience") or ""),
             "language": str(saved.get("language") or "English"),
             "tone_style": str(saved.get("tone_style") or "cinematic"),
@@ -172,8 +174,10 @@ class ProductStudioService:
             "subtitle_style": str(saved.get("subtitle_style") or "tiktok"),
             "subtitle_position": str(saved.get("subtitle_position") or "bottom_center"),
             "cta_enabled": bool(saved.get("cta_enabled", True)),
-            "cta_text": str(saved.get("cta_text") or "Follow for more"),
-            "cta_position": str(saved.get("cta_position") or "bottom_center"),
+            "cta_text": str(saved.get("cta_text") or "Subscribe"),
+            "cta_position": str(saved.get("cta_position") or "top_right"),
+            "cta_start_seconds": float(saved.get("cta_start_seconds") or 5),
+            "cta_end_seconds": float(saved.get("cta_end_seconds") or 24),
             "cta_frequency": str(saved.get("cta_frequency") or "end"),
             "intro_enabled": bool(saved.get("intro_enabled", False)),
             "intro_text": str(saved.get("intro_text") or ""),
@@ -210,6 +214,8 @@ class ProductStudioService:
             "main_niche": str(payload.get("main_niche") or ""),
             "sub_niche": str(payload.get("sub_niche") or ""),
             "channel_topic": str(payload.get("channel_topic") or ""),
+            "tiktok_channel_topic": str(payload.get("tiktok_channel_topic") or payload.get("channel_topic") or ""),
+            "instagram_channel_topic": str(payload.get("instagram_channel_topic") or payload.get("channel_topic") or ""),
             "target_audience": str(payload.get("target_audience") or ""),
             "language": str(payload.get("language") or "English"),
             "tone_style": str(payload.get("tone_style") or "cinematic"),
@@ -234,8 +240,10 @@ class ProductStudioService:
             "subtitle_style": str(payload.get("subtitle_style") or "tiktok"),
             "subtitle_position": str(payload.get("subtitle_position") or "bottom_center"),
             "cta_enabled": bool(payload.get("cta_enabled", True)),
-            "cta_text": str(payload.get("cta_text") or "Follow for more"),
-            "cta_position": str(payload.get("cta_position") or "bottom_center"),
+            "cta_text": str(payload.get("cta_text") or "Subscribe"),
+            "cta_position": str(payload.get("cta_position") or "top_right"),
+            "cta_start_seconds": float(payload.get("cta_start_seconds") or 5),
+            "cta_end_seconds": float(payload.get("cta_end_seconds") or 24),
             "cta_frequency": str(payload.get("cta_frequency") or "end"),
             "intro_enabled": bool(payload.get("intro_enabled", False)),
             "intro_text": str(payload.get("intro_text") or ""),
@@ -400,7 +408,8 @@ class ProductStudioService:
         duration_seconds = int(payload.get("duration_seconds") or profile.get("default_duration_seconds") or 30)
         platform = str(payload.get("platform") or profile.get("default_platform"))
         style = str(
-            payload.get("style")
+            payload.get("visual_style")
+            or payload.get("style")
             or profile.get("visual_style")
             or profile.get("tone_style")
         )
@@ -512,6 +521,7 @@ class ProductStudioService:
             "platform": platform,
             "aspect_ratio": aspect_ratio,
             "style": style,
+            "visual_style": style,
             "pipeline_steps": steps,
             "warnings": warnings,
             "preflight_mode": "preview_only",
@@ -605,6 +615,8 @@ class ProductStudioService:
             plan,
             channel_niche=str(profile.get("main_niche") or ""),
             channel_topic=str(profile.get("channel_topic") or ""),
+            tiktok_channel_topic=str(profile.get("tiktok_channel_topic") or ""),
+            instagram_channel_topic=str(profile.get("instagram_channel_topic") or ""),
         )
 
     def generate_schedule_jobs(self, schedule_id: str, *, only_date: str | None = None) -> dict[str, Any]:
@@ -614,6 +626,8 @@ class ProductStudioService:
             plan,
             channel_niche=str(profile.get("main_niche") or ""),
             channel_topic=str(profile.get("channel_topic") or ""),
+            tiktok_channel_topic=str(profile.get("tiktok_channel_topic") or ""),
+            instagram_channel_topic=str(profile.get("instagram_channel_topic") or ""),
             only_date=only_date,
         )
         self.schedule_store.save_jobs(schedule_id, jobs)

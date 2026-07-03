@@ -12,6 +12,8 @@ class ChannelProfileDTO(BaseModel):
     main_niche: str = ""
     sub_niche: str = ""
     channel_topic: str = ""
+    tiktok_channel_topic: str = ""
+    instagram_channel_topic: str = ""
     target_audience: str = ""
     language: str = "English"
     tone_style: str = "cinematic"
@@ -36,8 +38,10 @@ class ChannelProfileDTO(BaseModel):
     subtitle_style: str = "tiktok"
     subtitle_position: str = "bottom_center"
     cta_enabled: bool = True
-    cta_text: str = "Follow for more"
-    cta_position: str = "bottom_center"
+    cta_text: str = "Subscribe"
+    cta_position: str = "top_right"
+    cta_start_seconds: float = 5
+    cta_end_seconds: float = 24
     cta_frequency: str = "end"
     intro_enabled: bool = False
     intro_text: str = ""

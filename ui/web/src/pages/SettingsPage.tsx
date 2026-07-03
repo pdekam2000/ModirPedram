@@ -404,6 +404,8 @@ export function SettingsPage() {
                   ["main_niche", "Main niche"],
                   ["sub_niche", "Sub niche"],
                   ["channel_topic", "Channel topic"],
+                  ["tiktok_channel_topic", "TikTok channel topic"],
+                  ["instagram_channel_topic", "Instagram channel topic"],
                   ["target_audience", "Target audience"],
                 ] as const
               ).map(([key, label]) => (

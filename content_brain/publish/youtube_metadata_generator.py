@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 from datetime import datetime, timezone
@@ -47,6 +48,131 @@ NICHE_CATEGORY_MAP: dict[str, str] = {
 
 PLATFORM_TAGS = ("youtube", "shorts", "short video", "ai video", "generative video")
 GENRE_TAGS = ("storytelling", "cinematic", "viral", "trending")
+DESCRIPTION_TARGET_CHARS = 3800
+
+
+def _openai_json_completion(*, system: str, user_payload: dict[str, Any], max_tokens: int = 1400) -> dict[str, Any] | None:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        return None
+    try:
+        from openai import OpenAI
+    except ImportError:
+        return None
+    try:
+        client = OpenAI(api_key=api_key, timeout=45.0)
+        response = client.chat.completions.create(
+            model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+            response_format={"type": "json_object"},
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user", "content": json.dumps(user_payload, ensure_ascii=False)},
+            ],
+            temperature=0.55,
+            max_tokens=max_tokens,
+        )
+        raw = (response.choices[0].message.content or "").strip()
+        payload = json.loads(raw)
+        return payload if isinstance(payload, dict) else None
+    except Exception:
+        return None
+
+
+def _channel_name_tag_variants(channel_name: str) -> list[str]:
+    name = re.sub(r"\s+", " ", str(channel_name or "").strip())
+    if not name:
+        return []
+    compact = re.sub(r"[^a-zA-Z0-9]", "", name)
+    tags = [name]
+    if compact and compact.lower() != name.lower():
+        tags.append(compact)
+    if compact:
+        tags.append(f"#{compact}")
+    return tags
+
+
+def _ai_generate_title(
+    *,
+    topic: str,
+    channel_profile: dict[str, Any],
+    story_hook: str,
+    is_short: bool,
+) -> str:
+    channel = str(channel_profile.get("channel_name") or "Channel").strip()
+    niche = str(channel_profile.get("main_niche") or channel_profile.get("channel_topic") or "").strip()
+    payload = _openai_json_completion(
+        system=(
+            "Return JSON {\"title\": \"...\", \"candidates\": [\"...\"]}. "
+            "Write 3 curiosity-driven YouTube titles under 95 characters. "
+            "Avoid spam clickbait (no ALL CAPS, no triple punctuation). Pick the best in title."
+        ),
+        user_payload={
+            "topic": topic,
+            "channel_name": channel,
+            "main_niche": niche,
+            "story_hook": story_hook,
+            "format": "shorts" if is_short else "long",
+        },
+        max_tokens=350,
+    )
+    if not payload:
+        return ""
+    title = str(payload.get("title") or "").strip()
+    if not title:
+        candidates = payload.get("candidates") or []
+        if isinstance(candidates, list):
+            for item in candidates:
+                text = str(item or "").strip()
+                if text:
+                    title = text
+                    break
+    return _clean_title(title) if title else ""
+
+
+def _ai_generate_description(
+    *,
+    topic: str,
+    channel_profile: dict[str, Any],
+    story_hook: str,
+    narration_script: str,
+    hashtags: list[str],
+    cta_text: str,
+    is_short: bool,
+    duration_seconds: float | int | None,
+    seo_keywords: list[str],
+) -> str:
+    channel = str(channel_profile.get("channel_name") or "Channel").strip()
+    niche = str(channel_profile.get("main_niche") or channel_profile.get("channel_topic") or "").strip()
+    disclosure = _ai_disclosure_block(channel_profile)
+    payload = _openai_json_completion(
+        system=(
+            "Return JSON {\"description\": \"...\"}. Write a YouTube description near 3500-3800 characters. "
+            "Structure: compelling hook paragraph, keyword-rich story summary, channel intro + subscribe CTA, "
+            "SEO keyword paragraph, AI disclosure line if provided, hashtags line. "
+            "Natural prose — no spam, no misleading claims."
+        ),
+        user_payload={
+            "topic": topic,
+            "channel_name": channel,
+            "main_niche": niche,
+            "story_hook": story_hook,
+            "narration_excerpt": narration_script[:1200],
+            "cta_text": cta_text,
+            "hashtags": hashtags,
+            "seo_keywords": seo_keywords[:20],
+            "format": "shorts" if is_short else "long",
+            "duration_seconds": duration_seconds,
+            "ai_disclosure": disclosure,
+            "target_chars": DESCRIPTION_TARGET_CHARS,
+        },
+        max_tokens=1800,
+    )
+    if not payload:
+        return ""
+    description = str(payload.get("description") or "").strip()
+    if len(description) > 4000:
+        description = description[:3997].rstrip() + "..."
+    return description
 
 
 def _now_iso() -> str:
@@ -196,6 +322,15 @@ def _build_title(
             f"Why {topic} Matters | {niche}",
         ]
 
+    ai_title = _ai_generate_title(
+        topic=topic,
+        channel_profile=channel_profile,
+        story_hook=story_hook,
+        is_short=is_short,
+    )
+    if ai_title:
+        return ai_title, _clean_title(ai_title, max_len=42)
+
     title = _clean_title(next((item for item in candidates if item.strip()), topic))
     short_title = _clean_title(title, max_len=42)
     return title, short_title
@@ -225,30 +360,52 @@ def _build_description(
     if disclosure:
         lines.extend(["", disclosure])
     lines.extend(["", cta_text, "", " ".join(hashtags)])
-    return "\n".join(line for line in lines if line is not None).strip()
+    template = "\n".join(line for line in lines if line is not None).strip()
+    seo_keywords = _topic_words(topic) + _topic_words(str(channel_profile.get("main_niche") or ""))
+    ai_description = _ai_generate_description(
+        topic=topic,
+        channel_profile=channel_profile,
+        story_hook=story_hook,
+        narration_script=narration_script,
+        hashtags=hashtags,
+        cta_text=cta_text,
+        is_short=is_short,
+        duration_seconds=duration_seconds,
+        seo_keywords=seo_keywords,
+    )
+    if ai_description:
+        return ai_description
+    return template
 
 
 def _build_tags(*, topic: str, channel_profile: dict[str, Any], is_short: bool, prompts: list[str]) -> list[str]:
+    channel_name = str(channel_profile.get("channel_name") or "").strip()
+    niche = str(channel_profile.get("main_niche") or channel_profile.get("channel_topic") or "").strip()
+    priority_tags: list[str] = []
+    priority_tags.extend(_channel_name_tag_variants(channel_name))
+    priority_tags.extend(_topic_words(niche))
+    priority_tags.extend(_topic_words(niche.replace("_", " ")))
+
     topic_tags = _topic_words(topic)
-    niche = str(channel_profile.get("main_niche") or "").lower()
     niche_tags = _topic_words(niche)
     prompt_tags: list[str] = []
     for prompt in prompts[:3]:
         prompt_tags.extend(_topic_words(prompt)[:3])
-    tags = topic_tags + niche_tags + list(GENRE_TAGS) + list(PLATFORM_TAGS) + prompt_tags
+    secondary = topic_tags + niche_tags + list(GENRE_TAGS) + list(PLATFORM_TAGS) + prompt_tags
     if is_short:
-        tags.extend(["youtube shorts", "vertical video", "short form"])
+        secondary.extend(["youtube shorts", "vertical video", "short form"])
     else:
-        tags.extend(["long form", "multi clip", "story video"])
-    tags.extend(["ai generated", "ai video", "generative ai"])
+        secondary.extend(["long form", "multi clip", "story video"])
+    secondary.extend(["ai generated", "ai video", "generative ai"])
+
     deduped: list[str] = []
     seen: set[str] = set()
-    for tag in tags:
-        key = tag.lower()
+    for tag in priority_tags + secondary:
+        key = tag.lower().lstrip("#")
         if not key or key in seen:
             continue
         seen.add(key)
-        deduped.append(tag[:40])
+        deduped.append(tag[:40].lstrip("#"))
     return deduped[:30]
 
 

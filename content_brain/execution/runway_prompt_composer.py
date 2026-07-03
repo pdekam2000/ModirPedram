@@ -757,6 +757,113 @@ def _already_composed(brief: dict[str, Any]) -> bool:
     )
 
 
+VISUAL_STYLE_PROMPT_SUFFIXES: dict[str, str] = {
+    "cinematic realistic": (
+        "Visual style: cinematic realistic — natural lighting, shallow depth of field, "
+        "film-grade color grading, photoreal textures, grounded camera movement."
+    ),
+    "cinematic_realistic": (
+        "Visual style: cinematic realistic — natural lighting, shallow depth of field, "
+        "film-grade color grading, photoreal textures, grounded camera movement."
+    ),
+    "anime animation": (
+        "Visual style: anime animation — expressive cel-shaded characters, dynamic line art, "
+        "vivid saturated palette, stylized motion smears, dramatic anime framing."
+    ),
+    "anime/animation": (
+        "Visual style: anime animation — expressive cel-shaded characters, dynamic line art, "
+        "vivid saturated palette, stylized motion smears, dramatic anime framing."
+    ),
+    "anime-inspired": (
+        "Visual style: anime animation — expressive cel-shaded characters, dynamic line art, "
+        "vivid saturated palette, stylized motion smears, dramatic anime framing."
+    ),
+    "3d animated": (
+        "Visual style: 3D animated — Pixar-quality CGI, soft global illumination, "
+        "stylized 3D characters, smooth render, playful camera arcs."
+    ),
+    "3d_animated": (
+        "Visual style: 3D animated — Pixar-quality CGI, soft global illumination, "
+        "stylized 3D characters, smooth render, playful camera arcs."
+    ),
+    "photorealistic": (
+        "Visual style: photorealistic — ultra-sharp detail, true-to-life materials, "
+        "accurate skin and fabric texture, natural HDR lighting, documentary realism."
+    ),
+    "watercolor painterly": (
+        "Visual style: watercolor painterly — soft brush edges, paper grain texture, "
+        "bleeding pigment washes, hand-painted illustration mood, gentle color blooms."
+    ),
+    "watercolor/painterly": (
+        "Visual style: watercolor painterly — soft brush edges, paper grain texture, "
+        "bleeding pigment washes, hand-painted illustration mood, gentle color blooms."
+    ),
+    "noir black and white": (
+        "Visual style: noir black and white — high-contrast monochrome, hard shadows, "
+        "venetian-blind lighting, moody silhouettes, classic film-noir atmosphere."
+    ),
+    "noir (black and white)": (
+        "Visual style: noir black and white — high-contrast monochrome, hard shadows, "
+        "venetian-blind lighting, moody silhouettes, classic film-noir atmosphere."
+    ),
+    "dark mystery": (
+        "Visual style: noir black and white — high-contrast monochrome, hard shadows, "
+        "venetian-blind lighting, moody silhouettes, classic film-noir atmosphere."
+    ),
+    "retro vhs analog horror": (
+        "Visual style: retro VHS analog horror — scan lines, chromatic aberration, "
+        "tape noise, desaturated greens, unsettling found-footage grain, 90s camcorder feel."
+    ),
+    "retro vhs/analog horror": (
+        "Visual style: retro VHS analog horror — scan lines, chromatic aberration, "
+        "tape noise, desaturated greens, unsettling found-footage grain, 90s camcorder feel."
+    ),
+    "stop motion claymation": (
+        "Visual style: stop-motion claymation — handcrafted clay textures, visible thumbprints, "
+        "miniature sets, frame-by-frame charm, warm practical lighting."
+    ),
+    "stop-motion/claymation": (
+        "Visual style: stop-motion claymation — handcrafted clay textures, visible thumbprints, "
+        "miniature sets, frame-by-frame charm, warm practical lighting."
+    ),
+    "documentary": (
+        "Visual style: documentary realism — handheld observational camera, natural available light, "
+        "authentic locations, editorial framing."
+    ),
+    "cinematic": (
+        "Visual style: cinematic realistic — natural lighting, shallow depth of field, "
+        "film-grade color grading, photoreal textures, grounded camera movement."
+    ),
+}
+
+
+def resolve_visual_style_prompt_suffix(visual_style: str) -> str:
+    key = _normalize_text(visual_style).lower()
+    if not key:
+        return VISUAL_STYLE_PROMPT_SUFFIXES["cinematic realistic"]
+    if key in VISUAL_STYLE_PROMPT_SUFFIXES:
+        return VISUAL_STYLE_PROMPT_SUFFIXES[key]
+    for style_key, suffix in VISUAL_STYLE_PROMPT_SUFFIXES.items():
+        if style_key in key or key in style_key:
+            return suffix
+    return f"Visual style: {visual_style.strip()} — maintain this look consistently in every frame."
+
+
+def apply_visual_style_to_clip_prompts(prompts: list[str], visual_style: str) -> list[str]:
+    """Append mandatory visual-style direction to every clip prompt (Runway/Kling)."""
+    suffix = resolve_visual_style_prompt_suffix(visual_style)
+    styled: list[str] = []
+    for prompt in prompts:
+        text = _normalize_text(prompt)
+        if not text:
+            continue
+        if suffix.lower() in text.lower():
+            styled.append(text)
+        else:
+            styled.append(_normalize_text(f"{text} {suffix}"))
+    return styled
+
+
 def apply_runway_prompt_composer_to_session(session: dict[str, Any]) -> dict[str, Any]:
     """Mutate session brief_snapshot with composed clips when composer is enabled."""
     from content_brain.execution.runway_prompt_composer_config import enable_runway_prompt_composer
@@ -780,6 +887,9 @@ def apply_runway_prompt_composer_to_session(session: dict[str, Any]) -> dict[str
 __all__ = [
     "RunwayPromptComposer",
     "apply_runway_prompt_composer_to_session",
+    "apply_visual_style_to_clip_prompts",
+    "resolve_visual_style_prompt_suffix",
+    "VISUAL_STYLE_PROMPT_SUFFIXES",
     "COMPOSER_VERSION",
     "ENGINE_NAME",
 ]

@@ -69,9 +69,16 @@ def resolve_topic_for_job(
     plan: VideoSchedulePlan,
     channel_niche: str = "",
     channel_topic: str = "",
+    tiktok_channel_topic: str = "",
+    instagram_channel_topic: str = "",
     job_index: int = 0,
     planned_date: str = "",
 ) -> str:
+    platform = str((plan.platforms or ["youtube_shorts"])[0] or "").strip().lower()
+    if platform == "tiktok" and tiktok_channel_topic.strip():
+        return tiktok_channel_topic.strip()
+    if platform == "instagram_reels" and instagram_channel_topic.strip():
+        return instagram_channel_topic.strip()
     if plan.topic_source == "custom":
         return plan.custom_topic.strip()
     if plan.topic_source == "topic_list":
@@ -90,6 +97,8 @@ def generate_jobs_for_plan(
     *,
     channel_niche: str = "",
     channel_topic: str = "",
+    tiktok_channel_topic: str = "",
+    instagram_channel_topic: str = "",
     only_date: str | None = None,
 ) -> list[ScheduledVideoJob]:
     errors = validate_schedule_plan(plan)
@@ -120,6 +129,8 @@ def generate_jobs_for_plan(
                 plan=plan,
                 channel_niche=channel_niche,
                 channel_topic=channel_topic,
+                tiktok_channel_topic=tiktok_channel_topic,
+                instagram_channel_topic=instagram_channel_topic,
                 job_index=job_index,
                 planned_date=planned.isoformat(),
             )
@@ -147,3 +158,90 @@ def preview_schedule(plan: VideoSchedulePlan, **kwargs: Any) -> dict[str, Any]:
         "jobs_preview": [job.to_dict() for job in jobs[:20]],
         "truncated": len(jobs) > 20,
     }
+
+
+DEFAULT_DAILY_PLATFORM_PLANS: tuple[dict[str, Any], ...] = (
+    {
+        "schedule_id": "sched_daily_youtube_4",
+        "title": "Daily YouTube Shorts (4/day)",
+        "platforms": ["youtube_shorts"],
+        "videos_per_day": 4,
+    },
+    {
+        "schedule_id": "sched_daily_tiktok_3",
+        "title": "Daily TikTok (3/day)",
+        "platforms": ["tiktok"],
+        "videos_per_day": 3,
+    },
+    {
+        "schedule_id": "sched_daily_instagram_3",
+        "title": "Daily Instagram Reels (3/day)",
+        "platforms": ["instagram_reels"],
+        "videos_per_day": 3,
+    },
+)
+
+
+def ensure_default_daily_platform_plans(store: Any, *, duration_seconds: int = 30) -> list[VideoSchedulePlan]:
+    """Create the 10-videos/day platform split plans if missing."""
+    from content_brain.scheduling.schedule_store import ScheduleStore
+
+    schedule_store: ScheduleStore = store
+    existing = {plan.schedule_id: plan for plan in schedule_store.list_plans()}
+    ensured: list[VideoSchedulePlan] = []
+    today = date.today().isoformat()
+    end = (date.today() + timedelta(days=30)).isoformat()
+    for spec in DEFAULT_DAILY_PLATFORM_PLANS:
+        schedule_id = str(spec["schedule_id"])
+        if schedule_id in existing:
+            ensured.append(existing[schedule_id])
+            continue
+        plan = VideoSchedulePlan(
+            schedule_id=schedule_id,
+            title=str(spec["title"]),
+            mode="daily",
+            videos_per_day=int(spec["videos_per_day"]),
+            duration_seconds=duration_seconds,
+            topic_source="channel",
+            platforms=list(spec["platforms"]),
+            provider="runway",
+            start_date=today,
+            end_date=end,
+            run_time="09:00",
+            enabled=True,
+        )
+        duration_plan = plan_duration(duration_seconds=plan.duration_seconds, provider=plan.provider)
+        plan.clip_count = duration_plan.clip_count
+        schedule_store.save_plan(plan)
+        ensured.append(plan)
+    return ensured
+
+
+def sync_today_jobs_for_default_plans(
+    project_root: str | Path,
+    *,
+    channel_niche: str = "",
+    channel_topic: str = "",
+    tiktok_channel_topic: str = "",
+    instagram_channel_topic: str = "",
+) -> dict[str, Any]:
+    from content_brain.scheduling.schedule_store import ScheduleStore
+
+    store = ScheduleStore(project_root)
+    plans = ensure_default_daily_platform_plans(store)
+    today = date.today().isoformat()
+    summary: list[dict[str, Any]] = []
+    for plan in plans:
+        if not plan.enabled:
+            continue
+        jobs = generate_jobs_for_plan(
+            plan,
+            channel_niche=channel_niche,
+            channel_topic=channel_topic,
+            tiktok_channel_topic=tiktok_channel_topic,
+            instagram_channel_topic=instagram_channel_topic,
+            only_date=today,
+        )
+        store.save_jobs(plan.schedule_id, jobs)
+        summary.append({"schedule_id": plan.schedule_id, "job_count": len(jobs), "date": today})
+    return {"date": today, "plans": summary}

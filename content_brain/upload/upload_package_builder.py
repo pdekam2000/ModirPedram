@@ -216,6 +216,17 @@ def build_upload_packages(
                 "auto_upload": False,
             }
         )
+        if manual_only and platform_dir.is_dir():
+            day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            daily_root = root / "outputs" / "daily_manual_upload_queue" / folder_name / day
+            daily_root.mkdir(parents=True, exist_ok=True)
+            for item in platform_dir.iterdir():
+                if item.is_file():
+                    target = daily_root / item.name
+                    if target.exists():
+                        target.unlink()
+                    shutil.copy2(item, target)
+            packages[-1]["daily_manual_queue_dir"] = str(daily_root)
 
     manifest = {
         "version": UPLOAD_PACKAGE_BUILDER_VERSION,

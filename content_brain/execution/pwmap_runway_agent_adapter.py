@@ -168,9 +168,17 @@ def extract_prompts_from_preflight(preflight: dict[str, Any]) -> tuple[list[str]
             prompts = [topic]
     if not prompts:
         raise PwmapAdapterError("No prompts available from preflight or topic.")
+    visual_style = str(
+        preflight.get("visual_style")
+        or preflight.get("style")
+        or "cinematic realistic"
+    ).strip()
+    from content_brain.execution.runway_prompt_composer import apply_visual_style_to_clip_prompts
+
+    prompts = apply_visual_style_to_clip_prompts(prompts, visual_style)
     duration = int((preflight.get("duration_plan") or {}).get("clip_duration_seconds") or 15)
     aspect = str(preflight.get("aspect_ratio") or "9:16")
-    use_frame_second = duration - 1 if len(prompts) > 1 else None
+    use_frame_second = duration if len(prompts) > 1 else None
     meta = {
         "duration": duration,
         "aspect": aspect,

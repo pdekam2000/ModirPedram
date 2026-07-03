@@ -122,7 +122,7 @@ def story_memory_path(project_root: str | Path) -> Path:
     return Path(project_root).resolve() / MEMORY_RELATIVE_PATH
 
 
-def load_story_memory(project_root: str | Path, *, limit: int = 50) -> list[dict[str, Any]]:
+def load_story_memory(project_root: str | Path, *, limit: int = 5000) -> list[dict[str, Any]]:
     path = story_memory_path(project_root)
     if not path.is_file():
         return []
@@ -137,6 +137,8 @@ def load_story_memory(project_root: str | Path, *, limit: int = 50) -> list[dict
                 rows.append(payload)
     except OSError:
         return []
+    if limit <= 0:
+        return rows
     return rows[-max(1, int(limit)) :]
 
 

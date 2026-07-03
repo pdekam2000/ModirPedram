@@ -452,13 +452,20 @@ def _feed_has_new_generation(page: Page, baseline: dict[str, Any]) -> bool:
     feed = _feed_panel(page)
     videos = feed.locator("video")
     count = videos.count()
-    if count > baseline["count"]:
+    baseline_count = baseline.get("video_count", baseline.get("count", 0))
+    if count > baseline_count:
         return True
     if count == 0:
         pass
     else:
         top_src = videos.first.get_attribute("src") or ""
-        if top_src and top_src not in baseline["srcs"]:
+        baseline_srcs = baseline.get("srcs")
+        if baseline_srcs is None:
+            baseline_srcs = [
+                str(entry.get("currentSrc") or entry.get("src") or "")
+                for entry in (baseline.get("videos") or [])
+            ]
+        if top_src and top_src not in baseline_srcs:
             return True
 
     try:
@@ -614,6 +621,29 @@ def wait_for_video_ready(page: Page, baseline: dict[str, Any], timeout_sec: int 
             raise
 
     raise RunwayAgentError(f"Generation timed out after {timeout_sec}s.")
+
+
+def _wait_for_top_video_identity(page: Page, timeout_ms: int = 6000) -> None:
+    """After the 'fully built' signal (Download/Use-frame buttons visible),
+    wait until the newest video element actually exposes a currentSrc/src/poster.
+    The action buttons can render slightly before the <video> tag's identity
+    is populated, which would otherwise make detect_new_output() unable to
+    tell the new clip apart from the previous one."""
+    deadline = time.time() + (timeout_ms / 1000)
+    while time.time() < deadline:
+        feed = _feed_panel(page)
+        videos = feed.locator("video")
+        if videos.count() > 0:
+            top = videos.first
+            try:
+                identity = top.evaluate(
+                    "el => (el.currentSrc || el.getAttribute('src') || el.getAttribute('poster') || '')"
+                )
+            except Exception:
+                identity = ""
+            if str(identity or "").strip():
+                return
+        page.wait_for_timeout(300)
 
 
 def wait_for_use_frame_button(page: Page, timeout_sec: int = 900) -> None:
@@ -1110,6 +1140,7 @@ def generate_one_clip(
     pre_snapshot = capture_output_snapshot(page, label=f"clip_{clip_index}_pre")
     click_generate(page)
     wait_for_video_ready(page, pre_snapshot, timeout_sec=gen_timeout)
+    _wait_for_top_video_identity(page)
     post_snapshot = capture_output_snapshot(page, label=f"clip_{clip_index}_post")
 
     filename = f"clip_{clip_index:03d}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.mp4"

@@ -289,10 +289,39 @@ def _ffmpeg_path() -> str | None:
     return shutil.which("ffmpeg")
 
 
+def _video_duration_seconds(video_path: Path) -> float | None:
+    ffprobe = shutil.which("ffprobe")
+    if ffprobe is None or not video_path.is_file():
+        return None
+    cmd = [
+        ffprobe,
+        "-v",
+        "error",
+        "-show_entries",
+        "format=duration",
+        "-of",
+        "default=noprint_wrappers=1:nokey=1",
+        str(video_path),
+    ]
+    try:
+        completed = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=20)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if completed.returncode != 0:
+        return None
+    try:
+        value = float(str(completed.stdout or "").strip())
+    except ValueError:
+        return None
+    return value if value > 0 else None
+
+
 def _extract_frame_signature(video_path: Path) -> list[float] | None:
     ffmpeg = _ffmpeg_path()
     if ffmpeg is None or not video_path.is_file() or video_path.stat().st_size <= 0:
         return None
+    duration = _video_duration_seconds(video_path) or 15.0
+    seek_seconds = max(0.5, duration / 2.0)
     with tempfile.TemporaryDirectory() as tmp:
         frame_path = Path(tmp) / "frame.jpg"
         cmd = [
@@ -302,7 +331,7 @@ def _extract_frame_signature(video_path: Path) -> list[float] | None:
             "-loglevel",
             "error",
             "-ss",
-            "0",
+            f"{seek_seconds:.3f}",
             "-i",
             str(video_path),
             "-frames:v",
@@ -322,26 +351,11 @@ def _extract_frame_signature(video_path: Path) -> list[float] | None:
         except ImportError:
             data = frame_path.read_bytes()
             return [float(len(data) % 997), float(sum(data[:4096]) % 997)]
-        image = Image.open(frame_path).convert("RGB").resize((16, 16))
+        image = Image.open(frame_path).convert("L").resize((16, 16))
         pixels = list(image.getdata())
         if not pixels:
             return None
-        bins = [0.0] * 12
-        for red, green, blue in pixels:
-            bins[0] += red / 255.0
-            bins[1] += green / 255.0
-            bins[2] += blue / 255.0
-            bins[3] += (red + green + blue) / (3.0 * 255.0)
-            bins[4] += abs(red - green) / 255.0
-            bins[5] += abs(green - blue) / 255.0
-            bins[6] += abs(red - blue) / 255.0
-            bins[7] += max(red, green, blue) / 255.0
-            bins[8] += min(red, green, blue) / 255.0
-            bins[9] += ((red > 128) + (green > 128) + (blue > 128)) / 3.0
-            bins[10] += (red * 0.299 + green * 0.587 + blue * 0.114) / 255.0
-            bins[11] += 1.0
-        count = float(len(pixels))
-        return [value / count for value in bins]
+        return [value / 255.0 for value in pixels]
 
 
 def _signature_similarity(left: list[float] | None, right: list[float] | None) -> float:
@@ -386,7 +400,7 @@ def detect_post_generation_visual_repetition(
                         clip_a=left_index,
                         clip_b=right_index,
                         similarity=similarity,
-                        reason="first_frame_visual_overlap",
+                        reason="mid_frame_visual_overlap",
                     )
                 )
 
@@ -418,6 +432,7 @@ def detect_post_generation_visual_repetition(
             **dict(base.metadata),
             "clip_paths_checked": [str(path) for path in existing],
             "max_frame_similarity": round(max_frame_similarity, 4),
+            "frame_sample_mode": "mid_frame",
         },
     )
 

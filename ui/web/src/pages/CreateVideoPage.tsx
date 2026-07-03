@@ -42,9 +42,9 @@ import {
 
   PROVIDER_OPTIONS,
 
-  STYLE_OPTIONS,
-
 } from "../product/constants";
+
+import { VISUAL_STYLE_OPTIONS } from "../product/visualStyleOptions";
 
 import { RunwayBrowserPanel } from "../components/RunwayBrowserPanel";
 
@@ -84,7 +84,7 @@ export function CreateVideoPage() {
 
   const [aspectRatioManual, setAspectRatioManual] = useState(false);
 
-  const [style, setStyle] = useState("cinematic");
+  const [style, setStyle] = useState("cinematic realistic");
 
   const [provider, setProvider] = useState(KLING_PROVIDER);
 
@@ -297,6 +297,8 @@ export function CreateVideoPage() {
       platform_targets: [platform],
 
       style,
+
+      visual_style: style,
 
       provider: provider === "auto" ? "auto" : resolvedProvider,
 
@@ -915,11 +917,11 @@ export function CreateVideoPage() {
 
           <select className="filter-input full-width" value={style} onChange={(e) => setStyle(e.target.value)}>
 
-            {STYLE_OPTIONS.map((item) => (
+            {VISUAL_STYLE_OPTIONS.map((item) => (
 
-              <option key={item} value={item}>
+              <option key={item.id} value={item.id}>
 
-                {item}
+                {item.label}
 
               </option>
 
