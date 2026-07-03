@@ -6,11 +6,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 import pandas as pd
 
+from forex_frequency_lab.backtest import backtest_strategy, summarize_trades
+from forex_frequency_lab.candle_features import encode_candles
 from forex_frequency_lab.data_loader import load_ohlc_csv
-from forex_frequency_lab.frequency_catalog import build_frequency_catalog, build_shadow_frequency_catalog
+from forex_frequency_lab.frequency_catalog import (
+    build_frequency_catalog,
+    build_shadow_frequency_catalog,
+    catalog_from_symbols,
+)
 from forex_frequency_lab.reverse_lookup import reverse_engineer_precursors
 from forex_frequency_lab.shadow_features import encode_shadows
+from forex_frequency_lab.strategy import derive_strategies_from_catalog
 from forex_frequency_lab.synthetic_data import generate_synthetic_ohlc
+from forex_frequency_lab.walk_forward import split_in_out_sample
 
 
 def test_pipeline_recovers_injected_patterns():
@@ -145,3 +153,75 @@ def test_shadow_frequency_catalog_runs():
     df, _ = generate_synthetic_ohlc(n_bars=4000, seed=11)
     catalog = build_shadow_frequency_catalog(df, window_sizes=[3], min_occurrences=5)
     assert isinstance(catalog, list)
+
+
+def _generate_body_edge_series(n_bars=6000, seed=5, injection_period=40, rally_bars=3):
+    """Random-walk series where a specific 3-candle bullish shape recurs
+    regularly and is reliably followed by a further rally. Used to check
+    that discovering a strategy on one slice of history and backtesting it
+    on a later, untouched slice actually recovers the true edge.
+    """
+    rng = np.random.default_rng(seed)
+    step = 0.0008
+    pattern = [(1, 0.6, 0.2), (1, 0.6, 0.2), (1, 0.6, 0.2)]
+    opens, highs, lows, closes = [], [], [], []
+    price = 1.10
+    i = 0
+
+    while i < n_bars:
+        if i > 0 and i % injection_period == 0 and i + len(pattern) + rally_bars <= n_bars:
+            for direction, body_frac, wick_frac in pattern:
+                o, h, l, c = _make_ohlc_bar(price, price + direction * body_frac * step, upper_wick=wick_frac * step, lower_wick=wick_frac * step)
+                opens.append(o); highs.append(h); lows.append(l); closes.append(c)
+                price = c
+            for _ in range(rally_bars):
+                o, h, l, c = _make_ohlc_bar(price, price + 0.8 * step, upper_wick=0.15 * step, lower_wick=0.15 * step)
+                opens.append(o); highs.append(h); lows.append(l); closes.append(c)
+                price = c
+            i += len(pattern) + rally_bars
+            continue
+
+        direction = rng.choice([-1, 1])
+        body = rng.uniform(0.05, 0.9) * step
+        o = price
+        c = o + direction * body
+        h = max(o, c) + rng.uniform(0.0, 0.3) * step
+        l = min(o, c) - rng.uniform(0.0, 0.3) * step
+        opens.append(o); highs.append(h); lows.append(l); closes.append(c)
+        price = c
+        i += 1
+
+    times = pd.date_range("2015-01-01", periods=len(opens), freq="h")
+    return pd.DataFrame({"Time": times, "Open": opens, "High": highs, "Low": lows, "Close": closes, "Volume": 0.0})
+
+
+def test_backtest_recovers_true_edge_out_of_sample():
+    df = _generate_body_edge_series(n_bars=6000, seed=5, injection_period=40)
+    body_symbols = encode_candles(df, atr_period=14)
+
+    _split_idx, (df_in, symbols_in), (df_out, symbols_out) = split_in_out_sample(
+        df, {"body": body_symbols}, in_sample_frac=0.7
+    )
+
+    catalog_in = catalog_from_symbols(df_in, symbols_in["body"], window_sizes=[3], min_occurrences=10, forward_k=3)
+    strategies = derive_strategies_from_catalog(catalog_in, scheme="body", top_n=3, min_count=10, min_edge=0.15)
+    assert len(strategies) > 0
+
+    all_trades = []
+    for strat in strategies:
+        trades = backtest_strategy(
+            df_out,
+            symbols_out["body"],
+            strat,
+            atr_period=14,
+            stop_atr_mult=1.0,
+            reward_risk_ratio=1.5,
+            max_hold_bars=3,
+            spread_pips=0.0,
+        )
+        all_trades.extend(trades)
+
+    assert len(all_trades) >= 3
+    summary = summarize_trades(all_trades)
+    assert summary["avg_r"] > 0
+    assert summary["win_rate"] > 0.5

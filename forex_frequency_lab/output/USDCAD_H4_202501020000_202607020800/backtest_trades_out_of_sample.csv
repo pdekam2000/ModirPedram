@@ -1,0 +1,4 @@
+strategy,direction,entry_time,exit_time,entry_index,exit_index,exit_reason,r_multiple,pnl_pips
+shadow:U2L1|U1L1|U1L0@3(catalog),long,2026-04-08 00:00:00,2026-04-08 00:00:00,331,331,stop,-1.052297347777396,-30.182142857143763
+shadow:U2L1|U1L1|U1L0@3(catalog),long,2026-06-30 04:00:00,2026-06-30 16:00:00,686,689,stop,-1.050964688751341,-30.932142857142015
+shadow:U1L0|U0L1|U1L1@3(catalog),long,2026-05-12 08:00:00,2026-05-13 00:00:00,477,481,timeout,0.019250601581313028,0.6000000000004346

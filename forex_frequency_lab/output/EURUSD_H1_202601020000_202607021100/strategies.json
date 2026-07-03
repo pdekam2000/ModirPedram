@@ -1,0 +1,52 @@
+[
+  {
+    "name": "shadow:U1L0|U2L1|U0L0@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L0|U2L1|U0L0",
+    "window_size": 3,
+    "direction": "long",
+    "source": "catalog",
+    "discovery_count": 9,
+    "discovery_win_rate": 0.6666666666666666
+  },
+  {
+    "name": "shadow:U1L2|U0L1|U1L0@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L2|U0L1|U1L0",
+    "window_size": 3,
+    "direction": "long",
+    "source": "catalog",
+    "discovery_count": 8,
+    "discovery_win_rate": 0.6666666666666666
+  },
+  {
+    "name": "shadow:U1L0|U0L0|U1L1@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L0|U0L0|U1L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "catalog",
+    "discovery_count": 6,
+    "discovery_win_rate": 0.6666666666666666
+  },
+  {
+    "name": "shadow:U1L2|U2L0|U1L1@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L2|U2L0|U1L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "catalog",
+    "discovery_count": 9,
+    "discovery_win_rate": 0.6666666666666666
+  },
+  {
+    "name": "shadow:U1L0|U0L2|U2L1@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L0|U0L2|U2L1",
+    "window_size": 3,
+    "direction": "short",
+    "source": "catalog",
+    "discovery_count": 7,
+    "discovery_win_rate": 0.6666666666666666
+  }
+]

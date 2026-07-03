@@ -1,0 +1,92 @@
+[
+  {
+    "name": "body:UM2|DM2|UM2@3(catalog)",
+    "scheme": "body",
+    "pattern_code": "UM2|DM2|UM2",
+    "window_size": 3,
+    "direction": "short",
+    "source": "catalog",
+    "discovery_count": 6,
+    "discovery_win_rate": 0.3333333333333333
+  },
+  {
+    "name": "shadow:U1L1|U2L0|U2L1@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L1|U2L0|U2L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "catalog",
+    "discovery_count": 10,
+    "discovery_win_rate": 0.8
+  },
+  {
+    "name": "shadow:U1L1|U0L1|U1L2@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L1|U0L1|U1L2",
+    "window_size": 3,
+    "direction": "short",
+    "source": "catalog",
+    "discovery_count": 13,
+    "discovery_win_rate": 0.8
+  },
+  {
+    "name": "shadow:U1L1|U1L0|U1L2@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L1|U1L0|U1L2",
+    "window_size": 3,
+    "direction": "short",
+    "source": "catalog",
+    "discovery_count": 12,
+    "discovery_win_rate": 0.8
+  },
+  {
+    "name": "shadow:U1L2|U0L2|U1L1@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U1L2|U0L2|U1L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "catalog",
+    "discovery_count": 10,
+    "discovery_win_rate": 0.8
+  },
+  {
+    "name": "shadow:U2L1|U1L1|U0L1@3(catalog)",
+    "scheme": "shadow",
+    "pattern_code": "U2L1|U1L1|U0L1",
+    "window_size": 3,
+    "direction": "short",
+    "source": "catalog",
+    "discovery_count": 13,
+    "discovery_win_rate": 0.8
+  },
+  {
+    "name": "shadow:U1L1|U2L0|U1L1@3(reverse-long)",
+    "scheme": "shadow",
+    "pattern_code": "U1L1|U2L0|U1L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "reverse",
+    "discovery_count": 4,
+    "discovery_lift": 4.016236162361624
+  },
+  {
+    "name": "shadow:U1L1|U2L0|U2L1@3(reverse-long)",
+    "scheme": "shadow",
+    "pattern_code": "U1L1|U2L0|U2L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "reverse",
+    "discovery_count": 4,
+    "discovery_lift": 4.016236162361624
+  },
+  {
+    "name": "shadow:U1L1|U1L2|U1L1@3(reverse-long)",
+    "scheme": "shadow",
+    "pattern_code": "U1L1|U1L2|U1L1",
+    "window_size": 3,
+    "direction": "long",
+    "source": "reverse",
+    "discovery_count": 4,
+    "discovery_lift": 3.651123783965112
+  }
+]

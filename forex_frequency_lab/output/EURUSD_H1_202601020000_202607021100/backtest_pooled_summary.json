@@ -1,0 +1,22 @@
+{
+  "in_sample": {
+    "trade_count": 38,
+    "win_rate": 0.7894736842105263,
+    "avg_r": 0.4248389611497856,
+    "profit_factor": 3.853913591072722,
+    "total_r": 16.143880523691852,
+    "max_drawdown_r": -1.6139446585940185,
+    "best_trade_r": 1.4502487562189321,
+    "worst_trade_r": -1.0741525423728615
+  },
+  "out_of_sample": {
+    "trade_count": 8,
+    "win_rate": 0.5,
+    "avg_r": 0.16096494354633165,
+    "profit_factor": 1.3805891978673248,
+    "total_r": 1.2877195483706532,
+    "max_drawdown_r": -1.227315443249524,
+    "best_trade_r": 1.3724954462658856,
+    "worst_trade_r": -1.153005464480948
+  }
+}

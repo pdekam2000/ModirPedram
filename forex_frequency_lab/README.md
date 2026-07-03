@@ -92,12 +92,62 @@ value), `--reverse-quantile` (how extreme a move counts as "big", default
 10%), and `--reverse-min-occurrences`. Pass `--skip-reverse-engineer` to turn
 it off.
 
+## Turning findings into a strategy and backtesting it out-of-sample
+
+`strategy_cli.py` closes the loop: it derives concrete long/short trade rules
+from the frequencies and precursors above, then backtests them the only way
+that means anything — discover on one slice of history, test on a slice it
+never saw.
+
+```bash
+python -m forex_frequency_lab.strategy_cli --csv data/EURUSD_H1.csv \
+    --in-sample-frac 0.7 \
+    --stop-atr-mult 1.5 \
+    --reward-risk-ratio 1.5 \
+    --spread-pips 1.5 \
+    --output-dir output
+```
+
+What it does:
+
+1. Splits the series at `--in-sample-frac` (default 70/30) — everything
+   before the split is "in-sample", everything after is an untouched
+   "out-of-sample" holdout.
+2. Runs frequency discovery and reverse-engineering **on the in-sample slice
+   only**, and turns the strongest results into trade rules: `derive_strategies_from_catalog`
+   goes long/short based on which way a pattern's forward win-rate leans;
+   `derive_strategies_from_reverse` goes long/short based on which kind of
+   big move a precursor pattern showed up before.
+3. Backtests every rule on both slices with `backtest_strategy`: entry at the
+   next bar's open after the pattern completes (no look-ahead), stop/target
+   set from ATR at the signal bar, exit on whichever of stop/target/timeout
+   comes first, a flat round-trip spread cost deducted from every trade.
+4. Reports **both** in-sample and out-of-sample results side by side, per
+   strategy and pooled, in R-multiples (PnL ÷ initial risk, so it doesn't
+   depend on position-sizing assumptions).
+
+**What we found running this on the real data**: every one of the 7 pairs
+looked strong in-sample (63–79% win rate, +0.18 to +0.46 average R per
+trade) — and in 6 of 7, that edge collapsed to roughly breakeven or negative
+out-of-sample (pooled across all pairs: +0.38R/trade in-sample vs.
+&minus;0.06R/trade out-of-sample). That is the signature of overfitting, not
+a real edge: with hundreds of candidate patterns tested per pair, some will
+look great in-sample by chance alone. Treat any single pattern's in-sample
+stats as a hypothesis, never as a result — the out-of-sample number is the
+only one that matters, and so far it says "no edge survives."
+`output/walk_forward_verdict.csv` has the full pair-by-pair breakdown.
+
 ## Validating the pipeline with synthetic data
 
 `forex_frequency_lab/synthetic_data.py` generates a random-walk price series
 with a couple of known candle-shape patterns re-inserted at semi-regular
 intervals, so you can confirm the pipeline actually recovers a known ground
-truth before trusting it on real data:
+truth before trusting it on real data. The test suite also builds a series
+with a genuine cause-and-effect pattern (a shape that is reliably followed by
+a rally) and checks that discovering on one half and backtesting on the other
+actually recovers a positive edge — proof the walk-forward harness itself
+has no look-ahead bugs, independent of whether real market data has an edge
+to find:
 
 ```bash
 pytest tests/
