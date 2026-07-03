@@ -137,6 +137,59 @@ stats as a hypothesis, never as a result — the out-of-sample number is the
 only one that matters, and so far it says "no edge survives."
 `output/walk_forward_verdict.csv` has the full pair-by-pair breakdown.
 
+## Testing genuinely different ideas (not more candle-shape variants)
+
+Candle-shape pattern mining has one structural problem: it tests hundreds of
+candidate shapes per pair, so some look great in-sample by chance alone
+(exactly what the section above caught). `idea_lab_cli.py` instead tests a
+small number of ideas that are actually different from each other and from
+candle-shape mining, each through the same honest in-sample/out-of-sample
+split:
+
+- **`seasonality.py`** — is there an hour-of-day or day-of-week with a
+  persistent directional bias (session-open effects, "day of the week"
+  seasonality)?
+- **`volatility_regime.py`** — after an unusually large-range bar, does price
+  tend to keep going (continuation) or snap back (mean reversion)?
+- **`volume_divergence.py`** — a big move on unusually *low* tick volume
+  (weak participation relative to the size of the move) — does that predict
+  a fade or a continuation? (This surfaced a real bug: the loader had been
+  picking the `<VOL>` column, which MT5 always reports as 0 for OTC forex,
+  instead of `<TICKVOL>`, the actual usable proxy — fixed in `data_loader.py`.)
+- **`cross_pair.py`** — the most structurally different idea: every pair here
+  shares a USD leg, so strip out that common factor (regress each pair
+  against an equal-weight basket, in-sample only) and test whether one
+  pair's *residual* move leads another's by 1–3 bars — inter-market
+  structure instead of re-slicing one series' own noise.
+
+```bash
+python -m forex_frequency_lab.idea_lab_cli \
+    --csvs data/AUDUSD_H4.csv data/GBPUSD_H4.csv data/USDCHF_H4.csv data/USDJPY_H4.csv \
+    --in-sample-frac 0.7 \
+    --output-dir output
+```
+
+Pass one CSV to test only the single-pair ideas; pass 2+ (with overlapping
+timestamps) and it also runs the cross-pair lead-lag search across all of
+them.
+
+**What we found**: smaller and more honest than the candle-pattern results —
+in-sample edges here were modest (+0.01 to +0.05R/trade, not the +0.38R the
+pattern search produced), which makes sense since there are far fewer
+candidate rules being searched. But out-of-sample, three of the four ideas
+still averaged negative across every pair tested (seasonality-by-day-of-week
+&minus;0.073R, volatility-regime &minus;0.064R, volume-divergence
+&minus;0.028R, trade-weighted); only hour-of-day seasonality came out
+positive (+0.024R), and that was only tested on one pair with enough
+hourly samples, so it isn't strong evidence either way. The cross-pair
+lead-lag search found no relationship above a 0.05 correlation threshold
+among AUDUSD/GBPUSD/USDCHF/USDJPY at H4 — the strongest one found (GBPUSD
+leading USDJPY by 2 bars) had a correlation of just 0.03 and lost money in
+both halves when traded anyway. `output/idea_lab/all_ideas_combined.csv` and
+`idea_type_summary.csv` have the full breakdown. None of these four cleared
+the bar either — which itself is useful to know before spending more time
+on variations of them.
+
 ## Validating the pipeline with synthetic data
 
 `forex_frequency_lab/synthetic_data.py` generates a random-walk price series

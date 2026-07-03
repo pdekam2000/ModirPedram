@@ -1,0 +1,2 @@
+pair,idea,rule,in_trades,in_win_rate,in_avg_r,out_trades,out_win_rate,out_avg_r
+USDCAD,volatility_regime,"{""atr_period"": 14, ""regime_quantile"": 0.8, ""forward_k"": 5, ""atr_threshold"": 0.0033184285714285638, ""mode"": ""reversion"", ""mean_aligned_return"": -8.177661484170148e-06, ""sample_size"": 324}",89,0.4606741573033708,0.05282611496231846,23,0.43478260869565216,-0.14456328518546957

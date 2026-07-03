@@ -1,0 +1,3 @@
+pair,idea,rule,in_trades,in_win_rate,in_avg_r,out_trades,out_win_rate,out_avg_r
+EURUSD,seasonality_dow,"{""group_by"": ""dayofweek"", ""key"": 1, ""forward_k"": 5, ""direction"": ""long"", ""mean_forward_return"": 0.0003412942223186507, ""sample_size"": 432, ""score"": 0.1474391040416571}",120,0.4583333333333333,0.00719365260683027,54,0.2222222222222222,-0.46745603058424096
+EURUSD,volatility_regime,"{""atr_period"": 14, ""regime_quantile"": 0.8, ""forward_k"": 5, ""atr_threshold"": 0.0017878571428571505, ""mode"": ""reversion"", ""mean_aligned_return"": -0.0002636127481265327, ""sample_size"": 431}",112,0.48214285714285715,-0.05024080713300811,4,0.5,-0.12252285629190625

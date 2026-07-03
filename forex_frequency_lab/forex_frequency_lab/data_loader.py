@@ -7,7 +7,10 @@ _COLUMN_ALIASES = {
     "high": ["high", "h"],
     "low": ["low", "l"],
     "close": ["close", "c"],
-    "volume": ["volume", "vol", "tick_volume", "tickvol"],
+    # tick volume first: real traded volume doesn't exist for OTC forex, so
+    # MT4/MT5 exports report it as 0 in <VOL> and put the usable proxy
+    # (number of price updates) in <TICKVOL> instead.
+    "volume": ["tick_volume", "tickvol", "volume", "vol"],
 }
 
 
