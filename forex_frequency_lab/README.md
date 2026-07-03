@@ -282,6 +282,35 @@ rigorous rolling walk-forward, 3:1 is very slightly worse (+0.169R vs.
 +0.183R), not better. `output/idea_lab/gap_fill_reward_risk_sweep.csv` has
 the full grid.
 
+**4. Three more attempts to improve it — none did, and one is an important
+warning.** `resample.py` aggregates real H4 bars into real daily bars (no
+synthetic data) to test other timeframes; a custom exit variant targets a
+fraction of the actual gap size instead of a generic ATR multiple; entry
+timing was shifted by 1-2 bars. All results in
+`output/idea_lab/gap_fill_refinement_experiments.csv`:
+
+| Experiment | Variant | Avg R (out-of-sample) |
+|---|---|---|
+| Timeframe | H4 (original) | +0.192 |
+| Timeframe | D1 (real resampled daily bars) | +0.065 |
+| Target sizing | ATR-based (original) | +0.192 |
+| Target sizing | 50% of actual gap size | +0.096 |
+| Target sizing | 100% of actual gap size | +0.151 |
+| Entry timing | Right at gap-open bar (original) | +0.192 |
+| Entry timing | Delayed 1 bar (4h later) | &minus;0.012 |
+| Entry timing | Delayed 2 bars (8h later) | &minus;0.034 |
+
+Daily bars capture roughly a third of the edge H4 does — the effect is
+sharpest at H4 granularity. Sizing the target to the actual gap (instead of
+a generic ATR multiple) raises the win rate a lot (up to ~86%) but lowers
+average R, because the reward per win shrinks along with it — net worse.
+**Most importantly: delaying entry by even one bar doesn't just weaken the
+edge, it erases it entirely.** The whole effect is concentrated in the
+first few hours right after the gap opens — which means the earlier
+spread-widening risk can't be dodged by waiting for the market to calm
+down; the trade has to be taken right at the volatile reopen or not at all,
+which is exactly when execution is least certain.
+
 ## Validating the pipeline with synthetic data
 
 `forex_frequency_lab/synthetic_data.py` generates a random-walk price series

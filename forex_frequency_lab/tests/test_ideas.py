@@ -18,6 +18,7 @@ from forex_frequency_lab.mean_reversion import (
     discover_mean_reversion_bias,
     signal_end_indices_and_directions as mean_reversion_signal,
 )
+from forex_frequency_lab.resample import resample_ohlc
 from forex_frequency_lab.seasonality import discover_seasonal_bias, signal_end_indices as seasonality_signal
 from forex_frequency_lab.walk_forward_validate import rolling_walk_forward_gap_fill
 from forex_frequency_lab.volatility_regime import (
@@ -371,3 +372,34 @@ def test_rolling_walk_forward_gap_fill_recovers_edge_across_folds():
     assert len(tested_folds) >= 3
     assert all(f["mode"] == "fill" for f in tested_folds)
     assert all(f["out_avg_r"] > 0 for f in tested_folds)
+
+
+def test_resample_ohlc_aggregates_correctly():
+    times = pd.date_range("2024-01-01 00:00", periods=8, freq="4h")
+    df = pd.DataFrame(
+        {
+            "Time": times,
+            "Open": [1.00, 1.02, 1.05, 1.01, 1.10, 1.11, 1.09, 1.12],
+            "High": [1.03, 1.04, 1.06, 1.03, 1.12, 1.13, 1.10, 1.14],
+            "Low": [0.99, 1.00, 1.00, 0.98, 1.09, 1.10, 1.07, 1.11],
+            "Close": [1.02, 1.05, 1.01, 1.02, 1.11, 1.09, 1.12, 1.13],
+            "Volume": [10, 20, 30, 40, 50, 60, 70, 80],
+        }
+    )
+
+    # 4-hourly bars starting at 00:00 put 6 bars (00,04,08,12,16,20) on day 1
+    # and only the remaining 2 (00,04) on day 2.
+    daily = resample_ohlc(df, "1D")
+    assert len(daily) == 2
+    first_day = daily.iloc[0]
+    assert first_day["Open"] == 1.00
+    assert first_day["High"] == 1.13
+    assert first_day["Low"] == 0.98
+    assert first_day["Close"] == 1.09
+    assert first_day["Volume"] == 210
+    second_day = daily.iloc[1]
+    assert second_day["Open"] == 1.09
+    assert second_day["High"] == 1.14
+    assert second_day["Low"] == 1.07
+    assert second_day["Close"] == 1.13
+    assert second_day["Volume"] == 150
