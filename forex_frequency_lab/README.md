@@ -258,6 +258,30 @@ routinely exceeds ~10 pips on the pairs you'd trade, this edge is likely
 gone in practice even though it looks solid at typical mid-week spreads.
 `output/idea_lab/gap_fill_spread_stress_test.csv` has the full sweep.
 
+**3. Wider reward:risk ratio — tested, doesn't help.** A natural next
+question: since each win is capped at 1.5&times; the stop distance, what if
+the target were pushed out to 2&times;, 3&times;, or 4&times;? Swept
+`reward_risk_ratio` in {1.5, 2, 2.5, 3, 4} crossed with `max_hold_bars` in
+{10, 15, 20}, on both the single 70/30 split and the 5-fold rolling
+walk-forward:
+
+| reward:risk | 1.5 | 2.0 | 3.0 | 4.0 |
+|---|---|---|---|---|
+| Avg R (hold=10, 70/30 split) | +0.192 | +0.203 | +0.193 | +0.203 |
+| Avg R (hold=10, rolling walk-forward) | +0.183 | &mdash; | +0.169 | &mdash; |
+
+A wider target does **not** meaningfully improve things — win rate drops
+almost exactly enough to cancel out the bigger payout per win (e.g. at
+3&times;, win rate falls from ~55% to ~53%), so average R stays roughly
+flat around +0.19&ndash;0.20R regardless. Extending the holding period to
+give a wider target more room to be hit (`max_hold_bars` 15 or 20) actively
+*hurts* — average R drops to +0.15&ndash;0.18R because more trades time out
+before reaching the farther target. The original 1.5&times; stop / 1.5R
+target / 10-bar hold remains the best setting found, and under the more
+rigorous rolling walk-forward, 3:1 is very slightly worse (+0.169R vs.
++0.183R), not better. `output/idea_lab/gap_fill_reward_risk_sweep.csv` has
+the full grid.
+
 ## Validating the pipeline with synthetic data
 
 `forex_frequency_lab/synthetic_data.py` generates a random-walk price series
