@@ -13,6 +13,11 @@ from forex_frequency_lab.cross_pair import (
     discover_lead_lag_strategy,
     signal_end_indices_and_directions as cross_pair_signal,
 )
+from forex_frequency_lab.gap_fill import discover_gap_fill_bias, signal_end_indices_and_directions as gap_fill_signal
+from forex_frequency_lab.mean_reversion import (
+    discover_mean_reversion_bias,
+    signal_end_indices_and_directions as mean_reversion_signal,
+)
 from forex_frequency_lab.seasonality import discover_seasonal_bias, signal_end_indices as seasonality_signal
 from forex_frequency_lab.volatility_regime import (
     discover_volatility_regime_bias,
@@ -241,3 +246,110 @@ def test_align_pairs_and_compute_residuals_smoke():
     residuals, betas = compute_residuals(aligned_closes, split_time)
     assert set(betas.keys()) == {"AAA", "BBB", "CCC", "DDD"}
     assert len(residuals) == n - 1
+
+
+def test_gap_fill_recovers_injected_fill_bias():
+    n = 2500
+    rng = np.random.default_rng(5)
+    step = 0.0008
+    freq_hours = 4
+    forward_k = 10
+
+    times = [pd.Timestamp("2015-01-01")]
+    for i in range(1, n):
+        if i % 42 == 0:
+            times.append(times[-1] + pd.Timedelta(hours=64))  # weekend-style gap
+        else:
+            times.append(times[-1] + pd.Timedelta(hours=freq_hours))
+    times = pd.DatetimeIndex(times)
+
+    opens = np.empty(n)
+    closes = np.empty(n)
+    price = 1.10
+    gap_count = 0
+    fill_schedule = {}
+
+    for i in range(n):
+        is_gap = i > 0 and (times[i] - times[i - 1]).total_seconds() / 3600 > freq_hours * 1.5
+        if is_gap:
+            direction = 1 if gap_count % 2 == 0 else -1
+            gap_count += 1
+            jump = direction * 0.006
+            opens[i] = price + jump
+            per_bar_fill = -jump / forward_k
+            for j in range(i, min(i + forward_k, n)):
+                fill_schedule[j] = fill_schedule.get(j, 0.0) + per_bar_fill
+        else:
+            opens[i] = price
+
+        bar_return = fill_schedule.get(i, 0.0) + rng.normal(0, step * 0.3)
+        closes[i] = opens[i] + bar_return
+        price = closes[i]
+
+    df = pd.DataFrame(
+        {
+            "Time": times,
+            "Open": opens,
+            "High": np.maximum(opens, closes) + 0.0001,
+            "Low": np.minimum(opens, closes) - 0.0001,
+            "Close": closes,
+            "Volume": 100.0,
+        }
+    )
+
+    split = int(len(df) * 0.7)
+    df_in, df_out = df.iloc[:split].reset_index(drop=True), df.iloc[split:].reset_index(drop=True)
+
+    rule = discover_gap_fill_bias(df_in, forward_k=forward_k, gap_multiplier=1.5, min_samples=10)
+    assert rule is not None
+    assert rule["mode"] == "fill"
+
+    signal_ends, directions = gap_fill_signal(df_out, rule)
+    trades = backtest_entries(df_out, signal_ends, lambda i: directions[i], "gap_fill", stop_atr_mult=1.0, reward_risk_ratio=1.5, max_hold_bars=forward_k, spread_pips=0.0)
+    summary = summarize_trades(trades)
+    assert summary["trade_count"] > 0
+    assert summary["avg_r"] > 0
+
+
+def test_mean_reversion_recovers_injected_reversion():
+    n = 4000
+    rng = np.random.default_rng(6)
+    step = 0.0008
+    ma_window = 20
+    forward_k = 5
+
+    returns = rng.normal(0, step, n)
+    # Periodically inject a strong directional extension, then a reliable
+    # drift back over the next forward_k bars.
+    for i in range(60, n - forward_k, 50):
+        direction = 1 if (i // 50) % 2 == 0 else -1
+        returns[i] = direction * 0.006
+        for j in range(i + 1, i + 1 + forward_k):
+            returns[j] = -direction * 0.0014 + rng.normal(0, step * 0.2)
+
+    times = pd.date_range("2015-01-01", periods=n, freq="h")
+    close = 1.10 + np.cumsum(returns)
+    open_ = np.concatenate([[1.10], close[:-1]])
+    df = pd.DataFrame(
+        {
+            "Time": times,
+            "Open": open_,
+            "High": np.maximum(open_, close) + 0.0001,
+            "Low": np.minimum(open_, close) - 0.0001,
+            "Close": close,
+            "Volume": 100.0,
+        }
+    )
+
+    split = int(len(df) * 0.7)
+    df_in, df_out = df.iloc[:split].reset_index(drop=True), df.iloc[split:].reset_index(drop=True)
+
+    rule = discover_mean_reversion_bias(df_in, ma_window=ma_window, forward_k=forward_k, extreme_quantile=0.9, min_samples=10)
+    assert rule is not None
+    assert rule["mode"] == "reversion"
+
+    signal_ends, directions = mean_reversion_signal(df_out, rule)
+    trades = backtest_entries(df_out, signal_ends, lambda i: directions[i], "mean_reversion", stop_atr_mult=1.0, reward_risk_ratio=1.5, max_hold_bars=forward_k, spread_pips=0.0)
+    summary = summarize_trades(trades)
+    assert summary["trade_count"] > 0
+    assert summary["avg_r"] > 0

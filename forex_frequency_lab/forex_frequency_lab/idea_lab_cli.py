@@ -8,6 +8,10 @@ from .backtest import backtest_entries, summarize_trades
 from .cross_pair import align_pairs, compute_residuals, discover_lead_lag_strategy
 from .cross_pair import signal_end_indices_and_directions as cross_pair_signal
 from .data_loader import load_ohlc_csv
+from .gap_fill import discover_gap_fill_bias
+from .gap_fill import signal_end_indices_and_directions as gap_fill_signal
+from .mean_reversion import discover_mean_reversion_bias
+from .mean_reversion import signal_end_indices_and_directions as mean_reversion_signal
 from .seasonality import discover_seasonal_bias
 from .seasonality import signal_end_indices as seasonality_signal
 from .volatility_regime import discover_volatility_regime_bias
@@ -61,6 +65,23 @@ def run_single_pair_ideas(df, args):
         out_trades = _backtest(df_out, ends_out, lambda i: dirs_out[i], "volume_divergence", args)
         results.append(("volume_divergence", rule, in_trades, out_trades))
 
+    rule = discover_gap_fill_bias(df_in, forward_k=args.gap_forward_k, gap_multiplier=args.gap_multiplier, min_samples=args.min_samples)
+    if rule:
+        ends_in, dirs_in = gap_fill_signal(df_in, rule)
+        ends_out, dirs_out = gap_fill_signal(df_out, rule)
+        # holding period matches the horizon the fill/continuation effect was measured over
+        in_trades = backtest_entries(df_in, ends_in, lambda i: dirs_in[i], name="gap_fill", atr_period=args.atr_period, stop_atr_mult=args.stop_atr_mult, reward_risk_ratio=args.reward_risk_ratio, max_hold_bars=args.gap_forward_k, spread_pips=args.spread_pips)
+        out_trades = backtest_entries(df_out, ends_out, lambda i: dirs_out[i], name="gap_fill", atr_period=args.atr_period, stop_atr_mult=args.stop_atr_mult, reward_risk_ratio=args.reward_risk_ratio, max_hold_bars=args.gap_forward_k, spread_pips=args.spread_pips)
+        results.append(("gap_fill", rule, in_trades, out_trades))
+
+    rule = discover_mean_reversion_bias(df_in, ma_window=args.ma_window, forward_k=args.forward_k, extreme_quantile=args.mr_extreme_quantile, min_samples=args.min_samples)
+    if rule:
+        ends_in, dirs_in = mean_reversion_signal(df_in, rule)
+        ends_out, dirs_out = mean_reversion_signal(df_out, rule)
+        in_trades = _backtest(df_in, ends_in, lambda i: dirs_in[i], "mean_reversion", args)
+        out_trades = _backtest(df_out, ends_out, lambda i: dirs_out[i], "mean_reversion", args)
+        results.append(("mean_reversion", rule, in_trades, out_trades))
+
     return results
 
 
@@ -101,6 +122,10 @@ def main(argv=None):
     parser.add_argument("--spread-pips", type=float, default=1.5)
     parser.add_argument("--max-lag", type=int, default=3)
     parser.add_argument("--min-abs-corr", type=float, default=0.05)
+    parser.add_argument("--gap-forward-k", type=int, default=10, help="Bars to measure gap fill/continuation over (gaps are rarer than other signals, so this is usually longer than --forward-k)")
+    parser.add_argument("--gap-multiplier", type=float, default=1.5, help="A time gap bigger than this x the typical bar spacing counts as a weekend/holiday gap")
+    parser.add_argument("--ma-window", type=int, default=20, help="Rolling moving-average window for the mean-reversion idea")
+    parser.add_argument("--mr-extreme-quantile", type=float, default=0.9, help="Top quantile of |z-score from MA| that counts as 'unusually far'")
     parser.add_argument("--output-dir", default="output")
     args = parser.parse_args(argv)
 

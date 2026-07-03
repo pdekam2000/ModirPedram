@@ -161,6 +161,14 @@ split:
   against an equal-weight basket, in-sample only) and test whether one
   pair's *residual* move leads another's by 1–3 bars — inter-market
   structure instead of re-slicing one series' own noise.
+- **`gap_fill.py`** — forex is closed Friday night to Sunday night, so every
+  week opens with a price gap. Does that gap tend to keep going
+  (continuation) or retrace back toward the pre-gap level (fill)? Detected
+  generically (any time gap well above the series' typical bar spacing),
+  not by hardcoding specific weekday boundaries.
+- **`mean_reversion.py`** — when price is unusually far (top decile of
+  z-score) from its own rolling moving average, does it keep extending or
+  snap back?
 
 ```bash
 python -m forex_frequency_lab.idea_lab_cli \
@@ -174,21 +182,33 @@ timestamps) and it also runs the cross-pair lead-lag search across all of
 them.
 
 **What we found**: smaller and more honest than the candle-pattern results —
-in-sample edges here were modest (+0.01 to +0.05R/trade, not the +0.38R the
-pattern search produced), which makes sense since there are far fewer
-candidate rules being searched. But out-of-sample, three of the four ideas
-still averaged negative across every pair tested (seasonality-by-day-of-week
-&minus;0.073R, volatility-regime &minus;0.064R, volume-divergence
-&minus;0.028R, trade-weighted); only hour-of-day seasonality came out
-positive (+0.024R), and that was only tested on one pair with enough
-hourly samples, so it isn't strong evidence either way. The cross-pair
-lead-lag search found no relationship above a 0.05 correlation threshold
-among AUDUSD/GBPUSD/USDCHF/USDJPY at H4 — the strongest one found (GBPUSD
-leading USDJPY by 2 bars) had a correlation of just 0.03 and lost money in
-both halves when traded anyway. `output/idea_lab/all_ideas_combined.csv` and
-`idea_type_summary.csv` have the full breakdown. None of these four cleared
-the bar either — which itself is useful to know before spending more time
-on variations of them.
+in-sample edges here were modest, which makes sense since there are far
+fewer candidate rules being searched. Out-of-sample, four of six ideas
+still averaged negative or negligible across every pair tested
+(seasonality-by-day-of-week &minus;0.073R, volatility-regime &minus;0.064R,
+volume-divergence &minus;0.028R, mean-reversion &minus;0.058R,
+trade-weighted; hour-of-day seasonality was +0.024R but only tested on one
+pair with enough hourly samples). The cross-pair lead-lag search found no
+relationship above a 0.05 correlation threshold among
+AUDUSD/GBPUSD/USDCHF/USDJPY at H4.
+
+**Gap-fill was the exception.** Fading the weekly open gap (short if it
+gapped up, long if it gapped down) came out positive **in-sample and
+out-of-sample, on all six pairs individually** — pooled +0.143R in-sample /
+**+0.20R out-of-sample** across 367 out-of-sample trades. It held up under
+a sensitivity check across gap-detection thresholds (1.3&times;&ndash;2.5&times;
+typical spacing — all identical, since real weekend gaps are unambiguously
+larger than that whole range), holding periods (5/10/15 bars — all
+positive, 0.19&ndash;0.22R), and four different train/test split points
+(50/50 through 80/20 — all positive, 0.18&ndash;0.24R). That consistency
+across pairs, parameters, and splits is what the other ideas above lacked,
+and it lines up with a real, structurally sensible cause: FX liquidity is
+thin right at the weekend reopen, which is exactly the kind of overreaction
+that would partially retrace once normal liquidity resumes. It is still
+367 trades over roughly 5 years and 1.5-pip spread was the only cost
+modeled (no commission/slippage) — promising enough to paper-trade or dig
+into further, not yet enough to call proven. `output/idea_lab/all_ideas_combined.csv`
+and `idea_type_summary.csv` have the full breakdown.
 
 ## Validating the pipeline with synthetic data
 

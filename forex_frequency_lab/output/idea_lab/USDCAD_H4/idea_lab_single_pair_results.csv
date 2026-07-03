@@ -1,2 +1,4 @@
 pair,idea,rule,in_trades,in_win_rate,in_avg_r,out_trades,out_win_rate,out_avg_r
 USDCAD,volatility_regime,"{""atr_period"": 14, ""regime_quantile"": 0.8, ""forward_k"": 5, ""atr_threshold"": 0.0033184285714285638, ""mode"": ""reversion"", ""mean_aligned_return"": -8.177661484170148e-06, ""sample_size"": 324}",89,0.4606741573033708,0.05282611496231846,23,0.43478260869565216,-0.14456328518546957
+USDCAD,gap_fill,"{""gap_multiplier"": 1.5, ""forward_k"": 10, ""mode"": ""fill"", ""mean_aligned_return"": -0.0015446742767796368, ""sample_size"": 56}",53,0.5849056603773585,0.28136703876491165,23,0.6521739130434783,0.3983655180595872
+USDCAD,mean_reversion,"{""ma_window"": 20, ""forward_k"": 5, ""extreme_quantile"": 0.9, ""z_threshold"": 2.0520006593410964, ""mode"": ""reversion"", ""mean_aligned_return"": -0.0002115045146385466, ""sample_size"": 159}",96,0.4375,-0.036647519857867836,41,0.4146341463414634,-0.15346581798562253
