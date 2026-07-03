@@ -15,6 +15,10 @@ and reports, for each one:
 This is the same idea as **motif discovery** in time-series analysis, applied
 to candlestick shapes instead of raw waveforms.
 
+**Looking for the MT5 Expert Advisor?** The one strategy that survived all
+the validation below (the weekend gap-fade) has a live MT5 implementation
+in [`mt5_ea/`](mt5_ea/) — read its README before running it.
+
 ## How it works
 
 There are two independent encoding schemes — pick one or run both:
