@@ -1,0 +1,91 @@
+{
+  "window_size": 3,
+  "forward_k": 5,
+  "outcome_quantile": 0.1,
+  "num_extreme_windows_each_side": 763,
+  "precursors_before_big_up_moves": [
+    {
+      "pattern_code": "UM3|DM2|DM2",
+      "occurrences_before_outcome": 4,
+      "sample_size": 763,
+      "total_occurrences_overall": 7,
+      "baseline_rate": 0.0009158707313881983,
+      "conditional_rate": 0.005242463958060288,
+      "lift": 5.724021718779255
+    },
+    {
+      "pattern_code": "DM2|DS1|DS1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 7,
+      "baseline_rate": 0.0009158707313881983,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 4.2930162890844406
+    },
+    {
+      "pattern_code": "DS2|US2|DM1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010467094073007982,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 3.7563892529488854
+    },
+    {
+      "pattern_code": "UM2|DS2|US1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014392254350385975,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 2.7319194566900986
+    }
+  ],
+  "precursors_before_big_down_moves": [
+    {
+      "pattern_code": "US1|US1|US1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 5,
+      "baseline_rate": 0.0006541933795629988,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 6.010222804718217
+    },
+    {
+      "pattern_code": "UM2|DM2|UM3",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 5,
+      "baseline_rate": 0.0006541933795629988,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 6.010222804718217
+    },
+    {
+      "pattern_code": "DM2|DS2|US1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 763,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010467094073007982,
+      "conditional_rate": 0.005242463958060288,
+      "lift": 5.0085190039318475
+    },
+    {
+      "pattern_code": "DS2|US1|US1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010467094073007982,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 3.7563892529488854
+    },
+    {
+      "pattern_code": "UM3|UM2|DM2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010467094073007982,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 3.7563892529488854
+    }
+  ]
+}

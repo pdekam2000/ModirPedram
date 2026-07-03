@@ -1,0 +1,82 @@
+{
+  "window_size": 3,
+  "forward_k": 5,
+  "outcome_quantile": 0.1,
+  "num_extreme_windows_each_side": 763,
+  "precursors_before_big_up_moves": [
+    {
+      "pattern_code": "US2|DM1|DS1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 3,
+      "baseline_rate": 0.0003925160277377993,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 10.017038007863695
+    },
+    {
+      "pattern_code": "US2|US2|US1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007850320554755986,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 5.0085190039318475
+    },
+    {
+      "pattern_code": "US2|DM2|DM2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007850320554755986,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 5.0085190039318475
+    }
+  ],
+  "precursors_before_big_down_moves": [
+    {
+      "pattern_code": "DL2|UM2|UL3",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007850320554755986,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 5.0085190039318475
+    },
+    {
+      "pattern_code": "UM2|UM2|US1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 7,
+      "baseline_rate": 0.0009158707313881983,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 4.2930162890844406
+    },
+    {
+      "pattern_code": "DS1|UM2|UM2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010467094073007982,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 3.7563892529488854
+    },
+    {
+      "pattern_code": "UM2|DM1|UM2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.0015700641109511972,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 2.5042595019659237
+    },
+    {
+      "pattern_code": "UM2|UM2|DS1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 763,
+      "total_occurrences_overall": 13,
+      "baseline_rate": 0.001700902786863797,
+      "conditional_rate": 0.003931847968545216,
+      "lift": 2.3116241556608528
+    }
+  ]
+}

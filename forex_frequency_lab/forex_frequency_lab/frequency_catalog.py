@@ -6,6 +6,7 @@ import pandas as pd
 from .candle_features import encode_candles
 from .motif_discovery import discover_patterns
 from .periodicity import analyze_periodicity
+from .shadow_features import encode_shadows
 from .trend_metrics import window_trend
 
 
@@ -15,23 +16,16 @@ def forward_return(close_values, end_index, k):
     return float((close_values[end_index + k] - close_values[end_index]) / close_values[end_index])
 
 
-def build_frequency_catalog(
-    df,
-    window_sizes=(3, 4, 5),
-    min_occurrences=5,
-    forward_k=5,
-    atr_period=14,
-    **candle_kwargs,
-):
-    """Run the full pipeline: encode candles, find recurring patterns per
-    window size, and attach trend/periodicity/forward-outcome stats to each.
+def catalog_from_symbols(df, symbols, window_sizes=(3, 4, 5), min_occurrences=5, forward_k=5):
+    """Core pipeline shared by every symbol scheme (candle body, shadow/wick
+    shape, ...): find recurring windows over `symbols`, and attach
+    trend/periodicity/forward-outcome stats to each.
 
     Returns a list of records sorted by occurrence count (most recurring
     first), each labeled "Frequency 1", "Frequency 2", ...
     """
     close_values = df["Close"].values
     timestamps = df["Time"]
-    symbols = encode_candles(df, atr_period=atr_period, **candle_kwargs)
 
     catalog = []
     for window_size in window_sizes:
@@ -69,6 +63,34 @@ def build_frequency_catalog(
         record["name"] = f"Frequency {i}"
 
     return catalog
+
+
+def build_frequency_catalog(
+    df,
+    window_sizes=(3, 4, 5),
+    min_occurrences=5,
+    forward_k=5,
+    atr_period=14,
+    **candle_kwargs,
+):
+    """Frequency catalog over candle-body shape (direction/size/strength)."""
+    symbols = encode_candles(df, atr_period=atr_period, **candle_kwargs)
+    return catalog_from_symbols(df, symbols, window_sizes, min_occurrences, forward_k)
+
+
+def build_shadow_frequency_catalog(
+    df,
+    window_sizes=(3, 4, 5),
+    min_occurrences=5,
+    forward_k=5,
+    **shadow_kwargs,
+):
+    """Frequency catalog over candle shadow/wick shape only, independent of
+    body direction or size — surfaces recurring wick sequences (pin bars,
+    shooting stars, hammers, symmetric wicks, ...) rather than body shapes.
+    """
+    symbols, _shapes = encode_shadows(df, **shadow_kwargs)
+    return catalog_from_symbols(df, symbols, window_sizes, min_occurrences, forward_k)
 
 
 def save_catalog(catalog, output_path):

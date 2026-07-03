@@ -1,3 +1,4 @@
 data/*.csv
 output/*.json
 output/*.csv
+output/*/run.log

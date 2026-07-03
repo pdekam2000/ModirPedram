@@ -1,0 +1,109 @@
+{
+  "window_size": 3,
+  "forward_k": 5,
+  "outcome_quantile": 0.1,
+  "num_extreme_windows_each_side": 232,
+  "precursors_before_big_up_moves": [
+    {
+      "pattern_code": "U1L2|U2L0|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 3,
+      "baseline_rate": 0.0012881064834693002,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 10.038793103448276
+    },
+    {
+      "pattern_code": "U2L0|U2L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 5,
+      "baseline_rate": 0.0021468441391155,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 6.0232758620689655
+    },
+    {
+      "pattern_code": "U1L1|U2L1|U0L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 232,
+      "total_occurrences_overall": 7,
+      "baseline_rate": 0.0030055817947617003,
+      "conditional_rate": 0.017241379310344827,
+      "lift": 5.736453201970443
+    },
+    {
+      "pattern_code": "U0L2|U1L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 7,
+      "baseline_rate": 0.0030055817947617003,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 4.302339901477833
+    },
+    {
+      "pattern_code": "U2L1|U1L1|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0034349506225848005,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 3.764547413793103
+    },
+    {
+      "pattern_code": "U1L0|U1L1|U2L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 232,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.005152425933877201,
+      "conditional_rate": 0.017241379310344827,
+      "lift": 3.346264367816092
+    },
+    {
+      "pattern_code": "U0L2|U0L2|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 9,
+      "baseline_rate": 0.0038643194504079004,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 3.346264367816092
+    },
+    {
+      "pattern_code": "U0L0|U1L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.004293688278231,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 3.0116379310344827
+    }
+  ],
+  "precursors_before_big_down_moves": [
+    {
+      "pattern_code": "U1L0|U0L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 5,
+      "baseline_rate": 0.0021468441391155,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 6.0232758620689655
+    },
+    {
+      "pattern_code": "U2L0|U1L0|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 5,
+      "baseline_rate": 0.0021468441391155,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 6.0232758620689655
+    },
+    {
+      "pattern_code": "U1L1|U0L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 232,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0034349506225848005,
+      "conditional_rate": 0.01293103448275862,
+      "lift": 3.764547413793103
+    }
+  ]
+}

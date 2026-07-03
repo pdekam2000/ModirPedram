@@ -17,9 +17,18 @@ to candlestick shapes instead of raw waveforms.
 
 ## How it works
 
-1. **Encode** each candle into a discrete symbol: direction (up/down/doji) +
-   size vs. ATR (small/medium/large) + body strength (weak/medium/strong).
-   Example: `UM2` = bullish candle, medium range, medium body strength.
+There are two independent encoding schemes — pick one or run both:
+
+- **Body scheme**: direction (up/down/doji) + size vs. ATR (small/medium/large)
+  + body strength (weak/medium/strong). Example: `UM2` = bullish candle,
+  medium range, medium body strength.
+- **Shadow/wick scheme**: upper-wick bucket + lower-wick bucket (short/medium/
+  long each), independent of the body. Example: `U2L0` = long upper wick, no
+  lower wick (shooting-star shape); `U0L2` = hammer/pin-bar shape.
+
+Discovery pipeline for either scheme:
+
+1. **Encode** each candle into a discrete symbol under the chosen scheme.
 2. **Slide a window** of N candles across the whole series and group windows
    that produce the *identical* symbol sequence — those are candidate
    recurring patterns.
@@ -28,6 +37,15 @@ to candlestick shapes instead of raw waveforms.
    occurrence periodicity, and forward outcome.
 5. **Rank** patterns by occurrence count and save the full catalog + a
    summary table.
+
+There is also a **reverse-engineering** pass, which runs the discovery
+direction backward: instead of finding a pattern first and then checking what
+happens after it, it starts from the known biggest price moves (top/bottom
+`--reverse-quantile` of forward returns) and looks at which single pattern
+sat immediately before each one. Each pattern gets a `lift` score — its rate
+right before a big move divided by its baseline rate across the whole
+series. `lift` well above 1 means that pattern is a disproportionate
+precursor to that kind of move.
 
 ## Setup
 
@@ -48,21 +66,31 @@ Then run:
 
 ```bash
 python -m forex_frequency_lab.cli --csv data/EURUSD_H1.csv \
+    --scheme both \
     --window-sizes 3 4 5 6 \
     --min-occurrences 10 \
     --forward-k 5 \
     --output-dir output
 ```
 
-This prints a summary table and writes:
+`--scheme` is `body`, `shadow`, or `both` (default `both`). This prints a
+summary table per scheme plus a reverse-engineered precursor table, and
+writes, per scheme (body files have no suffix, shadow files are `_shadow`):
 
-- `output/frequency_catalog.json` — full detail per frequency (all occurrence
-  timestamps, angle stats, periodicity, forward return/win-rate)
-- `output/frequency_summary.csv` — one row per frequency for quick scanning
+- `output/frequency_catalog[_shadow].json` — full detail per frequency (all
+  occurrence timestamps, angle stats, periodicity, forward return/win-rate)
+- `output/frequency_summary[_shadow].csv` — one row per frequency for quick
+  scanning
+- `output/reverse_engineering[_shadow].json` — patterns ranked by `lift`
+  before big up-moves and big down-moves
 
 Tune `--window-sizes` to test different candle-counts per pattern, and
 `--min-occurrences` to control how strict "recurring" means (too low = noise,
-too high = nothing survives).
+too high = nothing survives). Reverse engineering has its own knobs:
+`--reverse-window` (pattern length, defaults to the smallest `--window-sizes`
+value), `--reverse-quantile` (how extreme a move counts as "big", default
+10%), and `--reverse-min-occurrences`. Pass `--skip-reverse-engineer` to turn
+it off.
 
 ## Validating the pipeline with synthetic data
 
@@ -77,12 +105,17 @@ pytest tests/
 
 ## Notes / next steps
 
-- Candle encoding thresholds (`--atr-period`, body/size buckets) control how
-  fine-grained the symbols are — finer buckets find more "precise" patterns
-  but fewer of them will repeat over N years of data; coarser buckets find
-  more repeats but the patterns are less specific.
+- Candle encoding thresholds (`--atr-period`, body/size buckets, wick
+  buckets) control how fine-grained the symbols are — finer buckets find more
+  "precise" patterns but fewer of them will repeat over N years of data;
+  coarser buckets find more repeats but the patterns are less specific. The
+  shadow scheme's alphabet is smaller than the body scheme's (9 symbols vs.
+  27 per candle), so it naturally surfaces more — and less specific —
+  recurring sequences at the same window size.
 - This first version requires an *exact* symbol match per window. A natural
   next step is fuzzy matching (allow 1-symbol tolerance) or shape-distance
   clustering (e.g. DTW / matrix profile) to catch near-identical variants.
-- Forward return/win-rate is a first pass at "is this frequency actually
-  predictive" — always validate out-of-sample before trading on it.
+- Forward return/win-rate and the reverse-engineered `lift` score are a first
+  pass at "is this pattern actually predictive" — both come from small
+  sample counts on a handful of years of data, so treat them as hypotheses
+  to validate out-of-sample, not signals to trade on directly.

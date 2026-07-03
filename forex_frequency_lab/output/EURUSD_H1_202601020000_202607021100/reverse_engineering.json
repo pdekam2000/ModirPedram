@@ -1,0 +1,8 @@
+{
+  "window_size": 3,
+  "forward_k": 5,
+  "outcome_quantile": 0.1,
+  "num_extreme_windows_each_side": 308,
+  "precursors_before_big_up_moves": [],
+  "precursors_before_big_down_moves": []
+}

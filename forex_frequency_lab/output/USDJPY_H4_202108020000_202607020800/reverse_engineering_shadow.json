@@ -1,0 +1,1567 @@
+{
+  "window_size": 3,
+  "forward_k": 5,
+  "outcome_quantile": 0.1,
+  "num_extreme_windows_each_side": 765,
+  "precursors_before_big_up_moves": [
+    {
+      "pattern_code": "U2L0|U1L2|U0L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 9,
+      "baseline_rate": 0.0011755485893416929,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 5.559912854030501
+    },
+    {
+      "pattern_code": "U1L2|U2L2|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007836990595611285,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 5.003921568627451
+    },
+    {
+      "pattern_code": "U2L2|U1L1|U2L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007836990595611285,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 5.003921568627451
+    },
+    {
+      "pattern_code": "U0L2|U0L0|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007836990595611285,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 5.003921568627451
+    },
+    {
+      "pattern_code": "U2L1|U1L1|U1L0",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 4.549019607843137
+    },
+    {
+      "pattern_code": "U0L0|U0L0|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 7,
+      "baseline_rate": 0.0009143155694879833,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 4.289075630252101
+    },
+    {
+      "pattern_code": "U0L1|U0L0|U0L0",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 4.169934640522876
+    },
+    {
+      "pattern_code": "U1L2|U0L2|U0L0",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 4.169934640522876
+    },
+    {
+      "pattern_code": "U1L1|U0L0|U0L0",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 3.6392156862745098
+    },
+    {
+      "pattern_code": "U0L0|U0L0|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 3.6392156862745098
+    },
+    {
+      "pattern_code": "U1L1|U2L1|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.0013061650992685476,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.0023529411764707
+    },
+    {
+      "pattern_code": "U0L1|U1L2|U1L2",
+      "occurrences_before_outcome": 6,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00784313725490196,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U0L1|U0L2|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U2L0|U0L2|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U1L2|U1L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U0L2|U0L2|U0L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.633642930856553
+    },
+    {
+      "pattern_code": "U1L1|U1L2|U2L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.633642930856553
+    },
+    {
+      "pattern_code": "U1L0|U2L1|U1L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.633642930856553
+    },
+    {
+      "pattern_code": "U2L1|U0L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U0L2|U1L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U1L1|U2L0|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U2L1|U1L0|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U1L2|U0L2|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U0L1|U1L1|U2L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.501960784313725
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U0L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.501960784313725
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U2L0",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.354786620530565
+    },
+    {
+      "pattern_code": "U1L2|U0L2|U1L2",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.354786620530565
+    },
+    {
+      "pattern_code": "U0L0|U0L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 13,
+      "baseline_rate": 0.0016980146290491117,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.309502262443439
+    },
+    {
+      "pattern_code": "U1L2|U2L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 13,
+      "baseline_rate": 0.0016980146290491117,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.309502262443439
+    },
+    {
+      "pattern_code": "U0L0|U0L1|U1L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.2745098039215685
+    },
+    {
+      "pattern_code": "U1L2|U1L1|U0L0",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.2239651416122004
+    },
+    {
+      "pattern_code": "U1L0|U0L1|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.2239651416122004
+    },
+    {
+      "pattern_code": "U1L0|U1L2|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L1|U2L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L0|U0L1|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L1|U2L1|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L0|U1L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U1L0|U0L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L1|U1L0|U2L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.1069143446852423
+    },
+    {
+      "pattern_code": "U2L1|U1L1|U0L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.1069143446852423
+    },
+    {
+      "pattern_code": "U0L1|U0L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U0L0|U1L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U1L2|U0L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U0L0|U1L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U0L2|U1L1|U1L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 25,
+      "baseline_rate": 0.0032654127481713687,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U2L1|U0L0|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U0L1|U0L1|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U0L2|U2L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U1L2|U1L2|U1L2",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.0015686274509803
+    },
+    {
+      "pattern_code": "U1L1|U0L2|U1L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 26,
+      "baseline_rate": 0.0033960292580982234,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.924585218702866
+    },
+    {
+      "pattern_code": "U1L1|U1L2|U0L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 26,
+      "baseline_rate": 0.0033960292580982234,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.924585218702866
+    },
+    {
+      "pattern_code": "U1L1|U2L1|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 21,
+      "baseline_rate": 0.00274294670846395,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.9062558356676003
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U1L2",
+      "occurrences_before_outcome": 6,
+      "sample_size": 765,
+      "total_occurrences_overall": 32,
+      "baseline_rate": 0.0041797283176593526,
+      "conditional_rate": 0.00784313725490196,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U1L0|U1L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U0L1|U0L2|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U2L1|U1L2|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U1L0|U0L2|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.8196078431372549
+    },
+    {
+      "pattern_code": "U0L2|U0L2|U1L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 28,
+      "baseline_rate": 0.0036572622779519333,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.7871148459383754
+    },
+    {
+      "pattern_code": "U1L0|U1L1|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U1L0|U1L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U0L2|U0L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U1L2|U1L2|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U0L1|U2L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U0L2|U1L2|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U2L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 30,
+      "baseline_rate": 0.003918495297805642,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.6679738562091506
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U1L2|U0L2|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U0L1|U1L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5801857585139318
+    },
+    {
+      "pattern_code": "U0L2|U1L2|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5801857585139318
+    },
+    {
+      "pattern_code": "U0L1|U1L1|U1L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 32,
+      "baseline_rate": 0.0041797283176593526,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.5637254901960784
+    },
+    {
+      "pattern_code": "U0L1|U0L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5011764705882353
+    },
+    {
+      "pattern_code": "U1L2|U0L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5011764705882353
+    },
+    {
+      "pattern_code": "U1L1|U0L1|U1L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 34,
+      "baseline_rate": 0.004440961337513062,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.471741637831603
+    },
+    {
+      "pattern_code": "U1L2|U1L2|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 21,
+      "baseline_rate": 0.00274294670846395,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.4296918767507003
+    },
+    {
+      "pattern_code": "U1L2|U0L2|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 21,
+      "baseline_rate": 0.00274294670846395,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.4296918767507003
+    },
+    {
+      "pattern_code": "U1L2|U0L1|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 28,
+      "baseline_rate": 0.0036572622779519333,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.4296918767507
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 29,
+      "baseline_rate": 0.003787878787878788,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.3803921568627449
+    },
+    {
+      "pattern_code": "U1L2|U1L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.3647058823529412
+    },
+    {
+      "pattern_code": "U0L2|U0L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 24,
+      "baseline_rate": 0.003134796238244514,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2509803921568627
+    },
+    {
+      "pattern_code": "U0L2|U0L2|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 24,
+      "baseline_rate": 0.003134796238244514,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2509803921568627
+    },
+    {
+      "pattern_code": "U0L2|U1L1|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 33,
+      "baseline_rate": 0.004310344827586207,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.2130718954248365
+    },
+    {
+      "pattern_code": "U2L1|U0L2|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 25,
+      "baseline_rate": 0.0032654127481713687,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2009411764705882
+    },
+    {
+      "pattern_code": "U1L2|U1L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 25,
+      "baseline_rate": 0.0032654127481713687,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2009411764705882
+    },
+    {
+      "pattern_code": "U0L2|U0L1|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 25,
+      "baseline_rate": 0.0032654127481713687,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2009411764705882
+    },
+    {
+      "pattern_code": "U1L1|U1L2|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 35,
+      "baseline_rate": 0.004571577847439916,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.1437535014005602
+    },
+    {
+      "pattern_code": "U1L1|U1L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 27,
+      "baseline_rate": 0.0035266457680250786,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.1119825708061002
+    },
+    {
+      "pattern_code": "U0L1|U1L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 27,
+      "baseline_rate": 0.0035266457680250786,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.1119825708061002
+    },
+    {
+      "pattern_code": "U0L1|U2L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 27,
+      "baseline_rate": 0.0035266457680250786,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.1119825708061002
+    },
+    {
+      "pattern_code": "U0L1|U1L1|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 31,
+      "baseline_rate": 0.004049111807732497,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 0.9685009487666034
+    }
+  ],
+  "precursors_before_big_down_moves": [
+    {
+      "pattern_code": "U1L1|U2L2|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 4,
+      "baseline_rate": 0.0005224660397074191,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 7.505882352941176
+    },
+    {
+      "pattern_code": "U2L0|U2L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 6,
+      "baseline_rate": 0.0007836990595611285,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 5.003921568627451
+    },
+    {
+      "pattern_code": "U0L1|U1L2|U1L0",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 4.169934640522876
+    },
+    {
+      "pattern_code": "U0L1|U0L0|U0L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 13,
+      "baseline_rate": 0.0016980146290491117,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 3.849170437405732
+    },
+    {
+      "pattern_code": "U0L2|U0L1|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010449320794148381,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.752941176470588
+    },
+    {
+      "pattern_code": "U1L0|U0L0|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010449320794148381,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.752941176470588
+    },
+    {
+      "pattern_code": "U0L0|U2L0|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 8,
+      "baseline_rate": 0.0010449320794148381,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.752941176470588
+    },
+    {
+      "pattern_code": "U2L0|U0L2|U1L0",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 3.6392156862745098
+    },
+    {
+      "pattern_code": "U0L1|U1L2|U0L2",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 3.574229691876751
+    },
+    {
+      "pattern_code": "U0L0|U0L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 9,
+      "baseline_rate": 0.0011755485893416929,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.3359477124183003
+    },
+    {
+      "pattern_code": "U1L2|U2L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 9,
+      "baseline_rate": 0.0011755485893416929,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.3359477124183003
+    },
+    {
+      "pattern_code": "U2L1|U1L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 9,
+      "baseline_rate": 0.0011755485893416929,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.3359477124183003
+    },
+    {
+      "pattern_code": "U2L1|U2L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.0013061650992685476,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.0023529411764707
+    },
+    {
+      "pattern_code": "U1L0|U0L0|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.0013061650992685476,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.0023529411764707
+    },
+    {
+      "pattern_code": "U1L1|U2L1|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.0013061650992685476,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.0023529411764707
+    },
+    {
+      "pattern_code": "U2L0|U0L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.0013061650992685476,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.0023529411764707
+    },
+    {
+      "pattern_code": "U2L0|U1L2|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 10,
+      "baseline_rate": 0.0013061650992685476,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 3.0023529411764707
+    },
+    {
+      "pattern_code": "U0L2|U0L2|U1L2",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.8593837535014
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U0L0",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.8593837535014
+    },
+    {
+      "pattern_code": "U0L1|U2L0|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U1L2|U0L0|U1L2",
+      "occurrences_before_outcome": 6,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00784313725490196,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U0L1|U0L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U0L0|U2L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U0L0|U0L2|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 11,
+      "baseline_rate": 0.0014367816091954023,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.7294117647058824
+    },
+    {
+      "pattern_code": "U1L2|U2L0|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.6687581699346405
+    },
+    {
+      "pattern_code": "U0L2|U1L1|U2L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.633642930856553
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U0L0",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U1L2|U1L0|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U2L1|U0L2|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U0L0|U1L0|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U1L2|U2L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 12,
+      "baseline_rate": 0.001567398119122257,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.5019607843137255
+    },
+    {
+      "pattern_code": "U2L1|U2L1|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.501960784313725
+    },
+    {
+      "pattern_code": "U1L2|U0L0|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.501960784313725
+    },
+    {
+      "pattern_code": "U1L1|U0L2|U0L1",
+      "occurrences_before_outcome": 6,
+      "sample_size": 765,
+      "total_occurrences_overall": 25,
+      "baseline_rate": 0.0032654127481713687,
+      "conditional_rate": 0.00784313725490196,
+      "lift": 2.4018823529411764
+    },
+    {
+      "pattern_code": "U2L1|U1L1|U2L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 2.354786620530565
+    },
+    {
+      "pattern_code": "U2L0|U1L1|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L0|U1L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U1L0|U0L0|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L0|U0L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U2L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 14,
+      "baseline_rate": 0.0018286311389759666,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.1445378151260504
+    },
+    {
+      "pattern_code": "U1L1|U0L0|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U1L2|U0L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U2L1|U0L0|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U2L0|U0L2|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 15,
+      "baseline_rate": 0.001959247648902821,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 2.0015686274509807
+    },
+    {
+      "pattern_code": "U1L1|U0L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U0L1|U0L1|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U0L1|U1L1|U1L2",
+      "occurrences_before_outcome": 6,
+      "sample_size": 765,
+      "total_occurrences_overall": 32,
+      "baseline_rate": 0.0041797283176593526,
+      "conditional_rate": 0.00784313725490196,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U2L0|U1L2|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U0L2|U2L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U1L2|U2L1|U2L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U1L1|U2L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U1L0|U1L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 16,
+      "baseline_rate": 0.0020898641588296763,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.876470588235294
+    },
+    {
+      "pattern_code": "U1L1|U1L0|U0L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 27,
+      "baseline_rate": 0.0035266457680250786,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.8533042846768337
+    },
+    {
+      "pattern_code": "U0L1|U1L2|U1L2",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.8196078431372549
+    },
+    {
+      "pattern_code": "U0L2|U0L0|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U2L1|U0L1|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U0L2|U1L0|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U0L1|U2L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U1L1|U2L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 17,
+      "baseline_rate": 0.002220480668756531,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.7660899653979236
+    },
+    {
+      "pattern_code": "U0L1|U0L1|U1L2",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 23,
+      "baseline_rate": 0.0030041797283176593,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.7404944586530264
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U0L2|U0L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U0L0|U0L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U0L2|U1L0|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U0L0|U1L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 18,
+      "baseline_rate": 0.0023510971786833857,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.6679738562091502
+    },
+    {
+      "pattern_code": "U2L1|U0L0|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5801857585139318
+    },
+    {
+      "pattern_code": "U0L1|U0L0|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5801857585139318
+    },
+    {
+      "pattern_code": "U0L2|U1L2|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 19,
+      "baseline_rate": 0.0024817136886102404,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5801857585139318
+    },
+    {
+      "pattern_code": "U1L1|U0L2|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 26,
+      "baseline_rate": 0.0033960292580982234,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.5396681749622927
+    },
+    {
+      "pattern_code": "U2L1|U1L1|U1L1",
+      "occurrences_before_outcome": 5,
+      "sample_size": 765,
+      "total_occurrences_overall": 33,
+      "baseline_rate": 0.004310344827586207,
+      "conditional_rate": 0.006535947712418301,
+      "lift": 1.516339869281046
+    },
+    {
+      "pattern_code": "U1L2|U1L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5011764705882353
+    },
+    {
+      "pattern_code": "U2L1|U1L2|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5011764705882353
+    },
+    {
+      "pattern_code": "U0L2|U0L1|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5011764705882353
+    },
+    {
+      "pattern_code": "U1L2|U1L2|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 20,
+      "baseline_rate": 0.002612330198537095,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.5011764705882353
+    },
+    {
+      "pattern_code": "U0L0|U1L2|U1L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 21,
+      "baseline_rate": 0.00274294670846395,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.4296918767507003
+    },
+    {
+      "pattern_code": "U1L1|U0L2|U0L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.3647058823529412
+    },
+    {
+      "pattern_code": "U1L2|U1L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 22,
+      "baseline_rate": 0.0028735632183908046,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.3647058823529412
+    },
+    {
+      "pattern_code": "U0L1|U1L2|U0L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 23,
+      "baseline_rate": 0.0030041797283176593,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.3053708439897698
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U1L0",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 24,
+      "baseline_rate": 0.003134796238244514,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2509803921568627
+    },
+    {
+      "pattern_code": "U0L2|U0L2|U0L2",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 24,
+      "baseline_rate": 0.003134796238244514,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.2509803921568627
+    },
+    {
+      "pattern_code": "U1L1|U1L2|U1L1",
+      "occurrences_before_outcome": 4,
+      "sample_size": 765,
+      "total_occurrences_overall": 35,
+      "baseline_rate": 0.004571577847439916,
+      "conditional_rate": 0.00522875816993464,
+      "lift": 1.1437535014005602
+    },
+    {
+      "pattern_code": "U1L1|U1L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 29,
+      "baseline_rate": 0.003787878787878788,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 1.0352941176470587
+    },
+    {
+      "pattern_code": "U1L1|U0L1|U1L1",
+      "occurrences_before_outcome": 3,
+      "sample_size": 765,
+      "total_occurrences_overall": 34,
+      "baseline_rate": 0.004440961337513062,
+      "conditional_rate": 0.00392156862745098,
+      "lift": 0.8830449826989618
+    }
+  ]
+}
