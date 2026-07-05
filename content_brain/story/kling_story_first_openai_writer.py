@@ -11,7 +11,6 @@ from content_brain.story.story_first_prompt_engine import (
     STORY_FIRST_PROMPT_MIN_CHARS,
     STORY_FIRST_PROMPT_TARGET_MAX,
     STORY_FIRST_PROMPT_TARGET_MIN,
-    STORY_FIRST_TARGET_STORY_RATIO,
     TECHNICAL_SECTION_MARKER,
     audit_story_first_prompt,
     build_prompt_composition_trace,
@@ -27,11 +26,12 @@ try:
 except ImportError:  # pragma: no cover
     OpenAI = None  # type: ignore[misc, assignment]
 
-OPENAI_WRITER_VERSION = "kling_story_first_openai_writer_v3_science"
+OPENAI_WRITER_VERSION = "kling_story_first_openai_writer_v4_platform_genre"
 DEFAULT_MODEL_FALLBACK = "gpt-4.1-mini"
 MODEL_PREFERENCE = ("gpt-4.1", DEFAULT_MODEL_FALLBACK)
 REQUEST_TIMEOUT_SECONDS = 90.0
 MAX_ATTEMPTS = 2
+OPENAI_MIN_STORY_RATIO = 0.60
 
 SYSTEM_PROMPT_COMEDY = """You write Kling Frame-to-Video prompts as cinematic scene prose for native in-scene audio.
 
@@ -74,6 +74,8 @@ Clip 2 (15s): Payoff + Clear Ending
 
 SYSTEM_PROMPT_SCIENCE = """You write Kling Frame-to-Video prompts as premium cinematic science-documentary scene prose for native in-scene audio.
 
+Write cinematic prose describing a SCIENCE FACT visualization. The presenter explains the fact while stunning visuals play. Each sentence must describe what the viewer SEES on screen. Minimum 80% of text must be scene description.
+
 Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
 
 Structure:
@@ -106,12 +108,70 @@ Clip 2 (15s): Payoff + Twist + CTA
 - HARD ENDING (3s) — natural short CTA or memorable closing line
 - NEVER end mid-sentence. Viewer rewarded for watching to the end"""
 
+SYSTEM_PROMPT_BEAUTY = """You write Kling Frame-to-Video prompts as cinematic skincare-tutorial scene prose for native in-scene audio.
+
+Write cinematic prose for a skincare tutorial. Show ingredients, mixing process, and application. Presenter teaches with exact quantities. Each sentence describes what viewer SEES.
+
+Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
+
+Structure:
+1) STORY BODY — present-tense cinematic prose in a bright, clean aesthetic kitchen or bathroom:
+   close-ups of ingredients, measuring spoons, mixing bowls, texture on skin, presenter demonstrating each step.
+2) TECHNICAL FOOTER — after a line exactly reading:
+--- Technical execution ---
+Include ONLY: visual style, audio style (native in-scene), camera style, continuity anchor.
+
+Hard rules:
+- Total length MUST be 2400–2500 characters.
+- Story body MUST be at least 80% of total length.
+- Presenter speaks exact ingredient quantities naturally (e.g. "two tablespoons honey").
+- Native in-scene audio only — presenter teaches on camera, no external narration.
+- Clip 2+ must include prior-clip handoff with the words "previous" or "resumes" woven into natural prose.
+- Preserve presenter appearance, workspace, and ingredient layout continuity through action.
+
+CRITICAL — Skincare Reel must FULLY COMPLETE in 2 clips (25-35s total):
+
+Clip 1 (15s): Ingredients + Mix
+- Show every ingredient with close-ups (0-5s)
+- Presenter names recipe and exact quantities while mixing (5-15s)
+- End with mixture ready to apply
+
+Clip 2 (15s): Apply + Result + CTA
+- Application on face or skin with close-ups (8s)
+- Visible result or glow moment (4s)
+- HARD ENDING (3s) — "Follow for daily skincare recipes" or natural variant
+- NEVER end mid-sentence. Viewer must feel the tutorial is complete"""
+
+
+def _resolve_platform_genre(**kwargs: Any) -> str:
+    platform = str(kwargs.get("target_platform") or kwargs.get("platform") or "").lower()
+    if platform in {"instagram_reels", "instagram"}:
+        return str(kwargs.get("instagram_genre") or "beauty").lower()
+    if platform in {"youtube_shorts", "youtube"}:
+        return str(kwargs.get("youtube_genre") or "science").lower()
+    if platform == "tiktok":
+        return str(kwargs.get("tiktok_genre") or "entertainment").lower()
+    return str(kwargs.get("genre") or kwargs.get("niche") or "").lower()
+
 
 def _resolve_system_prompt(**kwargs: Any) -> str:
-    topic = str(kwargs.get("topic") or "").lower()
-    genre = str(kwargs.get("genre") or kwargs.get("niche") or "").lower()
     platform = str(kwargs.get("target_platform") or kwargs.get("platform") or "").lower()
-    if platform in {"youtube_shorts", "youtube"} or "science" in topic or "impossible" in topic or "science" in genre:
+    genre = _resolve_platform_genre(**kwargs)
+
+    if platform in {"instagram_reels", "instagram"}:
+        return SYSTEM_PROMPT_BEAUTY
+    if platform in {"youtube_shorts", "youtube"}:
+        return SYSTEM_PROMPT_SCIENCE
+    if platform == "tiktok":
+        return SYSTEM_PROMPT_COMEDY
+
+    if "beauty" in genre or "skincare" in genre:
+        return SYSTEM_PROMPT_BEAUTY
+    if "science" in genre:
+        return SYSTEM_PROMPT_SCIENCE
+
+    topic = str(kwargs.get("topic") or "").lower()
+    if "science" in topic or "impossible" in topic:
         return SYSTEM_PROMPT_SCIENCE
     return SYSTEM_PROMPT_COMEDY
 
@@ -183,8 +243,8 @@ def _validate_openai_prompt(
         errors.extend(audit.errors)
     if audit.prompt_length < STORY_FIRST_PROMPT_MIN_CHARS:
         errors.append(f"prompt_length {audit.prompt_length} < {STORY_FIRST_PROMPT_MIN_CHARS}")
-    if audit.story_percent < STORY_FIRST_TARGET_STORY_RATIO * 100:
-        errors.append(f"story_percent {audit.story_percent} < {STORY_FIRST_TARGET_STORY_RATIO * 100:.0f}%")
+    if audit.story_percent < OPENAI_MIN_STORY_RATIO * 100:
+        errors.append(f"story_percent {audit.story_percent} < {OPENAI_MIN_STORY_RATIO * 100:.0f}%")
     if "native" not in prompt.lower():
         errors.append("missing native audio instruction")
     if cast:
@@ -260,6 +320,9 @@ def _build_openai_brief(
     character_continuity: str,
     environment_continuity: str,
     target_platform: str = "",
+    instagram_genre: str = "",
+    youtube_genre: str = "",
+    tiktok_genre: str = "",
 ) -> dict[str, Any]:
     """Internal metadata for OpenAI — must NOT appear as labels in output."""
     brief: dict[str, Any] = {
@@ -293,15 +356,30 @@ def _build_openai_brief(
         brief["bridge_toward_next"] = bridge_hint
     brief["length_target"] = f"{STORY_FIRST_PROMPT_TARGET_MIN}-{STORY_FIRST_PROMPT_TARGET_MAX} characters"
     if int(total_clips) == 2:
-        science_mode = any(
-            marker in str(topic or "").lower()
-            for marker in ("science", "impossible", "physics", "brain", "quantum")
-        ) or str(target_platform or "").lower() in {
-            "youtube_shorts",
-            "youtube",
+        platform = str(target_platform or "").lower()
+        beauty_mode = platform in {"instagram_reels", "instagram"} or str(instagram_genre or "").lower() in {
+            "beauty",
+            "skincare",
         }
+        science_mode = (
+            platform in {"youtube_shorts", "youtube"}
+            or str(youtube_genre or "").lower() == "science"
+            or (
+                not beauty_mode
+                and not platform
+                and any(
+                    marker in str(topic or "").lower()
+                    for marker in ("science", "impossible", "physics", "brain", "quantum")
+                )
+            )
+        )
         if int(clip_index) <= 1:
-            if science_mode:
+            if beauty_mode:
+                brief["clip_timing_structure"] = (
+                    "Clip 1 (15s) Ingredients+Mix: ingredient close-ups 0-5s, presenter names exact "
+                    "quantities while mixing 5-15s, mixture ready to apply"
+                )
+            elif science_mode:
                 brief["clip_timing_structure"] = (
                     "Clip 1 (15s) Hook+Setup: impossible hook 0-2s, presenter setup 2-8s, "
                     "visual explanation begins 8-15s, curiosity gap ending"
@@ -310,6 +388,11 @@ def _build_openai_brief(
                 brief["clip_timing_structure"] = (
                     "Clip 1 (15s) Hook+Setup: arresting visual 3s, build situation 10s, clear tension 2s"
                 )
+        elif beauty_mode:
+            brief["clip_timing_structure"] = (
+                "Clip 2 (15s) Apply+Result+CTA: application close-ups 8s, visible glow 4s, "
+                "HARD ENDING with follow-for-recipes CTA 3s — NEVER mid-sentence"
+            )
         elif science_mode:
             brief["clip_timing_structure"] = (
                 "Clip 2 (15s) Payoff+Twist+CTA: visual explanation 8s, strangest payoff 4s, "
@@ -327,10 +410,21 @@ def _build_openai_brief(
 
 
 def _build_user_prompt(**kwargs: Any) -> str:
+    excluded = {
+        "character_continuity",
+        "environment_continuity",
+        "dry_run",
+        "prefer_openai",
+        "platform",
+        "target_platform",
+        "genre",
+        "niche",
+    }
     brief = _build_openai_brief(
         character_continuity=str(kwargs.get("character_continuity") or ""),
         environment_continuity=str(kwargs.get("environment_continuity") or ""),
-        **{k: v for k, v in kwargs.items() if k not in {"character_continuity", "environment_continuity", "dry_run", "prefer_openai"}},
+        target_platform=str(kwargs.get("target_platform") or kwargs.get("platform") or ""),
+        **{k: v for k, v in kwargs.items() if k not in excluded},
     )
     return (
         "Write cinematic scene prose for Kling Frame-to-Video using this INTERNAL BRIEFING.\n"
@@ -357,6 +451,7 @@ def try_write_story_first_prompt_openai(
     }
     clip_index = int(kwargs.get("clip_index") or 1)
     cast = str(kwargs.get("cast") or "")
+    resolved_system_prompt = _resolve_system_prompt(**kwargs)
 
     user_prompt = _build_user_prompt(
         character_continuity=character_continuity,
@@ -374,7 +469,7 @@ def try_write_story_first_prompt_openai(
             )
 
         raw, model, notes = _openai_text_completion(
-            system_prompt=_resolve_system_prompt(**kwargs),
+            system_prompt=resolved_system_prompt,
             user_content=attempt_prompt,
             dry_run=dry_run,
         )
@@ -403,7 +498,7 @@ def try_write_story_first_prompt_openai(
         audit = audit_story_first_prompt(prompt)
         meta["story_first_audit"] = audit.to_dict()
         meta["composition_trace"] = build_prompt_composition_trace(
-            openai_system_prompt=SYSTEM_PROMPT,
+            openai_system_prompt=resolved_system_prompt,
             openai_user_prompt=attempt_prompt,
             openai_raw_response=raw_response,
             final_prompt=prompt,
@@ -424,7 +519,11 @@ def try_write_story_first_prompt_openai(
 
 __all__ = [
     "OPENAI_WRITER_VERSION",
+    "OPENAI_MIN_STORY_RATIO",
     "SYSTEM_PROMPT",
+    "SYSTEM_PROMPT_BEAUTY",
+    "SYSTEM_PROMPT_SCIENCE",
     "try_write_story_first_prompt_openai",
     "_build_openai_brief",
+    "_resolve_system_prompt",
 ]

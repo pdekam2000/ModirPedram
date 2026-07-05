@@ -6,6 +6,25 @@
   "queued_jobs": [],
   "run_history": [
     {
+      "job_id": "auto_e8363cd2748e",
+      "topic": "Skincare & Self-Care \u2014 Instagram Reels",
+      "title": "Skincare & Self-Care \u2014 Instagram Reels",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "pwmap_20260705T192345_a571c7ef",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260705T192345_a571c7ef/video.mp4",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:22:55.245531+00:00",
+      "updated_at": "2026-07-05T19:55:37.977628+00:00"
+    },
+    {
       "job_id": "auto_87855ec1bf84",
       "topic": "Skincare & Self-Care \u2014 Instagram Reels",
       "title": "Skincare & Self-Care \u2014 Instagram Reels",
@@ -425,6 +444,846 @@
     }
   ],
   "failed_jobs": [
+    {
+      "job_id": "auto_f1f106b6cf8f",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:17:58.385973+00:00",
+      "updated_at": "2026-07-05T20:17:58.475493+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_5a60867f44b2",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:17:21.726312+00:00",
+      "updated_at": "2026-07-05T20:17:23.395236+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_4f1e07071d91",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:16:50.172395+00:00",
+      "updated_at": "2026-07-05T20:16:51.650815+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_4e2d55b30f8c",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:16:18.590092+00:00",
+      "updated_at": "2026-07-05T20:16:20.115279+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_a38443177da4",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:15:47.060083+00:00",
+      "updated_at": "2026-07-05T20:15:48.525038+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_df669bfe79ce",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:15:15.541747+00:00",
+      "updated_at": "2026-07-05T20:15:17.005390+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_df810faf757c",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:14:44.019559+00:00",
+      "updated_at": "2026-07-05T20:14:45.491409+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_ff5294d0aae5",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:14:12.537469+00:00",
+      "updated_at": "2026-07-05T20:14:13.952506+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_a126aa583922",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:13:41.025178+00:00",
+      "updated_at": "2026-07-05T20:13:42.483687+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_f8d123ec2f4f",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:13:09.499642+00:00",
+      "updated_at": "2026-07-05T20:13:10.966170+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_32aa16216437",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:12:38.043818+00:00",
+      "updated_at": "2026-07-05T20:12:39.441061+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_4703509c3f41",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:12:06.577012+00:00",
+      "updated_at": "2026-07-05T20:12:07.982524+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_8f1320b69a49",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:11:35.003668+00:00",
+      "updated_at": "2026-07-05T20:11:36.526025+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_f21013b67082",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:11:03.564642+00:00",
+      "updated_at": "2026-07-05T20:11:04.950535+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_c0de5a0650e0",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:10:32.055350+00:00",
+      "updated_at": "2026-07-05T20:10:33.495380+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_db347c16d5de",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:10:00.568545+00:00",
+      "updated_at": "2026-07-05T20:10:01.997117+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_f824c75f7cd5",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:09:27.969925+00:00",
+      "updated_at": "2026-07-05T20:09:30.481096+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_80f66f926a9a",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:08:55.785066+00:00",
+      "updated_at": "2026-07-05T20:08:57.886413+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_dfd7df00c30b",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:08:23.174886+00:00",
+      "updated_at": "2026-07-05T20:08:25.679192+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_6cfcf25df937",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:07:51.053926+00:00",
+      "updated_at": "2026-07-05T20:07:53.082897+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_070c8f40e552",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:07:18.437668+00:00",
+      "updated_at": "2026-07-05T20:07:20.963578+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_4d6ea502941c",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:06:46.355053+00:00",
+      "updated_at": "2026-07-05T20:06:48.351263+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_a70e42667592",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:06:13.766989+00:00",
+      "updated_at": "2026-07-05T20:06:16.272105+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_d4fad2eb705c",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:05:41.607624+00:00",
+      "updated_at": "2026-07-05T20:05:43.677777+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_42ca2dc52cf1",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:05:08.979445+00:00",
+      "updated_at": "2026-07-05T20:05:11.517850+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_16f8b235126b",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:04:36.820962+00:00",
+      "updated_at": "2026-07-05T20:04:38.886877+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_98ab5fe92d67",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:04:04.718195+00:00",
+      "updated_at": "2026-07-05T20:04:06.736151+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_af1ea58e0ea1",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:03:33.232555+00:00",
+      "updated_at": "2026-07-05T20:03:34.644159+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_026d58e5246b",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:03:01.728740+00:00",
+      "updated_at": "2026-07-05T20:03:03.174504+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_e7b19a312dbf",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:02:29.793760+00:00",
+      "updated_at": "2026-07-05T20:02:31.668511+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_28f89c075e8f",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:01:58.295742+00:00",
+      "updated_at": "2026-07-05T20:01:59.718839+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_6f7fc2a4362c",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:01:26.786010+00:00",
+      "updated_at": "2026-07-05T20:01:28.230061+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_d5d61deb69e3",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:00:54.740976+00:00",
+      "updated_at": "2026-07-05T20:00:56.707988+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_cffca159dbce",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T20:00:22.290115+00:00",
+      "updated_at": "2026-07-05T20:00:24.665807+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_ea0f6f7c19b2",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:59:50.241866+00:00",
+      "updated_at": "2026-07-05T19:59:52.194237+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_8aab6aec8573",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:59:18.017133+00:00",
+      "updated_at": "2026-07-05T19:59:20.146056+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_e0b5579628f2",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:58:45.974924+00:00",
+      "updated_at": "2026-07-05T19:58:47.936753+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_3d52eade5284",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:58:13.885392+00:00",
+      "updated_at": "2026-07-05T19:58:15.902064+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_baa5bf3ddd4d",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:57:42.353800+00:00",
+      "updated_at": "2026-07-05T19:57:43.817175+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_5373dce103a8",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:57:10.955464+00:00",
+      "updated_at": "2026-07-05T19:57:12.304558+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_185479cc2ff0",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:56:39.500638+00:00",
+      "updated_at": "2026-07-05T19:56:40.907774+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
+    {
+      "job_id": "auto_43ebd0f2c9ae",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:23:26.674978+00:00",
+      "updated_at": "2026-07-05T19:56:09.440802+00:00",
+      "reason": "instagram_keywords_in_youtube_upload"
+    },
     {
       "job_id": "auto_7f61490a8348",
       "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
@@ -1584,846 +2443,6 @@
       "created_at": "2026-07-05T18:48:43.736364+00:00",
       "updated_at": "2026-07-05T18:48:45.929460+00:00",
       "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_789e8c3c30a3",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:48:11.453632+00:00",
-      "updated_at": "2026-07-05T18:48:13.673948+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_a6b357621010",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:47:39.224130+00:00",
-      "updated_at": "2026-07-05T18:47:41.392502+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_89c097264025",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:47:06.965814+00:00",
-      "updated_at": "2026-07-05T18:47:09.167945+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_a0b7c76dfc41",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:46:34.703054+00:00",
-      "updated_at": "2026-07-05T18:46:36.911692+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_575bc820098f",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:46:02.463848+00:00",
-      "updated_at": "2026-07-05T18:46:04.644137+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_782276a62eda",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:45:30.305277+00:00",
-      "updated_at": "2026-07-05T18:45:32.408579+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_d159b6cbaa8e",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:44:58.077604+00:00",
-      "updated_at": "2026-07-05T18:45:00.247714+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_0ef31c9d3bdb",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:44:25.782198+00:00",
-      "updated_at": "2026-07-05T18:44:28.020985+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_692cd03a7b20",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:43:53.470935+00:00",
-      "updated_at": "2026-07-05T18:43:55.719267+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_6eb2a2e8b377",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:43:21.298604+00:00",
-      "updated_at": "2026-07-05T18:43:23.417049+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_76cc7c341cef",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:42:49.121456+00:00",
-      "updated_at": "2026-07-05T18:42:51.234711+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_139b768da5f2",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:42:16.935414+00:00",
-      "updated_at": "2026-07-05T18:42:19.062959+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_c428d01e5f40",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:41:44.682493+00:00",
-      "updated_at": "2026-07-05T18:41:46.870184+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_e3ee7948d738",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:41:12.489807+00:00",
-      "updated_at": "2026-07-05T18:41:14.616556+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_19e2fcf75d1a",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:40:40.331250+00:00",
-      "updated_at": "2026-07-05T18:40:42.430985+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_93a82fc4025c",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:40:08.031925+00:00",
-      "updated_at": "2026-07-05T18:40:10.277078+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_9e241fec0391",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:39:35.673944+00:00",
-      "updated_at": "2026-07-05T18:39:37.967943+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_ef552fafd346",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:39:03.408183+00:00",
-      "updated_at": "2026-07-05T18:39:05.619610+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_d12e512f1a47",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:38:31.073640+00:00",
-      "updated_at": "2026-07-05T18:38:33.350388+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_f0e5875ff51d",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:37:58.763985+00:00",
-      "updated_at": "2026-07-05T18:38:01.007529+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_8e255289bb0d",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:37:26.417624+00:00",
-      "updated_at": "2026-07-05T18:37:28.689675+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_216f6d4b8483",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:36:54.175236+00:00",
-      "updated_at": "2026-07-05T18:36:56.359482+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_997ad8682b2b",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:36:22.025901+00:00",
-      "updated_at": "2026-07-05T18:36:24.116740+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_d0fe110aa167",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:35:49.902681+00:00",
-      "updated_at": "2026-07-05T18:35:51.968247+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_73319acdab0d",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:35:17.756699+00:00",
-      "updated_at": "2026-07-05T18:35:19.839550+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_7d6d2853ab2f",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:34:45.616806+00:00",
-      "updated_at": "2026-07-05T18:34:47.701034+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_ccd29b9047fe",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:34:13.453231+00:00",
-      "updated_at": "2026-07-05T18:34:15.548321+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_433124f06e6a",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:33:41.172681+00:00",
-      "updated_at": "2026-07-05T18:33:43.393190+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_667adeeeb8ea",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:33:09.079100+00:00",
-      "updated_at": "2026-07-05T18:33:11.099340+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_d506422c4e3d",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:32:36.972702+00:00",
-      "updated_at": "2026-07-05T18:32:39.010202+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_6254ec7f7710",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:32:04.808215+00:00",
-      "updated_at": "2026-07-05T18:32:06.910024+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_c5f20d33a91a",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:31:32.149396+00:00",
-      "updated_at": "2026-07-05T18:31:34.743721+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_7f1916f9063a",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:30:59.999376+00:00",
-      "updated_at": "2026-07-05T18:31:02.075720+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_8c54469f1f8a",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:30:27.929188+00:00",
-      "updated_at": "2026-07-05T18:30:29.932454+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_c147d8632b34",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:29:55.751700+00:00",
-      "updated_at": "2026-07-05T18:29:57.863035+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_c98b7c8bce57",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:29:23.578237+00:00",
-      "updated_at": "2026-07-05T18:29:25.680760+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_36e8d4cc1e2f",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:28:51.474489+00:00",
-      "updated_at": "2026-07-05T18:28:53.516254+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_833500cc0f12",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:28:19.383373+00:00",
-      "updated_at": "2026-07-05T18:28:21.416309+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_c91cf60ffb7f",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:27:47.023575+00:00",
-      "updated_at": "2026-07-05T18:27:49.317852+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_b08a20f3bfd4",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:27:14.828374+00:00",
-      "updated_at": "2026-07-05T18:27:16.951730+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_d2cef0787938",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:26:42.699194+00:00",
-      "updated_at": "2026-07-05T18:26:44.765447+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
-    },
-    {
-      "job_id": "auto_db0542db5ce9",
-      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
-      "duration": 30,
-      "clip_count": 2,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-05T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "error": "instagram_keywords_in_youtube_upload",
-      "created_at": "2026-07-05T18:26:10.592772+00:00",
-      "updated_at": "2026-07-05T18:26:12.632089+00:00",
-      "reason": "instagram_keywords_in_youtube_upload"
     }
   ],
   "feature_flags": {
@@ -2434,5 +2453,5 @@
     "suno_music": false,
     "analytics": false
   },
-  "updated_at": "2026-07-05T19:23:00.168905+00:00"
+  "updated_at": "2026-07-05T20:17:58.478493+00:00"
 }

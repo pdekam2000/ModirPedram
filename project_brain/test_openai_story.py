@@ -82,12 +82,23 @@ def _run_platform_audit(*, label: str, topic: str, platform: str, profile: dict)
         print(f"Novelty tags:     {', '.join(str(t) for t in idea.get('novelty_tags', [])[:6])}")
     print()
 
-    system_prompt_kind = "SCIENCE" if "science presenter" in _resolve_system_prompt(
+    system_prompt_kind = "UNKNOWN"
+    resolved = _resolve_system_prompt(
         topic=authoritative_topic[:500],
         target_platform=platform,
+        platform=platform,
         genre=str(profile.get("genre") or ""),
+        youtube_genre=str(profile.get("youtube_genre") or ""),
+        instagram_genre=str(profile.get("instagram_genre") or ""),
+        tiktok_genre=str(profile.get("tiktok_genre") or ""),
         niche=niche,
-    ).lower() else "COMEDY/OTHER"
+    ).lower()
+    if "skincare tutorial" in resolved or "skincare-tutorial" in resolved:
+        system_prompt_kind = "BEAUTY"
+    elif "science fact" in resolved or "science-documentary" in resolved:
+        system_prompt_kind = "SCIENCE"
+    else:
+        system_prompt_kind = "COMEDY/OTHER"
     print(f"OpenAI system prompt branch (inferred): {system_prompt_kind}")
     print()
 
@@ -102,6 +113,10 @@ def _run_platform_audit(*, label: str, topic: str, platform: str, profile: dict)
         style=style,
         characters=[str(idea.get("main_character") or "presenter")],
         environment=str(idea.get("setting") or ""),
+        youtube_genre=str(profile.get("youtube_genre") or ""),
+        instagram_genre=str(profile.get("instagram_genre") or ""),
+        tiktok_genre=str(profile.get("tiktok_genre") or ""),
+        genre=str(profile.get("genre") or ""),
     )
 
     for clip in plan.clips:

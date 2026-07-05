@@ -146,5 +146,8 @@
   "narration_style": "child_story",
   "updated_at": "2026-07-05T19:20:50.225135+00:00",
   "niche": "science documentary",
-  "genre": "science"
+  "genre": "science",
+  "youtube_genre": "science",
+  "instagram_genre": "beauty",
+  "tiktok_genre": "entertainment"
 }

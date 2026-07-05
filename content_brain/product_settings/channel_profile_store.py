@@ -118,6 +118,10 @@ DEFAULT_CHANNEL_PROFILE: dict[str, Any] = {
     "character_voice_mode": "multi_voice",
     "narration_style": "child_story",
     "updated_at": "",
+    "genre": "",
+    "youtube_genre": "science",
+    "instagram_genre": "beauty",
+    "tiktok_genre": "entertainment",
 }
 
 LIST_PROFILE_FIELDS = (

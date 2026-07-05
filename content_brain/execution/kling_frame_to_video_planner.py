@@ -105,6 +105,11 @@ def _compose_frame_prompt(
     continuity_anchor: str,
     next_hint: str,
     chapter: StoryChapterClip | None = None,
+    platform: str = "",
+    youtube_genre: str = "",
+    instagram_genre: str = "",
+    tiktok_genre: str = "",
+    genre: str = "",
 ) -> str:
     cast = _character_phrase(context.characters)
     emotion = chapter.emotion if chapter else _emotion_for_clip(clip_index, context.mood)
@@ -139,6 +144,12 @@ def _compose_frame_prompt(
         directives_summary=directives_summary,
         character_continuity=character_continuity,
         environment_continuity=environment_continuity,
+        target_platform=platform,
+        platform=platform,
+        genre=genre,
+        youtube_genre=youtube_genre,
+        instagram_genre=instagram_genre,
+        tiktok_genre=tiktok_genre,
     )
     return prompt, authorship
 
@@ -153,6 +164,11 @@ def _build_clip_plan(
     bridge_hint: str,
     next_beat: str,
     chapter: StoryChapterClip | None = None,
+    platform: str = "",
+    youtube_genre: str = "",
+    instagram_genre: str = "",
+    tiktok_genre: str = "",
+    genre: str = "",
 ) -> KlingFrameToVideoClipPlan:
     emotion = chapter.emotion if chapter else _emotion_for_clip(clip_index, context.mood)
     cast = _character_phrase(context.characters)
@@ -204,6 +220,11 @@ def _build_clip_plan(
         continuity_anchor=continuity,
         next_hint=next_hint,
         chapter=chapter,
+        platform=platform,
+        youtube_genre=youtube_genre,
+        instagram_genre=instagram_genre,
+        tiktok_genre=tiktok_genre,
+        genre=genre,
     )
 
     chapter_progression = chapter.to_dict() if chapter else {}
@@ -246,6 +267,10 @@ def plan_kling_frame_to_video_content(
     environment: str = "",
     frame_mode_available: bool = True,
     explicit_mode: str = "",
+    youtube_genre: str = "",
+    instagram_genre: str = "",
+    tiktok_genre: str = "",
+    genre: str = "",
 ) -> KlingFrameToVideoPlan:
     """Convert story inputs into a Kling Frame-to-Video plan with rich per-clip prompts."""
     payload = KlingContentPlannerInput(
@@ -308,6 +333,11 @@ def plan_kling_frame_to_video_content(
                 bridge_hint=bridge_hint,
                 next_beat=next_beat,
                 chapter=chapter,
+                platform=platform,
+                youtube_genre=youtube_genre,
+                instagram_genre=instagram_genre,
+                tiktok_genre=tiktok_genre,
+                genre=genre,
             )
         )
 

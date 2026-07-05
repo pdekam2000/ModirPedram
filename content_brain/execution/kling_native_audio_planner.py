@@ -730,6 +730,10 @@ def plan_kling_frame_from_audio_route(
     style: str = "",
     characters: list[str] | None = None,
     environment: str = "",
+    youtube_genre: str = "",
+    instagram_genre: str = "",
+    tiktok_genre: str = "",
+    genre: str = "",
 ) -> Any:
     """Build Frame-to-Video plan (primary production path) from audio router metadata."""
     from content_brain.execution.kling_frame_to_video_models import KLING_FRAME_TO_VIDEO_MODE
@@ -761,6 +765,10 @@ def plan_kling_frame_from_audio_route(
         environment=environment,
         frame_mode_available=True,
         explicit_mode=KLING_FRAME_TO_VIDEO_MODE,
+        youtube_genre=youtube_genre,
+        instagram_genre=instagram_genre,
+        tiktok_genre=tiktok_genre,
+        genre=genre,
     )
 
 

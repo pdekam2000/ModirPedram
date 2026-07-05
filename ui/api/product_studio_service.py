@@ -697,6 +697,10 @@ class ProductStudioService:
                 style=style,
                 characters=character_list,
                 environment=environment,
+                youtube_genre=str(profile.get("youtube_genre") or ""),
+                instagram_genre=str(profile.get("instagram_genre") or ""),
+                tiktok_genre=str(profile.get("tiktok_genre") or ""),
+                genre=str(profile.get("genre") or ""),
             )
             kling_block = build_kling_frame_preflight_api_payload(
                 plan=kling_plan,
