@@ -34,6 +34,7 @@ def evaluate_auto_youtube_upload_eligibility(
     visual_diversity: dict[str, Any] | None = None,
     expected_clip_count: int = 0,
     youtube_config: dict[str, Any] | None = None,
+    automation_mode: bool = False,
 ) -> dict[str, Any]:
     """Return {eligible: bool, blocked_reason: str, visibility: str, publish_now: bool, confirmed: bool}."""
     root = Path(project_root).resolve()
@@ -41,6 +42,18 @@ def evaluate_auto_youtube_upload_eligibility(
     publish_path = Path(publish_dir).resolve()
     config = dict(youtube_config or load_youtube_auto_upload_config(root))
     profile = ProductChannelProfileStore(root).load()
+
+    from content_brain.platform.automation_center_store import is_auto_upload_enabled
+
+    if not is_auto_upload_enabled(root):
+        return {
+            "eligible": False,
+            "blocked_reason": "auto_upload_disabled",
+            "visibility": str(config.get("default_visibility") or profile.get("youtube_privacy") or "private").lower(),
+            "publish_now": bool(config.get("publish_now", True)),
+            "confirmed": True,
+        }
+
     branding = dict(branding_publish_result or {})
     assembly = dict(assembly_result or {})
 
@@ -66,7 +79,7 @@ def evaluate_auto_youtube_upload_eligibility(
             "confirmed": confirmed,
         }
 
-    if visibility in {"public", "unlisted"} and not bool(config.get("allow_public_auto_upload")):
+    if visibility in {"public", "unlisted"} and not bool(config.get("allow_public_auto_upload")) and not automation_mode:
         return {
             "eligible": False,
             "blocked_reason": "public_upload_requires_manual_approval",
@@ -208,11 +221,53 @@ def maybe_auto_youtube_upload_after_publish(
     assembly_result: dict[str, Any] | None = None,
     visual_diversity: dict[str, Any] | None = None,
     expected_clip_count: int = 0,
+    automation_mode: bool = False,
 ) -> dict[str, Any]:
     """Attempt private auto-upload when publish package is ready; never raises."""
     root = Path(project_root).resolve()
     publish_path = Path(publish_dir).resolve()
     config = load_youtube_auto_upload_config(root)
+
+    if automation_mode:
+        from content_brain.automation.platform_upload_guard import (
+            guard_from_preflight,
+            normalize_platform,
+        )
+
+        preflight: dict[str, Any] = {}
+        normalized_path = Path(run_dir).resolve() / "normalized_result.json"
+        if normalized_path.is_file():
+            try:
+                normalized = json.loads(normalized_path.read_text(encoding="utf-8"))
+                preflight = dict(normalized.get("preflight_snapshot") or normalized.get("preflight") or {})
+            except (OSError, json.JSONDecodeError):
+                preflight = {}
+        job_platform = normalize_platform(str(preflight.get("platform") or ""))
+        if job_platform and job_platform != "youtube_shorts":
+            blocked = _write_blocked_upload_result(
+                publish_path,
+                run_id=run_id,
+                blocked_reason=f"cross_platform_upload_blocked:{job_platform}->youtube_shorts",
+            )
+            return {
+                **blocked,
+                "auto_upload_enabled": bool(config.get("auto_upload_enabled", True)),
+                "auto_upload_started": False,
+            }
+        upload_topic = str(preflight.get("channel_topic") or "")
+        if upload_topic:
+            topic_ok, topic_reason = guard_from_preflight(preflight, "youtube_shorts", upload_topic)
+            if not topic_ok:
+                blocked = _write_blocked_upload_result(
+                    publish_path,
+                    run_id=run_id,
+                    blocked_reason=topic_reason,
+                )
+                return {
+                    **blocked,
+                    "auto_upload_enabled": bool(config.get("auto_upload_enabled", True)),
+                    "auto_upload_started": False,
+                }
 
     eligibility = evaluate_auto_youtube_upload_eligibility(
         project_root=root,
@@ -223,6 +278,7 @@ def maybe_auto_youtube_upload_after_publish(
         visual_diversity=visual_diversity,
         expected_clip_count=expected_clip_count,
         youtube_config=config,
+        automation_mode=automation_mode,
     )
 
     base = {
@@ -266,6 +322,7 @@ def maybe_auto_youtube_upload_after_publish(
         publish_now=bool(eligibility.get("publish_now", True)),
         confirmed=bool(eligibility.get("confirmed", True)),
         upload_thumbnail=True,
+        automation_mode=automation_mode,
     )
     upload_result["auto_upload"] = True
     upload_result["auto_upload_enabled"] = True

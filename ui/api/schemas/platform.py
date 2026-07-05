@@ -82,6 +82,16 @@ class BrowserHealthResponse(BaseModel):
     checks: list[dict[str, Any]] = Field(default_factory=list)
 
 
+class RunwaySessionResponse(BaseModel):
+    connected: bool = False
+    disconnected: bool = True
+    message: str = ""
+    validated: bool = False
+    updated_at: str = ""
+    session_path: str = ""
+    awaiting_login: bool = False
+
+
 class BrowserActionResponse(BaseModel):
     ok: bool = False
     message: str = ""
@@ -156,6 +166,14 @@ class AutomationStatusResponse(BaseModel):
     updated_at: str = ""
 
 
+class AutomationResetDailyCounterResponse(BaseModel):
+    ok: bool = True
+    message: str = ""
+    jobs_reset: int = 0
+    platform: str = "all"
+    completed_today: int = 0
+
+
 class UploadPrepareRequest(BaseModel):
     topic: str = ""
     title: str = ""
@@ -170,6 +188,28 @@ class UploadYouTubeSubmitRequest(BaseModel):
     run_id: str = ""
     upload_package: dict[str, Any] = Field(default_factory=dict)
     confirmed: bool = False
+    automation_mode: bool = False
+
+
+class UploadInstagramSubmitRequest(BaseModel):
+    package_dir: str = ""
+    run_id: str = ""
+    video_path: str = ""
+    upload_package: dict[str, Any] = Field(default_factory=dict)
+    title: str = ""
+    caption: str = ""
+    hashtags: list[str] = Field(default_factory=list)
+    automation_mode: bool = False
+
+
+class UploadTikTokSubmitRequest(BaseModel):
+    package_dir: str = ""
+    run_id: str = ""
+    video_path: str = ""
+    upload_package: dict[str, Any] = Field(default_factory=dict)
+    title: str = ""
+    caption: str = ""
+    automation_mode: bool = False
 
 
 class CommentDraftRequest(BaseModel):
@@ -193,9 +233,18 @@ class UploadCenterStatusResponse(BaseModel):
     upload_manifest: dict[str, Any] = Field(default_factory=dict)
     metadata_by_platform: dict[str, Any] = Field(default_factory=dict)
     youtube_auth: dict[str, Any] = Field(default_factory=dict)
+    instagram_auth: dict[str, Any] = Field(default_factory=dict)
+    tiktok_auth: dict[str, Any] = Field(default_factory=dict)
     upload_root: str = ""
     publish_package_path: str = ""
     auto_upload_enabled: bool = False
+    platform_scheduler: dict[str, Any] = Field(default_factory=dict)
+
+
+class PlatformSchedulerUpdateRequest(BaseModel):
+    automation_enabled: bool | None = None
+    automation_paused: bool | None = None
+    platforms: dict[str, Any] = Field(default_factory=dict)
 
 
 class UploadMetadataRequest(BaseModel):

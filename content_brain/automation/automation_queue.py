@@ -21,9 +21,49 @@ JOB_CANCELLED = "cancelled"
 
 TERMINAL_STATUSES = {JOB_COMPLETED, JOB_FAILED, JOB_SKIPPED, JOB_CANCELLED}
 
+PLATFORM_ALIASES = {
+    "youtube": "youtube_shorts",
+    "youtube_shorts": "youtube_shorts",
+    "instagram": "instagram_reels",
+    "instagram_reels": "instagram_reels",
+    "tiktok": "tiktok",
+}
+
+
+def normalize_platform_alias(platform: str | None) -> str | None:
+    if platform is None:
+        return None
+    key = str(platform or "").strip().lower()
+    if not key:
+        return None
+    return PLATFORM_ALIASES.get(key, key)
+
+
+def _is_today(stamp: str) -> bool:
+    today = datetime.now(timezone.utc).date().isoformat()
+    return str(stamp or "")[:10] == today
+
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _parse_iso_timestamp(raw: str) -> datetime | None:
+    stamp = str(raw or "").strip()
+    if not stamp:
+        return None
+    try:
+        if stamp.endswith("Z"):
+            stamp = stamp[:-1] + "+00:00"
+        dt = datetime.fromisoformat(stamp)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except ValueError:
+        return None
+
+
+STALE_RUNNING_MINUTES = 20
 
 
 @dataclass
@@ -166,11 +206,38 @@ class AutomationQueue:
             return self.update_job(job_id, status=JOB_FAILED, error="cancelled_while_running")
         return self.update_job(job_id, status=JOB_CANCELLED, error="cancelled_by_operator")
 
-    def next_planned_job(self) -> AutomationJob | None:
-        jobs = self.list_jobs()
-        planned = [job for job in jobs if job.status == JOB_PLANNED]
-        planned.sort(key=lambda item: item.scheduled_time or item.created_at)
-        return planned[0] if planned else None
+    def cancel_jobs_by_topic_keywords(
+        self,
+        keywords: tuple[str, ...] = ("forest", "glowing", "mystery", "trail", "shelter", "nautilus", "fossil"),
+        *,
+        include_running: bool = True,
+    ) -> list[str]:
+        """Cancel or fail jobs whose topic/title matches stale story keywords."""
+        cancelled: list[str] = []
+        needles = tuple(k.lower() for k in keywords if str(k).strip())
+        for job in self.list_jobs():
+            if job.status in TERMINAL_STATUSES:
+                continue
+            if job.status == JOB_RUNNING and not include_running:
+                continue
+            haystack = f"{job.topic} {job.title}".lower()
+            if not any(needle in haystack for needle in needles):
+                continue
+            if job.status == JOB_RUNNING:
+                self.update_job(job.job_id, status=JOB_FAILED, error="cancelled_stale_topic")
+            else:
+                self.update_job(job.job_id, status=JOB_CANCELLED, error="cancelled_stale_topic")
+            cancelled.append(job.job_id)
+        return cancelled
+
+    def cancel_all_running_jobs(self, *, reason: str = "cancelled_by_operator") -> list[str]:
+        stopped: list[str] = []
+        for job in self.list_jobs():
+            if job.status != JOB_RUNNING:
+                continue
+            self.update_job(job.job_id, status=JOB_FAILED, error=reason)
+            stopped.append(job.job_id)
+        return stopped
 
     def running_job(self) -> AutomationJob | None:
         for job in self.list_jobs():
@@ -189,6 +256,21 @@ class AutomationQueue:
                 count += 1
         return count
 
+    def active_jobs_today_for_platform(self, platform: str) -> int:
+        """Count non-failed jobs scheduled for today on a platform (completed + planned + running)."""
+        today = datetime.now(timezone.utc).date().isoformat()
+        count = 0
+        for job in self.list_jobs():
+            if job.status in {JOB_FAILED, JOB_CANCELLED, JOB_SKIPPED}:
+                continue
+            plat = str((job.platform_targets[0] if job.platform_targets else "") or "")
+            if plat != platform:
+                continue
+            stamp = (job.scheduled_time or job.created_at or "")[:10]
+            if stamp == today:
+                count += 1
+        return count
+
     def max_jobs_per_day(self) -> int:
         return int(self._load_payload().get("max_jobs_per_day") or 5)
 
@@ -198,15 +280,55 @@ class AutomationQueue:
         self._save_payload(store)
 
     def import_scheduled_jobs(self, scheduled_jobs: list[dict[str, Any]]) -> list[AutomationJob]:
+        from content_brain.automation.platform_daily_scheduler_store import (
+            PLATFORMS,
+            PlatformDailySchedulerStore,
+        )
+
+        scheduler = PlatformDailySchedulerStore(self.project_root)
+        platform_state = dict((scheduler.load().get("platforms") or {}))
+        platform_caps: dict[str, int] = {}
+        for platform in PLATFORMS:
+            entry = dict(platform_state.get(platform) or {})
+            if entry.get("enabled"):
+                platform_caps[platform] = max(1, min(5, int(entry.get("videos_per_day") or 3)))
+            else:
+                platform_caps[platform] = 0
+
         created: list[AutomationJob] = []
-        existing_topics = {(job.topic, job.scheduled_time) for job in self.list_jobs()}
+        existing_keys = set()
+        for job in self.list_jobs():
+            if job.status not in {JOB_PLANNED, JOB_RUNNING}:
+                continue
+            platform = (job.platform_targets[0] if job.platform_targets else "")
+            existing_keys.add((platform, job.scheduled_time, job.topic))
         for raw in scheduled_jobs:
             topic = str(raw.get("topic") or "").strip()
             if not topic:
                 continue
+            platform = str((raw.get("platform_targets") or raw.get("platforms") or ["youtube_shorts"])[0] or "")
+            daily_cap = int(platform_caps.get(platform) or 0)
+            if daily_cap <= 0:
+                continue
+            if self.active_jobs_today_for_platform(platform) >= daily_cap:
+                continue
             scheduled_time = f"{raw.get('planned_date') or ''}T{raw.get('planned_time') or ''}".strip("T")
-            key = (topic, scheduled_time)
-            if key in existing_topics:
+            key = (platform, scheduled_time, topic)
+            if key in existing_keys:
+                for existing in self.list_jobs():
+                    if existing.status != JOB_PLANNED:
+                        continue
+                    existing_platform = str((existing.platform_targets[0] if existing.platform_targets else "") or "")
+                    if (
+                        existing_platform == platform
+                        and existing.scheduled_time == scheduled_time
+                        and existing.topic == topic
+                    ):
+                        self.update_job(
+                            existing.job_id,
+                            duration=int(raw.get("duration_seconds") or 30),
+                            clip_count=int(raw.get("clip_count") or 2),
+                        )
                 continue
             job = self.create_job(
                 {
@@ -220,8 +342,182 @@ class AutomationQueue:
                 }
             )
             created.append(job)
-            existing_topics.add(key)
+            existing_keys.add(key)
+
+        for raw in scheduled_jobs:
+            topic = str(raw.get("topic") or "").strip()
+            if not topic:
+                continue
+            platform = str((raw.get("platform_targets") or raw.get("platforms") or ["youtube_shorts"])[0] or "")
+            scheduled_time = f"{raw.get('planned_date') or ''}T{raw.get('planned_time') or ''}".strip("T")
+            for existing in self.list_jobs():
+                if existing.status != JOB_PLANNED:
+                    continue
+                existing_platform = str((existing.platform_targets[0] if existing.platform_targets else "") or "")
+                if existing_platform != platform or existing.scheduled_time != scheduled_time:
+                    continue
+                if existing.topic != topic or existing.clip_count != int(raw.get("clip_count") or 2):
+                    self.update_job(
+                        existing.job_id,
+                        topic=topic,
+                        title=topic,
+                        duration=int(raw.get("duration_seconds") or 30),
+                        clip_count=int(raw.get("clip_count") or 2),
+                    )
         return created
+
+    def _parse_scheduled_time(self, raw: str) -> datetime | None:
+        stamp = str(raw or "").strip()
+        if not stamp:
+            return None
+        try:
+            if stamp.endswith("Z"):
+                return datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+            if "T" in stamp:
+                parsed = datetime.fromisoformat(stamp)
+                if parsed.tzinfo is None:
+                    return parsed.replace(tzinfo=datetime.now().astimezone().tzinfo)
+                return parsed
+        except ValueError:
+            return None
+        return None
+
+    def _job_is_due(self, job: AutomationJob) -> bool:
+        due_at = self._parse_scheduled_time(job.scheduled_time)
+        if due_at is None:
+            return True
+        now = datetime.now(due_at.tzinfo) if due_at.tzinfo else datetime.now()
+        return now >= due_at
+
+    def next_planned_job(self, *, due_only: bool = True) -> AutomationJob | None:
+        jobs = self.list_jobs()
+        planned = [job for job in jobs if job.status == JOB_PLANNED]
+        if due_only:
+            planned = [job for job in planned if self._job_is_due(job)]
+        planned.sort(key=lambda item: item.scheduled_time or item.created_at)
+        return planned[0] if planned else None
+
+    def due_planned_jobs(self) -> list[AutomationJob]:
+        jobs = self.list_jobs()
+        planned = [job for job in jobs if job.status == JOB_PLANNED and self._job_is_due(job)]
+        planned.sort(key=lambda item: item.scheduled_time or item.created_at)
+        return planned
+
+    def reset_failed_jobs_to_planned(self) -> int:
+        store = self._load_payload()
+        reset_count = 0
+        jobs: list[dict[str, Any]] = []
+        for raw in store.get("jobs") or []:
+            if not isinstance(raw, dict):
+                continue
+            if str(raw.get("status") or "") == JOB_FAILED:
+                job = AutomationJob.from_dict(raw)
+                job.status = JOB_PLANNED
+                job.error = ""
+                job.run_id = ""
+                job.output_path = ""
+                job.publish_package_path = ""
+                job.upload_package_path = ""
+                job.updated_at = _now()
+                jobs.append(job.to_dict())
+                reset_count += 1
+            else:
+                jobs.append(raw)
+        store["jobs"] = jobs
+        self._save_payload(store)
+        return reset_count
+
+    def recover_stale_running_jobs(self, *, max_age_minutes: int = STALE_RUNNING_MINUTES) -> list[str]:
+        """Mark stuck running jobs as failed when they never acquired a run_id."""
+        recovered: list[str] = []
+        job = self.running_job()
+        if job is None:
+            return recovered
+        updated = _parse_iso_timestamp(job.updated_at)
+        if updated is None:
+            return recovered
+        age_minutes = (datetime.now(timezone.utc) - updated).total_seconds() / 60.0
+        if age_minutes < max_age_minutes:
+            return recovered
+        if str(job.run_id or "").strip():
+            return recovered
+        self.update_job(
+            job.job_id,
+            status=JOB_FAILED,
+            error="stale_running_recovered",
+            run_id="",
+        )
+        recovered.append(job.job_id)
+        return recovered
+
+    def dedupe_planned_jobs(self) -> int:
+        """Cancel duplicate planned jobs that share platform, schedule, and topic."""
+        store = self._load_payload()
+        jobs = list(store.get("jobs") or [])
+        seen: set[tuple[str, str, str]] = set()
+        cancelled = 0
+        for job in jobs:
+            if not isinstance(job, dict):
+                continue
+            if str(job.get("status") or "") != JOB_PLANNED:
+                continue
+            platform = normalize_platform_alias(job.get("platform")) or ""
+            if not platform and isinstance(job.get("platform_targets"), list):
+                platform = normalize_platform_alias(str(job["platform_targets"][0] if job["platform_targets"] else "")) or ""
+            scheduled = str(job.get("scheduled_time") or "")
+            topic = str(job.get("topic") or "").strip().lower()
+            key = (platform, scheduled, topic)
+            if key in seen:
+                job["status"] = JOB_CANCELLED
+                job["updated_at"] = _now()
+                job["error"] = "duplicate_planned_removed"
+                cancelled += 1
+            else:
+                seen.add(key)
+        if cancelled:
+            store["jobs"] = jobs
+            self._save_payload(store)
+        return cancelled
+
+    def reset_daily_counter(self, platform: str | None = None) -> dict[str, Any]:
+        """Reset today's completed jobs back to planned; optional single-platform filter."""
+        normalized = normalize_platform_alias(platform)
+        store = self._load_payload()
+        reset_count = 0
+        jobs: list[dict[str, Any]] = []
+        for raw in store.get("jobs") or []:
+            if not isinstance(raw, dict):
+                continue
+            job = AutomationJob.from_dict(raw)
+            primary = normalize_platform_alias(
+                str((job.platform_targets[0] if job.platform_targets else "") or "")
+            )
+            should_reset = (
+                job.status == JOB_COMPLETED
+                and _is_today(job.updated_at or job.created_at)
+                and (normalized is None or primary == normalized)
+            )
+            if should_reset:
+                job.status = JOB_PLANNED
+                job.error = ""
+                job.run_id = ""
+                job.output_path = ""
+                job.publish_package_path = ""
+                job.upload_package_path = ""
+                job.updated_at = _now()
+                reset_count += 1
+            jobs.append(job.to_dict())
+        store["jobs"] = jobs
+        self._save_payload(store)
+        return {
+            "jobs_reset": reset_count,
+            "platform": normalized or "all",
+            "completed_today": self.completed_today_count(),
+        }
+
+
+def reset_daily_counter(project_root: str | Path, platform: str | None = None) -> dict[str, Any]:
+    return AutomationQueue(project_root).reset_daily_counter(platform)
 
 
 __all__ = [
@@ -234,4 +530,6 @@ __all__ = [
     "JOB_PLANNED",
     "JOB_RUNNING",
     "JOB_SKIPPED",
+    "normalize_platform_alias",
+    "reset_daily_counter",
 ]

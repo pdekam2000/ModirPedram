@@ -81,6 +81,10 @@ def extract_prompts_from_preflight_snapshot(preflight: dict[str, Any]) -> list[s
             if text:
                 prompts.append(text)
     if not prompts:
+        for item in preflight.get("kling_clip_prompts") or []:
+            if isinstance(item, dict) and str(item.get("prompt") or "").strip():
+                prompts.append(str(item["prompt"]).strip())
+    if not prompts:
         topic = str(preflight.get("authoritative_topic") or "").strip()
         if topic:
             prompts = [topic]

@@ -39,6 +39,12 @@ class UploadService:
         status["metadata_by_platform"] = metadata_by_platform
         status["publish_package_path"] = str(manifest.get("publish_package_path") or "")
         status["upload_root"] = str(manifest.get("upload_root") or "")
+        try:
+            from content_brain.automation.platform_daily_scheduler import get_platform_scheduler_status
+
+            status["platform_scheduler"] = get_platform_scheduler_status(self.project_root)
+        except Exception:
+            status["platform_scheduler"] = {}
         return status
 
     def generate_metadata(self, payload: dict[str, Any]) -> dict[str, Any]:
@@ -91,10 +97,32 @@ class UploadService:
             package_dir=str(payload.get("package_dir") or ""),
             run_id=str(payload.get("run_id") or ""),
             confirmed=bool(payload.get("confirmed")),
+            automation_mode=bool(payload.get("automation_mode")),
         )
         if result.get("ok") and bool(payload.get("confirmed")):
             self.profile_store.save({"youtube_upload_confirmed": True})
         return result
+
+    def submit_instagram(self, payload: dict[str, Any]) -> dict[str, Any]:
+        return self.upload_manager.submit_instagram_upload(
+            upload_package=dict(payload.get("upload_package") or {}),
+            video_path=str(payload.get("video_path") or ""),
+            run_id=str(payload.get("run_id") or ""),
+            title=str(payload.get("title") or ""),
+            caption=str(payload.get("caption") or ""),
+            hashtags=list(payload.get("hashtags") or []),
+            automation_mode=bool(payload.get("automation_mode")),
+        )
+
+    def submit_tiktok(self, payload: dict[str, Any]) -> dict[str, Any]:
+        return self.upload_manager.submit_tiktok_upload(
+            upload_package=dict(payload.get("upload_package") or {}),
+            video_path=str(payload.get("video_path") or ""),
+            run_id=str(payload.get("run_id") or ""),
+            title=str(payload.get("title") or ""),
+            caption=str(payload.get("caption") or ""),
+            automation_mode=bool(payload.get("automation_mode")),
+        )
 
     def youtube_auth_status(self) -> dict[str, Any]:
         profile = self.profile_store.load()
@@ -227,7 +255,23 @@ class UploadService:
         )
         if result.get("uploaded") and bool(payload.get("confirmed")):
             self.profile_store.save({"youtube_upload_confirmed": True})
+        if result.get("uploaded") or result.get("upload_status") == "upload_failed" or result.get("error"):
+            self._record_youtube_upload_history(payload, result)
         return {"ok": bool(result.get("uploaded")), **result}
+
+    def _record_youtube_upload_history(self, payload: dict[str, Any], result: dict[str, Any]) -> None:
+        from content_brain.automation.upload_history_store import UploadHistoryStore
+
+        title = str(result.get("title") or payload.get("title") or payload.get("topic") or "YouTube upload")
+        UploadHistoryStore(self.project_root).record(
+            platform="youtube_shorts",
+            title=title,
+            success=bool(result.get("uploaded")),
+            run_id=str(payload.get("run_id") or result.get("run_id") or ""),
+            youtube_url=str(result.get("youtube_url") or result.get("video_url") or ""),
+            post_url=str(result.get("youtube_url") or result.get("video_url") or ""),
+            error=str(result.get("error") or result.get("upload_status") or ""),
+        )
 
     def get_publish_upload_result(self, *, run_id: str = "", publish_dir: str = "") -> dict[str, Any]:
         from content_brain.upload.youtube_upload_runtime import load_youtube_upload_result, resolve_publish_dir_for_run

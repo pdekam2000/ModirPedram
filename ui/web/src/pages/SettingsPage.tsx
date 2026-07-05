@@ -8,6 +8,9 @@ import {
   suggestChannelProfile,
   testElevenLabsConnection,
   uploadChannelLogo,
+  uploadBrandingAsset,
+  brandingAssetFileUrl,
+  type BrandingAssetKind,
   type ChannelProfile,
   type ChannelProfileSuggestion,
   type ElevenLabsConnectionStatus,
@@ -16,6 +19,7 @@ import {
   fetchAutomationCenter,
   fetchAutomationStatus,
   fetchCredentials,
+  updateAutomationCenter,
   type AutomationCenterState,
   type AutomationStatus,
   type CredentialStatus,
@@ -39,6 +43,9 @@ const emptyProfile: ChannelProfile = {
   main_niche: "",
   sub_niche: "",
   channel_topic: "",
+  youtube_channel_topic: "",
+  tiktok_channel_topic: "",
+  instagram_channel_topic: "",
   target_audience: "",
   language: "English",
   tone_style: "cinematic",
@@ -48,6 +55,7 @@ const emptyProfile: ChannelProfile = {
   default_provider: "runway",
   default_voice: "",
   default_narration_provider: "elevenlabs",
+  audio_source: "runway_native",
   music_provider: "none",
   preferred_topics: [],
   forbidden_topics: [],
@@ -66,21 +74,44 @@ const emptyProfile: ChannelProfile = {
   cta_text: "Follow for more",
   cta_position: "bottom_center",
   cta_frequency: "end",
+  cta_style: "text_only",
+  cta_graphic_position: "bottom_center",
+  cta_graphic_duration_seconds: 5,
   intro_enabled: false,
   intro_text: "",
   intro_duration: 2,
+  intro_type: "none",
+  intro_fade_effect: "fade_in",
   outro_enabled: false,
   outro_text: "",
-  outro_duration: 2,
+  outro_duration: 3,
+  outro_type: "none",
+  outro_fade_effect: "fade_out",
+  outro_subscribe_enabled: true,
+  outro_subscribe_style: "classic_red",
+  outro_subscribe_custom_color: "#E62117",
   youtube_upload_enabled: false,
-  youtube_privacy: "private",
+  youtube_privacy: "public",
   youtube_default_description: "",
   youtube_default_hashtags: [],
   youtube_upload_confirmed: false,
   youtube_credentials_configured: false,
   youtube_oauth_client_path: "",
   youtube_made_for_kids: false,
-  youtube_require_confirmation: true,
+  youtube_require_confirmation: false,
+  youtube_playlist_id: "",
+  instagram_upload_enabled: false,
+  instagram_app_id: "",
+  instagram_app_secret: "",
+  instagram_access_token: "",
+  instagram_account_id: "",
+  instagram_token_expires_at: "",
+  instagram_privacy: "public",
+  tiktok_upload_enabled: false,
+  tiktok_client_key: "",
+  tiktok_client_secret: "",
+  tiktok_access_token: "",
+  tiktok_privacy: "PUBLIC_TO_EVERYONE",
   local_mode: true,
   asset_vault_enabled: true,
   asset_copy_mode: "copy",
@@ -110,6 +141,19 @@ function textToList(value: string) {
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+function formatInstagramTokenExpiry(iso: string | undefined) {
+  if (!iso) return "Not set — exchanges automatically when you save a new token";
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 }
 
 function presetOrCustom(value: string, presets: readonly string[]) {
@@ -211,16 +255,23 @@ export function SettingsPage() {
   const [generating, setGenerating] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [instagramExchangeMessage, setInstagramExchangeMessage] = useState<string | null>(null);
   const [elevenLabs, setElevenLabs] = useState<ElevenLabsConnectionStatus | null>(null);
   const [elevenLabsError, setElevenLabsError] = useState<string | null>(null);
   const [logoExists, setLogoExists] = useState(false);
   const [logoPreviewUrl, setLogoPreviewUrl] = useState<string | null>(null);
   const [logoUploading, setLogoUploading] = useState(false);
+  const [introSectionOpen, setIntroSectionOpen] = useState(false);
+  const [outroSectionOpen, setOutroSectionOpen] = useState(false);
+  const [ctaGraphicPreview, setCtaGraphicPreview] = useState<string | null>(null);
+  const [brandingAssets, setBrandingAssets] = useState<Partial<Record<BrandingAssetKind, boolean>>>({});
+  const [assetUploading, setAssetUploading] = useState<BrandingAssetKind | null>(null);
   const [testingElevenLabs, setTestingElevenLabs] = useState(false);
   const [credentials, setCredentials] = useState<CredentialStatus[]>([]);
   const [credentialMessages, setCredentialMessages] = useState<Record<string, string>>({});
   const [automation, setAutomation] = useState<AutomationCenterState | null>(null);
   const [automationStatus, setAutomationStatus] = useState<AutomationStatus | null>(null);
+  const [automationBusy, setAutomationBusy] = useState(false);
   const [visualMemoryPreview, setVisualMemoryPreview] = useState<Record<string, unknown> | null>(null);
   const [openSections, setOpenSections] = useState<SectionId[]>(["channel"]);
 
@@ -253,8 +304,15 @@ export function SettingsPage() {
     void fetchChannelProfile()
       .then((loaded) => {
         setProfile({ ...emptyProfile, ...loaded });
-        if (loaded.channel_topic) {
-          setWizardTopic(loaded.channel_topic);
+        setBrandingAssets({
+          cta_graphic: Boolean(loaded.cta_graphic_path),
+          intro_image: Boolean(loaded.intro_image_path),
+          intro_video: Boolean(loaded.intro_video_path),
+          outro_image: Boolean(loaded.outro_image_path),
+          outro_video: Boolean(loaded.outro_video_path),
+        });
+        if (loaded.youtube_channel_topic || loaded.channel_topic) {
+          setWizardTopic(loaded.youtube_channel_topic || loaded.channel_topic);
         }
       })
       .catch(() => setProfile(emptyProfile));
@@ -287,12 +345,52 @@ export function SettingsPage() {
     setSaved(false);
   }
 
+  function handleBrandingAssetUpload(kind: BrandingAssetKind, file: File | undefined) {
+    if (!file) return;
+    setAssetUploading(kind);
+    void uploadBrandingAsset(kind, file)
+      .then((result) => {
+        setBrandingAssets((current) => ({ ...current, [kind]: true }));
+        const pathKey = {
+          cta_graphic: "cta_graphic_path",
+          intro_image: "intro_image_path",
+          intro_video: "intro_video_path",
+          outro_image: "outro_image_path",
+          outro_video: "outro_video_path",
+        }[kind] as keyof ChannelProfile;
+        update(pathKey, result.asset_path);
+        if (kind === "cta_graphic") {
+          setCtaGraphicPreview((current) => {
+            if (current) URL.revokeObjectURL(current);
+            return URL.createObjectURL(file);
+          });
+        }
+      })
+      .catch((err) => setError(err instanceof Error ? err.message : `${kind} upload failed`))
+      .finally(() => setAssetUploading(null));
+  }
+
+  const ctaStyle = profile.cta_style || "text_only";
+  const ctaGraphicPosition = profile.cta_graphic_position || "bottom_center";
+  const ctaGraphicPositionClass = ctaGraphicPosition.replace(/_/g, "-");
+  const ctaPreviewGraphicSrc =
+    ctaGraphicPreview ||
+    (brandingAssets.cta_graphic || profile.cta_graphic_path ? brandingAssetFileUrl("cta_graphic") : null);
+
   function toggleUploadPlatform(id: string) {
     setProfile((current) => {
-      const next = current.upload_platforms.includes(id)
+      const isEnabled = current.upload_platforms.includes(id);
+      const nextPlatforms = isEnabled
         ? current.upload_platforms.filter((p) => p !== id)
         : [...current.upload_platforms, id];
-      return { ...current, upload_platforms: next };
+      const next: ChannelProfile = { ...current, upload_platforms: nextPlatforms };
+      if (id === "instagram_reels") {
+        next.instagram_upload_enabled = !isEnabled;
+      }
+      if (id === "tiktok") {
+        next.tiktok_upload_enabled = !isEnabled;
+      }
+      return next;
     });
     setSaved(false);
   }
@@ -321,12 +419,36 @@ export function SettingsPage() {
   async function handleSave() {
     setError(null);
     try {
-      const result = await saveChannelProfile(profile);
+      const youtubeTopic = wizardTopic.trim();
+      const result = await saveChannelProfile({
+        ...profile,
+        youtube_channel_topic: youtubeTopic,
+        channel_topic: youtubeTopic,
+      });
       setProfile(result);
       setPreview(null);
       setSaved(true);
+      setInstagramExchangeMessage(result.instagram_token_exchange_message || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Save failed");
+    }
+  }
+
+  async function handleAutoUploadToggle(enabled: boolean) {
+    setAutomationBusy(true);
+    setError(null);
+    try {
+      const updated = await updateAutomationCenter({
+        feature_flags: {
+          ...(automation?.feature_flags ?? {}),
+          auto_upload: enabled,
+        },
+      });
+      setAutomation(updated);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to update auto upload setting");
+    } finally {
+      setAutomationBusy(false);
     }
   }
 
@@ -366,8 +488,9 @@ export function SettingsPage() {
           open={isOpen("channel")}
           onToggle={() => toggleSection("channel")}
         >
-          <SettingsRow label="Channel topic" helper={`Examples: ${WIZARD_TOPIC_EXAMPLES.slice(0, 3).join(" · ")}`}>
+          <SettingsRow label="YouTube topic" helper={`Examples: ${WIZARD_TOPIC_EXAMPLES.slice(0, 3).join(" · ")}`}>
             <textarea
+              id="youtube_channel_topic"
               className="filter-input full-width"
               rows={2}
               value={wizardTopic}
@@ -376,6 +499,26 @@ export function SettingsPage() {
                 setPreview(null);
                 setSaved(false);
               }}
+            />
+          </SettingsRow>
+          <SettingsRow label="Instagram topic">
+            <textarea
+              id="instagram_channel_topic"
+              className="filter-input full-width"
+              rows={2}
+              placeholder="e.g. Satisfying skincare routines, face mask transformations, morning and night beauty rituals, glowing skin tips"
+              value={profile.instagram_channel_topic || ""}
+              onChange={(e) => update("instagram_channel_topic", e.target.value)}
+            />
+          </SettingsRow>
+          <SettingsRow label="TikTok topic">
+            <textarea
+              id="tiktok_channel_topic"
+              className="filter-input full-width"
+              rows={2}
+              placeholder="e.g. Quick fitness tips, gym motivation, trending challenges"
+              value={profile.tiktok_channel_topic || ""}
+              onChange={(e) => update("tiktok_channel_topic", e.target.value)}
             />
           </SettingsRow>
           <div className="action-row">
@@ -403,9 +546,8 @@ export function SettingsPage() {
                   ["channel_name", "Channel name"],
                   ["main_niche", "Main niche"],
                   ["sub_niche", "Sub niche"],
-                  ["channel_topic", "Channel topic"],
-                  ["tiktok_channel_topic", "TikTok channel topic"],
-                  ["instagram_channel_topic", "Instagram channel topic"],
+                  ["youtube_channel_topic", "YouTube topic"],
+                  ["channel_topic", "Global topic fallback"],
                   ["target_audience", "Target audience"],
                 ] as const
               ).map(([key, label]) => (
@@ -551,15 +693,13 @@ export function SettingsPage() {
               {logoPreviewUrl ? (
                 <img className="settings-logo-preview" src={logoPreviewUrl} alt="Channel logo preview" />
               ) : logoExists ? (
-                <div className="settings-logo-preview settings-logo-placeholder" title="Logo saved on disk">
-                  PNG
-                </div>
+                <img className="settings-logo-preview" src={brandingAssetFileUrl("logo")} alt="Saved channel logo" />
               ) : null}
-              <SettingsRow label="Upload logo" helper={logoExists ? "Logo saved locally" : "PNG only"}>
+              <SettingsRow label="Upload logo" helper={logoExists ? "Logo saved locally (PNG with transparency recommended)" : "PNG with transparency recommended, max 5MB"}>
                 <input
                   className="filter-input full-width"
                   type="file"
-                  accept="image/png"
+                  accept="image/png,image/jpeg"
                   disabled={logoUploading}
                   onChange={(e) => {
                     const file = e.target.files?.[0];
@@ -570,7 +710,10 @@ export function SettingsPage() {
                     });
                     setLogoUploading(true);
                     void uploadChannelLogo(file)
-                      .then(() => setLogoExists(true))
+                      .then((result) => {
+                        setLogoExists(true);
+                        update("logo_path", result.logo_path);
+                      })
                       .catch((err) => setError(err instanceof Error ? err.message : "Logo upload failed"))
                       .finally(() => setLogoUploading(false));
                   }}
@@ -590,17 +733,232 @@ export function SettingsPage() {
             <SettingsRow label="CTA text">
               <input className="filter-input full-width" value={profile.cta_text || ""} onChange={(e) => update("cta_text", e.target.value)} />
             </SettingsRow>
-          </ToggleRow>
-          <ToggleRow label="Intro enabled" checked={Boolean(profile.intro_enabled)} onChange={(v) => update("intro_enabled", v)}>
-            <SettingsRow label="Intro text">
-              <input className="filter-input full-width" value={profile.intro_text || ""} onChange={(e) => update("intro_text", e.target.value)} />
+            <SettingsRow label="CTA style">
+              <select className="filter-input full-width" value={ctaStyle} onChange={(e) => update("cta_style", e.target.value)}>
+                <option value="text_only">Text only</option>
+                <option value="text_icon">Text + Icon</option>
+                <option value="graphic_overlay">Graphic overlay</option>
+              </select>
+            </SettingsRow>
+            {ctaStyle === "graphic_overlay" ? (
+              <>
+                <SettingsRow label="CTA graphic" helper="PNG or JPG, max 2MB">
+                  <input
+                    className="filter-input full-width"
+                    type="file"
+                    accept="image/png,image/jpeg"
+                    disabled={assetUploading === "cta_graphic"}
+                    onChange={(e) => handleBrandingAssetUpload("cta_graphic", e.target.files?.[0])}
+                  />
+                </SettingsRow>
+                <SettingsRow label="Graphic position">
+                  <select
+                    className="filter-input full-width"
+                    value={ctaGraphicPosition}
+                    onChange={(e) => update("cta_graphic_position", e.target.value)}
+                  >
+                    <option value="bottom_left">Bottom left</option>
+                    <option value="bottom_center">Bottom center</option>
+                    <option value="bottom_right">Bottom right</option>
+                  </select>
+                </SettingsRow>
+                <SettingsRow label="Show before end (seconds)" helper="Default 5s">
+                  <input
+                    className="filter-input full-width"
+                    type="number"
+                    min={1}
+                    max={30}
+                    value={profile.cta_graphic_duration_seconds ?? 5}
+                    onChange={(e) => update("cta_graphic_duration_seconds", Number(e.target.value) || 5)}
+                  />
+                </SettingsRow>
+              </>
+            ) : null}
+            <SettingsRow label="CTA preview">
+              <div className={`settings-cta-preview ${ctaGraphicPositionClass}`}>
+                {ctaStyle === "graphic_overlay" && ctaPreviewGraphicSrc ? (
+                  <img className="settings-cta-preview-graphic" src={ctaPreviewGraphicSrc} alt="CTA graphic preview" />
+                ) : (
+                  <span className="settings-cta-preview-text">
+                    {profile.cta_text || "Follow for more"}
+                    {ctaStyle === "text_icon" ? " ▶" : ""}
+                  </span>
+                )}
+              </div>
             </SettingsRow>
           </ToggleRow>
-          <ToggleRow label="Outro enabled" checked={Boolean(profile.outro_enabled)} onChange={(v) => update("outro_enabled", v)}>
-            <SettingsRow label="Outro text">
-              <input className="filter-input full-width" value={profile.outro_text || ""} onChange={(e) => update("outro_text", e.target.value)} />
-            </SettingsRow>
-          </ToggleRow>
+
+          <div className={`settings-sub-accordion ${introSectionOpen ? "is-open" : ""}`}>
+            <button type="button" className="settings-sub-accordion-header" onClick={() => setIntroSectionOpen((v) => !v)}>
+              <span>Intro</span>
+              <span>{introSectionOpen ? "−" : "+"}</span>
+            </button>
+            {introSectionOpen ? (
+              <div className="settings-sub-accordion-body">
+                <ToggleRow label="Enable intro" checked={Boolean(profile.intro_enabled)} onChange={(v) => update("intro_enabled", v)} />
+                <SettingsRow label="Intro type">
+                  <select className="filter-input full-width" value={profile.intro_type || "none"} onChange={(e) => update("intro_type", e.target.value)}>
+                    <option value="none">None</option>
+                    <option value="image_fade_in">Image fade-in</option>
+                    <option value="video_clip">Video clip</option>
+                  </select>
+                </SettingsRow>
+                {profile.intro_type === "image_fade_in" ? (
+                  <>
+                    <SettingsRow label="Intro image" helper="PNG or JPG">
+                      <input
+                        className="filter-input full-width"
+                        type="file"
+                        accept="image/png,image/jpeg"
+                        disabled={assetUploading === "intro_image"}
+                        onChange={(e) => handleBrandingAssetUpload("intro_image", e.target.files?.[0])}
+                      />
+                    </SettingsRow>
+                    <SettingsRow label="Duration (seconds)">
+                      <input
+                        className="filter-input full-width"
+                        type="number"
+                        min={1}
+                        max={5}
+                        value={profile.intro_duration ?? 2}
+                        onChange={(e) => update("intro_duration", Number(e.target.value) || 2)}
+                      />
+                    </SettingsRow>
+                  </>
+                ) : null}
+                {profile.intro_type === "video_clip" ? (
+                  <SettingsRow label="Intro video" helper="MP4, max 5 seconds">
+                    <input
+                      className="filter-input full-width"
+                      type="file"
+                      accept="video/mp4"
+                      disabled={assetUploading === "intro_video"}
+                      onChange={(e) => handleBrandingAssetUpload("intro_video", e.target.files?.[0])}
+                    />
+                  </SettingsRow>
+                ) : null}
+                {profile.intro_type !== "none" ? (
+                  <SettingsRow label="Fade effect">
+                    <select
+                      className="filter-input full-width"
+                      value={profile.intro_fade_effect || "fade_in"}
+                      onChange={(e) => update("intro_fade_effect", e.target.value)}
+                    >
+                      <option value="none">None</option>
+                      <option value="fade_in">Fade in</option>
+                      <option value="slide_from_right">Slide from right</option>
+                      <option value="slide_from_left">Slide from left</option>
+                    </select>
+                  </SettingsRow>
+                ) : null}
+                <SettingsRow label="Intro text (fallback card)" helper="Used when no image/video is uploaded">
+                  <input className="filter-input full-width" value={profile.intro_text || ""} onChange={(e) => update("intro_text", e.target.value)} />
+                </SettingsRow>
+              </div>
+            ) : null}
+          </div>
+
+          <div className={`settings-sub-accordion ${outroSectionOpen ? "is-open" : ""}`}>
+            <button type="button" className="settings-sub-accordion-header" onClick={() => setOutroSectionOpen((v) => !v)}>
+              <span>Outro</span>
+              <span>{outroSectionOpen ? "−" : "+"}</span>
+            </button>
+            {outroSectionOpen ? (
+              <div className="settings-sub-accordion-body">
+                <ToggleRow label="Enable outro" checked={Boolean(profile.outro_enabled)} onChange={(v) => update("outro_enabled", v)} />
+                <SettingsRow label="Outro type">
+                  <select className="filter-input full-width" value={profile.outro_type || "none"} onChange={(e) => update("outro_type", e.target.value)}>
+                    <option value="none">None</option>
+                    <option value="image_fade_out">Image fade-out</option>
+                    <option value="video_clip">Video clip</option>
+                  </select>
+                </SettingsRow>
+                {profile.outro_type === "image_fade_out" ? (
+                  <>
+                    <SettingsRow label="Outro image" helper="PNG or JPG">
+                      <input
+                        className="filter-input full-width"
+                        type="file"
+                        accept="image/png,image/jpeg"
+                        disabled={assetUploading === "outro_image"}
+                        onChange={(e) => handleBrandingAssetUpload("outro_image", e.target.files?.[0])}
+                      />
+                    </SettingsRow>
+                    <SettingsRow label="Duration (seconds)">
+                      <input
+                        className="filter-input full-width"
+                        type="number"
+                        min={1}
+                        max={5}
+                        value={profile.outro_duration ?? 3}
+                        onChange={(e) => update("outro_duration", Number(e.target.value) || 3)}
+                      />
+                    </SettingsRow>
+                  </>
+                ) : null}
+                {profile.outro_type === "video_clip" ? (
+                  <SettingsRow label="Outro video" helper="MP4, max 5 seconds">
+                    <input
+                      className="filter-input full-width"
+                      type="file"
+                      accept="video/mp4"
+                      disabled={assetUploading === "outro_video"}
+                      onChange={(e) => handleBrandingAssetUpload("outro_video", e.target.files?.[0])}
+                    />
+                  </SettingsRow>
+                ) : null}
+                {profile.outro_type !== "none" ? (
+                  <>
+                    <SettingsRow label="Fade effect">
+                      <select
+                        className="filter-input full-width"
+                        value={profile.outro_fade_effect || "fade_out"}
+                        onChange={(e) => update("outro_fade_effect", e.target.value)}
+                      >
+                        <option value="none">None</option>
+                        <option value="fade_out">Fade out</option>
+                        <option value="slide_from_right">Slide from right</option>
+                        <option value="slide_from_left">Slide from left</option>
+                      </select>
+                    </SettingsRow>
+                    <ToggleRow
+                      label="Subscribe button overlay"
+                      checked={profile.outro_subscribe_enabled !== false}
+                      onChange={(v) => update("outro_subscribe_enabled", v)}
+                    />
+                    {profile.outro_subscribe_enabled !== false ? (
+                      <>
+                        <SettingsRow label="Subscribe button style">
+                          <select
+                            className="filter-input full-width"
+                            value={profile.outro_subscribe_style || "classic_red"}
+                            onChange={(e) => update("outro_subscribe_style", e.target.value)}
+                          >
+                            <option value="classic_red">Classic red</option>
+                            <option value="white">White</option>
+                            <option value="custom">Custom color</option>
+                          </select>
+                        </SettingsRow>
+                        {profile.outro_subscribe_style === "custom" ? (
+                          <SettingsRow label="Custom button color">
+                            <input
+                              className="filter-input full-width"
+                              type="color"
+                              value={profile.outro_subscribe_custom_color || "#E62117"}
+                              onChange={(e) => update("outro_subscribe_custom_color", e.target.value)}
+                            />
+                          </SettingsRow>
+                        ) : null}
+                      </>
+                    ) : null}
+                  </>
+                ) : null}
+                <SettingsRow label="Outro text (fallback card)" helper="Used when no image/video is uploaded">
+                  <input className="filter-input full-width" value={profile.outro_text || ""} onChange={(e) => update("outro_text", e.target.value)} />
+                </SettingsRow>
+              </div>
+            ) : null}
+          </div>
         </SettingsAccordion>
 
         <SettingsAccordion
@@ -611,7 +969,18 @@ export function SettingsPage() {
           onToggle={() => toggleSection("voice-music")}
         >
           <div className="settings-row-grid">
-            <SettingsRow label="Narration provider">
+            <SettingsRow label="Audio source" helper="Runway clips include native audio by default">
+              <select
+                className="filter-input full-width"
+                id="audio_source"
+                value={profile.audio_source || "runway_native"}
+                onChange={(e) => update("audio_source", e.target.value)}
+              >
+                <option value="runway_native">Runway native audio (default)</option>
+                <option value="elevenlabs_narration">ElevenLabs narration</option>
+              </select>
+            </SettingsRow>
+            <SettingsRow label="Narration provider" helper={profile.audio_source === "elevenlabs_narration" ? "Used when Audio source is ElevenLabs narration" : "Only used when Audio source is ElevenLabs narration"}>
               <select
                 className="filter-input full-width"
                 value={profile.default_narration_provider === "none" ? "disabled" : profile.default_narration_provider || "elevenlabs"}
@@ -672,11 +1041,19 @@ export function SettingsPage() {
             />
           </SettingsRow>
           <SettingsRow label="Privacy">
-            <select className="filter-input full-width" value={profile.youtube_privacy || "private"} onChange={(e) => update("youtube_privacy", e.target.value)}>
+            <select className="filter-input full-width" value={profile.youtube_privacy || "public"} onChange={(e) => update("youtube_privacy", e.target.value)}>
               <option value="private">Private</option>
               <option value="unlisted">Unlisted</option>
               <option value="public">Public</option>
             </select>
+          </SettingsRow>
+          <SettingsRow label="Playlist ID" helper="Optional — auto-add uploads to this YouTube playlist">
+            <input
+              className="filter-input full-width mono"
+              value={profile.youtube_playlist_id || ""}
+              onChange={(e) => update("youtube_playlist_id", e.target.value)}
+              placeholder="PLxxxxxxxx"
+            />
           </SettingsRow>
           <label className="field-row compact">
             <input type="checkbox" checked={Boolean(profile.youtube_made_for_kids)} onChange={(e) => update("youtube_made_for_kids", e.target.checked)} />
@@ -690,6 +1067,41 @@ export function SettingsPage() {
             />
             TikTok package enabled
           </label>
+          {profile.upload_platforms.includes("tiktok") ? (
+            <div className="settings-subsection upload-platform-credentials">
+              <SettingsRow label="TikTok Access Token">
+                <input
+                  id="tiktok_access_token"
+                  className="filter-input full-width mono"
+                  type="password"
+                  autoComplete="off"
+                  value={profile.tiktok_access_token || ""}
+                  onChange={(e) => update("tiktok_access_token", e.target.value)}
+                />
+              </SettingsRow>
+              <SettingsRow label="TikTok Client Key">
+                <input
+                  id="tiktok_client_key"
+                  className="filter-input full-width mono"
+                  type="text"
+                  autoComplete="off"
+                  value={profile.tiktok_client_key || ""}
+                  onChange={(e) => update("tiktok_client_key", e.target.value)}
+                />
+              </SettingsRow>
+              <SettingsRow label="TikTok Client Secret">
+                <input
+                  id="tiktok_client_secret"
+                  className="filter-input full-width mono"
+                  type="password"
+                  autoComplete="off"
+                  value={profile.tiktok_client_secret || ""}
+                  onChange={(e) => update("tiktok_client_secret", e.target.value)}
+                />
+              </SettingsRow>
+              <p className="muted settings-helper">Get these from developers.tiktok.com</p>
+            </div>
+          ) : null}
           <label className="field-row compact">
             <input
               type="checkbox"
@@ -698,6 +1110,59 @@ export function SettingsPage() {
             />
             Instagram package enabled
           </label>
+          {profile.upload_platforms.includes("instagram_reels") ? (
+            <div className="settings-subsection upload-platform-credentials">
+              <SettingsRow label="Facebook App ID" helper="Required to exchange short-lived tokens for 60-day tokens">
+                <input
+                  id="instagram_app_id"
+                  className="filter-input full-width mono"
+                  type="text"
+                  autoComplete="off"
+                  value={profile.instagram_app_id || ""}
+                  onChange={(e) => update("instagram_app_id", e.target.value)}
+                />
+              </SettingsRow>
+              <SettingsRow label="Facebook App Secret">
+                <input
+                  id="instagram_app_secret"
+                  className="filter-input full-width mono"
+                  type="password"
+                  autoComplete="off"
+                  value={profile.instagram_app_secret || ""}
+                  onChange={(e) => update("instagram_app_secret", e.target.value)}
+                />
+              </SettingsRow>
+              <SettingsRow
+                label="Instagram Access Token"
+                helper={`Token expires: ${formatInstagramTokenExpiry(profile.instagram_token_expires_at)}`}
+              >
+                <input
+                  id="instagram_access_token"
+                  className="filter-input full-width mono"
+                  type="password"
+                  autoComplete="off"
+                  value={profile.instagram_access_token || ""}
+                  onChange={(e) => update("instagram_access_token", e.target.value)}
+                />
+              </SettingsRow>
+              {instagramExchangeMessage ? (
+                <p className="muted settings-helper">{instagramExchangeMessage}</p>
+              ) : null}
+              <SettingsRow label="Instagram Account ID">
+                <input
+                  id="instagram_account_id"
+                  className="filter-input full-width mono"
+                  type="text"
+                  autoComplete="off"
+                  value={profile.instagram_account_id || ""}
+                  onChange={(e) => update("instagram_account_id", e.target.value)}
+                />
+              </SettingsRow>
+              <p className="muted settings-helper">
+                Paste a short-lived token from Graph API Explorer — it is exchanged automatically on save for a 60-day token.
+              </p>
+            </div>
+          ) : null}
           <button type="button" className="link-button" onClick={() => setShowYoutubeAdvanced((value) => !value)}>
             {showYoutubeAdvanced ? "Hide advanced OAuth details" : "Show advanced OAuth details"}
           </button>
@@ -737,10 +1202,16 @@ export function SettingsPage() {
             <SettingsRow label="Daily job limit" helper={`Completed today: ${automationStatus?.completed_today ?? 0}`}>
               <strong>{automationStatus?.max_jobs_per_day ?? 5}</strong>
             </SettingsRow>
-            <SettingsRow label="Auto upload enabled">
-              <strong className={automation?.feature_flags?.auto_upload ? "danger-text" : undefined}>
+            <SettingsRow label="Auto upload enabled" helper="Upload to all configured platforms after each video is generated">
+              <label className="field-row compact">
+                <input
+                  type="checkbox"
+                  checked={Boolean(automation?.feature_flags?.auto_upload)}
+                  disabled={automationBusy}
+                  onChange={(e) => void handleAutoUploadToggle(e.target.checked)}
+                />
                 {automation?.feature_flags?.auto_upload ? "Enabled" : "Disabled"}
-              </strong>
+              </label>
             </SettingsRow>
             <SettingsRow label="Comment drafts enabled">
               <strong>{automation?.feature_flags?.comment_drafts ? "Enabled" : "Disabled"}</strong>

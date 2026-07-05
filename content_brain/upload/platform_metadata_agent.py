@@ -60,7 +60,7 @@ def _rule_based_youtube(
         "hashtags": hashtags,
         "tags": sorted(set(tags))[:15],
         "category": YOUTUBE_CATEGORY_DEFAULT,
-        "privacy": str(channel_profile.get("youtube_privacy") or PRIVACY_PRIVATE),
+        "privacy": str(channel_profile.get("youtube_privacy") or PRIVACY_PUBLIC),
         "thumbnail_text": title[:40],
         "pinned_comment": pinned,
         "source": "rule_based",

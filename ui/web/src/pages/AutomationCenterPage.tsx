@@ -3,20 +3,48 @@ import {
   approveCommentDraft,
   automationCancelJob,
   automationPause,
+  automationResetDailyCounter,
   automationResume,
+  automationStart,
   automationStartNext,
   createAutomationJob,
   draftCommentReply,
   fetchAutomationStatus,
+  fetchRunwaySessionStatus,
   rejectCommentDraft,
   updateAutomationCenter,
   type AutomationStatus,
+  type RunwaySessionStatus,
 } from "../api/platformClient";
+
+function truncateTopicDisplay(text: string, maxLen = 80) {
+  const cleaned = String(text || "").replace(/\s+/g, " ").trim();
+  if (cleaned.length <= maxLen) return cleaned;
+  return `${cleaned.slice(0, maxLen - 3).trimEnd()}...`;
+}
 
 function jobLabel(job: Record<string, unknown> | null | undefined) {
   if (!job) return "None";
-  return String(job.title || job.topic || job.job_id || "Job");
+  const raw = String(job.title || job.topic || job.job_id || "Job");
+  return truncateTopicDisplay(raw);
 }
+
+type AutomationIndicator = "running" | "waiting" | "scheduled" | "stopped";
+
+function resolveAutomationIndicator(status: AutomationStatus | null): AutomationIndicator {
+  if (!status?.enabled || status.paused) return "stopped";
+  if (status.running_job) return "running";
+  if (status.has_due_jobs) return "waiting";
+  if ((status.queued_count ?? 0) > 0 || status.next_job) return "scheduled";
+  return "stopped";
+}
+
+const INDICATOR_LABELS: Record<AutomationIndicator, { text: string; className: string }> = {
+  running: { text: "RUNNING", className: "automation-indicator automation-indicator-running" },
+  waiting: { text: "WAITING", className: "automation-indicator automation-indicator-waiting" },
+  scheduled: { text: "SCHEDULED", className: "automation-indicator automation-indicator-waiting" },
+  stopped: { text: "STOPPED", className: "automation-indicator automation-indicator-stopped" },
+};
 
 export function AutomationCenterPage() {
   const [status, setStatus] = useState<AutomationStatus | null>(null);
@@ -25,14 +53,24 @@ export function AutomationCenterPage() {
   const [commentText, setCommentText] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [runwaySession, setRunwaySession] = useState<RunwaySessionStatus | null>(null);
+  const [resetMessage, setResetMessage] = useState<string | null>(null);
 
   async function refresh() {
-    const next = await fetchAutomationStatus();
+    const [next, session] = await Promise.all([
+      fetchAutomationStatus(),
+      fetchRunwaySessionStatus(false),
+    ]);
     setStatus(next);
+    setRunwaySession(session);
   }
 
   useEffect(() => {
     void refresh().catch((err: unknown) => setError(err instanceof Error ? err.message : "Failed to load automation status"));
+    const timer = window.setInterval(() => {
+      void refresh().catch(() => undefined);
+    }, 15000);
+    return () => window.clearInterval(timer);
   }, []);
 
   async function runAction(action: () => Promise<unknown>) {
@@ -48,12 +86,29 @@ export function AutomationCenterPage() {
     }
   }
 
+  async function runResetDailyCounter(platform?: "youtube" | "instagram") {
+    setBusy(true);
+    setError(null);
+    setResetMessage(null);
+    try {
+      const result = await automationResetDailyCounter(platform);
+      setResetMessage(result.message);
+      await refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to reset daily counter");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   const upcoming = status?.jobs?.upcoming || [];
   const running = status?.jobs?.running || [];
   const completed = status?.jobs?.completed || [];
   const failed = status?.jobs?.failed || [];
   const drafts = status?.comment_drafts || [];
   const uploadPackages = status?.upload_packages || [];
+  const indicator = resolveAutomationIndicator(status);
+  const indicatorMeta = INDICATOR_LABELS[indicator];
 
   return (
     <div className="product-page">
@@ -63,19 +118,51 @@ export function AutomationCenterPage() {
           <h1>Automation Center</h1>
           <p className="subtitle">Queue jobs, run the full pipeline one at a time, prepare uploads, and draft comment replies.</p>
         </div>
+        <div className={indicatorMeta.className} aria-live="polite">
+          <span className="automation-indicator-dot" aria-hidden="true" />
+          {indicatorMeta.text}
+        </div>
       </header>
 
       {error && <div className="error-banner">{error}</div>}
+      {resetMessage && <div className="runway-browser-launch-msg">{resetMessage}</div>}
 
       <div className="product-form-grid">
+        <section className="card full-width automation-start-card">
+          <h2>One-Click Start</h2>
+          <p className="muted">
+            Enables automation, resets failed jobs to planned, and immediately starts the first due job. The background scheduler continues every 30 seconds.
+          </p>
+          <button
+            type="button"
+            className="primary-btn automation-start-btn"
+            disabled={busy}
+            onClick={() => void runAction(automationStart)}
+          >
+            🚀 START AUTOMATION
+          </button>
+        </section>
+
         <section className="card">
           <h2>Automation Status</h2>
+          <p className={runwaySession?.connected ? "runway-session-connected" : "runway-session-disconnected"}>
+            Runway: {runwaySession?.connected ? "● Connected" : "● Disconnected"}
+          </p>
           <ul>
             <li>Enabled: {status?.enabled ? "Yes" : "No"}</li>
             <li>Paused: {status?.paused ? "Yes" : "No"}</li>
             <li>Completed today: {status?.completed_today ?? 0} / {status?.max_jobs_per_day ?? 5}</li>
             <li>Running: {jobLabel(running[0] as Record<string, unknown>)}</li>
-            <li>Next: {jobLabel(status?.next_job || (upcoming[0] as Record<string, unknown>))}</li>
+            <li>
+              Next: {jobLabel(status?.next_job || (upcoming[0] as Record<string, unknown>))}
+              {status?.next_job?.scheduled_time
+                ? ` (${String(status.next_job.scheduled_time).replace("T", " ")})`
+                : ""}
+            </li>
+            {!status?.has_due_jobs && (status?.queued_count ?? 0) > 0 && (
+              <li className="muted">Jobs are scheduled for later — click START AUTOMATION to run now.</li>
+            )}
+            <li>Failed (queued retry): {failed.length}</li>
           </ul>
           <div className="action-row">
             <button type="button" className="primary-btn" disabled={busy} onClick={() => void runAction(automationStartNext)}>
@@ -86,6 +173,32 @@ export function AutomationCenterPage() {
             </button>
             <button type="button" className="secondary-btn" disabled={busy} onClick={() => void runAction(automationResume)}>
               Resume automation
+            </button>
+          </div>
+          <div className="action-row">
+            <button
+              type="button"
+              className="secondary-btn"
+              disabled={busy}
+              onClick={() => void runResetDailyCounter()}
+            >
+              Reset Daily Counter
+            </button>
+            <button
+              type="button"
+              className="secondary-btn"
+              disabled={busy}
+              onClick={() => void runResetDailyCounter("youtube")}
+            >
+              Reset YouTube counter
+            </button>
+            <button
+              type="button"
+              className="secondary-btn"
+              disabled={busy}
+              onClick={() => void runResetDailyCounter("instagram")}
+            >
+              Reset Instagram counter
             </button>
           </div>
           <label className="field-row compact">

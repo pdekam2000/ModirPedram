@@ -12,10 +12,10 @@ AUTOMATION_CENTER_PATH = Path("project_brain") / "automation_center.json"
 
 DEFAULT_YOUTUBE_CONFIG: dict[str, Any] = {
     "auto_upload_enabled": True,
-    "default_visibility": "private",
+    "default_visibility": "public",
     "publish_now": True,
-    "allow_public_auto_upload": False,
-    "require_manual_public_approval": True,
+    "allow_public_auto_upload": True,
+    "require_manual_public_approval": False,
 }
 
 

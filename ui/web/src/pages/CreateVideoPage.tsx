@@ -12,6 +12,8 @@ import {
 
   fetchRunwayLiveSmokeStatus,
 
+  saveChannelProfile,
+
   saveLastTopic,
 
   type CreateVideoGenerateResult,
@@ -26,37 +28,82 @@ import {
 
   AUDIO_STRATEGY_OPTIONS,
 
-  ASPECT_RATIO_OPTIONS,
-
-  DURATION_PRESETS,
-
-  defaultAspectRatioForPlatform,
-
   KLING_CLIP_HINTS,
 
-  KLING_DURATION_PRESETS,
-
   PIPELINE_STEPS,
-
-  PLATFORM_OPTIONS,
 
   PROVIDER_OPTIONS,
 
 } from "../product/constants";
 
-import { VISUAL_STYLE_OPTIONS } from "../product/visualStyleOptions";
+import {
+
+  DEFAULT_PLATFORM_SETTINGS,
+
+  INSTAGRAM_DURATION_OPTIONS,
+
+  INSTAGRAM_FILTER_MOOD_OPTIONS,
+
+  INSTAGRAM_STYLE_OPTIONS,
+
+  PLATFORM_TABS,
+
+  TIKTOK_DURATION_OPTIONS,
+
+  TIKTOK_PACE_OPTIONS,
+
+  TIKTOK_STYLE_OPTIONS,
+
+  YOUTUBE_DURATION_OPTIONS,
+
+  YOUTUBE_STYLE_OPTIONS,
+
+  type PlatformSettings,
+
+  type PlatformTabId,
+
+} from "../product/platformStyleOptions";
 
 import { RunwayBrowserPanel } from "../components/RunwayBrowserPanel";
 
+import {
+  ProviderBrowserStatus,
+  isRunwaySessionExpired,
+  pwmapBrowserRequired,
+} from "../components/ProviderBrowserStatus";
+
+import {
+  fetchBrowserStatus,
+  type BrowserStatusResponse,
+} from "../api/browserOperationsClient";
+
+import {
+  fetchRunwaySessionStatus,
+  type RunwaySessionStatus,
+} from "../api/platformClient";
 
 
-type DurationChoice = (typeof DURATION_PRESETS)[number] | (typeof KLING_DURATION_PRESETS)[number] | "custom";
 
 type RunStatus = "idle" | "starting" | "running" | "completed" | "failed" | "unsupported" | "awaiting_approval";
 
 
 
 const KLING_PROVIDER = "kling_3_0_pro_native_audio";
+
+type TopicMode = "saved" | "custom";
+
+function readStoredTopicMode(): TopicMode {
+  const saved = localStorage.getItem("topicMode") ?? "saved";
+  return saved === "custom" ? "custom" : "saved";
+}
+
+function persistTopicMode(value: TopicMode) {
+  localStorage.setItem("topicMode", value);
+}
+
+function topicModeForApi(mode: TopicMode): "channel" | "custom" {
+  return mode === "saved" ? "channel" : "custom";
+}
 
 
 
@@ -68,23 +115,36 @@ function isKlingProvider(value: string) {
 
 
 
+function runwaySessionIndicator(session: RunwaySessionStatus | null): {
+  tone: "ok" | "warn" | "bad";
+  text: string;
+} {
+  if (session?.connected) {
+    return { tone: "ok", text: "● Runway Connected" };
+  }
+  const msg = (session?.message || "").toLowerCase();
+  if (msg.includes("expired") || msg.includes("login")) {
+    return { tone: "warn", text: "● Runway Session Expired — reconnect first" };
+  }
+  return { tone: "bad", text: "● Runway Disconnected — connect first" };
+}
+
+
+
 export function CreateVideoPage() {
 
-  const [topicMode, setTopicMode] = useState<"channel" | "custom">("custom");
+  const [topicMode, setTopicMode] = useState<TopicMode>(readStoredTopicMode);
+
+  function updateTopicMode(value: TopicMode) {
+    setTopicMode(value);
+    persistTopicMode(value);
+  }
 
   const [customTopic, setCustomTopic] = useState("");
 
-  const [durationChoice, setDurationChoice] = useState<DurationChoice>(30);
+  const [activePlatformTab, setActivePlatformTab] = useState<PlatformTabId>("youtube_shorts");
 
-  const [customDuration, setCustomDuration] = useState("45");
-
-  const [platform, setPlatform] = useState("youtube_shorts");
-
-  const [aspectRatio, setAspectRatio] = useState(defaultAspectRatioForPlatform("youtube_shorts"));
-
-  const [aspectRatioManual, setAspectRatioManual] = useState(false);
-
-  const [style, setStyle] = useState("cinematic realistic");
+  const [platformSettings, setPlatformSettings] = useState<PlatformSettings>(DEFAULT_PLATFORM_SETTINGS);
 
   const [provider, setProvider] = useState(KLING_PROVIDER);
 
@@ -128,6 +188,10 @@ export function CreateVideoPage() {
 
   const [generateResult, setGenerateResult] = useState<CreateVideoGenerateResult | null>(null);
 
+  const [runwaySession, setRunwaySession] = useState<RunwaySessionStatus | null>(null);
+
+  const [browserStatus, setBrowserStatus] = useState<BrowserStatusResponse | null>(null);
+
 
 
   useEffect(() => {
@@ -141,8 +205,6 @@ export function CreateVideoPage() {
         if (topic) {
 
           setCustomTopic(topic);
-
-          setTopicMode((saved.topic_mode as "channel" | "custom") || "custom");
 
         }
 
@@ -162,23 +224,26 @@ export function CreateVideoPage() {
 
         setChannelNiche(profile.main_niche);
 
-        setPlatform(profile.default_platform || "youtube_shorts");
-
-        setAspectRatio(defaultAspectRatioForPlatform(profile.default_platform || "youtube_shorts"));
-
-        setStyle(profile.visual_style || profile.tone_style || "cinematic");
+        setPlatformSettings({
+          youtube_shorts: {
+            style: profile.youtube_video_style || profile.visual_style || profile.tone_style || "cinematic realistic",
+            duration: profile.default_duration_seconds || 30,
+          },
+          instagram_reels: {
+            style: profile.instagram_video_style || "aesthetic",
+            duration: profile.default_duration_seconds === 40 ? 30 : profile.default_duration_seconds || 30,
+            filterMood: profile.instagram_filter_mood || "neutral",
+          },
+          tiktok: {
+            style: profile.tiktok_video_style || "energetic",
+            duration: profile.default_duration_seconds === 40 ? 30 : profile.default_duration_seconds || 30,
+            pace: profile.tiktok_pace || "medium",
+          },
+        });
 
         setUseDirector(profile.use_ai_director_default !== false);
 
         setUseCritic(profile.use_prompt_critic_default !== false);
-
-        const preset = profile.default_duration_seconds as DurationChoice;
-
-        if (KLING_DURATION_PRESETS.includes(preset as (typeof KLING_DURATION_PRESETS)[number])) {
-
-          setDurationChoice(preset);
-
-        }
 
       })
 
@@ -192,18 +257,6 @@ export function CreateVideoPage() {
 
 
 
-  useEffect(() => {
-
-    if (!aspectRatioManual) {
-
-      setAspectRatio(defaultAspectRatioForPlatform(platform));
-
-    }
-
-  }, [platform, aspectRatioManual]);
-
-
-
   function persistTopic(topic: string) {
 
     const cleaned = topic.trim();
@@ -214,7 +267,7 @@ export function CreateVideoPage() {
 
     }
 
-    void saveLastTopic(cleaned, topicMode).catch(() => {
+    void saveLastTopic(cleaned, topicModeForApi(topicMode)).catch(() => {
 
       /* offline fallback */
 
@@ -244,17 +297,37 @@ export function CreateVideoPage() {
 
 
 
-  const durationSeconds = useMemo(() => {
+  const durationSeconds = useMemo(() => platformSettings[activePlatformTab].duration, [platformSettings, activePlatformTab]);
 
-    if (durationChoice === "custom") {
 
-      return Math.max(klingUiActive ? 15 : 6, parseInt(customDuration, 10) || (klingUiActive ? 15 : 6));
 
+  const activePlatformStyle = useMemo(() => {
+    if (activePlatformTab === "instagram_reels") {
+      const settings = platformSettings.instagram_reels;
+      return `${settings.style} — ${settings.filterMood} filter mood`;
     }
+    if (activePlatformTab === "tiktok") {
+      const settings = platformSettings.tiktok;
+      return `${settings.style} — ${settings.pace} pace editing`;
+    }
+    return platformSettings.youtube_shorts.style;
+  }, [platformSettings, activePlatformTab]);
 
-    return durationChoice;
 
-  }, [durationChoice, customDuration, klingUiActive]);
+
+  function savePlatformStylePreferences() {
+    void saveChannelProfile({
+      youtube_video_style: platformSettings.youtube_shorts.style,
+      instagram_video_style: platformSettings.instagram_reels.style,
+      instagram_filter_mood: platformSettings.instagram_reels.filterMood,
+      tiktok_video_style: platformSettings.tiktok.style,
+      tiktok_pace: platformSettings.tiktok.pace,
+      default_platform: activePlatformTab,
+      default_duration_seconds: durationSeconds,
+    }).catch(() => {
+      /* offline fallback */
+    });
+  }
 
 
 
@@ -272,13 +345,27 @@ export function CreateVideoPage() {
 
 
 
+  function patchPlatformSettings<T extends PlatformTabId>(
+    tab: T,
+    patch: Partial<PlatformSettings[T]>,
+  ) {
+    setPlatformSettings((current) => ({
+      ...current,
+      [tab]: { ...current[tab], ...patch },
+    }));
+  }
+
+
+
   function buildPayload(extra: Record<string, unknown> = {}) {
+
+    const apiTopicMode = topicModeForApi(topicMode);
 
     const payload: Record<string, unknown> = {
 
-      topic_source: topicMode,
+      topic_source: apiTopicMode,
 
-      topic_mode: topicMode,
+      topic_mode: apiTopicMode,
 
       custom_topic: topicMode === "custom" ? customTopic : channelTopic,
 
@@ -286,19 +373,29 @@ export function CreateVideoPage() {
 
       duration_seconds: durationSeconds,
 
-      duration_preset: String(durationChoice),
+      duration_preset: String(durationSeconds),
 
-      platform,
+      platform: activePlatformTab,
 
-      aspect_ratio: aspectRatio,
+      aspect_ratio: "9:16",
 
-      aspect_ratio_manual: aspectRatioManual,
+      aspect_ratio_manual: false,
 
-      platform_targets: [platform],
+      platform_targets: [activePlatformTab],
 
-      style,
+      style: activePlatformStyle,
 
-      visual_style: style,
+      visual_style: activePlatformStyle,
+
+      youtube_video_style: platformSettings.youtube_shorts.style,
+
+      instagram_video_style: platformSettings.instagram_reels.style,
+
+      instagram_filter_mood: platformSettings.instagram_reels.filterMood,
+
+      tiktok_video_style: platformSettings.tiktok.style,
+
+      tiktok_pace: platformSettings.tiktok.pace,
 
       provider: provider === "auto" ? "auto" : resolvedProvider,
 
@@ -345,6 +442,8 @@ export function CreateVideoPage() {
     setError(null);
 
     try {
+
+      savePlatformStylePreferences();
 
       const result = await createVideoPreflight(buildPayload());
 
@@ -406,7 +505,29 @@ export function CreateVideoPage() {
 
 
 
+    if (runwayGenerateBlocked) {
+
+      setGenerating(false);
+
+      setError(
+
+        isRunwaySessionExpired(runwaySession)
+
+          ? "⚠️ Runway session expired. Click 'Connect Runway Browser' to reconnect. (Kling 3.0 Pro uses this same session.)"
+
+          : "❌ Runway browser not connected. Click 'Connect Runway Browser' first. (Required for Runway and Kling 3.0 Pro.)",
+
+      );
+
+      return;
+
+    }
+
+
+
     persistTopic(customTopic);
+
+    savePlatformStylePreferences();
 
 
 
@@ -646,9 +767,51 @@ export function CreateVideoPage() {
 
 
 
-  const durationPresets = klingUiActive ? KLING_DURATION_PRESETS : DURATION_PRESETS;
+  const showRunwayPanel = pwmapBrowserRequired(klingUiActive, provider, resolvedProvider);
 
-  const showRunwayPanel = !klingUiActive && (resolvedProvider === "runway" || provider === "runway" || provider === "runway_gen5");
+  const runwaySessionState = useMemo(() => runwaySessionIndicator(runwaySession), [runwaySession]);
+
+  const runwayGenerateBlocked = showRunwayPanel && !runwaySession?.connected;
+
+
+
+  useEffect(() => {
+    let cancelled = false;
+    const refreshBrowserConnections = () => {
+      void fetchRunwaySessionStatus(false)
+        .then((payload) => {
+          if (!cancelled) {
+            setRunwaySession(payload);
+          }
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setRunwaySession(null);
+          }
+        });
+      void fetchBrowserStatus()
+        .then((payload) => {
+          if (!cancelled) {
+            setBrowserStatus(payload);
+          }
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setBrowserStatus(null);
+          }
+        });
+    };
+    refreshBrowserConnections();
+    const timer = window.setInterval(refreshBrowserConnections, 5000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, []);
+
+
+
+  const activeTabLabel = PLATFORM_TABS.find((tab) => tab.id === activePlatformTab)?.label || activePlatformTab;
 
 
 
@@ -673,6 +836,36 @@ export function CreateVideoPage() {
         </div>
 
       </header>
+
+
+
+      <div className="info-banner" role="note">
+
+        ⚡ Manual Creation — For custom one-off videos. Daily automation runs independently from Automation Center.
+
+      </div>
+
+
+
+      {showRunwayPanel && (
+
+        <div className={`runway-connection-status ${runwaySessionState.tone}`} role="status">
+
+          {runwaySessionState.text}
+
+          {klingUiActive && <span className="muted"> — Kling 3.0 Pro uses this Runway session</span>}
+
+        </div>
+
+      )}
+
+
+
+      <ProviderBrowserStatus
+        runwaySession={runwaySession}
+        browserStatus={browserStatus}
+        klingUsesRunway={klingUiActive}
+      />
 
 
 
@@ -706,7 +899,11 @@ export function CreateVideoPage() {
 
           <label className="field-row">
 
-            <input type="radio" checked={topicMode === "channel"} onChange={() => setTopicMode("channel")} />
+            <input
+              type="radio"
+              checked={topicMode === "saved"}
+              onChange={() => updateTopicMode("saved")}
+            />
 
             Use saved channel topic
 
@@ -716,7 +913,7 @@ export function CreateVideoPage() {
 
           <label className="field-row">
 
-            <input type="radio" checked={topicMode === "custom"} onChange={() => setTopicMode("custom")} />
+            <input type="radio" checked={topicMode === "custom"} onChange={() => updateTopicMode("custom")} />
 
             Use custom channel topic / niche
 
@@ -764,63 +961,13 @@ export function CreateVideoPage() {
 
         <section className="card">
 
-          <h2>Duration</h2>
+          <h2>Duration & Clips</h2>
 
-          <div className="chip-row">
+          <p className="muted">
 
-            {durationPresets.map((preset) => (
+            Duration for <strong>{activeTabLabel}</strong>: <strong>{durationSeconds}s</strong> (configure in Platform & Style)
 
-              <button
-
-                key={preset}
-
-                type="button"
-
-                className={`chip-btn ${durationChoice === preset ? "active" : ""}`}
-
-                onClick={() => setDurationChoice(preset)}
-
-              >
-
-                {preset}s
-
-              </button>
-
-            ))}
-
-            <button
-
-              type="button"
-
-              className={`chip-btn ${durationChoice === "custom" ? "active" : ""}`}
-
-              onClick={() => setDurationChoice("custom")}
-
-            >
-
-              Custom
-
-            </button>
-
-          </div>
-
-          {durationChoice === "custom" && (
-
-            <input
-
-              className="filter-input full-width"
-
-              type="number"
-
-              min={klingUiActive ? 15 : 6}
-
-              value={customDuration}
-
-              onChange={(e) => setCustomDuration(e.target.value)}
-
-            />
-
-          )}
+          </p>
 
           {klingUiActive && (
 
@@ -878,56 +1025,257 @@ export function CreateVideoPage() {
 
           <h2>Platform & Style</h2>
 
-          <select className="filter-input full-width" value={platform} onChange={(e) => setPlatform(e.target.value)}>
+          <div className="platform-tab-row">
 
-            {PLATFORM_OPTIONS.map((item) => (
+            {PLATFORM_TABS.map((tab) => (
 
-              <option key={item.id} value={item.id}>
+              <button
 
-                {item.label}
+                key={tab.id}
 
-              </option>
+                type="button"
 
-            ))}
+                className={`chip-btn platform-tab ${activePlatformTab === tab.id ? "active" : ""}`}
 
-          </select>
+                onClick={() => setActivePlatformTab(tab.id)}
 
-          <label className="field-label">Aspect ratio</label>
+              >
 
-          <select
-            className="filter-input full-width"
-            value={aspectRatio}
-            onChange={(e) => {
-              setAspectRatio(e.target.value);
-              setAspectRatioManual(true);
-            }}
-          >
+                {tab.label}
 
-            {ASPECT_RATIO_OPTIONS.map((item) => (
-
-              <option key={item.id} value={item.id}>
-
-                {item.label}
-
-              </option>
+              </button>
 
             ))}
 
-          </select>
+          </div>
 
-          <select className="filter-input full-width" value={style} onChange={(e) => setStyle(e.target.value)}>
+          <div className="platform-style-panel">
 
-            {VISUAL_STYLE_OPTIONS.map((item) => (
+            <p className="platform-locked-field">Aspect ratio: <strong>9:16</strong> (locked)</p>
 
-              <option key={item.id} value={item.id}>
+            {activePlatformTab === "youtube_shorts" && (
 
-                {item.label}
+              <>
 
-              </option>
+                <label className="field-label">Style</label>
 
-            ))}
+                <select
 
-          </select>
+                  className="filter-input full-width"
+
+                  value={platformSettings.youtube_shorts.style}
+
+                  onChange={(e) => patchPlatformSettings("youtube_shorts", { style: e.target.value })}
+
+                >
+
+                  {YOUTUBE_STYLE_OPTIONS.map((item) => (
+
+                    <option key={item.id} value={item.id}>
+
+                      {item.label}
+
+                    </option>
+
+                  ))}
+
+                </select>
+
+                <label className="field-label">Duration</label>
+
+                <div className="chip-row">
+
+                  {YOUTUBE_DURATION_OPTIONS.map((preset) => (
+
+                    <button
+
+                      key={preset}
+
+                      type="button"
+
+                      className={`chip-btn ${platformSettings.youtube_shorts.duration === preset ? "active" : ""}`}
+
+                      onClick={() => patchPlatformSettings("youtube_shorts", { duration: preset })}
+
+                    >
+
+                      {preset}s
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+              </>
+
+            )}
+
+            {activePlatformTab === "instagram_reels" && (
+
+              <>
+
+                <label className="field-label">Style</label>
+
+                <select
+
+                  className="filter-input full-width"
+
+                  value={platformSettings.instagram_reels.style}
+
+                  onChange={(e) => patchPlatformSettings("instagram_reels", { style: e.target.value })}
+
+                >
+
+                  {INSTAGRAM_STYLE_OPTIONS.map((item) => (
+
+                    <option key={item.id} value={item.id}>
+
+                      {item.label}
+
+                    </option>
+
+                  ))}
+
+                </select>
+
+                <label className="field-label">Duration</label>
+
+                <div className="chip-row">
+
+                  {INSTAGRAM_DURATION_OPTIONS.map((preset) => (
+
+                    <button
+
+                      key={preset}
+
+                      type="button"
+
+                      className={`chip-btn ${platformSettings.instagram_reels.duration === preset ? "active" : ""}`}
+
+                      onClick={() => patchPlatformSettings("instagram_reels", { duration: preset })}
+
+                    >
+
+                      {preset}s
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+                <label className="field-label">Filter mood</label>
+
+                <select
+
+                  className="filter-input full-width"
+
+                  value={platformSettings.instagram_reels.filterMood}
+
+                  onChange={(e) => patchPlatformSettings("instagram_reels", { filterMood: e.target.value })}
+
+                >
+
+                  {INSTAGRAM_FILTER_MOOD_OPTIONS.map((item) => (
+
+                    <option key={item.id} value={item.id}>
+
+                      {item.label}
+
+                    </option>
+
+                  ))}
+
+                </select>
+
+              </>
+
+            )}
+
+            {activePlatformTab === "tiktok" && (
+
+              <>
+
+                <label className="field-label">Style</label>
+
+                <select
+
+                  className="filter-input full-width"
+
+                  value={platformSettings.tiktok.style}
+
+                  onChange={(e) => patchPlatformSettings("tiktok", { style: e.target.value })}
+
+                >
+
+                  {TIKTOK_STYLE_OPTIONS.map((item) => (
+
+                    <option key={item.id} value={item.id}>
+
+                      {item.label}
+
+                    </option>
+
+                  ))}
+
+                </select>
+
+                <label className="field-label">Duration</label>
+
+                <div className="chip-row">
+
+                  {TIKTOK_DURATION_OPTIONS.map((preset) => (
+
+                    <button
+
+                      key={preset}
+
+                      type="button"
+
+                      className={`chip-btn ${platformSettings.tiktok.duration === preset ? "active" : ""}`}
+
+                      onClick={() => patchPlatformSettings("tiktok", { duration: preset })}
+
+                    >
+
+                      {preset}s
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+                <label className="field-label">Pace</label>
+
+                <select
+
+                  className="filter-input full-width"
+
+                  value={platformSettings.tiktok.pace}
+
+                  onChange={(e) => patchPlatformSettings("tiktok", { pace: e.target.value })}
+
+                >
+
+                  {TIKTOK_PACE_OPTIONS.map((item) => (
+
+                    <option key={item.id} value={item.id}>
+
+                      {item.label}
+
+                    </option>
+
+                  ))}
+
+                </select>
+
+              </>
+
+            )}
+
+          </div>
 
         </section>
 
@@ -989,7 +1337,17 @@ export function CreateVideoPage() {
 
             </button>
 
-            <button type="button" className="primary-btn" disabled={generating} onClick={() => void handleGenerate()}>
+            <button
+              type="button"
+              className="primary-btn"
+              disabled={generating || runwayGenerateBlocked}
+              title={
+                runwayGenerateBlocked
+                  ? "Connect Runway Browser first (required for Runway and Kling 3.0 Pro)"
+                  : undefined
+              }
+              onClick={() => void handleGenerate()}
+            >
 
               {generating ? "Starting…" : "Generate Video"}
 
@@ -1017,9 +1375,11 @@ export function CreateVideoPage() {
 
               <p>Provider: <strong>{preflight.provider}</strong></p>
 
-              <p>Platform: <strong>{preflight.platform || platform}</strong></p>
+              <p>Platform: <strong>{preflight.platform || activePlatformTab}</strong></p>
 
-              <p>Aspect Ratio: <strong>{preflight.aspect_ratio || aspectRatio}</strong></p>
+              <p>Aspect Ratio: <strong>{preflight.aspect_ratio || "9:16"}</strong></p>
+
+              <p>Visual Style: <strong>{activePlatformStyle}</strong></p>
 
               <p>Audio Strategy: <strong>{preflight.audio_strategy || audioStrategy}</strong></p>
 

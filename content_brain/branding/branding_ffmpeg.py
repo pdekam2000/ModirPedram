@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
+import logging
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from content_brain.execution.assembly_ffmpeg_availability import check_ffmpeg_availability, resolve_ffmpeg_binary
+from content_brain.platform.media_probe import probe_has_audio_stream
 
 FFMPEG_TIMEOUT_SECONDS = 600
+_logger = logging.getLogger("modiragent.branding_ffmpeg")
 
 
 @dataclass
@@ -168,7 +171,14 @@ def run_ffmpeg_complex(
     args = ["-y"]
     for item in input_paths:
         args.extend(["-i", str(item)])
-    args.extend(["-filter_complex", filter_complex, *map_args, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "copy", str(output)])
+    args.extend(["-filter_complex", filter_complex, *map_args, "-c:v", "libx264", "-pix_fmt", "yuv420p"])
+    primary_video = Path(input_paths[0])
+    if probe_has_audio_stream(primary_video):
+        if "-map" not in map_args or "0:a" not in map_args:
+            args.extend(["-map", "0:a?", "-c:a", "copy"])
+    else:
+        _logger.debug("Logo/branding overlay: no audio stream on %s — video-only output", primary_video)
+    args.append(str(output))
 
     try:
         proc = subprocess.run(

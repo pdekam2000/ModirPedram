@@ -108,6 +108,21 @@ class PlatformService:
     def browser_refresh_runway(self, *, force: bool = False) -> dict[str, Any]:
         return refresh_runway_page(self.project_root, force=force)
 
+    def runway_session_status(self, *, validate: bool = False) -> dict[str, Any]:
+        from content_brain.automation.runway_session_manager import get_runway_session_status
+
+        return get_runway_session_status(self.project_root, validate=validate)
+
+    def connect_runway_browser(self) -> dict[str, Any]:
+        from content_brain.automation.runway_session_manager import connect_runway_browser
+
+        return connect_runway_browser(self.project_root)
+
+    def save_runway_browser_session(self) -> dict[str, Any]:
+        from content_brain.automation.runway_session_manager import save_runway_session_from_cdp
+
+        return save_runway_session_from_cdp(self.project_root)
+
     def run_history(self, *, limit: int = 20) -> dict[str, Any]:
         runs = list_run_history(self.project_root, limit=limit)
         latest = runs[0] if runs else None

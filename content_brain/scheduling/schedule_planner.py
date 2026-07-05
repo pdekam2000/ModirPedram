@@ -75,6 +75,8 @@ def resolve_topic_for_job(
     planned_date: str = "",
 ) -> str:
     platform = str((plan.platforms or ["youtube_shorts"])[0] or "").strip().lower()
+    if platform == "youtube_shorts" and channel_topic.strip():
+        return channel_topic.strip()
     if platform == "tiktok" and tiktok_channel_topic.strip():
         return tiktok_channel_topic.strip()
     if platform == "instagram_reels" and instagram_channel_topic.strip():

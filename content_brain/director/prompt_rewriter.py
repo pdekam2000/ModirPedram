@@ -19,7 +19,9 @@ from content_brain.director.openai_director_client import openai_json_completion
 
 REWRITER_SYSTEM_PROMPT = """Rewrite Runway video prompts to fix critic issues while preserving topic authority.
 Return ONLY JSON: { "starter_image_prompt": "...", "clip_prompts": ["...", "..."] }.
-No subtitles/logos/watermarks. Keep prompts long and cinematic."""
+No subtitles/logos/watermarks. Each clip_prompt MUST be 2400–2500 characters with these sections:
+1 SCENE SETUP, 2 SUBJECT, 3 ACTION (second-by-second), 4 CAMERA MOVEMENT, 5 VISUAL STYLE,
+6 ATMOSPHERE, 7 TECHNICAL (9:16, lens, DOF), 8 CONTINUITY NOTE."""
 
 STRIP_DRIFT = DIRECTOR_FORBIDDEN_DRIFT + ("gpu", "gaming", "technology", "tech lab", "graphics card", "esports", "video game", "server room")
 

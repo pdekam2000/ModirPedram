@@ -124,6 +124,7 @@ def run_youtube_upload_from_publish_package(
     publish_at: str = "",
     confirmed: bool = False,
     upload_thumbnail: bool = True,
+    automation_mode: bool = False,
 ) -> dict[str, Any]:
     """Upload FINAL_BRANDED_PUBLISH_READY.mp4 using publish/youtube_metadata.json."""
     root = Path(project_root).resolve()
@@ -159,6 +160,8 @@ def run_youtube_upload_from_publish_package(
         return base_failure
 
     require_confirmation = bool(profile.get("youtube_require_confirmation", True))
+    if automation_mode:
+        require_confirmation = False
     if require_confirmation and not confirmed and not bool(profile.get("youtube_upload_confirmed")):
         base_failure["upload_status"] = "confirmation_required"
         base_failure["error"] = "first_upload_requires_confirmation"
@@ -178,7 +181,7 @@ def run_youtube_upload_from_publish_package(
 
     metadata = dict(inputs.get("youtube_metadata") or {})
     mapped = map_youtube_metadata_to_upload(metadata, profile=profile)
-    effective_visibility = str(visibility or profile.get("youtube_privacy") or "private")
+    effective_visibility = str(visibility or profile.get("youtube_privacy") or "public")
     if not account.get("channel_id"):
         fetch_and_store_channel_info(root, profile)
         account = load_account_info(root) or account

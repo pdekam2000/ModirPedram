@@ -1,9 +1,9 @@
 {
   "launcher_version": "12i_a_v1",
-  "launched_at": "2026-07-01 05:44:19",
-  "pid": 33968,
+  "launched_at": "2026-07-05 12:00:44",
   "chrome_executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "profile_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\storage\\real_chrome_profile",
   "cdp_url": "http://127.0.0.1:9222",
-  "launch_skipped": false
+  "launch_skipped": true,
+  "reason": "CDP already reachable"
 }

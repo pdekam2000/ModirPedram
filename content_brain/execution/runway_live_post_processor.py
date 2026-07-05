@@ -280,10 +280,16 @@ def run_assembly(
         manifest_path.write_text(json.dumps(base_manifest, indent=2), encoding="utf-8")
         return base_manifest
 
+    from content_brain.execution.product_audio_source import strip_runway_audio_during_assembly
+
+    strip_audio = strip_runway_audio_during_assembly(project_root)
+    video_codec_args = ["-c:v", "libx264", "-pix_fmt", "yuv420p"]
+    audio_args = ["-an"] if strip_audio else ["-c:a", "aac", "-b:a", "192k"]
+
     if len(input_files) == 1:
         ok, error = _run_ffmpeg(
             ffmpeg_bin,
-            ["-y", "-i", input_files[0], "-c:v", "libx264", "-pix_fmt", "yuv420p", "-an", str(output_path)],
+            ["-y", "-i", input_files[0], *video_codec_args, *audio_args, str(output_path)],
             timeout_seconds=FFMPEG_TIMEOUT_SECONDS,
         )
     else:
@@ -300,11 +306,8 @@ def run_assembly(
                 "0",
                 "-i",
                 str(concat_list),
-                "-c:v",
-                "libx264",
-                "-pix_fmt",
-                "yuv420p",
-                "-an",
+                *video_codec_args,
+                *audio_args,
                 str(output_path),
             ],
             timeout_seconds=FFMPEG_TIMEOUT_SECONDS,
@@ -684,14 +687,20 @@ def run_live_post_processing(report: Any, project_root: Path | None = None) -> d
         created_at=checkpoint_created_at,
     )
 
-    audio_post_result = run_audio_post_processing(
-        project_root=root,
-        report=report,
-        assembly_manifest=assembly_manifest,
-        run_dir=run_layout.run_dir,
-    )
+    audio_post_result: dict[str, Any] = {}
+    from content_brain.execution.product_audio_source import use_elevenlabs_narration
+
+    if use_elevenlabs_narration(root):
+        audio_post_result = run_audio_post_processing(
+            project_root=root,
+            report=report,
+            assembly_manifest=assembly_manifest,
+            run_dir=run_layout.run_dir,
+        )
+    else:
+        audio_post_result = {"status": "skipped_runway_native", "narrated_video_path": str(assembly_manifest.get("output_path") or "")}
     audio_status = str(audio_post_result.get("status") or "")
-    if audio_status not in {"completed", "skipped_provider_disabled", "skipped_assembly_not_ready"}:
+    if audio_status not in {"completed", "skipped_provider_disabled", "skipped_assembly_not_ready", "skipped_runway_native"}:
         warnings.append(f"audio_post_processing:{audio_status}")
     warnings.extend(list(audio_post_result.get("warnings") or []))
 

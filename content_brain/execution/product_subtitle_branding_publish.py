@@ -12,7 +12,7 @@ from typing import Any
 from content_brain.branding.branding_runtime import _branding_settings
 from content_brain.branding.cta_engine import CTA_FREQUENCY_END, apply_cta_overlay, resolve_cta_text
 from content_brain.branding.intro_outro_engine import generate_intro_card, generate_outro_card, merge_intro_outro
-from content_brain.branding.logo_overlay_engine import apply_logo_overlay
+from content_brain.branding.logo_overlay_engine import apply_logo_overlay, resolve_channel_logo_path
 from content_brain.branding.subtitle_burn_engine import SUBTITLED_VIDEO_NAME, burn_subtitles
 from content_brain.execution.assembly_ffmpeg_availability import check_ffmpeg_availability
 from content_brain.execution.product_assembly_bridge import FINAL_PUBLISH_READY_NAME
@@ -334,10 +334,12 @@ def run_product_subtitle_branding_publish(
 
     if settings.get("logo_enabled") or settings.get("watermark_enabled"):
         logo_out = staging / "logo_overlay.mp4"
+        resolved_logo = resolve_channel_logo_path(root, profile_logo_path=settings.get("logo_path"))
         logo = apply_logo_overlay(
             project_root=root,
             input_video_path=current_video,
             output_path=logo_out,
+            logo_path=str(resolved_logo) if resolved_logo else settings.get("logo_path"),
             logo_position=settings["logo_position"],
             logo_scale=settings["logo_scale"],
             ffmpeg_probe=probe,
@@ -345,11 +347,16 @@ def run_product_subtitle_branding_publish(
         if logo.status == "COMPLETED" and logo_out.is_file():
             current_video = logo_out
             branding_layers.append("logo" if settings.get("logo_enabled") else "watermark")
+            base_result["logo_status"] = STATUS_COMPLETED
         elif logo.status == "FAILED":
             hard_failure = True
             base_result["error"] = logo.error or "logo_overlay_failed"
+            base_result["logo_status"] = STATUS_FAILED
         else:
             branding_layers.append("logo_skipped")
+            base_result["logo_status"] = STATUS_SKIPPED
+            if logo.warnings:
+                base_result["logo_skip_reason"] = ",".join(logo.warnings)
 
     cta_text = str(settings.get("cta_text") or "")
     if settings.get("cta_enabled"):
@@ -508,7 +515,7 @@ def run_product_subtitle_branding_publish(
         "publish_package_path": str(publish_dir.resolve()).replace("\\", "/"),
         "branding_layers": branding_layers,
         "logo_enabled": bool(settings.get("logo_enabled")),
-        "logo_status": STATUS_COMPLETED if "logo" in branding_layers else (STATUS_SKIPPED if not settings.get("logo_enabled") else STATUS_SKIPPED),
+        "logo_status": STATUS_COMPLETED if "logo" in branding_layers else STATUS_SKIPPED,
         "cta_enabled": bool(settings.get("cta_enabled")),
         "cta_status": STATUS_COMPLETED if "cta" in branding_layers else (STATUS_DISABLED if not settings.get("cta_enabled") else STATUS_SKIPPED),
         "intro_enabled": bool(settings.get("intro_enabled")),

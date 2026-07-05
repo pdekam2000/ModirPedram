@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import json
+import logging
 import shutil
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from content_brain.execution.assembly_ffmpeg_availability import resolve_ffmpeg_binary
+from content_brain.execution.product_audio_source import strip_runway_audio_during_assembly
 from content_brain.execution.pwmap_runway_agent_adapter import validate_mp4_path
 from content_brain.execution.runway_live_post_processor import collect_valid_download_paths
 from utils.ffmpeg_stitcher import FFmpegStitcher
@@ -19,6 +23,8 @@ PUBLISH_METADATA_NAME = "publish_metadata.json"
 
 ASSEMBLY_STATUS_COMPLETED = "completed"
 ASSEMBLY_STATUS_FAILED = "assembly_failed"
+FFMPEG_TIMEOUT_SECONDS = 600
+_logger = logging.getLogger("modiragent.product_assembly_bridge")
 
 
 def _now_iso() -> str:
@@ -55,6 +61,41 @@ def _probe_duration_seconds(video_path: Path) -> float | None:
 
 def _clip_path(run_dir: Path, index: int) -> Path:
     return run_dir / f"clip_{index}.mp4"
+
+
+def _strip_audio_to_file(src: Path, output: Path) -> None:
+    ffmpeg_bin = resolve_ffmpeg_binary()
+    if not ffmpeg_bin:
+        raise RuntimeError("FFmpeg not available for audio strip")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    attempts = (
+        ["-y", "-i", str(src), "-c:v", "copy", "-an", str(output)],
+        ["-y", "-i", str(src), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-an", str(output)],
+    )
+    last_error = ""
+    for args in attempts:
+        proc = subprocess.run(
+            [ffmpeg_bin, *args],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=FFMPEG_TIMEOUT_SECONDS,
+        )
+        if proc.returncode == 0 and output.is_file() and output.stat().st_size > 0:
+            return
+        last_error = (proc.stderr or proc.stdout or "").strip()
+    raise RuntimeError(last_error or "FFmpeg failed to strip audio from clip")
+
+
+def _write_assembled_video(*, valid_paths: list[str], output_video: Path, strip_audio: bool) -> None:
+    if len(valid_paths) == 1:
+        src = Path(valid_paths[0])
+        if strip_audio:
+            _strip_audio_to_file(src, output_video)
+        elif src.resolve() != output_video.resolve():
+            shutil.copy2(src, output_video)
+        return
+    FFmpegStitcher().stitch_clips(valid_paths, str(output_video), strip_audio=strip_audio)
 
 
 def discover_product_studio_clips(
@@ -235,14 +276,18 @@ def run_product_assembly_bridge(
 
     publish_dir.mkdir(parents=True, exist_ok=True)
     output_video = publish_dir / FINAL_PUBLISH_READY_NAME
+    strip_audio = strip_runway_audio_during_assembly(root, preflight)
+    if strip_audio:
+        _logger.info("Using ElevenLabs narration — stripping Runway native audio during assembly (-an)")
+    else:
+        _logger.info("Using Runway native audio — preserving clip audio during assembly")
 
     try:
-        if len(valid_paths) == 1:
-            src = Path(valid_paths[0])
-            if src.resolve() != output_video.resolve():
-                shutil.copy2(src, output_video)
-        else:
-            FFmpegStitcher().stitch_clips(valid_paths, str(output_video))
+        _write_assembled_video(
+            valid_paths=valid_paths,
+            output_video=output_video,
+            strip_audio=strip_audio,
+        )
     except (OSError, RuntimeError, ValueError) as exc:
         discovery["ok"] = False
         discovery["recovery_possible"] = True

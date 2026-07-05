@@ -36,7 +36,16 @@ except ImportError:
         "  pip install playwright\n"
         "  playwright install chromium\n"
     )
-    sys.exit(1)
+    from exit_codes import EXIT_RUNTIME_ERROR
+
+    sys.exit(EXIT_RUNTIME_ERROR)
+
+from exit_codes import EXIT_CODE_MEANINGS, EXIT_RUNTIME_ERROR, EXIT_SESSION_NOT_READY
+
+# Subprocess exit codes (shared with runway_agent.py — see exit_codes.py):
+#   0 = success
+#   1 = runtime error (Chrome/Playwright/generation failure)
+#   2 = session/browser not ready (missing session file, expired Runway login, argparse CLI error)
 
 CHROME_PATHS = (
     Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
@@ -508,7 +517,7 @@ def launch_google_chrome_context(
     for detail in errors:
         safe = detail.encode("ascii", errors="replace").decode("ascii")
         print(f"  - {safe}")
-    sys.exit(1)
+    sys.exit(EXIT_RUNTIME_ERROR)
 
 
 def apply_stealth_cdp(context: BrowserContext) -> None:
@@ -528,7 +537,15 @@ def launch_browser_context(
     *,
     headless: bool,
     stealth: bool,
+    profile_dir: Path | str | None = None,
+    storage_state_path: Path | str | None = None,
+    prefer_cdp: bool = True,
 ) -> BrowserContext:
+    if prefer_cdp and not headless:
+        existing = connect_existing_chrome(playwright)
+        if existing is not None:
+            return existing
+
     launch_args = [
         "--start-maximized",
         "--disable-infobars",
@@ -542,8 +559,11 @@ def launch_browser_context(
             "--no-default-browser-check",
         ])
 
+    user_data_dir = Path(profile_dir) if profile_dir else PROFILE_DIR
+    user_data_dir.mkdir(parents=True, exist_ok=True)
+
     common_kwargs: dict[str, Any] = {
-        "user_data_dir": str(PROFILE_DIR),
+        "user_data_dir": str(user_data_dir),
         "headless": headless,
         "args": launch_args,
         "no_viewport": True,
@@ -551,6 +571,11 @@ def launch_browser_context(
         "timezone_id": "America/New_York",
         "color_scheme": "light",
     }
+
+    session_file = Path(storage_state_path) if storage_state_path else None
+    if session_file and session_file.is_file():
+        common_kwargs["storage_state"] = str(session_file)
+        print(f"[i] Browser: loading Runway session from {session_file}")
 
     if stealth:
         common_kwargs["ignore_default_args"] = ["--enable-automation"]

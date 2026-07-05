@@ -19,15 +19,24 @@ export type ChannelProfile = {
   main_niche: string;
   sub_niche: string;
   channel_topic: string;
+  youtube_channel_topic?: string;
+  tiktok_channel_topic?: string;
+  instagram_channel_topic?: string;
   target_audience: string;
   language: string;
   tone_style: string;
   visual_style?: string;
+  youtube_video_style?: string;
+  instagram_video_style?: string;
+  instagram_filter_mood?: string;
+  tiktok_video_style?: string;
+  tiktok_pace?: string;
   default_platform: string;
   default_duration_seconds: number;
   default_provider: string;
   default_voice?: string;
   default_narration_provider?: string;
+  audio_source?: string;
   music_provider?: string;
   preferred_topics?: string[];
   forbidden_topics?: string[];
@@ -46,12 +55,28 @@ export type ChannelProfile = {
   cta_text?: string;
   cta_position?: string;
   cta_frequency?: string;
+  cta_style?: string;
+  cta_graphic_path?: string;
+  cta_graphic_position?: string;
+  cta_graphic_duration_seconds?: number;
+  logo_path?: string;
   intro_enabled?: boolean;
   intro_text?: string;
   intro_duration?: number;
+  intro_type?: string;
+  intro_image_path?: string;
+  intro_video_path?: string;
+  intro_fade_effect?: string;
   outro_enabled?: boolean;
   outro_text?: string;
   outro_duration?: number;
+  outro_type?: string;
+  outro_image_path?: string;
+  outro_video_path?: string;
+  outro_fade_effect?: string;
+  outro_subscribe_enabled?: boolean;
+  outro_subscribe_style?: string;
+  outro_subscribe_custom_color?: string;
   youtube_upload_enabled?: boolean;
   youtube_privacy?: string;
   youtube_default_description?: string;
@@ -61,6 +86,20 @@ export type ChannelProfile = {
   youtube_oauth_client_path?: string;
   youtube_made_for_kids?: boolean;
   youtube_require_confirmation?: boolean;
+  youtube_playlist_id?: string;
+  instagram_upload_enabled?: boolean;
+  instagram_app_id?: string;
+  instagram_app_secret?: string;
+  instagram_access_token?: string;
+  instagram_account_id?: string;
+  instagram_token_expires_at?: string;
+  instagram_token_exchange_message?: string;
+  instagram_privacy?: string;
+  tiktok_upload_enabled?: boolean;
+  tiktok_client_key?: string;
+  tiktok_client_secret?: string;
+  tiktok_access_token?: string;
+  tiktok_privacy?: string;
   local_mode?: boolean;
   asset_vault_enabled?: boolean;
   asset_copy_mode?: "copy" | "move";
@@ -175,7 +214,7 @@ export function saveLastTopic(topic: string, topicMode = "custom") {
   });
 }
 
-export function saveChannelProfile(body: ChannelProfile) {
+export function saveChannelProfile(body: Partial<ChannelProfile>) {
   return request<ChannelProfile>("/product/channel-profile", { method: "POST", body: JSON.stringify(body) });
 }
 
@@ -188,10 +227,40 @@ export async function uploadChannelLogo(file: File) {
   form.append("file", file);
   const response = await fetch(`${API_BASE}/product/channel-assets/logo`, { method: "POST", body: form });
   if (!response.ok) {
-    const detail = await response.text();
+    let detail = "";
+    try {
+      const payload = await response.json();
+      detail = String((payload as { detail?: string }).detail || "");
+    } catch {
+      detail = await response.text();
+    }
     throw new Error(detail || `Logo upload failed: ${response.status}`);
   }
   return response.json() as Promise<{ ok: boolean; logo_path: string; logo_exists: boolean }>;
+}
+
+export type BrandingAssetKind = "cta_graphic" | "intro_image" | "intro_video" | "outro_image" | "outro_video";
+
+export function brandingAssetFileUrl(kind: BrandingAssetKind | "logo") {
+  const path = kind === "logo" ? "/product/channel-assets/logo/file" : `/product/channel-assets/${kind}/file`;
+  return `${API_BASE}${path}?t=${Date.now()}`;
+}
+
+export async function uploadBrandingAsset(kind: BrandingAssetKind, file: File) {
+  const form = new FormData();
+  form.append("file", file);
+  const response = await fetch(`${API_BASE}/product/channel-assets/${kind}`, { method: "POST", body: form });
+  if (!response.ok) {
+    let detail = "";
+    try {
+      const payload = await response.json();
+      detail = String((payload as { detail?: string }).detail || "");
+    } catch {
+      detail = await response.text();
+    }
+    throw new Error(detail || `${kind} upload failed: ${response.status}`);
+  }
+  return response.json() as Promise<{ ok: boolean; kind: string; asset_path: string; exists: boolean }>;
 }
 
 export function suggestChannelProfile(body: ChannelProfileSuggestRequest) {

@@ -239,6 +239,65 @@ def apply_cta_overlay(
     return result
 
 
+def _graphic_overlay_coords(position: str) -> str:
+    normalized = str(position or "bottom_center").strip().lower()
+    if normalized == "bottom_left":
+        return "48:H-h-48"
+    if normalized == "bottom_right":
+        return "W-w-48:H-h-48"
+    return "(W-w)/2:H-h-48"
+
+
+def apply_cta_graphic_overlay(
+    *,
+    input_video_path: str | Path,
+    output_path: str | Path,
+    graphic_path: str | Path,
+    cta_position: str = "bottom_center",
+    duration_seconds: float = 30.0,
+    graphic_duration_seconds: float = 5.0,
+    ffmpeg_probe: Any | None = None,
+) -> BrandingFfmpegResult:
+    from content_brain.branding.branding_ffmpeg import run_ffmpeg_complex
+
+    video = Path(input_video_path)
+    output = Path(output_path)
+    graphic = Path(graphic_path)
+    if not graphic.is_file() or graphic.stat().st_size <= 0:
+        return BrandingFfmpegResult(
+            status="SKIPPED",
+            output_path=str(output),
+            input_path=str(video),
+            warnings=["cta_graphic_missing"],
+        )
+
+    duration = max(1.0, float(duration_seconds or 30.0))
+    show_for = max(1.0, min(float(graphic_duration_seconds or 5.0), duration))
+    start = max(0.0, duration - show_for)
+    coords = _graphic_overlay_coords(cta_position)
+    enable_expr = f"between(t,{start:.2f},{duration:.2f})"
+    filter_complex = (
+        f"[1:v]scale=iw*0.42:-1[ctaimg];"
+        f"[0:v][ctaimg]overlay={coords}:enable='{enable_expr}'[vout]"
+    )
+    result = run_ffmpeg_complex(
+        input_paths=[video, graphic],
+        output_path=output,
+        filter_complex=filter_complex,
+        map_args=["-map", "[vout]", "-map", "0:a?"],
+        ffmpeg_probe=ffmpeg_probe,
+    )
+    result.metadata.update(
+        {
+            "version": CTA_ENGINE_VERSION,
+            "cta_style": "graphic_overlay",
+            "cta_graphic_path": str(graphic.resolve()),
+            "cta_graphic_window": {"start": start, "end": duration, "duration": show_for},
+        }
+    )
+    return result
+
+
 __all__ = [
     "CTA_ACCENT_COLOUR",
     "CTA_ENGINE_VERSION",
@@ -246,6 +305,7 @@ __all__ = [
     "CTA_FREQUENCY_END",
     "CTA_FREQUENCY_MIDDLE",
     "CTA_PRESETS",
+    "apply_cta_graphic_overlay",
     "apply_cta_overlay",
     "resolve_cta_text",
     "suggest_cta_texts",

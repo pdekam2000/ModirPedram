@@ -27,13 +27,13 @@ try:
 except ImportError:  # pragma: no cover
     OpenAI = None  # type: ignore[misc, assignment]
 
-OPENAI_WRITER_VERSION = "kling_story_first_openai_writer_v2_cinematic"
+OPENAI_WRITER_VERSION = "kling_story_first_openai_writer_v3_science"
 DEFAULT_MODEL_FALLBACK = "gpt-4.1-mini"
 MODEL_PREFERENCE = ("gpt-4.1", DEFAULT_MODEL_FALLBACK)
 REQUEST_TIMEOUT_SECONDS = 90.0
 MAX_ATTEMPTS = 2
 
-SYSTEM_PROMPT = """You write Kling Frame-to-Video prompts as cinematic scene prose for native in-scene audio.
+SYSTEM_PROMPT_COMEDY = """You write Kling Frame-to-Video prompts as cinematic scene prose for native in-scene audio.
 
 Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
 
@@ -45,7 +45,7 @@ Structure:
 Include ONLY: visual style, audio style (native in-scene), camera style, continuity anchor.
 
 Hard rules:
-- Total length MUST be 2300–2500 characters.
+- Total length MUST be 2400–2500 characters.
 - Story body MUST be at least 80% of total length.
 - NEVER put prompt-design metadata in the story body.
 - FORBIDDEN in story body (never write these labels or phrases):
@@ -56,7 +56,67 @@ Hard rules:
 - Write actual scenes, not planning documents.
 - Native in-scene audio only — no external narration, no background music track, no ElevenLabs.
 - Clip 2+ must include prior-clip handoff with the words "previous" or "resumes" woven into natural prose.
-- Preserve character and environment continuity through action, not metadata labels."""
+- Preserve character and environment continuity through action, not metadata labels.
+
+CRITICAL — Story must FULLY COMPLETE in 2 clips:
+
+Clip 1 (15s): Hook + Setup
+- Open with arresting visual (3s)
+- Build the situation (10s)
+- End on clear tension (2s)
+
+Clip 2 (15s): Payoff + Clear Ending
+- Deliver the funny moment fully (8s)
+- Show character reactions (4s)
+- HARD ENDING: freeze frame, laugh, or clear visual resolution (3s)
+- NEVER end mid-action or mid-sentence
+- Viewer must feel satisfied and complete"""
+
+SYSTEM_PROMPT_SCIENCE = """You write Kling Frame-to-Video prompts as premium cinematic science-documentary scene prose for native in-scene audio.
+
+Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
+
+Structure:
+1) STORY BODY — present-tense cinematic prose with a recurring female science presenter integrated into dynamic scientific visuals:
+   holographic displays, animated diagrams, macro/micro footage, space simulations, body visualizations, molecular animation.
+2) TECHNICAL FOOTER — after a line exactly reading:
+--- Technical execution ---
+Include ONLY: visual style, audio style (native in-scene), camera style, continuity anchor.
+
+Hard rules:
+- Total length MUST be 2400–2500 characters.
+- Story body MUST be at least 80% of total length.
+- Presenter: confident, intelligent, elegant modern science host — expressive but natural spoken English.
+- Visuals must surround, transition with, or appear beside the presenter — not boring static split-screen.
+- Native in-scene audio only — presenter speaks the science hook, setup, explanation, and payoff.
+- Clip 2+ must include prior-clip handoff with the words "previous" or "resumes" woven into natural prose.
+- Preserve presenter face, hair, styling, and wardrobe continuity through action.
+
+CRITICAL — Science Short must FULLY COMPLETE in 2 clips (25-35s total):
+
+Clip 1 (15s): Hook + Setup
+- Open with impossible scientific hook (0-2s) — no "Did you know?"
+- Presenter setup (2-8s) — one clear phenomenon in simple spoken English
+- Begin visual explanation (8-15s) — cinematic scientific visuals integrate dynamically
+- End on curiosity gap — setup COMPLETE
+
+Clip 2 (15s): Payoff + Twist + CTA
+- Continue visual explanation (8s) — mechanism made vivid
+- Deliver strangest payoff (4s) — more surprising than the hook when possible
+- HARD ENDING (3s) — natural short CTA or memorable closing line
+- NEVER end mid-sentence. Viewer rewarded for watching to the end"""
+
+
+def _resolve_system_prompt(**kwargs: Any) -> str:
+    topic = str(kwargs.get("topic") or "").lower()
+    genre = str(kwargs.get("genre") or kwargs.get("niche") or "").lower()
+    platform = str(kwargs.get("target_platform") or kwargs.get("platform") or "").lower()
+    if platform in {"youtube_shorts", "youtube"} or "science" in topic or "impossible" in topic or "science" in genre:
+        return SYSTEM_PROMPT_SCIENCE
+    return SYSTEM_PROMPT_COMEDY
+
+
+SYSTEM_PROMPT = SYSTEM_PROMPT_COMEDY
 
 
 def _clean(text: str) -> str:
@@ -199,6 +259,7 @@ def _build_openai_brief(
     directives_summary: str,
     character_continuity: str,
     environment_continuity: str,
+    target_platform: str = "",
 ) -> dict[str, Any]:
     """Internal metadata for OpenAI — must NOT appear as labels in output."""
     brief: dict[str, Any] = {
@@ -231,6 +292,37 @@ def _build_openai_brief(
     if clip_index < total_clips:
         brief["bridge_toward_next"] = bridge_hint
     brief["length_target"] = f"{STORY_FIRST_PROMPT_TARGET_MIN}-{STORY_FIRST_PROMPT_TARGET_MAX} characters"
+    if int(total_clips) == 2:
+        science_mode = any(
+            marker in str(topic or "").lower()
+            for marker in ("science", "impossible", "physics", "brain", "quantum")
+        ) or str(target_platform or "").lower() in {
+            "youtube_shorts",
+            "youtube",
+        }
+        if int(clip_index) <= 1:
+            if science_mode:
+                brief["clip_timing_structure"] = (
+                    "Clip 1 (15s) Hook+Setup: impossible hook 0-2s, presenter setup 2-8s, "
+                    "visual explanation begins 8-15s, curiosity gap ending"
+                )
+            else:
+                brief["clip_timing_structure"] = (
+                    "Clip 1 (15s) Hook+Setup: arresting visual 3s, build situation 10s, clear tension 2s"
+                )
+        elif science_mode:
+            brief["clip_timing_structure"] = (
+                "Clip 2 (15s) Payoff+Twist+CTA: visual explanation 8s, strangest payoff 4s, "
+                "HARD ENDING with natural CTA 3s — NEVER mid-sentence"
+            )
+        else:
+            brief["clip_timing_structure"] = (
+                "Clip 2 (15s) Payoff+Clear Ending: funny moment fully 8s, character reactions 4s, "
+                "HARD ENDING freeze/laugh/resolution 3s — NEVER mid-action or mid-sentence"
+            )
+        brief["two_clip_completion_rule"] = (
+            "Story must FULLY COMPLETE in 2 clips. Viewer must feel satisfied and complete."
+        )
     return brief
 
 
@@ -282,7 +374,7 @@ def try_write_story_first_prompt_openai(
             )
 
         raw, model, notes = _openai_text_completion(
-            system_prompt=SYSTEM_PROMPT,
+            system_prompt=_resolve_system_prompt(**kwargs),
             user_content=attempt_prompt,
             dry_run=dry_run,
         )

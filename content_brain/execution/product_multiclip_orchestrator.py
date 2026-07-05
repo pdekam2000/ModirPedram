@@ -145,15 +145,24 @@ def run_product_multiclip_generate(
         generation_state="generating",
     )
 
-    from content_brain.execution.pwmap_runway_agent_adapter import extract_prompts_from_preflight
+    from content_brain.execution.pwmap_runway_agent_adapter import (
+        ensure_kling_cinematic_preflight,
+        extract_prompts_from_preflight,
+    )
     from content_brain.execution.product_visual_diversity_guard import (
         detect_prompt_repetition_risk,
         detect_post_generation_visual_repetition,
         save_visual_diversity_report,
     )
 
+    working_preflight = dict(preflight)
     try:
-        clip_prompts, _prompt_meta = extract_prompts_from_preflight(preflight)
+        working_preflight = ensure_kling_cinematic_preflight(
+            project_root=project_root,
+            payload=payload,
+            preflight=preflight,
+        )
+        clip_prompts, _prompt_meta = extract_prompts_from_preflight(working_preflight)
     except Exception:
         clip_prompts = []
     prompt_diversity_report = detect_prompt_repetition_risk(clip_prompts) if clip_prompts else None
@@ -180,7 +189,7 @@ def run_product_multiclip_generate(
     pwmap_result = run_pwmap_product_studio_generate(
         project_root=project_root,
         payload=dict(payload),
-        preflight=preflight,
+        preflight=working_preflight,
         pwmap_root=pwmap_root,
     )
     elapsed_seconds = round(time.time() - started, 2)
@@ -333,6 +342,7 @@ def run_product_multiclip_generate(
             trace=pipeline_trace,
             visual_diversity=post_report.to_dict() if post_report else None,
             attempt_auto_youtube_upload=True,
+            automation_mode=bool(payload.get("automation_mode")),
         )
         assembly_result = dict(chain_result.get("assembly") or {})
         branding_publish_result = dict(chain_result.get("branding_publish") or {})
@@ -385,6 +395,10 @@ def run_product_multiclip_generate(
         )
         if chain_result.get("youtube_upload"):
             pwmap_result["youtube_upload"] = chain_result["youtube_upload"]
+        if chain_result.get("platform_uploads"):
+            pwmap_result["platform_uploads"] = chain_result["platform_uploads"]
+        if chain_result.get("upload_platform_targets"):
+            pwmap_result["upload_platform_targets"] = chain_result["upload_platform_targets"]
         for field in (
             "youtube_upload_status",
             "youtube_video_id",

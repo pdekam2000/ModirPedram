@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import logging
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -10,15 +12,20 @@ from typing import Any
 PIPELINE_TRACE_VERSION = "product_publish_pipeline_trace_v1"
 ORCHESTRATOR_VERSION = "product_multiclip_orchestrator_v3"
 PIPELINE_TRACE_FILENAME = "pipeline_trace.json"
+_logger = logging.getLogger("modiragent.product_publish_pipeline")
 
 STAGE_STORY_PLANNING = "story_planning"
 STAGE_CLIP_GENERATION = "clip_generation"
 STAGE_USE_FRAME_CHAIN = "use_frame_chain"
 STAGE_DOWNLOAD_VERIFICATION = "download_verification"
 STAGE_ASSEMBLY_BRIDGE = "assembly_bridge"
+STAGE_VOICE_GENERATION = "voice_generation"
 STAGE_SUBTITLE_BRANDING_PUBLISH = "subtitle_branding_publish"
 STAGE_YOUTUBE_METADATA = "youtube_metadata_generation"
 STAGE_YOUTUBE_UPLOAD = "youtube_upload_runtime"
+STAGE_INSTAGRAM_UPLOAD = "instagram_upload_runtime"
+STAGE_TIKTOK_UPLOAD = "tiktok_upload_runtime"
+STAGE_PLATFORM_UPLOAD = "platform_upload"
 
 PIPELINE_STAGES: tuple[str, ...] = (
     STAGE_STORY_PLANNING,
@@ -26,9 +33,12 @@ PIPELINE_STAGES: tuple[str, ...] = (
     STAGE_USE_FRAME_CHAIN,
     STAGE_DOWNLOAD_VERIFICATION,
     STAGE_ASSEMBLY_BRIDGE,
+    STAGE_VOICE_GENERATION,
     STAGE_SUBTITLE_BRANDING_PUBLISH,
     STAGE_YOUTUBE_METADATA,
     STAGE_YOUTUBE_UPLOAD,
+    STAGE_INSTAGRAM_UPLOAD,
+    STAGE_TIKTOK_UPLOAD,
 )
 
 
@@ -72,7 +82,7 @@ class PipelineTrace:
         elif status in {"failed", "blocked"}:
             self.stop_stage = stage
         self.pipeline_complete = (
-            self.last_completed_stage == STAGE_YOUTUBE_UPLOAD
+            self.last_completed_stage in {STAGE_YOUTUBE_UPLOAD, STAGE_INSTAGRAM_UPLOAD, STAGE_TIKTOK_UPLOAD}
             and status in {"completed", "skipped"}
             and not self.stop_stage
         ) or (
@@ -164,6 +174,172 @@ def bootstrap_trace_from_pwmap_result(
     return trace
 
 
+def _should_run_elevenlabs_voice(
+    project_root: str | Path,
+    preflight: dict[str, Any] | None,
+    *,
+    automation_mode: bool,
+) -> bool:
+    from content_brain.execution.product_audio_source import use_elevenlabs_narration
+
+    if not use_elevenlabs_narration(project_root, preflight):
+        return False
+    if automation_mode:
+        return True
+    from content_brain.platform.automation_center_store import AutomationCenterStore
+
+    flags = dict(AutomationCenterStore(project_root).load().get("feature_flags") or {})
+    return bool(flags.get("auto_voice", True))
+
+
+def run_product_studio_voice_stage(
+    *,
+    project_root: str | Path,
+    run_dir: str | Path,
+    run_id: str,
+    topic: str,
+    assembly_result: dict[str, Any],
+    preflight: dict[str, Any] | None = None,
+    automation_mode: bool = False,
+) -> dict[str, Any]:
+    """Generate ElevenLabs narration and mix into FINAL_PUBLISH_READY before branding."""
+    from content_brain.audio.audio_post_processing import run_audio_post_processing
+    from content_brain.execution.product_assembly_bridge import FINAL_PUBLISH_READY_NAME
+    from content_brain.execution.product_audio_source import use_elevenlabs_narration
+    from content_brain.execution.runway_live_post_processor import ASSEMBLY_ASSEMBLED
+
+    if not use_elevenlabs_narration(project_root, preflight):
+        _logger.info("Using Runway native audio")
+        return {"ok": True, "status": "skipped", "reason": "runway_native_audio"}
+
+    if not _should_run_elevenlabs_voice(project_root, preflight, automation_mode=automation_mode):
+        _logger.info("ElevenLabs narration skipped: feature_flags.auto_voice=false")
+        return {"ok": True, "status": "skipped", "reason": "auto_voice_disabled"}
+
+    _logger.info("Using ElevenLabs narration")
+
+    final_video = str(assembly_result.get("final_publish_video_path") or "")
+    video_path = Path(final_video)
+    if not video_path.is_file():
+        return {"ok": False, "status": "failed", "error": "assembly_video_missing"}
+
+    preflight_data = dict(preflight or {})
+    clip_count = int(assembly_result.get("clip_count") or preflight_data.get("clip_count") or 1)
+    platform = str(preflight_data.get("platform") or "")
+
+    assembly_manifest = {
+        "status": ASSEMBLY_ASSEMBLED,
+        "output_path": final_video,
+        "duration_seconds": assembly_result.get("duration_seconds"),
+    }
+    report = {
+        "topic": topic,
+        "content_brain_topic": topic,
+        "content_brain_run_id": run_id,
+        "clip_count": clip_count,
+    }
+
+    audio_result = run_audio_post_processing(
+        project_root=project_root,
+        report=report,
+        assembly_manifest=assembly_manifest,
+        platform=platform,
+        run_dir=run_dir,
+    )
+
+    narration_path = str(audio_result.get("narration_audio_path") or "")
+    narrated_video = str(audio_result.get("narrated_video_path") or "")
+    if narration_path:
+        _logger.info("Voice generated: %s", narration_path)
+    if narrated_video:
+        _logger.info("Voice mixed into video: %s", narrated_video)
+
+    status = str(audio_result.get("status") or "")
+    if status == "completed" and narrated_video and Path(narrated_video).is_file():
+        publish_target = video_path.parent / FINAL_PUBLISH_READY_NAME
+        shutil.copy2(narrated_video, publish_target)
+        assembly_result["final_publish_video_path"] = str(publish_target.resolve()).replace("\\", "/")
+        assembly_result["voice_applied"] = True
+        return {
+            "ok": True,
+            "status": "completed",
+            "narration_audio_path": narration_path,
+            "narrated_video_path": narrated_video,
+            "audio_post": audio_result,
+        }
+
+    if status in {"skipped_provider_disabled", "skipped_assembly_not_ready"}:
+        _logger.warning("Voice generation skipped: %s", status)
+        return {"ok": True, "status": status, "audio_post": audio_result}
+
+    error = str((audio_result.get("errors") or [""])[0] or status or "voice_generation_failed")
+    _logger.error("Voice generation failed: %s", error)
+    return {"ok": False, "status": status or "failed", "error": error, "audio_post": audio_result}
+
+
+def _resolve_upload_platform_targets(
+    *,
+    project_root: str | Path,
+    preflight: dict[str, Any],
+    automation_mode: bool,
+) -> list[str]:
+    """Automation jobs upload only to their job platform; manual runs use profile defaults."""
+    from content_brain.automation.platform_upload_guard import resolve_job_upload_targets
+
+    explicit = resolve_job_upload_targets(list(preflight.get("platform_targets") or []))
+    if explicit:
+        return explicit
+    platform = str(preflight.get("platform") or "").strip()
+    if automation_mode and platform:
+        return resolve_job_upload_targets([platform])
+    from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
+
+    profile = ProductChannelProfileStore(project_root).load()
+    return [str(item).strip() for item in (profile.get("upload_platforms") or []) if str(item).strip()]
+
+
+def _mark_platform_upload_stage(
+    trace: PipelineTrace,
+    *,
+    platform: str,
+    upload_result: dict[str, Any],
+) -> None:
+    normalized = str(platform or "").strip().lower()
+    if normalized in {"instagram_reels", "instagram"}:
+        stage = STAGE_INSTAGRAM_UPLOAD
+    elif normalized in {"tiktok"}:
+        stage = STAGE_TIKTOK_UPLOAD
+    elif normalized in {"youtube_shorts", "youtube"}:
+        stage = STAGE_YOUTUBE_UPLOAD
+    else:
+        return
+
+    if upload_result.get("uploaded") or upload_result.get("ok"):
+        trace.mark(
+            stage,
+            status="completed",
+            extra={
+                "platform": normalized,
+                "post_url": upload_result.get("post_url") or upload_result.get("youtube_url") or upload_result.get("video_url"),
+                "auto_upload": True,
+            },
+        )
+    elif upload_result.get("status") in {"blocked", "skipped"} or upload_result.get("blocked_reason"):
+        trace.mark(
+            stage,
+            status="skipped" if upload_result.get("status") == "skipped" else "blocked",
+            error=str(upload_result.get("blocked_reason") or upload_result.get("reason") or upload_result.get("error") or "upload_blocked"),
+            extra={"platform": normalized},
+        )
+    else:
+        trace.mark(
+            stage,
+            status="failed",
+            error=str(upload_result.get("reason") or upload_result.get("error") or upload_result.get("status") or "upload_failed"),
+            extra={"platform": normalized},
+        )
+
+
 def run_publish_post_processing_chain(
     *,
     project_root: str | Path,
@@ -175,12 +351,25 @@ def run_publish_post_processing_chain(
     trace: PipelineTrace | None = None,
     visual_diversity: dict[str, Any] | None = None,
     attempt_auto_youtube_upload: bool = True,
+    automation_mode: bool = False,
+    **kwargs: Any,
 ) -> dict[str, Any]:
     """Run assembly → branding (metadata generated inside assembly when enabled)."""
+    if kwargs:
+        _logger.debug(
+            "run_publish_post_processing_chain ignored extra kwargs: %s",
+            sorted(kwargs.keys()),
+        )
     run_path = Path(run_dir).resolve()
     preflight = dict(preflight or {})
     trace = trace or PipelineTrace(run_id=run_id)
     result: dict[str, Any] = {"ok": True, "pipeline_trace": trace.to_dict()}
+
+    from content_brain.platform.automation_center_store import is_auto_upload_enabled
+
+    auto_upload_enabled = is_auto_upload_enabled(project_root)
+    if not auto_upload_enabled:
+        attempt_auto_youtube_upload = False
 
     from content_brain.execution.product_assembly_bridge import run_product_assembly_bridge
 
@@ -227,6 +416,33 @@ def run_publish_post_processing_chain(
         return result
 
     trace.mark(STAGE_ASSEMBLY_BRIDGE, status="completed")
+
+    voice_result = run_product_studio_voice_stage(
+        project_root=project_root,
+        run_dir=run_path,
+        run_id=run_id,
+        topic=topic,
+        assembly_result=assembly_result,
+        preflight=preflight,
+        automation_mode=automation_mode,
+    )
+    result["voice_stage"] = voice_result
+    if voice_result.get("status") == "completed":
+        trace.mark(STAGE_VOICE_GENERATION, status="completed")
+        result["final_publish_video_path"] = assembly_result.get("final_publish_video_path")
+    elif voice_result.get("status") in {"skipped", "skipped_provider_disabled", "skipped_assembly_not_ready", "auto_voice_disabled"}:
+        trace.mark(
+            STAGE_VOICE_GENERATION,
+            status="skipped",
+            extra={"reason": voice_result.get("reason") or voice_result.get("status")},
+        )
+    else:
+        trace.mark(
+            STAGE_VOICE_GENERATION,
+            status="failed",
+            error=str(voice_result.get("error") or voice_result.get("status") or "voice_failed"),
+        )
+        result["voice_warning"] = voice_result.get("error")
 
     metadata_path = str(assembly_result.get("youtube_metadata_path") or "")
     publish_dir = Path(str(assembly_result.get("publish_package_path") or run_path / "publish"))
@@ -285,7 +501,20 @@ def run_publish_post_processing_chain(
         or run_path / "publish"
     )
     result["youtube_upload"] = {}
-    if attempt_auto_youtube_upload and branding_publish_result.get("publish_ready"):
+    from content_brain.automation.platform_upload_guard import (
+        guard_from_preflight,
+        normalize_platform,
+    )
+
+    job_platform = normalize_platform(str(preflight.get("platform") or ""))
+    upload_topic = str(preflight.get("channel_topic") or topic or "")
+    should_attempt_youtube = attempt_auto_youtube_upload and job_platform == "youtube_shorts"
+    if should_attempt_youtube and automation_mode:
+        topic_ok, topic_reason = guard_from_preflight(preflight, "youtube_shorts", upload_topic)
+        if not topic_ok:
+            should_attempt_youtube = False
+            trace.mark(STAGE_YOUTUBE_UPLOAD, status="blocked", error=topic_reason)
+    if should_attempt_youtube and branding_publish_result.get("publish_ready"):
         from content_brain.automation.auto_youtube_upload_after_publish import maybe_auto_youtube_upload_after_publish
 
         upload_result = maybe_auto_youtube_upload_after_publish(
@@ -297,6 +526,7 @@ def run_publish_post_processing_chain(
             assembly_result=assembly_result,
             visual_diversity=visual_diversity,
             expected_clip_count=expected_clip_count,
+            automation_mode=automation_mode,
         )
         result["youtube_upload"] = upload_result
         result["youtube_upload_status"] = str(upload_result.get("upload_status") or "")
@@ -336,11 +566,17 @@ def run_publish_post_processing_chain(
                 status="failed",
                 error=str(upload_result.get("error") or upload_result.get("upload_status") or "upload_failed"),
             )
-    elif attempt_auto_youtube_upload:
+    elif should_attempt_youtube:
         trace.mark(
             STAGE_YOUTUBE_UPLOAD,
             status="blocked",
             error="publish_not_ready",
+        )
+    elif attempt_auto_youtube_upload and automation_mode and job_platform == "instagram_reels":
+        trace.mark(
+            STAGE_YOUTUBE_UPLOAD,
+            status="skipped",
+            extra={"reason": "platform_not_youtube:instagram_reels"},
         )
     else:
         trace.mark(
@@ -348,6 +584,71 @@ def run_publish_post_processing_chain(
             status="skipped",
             extra={"reason": "auto_upload_not_requested"},
         )
+
+    result["auto_upload_enabled"] = auto_upload_enabled
+    platform_targets = _resolve_upload_platform_targets(
+        project_root=project_root,
+        preflight=preflight,
+        automation_mode=automation_mode,
+    )
+    result["upload_platform_targets"] = platform_targets
+    if auto_upload_enabled and branding_publish_result.get("publish_ready"):
+        from content_brain.upload.upload_manager import UploadManager
+
+        video_for_upload = str(
+            result.get("video_path")
+            or branding_publish_result.get("final_branded_publish_video_path")
+            or result.get("final_publish_video_path")
+            or ""
+        )
+        if platform_targets and video_for_upload:
+            try:
+                upload_manager = UploadManager(project_root)
+                upload_package = upload_manager.prepare_full_upload_workflow(
+                    topic=topic,
+                    platform_targets=platform_targets,
+                    video_path=video_for_upload,
+                    publish_package_path=publish_dir_text,
+                    run_id=run_id,
+                    automation_mode=automation_mode,
+                )
+                from content_brain.automation.auto_platform_upload import submit_automation_platform_uploads
+
+                platform_uploads = submit_automation_platform_uploads(
+                    project_root=project_root,
+                    platform_targets=platform_targets,
+                    video_path=video_for_upload,
+                    publish_package_path=publish_dir_text,
+                    upload_package=upload_package,
+                    run_id=run_id,
+                    topic=upload_topic,
+                    automation_mode=automation_mode,
+                    job_platform=job_platform,
+                    generation_report=result,
+                    skip_youtube_if_already_uploaded=True,
+                )
+                result["platform_uploads"] = platform_uploads
+                for target_platform, upload_result in dict(platform_uploads.get("platforms") or {}).items():
+                    if isinstance(upload_result, dict):
+                        _mark_platform_upload_stage(trace, platform=target_platform, upload_result=upload_result)
+            except Exception as exc:
+                result["platform_uploads"] = {"ok": False, "error": str(exc)}
+                for target in platform_targets:
+                    normalized = str(target or "").strip().lower()
+                    if normalized in {"instagram_reels", "instagram"}:
+                        trace.mark(STAGE_INSTAGRAM_UPLOAD, status="failed", error=str(exc))
+                    elif normalized == "tiktok":
+                        trace.mark(STAGE_TIKTOK_UPLOAD, status="failed", error=str(exc))
+        else:
+            for target in platform_targets:
+                normalized = str(target or "").strip().lower()
+                if normalized in {"instagram_reels", "instagram"}:
+                    trace.mark(STAGE_INSTAGRAM_UPLOAD, status="skipped", extra={"reason": "no_video_path"})
+                elif normalized == "tiktok":
+                    trace.mark(STAGE_TIKTOK_UPLOAD, status="skipped", extra={"reason": "no_video_path"})
+    elif not auto_upload_enabled:
+        trace.mark(STAGE_INSTAGRAM_UPLOAD, status="skipped", extra={"reason": "auto_upload_disabled"})
+        trace.mark(STAGE_TIKTOK_UPLOAD, status="skipped", extra={"reason": "auto_upload_disabled"})
 
     save_pipeline_trace(run_path, trace)
     result["pipeline_trace"] = trace.to_dict()
@@ -435,6 +736,7 @@ __all__ = [
     "bootstrap_trace_from_pwmap_result",
     "load_pipeline_trace",
     "repair_publish_chain_for_run",
+    "run_product_studio_voice_stage",
     "run_publish_post_processing_chain",
     "save_pipeline_trace",
     "STAGE_ASSEMBLY_BRIDGE",
@@ -443,6 +745,9 @@ __all__ = [
     "STAGE_STORY_PLANNING",
     "STAGE_SUBTITLE_BRANDING_PUBLISH",
     "STAGE_USE_FRAME_CHAIN",
+    "STAGE_VOICE_GENERATION",
     "STAGE_YOUTUBE_METADATA",
     "STAGE_YOUTUBE_UPLOAD",
+    "STAGE_INSTAGRAM_UPLOAD",
+    "STAGE_TIKTOK_UPLOAD",
 ]

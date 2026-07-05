@@ -116,15 +116,31 @@ def create_isolated_run_context(
     layout = create_versioned_run_layout(root, run_id=str(run_id), topic=str(topic))
     from content_brain.story.story_package import build_and_save_story_package
 
+    purge_story_package_for_run(root, run_id)
+    brief = _fresh_story_brief(str(topic), story_brief)
     package, package_path = build_and_save_story_package(
         project_root=root,
         topic=str(topic),
         run_id=str(run_id),
         clip_count=max(1, int(clip_count)),
         duration_seconds=max(10, int(clip_count) * 10),
-        story_brief=dict(story_brief or {}),
+        story_brief=brief,
         run_dir=layout.run_dir,
     )
+
+    ok, reason, _ = require_story_package_for_run(root, run_id, topic=str(topic))
+    if not ok and reason in {"story_package_cartoon_character_leak", "story_package_topic_mismatch"}:
+        purge_story_package_for_run(root, run_id)
+        brief = _fresh_story_brief(str(topic), brief)
+        package, package_path = build_and_save_story_package(
+            project_root=root,
+            topic=str(topic),
+            run_id=str(run_id),
+            clip_count=max(1, int(clip_count)),
+            duration_seconds=max(10, int(clip_count) * 10),
+            story_brief=brief,
+            run_dir=layout.run_dir,
+        )
 
     visual_memory_path = root / "project_brain" / "visual_memory" / f"run_{run_id}.json"
     context = RunContext(
@@ -243,6 +259,43 @@ def load_latest_run_attempt(project_root: str | Path) -> dict[str, Any]:
     return payload if isinstance(payload, dict) else {}
 
 
+def purge_story_package_for_run(project_root: str | Path, run_id: str) -> list[str]:
+    """Delete run-scoped story package files that may contain stale topic/genre data."""
+    root = Path(project_root).resolve()
+    removed: list[str] = []
+    from content_brain.story.story_package import story_package_path
+
+    candidates = [
+        story_package_path(root, run_id),
+        root / "project_brain" / "story_packages" / f"{run_id}.json",
+    ]
+    context = load_run_context(root, run_id)
+    context_path = str(context.get("story_package_path") or "")
+    if context_path:
+        candidates.append(Path(context_path))
+
+    seen: set[str] = set()
+    for path in candidates:
+        key = str(path.resolve()) if path.exists() else str(path)
+        if key in seen:
+            continue
+        seen.add(key)
+        if path.is_file():
+            path.unlink(missing_ok=True)
+            removed.append(str(path.resolve()))
+    return removed
+
+
+def _fresh_story_brief(topic: str, story_brief: dict[str, Any] | None = None) -> dict[str, Any]:
+    from content_brain.story.story_niche import detect_genre
+
+    brief = dict(story_brief or {})
+    if str(brief.get("genre") or "").lower() == "cartoon" and not _is_cartoon_topic(topic):
+        brief.pop("genre", None)
+    brief.setdefault("genre", detect_genre(topic, brief))
+    return brief
+
+
 def require_story_package_for_run(project_root: str | Path, run_id: str, *, topic: str = "") -> tuple[bool, str, str]:
     """Fail closed if run-scoped story package missing. Never fall back to another run."""
     root = Path(project_root).resolve()
@@ -263,6 +316,7 @@ def require_story_package_for_run(project_root: str | Path, run_id: str, *, topi
 
     package_topic = str(payload.get("topic") or "")
     if topic and package_topic and _normalize_topic(package_topic) != _normalize_topic(topic):
+        purge_story_package_for_run(root, run_id)
         return False, "story_package_topic_mismatch", str(path)
 
     genre = str((payload.get("story_blueprint") or {}).get("genre") or "")
@@ -272,6 +326,7 @@ def require_story_package_for_run(project_root: str | Path, run_id: str, *, topi
         if isinstance(item, dict)
     }
     if not _is_cartoon_topic(topic or package_topic) and names.intersection(CARTOON_CHARACTER_KEYS):
+        purge_story_package_for_run(root, run_id)
         return False, "story_package_cartoon_character_leak", str(path)
 
     return True, "ok", str(path)
@@ -297,6 +352,7 @@ __all__ = [
     "create_isolated_run_context",
     "load_latest_run_attempt",
     "load_run_context",
+    "purge_story_package_for_run",
     "record_latest_run_attempt",
     "require_story_package_for_run",
     "run_context_path",

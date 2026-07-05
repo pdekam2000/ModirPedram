@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from content_brain.story.story_architect import StoryBlueprint
+from content_brain.story.story_niche import detect_genre
 
 CHARACTER_DIRECTOR_VERSION = "character_director_v1"
 
@@ -171,12 +172,19 @@ def build_character_profiles(
     story_brief: dict[str, Any] | None = None,
 ) -> list[CharacterProfile]:
     brief = dict(story_brief or {})
-    if not _is_cartoon_template_topic(topic, brief) and blueprint.genre != "cartoon":
+    cartoon_topic = _is_cartoon_template_topic(topic, brief)
+    effective_genre = str(blueprint.genre or "").lower()
+    if effective_genre == "cartoon" and not cartoon_topic:
+        effective_genre = detect_genre(topic, brief)
+        if effective_genre == "cartoon":
+            effective_genre = "educational"
+    if not cartoon_topic and effective_genre != "cartoon":
         if brief.get("main_character") or any(k in topic.lower() for k in ("boy", "girl", "dragon", "finds")):
-            return _human_cast_from_brief(topic, brief, blueprint.genre)
-    if blueprint.genre == "cartoon" or _is_cartoon_template_topic(topic, brief):
+            return _human_cast_from_brief(topic, brief, effective_genre)
+        return _generic_cast(effective_genre)
+    if effective_genre == "cartoon" or cartoon_topic:
         return _cartoon_cast(topic)
-    return _generic_cast(blueprint.genre)
+    return _generic_cast(effective_genre)
 
 
 __all__ = ["CHARACTER_DIRECTOR_VERSION", "CharacterProfile", "build_character_profiles"]

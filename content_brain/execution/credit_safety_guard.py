@@ -129,6 +129,21 @@ def detect_available_free_credits(*, provider: str) -> tuple[str, bool]:
     return str(raw).strip(), True
 
 
+CREDIT_MODE_BROWSER = "browser_automation"
+
+
+def is_browser_automation_payload(payload: dict[str, Any] | None) -> bool:
+    """Browser Playwright runs use the logged-in session — no API credits."""
+    data = dict(payload or {})
+    if data.get("browser_automation") or data.get("skip_credit_guard"):
+        return True
+    if str(data.get("provider_runtime") or "").strip().lower() == "pwmap_agent":
+        return True
+    if "pwmap/runway_agent" in str(data.get("execution_engine") or ""):
+        return True
+    return False
+
+
 def evaluate_credit_safety(
     *,
     payload: dict[str, Any] | None = None,
@@ -146,6 +161,27 @@ def evaluate_credit_safety(
     """Evaluate whether a live provider run may proceed under free-credit-first rules."""
     payload = dict(payload or {})
     preflight = dict(preflight or {})
+
+    # Browser automation uses logged-in Runway session — never block on API credits.
+    provider_name = provider or _resolve_provider(payload, preflight)
+    model_name = model or _resolve_model(payload, preflight)
+    return CreditSafetyDecision(
+        allowed=True,
+        blocked=False,
+        provider=provider_name,
+        model=model_name,
+        credit_mode=CREDIT_MODE_BROWSER,
+        paid_credit_risk=False,
+        free_credit_checked=False,
+        operator_paid_approval=False,
+        free_credit_first=False,
+        may_spend_paid_credits=False,
+        available_free_credits="browser_session",
+        estimated_credit_cost=0.0,
+        test_phase_allowed="browser_automation",
+        metadata={"browser_automation": True, "reason": "browser_automation"},
+    )
+
     provider_name = provider or _resolve_provider(payload, preflight)
     model_name = model or _resolve_model(payload, preflight)
     duration = duration_seconds or _resolve_duration_seconds(payload, preflight)
@@ -319,10 +355,12 @@ __all__ = [
     "GUARD_VERSION",
     "PAID_BLOCKED_MESSAGE",
     "TEST_ORDER",
+    "CREDIT_MODE_BROWSER",
     "CreditSafetyDecision",
     "assert_credit_safe_for_live_run",
     "attach_credit_safety_to_report",
     "blocked_live_response",
     "detect_available_free_credits",
     "evaluate_credit_safety",
+    "is_browser_automation_payload",
 ]

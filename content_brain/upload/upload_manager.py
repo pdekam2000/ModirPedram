@@ -22,6 +22,8 @@ from content_brain.upload.upload_models import (
 )
 from content_brain.upload.upload_package_builder import build_upload_packages, resolve_run_dir
 from content_brain.upload.youtube_auth import get_youtube_auth_status, resolve_oauth_client_path
+from content_brain.upload.instagram_uploader import upload_reel_to_instagram
+from content_brain.upload.tiktok_uploader import upload_video_to_tiktok
 from content_brain.upload.youtube_uploader import upload_video_to_youtube
 
 UPLOAD_MANAGER_VERSION = "upload_manager_v2"
@@ -114,7 +116,15 @@ class UploadManager:
             "upload_manifest": latest_manifest,
             "latest_legacy_package": legacy_packages[0] if legacy_packages else {},
             "youtube_auth": auth,
-            "auto_upload_enabled": False,
+            "instagram_auth": {
+                "enabled": bool(profile.get("instagram_upload_enabled")),
+                "configured": bool(profile.get("instagram_access_token") and profile.get("instagram_account_id")),
+            },
+            "tiktok_auth": {
+                "enabled": bool(profile.get("tiktok_upload_enabled")),
+                "configured": bool(profile.get("tiktok_access_token")),
+            },
+            "auto_upload_enabled": bool(profile.get("youtube_upload_enabled")),
         }
 
     def generate_metadata(
@@ -163,6 +173,7 @@ class UploadManager:
         publish_package_path: str = "",
         run_id: str = "",
         use_openai: bool = True,
+        automation_mode: bool = False,
     ) -> dict[str, Any]:
         bundle = metadata_bundle or self.generate_metadata(
             topic=topic,
@@ -189,6 +200,7 @@ class UploadManager:
             run_id=run_id,
             metadata_bundle=bundle,
             skip_metadata=True,
+            automation_mode=automation_mode,
         )
         manifest["legacy_package"] = legacy
         return manifest
@@ -205,11 +217,14 @@ class UploadManager:
         metadata_bundle: dict[str, Any] | None = None,
         skip_metadata: bool = False,
         use_openai: bool = True,
+        automation_mode: bool = False,
     ) -> dict[str, Any]:
         profile = self._profile()
         center = AutomationCenterStore(self.project_root).load()
         flags = dict(center.get("feature_flags") or {})
-        auto_upload_enabled = bool(flags.get("auto_upload")) and bool(profile.get("youtube_upload_enabled"))
+        auto_upload_enabled = bool(profile.get("youtube_upload_enabled")) and (
+            bool(flags.get("auto_upload", True)) or bool(automation_mode)
+        )
 
         bundle = metadata_bundle
         if bundle is None and not skip_metadata:
@@ -253,29 +268,36 @@ class UploadManager:
                     title=str(meta.get("title") or title or topic),
                     description=str(meta.get("description") or profile.get("youtube_default_description") or topic),
                     hashtags=[str(item) for item in (meta.get("hashtags") or [])],
-                    privacy=str(meta.get("privacy") or profile.get("youtube_privacy") or PRIVACY_PRIVATE),
+                    privacy=str(meta.get("privacy") or profile.get("youtube_privacy") or PRIVACY_PUBLIC),
                 )
             elif normalized == PLATFORM_TIKTOK:
+                tiktok_ready = bool(profile.get("tiktok_upload_enabled")) and bool(profile.get("tiktok_access_token"))
                 target = UploadTarget(
                     platform=PLATFORM_TIKTOK,
-                    enabled=False,
-                    status="manual_upload_ready",
+                    enabled=tiktok_ready,
+                    status="prepared" if tiktok_ready else "manual_upload_ready",
                     video_path=resolved_video,
                     title=str(meta.get("caption") or title or topic),
                     description=str(meta.get("caption") or topic),
                     hashtags=[str(item) for item in (meta.get("hashtags") or [])],
-                    warnings=["tiktok_manual_upload_only_v1"],
+                    warnings=[] if tiktok_ready else ["tiktok_upload_not_configured"],
                 )
             elif normalized == PLATFORM_INSTAGRAM:
+                credentials_ready = bool(
+                    profile.get("instagram_access_token") and profile.get("instagram_account_id")
+                )
+                instagram_ready = credentials_ready and (
+                    bool(profile.get("instagram_upload_enabled")) or bool(automation_mode)
+                )
                 target = UploadTarget(
                     platform=PLATFORM_INSTAGRAM,
-                    enabled=False,
-                    status="manual_upload_ready",
+                    enabled=instagram_ready,
+                    status="prepared" if instagram_ready else "manual_upload_ready",
                     video_path=resolved_video,
                     title=str(meta.get("caption") or title or topic),
                     description=str(meta.get("caption") or topic),
                     hashtags=[str(item) for item in (meta.get("hashtags") or [])],
-                    warnings=["instagram_manual_upload_only_v1"],
+                    warnings=[] if instagram_ready else ["instagram_upload_not_configured"],
                 )
             else:
                 continue
@@ -311,6 +333,7 @@ class UploadManager:
         publish_package_path: str = "",
         run_id: str = "",
         use_openai: bool = True,
+        automation_mode: bool = False,
     ) -> dict[str, Any]:
         manifest = self.build_upload_packages(
             topic=topic,
@@ -319,9 +342,12 @@ class UploadManager:
             publish_package_path=publish_package_path,
             run_id=run_id,
             use_openai=use_openai,
+            automation_mode=automation_mode,
         )
         manifest["upload_center_ready"] = True
-        manifest["auto_upload"] = False
+        manifest["auto_upload"] = bool(automation_mode) or bool(
+            (manifest.get("legacy_package") or {}).get("auto_upload_enabled")
+        )
         return manifest
 
     def submit_youtube_upload(
@@ -331,6 +357,7 @@ class UploadManager:
         package_dir: str = "",
         run_id: str = "",
         confirmed: bool = False,
+        automation_mode: bool = False,
     ) -> dict[str, Any]:
         profile = self._profile()
         enabled = bool(profile.get("youtube_upload_enabled"))
@@ -348,6 +375,8 @@ class UploadManager:
             }
 
         require_confirmation = bool(profile.get("youtube_require_confirmation", True))
+        if automation_mode:
+            require_confirmation = False
         if require_confirmation and not confirmed and not bool(profile.get("youtube_upload_confirmed")):
             return {
                 "ok": False,
@@ -359,6 +388,24 @@ class UploadManager:
             }
 
         package = dict(upload_package or {})
+        upload_topic = str(package.get("topic") or "")
+        if upload_topic:
+            from content_brain.automation.platform_upload_guard import validate_platform_match
+
+            try:
+                validate_platform_match(
+                    {"topic": upload_topic, "platform_targets": ["youtube_shorts"]},
+                    "youtube_shorts",
+                )
+            except Exception as exc:
+                return {
+                    "ok": False,
+                    "status": "blocked",
+                    "reason": str(exc),
+                    "privacy": privacy,
+                    "auto_upload": bool(automation_mode),
+                }
+
         if not package and package_dir:
             manifest = Path(package_dir) / "upload_package.json"
             if manifest.is_file():
@@ -449,6 +496,191 @@ class UploadManager:
             "manifest_path": str(submit_path),
             "details": upload_result,
             "auto_upload": False,
+        }
+
+    def submit_instagram_upload(
+        self,
+        *,
+        upload_package: dict[str, Any] | None = None,
+        video_path: str = "",
+        run_id: str = "",
+        title: str = "",
+        caption: str = "",
+        hashtags: list[str] | None = None,
+        automation_mode: bool = False,
+    ) -> dict[str, Any]:
+        profile = self._profile()
+        credentials_ready = bool(profile.get("instagram_access_token") and profile.get("instagram_account_id"))
+        if not credentials_ready:
+            return {
+                "ok": False,
+                "uploaded": False,
+                "status": "blocked",
+                "reason": "instagram_credentials_missing",
+                "platform": PLATFORM_INSTAGRAM,
+            }
+        if not bool(profile.get("instagram_upload_enabled")) and not automation_mode:
+            return {
+                "ok": False,
+                "uploaded": False,
+                "status": "blocked",
+                "reason": "instagram_upload_disabled",
+                "platform": PLATFORM_INSTAGRAM,
+            }
+
+        upload_topic = str(title or caption or (upload_package or {}).get("topic") or "")
+        if upload_topic:
+            from content_brain.automation.platform_upload_guard import validate_platform_match
+
+            try:
+                validate_platform_match(
+                    {"topic": upload_topic, "platform_targets": ["instagram_reels"]},
+                    "instagram_reels",
+                )
+            except Exception as exc:
+                return {
+                    "ok": False,
+                    "uploaded": False,
+                    "status": "blocked",
+                    "reason": str(exc),
+                    "platform": PLATFORM_INSTAGRAM,
+                }
+
+        package = dict(upload_package or {})
+        instagram_target = next(
+            (item for item in (package.get("targets") or []) if item.get("platform") == PLATFORM_INSTAGRAM),
+            {},
+        )
+        resolved_video = str(video_path or instagram_target.get("video_path") or package.get("video_path") or "")
+        if not resolved_video or not Path(resolved_video).is_file():
+            return {"ok": False, "uploaded": False, "status": "failed", "reason": "video_missing", "platform": PLATFORM_INSTAGRAM}
+
+        upload_result = upload_reel_to_instagram(
+            profile=profile,
+            video_path=resolved_video,
+            title=str(title or instagram_target.get("title") or package.get("topic") or "Reel"),
+            caption=str(caption or instagram_target.get("description") or ""),
+            hashtags=list(hashtags or instagram_target.get("hashtags") or []),
+            project_root=self.project_root,
+        )
+
+        out_dir = Path(str(package.get("package_dir") or self.project_root / UPLOAD_ROOT))
+        out_dir.mkdir(parents=True, exist_ok=True)
+        submit_path = out_dir / "instagram_submit_manifest.json"
+        submit_path.write_text(
+            json.dumps(
+                {
+                    "version": UPLOAD_MANAGER_VERSION,
+                    "platform": PLATFORM_INSTAGRAM,
+                    "automation_mode": bool(automation_mode),
+                    "video_path": resolved_video,
+                    "run_id": run_id,
+                    "upload_result": upload_result,
+                    "submitted_at": _now(),
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+
+        if upload_result.get("ok"):
+            return {
+                "ok": True,
+                "uploaded": True,
+                "status": "uploaded",
+                "platform": PLATFORM_INSTAGRAM,
+                "manifest_path": str(submit_path),
+                "post_url": upload_result.get("post_url", ""),
+                "media_id": upload_result.get("media_id", ""),
+            }
+
+        return {
+            "ok": False,
+            "uploaded": False,
+            "status": str(upload_result.get("status") or "failed"),
+            "reason": str(upload_result.get("reason") or "instagram_upload_failed"),
+            "platform": PLATFORM_INSTAGRAM,
+            "manifest_path": str(submit_path),
+            "details": upload_result,
+        }
+
+    def submit_tiktok_upload(
+        self,
+        *,
+        upload_package: dict[str, Any] | None = None,
+        video_path: str = "",
+        run_id: str = "",
+        title: str = "",
+        caption: str = "",
+        automation_mode: bool = False,
+    ) -> dict[str, Any]:
+        profile = self._profile()
+        if not bool(profile.get("tiktok_upload_enabled")):
+            return {
+                "ok": False,
+                "uploaded": False,
+                "status": "blocked",
+                "reason": "tiktok_upload_disabled",
+                "platform": PLATFORM_TIKTOK,
+            }
+
+        package = dict(upload_package or {})
+        tiktok_target = next(
+            (item for item in (package.get("targets") or []) if item.get("platform") == PLATFORM_TIKTOK),
+            {},
+        )
+        resolved_video = str(video_path or tiktok_target.get("video_path") or package.get("video_path") or "")
+        if not resolved_video or not Path(resolved_video).is_file():
+            return {"ok": False, "uploaded": False, "status": "failed", "reason": "video_missing", "platform": PLATFORM_TIKTOK}
+
+        privacy = str(profile.get("tiktok_privacy") or "PUBLIC_TO_EVERYONE")
+        upload_result = upload_video_to_tiktok(
+            profile=profile,
+            video_path=resolved_video,
+            title=str(title or tiktok_target.get("title") or package.get("topic") or "Short"),
+            caption=str(caption or tiktok_target.get("description") or ""),
+            privacy_level=privacy,
+            project_root=self.project_root,
+        )
+
+        out_dir = Path(str(package.get("package_dir") or self.project_root / UPLOAD_ROOT))
+        out_dir.mkdir(parents=True, exist_ok=True)
+        submit_path = out_dir / "tiktok_submit_manifest.json"
+        submit_path.write_text(
+            json.dumps(
+                {
+                    "version": UPLOAD_MANAGER_VERSION,
+                    "platform": PLATFORM_TIKTOK,
+                    "automation_mode": bool(automation_mode),
+                    "video_path": resolved_video,
+                    "run_id": run_id,
+                    "upload_result": upload_result,
+                    "submitted_at": _now(),
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+
+        if upload_result.get("ok"):
+            return {
+                "ok": True,
+                "uploaded": True,
+                "status": "uploaded",
+                "platform": PLATFORM_TIKTOK,
+                "manifest_path": str(submit_path),
+                "post_url": upload_result.get("post_url", ""),
+                "publish_id": upload_result.get("publish_id", ""),
+            }
+
+        return {
+            "ok": False,
+            "uploaded": False,
+            "status": str(upload_result.get("status") or "failed"),
+            "reason": str(upload_result.get("reason") or "tiktok_upload_failed"),
+            "platform": PLATFORM_TIKTOK,
+            "manifest_path": str(submit_path),
+            "details": upload_result,
         }
 
     def _latest_run_upload_manifest(self, run_id: str = "") -> dict[str, Any]:

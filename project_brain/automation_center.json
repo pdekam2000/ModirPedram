@@ -2,10 +2,10 @@
   "version": "automation_center_youtube_v1",
   "youtube": {
     "auto_upload_enabled": true,
-    "default_visibility": "private",
+    "default_visibility": "public",
     "publish_now": true,
-    "allow_public_auto_upload": false,
-    "require_manual_public_approval": true
+    "allow_public_auto_upload": true,
+    "require_manual_public_approval": false
   },
-  "updated_at": "2026-06-27T00:00:00+00:00"
+  "updated_at": "2026-07-03T17:30:00+00:00"
 }

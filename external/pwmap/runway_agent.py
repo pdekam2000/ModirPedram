@@ -18,6 +18,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
+import os
 import re
 import sys
 import time
@@ -25,9 +27,14 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from playwright.sync_api import Page, sync_playwright
+from playwright.sync_api import BrowserContext, Page, sync_playwright
 
 from pwmap import launch_browser_context
+from exit_codes import EXIT_CODE_MEANINGS, EXIT_RUNTIME_ERROR, EXIT_SESSION_NOT_READY
+
+_logger = logging.getLogger("runway_agent")
+RUNWAY_APP_URL = "https://app.runwayml.com/"
+SESSION_REL = Path("project_brain") / "sessions" / "runway_session.json"
 
 from download_selection import (
     build_clip_status,
@@ -47,6 +54,105 @@ DEFAULT_RUNWAY_URL = (
 DOWNLOADS_DIR = Path.cwd() / "runway_downloads"
 INBOX_DIR = Path.cwd() / "agent_inbox"
 
+
+def resolve_project_root() -> Path:
+    env = os.environ.get("MODIR_PROJECT_ROOT", "").strip()
+    if env:
+        return Path(env).resolve()
+    here = Path(__file__).resolve()
+    for candidate in (here.parent.parent, here.parent, Path.cwd(), *here.parents):
+        if (candidate / "project_brain").is_dir():
+            return candidate.resolve()
+    return Path.cwd().resolve()
+
+
+def runway_session_path(project_root: Path | None = None) -> Path:
+    root = project_root or resolve_project_root()
+    path = root / SESSION_REL
+    path.parent.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def is_runway_login_page(url: str) -> bool:
+    lowered = str(url or "").lower()
+    return any(token in lowered for token in ("/login", "/sign-in", "/signup", "auth."))
+
+
+def save_runway_session(context: BrowserContext, project_root: Path | None = None) -> Path:
+    path = runway_session_path(project_root)
+    context.storage_state(path=str(path))
+    _logger.info("Runway session saved: %s", path)
+    print(f"[OK] Runway session saved: {path}")
+    return path
+
+
+def validate_runway_session(page: Page) -> tuple[bool, str]:
+    try:
+        page.goto(RUNWAY_APP_URL, wait_until="domcontentloaded", timeout=60_000)
+        page.wait_for_timeout(1500)
+        if is_runway_login_page(str(page.url or "")):
+            return False, "Runway session expired — manual login required"
+        return True, "Runway session restored OK"
+    except Exception as exc:
+        return False, f"Session validation failed: {exc}"
+
+
+def _notify_session_status(project_root: Path, *, connected: bool, message: str) -> None:
+    status_path = project_root / "project_brain" / "sessions" / "runway_session_status.json"
+    status_path.parent.mkdir(parents=True, exist_ok=True)
+    status_path.write_text(
+        json.dumps(
+            {
+                "connected": connected,
+                "disconnected": not connected,
+                "message": message,
+                "updated_at": datetime.now().isoformat(timespec="seconds"),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+
+def resolve_browser_launch_options(project_root: Path | None = None) -> dict[str, Any]:
+    root = project_root or resolve_project_root()
+    profile_dir = root / "storage" / "real_chrome_profile"
+    session_path = runway_session_path(root)
+    root_str = str(root)
+    if root_str not in sys.path:
+        sys.path.insert(0, root_str)
+    try:
+        from automation.browser_launcher import resolve_runway_browser_config
+
+        config = resolve_runway_browser_config(root)
+        profile_dir = Path(config["profile_path"])
+    except Exception:
+        pass
+    return {
+        "project_root": root,
+        "profile_dir": profile_dir,
+        "storage_state_path": session_path if session_path.is_file() else None,
+    }
+
+
+def launch_runway_browser_context(
+    playwright: Any,
+    *,
+    headless: bool,
+    stealth: bool,
+    project_root: Path | None = None,
+) -> BrowserContext:
+    options = resolve_browser_launch_options(project_root)
+    return launch_browser_context(
+        playwright,
+        headless=headless,
+        stealth=stealth,
+        profile_dir=options["profile_dir"],
+        storage_state_path=options["storage_state_path"],
+        prefer_cdp=not headless,
+    )
+
+
 MODEL_LABELS = ("Kling 3.0 Pro", "Kling 3 Pro", "Kling 3.0")
 ASPECT_LABELS = ("9:16", "9 : 16", "Portrait", "Vertical")
 DURATION_LABELS = ("15s", "15 s", "15 sec", "15 seconds", "15")
@@ -54,6 +160,28 @@ DURATION_LABELS = ("15s", "15 s", "15 sec", "15 seconds", "15")
 
 class RunwayAgentError(Exception):
     pass
+
+
+def prepare_runway_session(page: Page, context: BrowserContext, project_root: Path) -> None:
+    session_path = runway_session_path(project_root)
+    if not session_path.is_file() or session_path.stat().st_size == 0:
+        message = (
+            "No Runway session file at project_brain/sessions/runway_session.json. "
+            "Connect Runway Browser first."
+        )
+        print(f"[ERROR] {message}")
+        _notify_session_status(project_root, connected=False, message=message)
+        raise RunwayAgentError(message)
+
+    ok, message = validate_runway_session(page)
+    if ok:
+        print(message)
+        save_runway_session(context, project_root)
+        _notify_session_status(project_root, connected=True, message=message)
+        return
+    print(message)
+    _notify_session_status(project_root, connected=False, message=message)
+    raise RunwayAgentError(message)
 
 
 def clamp_prompt(text: str, limit: int = MAX_PROMPT_LEN) -> str:
@@ -1262,17 +1390,35 @@ def run_generation(
     return Path(results[0]["download"])
 
 
-def open_browser_only(page: Page, runway_url: str) -> None:
+def open_browser_only(
+    page: Page,
+    runway_url: str,
+    *,
+    context: BrowserContext | None = None,
+    project_root: Path | None = None,
+) -> None:
     """Open Chrome on Runway and keep it running for login / manual use."""
+    root = project_root or resolve_project_root()
     print("[step] Opening browser...")
     ensure_on_generate_page(page, runway_url)
     print(f"[OK] Browser open: {page.url}")
-    print("\n[i] Log in to Runway if needed. Session is saved in the profile folder.")
-    print("[i] Press Enter here when done (Chrome stays open)...")
+    print("\n[i] Log in to Runway if needed.")
+    print("[i] Press Enter here when done (Chrome stays open; session will be saved)...")
     try:
         input()
     except (KeyboardInterrupt, EOFError):
         print("\n[i] Done.")
+        return
+
+    if context is not None:
+        ok, message = validate_runway_session(page)
+        if ok:
+            save_runway_session(context, root)
+            print(message)
+            _notify_session_status(root, connected=True, message=message)
+        else:
+            print(message)
+            _notify_session_status(root, connected=False, message=message)
 
 
 def inspect_existing_outputs(page: Page, *, output_dir: Path, runway_url: str) -> None:
@@ -1323,6 +1469,12 @@ def parse_args() -> argparse.Namespace:
         help="Inspect visible feed outputs only (no Generate, no credits)",
     )
     parser.add_argument("--close-browser", action="store_true", help="Close Chrome on exit")
+    parser.add_argument(
+        "--project-root",
+        type=Path,
+        default=None,
+        help="ModirAgentOS project root (session + profile paths)",
+    )
     return parser.parse_args()
 
 
@@ -1393,9 +1545,12 @@ def run_menu() -> argparse.Namespace:
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         try:
-            sys.stdout.reconfigure(line_buffering=True)
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
         except Exception:
-            pass
+            try:
+                sys.stdout.reconfigure(line_buffering=True)
+            except Exception:
+                pass
 
     args = parse_args()
     if (
@@ -1411,12 +1566,23 @@ def main() -> None:
 
     if args.open_browser:
         stealth = not args.no_stealth
+        project_root = args.project_root or resolve_project_root()
         playwright = sync_playwright().start()
-        context = launch_browser_context(playwright, headless=False, stealth=stealth)
+        context = launch_runway_browser_context(
+            playwright,
+            headless=False,
+            stealth=stealth,
+            project_root=project_root,
+        )
         page = context.pages[0] if context.pages else context.new_page()
         runway_url = args.url
         try:
-            open_browser_only(page, runway_url)
+            open_browser_only(
+                page,
+                runway_url,
+                context=context,
+                project_root=project_root,
+            )
         finally:
             if args.close_browser:
                 try:
@@ -1430,8 +1596,14 @@ def main() -> None:
 
     if args.inspect_existing_outputs:
         stealth = not args.no_stealth
+        project_root = args.project_root or resolve_project_root()
         playwright = sync_playwright().start()
-        context = launch_browser_context(playwright, headless=False, stealth=stealth)
+        context = launch_runway_browser_context(
+            playwright,
+            headless=False,
+            stealth=stealth,
+            project_root=project_root,
+        )
         page = context.pages[0] if context.pages else context.new_page()
         output_dir = Path(args.output)
         try:
@@ -1470,11 +1642,19 @@ def main() -> None:
         print(f"[i]   Clip {i}: {len(p)} chars")
 
     stealth = not args.no_stealth
+    project_root = args.project_root or resolve_project_root()
     playwright = sync_playwright().start()
-    context = launch_browser_context(playwright, headless=args.headless, stealth=stealth)
+    context = launch_runway_browser_context(
+        playwright,
+        headless=args.headless,
+        stealth=stealth,
+        project_root=project_root,
+    )
     page = context.pages[0] if context.pages else context.new_page()
 
     try:
+        prepare_runway_session(page, context, project_root)
+        ensure_on_generate_page(page, runway_url)
         if len(prompts) == 1:
             result_path = run_generation(
                 page,
@@ -1520,9 +1700,15 @@ def main() -> None:
         out_json.write_text(json.dumps(result_json, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"\n[OK] Batch complete — {len(results)} clip(s).")
         print(f"[OK] Result metadata: {out_json}")
+    except RunwayAgentError as exc:
+        print(f"[ERROR] {exc}")
+        lowered = str(exc).lower()
+        if any(token in lowered for token in ("session", "login", "connect runway")):
+            sys.exit(EXIT_SESSION_NOT_READY)
+        sys.exit(EXIT_RUNTIME_ERROR)
     except Exception as exc:
         print(f"[ERROR] {exc}")
-        sys.exit(1)
+        sys.exit(EXIT_RUNTIME_ERROR)
     finally:
         if args.close_browser:
             try:

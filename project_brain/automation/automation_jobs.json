@@ -1,0 +1,139 @@
+{
+  "version": "automation_queue_v1",
+  "jobs": [
+    {
+      "job_id": "auto_b17e91aad1e9",
+      "topic": "Skincare & Self-Care \u2014 Instagram Reels",
+      "title": "Skincare & Self-Care \u2014 Instagram Reels",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "planned",
+      "scheduled_time": "2026-07-05T23:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:22:25.200996+00:00",
+      "updated_at": "2026-07-05T19:22:25.200996+00:00"
+    },
+    {
+      "job_id": "auto_7f61490a8348",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "instagram_keywords_in_youtube_upload",
+      "created_at": "2026-07-05T19:22:55.227529+00:00",
+      "updated_at": "2026-07-05T19:23:00.166905+00:00"
+    },
+    {
+      "job_id": "auto_1df9cea4abba",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "planned",
+      "scheduled_time": "2026-07-05T12:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:22:55.234516+00:00",
+      "updated_at": "2026-07-05T19:22:55.234516+00:00"
+    },
+    {
+      "job_id": "auto_2c64893e515e",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "planned",
+      "scheduled_time": "2026-07-05T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:22:55.240530+00:00",
+      "updated_at": "2026-07-05T19:22:55.240530+00:00"
+    },
+    {
+      "job_id": "auto_e8363cd2748e",
+      "topic": "Skincare & Self-Care \u2014 Instagram Reels",
+      "title": "Skincare & Self-Care \u2014 Instagram Reels",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "running",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:22:55.245531+00:00",
+      "updated_at": "2026-07-05T19:23:28.006226+00:00"
+    },
+    {
+      "job_id": "auto_6f69ccfbedd8",
+      "topic": "Skincare & Self-Care \u2014 Instagram Reels",
+      "title": "Skincare & Self-Care \u2014 Instagram Reels",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "planned",
+      "scheduled_time": "2026-07-05T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:22:55.251533+00:00",
+      "updated_at": "2026-07-05T19:22:55.251533+00:00"
+    },
+    {
+      "job_id": "auto_43ebd0f2c9ae",
+      "topic": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "title": "Science That Feels Impossible \u2014 YouTube Shorts",
+      "duration": 30,
+      "clip_count": 2,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "planned",
+      "scheduled_time": "2026-07-05T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "error": "",
+      "created_at": "2026-07-05T19:23:26.674978+00:00",
+      "updated_at": "2026-07-05T19:23:26.674978+00:00"
+    }
+  ],
+  "max_jobs_per_day": 6
+}

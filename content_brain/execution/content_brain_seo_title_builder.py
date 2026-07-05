@@ -21,15 +21,31 @@ try:
 except ImportError:  # pragma: no cover
     ContentStrategyPlan = Any  # type: ignore[misc, assignment]
 
-DEFAULT_MAX_CHARS = 72
+DEFAULT_MAX_CHARS = 60
+
+POWER_WORDS: tuple[str, ...] = (
+    "shocking",
+    "secret",
+    "never",
+    "finally",
+    "insane",
+    "unbelievable",
+    "hidden",
+    "revealed",
+    "truth",
+    "discovered",
+    "mind-blowing",
+    "exposed",
+)
 
 TITLE_TEMPLATES: dict[str, list[str]] = {
     "en": [
-        "{topic}: the {angle} that actually works",
-        "Why {anchor} changes everything about {topic}",
-        "The {anchor} secret behind {topic}",
-        "{topic} — {angle} (watch this first)",
-        "Nobody explains {topic} like this {anchor} method",
+        "The Shocking Truth About {anchor} 🌊",
+        "Hidden {anchor} Secret Nobody Talks About",
+        "Scientists Just Discovered This About {anchor}",
+        "The {anchor} Fact That Will Blow Your Mind",
+        "Never Knew This About {topic} — Until Now",
+        "Finally Revealed: Why {anchor} Is Insane",
     ],
     "fa": [
         "{topic}: {angle} که واقعاً جواب می‌دهد",
@@ -209,7 +225,13 @@ def _score_title(title: str, topic: str, anchor: str, angle: str) -> float:
     score += _topic_overlap(title, topic) * 4.0
     if angle and (angle.lower() in lower or angle in title):
         score += 1.5
-    if 28 <= len(title) <= 68:
+    if any(word in lower for word in POWER_WORDS):
+        score += 3.0
+    if "?" in title or any(w in lower for w in ("why", "how", "what", "never", "secret", "truth")):
+        score += 1.5
+    if 35 <= len(title) <= 60:
+        score += 2.0
+    elif len(title) <= 60:
         score += 1.0
     return score
 

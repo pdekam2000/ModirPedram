@@ -5,11 +5,15 @@ import {
   type BrowserStatusResponse,
 } from "../api/browserOperationsClient";
 import {
+  connectRunwayBrowser,
   fetchBrowserHealth,
+  fetchRunwaySessionStatus,
   openPlatformBrowser,
   reconnectPlatformBrowser,
   refreshRunwayPage,
+  saveRunwayBrowserSession,
   type BrowserHealth,
+  type RunwaySessionStatus,
 } from "../api/platformClient";
 
 type StatusKey =
@@ -61,6 +65,8 @@ export function RunwayBrowserPanel({ compact = false, showRunwayDetails = true }
   const [launchMessage, setLaunchMessage] = useState<string | null>(null);
   const [health, setHealth] = useState<BrowserHealth | null>(null);
   const [refreshConfirm, setRefreshConfirm] = useState(false);
+  const [runwaySession, setRunwaySession] = useState<RunwaySessionStatus | null>(null);
+  const [connectingRunway, setConnectingRunway] = useState(false);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -68,8 +74,12 @@ export function RunwayBrowserPanel({ compact = false, showRunwayDetails = true }
     try {
       const payload = await fetchBrowserStatus();
       setStatus(payload);
-      const healthPayload = await fetchBrowserHealth();
+      const [healthPayload, sessionPayload] = await Promise.all([
+        fetchBrowserHealth(),
+        fetchRunwaySessionStatus(false),
+      ]);
       setHealth(healthPayload);
+      setRunwaySession(sessionPayload);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load browser status");
       setStatus(null);
@@ -83,6 +93,37 @@ export function RunwayBrowserPanel({ compact = false, showRunwayDetails = true }
     const timer = window.setInterval(() => void refresh(), 5000);
     return () => window.clearInterval(timer);
   }, [refresh]);
+
+  async function handleConnectRunway() {
+    setConnectingRunway(true);
+    setError(null);
+    setLaunchMessage(null);
+    try {
+      let session = await connectRunwayBrowser();
+      setRunwaySession(session);
+      setLaunchMessage(session.message);
+      await refresh();
+
+      if (!session.connected && session.awaiting_login) {
+        for (let attempt = 0; attempt < 40; attempt += 1) {
+          await new Promise((resolve) => window.setTimeout(resolve, 3000));
+          const healthPayload = await fetchBrowserHealth();
+          if (!healthPayload.runway_tab_found) continue;
+          session = await saveRunwayBrowserSession();
+          setRunwaySession(session);
+          if (session.connected) {
+            setLaunchMessage(session.message || "Runway session saved ✓");
+            await refresh();
+            break;
+          }
+        }
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to connect Runway browser");
+    } finally {
+      setConnectingRunway(false);
+    }
+  }
 
   async function handleLaunch() {
     setLaunching(true);
@@ -129,6 +170,18 @@ export function RunwayBrowserPanel({ compact = false, showRunwayDetails = true }
           </button>
           <button
             type="button"
+            className={`runway-browser-launch-btn ${runwaySession?.connected ? "runway-session-connected" : ""}`}
+            onClick={() => void handleConnectRunway()}
+            disabled={connectingRunway || launching}
+          >
+            {connectingRunway
+              ? "Connecting…"
+              : runwaySession?.connected
+                ? "● Connected"
+                : "🔐 Connect Runway Browser"}
+          </button>
+          <button
+            type="button"
             className="runway-browser-launch-btn"
             onClick={() => void handleLaunch()}
             disabled={launching}
@@ -163,6 +216,11 @@ export function RunwayBrowserPanel({ compact = false, showRunwayDetails = true }
       {!connected && !loading && (
         <div className="runway-browser-disconnected">Browser not connected</div>
       )}
+
+      <div className={`runway-session-status ${runwaySession?.connected ? "ok" : "pending"}`}>
+        Runway: {runwaySession?.connected ? "● Connected" : "● Disconnected"}
+        {runwaySession?.message && <span className="muted"> — {runwaySession.message}</span>}
+      </div>
 
       {error && <div className="error-banner">{error}</div>}
       {launchMessage && <div className="runway-browser-launch-msg">{launchMessage}</div>}

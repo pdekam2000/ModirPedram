@@ -86,8 +86,8 @@ CROSS_DOMAIN_FUSION_CLIP_FRAMES: dict[int, str] = {
 RUNWAY_PROMPT_MAX_CHARS = 5000
 STARTER_IMAGE_MAX_CHARS = RUNWAY_PROMPT_MAX_CHARS
 STARTER_IMAGE_SOFT_MIN = 1800
-CLIP_PROMPT_SOFT_MIN = 2500
-CLIP_PROMPT_SOFT_MAX = RUNWAY_PROMPT_MAX_CHARS
+CLIP_PROMPT_SOFT_MIN = 2400
+CLIP_PROMPT_SOFT_MAX = 2500
 CLIP_PROMPT_HARD_MAX = RUNWAY_PROMPT_MAX_CHARS
 CLIP_DURATION_SECONDS = 10
 DEFAULT_CLIP_COUNT = 3
@@ -558,7 +558,16 @@ class RunwayPromptBuilder:
                 if marker in prompt and marker not in expanded:
                     expanded = f"{marker}. {expanded}"
             expanded_clips.append(expanded)
-        clips = expanded_clips
+        from content_brain.execution.cinematic_prompt_expander import enforce_prompt_length
+
+        clips = [
+            enforce_prompt_length(
+                prompt,
+                clip_index=index,
+                clip_count=payload.clip_count,
+            )
+            for index, prompt in enumerate(expanded_clips, start=1)
+        ]
         starter = expand_starter_prompt(
             base_prompt=starter,
             story_brief=story_brief,

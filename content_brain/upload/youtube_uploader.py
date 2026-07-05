@@ -14,6 +14,7 @@ from content_brain.upload.youtube_category_map import resolve_youtube_category_i
 YOUTUBE_UPLOADER_VERSION = "youtube_uploader_v2"
 YOUTUBE_UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
 YOUTUBE_THUMBNAIL_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
+YOUTUBE_PLAYLIST_ITEMS_URL = "https://www.googleapis.com/youtube/v3/playlistItems"
 
 
 def _safe_privacy(value: str) -> str:
@@ -49,6 +50,64 @@ def _normalize_publish_at(value: str | None) -> str:
         return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     except ValueError:
         return ""
+
+
+def add_video_to_youtube_playlist(
+    *,
+    project_root: str | Path,
+    profile: dict[str, Any],
+    video_id: str,
+    playlist_id: str = "",
+) -> dict[str, Any]:
+    resolved_playlist = str(playlist_id or profile.get("youtube_playlist_id") or "").strip()
+    if not resolved_playlist:
+        return {"ok": False, "status": "skipped", "reason": "playlist_id_not_configured"}
+    if not str(video_id or "").strip():
+        return {"ok": False, "status": "failed", "reason": "video_id_missing"}
+
+    access_token = get_valid_access_token(Path(project_root).resolve(), profile)
+    if not access_token:
+        return {"ok": False, "status": "failed", "reason": "youtube_not_authenticated"}
+
+    try:
+        import requests
+
+        response = requests.post(
+            YOUTUBE_PLAYLIST_ITEMS_URL,
+            params={"part": "snippet"},
+            headers={
+                "Authorization": f"Bearer {access_token}",
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            json={
+                "snippet": {
+                    "playlistId": resolved_playlist,
+                    "resourceId": {
+                        "kind": "youtube#video",
+                        "videoId": str(video_id),
+                    },
+                }
+            },
+            timeout=60,
+        )
+        if response.status_code not in {200, 201}:
+            return {
+                "ok": False,
+                "status": "failed",
+                "reason": "playlist_insert_failed",
+                "http_status": response.status_code,
+                "details": response.text[:500],
+            }
+        payload = response.json() if response.text else {}
+        return {
+            "ok": True,
+            "status": "added",
+            "playlist_id": resolved_playlist,
+            "video_id": video_id,
+            "playlist_item_id": str(payload.get("id") or ""),
+        }
+    except Exception as exc:
+        return {"ok": False, "status": "failed", "reason": "playlist_insert_exception", "error": str(exc)}
 
 
 def upload_thumbnail_to_youtube(
@@ -140,7 +199,7 @@ def upload_video_to_youtube(
     scheduled = bool(publish_at_iso) and not publish_now
 
     status_block: dict[str, Any] = {
-        "privacyStatus": "private" if scheduled else privacy_status,
+        "privacyStatus": "private" if scheduled else "public",
         "selfDeclaredMadeForKids": kids,
     }
     if scheduled:
@@ -219,6 +278,13 @@ def upload_video_to_youtube(
         video_id = str(payload.get("id") or "")
         effective_visibility = "private" if scheduled else privacy_status
         effective_publish_time = publish_at_iso if scheduled else upload_time
+        playlist_result: dict[str, Any] = {"ok": False, "status": "skipped", "reason": "playlist_id_not_configured"}
+        if video_id and not scheduled:
+            playlist_result = add_video_to_youtube_playlist(
+                project_root=root,
+                profile=profile,
+                video_id=video_id,
+            )
         return {
             "ok": True,
             "status": "scheduled" if scheduled else "uploaded",
@@ -232,6 +298,7 @@ def upload_video_to_youtube(
             "youtube_video_id": video_id,
             "video_url": f"https://www.youtube.com/watch?v={video_id}" if video_id else "",
             "youtube_url": f"https://www.youtube.com/watch?v={video_id}" if video_id else "",
+            "playlist_result": playlist_result,
             "response": payload,
             "version": YOUTUBE_UPLOADER_VERSION,
         }
@@ -246,8 +313,59 @@ def upload_video_to_youtube(
         }
 
 
+def delete_video_from_youtube(
+    *,
+    project_root: str | Path,
+    profile: dict[str, Any],
+    video_id: str,
+) -> dict[str, Any]:
+    """Delete a YouTube video by ID using the configured OAuth token."""
+    resolved_id = str(video_id or "").strip()
+    if not resolved_id:
+        return {"ok": False, "status": "failed", "reason": "video_id_missing"}
+
+    access_token = get_valid_access_token(Path(project_root).resolve(), profile)
+    if not access_token:
+        return {"ok": False, "status": "failed", "reason": "youtube_not_authenticated"}
+
+    try:
+        import requests
+
+        response = requests.delete(
+            "https://www.googleapis.com/youtube/v3/videos",
+            params={"id": resolved_id},
+            headers={"Authorization": f"Bearer {access_token}"},
+            timeout=60,
+        )
+        if response.status_code in {200, 204}:
+            return {
+                "ok": True,
+                "status": "deleted",
+                "video_id": resolved_id,
+                "version": YOUTUBE_UPLOADER_VERSION,
+            }
+        return {
+            "ok": False,
+            "status": "failed",
+            "reason": "youtube_delete_failed",
+            "video_id": resolved_id,
+            "details": response.text[:500],
+            "http_status": response.status_code,
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "status": "failed",
+            "reason": "youtube_delete_exception",
+            "video_id": resolved_id,
+            "error": str(exc),
+        }
+
+
 __all__ = [
     "YOUTUBE_UPLOADER_VERSION",
+    "add_video_to_youtube_playlist",
+    "delete_video_from_youtube",
     "upload_thumbnail_to_youtube",
     "upload_video_to_youtube",
 ]

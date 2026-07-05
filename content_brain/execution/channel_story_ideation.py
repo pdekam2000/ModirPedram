@@ -16,9 +16,27 @@ from content_brain.execution.runway_story_brief_builder import (
     StoryBriefAnchors,
     build_runway_story_brief,
 )
+from content_brain.execution.instagram_skincare_recipes import (
+    INSTAGRAM_RECIPE_CTA,
+    INSTAGRAM_RECIPE_POOL,
+    INSTAGRAM_RECIPE_SETTINGS,
+    format_ingredients_list,
+    recipe_memory_key,
+)
+from content_brain.execution.youtube_science_channel import (
+    PRESENTER_DIRECTIVE,
+    SCIENCE_CTA_POOL,
+    SCIENCE_ENDING_POOL,
+    SCIENCE_FACT_POOL,
+    SCIENCE_SETTING_POOL,
+    SCIENCE_VISUAL_HOOK_POOL,
+    TOPIC_SUMMARY,
+    is_science_youtube_platform,
+)
 
-IDEATION_VERSION = "channel_story_ideation_v1"
+IDEATION_VERSION = "channel_story_ideation_v5_instagram_recipes"
 MEMORY_RELATIVE_PATH = Path("data") / "story_memory" / "channel_story_history.jsonl"
+DEFAULT_CHANNEL_TOPIC = TOPIC_SUMMARY
 
 LOGLINE_SIMILARITY_REJECT = 0.72
 PROMPT_SIMILARITY_REJECT = 0.78
@@ -45,56 +63,70 @@ STOPWORDS = frozenset(
         "while",
         "where",
         "when",
-        "dark",
         "story",
         "stories",
-        "fantasy",
-        "horror",
-        "analog",
+        "funny",
+        "video",
+        "real",
+        "life",
     }
 )
 
 SETTING_POOL_SAFE: tuple[dict[str, str], ...] = (
-    {"setting": "abandoned coastal radio tower at midnight", "object": "magnetic broadcast tape", "archetype": "night technician"},
-    {"setting": "flooded subway archive with flickering fluorescents", "object": "waterlogged VHS case", "archetype": "maintenance archivist"},
-    {"setting": "derelict rental store after closing", "object": "mislabeled horror tape", "archetype": "closing clerk"},
-    {"setting": "root cellar beneath a shuttered farmhouse", "object": "cracked reel-to-reel spool", "object_alt": "static portrait", "archetype": "relative searcher"},
-    {"setting": "misty pine ridge above a sleeping town", "object": "emergency flare cache", "archetype": "lost courier"},
-    {"setting": "empty bus depot during a power outage", "object": "looping departure board", "archetype": "stranded commuter"},
-    {"setting": "salt-stained lighthouse stairwell", "object": "storm-damaged logbook", "archetype": "keeper apprentice"},
-    {"setting": "collapsed mine adit behind a thrift shop", "object": "handheld field recorder", "archetype": "urban explorer"},
+    {"setting": "living room with a couch and coffee table", "object": "startled house cat", "archetype": "pet owner"},
+    {"setting": "suburban backyard during a barbecue", "object": "overconfident golden retriever", "archetype": "dog dad"},
+    {"setting": "kitchen counter at snack time", "object": "sneaky raccoon on camera", "archetype": "homeowner"},
+    {"setting": "dog park on a sunny afternoon", "object": "tiny dog with big attitude", "archetype": "dog walker"},
+    {"setting": "office break room with open snacks", "object": "bold office squirrel at the window", "archetype": "employee"},
+    {"setting": "apartment balcony with bird feeder", "object": "dramatic parrot reaction", "archetype": "bird lover"},
+    {"setting": "driveway security camera view", "object": "goat that refuses to move", "archetype": "homeowner"},
+    {"setting": "vet waiting room with nervous pets", "object": "dramatic husky meltdown", "archetype": "pet parent"},
 )
 
 SETTING_POOL_HIGH: tuple[dict[str, str], ...] = SETTING_POOL_SAFE + (
-    {"setting": "floating scrap barge in industrial fog", "object": "sonar printout", "archetype": "salvage diver"},
-    {"setting": "deserted planetarium with broken star projector", "object": "glass plate negative", "archetype": "night guard"},
-    {"setting": "overgrown rail switching yard", "object": "rusted signal lantern", "archetype": "track inspector"},
-    {"setting": "condemned hotel ice room", "object": "frosted security mirror", "archetype": "paranormal researcher"},
+    {"setting": "birthday party living room", "object": "cake-stealing dog", "archetype": "party host"},
+    {"setting": "supermarket pet aisle", "object": "talkative African grey parrot", "archetype": "shopper"},
+    {"setting": "baby monitor nursery view", "object": "protective cat guarding crib", "archetype": "new parent"},
+    {"setting": "pool deck on a hot day", "object": "dog afraid of water", "archetype": "pool owner"},
 )
 
 CONFLICT_POOL: tuple[str, ...] = (
-    "a repeating signal suggests someone is still broadcasting from inside",
-    "a timestamp on the artifact does not match any known recording",
-    "the environment reacts as if the protagonist has been here before",
-    "a familiar voice appears on a channel that should be dead",
-    "the object shows a scene that has not happened yet",
-    "every exit route loops back to the same impossible detail",
+    "everyone expects a calm moment until the animal does the exact opposite",
+    "the setup looks normal until one hilarious fail changes everything",
+    "the owner tries to stay serious but the pet ruins the plan instantly",
+    "a tiny mistake snowballs into the funniest unexpected chain reaction",
+    "the camera catches a plot twist nobody saw coming",
+    "the animal's reaction is so over-the-top it becomes instantly viral",
 )
 
 VISUAL_HOOK_POOL: tuple[str, ...] = (
-    "a single practical light source cuts through particulate haze",
-    "an analog screen flickers with a frame that should not exist",
-    "a reflective surface reveals a figure just outside the lens",
-    "a handheld object pulses with heat though nothing powers it",
-    "wind moves debris in a pattern too deliberate to be natural",
+    "security camera catches the exact second everything goes wrong",
+    "slow-motion shows the fail in perfect comedic timing",
+    "split-screen compares expectation versus hilarious reality",
+    "close-up on the pet's shocked face right before the twist",
+    "wide shot reveals the absurd situation in one punchline frame",
 )
 
 ENDING_POOL: tuple[str, ...] = (
-    "the protagonist chooses to document the anomaly instead of fleeing",
-    "the reveal reframes the channel niche as a warning, not a legend",
-    "the final beat leaves one sensory detail unresolved on purpose",
-    "the character seals the discovery away, knowing curiosity will return",
+    "the punchline lands with a freeze-frame and disbelief laughter",
+    "the owner gives up and joins the chaos for a perfect ending",
+    "the final reaction shot becomes the meme moment viewers replay",
+    "one last unexpected beat delivers the twist and instant shareability",
 )
+
+INSTAGRAM_PRESENTER = (
+    "friendly female skincare educator — bright, clean, approachable, demonstrates recipes on camera"
+)
+
+
+def _is_beauty_platform(target_platform: str, channel_topic: str) -> bool:
+    """Instagram-only lane — never infer beauty from shared channel_topic text."""
+    platform_key = str(target_platform or "").strip().lower()
+    return platform_key in {"instagram_reels", "instagram"}
+
+
+def _is_science_platform(target_platform: str, channel_topic: str) -> bool:
+    return is_science_youtube_platform(target_platform, channel_topic)
 
 
 def _now_iso() -> str:
@@ -132,7 +164,7 @@ def load_story_memory(project_root: str | Path, *, limit: int = 5000) -> list[di
             text = line.strip()
             if not text:
                 continue
-            payload = json.loads(text)
+            payload = json.loads(line)
             if isinstance(payload, dict):
                 rows.append(payload)
     except OSError:
@@ -165,10 +197,46 @@ def _prompt_hash(text: str) -> str:
 
 def _extract_archetype(character: str) -> str:
     lowered = _normalize(character).lower()
-    for token in ("technician", "archivist", "clerk", "courier", "keeper", "explorer", "guard", "researcher", "inspector", "diver"):
+    for token in (
+        "owner",
+        "parent",
+        "walker",
+        "host",
+        "shopper",
+        "employee",
+        "presenter",
+        "creator",
+    ):
         if token in lowered:
             return token
     return lowered.split(" ", 1)[0] if lowered else "unknown"
+
+
+def _used_recipe_names_from_history(history: list[dict[str, Any]]) -> set[str]:
+    used: set[str] = set()
+    for row in history:
+        recipe_name = _normalize(str(row.get("recipe_name") or ""))
+        if recipe_name:
+            used.add(recipe_name.lower())
+        title = _normalize(str(row.get("title") or ""))
+        if title:
+            used.add(title.lower())
+        for tag in row.get("novelty_tags") or []:
+            token = str(tag or "").strip()
+            if token.lower().startswith("recipe:"):
+                used.add(token.split(":", 1)[1].strip().lower())
+    return used
+
+
+def _select_instagram_recipe(*, used_recipes: set[str], attempt: int) -> dict[str, Any]:
+    available = [
+        dict(recipe)
+        for recipe in INSTAGRAM_RECIPE_POOL
+        if recipe["recipe_name"].strip().lower() not in used_recipes
+    ]
+    pool = available or [dict(recipe) for recipe in INSTAGRAM_RECIPE_POOL]
+    index = (secrets.randbelow(len(pool)) + attempt) % len(pool)
+    return pool[index]
 
 
 def _banned_terms_from_history(history: list[dict[str, Any]]) -> list[str]:
@@ -228,18 +296,244 @@ class ChannelStoryIdea:
         )
 
 
-def _clip_beats_for_idea(idea: ChannelStoryIdea, clip_count: int) -> list[str]:
-    beats = [
-        f"{idea.main_character} discovers {idea.visual_hook.lower()} in {idea.setting}",
-        f"{idea.main_character} pursues {idea.conflict.lower()} as the space closes in",
-        f"{idea.twist_or_reveal} reframes the scene before {idea.ending_beat.lower()}",
-        f"The episode resolves with {idea.ending_beat.lower()} while staying inside the channel niche",
-    ]
+def _clip_beats_for_idea(
+    idea: ChannelStoryIdea,
+    clip_count: int,
+    *,
+    beauty_mode: bool = False,
+    science_mode: bool = False,
+) -> list[str]:
+    if clip_count == 2:
+        return _two_clip_story_beats(idea, beauty_mode=beauty_mode, science_mode=science_mode)
+    if science_mode:
+        beats = [
+            f"Open with hook (0-2s): {idea.visual_hook}",
+            f"Setup (2-8s): {idea.conflict}",
+            f"Visual explanation (8-22s): {idea.twist_or_reveal} with cinematic scientific visuals",
+            f"Twist/payoff + CTA (22-30s): {idea.ending_beat}",
+        ]
+    elif beauty_mode:
+        beats = [
+            f"Show exact ingredients on camera — {idea.conflict}",
+            f"Mix the recipe live in {idea.setting} while presenter explains quantities",
+            f"Apply treatment on camera — {idea.twist_or_reveal}",
+            f"Reveal result and close with {idea.ending_beat}",
+        ]
+    else:
+        beats = [
+            f"Open with {idea.visual_hook.lower()} while setting up the funny moment in {idea.setting}",
+            f"Build toward {idea.conflict.lower()} featuring {idea.main_character}",
+            f"Hit {idea.twist_or_reveal.lower()} with perfect comedic timing",
+            f"Close with {idea.ending_beat.lower()} and a shareable punchline",
+        ]
     if clip_count <= 1:
         return [beats[0]]
-    if clip_count == 2:
-        return [beats[0], beats[2]]
     return beats[:clip_count]
+
+
+def _two_clip_story_beats(
+    idea: ChannelStoryIdea,
+    *,
+    beauty_mode: bool = False,
+    science_mode: bool = False,
+) -> list[str]:
+    """30s / 2×15s: Hook+Setup (3+10+2s) then Payoff+Ending (8+4+3s)."""
+    if science_mode:
+        clip1 = (
+            "Clip 1 (15s) Hook+Setup: Open with impossible hook (0-2s) — "
+            f"{idea.visual_hook}. "
+            f"Presenter setup (2-8s) — {idea.main_character} explains {idea.conflict}. "
+            "Begin visual explanation (8-15s) — holographic/scientific visuals integrate dynamically. "
+            "End on curiosity gap — setup COMPLETE."
+        )
+        clip2 = (
+            "Clip 2 (15s) Payoff+Twist+CTA: Continue visual explanation (8s) — "
+            f"{idea.twist_or_reveal}. "
+            f"Deliver strangest payoff (4s) — {idea.emotional_hook}. "
+            f"HARD ENDING (3s) — {idea.ending_beat}. "
+            "NEVER end mid-sentence. Viewer rewarded for watching to the end."
+        )
+    elif beauty_mode:
+        clip1 = (
+            "Clip 1 (15s) Ingredients + Mix: Presenter says "
+            f'\"Today I\'m making {idea.title}. You need {idea.conflict}.\" '
+            f"Show exact quantities, close-ups of each ingredient, and mix live in {idea.setting}. "
+            "Setup COMPLETE — mixture ready to apply."
+        )
+        clip2 = (
+            "Clip 2 (15s) Apply + Result: Apply treatment to face/skin on camera (8s). "
+            f"Reveal visible result — {idea.twist_or_reveal} (4s). "
+            f'HARD ENDING (3s): Presenter says \"{INSTAGRAM_RECIPE_CTA}\". '
+            "Viewer knows the recipe and sees the payoff."
+        )
+    else:
+        clip1 = (
+            "Clip 1 (15s) Hook+Setup: Open with arresting visual (3s) — "
+            f"{idea.visual_hook.lower()} in {idea.setting}. "
+            f"Build the situation (10s) — {idea.main_character} and {idea.conflict.lower()} fully established. "
+            "End on clear tension (2s) — anticipation held, setup COMPLETE."
+        )
+        clip2 = (
+            "Clip 2 (15s) Payoff+Clear Ending: Deliver the funny moment fully (8s) — "
+            f"{idea.twist_or_reveal.lower()}. "
+            f"Show character reactions (4s) — {idea.main_character} laughing, shocked, or losing it. "
+            f"HARD ENDING (3s) — freeze frame, laugh, or clear resolution: {idea.ending_beat.lower()}. "
+            "NEVER end mid-action or mid-sentence. Viewer feels satisfied and complete."
+        )
+    return [clip1, clip2]
+
+
+def _build_beauty_candidate(
+    *,
+    channel_topic: str,
+    niche: str,
+    style: str,
+    mood: str,
+    clip_count: int,
+    diversity_mode: str,
+    banned_terms: list[str],
+    used_recipes: set[str],
+    attempt: int,
+) -> ChannelStoryIdea:
+    recipe = _select_instagram_recipe(used_recipes=used_recipes, attempt=attempt)
+    setting = INSTAGRAM_RECIPE_SETTINGS[
+        (secrets.randbelow(len(INSTAGRAM_RECIPE_SETTINGS)) + attempt) % len(INSTAGRAM_RECIPE_SETTINGS)
+    ]
+    recipe_name = str(recipe["recipe_name"])
+    ingredients = list(recipe.get("ingredients") or [])
+    ingredients_text = format_ingredients_list(ingredients)
+    skin_benefit = str(recipe.get("skin_benefit") or "healthy glow")
+    season = str(recipe.get("season") or "all year")
+    occasion = str(recipe.get("occasion") or "daily")
+    category = str(recipe.get("category") or "face masks")
+
+    character = INSTAGRAM_PRESENTER
+    title = recipe_name
+    logline = (
+        f"In {setting}, the presenter teaches {recipe_name} — {ingredients_text}. "
+        f"Benefits: {skin_benefit}. Season: {season}. Occasion: {occasion}."
+    )
+    conflict = ingredients_text
+    visual_hook = f"macro close-ups of {ingredients_text} measured on a clean tray"
+    emotional_hook = f"{mood or 'helpful confidence'} as the recipe comes together step by step"
+    twist = f"visible {skin_benefit} result after on-camera application"
+    ending = f"{INSTAGRAM_RECIPE_CTA} — {skin_benefit} result reveal"
+    tags = [
+        recipe_memory_key(recipe_name),
+        category,
+        season,
+        occasion,
+        style or "bright aesthetic",
+        diversity_mode,
+    ]
+
+    idea = ChannelStoryIdea(
+        unique_story_id=f"story_{hashlib.sha256(f'{recipe_name}:{attempt}'.encode()).hexdigest()[:12]}",
+        title=title,
+        logline=logline,
+        main_character=character,
+        setting=setting,
+        conflict=conflict,
+        visual_hook=visual_hook,
+        emotional_hook=emotional_hook,
+        twist_or_reveal=twist,
+        ending_beat=ending,
+        novelty_tags=tags,
+        banned_similarity_terms=list(banned_terms),
+        continuity_anchors={
+            "character": character,
+            "location": setting,
+            "lighting": "bright clean daylight with soft highlights on ingredients and skin",
+            "camera": "macro ingredient close-ups, overhead mixing shots, face application close-ups",
+            "palette": "clean whites, warm wood, soft greens, fresh natural tones",
+            "wardrobe": "clean casual top or robe suited to kitchen/bathroom recipe demo",
+        },
+        clip_beat_outline=[],
+        channel_topic=channel_topic,
+        niche=category,
+        diversity_mode=diversity_mode,
+    )
+    idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count, beauty_mode=True)
+    idea.story_hash = _story_hash(idea)
+    idea.prompt_hash = _prompt_hash(idea.rich_story_text())
+    return idea
+
+
+def _build_science_candidate(
+    *,
+    channel_topic: str,
+    niche: str,
+    style: str,
+    mood: str,
+    clip_count: int,
+    diversity_mode: str,
+    banned_terms: list[str],
+    attempt: int,
+) -> ChannelStoryIdea:
+    setting_pool = SCIENCE_SETTING_POOL
+    fact_pool = SCIENCE_FACT_POOL
+    seed = secrets.randbelow(len(fact_pool))
+    fact = dict(fact_pool[(seed + attempt) % len(fact_pool)])
+    setting_bundle = dict(setting_pool[(seed + attempt) % len(setting_pool)])
+    visual_hook = SCIENCE_VISUAL_HOOK_POOL[(seed + attempt * 2) % len(SCIENCE_VISUAL_HOOK_POOL)]
+    ending = SCIENCE_ENDING_POOL[(seed + attempt * 3) % len(SCIENCE_ENDING_POOL)]
+    cta = SCIENCE_CTA_POOL[(seed + attempt) % len(SCIENCE_CTA_POOL)]
+
+    setting = setting_bundle["setting"]
+    pillar = fact.get("pillar") or setting_bundle.get("pillar") or "Science facts"
+    sci_visual = setting_bundle.get("visual") or "cinematic scientific visualization"
+    topic_label = _normalize(channel_topic) or _normalize(niche) or "Science That Feels Impossible"
+
+    character = (
+        "recurring female science presenter — confident, intelligent, elegant modern documentary host "
+        f"({PRESENTER_DIRECTIVE[:120]}...)"
+    )
+    hook = fact["hook"]
+    title = fact["title"]
+    setup = fact["setup"]
+    mechanism = fact["mechanism"]
+    twist = fact["twist"]
+
+    logline = (
+        f'Hook: "{hook}" In {setting}, {character} explains: {setup} '
+        f"Mechanism: {mechanism} Payoff: {twist}"
+    )
+    conflict = f"{setup} {mechanism}"
+    emotional_hook = mood or "intellectual wonder and disbelief"
+    twist_reveal = twist
+    ending_beat = f"{ending} {cta}"
+    tags = [pillar, setting.split(" ", 1)[0], "science", style or "cinematic documentary", diversity_mode]
+
+    idea = ChannelStoryIdea(
+        unique_story_id=f"story_{hashlib.sha256(f'{channel_topic}:{attempt}:{seed}'.encode()).hexdigest()[:12]}",
+        title=title,
+        logline=logline,
+        main_character=character,
+        setting=setting,
+        conflict=conflict,
+        visual_hook=f'{hook} — {visual_hook} with {sci_visual}',
+        emotional_hook=emotional_hook,
+        twist_or_reveal=twist_reveal,
+        ending_beat=ending_beat,
+        novelty_tags=tags,
+        banned_similarity_terms=list(banned_terms),
+        continuity_anchors={
+            "character": character,
+            "location": setting,
+            "lighting": "dramatic cinematic rim light, high contrast, premium documentary depth",
+            "camera": "slow push-ins, orbit moves, presenter integrated with holographic visuals",
+            "palette": "deep blues, silver highlights, clean whites, subtle magenta accents",
+            "wardrobe": "stylish modern science presenter — sleek blazer, elegant minimal jewelry, futuristic journalist look",
+        },
+        clip_beat_outline=[],
+        channel_topic=channel_topic,
+        niche=niche or "Science That Feels Impossible",
+        diversity_mode=diversity_mode,
+    )
+    idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count, science_mode=True)
+    idea.story_hash = _story_hash(idea)
+    idea.prompt_hash = _prompt_hash(idea.rich_story_text())
+    return idea
 
 
 def _build_candidate(
@@ -252,7 +546,32 @@ def _build_candidate(
     diversity_mode: str,
     banned_terms: list[str],
     attempt: int,
+    target_platform: str = "youtube_shorts",
+    used_recipes: set[str] | None = None,
 ) -> ChannelStoryIdea:
+    if _is_science_platform(target_platform, channel_topic):
+        return _build_science_candidate(
+            channel_topic=channel_topic,
+            niche=niche,
+            style=style,
+            mood=mood,
+            clip_count=clip_count,
+            diversity_mode=diversity_mode,
+            banned_terms=banned_terms,
+            attempt=attempt,
+        )
+    if _is_beauty_platform(target_platform, channel_topic):
+        return _build_beauty_candidate(
+            channel_topic=channel_topic,
+            niche=niche,
+            style=style,
+            mood=mood,
+            clip_count=clip_count,
+            diversity_mode=diversity_mode,
+            banned_terms=banned_terms,
+            used_recipes=used_recipes or set(),
+            attempt=attempt,
+        )
     pool = SETTING_POOL_HIGH if diversity_mode == DIVERSITY_HIGH_VARIETY else SETTING_POOL_SAFE
     if diversity_mode == DIVERSITY_EPISODIC_SERIES:
         pool = SETTING_POOL_SAFE
@@ -263,20 +582,21 @@ def _build_candidate(
     visual_hook = VISUAL_HOOK_POOL[(seed + attempt * 2) % len(VISUAL_HOOK_POOL)]
     ending = ENDING_POOL[(seed + attempt * 3) % len(ENDING_POOL)]
 
-    archetype = bundle.get("archetype") or "witness"
+    archetype = bundle.get("archetype") or "content creator"
     setting = bundle["setting"]
-    obj = bundle.get("object") or bundle.get("object_alt") or "anomalous artifact"
-    character = f"a cautious {archetype} investigating the channel's latest unease"
+    obj = bundle.get("object") or "unexpected animal moment"
+    topic_label = _normalize(channel_topic) or _normalize(niche) or DEFAULT_CHANNEL_TOPIC
+    character = f"a {archetype} filming {obj} for {topic_label}"
     if diversity_mode == DIVERSITY_EPISODIC_SERIES:
-        character = f"the returning {archetype} facing a new episode in the same unsettling world"
+        character = f"the returning {archetype} capturing another viral animal moment"
 
-    title = f"The {obj.replace(' ', ' ').title()} at {setting.split(' ')[0].title()} {setting.split(' ')[1].title()}"
+    title = f"When {obj.title()} Goes Completely Wrong"
     logline = (
-        f"In {setting}, {character} confronts {conflict} after encountering {obj}. "
-        f"The incident fits the channel's unsettling niche without repeating a prior episode."
+        f"In {setting}, {character} captures {conflict}, centered on {obj}. "
+        f"The clip delivers one hilarious surprise for {topic_label}."
     )
-    emotional_hook = f"{mood or 'uneasy curiosity'} sharpens as the {obj} refuses to behave normally"
-    twist = f"The {obj} implicates a detail nobody in town admits remembering"
+    emotional_hook = f"{mood or 'surprised laughter'} builds as {obj} steals the scene"
+    twist = f"{obj} pulls an unexpected move that flips the whole moment"
     tags = [archetype, setting.split(" ", 1)[0], obj.split(" ", 1)[0], style or "cinematic", diversity_mode]
 
     idea = ChannelStoryIdea(
@@ -295,17 +615,17 @@ def _build_candidate(
         continuity_anchors={
             "character": character,
             "location": setting,
-            "lighting": "motivated practicals with heavy particulate haze",
-            "camera": "slow push-ins and observational handheld drift",
-            "palette": "desaturated greens, sodium amber, and crushed blacks",
-            "wardrobe": "weathered layers suited to the location",
+            "lighting": "bright natural daylight with crisp mobile-friendly contrast",
+            "camera": "handheld phone cam, quick zooms, reaction close-ups",
+            "palette": "vivid everyday colors, clean highlights, meme-ready framing",
+            "wardrobe": "casual everyday clothes suited to viral comedy clips",
         },
         clip_beat_outline=[],
         channel_topic=channel_topic,
         niche=niche,
         diversity_mode=diversity_mode,
     )
-    idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count)
+    idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count, beauty_mode=False)
     idea.story_hash = _story_hash(idea)
     idea.prompt_hash = _prompt_hash(idea.rich_story_text())
     return idea
@@ -348,16 +668,6 @@ def check_story_similarity(
         if prompt_sim > PROMPT_SIMILARITY_REJECT:
             return False, "prompt_similarity_above_threshold", metrics
 
-        dragon_egg_pattern = all(
-            token in _normalize(idea.logline + idea.setting + idea.title).lower()
-            for token in ("boy", "dragon")
-        )
-        if dragon_egg_pattern and any(
-            all(token in _normalize(str(row.get("logline") or "") + str(row.get("setting") or "")).lower() for token in ("boy", "dragon"))
-            for row in history
-        ):
-            return False, "repeated_dragon_egg_pattern", metrics
-
     return True, "", metrics
 
 
@@ -367,7 +677,7 @@ def generate_channel_story_idea(
     niche: str = "",
     target_platform: str = "youtube_shorts",
     style: str = "cinematic",
-    mood: str = "tense hopeful",
+    mood: str = "surprised laughter",
     duration_seconds: int = 30,
     clip_count: int = 2,
     diversity_mode: str = DEFAULT_DIVERSITY_MODE,
@@ -376,7 +686,8 @@ def generate_channel_story_idea(
 ) -> ChannelStoryIdea:
     history = list(previous_story_memory or [])
     banned = _banned_terms_from_history(history)
-    topic = _normalize(channel_topic) or _normalize(niche) or "dark fantasy analog horror stories"
+    used_recipes = _used_recipe_names_from_history(history)
+    topic = _normalize(channel_topic) or _normalize(niche) or DEFAULT_CHANNEL_TOPIC
 
     for attempt in range(MAX_IDEATION_ATTEMPTS):
         candidate = _build_candidate(
@@ -388,13 +699,15 @@ def generate_channel_story_idea(
             diversity_mode=diversity_mode or DEFAULT_DIVERSITY_MODE,
             banned_terms=banned,
             attempt=attempt + attempt_offset,
+            target_platform=target_platform,
+            used_recipes=used_recipes,
         )
         ok, reason, _metrics = check_story_similarity(candidate, history)
         if ok:
             return candidate
         history = history + [candidate.to_dict()]
+        used_recipes.add(candidate.title.strip().lower())
 
-    # Fail closed into high-variety attempt with unique suffix
     fallback = _build_candidate(
         channel_topic=topic,
         niche=niche,
@@ -404,6 +717,8 @@ def generate_channel_story_idea(
         diversity_mode=DIVERSITY_HIGH_VARIETY,
         banned_terms=banned,
         attempt=MAX_IDEATION_ATTEMPTS + attempt_offset + secrets.randbelow(99),
+        target_platform=target_platform,
+        used_recipes=used_recipes,
     )
     fallback.title = f"{fallback.title} — Variant {secrets.token_hex(3)}"
     fallback.story_hash = _story_hash(fallback)
@@ -415,9 +730,9 @@ def channel_story_idea_to_runway_brief(idea: ChannelStoryIdea, *, clip_count: in
     anchors = StoryBriefAnchors(
         character=idea.continuity_anchors.get("character") or idea.main_character,
         location=idea.continuity_anchors.get("location") or idea.setting,
-        lighting=idea.continuity_anchors.get("lighting") or "motivated practical lighting",
-        camera=idea.continuity_anchors.get("camera") or "cinematic continuity framing",
-        palette=idea.continuity_anchors.get("palette") or "desaturated cinematic grade",
+        lighting=idea.continuity_anchors.get("lighting") or "bright natural daylight",
+        camera=idea.continuity_anchors.get("camera") or "handheld viral comedy framing",
+        palette=idea.continuity_anchors.get("palette") or "vivid everyday colors",
         wardrobe=idea.continuity_anchors.get("wardrobe") or "",
     )
     return RunwayStoryBrief(
@@ -436,14 +751,14 @@ def channel_story_idea_to_runway_brief(idea: ChannelStoryIdea, *, clip_count: in
         escalation=idea.twist_or_reveal,
         payoff=idea.ending_beat,
         ending_beat=idea.ending_beat,
-        style_direction=idea.niche or "cinematic dark mystery",
+        style_direction=idea.niche or "Science That Feels Impossible",
         continuity_anchors=anchors,
         clip_beats=list(idea.clip_beat_outline),
         scene_progression=list(idea.clip_beat_outline),
         source_topic=idea.channel_topic,
         target_platform="youtube_shorts",
-        niche_style="cinematic",
-        mood="tense hopeful",
+        niche_style="cinematic science documentary",
+        mood="intellectual wonder",
         clip_count=max(1, int(clip_count)),
         duration_seconds=max(1, int(duration_seconds)),
         builder_version=IDEATION_VERSION,
@@ -458,7 +773,7 @@ def channel_story_idea_to_story_package(idea: ChannelStoryIdea) -> dict[str, Any
         "story_blueprint": {
             "hook": idea.visual_hook,
             "setup": idea.logline,
-            "genre": idea.niche or "dark fantasy analog horror",
+            "genre": idea.niche or "skincare education",
             "scene_progression": list(idea.clip_beat_outline),
             "opening_hook": idea.visual_hook,
             "escalation": idea.twist_or_reveal,
@@ -481,7 +796,7 @@ def ideate_and_persist_channel_story(
     niche: str = "",
     target_platform: str = "youtube_shorts",
     style: str = "cinematic",
-    mood: str = "tense hopeful",
+    mood: str = "surprised laughter",
     duration_seconds: int = 30,
     clip_count: int = 2,
     diversity_mode: str = DEFAULT_DIVERSITY_MODE,
@@ -504,6 +819,7 @@ def ideate_and_persist_channel_story(
         "channel_topic": channel_topic,
         "unique_story_id": idea.unique_story_id,
         "title": idea.title,
+        "recipe_name": idea.title,
         "logline": idea.logline,
         "main_character": idea.main_character,
         "setting": idea.setting,
@@ -546,6 +862,16 @@ def apply_channel_story_ideation(
     clip_count: int,
 ) -> dict[str, Any]:
     """Resolve channel topic vs override and return preflight story fields."""
+    topic_mode = str(payload.get("topic_mode") or payload.get("topic_source") or "channel")
+    custom_topic = _normalize(str(payload.get("custom_topic") or ""))
+    if (
+        topic_mode == "custom"
+        and custom_topic
+        and not bool(payload.get("automation_mode"))
+        and not _normalize(str(payload.get("specific_story_override") or payload.get("story_override") or ""))
+    ):
+        payload = {**payload, "specific_story_override": custom_topic}
+
     override = _normalize(
         str(payload.get("specific_story_override") or payload.get("story_override") or "")
     )
@@ -561,7 +887,7 @@ def apply_channel_story_ideation(
             setting="a location implied by the override story",
             conflict="the central tension of the override story",
             visual_hook="the opening visual incident of the override story",
-            emotional_hook=mood or "uneasy curiosity",
+            emotional_hook=mood or "surprised laughter",
             twist_or_reveal="the override story's turn",
             ending_beat="the override story's final beat",
             clip_beat_outline=_clip_beats_for_idea(
@@ -632,6 +958,7 @@ def apply_channel_story_ideation(
 __all__ = [
     "ARCHETYPE_STREAK_REJECT",
     "ChannelStoryIdea",
+    "DEFAULT_CHANNEL_TOPIC",
     "DEFAULT_DIVERSITY_MODE",
     "IDEATION_VERSION",
     "LOGLINE_SIMILARITY_REJECT",

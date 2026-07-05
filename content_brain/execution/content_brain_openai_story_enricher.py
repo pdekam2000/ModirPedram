@@ -202,16 +202,27 @@ class OpenAIStoryEnricher:
             self._client = client
 
         system_prompt = (
-            "You write short-form vertical video story briefs for social platforms. "
-            "Return JSON only. Preserve the user's topic and SEO title meaning. "
-            "Write ALL text in the requested language_code. Never switch to another language. "
-            "If language_code is en, every field must be English only. "
+            "You write short-form vertical video story briefs for YouTube Shorts and social platforms. "
+            "Return JSON only. Preserve the user's topic meaning. "
+            "Write ALL text in the requested language_code.\n\n"
+            "TITLE RULES (for the title field):\n"
+            "- SEO optimized for YouTube Shorts\n"
+            "- Must contain a power word: Shocking, Secret, Never, Finally, Insane, Unbelievable, Hidden, or Revealed\n"
+            "- Must be under 60 characters\n"
+            "- Must create a curiosity gap — viewer must click to know the answer\n"
+            "- Example: \"The Shocking Truth About Ocean Depths 🌊\"\n\n"
+            "STORY RULES:\n"
+            "- Hook in first 3 seconds must make viewer UNABLE to scroll\n"
+            "- Use openers like \"Did you know...\", \"Most people don't know...\", or \"Scientists just discovered...\"\n"
+            "- Every sentence must make viewer want to see the next one\n"
+            "- End with a cliffhanger or surprising twist\n"
+            "- CTA at end: \"Follow for daily mind-blowing facts\"\n"
+            "- Language: conversational English, 8th grade reading level\n"
+            "- Tone: amazed, urgent, slightly dramatic\n\n"
+            "AUDIENCE: English speaking, 18-35 years old, curious about science/nature/space/animals\n\n"
             "clip_beats must contain exactly clip_count items; each beat is one 10-second clip direction. "
             "Follow content_strategy and strategy_purpose from the user payload. "
-            "For instructional_fishing, recipe_tutorial, educational_*, and instructional_* strategies: "
-            "teach or demonstrate the topic step-by-step; do NOT replace it with generic cinematic filler "
-            "(no shore walking, horizon staring, emotional journey, or contemplation unless it directly teaches the method). "
-            "Do not change character wardrobe continuity rules. "
+            "For instructional/educational strategies: teach step-by-step; no generic cinematic filler. "
             "Do not invent unrelated genres or drift away from the topic."
         )
         try:
@@ -306,6 +317,23 @@ def _build_request_payload(
         "forbidden_filler": list(forbidden_filler or []),
         "base_story": {key: base_story.get(key) for key in REQUIRED_STORY_KEYS},
         "required_keys": list(REQUIRED_STORY_KEYS),
+        "title_rules": {
+            "max_chars": 60,
+            "power_words": [
+                "Shocking", "Secret", "Never", "Finally", "Insane",
+                "Unbelievable", "Hidden", "Revealed",
+            ],
+            "curiosity_gap_required": True,
+            "example": "The Shocking Truth About Ocean Depths 🌊",
+        },
+        "story_rules": {
+            "hook_seconds": 3,
+            "openers": ["Did you know...", "Most people don't know...", "Scientists just discovered..."],
+            "cta": "Follow for daily mind-blowing facts",
+            "reading_level": "8th grade",
+            "tone": "amazed, urgent, slightly dramatic",
+            "audience": "English 18-35, science/nature/space/animals curiosity",
+        },
     }
 
 

@@ -1,0 +1,38 @@
+{
+  "version": "platform_daily_scheduler_v1",
+  "platforms": {
+    "youtube_shorts": {
+      "enabled": true,
+      "topic": "Science That Feels Impossible — surprising, cinematic science facts with a recurring female presenter (25-35s English Shorts)",
+      "videos_per_day": 3,
+      "interval_hours": 4,
+      "start_hour": 8,
+      "duration_seconds": 30
+    },
+    "instagram_reels": {
+      "enabled": true,
+      "topic": "Satisfying skincare transformations, aesthetic morning routines, glowing skin tips, and beautiful self-care rituals for women aged 18-35",
+      "videos_per_day": 3,
+      "interval_hours": 8,
+      "start_hour": 8,
+      "duration_seconds": 30
+    },
+    "tiktok": {
+      "enabled": false,
+      "topic": "Funny and unexpected animal moments, hilarious fails, surprising plot twists in real life",
+      "videos_per_day": 3,
+      "interval_hours": 4,
+      "start_hour": 8,
+      "duration_seconds": 30
+    }
+  },
+  "updated_at": "2026-07-05T19:22:58.001310+00:00",
+  "daily_completion": {
+    "date": "2026-07-05",
+    "platforms": {
+      "youtube_shorts": 0,
+      "instagram_reels": 0
+    },
+    "completed_today": 0
+  }
+}

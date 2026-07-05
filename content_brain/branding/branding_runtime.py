@@ -9,9 +9,10 @@ from pathlib import Path
 from typing import Any
 
 from content_brain.audio.audio_merge_engine import NARRATED_VIDEO_NAME
-from content_brain.branding.cta_engine import CTA_FREQUENCY_END, apply_cta_overlay, resolve_cta_text
-from content_brain.branding.intro_outro_engine import generate_intro_card, generate_outro_card, merge_intro_outro
-from content_brain.branding.logo_overlay_engine import apply_logo_overlay
+from content_brain.branding.cta_engine import CTA_FREQUENCY_END, apply_cta_graphic_overlay, apply_cta_overlay, resolve_cta_text
+from content_brain.branding.intro_outro_engine import generate_intro_segment, generate_outro_segment, merge_intro_outro
+from content_brain.branding.logo_overlay_engine import apply_logo_overlay, resolve_channel_logo_path
+from content_brain.branding.channel_assets_store import ChannelAssetsStore
 from content_brain.branding.subtitle_burn_engine import SUBTITLED_VIDEO_NAME, SUBTITLE_STYLE_TIKTOK, burn_subtitles
 from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
 
@@ -61,12 +62,28 @@ def _branding_settings(profile: dict[str, Any]) -> dict[str, Any]:
         "cta_preset": str(profile.get("cta_preset") or "follow_for_more"),
         "cta_custom_slogan": str(profile.get("cta_custom_slogan") or ""),
         "cta_frequency": str(profile.get("cta_frequency") or CTA_FREQUENCY_END),
+        "cta_style": str(profile.get("cta_style") or "text_only"),
+        "cta_graphic_path": str(profile.get("cta_graphic_path") or ""),
+        "cta_graphic_position": str(profile.get("cta_graphic_position") or "bottom_center"),
+        "cta_graphic_duration_seconds": float(profile.get("cta_graphic_duration_seconds") or 5),
+        "logo_path": str(profile.get("logo_path") or ""),
         "intro_enabled": bool(profile.get("intro_enabled", False)),
         "intro_text": str(profile.get("intro_text") or profile.get("channel_name") or ""),
         "intro_duration": float(profile.get("intro_duration") or 2.0),
+        "intro_type": str(profile.get("intro_type") or "none"),
+        "intro_image_path": str(profile.get("intro_image_path") or ""),
+        "intro_video_path": str(profile.get("intro_video_path") or ""),
+        "intro_fade_effect": str(profile.get("intro_fade_effect") or "fade_in"),
         "outro_enabled": bool(profile.get("outro_enabled", False)),
         "outro_text": str(profile.get("outro_text") or "Follow for more"),
-        "outro_duration": float(profile.get("outro_duration") or 2.0),
+        "outro_duration": float(profile.get("outro_duration") or 3.0),
+        "outro_type": str(profile.get("outro_type") or "none"),
+        "outro_image_path": str(profile.get("outro_image_path") or ""),
+        "outro_video_path": str(profile.get("outro_video_path") or ""),
+        "outro_fade_effect": str(profile.get("outro_fade_effect") or "fade_out"),
+        "outro_subscribe_enabled": bool(profile.get("outro_subscribe_enabled", True)),
+        "outro_subscribe_style": str(profile.get("outro_subscribe_style") or "classic_red"),
+        "outro_subscribe_custom_color": str(profile.get("outro_subscribe_custom_color") or "#E62117"),
     }
 
 
@@ -178,10 +195,13 @@ def run_branding_runtime(
 
     if settings["logo_enabled"]:
         logo_out = staging / "logo_overlay.mp4"
+        resolved_logo = resolve_channel_logo_path(root, profile_logo_path=settings.get("logo_path"))
+        logo_file = resolved_logo if resolved_logo else Path(settings.get("logo_path") or "")
         logo_result = apply_logo_overlay(
             project_root=root,
             input_video_path=current_video,
             output_path=logo_out,
+            logo_path=str(logo_file) if logo_file else None,
             logo_position=settings["logo_position"],
             logo_scale=settings["logo_scale"],
             ffmpeg_probe=ffmpeg_probe,
@@ -207,31 +227,68 @@ def run_branding_runtime(
     base["cta_suggestions"] = suggestions
     base["cta_suggestion_source"] = suggestion_source
 
-    if settings["cta_enabled"] and cta_text:
+    video_duration = float(audio_post_result.get("duration_seconds") or 30.0)
+    cta_style = str(settings.get("cta_style") or "text_only").strip().lower()
+
+    if settings["cta_enabled"]:
         cta_out = staging / "cta_overlay.mp4"
-        cta_result = apply_cta_overlay(
-            input_video_path=current_video,
-            output_path=cta_out,
-            cta_text=cta_text,
-            cta_position=settings["cta_position"],
-            cta_frequency=settings["cta_frequency"],
-            duration_seconds=float(audio_post_result.get("duration_seconds") or 30.0),
-            ffmpeg_probe=ffmpeg_probe,
-        )
-        base["steps"]["cta"] = cta_result.to_dict()
-        base["steps"]["cta"]["status"] = _step_status(cta_result.status)
-        if cta_result.status == "COMPLETED":
-            current_video = Path(cta_result.output_path)
-        elif cta_result.status == "FAILED":
-            base["warnings"].append(f"cta_overlay_failed:{cta_result.error}")
+        if cta_style == "graphic_overlay":
+            graphic_path = settings.get("cta_graphic_path") or ""
+            if not graphic_path:
+                resolved = ChannelAssetsStore(root).asset_path("cta_graphic")
+                graphic_path = str(resolved) if resolved else ""
+            cta_result = apply_cta_graphic_overlay(
+                input_video_path=current_video,
+                output_path=cta_out,
+                graphic_path=graphic_path,
+                cta_position=settings.get("cta_graphic_position") or settings["cta_position"],
+                duration_seconds=video_duration,
+                graphic_duration_seconds=float(settings.get("cta_graphic_duration_seconds") or 5),
+                ffmpeg_probe=ffmpeg_probe,
+            )
+        elif cta_text:
+            display_text = cta_text
+            if cta_style == "text_icon":
+                display_text = f"{cta_text}  ▶"
+            cta_result = apply_cta_overlay(
+                input_video_path=current_video,
+                output_path=cta_out,
+                cta_text=display_text,
+                cta_position=settings["cta_position"],
+                cta_frequency=settings["cta_frequency"],
+                duration_seconds=video_duration,
+                ffmpeg_probe=ffmpeg_probe,
+            )
+        else:
+            cta_result = None
+
+        if cta_result is not None:
+            base["steps"]["cta"] = cta_result.to_dict()
+            base["steps"]["cta"]["status"] = _step_status(cta_result.status)
+            if cta_result.status == "COMPLETED":
+                current_video = Path(cta_result.output_path)
+            elif cta_result.status == "FAILED":
+                base["warnings"].append(f"cta_overlay_failed:{cta_result.error}")
 
     intro_path = ""
     outro_path = ""
-    if settings["intro_enabled"] and settings["intro_text"].strip():
-        intro_result = generate_intro_card(
+    if settings["intro_enabled"]:
+        intro_image = settings.get("intro_image_path") or ""
+        intro_video = settings.get("intro_video_path") or ""
+        if not intro_image:
+            resolved = ChannelAssetsStore(root).asset_path("intro_image")
+            intro_image = str(resolved) if resolved else ""
+        if not intro_video:
+            resolved = ChannelAssetsStore(root).asset_path("intro_video")
+            intro_video = str(resolved) if resolved else ""
+        intro_result = generate_intro_segment(
             output_dir=staging,
+            intro_type=settings.get("intro_type") or "none",
             intro_text=settings["intro_text"],
             intro_duration=settings["intro_duration"],
+            intro_image_path=intro_image,
+            intro_video_path=intro_video,
+            intro_fade_effect=settings.get("intro_fade_effect") or "fade_in",
             ffmpeg_probe=ffmpeg_probe,
         )
         base["steps"]["intro"] = intro_result.to_dict()
@@ -242,11 +299,26 @@ def run_branding_runtime(
         elif intro_result.status == "FAILED":
             base["warnings"].append(f"intro_failed:{intro_result.error}")
 
-    if settings["outro_enabled"] and settings["outro_text"].strip():
-        outro_result = generate_outro_card(
+    if settings["outro_enabled"]:
+        outro_image = settings.get("outro_image_path") or ""
+        outro_video = settings.get("outro_video_path") or ""
+        if not outro_image:
+            resolved = ChannelAssetsStore(root).asset_path("outro_image")
+            outro_image = str(resolved) if resolved else ""
+        if not outro_video:
+            resolved = ChannelAssetsStore(root).asset_path("outro_video")
+            outro_video = str(resolved) if resolved else ""
+        outro_result = generate_outro_segment(
             output_dir=staging,
+            outro_type=settings.get("outro_type") or "none",
             outro_text=settings["outro_text"],
             outro_duration=settings["outro_duration"],
+            outro_image_path=outro_image,
+            outro_video_path=outro_video,
+            outro_fade_effect=settings.get("outro_fade_effect") or "fade_out",
+            outro_subscribe_enabled=bool(settings.get("outro_subscribe_enabled", True)),
+            outro_subscribe_style=settings.get("outro_subscribe_style") or "classic_red",
+            outro_subscribe_custom_color=settings.get("outro_subscribe_custom_color") or "#E62117",
             ffmpeg_probe=ffmpeg_probe,
         )
         base["steps"]["outro"] = outro_result.to_dict()

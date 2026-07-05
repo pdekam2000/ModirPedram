@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 import uuid
@@ -20,21 +21,139 @@ VENDORED_PWMAP_ROOT = MODIR_ROOT / "external" / "pwmap"
 DESKTOP_PWMAP_ROOT = Path(r"C:\Users\kaman\Desktop\pwmap")
 OUTPUT_ROOT_NAME = "pwmap_agent_runs"
 MIN_REAL_MP4_BYTES = 1_000_000
+KLING_CINEMATIC_MIN_CHARS = 2400
+KLING_CINEMATIC_MAX_CHARS = 2500
+
+YOUTUBE_TOPIC_KEYWORDS = ("animal", "dog", "cat", "funny", "fail")
+INSTAGRAM_TOPIC_KEYWORDS = ("skincare", "beauty", "routine", "glow")
+
+STORY_BRIEF_MARKERS = ("Character:", "Clip 1:", "Visual hook:", "Conflict:", "Setting:")
+
+
+def _is_story_brief_prompt(text: str) -> bool:
+    """Detect planning-document prose that must not be sent to Kling."""
+    if not text:
+        return False
+    hits = sum(1 for marker in STORY_BRIEF_MARKERS if marker in text)
+    return hits >= 2
+
+
+def _contains_topic_keyword(text: str, keyword: str) -> bool:
+    return re.search(rf"\b{re.escape(keyword)}\b", str(text or ""), flags=re.IGNORECASE) is not None
+
+
+def validate_platform_prompt_isolation(platform: str, text: str) -> tuple[bool, str]:
+    """Reject prompts that contain keywords from another platform's topic lane."""
+    platform_key = str(platform or "").strip().lower()
+    if platform_key in {"youtube_shorts", "youtube"}:
+        if any(_contains_topic_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_KEYWORDS):
+            return False, "instagram_keywords_in_youtube_prompt"
+    if platform_key in {"instagram_reels", "instagram"}:
+        if any(_contains_topic_keyword(text, keyword) for keyword in YOUTUBE_TOPIC_KEYWORDS):
+            return False, "youtube_keywords_in_instagram_prompt"
+    return True, ""
+
+
+def _clip_prompts_from_frame_plan(preflight: dict[str, Any]) -> list[str]:
+    frame_plan = preflight.get("kling_frame_to_video_plan") or preflight.get("kling_frame_plan") or {}
+    clips = frame_plan.get("clips") if isinstance(frame_plan, dict) else None
+    prompts: list[str] = []
+    if isinstance(clips, list):
+        for clip in clips:
+            if not isinstance(clip, dict):
+                continue
+            text = str(clip.get("prompt") or "").strip()
+            if text:
+                prompts.append(text)
+    return prompts
+
+
+def ensure_kling_cinematic_preflight(
+    *,
+    project_root: str | Path,
+    payload: dict[str, Any],
+    preflight: dict[str, Any],
+) -> dict[str, Any]:
+    """Ensure preflight contains full cinematic Kling clip prompts (2400+ chars each)."""
+    import logging
+
+    logger = logging.getLogger(__name__)
+    prompts = _clip_prompts_from_frame_plan(preflight)
+    needs_rebuild = not prompts
+    if not needs_rebuild:
+        for index, prompt in enumerate(prompts, start=1):
+            if len(prompt) < KLING_CINEMATIC_MIN_CHARS or _is_story_brief_prompt(prompt):
+                logger.error(
+                    "Prompt too short: %s chars (clip %s) — running full preflight",
+                    len(prompt),
+                    index,
+                )
+                needs_rebuild = True
+                break
+
+    if not needs_rebuild:
+        return preflight
+
+    logger.error(
+        "kling_frame_to_video_plan missing or incomplete (%s clip prompts) — running full preflight",
+        len(prompts),
+    )
+    from ui.api.product_studio_service import ProductStudioService
+
+    full_payload = {
+        **payload,
+        "execute_preflight": True,
+        "browser_automation": True,
+        "provider_runtime": PWMAP_AGENT_RUNTIME,
+        "automation_mode": bool(payload.get("automation_mode", True)),
+    }
+    full_payload.setdefault("provider", "kling")
+    service = ProductStudioService(project_root)
+    refreshed = service.create_video_preflight(full_payload)
+    refreshed_prompts = _clip_prompts_from_frame_plan(refreshed)
+    for index, prompt in enumerate(refreshed_prompts, start=1):
+        if len(prompt) < KLING_CINEMATIC_MIN_CHARS:
+            logger.error(
+                "Prompt too short after preflight: %s chars (clip %s)",
+                len(prompt),
+                index,
+            )
+            raise PwmapAdapterError(
+                f"Kling cinematic prompt clip {index} is {len(prompt)} chars; "
+                f"minimum is {KLING_CINEMATIC_MIN_CHARS}."
+            )
+    if not refreshed_prompts:
+        raise PwmapAdapterError(
+            "Full preflight did not produce kling_frame_to_video_plan clip prompts."
+        )
+    return refreshed
 
 
 def resolve_default_pwmap_root() -> Path:
-    """Resolve pwmap runtime root: env override, then Desktop production path, then vendored repo copy."""
+    """Resolve pwmap runtime root: env override, project vendored copy, then Desktop fallback."""
     env = os.environ.get("MODIR_PWMAP_ROOT", "").strip()
     if env:
         return Path(env)
-    if DESKTOP_PWMAP_ROOT.is_dir() and (DESKTOP_PWMAP_ROOT / "runway_agent.py").is_file():
-        return DESKTOP_PWMAP_ROOT
+    project = os.environ.get("MODIR_PROJECT_ROOT", "").strip()
+    if project:
+        vendored = Path(project).resolve() / "external" / "pwmap"
+        if vendored.is_dir() and (vendored / "runway_agent.py").is_file():
+            return vendored
     if VENDORED_PWMAP_ROOT.is_dir() and (VENDORED_PWMAP_ROOT / "runway_agent.py").is_file():
         return VENDORED_PWMAP_ROOT
-    return DESKTOP_PWMAP_ROOT
+    if DESKTOP_PWMAP_ROOT.is_dir() and (DESKTOP_PWMAP_ROOT / "runway_agent.py").is_file():
+        return DESKTOP_PWMAP_ROOT
+    return VENDORED_PWMAP_ROOT
 
 
 DEFAULT_PWMAP_ROOT = resolve_default_pwmap_root()
+
+RUNWAY_SESSION_MISSING_MESSAGE = (
+    "❌ Runway browser not connected. Click 'Connect Runway Browser' first."
+)
+RUNWAY_SESSION_EXPIRED_MESSAGE = (
+    "⚠️ Runway session expired. Click 'Connect Runway Browser' to reconnect."
+)
 
 
 class PwmapAdapterError(Exception):
@@ -90,6 +209,45 @@ class PwmapAgentRunResult:
             "legacy_internal_runtime_available": True,
             "legacy_note": "Internal Kling/Runway live engines retained for diagnostics only.",
         }
+
+
+def _message_for_subprocess_exit(exit_code: int, stderr: str = "") -> str:
+    detail = str(stderr or "").strip()
+    if int(exit_code) == 2:
+        lowered = detail.lower()
+        if "unrecognized arguments" in lowered or "usage:" in lowered:
+            return (
+                "pwmap agent CLI error (exit code 2): outdated pwmap copy or invalid arguments. "
+                "Use the vendored agent at external/pwmap/runway_agent.py."
+            )
+        if any(token in lowered for token in ("session", "login", "expired", "connect runway")):
+            if "expired" in lowered or "login" in lowered:
+                return RUNWAY_SESSION_EXPIRED_MESSAGE
+            return RUNWAY_SESSION_MISSING_MESSAGE
+        return RUNWAY_SESSION_MISSING_MESSAGE
+    if int(exit_code) == 1:
+        return "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+    if int(exit_code) == 0:
+        return "pwmap agent completed successfully."
+    return f"pwmap agent failed with exit code {exit_code}"
+
+
+def _apply_runway_session_gate(
+    result: PwmapAgentRunResult,
+    *,
+    project_root: str | Path,
+) -> bool:
+    """Return True when generation may proceed."""
+    from content_brain.automation.runway_session_manager import require_runway_session_for_generation
+
+    check = require_runway_session_for_generation(project_root, validate=True)
+    if check.get("ok"):
+        return True
+    result.status = "runway_session_required"
+    result.subprocess_exit_code = int(check.get("exit_code") or 2)
+    result.message = str(check.get("message") or RUNWAY_SESSION_MISSING_MESSAGE)
+    result.errors.append(str(check.get("reason") or "runway_session_required"))
+    return False
 
 
 def _now_iso() -> str:
@@ -152,22 +310,53 @@ def build_pwmap_job(
 
 
 def extract_prompts_from_preflight(preflight: dict[str, Any]) -> tuple[list[str], dict[str, Any]]:
-    frame_plan = preflight.get("kling_frame_to_video_plan") or preflight.get("kling_frame_plan") or {}
-    clips = frame_plan.get("clips") if isinstance(frame_plan, dict) else None
-    prompts: list[str] = []
-    if isinstance(clips, list):
-        for clip in clips:
-            if not isinstance(clip, dict):
+    import logging
+
+    logger = logging.getLogger(__name__)
+    platform = str(preflight.get("platform") or "")
+    prompts = _clip_prompts_from_frame_plan(preflight)
+    source = "kling_frame_to_video_plan"
+    if not prompts:
+        for item in preflight.get("kling_clip_prompts") or []:
+            if not isinstance(item, dict):
                 continue
-            text = str(clip.get("prompt") or "").strip()
+            text = str(item.get("prompt") or "").strip()
             if text:
                 prompts.append(text)
+        source = "kling_clip_prompts"
     if not prompts:
-        topic = str(preflight.get("authoritative_topic") or "").strip()
-        if topic:
-            prompts = [topic]
+        native = preflight.get("kling_native_audio_plan") or {}
+        if isinstance(native, dict):
+            for clip in native.get("clips") or []:
+                if not isinstance(clip, dict):
+                    continue
+                for shot_key in ("shot_1", "shot_2"):
+                    shot = clip.get(shot_key) or {}
+                    if isinstance(shot, dict):
+                        text = str(shot.get("prompt") or "").strip()
+                        if text:
+                            prompts.append(text)
+        source = "kling_native_audio_plan"
     if not prompts:
-        raise PwmapAdapterError("No prompts available from preflight or topic.")
+        raise PwmapAdapterError(
+            "No cinematic prompts in kling_frame_to_video_plan — full preflight required."
+        )
+    for index, prompt in enumerate(prompts, start=1):
+        if len(prompt) < KLING_CINEMATIC_MIN_CHARS or _is_story_brief_prompt(prompt):
+            logger.error(
+                "Prompt too short: %s chars (clip %s from %s) — not cinematic prose",
+                len(prompt),
+                index,
+                source,
+            )
+            raise PwmapAdapterError(
+                f"Clip {index} prompt is {len(prompt)} chars; "
+                f"cinematic minimum is {KLING_CINEMATIC_MIN_CHARS}."
+            )
+        ok, reason = validate_platform_prompt_isolation(platform, prompt)
+        if not ok:
+            logger.error("Platform topic contamination in clip %s: %s", index, reason)
+            raise PwmapAdapterError(f"Platform topic contamination: {reason}")
     visual_style = str(
         preflight.get("visual_style")
         or preflight.get("style")
@@ -176,7 +365,13 @@ def extract_prompts_from_preflight(preflight: dict[str, Any]) -> tuple[list[str]
     from content_brain.execution.runway_prompt_composer import apply_visual_style_to_clip_prompts
 
     prompts = apply_visual_style_to_clip_prompts(prompts, visual_style)
-    duration = int((preflight.get("duration_plan") or {}).get("clip_duration_seconds") or 15)
+    duration_plan = dict(preflight.get("duration_plan") or {})
+    kling_duration = dict(preflight.get("kling_duration_plan") or {})
+    duration = int(
+        duration_plan.get("clip_duration_seconds")
+        or kling_duration.get("clip_duration_seconds")
+        or 15
+    )
     aspect = str(preflight.get("aspect_ratio") or "9:16")
     use_frame_second = duration if len(prompts) > 1 else None
     meta = {
@@ -184,12 +379,27 @@ def extract_prompts_from_preflight(preflight: dict[str, Any]) -> tuple[list[str]
         "aspect": aspect,
         "clip_count": len(prompts),
         "use_frame_second": use_frame_second,
+        "prompt_source": source,
+        "prompt_lengths": [len(item) for item in prompts],
     }
     return prompts, meta
 
 
-def build_pwmap_job_from_preflight(preflight: dict[str, Any], *, native_audio: bool = True) -> dict[str, Any]:
-    prompts, meta = extract_prompts_from_preflight(preflight)
+def build_pwmap_job_from_preflight(
+    preflight: dict[str, Any],
+    *,
+    native_audio: bool = True,
+    project_root: str | Path | None = None,
+    payload: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    working_preflight = dict(preflight)
+    if project_root is not None and payload is not None:
+        working_preflight = ensure_kling_cinematic_preflight(
+            project_root=project_root,
+            payload=payload,
+            preflight=working_preflight,
+        )
+    prompts, meta = extract_prompts_from_preflight(working_preflight)
     if len(prompts) == 1:
         return build_pwmap_job(
             prompt=prompts[0],
@@ -210,6 +420,7 @@ def build_subprocess_command(
     *,
     pwmap_root: Path,
     job_path: Path,
+    project_root: str | Path | None = None,
     use_powershell: bool = False,
     close_browser: bool = True,
     clip_timeout_seconds: int = 900,
@@ -232,6 +443,8 @@ def build_subprocess_command(
         str(job_path),
         "--timeout",
         str(max(60, int(clip_timeout_seconds))),
+        "--project-root",
+        str(Path(project_root or Path.cwd()).resolve()),
     ]
     if close_browser:
         command.append("--close-browser")
@@ -389,6 +602,7 @@ def run_pwmap_agent(
     command = build_subprocess_command(
         pwmap_root=root,
         job_path=pwmap_job_path,
+        project_root=project_root,
         use_powershell=use_powershell,
         close_browser=close_browser,
         clip_timeout_seconds=clip_timeout_seconds,
@@ -404,6 +618,10 @@ def run_pwmap_agent(
         preflight_snapshot=dict(preflight or {}),
     )
     result.subprocess_command = command
+
+    if not _apply_runway_session_gate(result, project_root=project_root):
+        _write_failure_artifacts(run_dir, result)
+        return result
 
     if dry_run:
         result.status = "dry_run"
@@ -466,6 +684,9 @@ def run_pwmap_agent(
         return result
 
     try:
+        env = os.environ.copy()
+        env["MODIR_PROJECT_ROOT"] = str(Path(project_root).resolve())
+        env.setdefault("PYTHONIOENCODING", "utf-8")
         completed = subprocess.run(
             command,
             cwd=str(root),
@@ -473,6 +694,7 @@ def run_pwmap_agent(
             text=True,
             timeout=max(60, int(timeout_seconds)),
             check=False,
+            env=env,
         )
     except subprocess.TimeoutExpired as exc:
         result.errors.append(f"subprocess_timeout:{exc}")
@@ -508,8 +730,9 @@ def run_pwmap_agent(
         (run_dir / "subprocess_stderr.log").write_text(completed.stderr, encoding="utf-8")
 
     if completed.returncode != 0:
+        stderr_text = completed.stderr or ""
         result.errors.append(f"pwmap_exit_code:{completed.returncode}")
-        result.message = f"pwmap agent failed with exit code {completed.returncode}"
+        result.message = _message_for_subprocess_exit(completed.returncode, stderr_text)
         subprocess_stdout = completed.stdout or ""
         if (run_dir / "subprocess_stdout.log").is_file():
             subprocess_stdout = (run_dir / "subprocess_stdout.log").read_text(encoding="utf-8")
@@ -642,6 +865,9 @@ def _merge_credit_payload_fields(
         "free_credit_first",
         "live_retest",
         "phase",
+        "browser_automation",
+        "skip_credit_guard",
+        "provider_runtime",
     ):
         if payload.get(key) not in (None, ""):
             merged[key] = payload[key]
@@ -659,7 +885,12 @@ def run_pwmap_product_studio_generate(
     run_id = str(payload.get("run_id") or create_pwmap_agent_run_id())
     native_audio = bool(payload.get("native_audio", True))
     try:
-        job = build_pwmap_job_from_preflight(preflight, native_audio=native_audio)
+        job = build_pwmap_job_from_preflight(
+            preflight,
+            native_audio=native_audio,
+            project_root=project_root,
+            payload=payload,
+        )
     except PwmapAdapterError as exc:
         return {
             "ok": False,

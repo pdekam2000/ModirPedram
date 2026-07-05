@@ -148,17 +148,26 @@ class ProductStudioService:
             "main_niche": str(saved.get("main_niche") or ""),
             "sub_niche": str(saved.get("sub_niche") or ""),
             "channel_topic": str(saved.get("channel_topic") or saved.get("sub_niche") or saved.get("main_niche") or ""),
-            "tiktok_channel_topic": str(saved.get("tiktok_channel_topic") or saved.get("channel_topic") or ""),
-            "instagram_channel_topic": str(saved.get("instagram_channel_topic") or saved.get("channel_topic") or ""),
+            "youtube_channel_topic": str(
+                saved.get("youtube_channel_topic") or saved.get("channel_topic") or saved.get("sub_niche") or ""
+            ),
+            "tiktok_channel_topic": str(saved.get("tiktok_channel_topic") or ""),
+            "instagram_channel_topic": str(saved.get("instagram_channel_topic") or ""),
             "target_audience": str(saved.get("target_audience") or ""),
             "language": str(saved.get("language") or "English"),
             "tone_style": str(saved.get("tone_style") or "cinematic"),
             "visual_style": str(saved.get("visual_style") or saved.get("tone_style") or "cinematic realistic"),
+            "youtube_video_style": str(saved.get("youtube_video_style") or saved.get("visual_style") or "cinematic realistic"),
+            "instagram_video_style": str(saved.get("instagram_video_style") or "aesthetic"),
+            "instagram_filter_mood": str(saved.get("instagram_filter_mood") or "neutral"),
+            "tiktok_video_style": str(saved.get("tiktok_video_style") or "energetic"),
+            "tiktok_pace": str(saved.get("tiktok_pace") or "medium"),
             "default_platform": str(saved.get("default_platform") or "youtube_shorts"),
             "default_duration_seconds": int(saved.get("default_duration_seconds") or 30),
             "default_provider": str(saved.get("default_provider") or "runway"),
             "default_voice": str(saved.get("default_voice") or ""),
             "default_narration_provider": str(saved.get("default_narration_provider") or "elevenlabs"),
+            "audio_source": str(saved.get("audio_source") or "runway_native"),
             "music_provider": str(saved.get("music_provider") or "none"),
             "preferred_topics": list(saved.get("preferred_topics") or []),
             "forbidden_topics": list(saved.get("forbidden_topics") or []),
@@ -179,21 +188,51 @@ class ProductStudioService:
             "cta_start_seconds": float(saved.get("cta_start_seconds") or 5),
             "cta_end_seconds": float(saved.get("cta_end_seconds") or 24),
             "cta_frequency": str(saved.get("cta_frequency") or "end"),
+            "cta_style": str(saved.get("cta_style") or "text_only"),
+            "cta_graphic_path": str(saved.get("cta_graphic_path") or ""),
+            "cta_graphic_position": str(saved.get("cta_graphic_position") or "bottom_center"),
+            "cta_graphic_duration_seconds": float(saved.get("cta_graphic_duration_seconds") or 5),
+            "logo_path": str(saved.get("logo_path") or ""),
             "intro_enabled": bool(saved.get("intro_enabled", False)),
             "intro_text": str(saved.get("intro_text") or ""),
             "intro_duration": float(saved.get("intro_duration") or 2.0),
+            "intro_type": str(saved.get("intro_type") or "none"),
+            "intro_image_path": str(saved.get("intro_image_path") or ""),
+            "intro_video_path": str(saved.get("intro_video_path") or ""),
+            "intro_fade_effect": str(saved.get("intro_fade_effect") or "fade_in"),
             "outro_enabled": bool(saved.get("outro_enabled", False)),
             "outro_text": str(saved.get("outro_text") or ""),
-            "outro_duration": float(saved.get("outro_duration") or 2.0),
+            "outro_duration": float(saved.get("outro_duration") or 3.0),
+            "outro_type": str(saved.get("outro_type") or "none"),
+            "outro_image_path": str(saved.get("outro_image_path") or ""),
+            "outro_video_path": str(saved.get("outro_video_path") or ""),
+            "outro_fade_effect": str(saved.get("outro_fade_effect") or "fade_out"),
+            "outro_subscribe_enabled": bool(saved.get("outro_subscribe_enabled", True)),
+            "outro_subscribe_style": str(saved.get("outro_subscribe_style") or "classic_red"),
+            "outro_subscribe_custom_color": str(saved.get("outro_subscribe_custom_color") or "#E62117"),
             "youtube_upload_enabled": bool(saved.get("youtube_upload_enabled", False)),
-            "youtube_privacy": str(saved.get("youtube_privacy") or "private"),
+            "youtube_privacy": str(saved.get("youtube_privacy") or "public"),
             "youtube_default_description": str(saved.get("youtube_default_description") or ""),
             "youtube_default_hashtags": list(saved.get("youtube_default_hashtags") or []),
             "youtube_upload_confirmed": bool(saved.get("youtube_upload_confirmed", False)),
             "youtube_credentials_configured": bool(saved.get("youtube_credentials_configured", False)),
             "youtube_oauth_client_path": str(saved.get("youtube_oauth_client_path") or ""),
             "youtube_made_for_kids": bool(saved.get("youtube_made_for_kids", False)),
-            "youtube_require_confirmation": bool(saved.get("youtube_require_confirmation", True)),
+            "youtube_require_confirmation": bool(saved.get("youtube_require_confirmation", False)),
+            "youtube_playlist_id": str(saved.get("youtube_playlist_id") or ""),
+            "instagram_upload_enabled": bool(saved.get("instagram_upload_enabled", False)),
+            "instagram_app_id": str(saved.get("instagram_app_id") or ""),
+            "instagram_app_secret": str(saved.get("instagram_app_secret") or ""),
+            "instagram_access_token": str(saved.get("instagram_access_token") or ""),
+            "instagram_account_id": str(saved.get("instagram_account_id") or ""),
+            "instagram_token_expires_at": str(saved.get("instagram_token_expires_at") or ""),
+            "instagram_token_exchange_message": "",
+            "instagram_privacy": str(saved.get("instagram_privacy") or "public"),
+            "tiktok_upload_enabled": bool(saved.get("tiktok_upload_enabled", False)),
+            "tiktok_client_key": str(saved.get("tiktok_client_key") or ""),
+            "tiktok_client_secret": str(saved.get("tiktok_client_secret") or ""),
+            "tiktok_access_token": str(saved.get("tiktok_access_token") or ""),
+            "tiktok_privacy": str(saved.get("tiktok_privacy") or "PUBLIC_TO_EVERYONE"),
             "local_mode": bool(saved.get("local_mode", True)),
             "updated_at": str(saved.get("updated_at") or ""),
         }
@@ -209,22 +248,43 @@ class ProductStudioService:
         return suggestion.to_dict()
 
     def save_channel_profile(self, payload: dict[str, Any]) -> dict[str, Any]:
+        previous = self.profile_store.load()
+        exchange_message = ""
+
         store_payload = {
             "channel_name": str(payload.get("channel_name") or ""),
             "main_niche": str(payload.get("main_niche") or ""),
             "sub_niche": str(payload.get("sub_niche") or ""),
-            "channel_topic": str(payload.get("channel_topic") or ""),
-            "tiktok_channel_topic": str(payload.get("tiktok_channel_topic") or payload.get("channel_topic") or ""),
-            "instagram_channel_topic": str(payload.get("instagram_channel_topic") or payload.get("channel_topic") or ""),
+            "channel_topic": str(payload.get("channel_topic") or payload.get("youtube_channel_topic") or ""),
+            "youtube_channel_topic": str(payload.get("youtube_channel_topic") or payload.get("channel_topic") or ""),
+            "tiktok_channel_topic": str(payload.get("tiktok_channel_topic") or ""),
+            "instagram_channel_topic": str(payload.get("instagram_channel_topic") or ""),
             "target_audience": str(payload.get("target_audience") or ""),
             "language": str(payload.get("language") or "English"),
             "tone_style": str(payload.get("tone_style") or "cinematic"),
             "visual_style": str(payload.get("visual_style") or payload.get("tone_style") or "cinematic realistic"),
+            "youtube_video_style": str(
+                payload.get("youtube_video_style")
+                or payload.get("visual_style")
+                or previous.get("youtube_video_style")
+                or "cinematic realistic"
+            ),
+            "instagram_video_style": str(
+                payload.get("instagram_video_style") or previous.get("instagram_video_style") or "aesthetic"
+            ),
+            "instagram_filter_mood": str(
+                payload.get("instagram_filter_mood") or previous.get("instagram_filter_mood") or "neutral"
+            ),
+            "tiktok_video_style": str(
+                payload.get("tiktok_video_style") or previous.get("tiktok_video_style") or "energetic"
+            ),
+            "tiktok_pace": str(payload.get("tiktok_pace") or previous.get("tiktok_pace") or "medium"),
             "default_platform": str(payload.get("default_platform") or "youtube_shorts"),
             "default_duration_seconds": int(payload.get("default_duration_seconds") or 30),
             "default_provider": str(payload.get("default_provider") or "runway"),
             "default_voice": str(payload.get("default_voice") or ""),
             "default_narration_provider": str(payload.get("default_narration_provider") or "elevenlabs"),
+            "audio_source": str(payload.get("audio_source") or "runway_native"),
             "music_provider": str(payload.get("music_provider") or "none"),
             "preferred_topics": list(payload.get("preferred_topics") or []),
             "forbidden_topics": list(payload.get("forbidden_topics") or []),
@@ -245,23 +305,66 @@ class ProductStudioService:
             "cta_start_seconds": float(payload.get("cta_start_seconds") or 5),
             "cta_end_seconds": float(payload.get("cta_end_seconds") or 24),
             "cta_frequency": str(payload.get("cta_frequency") or "end"),
+            "cta_style": str(payload.get("cta_style") or "text_only"),
+            "cta_graphic_path": str(payload.get("cta_graphic_path") or ""),
+            "cta_graphic_position": str(payload.get("cta_graphic_position") or "bottom_center"),
+            "cta_graphic_duration_seconds": float(payload.get("cta_graphic_duration_seconds") or 5),
+            "logo_path": str(payload.get("logo_path") or ""),
             "intro_enabled": bool(payload.get("intro_enabled", False)),
             "intro_text": str(payload.get("intro_text") or ""),
             "intro_duration": float(payload.get("intro_duration") or 2.0),
+            "intro_type": str(payload.get("intro_type") or "none"),
+            "intro_image_path": str(payload.get("intro_image_path") or ""),
+            "intro_video_path": str(payload.get("intro_video_path") or ""),
+            "intro_fade_effect": str(payload.get("intro_fade_effect") or "fade_in"),
             "outro_enabled": bool(payload.get("outro_enabled", False)),
             "outro_text": str(payload.get("outro_text") or ""),
-            "outro_duration": float(payload.get("outro_duration") or 2.0),
+            "outro_duration": float(payload.get("outro_duration") or 3.0),
+            "outro_type": str(payload.get("outro_type") or "none"),
+            "outro_image_path": str(payload.get("outro_image_path") or ""),
+            "outro_video_path": str(payload.get("outro_video_path") or ""),
+            "outro_fade_effect": str(payload.get("outro_fade_effect") or "fade_out"),
+            "outro_subscribe_enabled": bool(payload.get("outro_subscribe_enabled", True)),
+            "outro_subscribe_style": str(payload.get("outro_subscribe_style") or "classic_red"),
+            "outro_subscribe_custom_color": str(payload.get("outro_subscribe_custom_color") or "#E62117"),
             "youtube_upload_enabled": bool(payload.get("youtube_upload_enabled", False)),
-            "youtube_privacy": str(payload.get("youtube_privacy") or "private"),
+            "youtube_privacy": str(payload.get("youtube_privacy") or "public"),
             "youtube_default_description": str(payload.get("youtube_default_description") or ""),
             "youtube_default_hashtags": list(payload.get("youtube_default_hashtags") or []),
             "youtube_upload_confirmed": bool(payload.get("youtube_upload_confirmed", False)),
             "youtube_credentials_configured": bool(payload.get("youtube_credentials_configured", False)),
             "youtube_oauth_client_path": str(payload.get("youtube_oauth_client_path") or ""),
             "youtube_made_for_kids": bool(payload.get("youtube_made_for_kids", False)),
-            "youtube_require_confirmation": bool(payload.get("youtube_require_confirmation", True)),
+            "youtube_require_confirmation": bool(payload.get("youtube_require_confirmation", False)),
+            "youtube_playlist_id": str(payload.get("youtube_playlist_id") or ""),
+            "instagram_upload_enabled": bool(payload.get("instagram_upload_enabled", False)),
+            "instagram_app_id": str(payload.get("instagram_app_id") or ""),
+            "instagram_app_secret": str(payload.get("instagram_app_secret") or ""),
+            "instagram_access_token": str(payload.get("instagram_access_token") or ""),
+            "instagram_account_id": str(payload.get("instagram_account_id") or ""),
+            "instagram_token_expires_at": str(payload.get("instagram_token_expires_at") or previous.get("instagram_token_expires_at") or ""),
+            "instagram_privacy": str(payload.get("instagram_privacy") or "public"),
+            "tiktok_upload_enabled": bool(payload.get("tiktok_upload_enabled", False)),
+            "tiktok_client_key": str(payload.get("tiktok_client_key") or ""),
+            "tiktok_client_secret": str(payload.get("tiktok_client_secret") or ""),
+            "tiktok_access_token": str(payload.get("tiktok_access_token") or ""),
+            "tiktok_privacy": str(payload.get("tiktok_privacy") or "PUBLIC_TO_EVERYONE"),
             "local_mode": bool(payload.get("local_mode", True)),
         }
+
+        new_token = str(store_payload.get("instagram_access_token") or "").strip()
+        old_token = str(previous.get("instagram_access_token") or "").strip()
+        if new_token and new_token != old_token:
+            from content_brain.upload.instagram_token_exchange import maybe_exchange_instagram_token
+
+            exchange = maybe_exchange_instagram_token(short_lived_token=new_token, profile=store_payload)
+            if exchange.get("ok"):
+                store_payload["instagram_access_token"] = str(exchange.get("access_token") or new_token)
+                store_payload["instagram_token_expires_at"] = str(exchange.get("expires_at") or "")
+                exchange_message = str(exchange.get("message") or "Long-lived token saved.")
+            else:
+                exchange_message = str(exchange.get("message") or "Token exchange skipped.")
+
         self.profile_store.save(store_payload)
 
         current = self._default_channel()
@@ -283,18 +386,50 @@ class ProductStudioService:
             metadata=meta,
         )
         self.channel_store.save(channel, set_active=True)
-        return self.get_channel_profile()
+        profile = self.get_channel_profile()
+        if exchange_message:
+            profile["instagram_token_exchange_message"] = exchange_message
+        return profile
 
     def get_channel_logo_status(self) -> dict[str, Any]:
         return ChannelAssetsStore(self.project_root).logo_status()
 
-    def save_channel_logo(self, payload: bytes) -> dict[str, Any]:
-        if not payload:
-            raise ValueError("Logo upload is empty.")
-        if not payload.startswith(b"\x89PNG"):
-            raise ValueError("Logo must be a PNG file.")
-        path = ChannelAssetsStore(self.project_root).save_logo_bytes(payload)
+    def save_channel_logo(self, payload: bytes, *, content_type: str = "", filename: str = "") -> dict[str, Any]:
+        store = ChannelAssetsStore(self.project_root)
+        path = store.save_logo_bytes(payload, content_type=content_type, filename=filename)
+        ProductChannelProfileStore(self.project_root).save({"logo_path": path})
         return {"ok": True, "logo_path": path, "logo_exists": True}
+
+    def save_branding_asset(
+        self,
+        kind: str,
+        payload: bytes,
+        *,
+        content_type: str = "",
+        filename: str = "",
+    ) -> dict[str, Any]:
+        store = ChannelAssetsStore(self.project_root)
+        path = store.save_asset(kind, payload, content_type=content_type, filename=filename)
+        profile_key = {
+            "logo": "logo_path",
+            "cta_graphic": "cta_graphic_path",
+            "intro_image": "intro_image_path",
+            "intro_video": "intro_video_path",
+            "outro_image": "outro_image_path",
+            "outro_video": "outro_video_path",
+        }.get(kind)
+        if profile_key:
+            ProductChannelProfileStore(self.project_root).save({profile_key: path})
+        return {"ok": True, "kind": kind, "asset_path": path, "exists": True}
+
+    def get_branding_asset_path(self, asset_kind: str) -> Path | None:
+        from content_brain.branding.branding_assets_store import ASSET_KINDS
+
+        if asset_kind == "logo":
+            return ChannelAssetsStore(self.project_root).asset_path("logo")
+        if asset_kind not in ASSET_KINDS:
+            raise ValueError(f"Unsupported branding asset kind: {asset_kind}")
+        return ChannelAssetsStore(self.project_root).asset_path(asset_kind)
 
     def _elevenlabs_status_path(self) -> Path:
         return self.project_root / "project_brain" / "runtime_state" / ELEVENLABS_STATUS_FILENAME
@@ -392,10 +527,19 @@ class ProductStudioService:
         profile = self.get_channel_profile()
         topic_mode = str(payload.get("topic_mode") or payload.get("topic_source") or "channel")
         custom_topic = str(payload.get("custom_topic") or "").strip()
-        if topic_mode == "custom" and custom_topic:
+        platform = str(payload.get("platform") or profile.get("default_platform") or "youtube_shorts")
+        from content_brain.automation.platform_daily_scheduler import resolve_platform_topic
+
+        automation_mode = bool(payload.get("automation_mode"))
+        if topic_mode == "custom" and custom_topic and not automation_mode:
             channel_topic = custom_topic
         else:
-            channel_topic = str(profile.get("channel_topic") or profile.get("main_niche") or "")
+            channel_topic = resolve_platform_topic(
+                platform,
+                profile,
+                entry_topic=str(payload.get("scheduler_topic") or custom_topic or ""),
+                use_global_fallback=not automation_mode,
+            )
         authoritative_topic = channel_topic
 
         provider_request = str(payload.get("provider") or profile.get("default_provider") or "runway").strip().lower()
@@ -406,13 +550,9 @@ class ProductStudioService:
             or "auto"
         )
         duration_seconds = int(payload.get("duration_seconds") or profile.get("default_duration_seconds") or 30)
-        platform = str(payload.get("platform") or profile.get("default_platform"))
-        style = str(
-            payload.get("visual_style")
-            or payload.get("style")
-            or profile.get("visual_style")
-            or profile.get("tone_style")
-        )
+        from content_brain.execution.platform_video_style import resolve_platform_mood, resolve_platform_video_style
+
+        style = resolve_platform_video_style(platform, profile, payload)
         story_package = payload.get("story_package")
         if isinstance(story_package, dict):
             story_package_dict: dict[str, Any] | None = story_package
@@ -422,7 +562,9 @@ class ProductStudioService:
         characters = payload.get("characters")
         character_list = [str(item) for item in characters] if isinstance(characters, list) else None
         environment = str(payload.get("environment") or "").strip()
-        mood = str(payload.get("mood") or payload.get("tone") or "").strip()
+        mood = resolve_platform_mood(platform, profile, payload) or str(
+            payload.get("mood") or payload.get("tone") or ""
+        ).strip()
 
         route_audio_strategy_value = audio_strategy_request
         route_provider_value = provider_request
@@ -508,6 +650,16 @@ class ProductStudioService:
             provider=provider,
             audio_strategy=resolved_audio_strategy,
         ) or duration_plan.kling_native_audio
+        pwmap_kling_path = bool(
+            payload.get("browser_automation")
+            or str(payload.get("provider_runtime") or "").strip().lower() == "pwmap_agent"
+            or automation_mode
+            or bool(payload.get("execute_preflight"))
+        )
+        if pwmap_kling_path:
+            kling_preflight_active = True
+            provider = KLING_PROVIDER_ID
+            resolved_audio_strategy = KLING_AUDIO_STRATEGY
 
         response: dict[str, Any] = {
             "ok": True,
@@ -520,6 +672,7 @@ class ProductStudioService:
             "topic_mode": topic_mode,
             "platform": platform,
             "aspect_ratio": aspect_ratio,
+            "platform_targets": list(payload.get("platform_targets") or ([platform] if platform else [])),
             "style": style,
             "visual_style": style,
             "pipeline_steps": steps,
@@ -535,7 +688,7 @@ class ProductStudioService:
             kling_duration_meta["planned_duration_seconds"] = product_duration["duration_seconds"]
             kling_duration_meta["requested_duration_seconds"] = duration_seconds
             kling_plan = plan_kling_frame_from_audio_route(
-                topic=authoritative_topic,
+                topic=channel_topic,
                 audio_route=audio_route,
                 story_package=story_package_dict,
                 story_summary=story_summary,
@@ -550,7 +703,7 @@ class ProductStudioService:
                 kling_duration_plan=kling_duration_meta,
             )
             kling_block["kling_native_audio_plan"] = plan_kling_from_audio_route(
-                topic=authoritative_topic,
+                topic=channel_topic,
                 audio_route=audio_route,
                 story_package=story_package_dict,
                 story_summary=story_summary,
@@ -1407,32 +1560,54 @@ class ProductStudioService:
         audio_strategy = str(preflight.get("audio_strategy") or "").lower()
         execution_mode = str(payload.get("execution_mode") or "FULL_AUTO").upper()
         clip_count = self._resolve_requested_clip_count(payload, preflight)
+        provider_runtime = self._resolve_product_provider_runtime(payload)
+        generate_payload = dict(payload)
+        use_browser_automation = provider_runtime != "legacy_internal"
+
+        if use_browser_automation and (
+            provider == "runway"
+            or is_kling_native_audio_route(provider=provider, audio_strategy=audio_strategy)
+        ):
+            from content_brain.automation.runway_session_manager import require_runway_session_for_generation
+            from content_brain.execution.product_multiclip_orchestrator import run_product_multiclip_generate
+            from content_brain.execution.pwmap_runway_agent_adapter import (
+                LEGACY_INTERNAL_RUNTIME,
+                PWMAP_AGENT_RUNTIME,
+            )
+
+            session_check = require_runway_session_for_generation(self.project_root, validate=True)
+            if not session_check.get("ok"):
+                return {
+                    "ok": False,
+                    "wired": True,
+                    "status": "runway_session_required",
+                    "message": str(session_check.get("message") or ""),
+                    "runway_session": session_check,
+                    "provider_runtime": PWMAP_AGENT_RUNTIME,
+                    "execution_engine": "pwmap/runway_agent.py",
+                    "subprocess_exit_code": int(session_check.get("exit_code") or 2),
+                }
+
+            generate_payload.setdefault("browser_automation", True)
+            generate_payload.setdefault("skip_credit_guard", True)
+            generate_payload.setdefault("provider_runtime", PWMAP_AGENT_RUNTIME)
+            pwmap_result = run_product_multiclip_generate(
+                project_root=self.project_root,
+                payload=generate_payload,
+                preflight=preflight,
+            )
+            pwmap_result["pipeline_execution_mode"] = execution_mode
+            pwmap_result["requested_clip_count"] = clip_count
+            pwmap_result["actual_clip_count"] = int(pwmap_result.get("clip_count") or clip_count)
+            pwmap_result["provider_runtime"] = PWMAP_AGENT_RUNTIME
+            pwmap_result["legacy_internal_runtime"] = LEGACY_INTERNAL_RUNTIME
+            pwmap_result["execution_engine"] = "pwmap/runway_agent.py"
+            return pwmap_result
 
         if is_kling_native_audio_route(provider=provider, audio_strategy=audio_strategy):
-            provider_runtime = self._resolve_product_provider_runtime(payload)
-            generate_payload = dict(payload)
             generate_payload.setdefault("free_credit_first", True)
             generate_payload.setdefault("operator_paid_approval", False)
             generate_payload.setdefault("free_credit_mode", False)
-            if provider_runtime == "pwmap_agent":
-                from content_brain.execution.product_multiclip_orchestrator import run_product_multiclip_generate
-                from content_brain.execution.pwmap_runway_agent_adapter import (
-                    LEGACY_INTERNAL_RUNTIME,
-                    PWMAP_AGENT_RUNTIME,
-                )
-
-                pwmap_result = run_product_multiclip_generate(
-                    project_root=self.project_root,
-                    payload=generate_payload,
-                    preflight=preflight,
-                )
-                pwmap_result["pipeline_execution_mode"] = execution_mode
-                pwmap_result["requested_clip_count"] = clip_count
-                pwmap_result["actual_clip_count"] = int(pwmap_result.get("clip_count") or clip_count)
-                pwmap_result["provider_runtime"] = PWMAP_AGENT_RUNTIME
-                pwmap_result["legacy_internal_runtime"] = LEGACY_INTERNAL_RUNTIME
-                return pwmap_result
-
             kling_payload = self._apply_product_studio_kling_defaults(payload)
             kling_result = run_kling_product_studio_generate(
                 project_root=self.project_root,
@@ -1475,6 +1650,23 @@ class ProductStudioService:
                 "wired": False,
                 "status": "unsupported_provider",
                 "message": "Provider execution not wired yet.",
+                "provider": provider,
+                "authoritative_topic": preflight.get("authoritative_topic") or "",
+                "clip_count": clip_count,
+                "duration_plan": preflight.get("duration_plan") or {},
+                "topic_authority_trace": trace.to_dict(),
+            }
+
+        if provider_runtime != "legacy_internal":
+            trace.write(self.project_root)
+            return {
+                "ok": False,
+                "wired": True,
+                "status": "legacy_internal_disabled",
+                "message": (
+                    "Legacy internal Runway API runtime is disabled. "
+                    "Use browser automation (provider_runtime=pwmap_agent, default)."
+                ),
                 "provider": provider,
                 "authoritative_topic": preflight.get("authoritative_topic") or "",
                 "clip_count": clip_count,

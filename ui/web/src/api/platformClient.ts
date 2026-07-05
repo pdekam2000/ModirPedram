@@ -131,6 +131,28 @@ export function refreshRunwayPage(force = false) {
   );
 }
 
+export type RunwaySessionStatus = {
+  connected: boolean;
+  disconnected: boolean;
+  message: string;
+  validated: boolean;
+  updated_at: string;
+  session_path: string;
+  awaiting_login?: boolean;
+};
+
+export function fetchRunwaySessionStatus(validate = false) {
+  return request<RunwaySessionStatus>(`/platform/browser/runway-session?validate=${validate ? "true" : "false"}`);
+}
+
+export function connectRunwayBrowser() {
+  return request<RunwaySessionStatus>("/platform/browser/connect-runway", { method: "POST" });
+}
+
+export function saveRunwayBrowserSession() {
+  return request<RunwaySessionStatus>("/platform/browser/save-runway-session", { method: "POST" });
+}
+
 export type RunHistoryItem = {
   run_id: string;
   topic: string;
@@ -188,6 +210,8 @@ export type AutomationStatus = {
   feature_flags: Record<string, boolean>;
   running_job: Record<string, unknown> | null;
   next_job: Record<string, unknown> | null;
+  next_due_job?: Record<string, unknown> | null;
+  has_due_jobs?: boolean;
   queued_count: number;
   completed_count: number;
   failed_count: number;
@@ -227,6 +251,10 @@ export function automationStartNext() {
   return request<Record<string, unknown>>("/automation/start-next", { method: "POST" });
 }
 
+export function automationStart() {
+  return request<Record<string, unknown>>("/automation/start", { method: "POST" });
+}
+
 export function automationPause() {
   return request<Record<string, unknown>>("/automation/pause", { method: "POST" });
 }
@@ -239,6 +267,14 @@ export function automationCancelJob(jobId: string) {
   return request<Record<string, unknown>>(`/automation/cancel/${encodeURIComponent(jobId)}`, { method: "POST" });
 }
 
+export function automationResetDailyCounter(platform?: "youtube" | "instagram" | "tiktok") {
+  const query = platform ? `?platform=${encodeURIComponent(platform)}` : "";
+  return request<{ ok: boolean; message: string; jobs_reset: number; platform: string; completed_today: number }>(
+    `/automation/reset-daily-counter${query}`,
+    { method: "POST" },
+  );
+}
+
 export function prepareUploadPackage(body: Record<string, unknown>) {
   return request<{ ok: boolean; upload_package: Record<string, unknown> }>("/upload/prepare", {
     method: "POST",
@@ -246,8 +282,45 @@ export function prepareUploadPackage(body: Record<string, unknown>) {
   });
 }
 
-export function submitYouTubeUpload(body: { package_dir?: string; confirmed?: boolean; upload_package?: Record<string, unknown> }) {
+export function submitYouTubeUpload(body: {
+  package_dir?: string;
+  run_id?: string;
+  confirmed?: boolean;
+  upload_package?: Record<string, unknown>;
+  automation_mode?: boolean;
+}) {
   return request<Record<string, unknown>>("/upload/youtube/submit", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export function submitInstagramUpload(body: {
+  package_dir?: string;
+  run_id?: string;
+  video_path?: string;
+  upload_package?: Record<string, unknown>;
+  title?: string;
+  caption?: string;
+  hashtags?: string[];
+  automation_mode?: boolean;
+}) {
+  return request<Record<string, unknown>>("/upload/instagram/submit", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export function submitTikTokUpload(body: {
+  package_dir?: string;
+  run_id?: string;
+  video_path?: string;
+  upload_package?: Record<string, unknown>;
+  title?: string;
+  caption?: string;
+  automation_mode?: boolean;
+}) {
+  return request<Record<string, unknown>>("/upload/tiktok/submit", {
     method: "POST",
     body: JSON.stringify(body),
   });
@@ -296,7 +369,57 @@ export type UploadCenterStatus = {
   publish_package_path?: string;
   auto_upload_enabled?: boolean;
   latest_legacy_package?: Record<string, unknown>;
+  platform_scheduler?: PlatformSchedulerState;
 };
+
+export type PlatformUploadHistoryItem = {
+  title?: string;
+  uploaded_at?: string;
+  success?: boolean;
+  run_id?: string;
+  youtube_url?: string;
+  post_url?: string;
+  error?: string;
+};
+
+export type PlatformScheduleEntry = {
+  enabled?: boolean;
+  topic?: string;
+  videos_per_day?: number;
+  interval_hours?: number;
+  start_hour?: number;
+  duration_seconds?: number;
+  upload_times_preview?: string[];
+  last_upload_success?: boolean;
+  upload_history?: PlatformUploadHistoryItem[];
+};
+
+export type PlatformSchedulerState = {
+  version?: string;
+  automation_enabled?: boolean;
+  automation_paused?: boolean;
+  daily_job_cap?: number;
+  platforms?: Record<string, PlatformScheduleEntry>;
+  updated_at?: string;
+};
+
+export function fetchPlatformSchedules() {
+  return request<PlatformSchedulerState>("/automation/platform-schedules");
+}
+
+export function updatePlatformSchedules(body: {
+  automation_enabled?: boolean;
+  automation_paused?: boolean;
+  platforms?: Record<string, Partial<PlatformScheduleEntry>>;
+}) {
+  return request<PlatformSchedulerState & { ok?: boolean; sync?: Record<string, unknown> }>(
+    "/automation/platform-schedules",
+    {
+      method: "POST",
+      body: JSON.stringify(body),
+    },
+  );
+}
 
 export function fetchUploadCenterStatus(runId = "") {
   const query = runId ? `?run_id=${encodeURIComponent(runId)}` : "";

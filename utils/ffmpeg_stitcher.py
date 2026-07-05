@@ -10,7 +10,7 @@ class FFmpegStitcher:
     def check_ffmpeg(self) -> bool:
         return shutil.which(self.ffmpeg_path) is not None
 
-    def stitch_clips(self, clip_paths, output_path: str):
+    def stitch_clips(self, clip_paths, output_path: str, *, strip_audio: bool = False):
         if not self.check_ffmpeg():
             raise RuntimeError(
                 "FFmpeg not found. Please install FFmpeg and make sure it is available in PATH."
@@ -33,6 +33,41 @@ class FFmpegStitcher:
             for clip in clips:
                 safe_path = str(clip).replace("\\", "/")
                 f.write(f"file '{safe_path}'\n")
+
+        if strip_audio:
+            cmd_reencode = [
+                self.ffmpeg_path,
+                "-y",
+                "-f",
+                "concat",
+                "-safe",
+                "0",
+                "-i",
+                str(list_file),
+                "-c:v",
+                "libx264",
+                "-preset",
+                "veryfast",
+                "-crf",
+                "18",
+                "-pix_fmt",
+                "yuv420p",
+                "-an",
+                str(output),
+            ]
+            result = subprocess.run(
+                cmd_reencode,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+            if result.returncode != 0:
+                raise RuntimeError(
+                    "FFmpeg stitching failed (video-only / -an):\n"
+                    + result.stderr
+                )
+            print("[FFmpegStitcher] Final video saved (Runway audio stripped):", output)
+            return str(output)
 
         cmd = [
             self.ffmpeg_path,

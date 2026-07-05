@@ -25,7 +25,7 @@ class UploadTarget:
     title: str = ""
     description: str = ""
     hashtags: list[str] = field(default_factory=list)
-    privacy: str = PRIVACY_PRIVATE
+    privacy: str = PRIVACY_PUBLIC
     metadata_path: str = ""
     warnings: list[str] = field(default_factory=list)
 
@@ -52,7 +52,7 @@ class UploadPackage:
     package_dir: str = ""
     video_path: str = ""
     publish_package_path: str = ""
-    auto_upload_enabled: bool = False
+    auto_upload_enabled: bool = True
     targets: list[UploadTarget] = field(default_factory=list)
     created_at: str = ""
 

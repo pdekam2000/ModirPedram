@@ -6,7 +6,9 @@ Session read endpoints + Phase 10H queue + Phase 10I/10J provider runtime dispat
 
 from __future__ import annotations
 
+import logging
 import os
+from contextlib import asynccontextmanager
 from typing import Any, Optional
 
 from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
@@ -132,6 +134,7 @@ from ui.api.schemas.platform import (
     AutomationJobCreateRequest,
     AutomationQueueJobRequest,
     AutomationStatusResponse,
+    AutomationResetDailyCounterResponse,
     BrowserActionResponse,
     BrowserHealthResponse,
     CommentDraftActionRequest,
@@ -142,6 +145,8 @@ from ui.api.schemas.platform import (
     CredentialTestResponse,
     LoginRequest,
     RunHistoryResponse,
+    RunwaySessionResponse,
+    PlatformSchedulerUpdateRequest,
     UploadPrepareRequest,
     UploadCenterStatusResponse,
     UploadMetadataRequest,
@@ -150,6 +155,8 @@ from ui.api.schemas.platform import (
     UploadYouTubeFirstAuthRequest,
     UploadYouTubePublishPackageRequest,
     UploadYouTubeSubmitRequest,
+    UploadInstagramSubmitRequest,
+    UploadTikTokSubmitRequest,
 )
 from content_brain.upgrades.patch_upload_service import PatchUploadError, upload_patch_package
 
@@ -164,10 +171,48 @@ CORS_ORIGINS = [origin.strip() for origin in _cors_origins.split(",") if origin.
 
 API_VERSION = "0.6.0"
 
+logger = logging.getLogger(__name__)
+
+
+def _bootstrap_platform_runtime() -> None:
+    if not logging.getLogger().handlers:
+        logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    try:
+        get_platform_service().credentials.apply_all_to_env()
+    except Exception as exc:
+        logger.warning("credential bootstrap failed: %s", exc)
+    try:
+        from content_brain.platform.api_runtime_diagnostics import init_api_runtime_diagnostics
+
+        init_api_runtime_diagnostics(get_project_root(), api_version=API_VERSION)
+    except Exception as exc:
+        logger.warning("runtime diagnostics init failed: %s", exc)
+    try:
+        from content_brain.automation.background_scheduler import start_background_scheduler
+
+        result = start_background_scheduler(get_project_root())
+        logger.info("automation scheduler startup: %s", result)
+    except Exception as exc:
+        logger.exception("automation scheduler failed to start: %s", exc)
+
+
+@asynccontextmanager
+async def _app_lifespan(_app: FastAPI):
+    _bootstrap_platform_runtime()
+    yield
+    try:
+        from content_brain.automation.background_scheduler import stop_background_scheduler
+
+        stop_background_scheduler()
+    except Exception as exc:
+        logger.warning("automation scheduler shutdown failed: %s", exc)
+
+
 app = FastAPI(
     title="ModirAgentOS API",
     version=API_VERSION,
     description="Execution Center V2 — sessions + queue + provider runtime + operator control.",
+    lifespan=_app_lifespan,
 )
 
 app.add_middleware(
@@ -177,20 +222,6 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("startup")
-def platform_startup_apply_credentials():
-    try:
-        get_platform_service().credentials.apply_all_to_env()
-    except Exception:
-        pass
-    try:
-        from content_brain.platform.api_runtime_diagnostics import init_api_runtime_diagnostics
-
-        init_api_runtime_diagnostics(get_project_root(), api_version=API_VERSION)
-    except Exception:
-        pass
 
 
 @app.get("/platform/runtime-diagnostics")
@@ -1084,13 +1115,61 @@ def product_get_channel_logo(service=Depends(get_product_studio_service)):
     return ChannelLogoStatusDTO(**service.get_channel_logo_status())
 
 
+@app.get("/product/channel-assets/logo/file")
+def product_get_channel_logo_file(service=Depends(get_product_studio_service)):
+    try:
+        asset_path = service.get_branding_asset_path("logo")
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    if asset_path is None or not asset_path.is_file():
+        raise HTTPException(status_code=404, detail="Logo not found")
+    media_type = "image/jpeg" if asset_path.suffix.lower() in {".jpg", ".jpeg"} else "image/png"
+    return FileResponse(asset_path, media_type=media_type, filename=asset_path.name)
+
+
 @app.post("/product/channel-assets/logo")
 async def product_upload_channel_logo(file: UploadFile = File(...), service=Depends(get_product_studio_service)):
     payload = await file.read()
     try:
-        return service.save_channel_logo(payload)
+        return service.save_channel_logo(
+            payload,
+            content_type=str(file.content_type or ""),
+            filename=str(file.filename or ""),
+        )
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.post("/product/channel-assets/{asset_kind}")
+async def product_upload_branding_asset(
+    asset_kind: str,
+    file: UploadFile = File(...),
+    service=Depends(get_product_studio_service),
+):
+    payload = await file.read()
+    try:
+        return service.save_branding_asset(
+            asset_kind,
+            payload,
+            content_type=str(file.content_type or ""),
+            filename=str(file.filename or ""),
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/product/channel-assets/{asset_kind}/file")
+def product_get_branding_asset_file(asset_kind: str, service=Depends(get_product_studio_service)):
+    try:
+        asset_path = service.get_branding_asset_path(asset_kind)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    if asset_path is None or not asset_path.is_file():
+        raise HTTPException(status_code=404, detail=f"Asset not found: {asset_kind}")
+    media_type = "video/mp4" if asset_path.suffix.lower() == ".mp4" else "image/png"
+    if asset_path.suffix.lower() in {".jpg", ".jpeg"}:
+        media_type = "image/jpeg"
+    return FileResponse(asset_path, media_type=media_type, filename=asset_path.name)
 
 
 @app.get("/product/elevenlabs/connection-status", response_model=ElevenLabsConnectionStatusDTO)
@@ -1309,6 +1388,41 @@ def platform_browser_refresh_runway(force: bool = False, service=Depends(get_pla
     )
 
 
+@app.get("/platform/browser/runway-session", response_model=RunwaySessionResponse)
+def platform_runway_session_status(validate: bool = False, service=Depends(get_platform_service)):
+    return RunwaySessionResponse(**service.runway_session_status(validate=validate))
+
+
+@app.post("/platform/browser/connect-runway", response_model=RunwaySessionResponse)
+def platform_connect_runway_browser(service=Depends(get_platform_service)):
+    payload = service.connect_runway_browser()
+    status = payload.get("status") or {}
+    return RunwaySessionResponse(
+        connected=bool(payload.get("connected")),
+        disconnected=not bool(payload.get("connected")),
+        message=str(payload.get("message") or status.get("message") or ""),
+        validated=bool(status.get("validated")),
+        updated_at=str(status.get("updated_at") or ""),
+        session_path=str(status.get("session_path") or ""),
+        awaiting_login=bool(payload.get("awaiting_login")),
+    )
+
+
+@app.post("/platform/browser/save-runway-session", response_model=RunwaySessionResponse)
+def platform_save_runway_browser_session(service=Depends(get_platform_service)):
+    payload = service.save_runway_browser_session()
+    status = payload.get("status") or {}
+    return RunwaySessionResponse(
+        connected=bool(payload.get("connected")),
+        disconnected=not bool(payload.get("connected")),
+        message=str(payload.get("message") or ""),
+        validated=bool(status.get("validated")),
+        updated_at=str(status.get("updated_at") or ""),
+        session_path=str(status.get("session_path") or ""),
+        awaiting_login=False,
+    )
+
+
 @app.get("/platform/runs/history", response_model=RunHistoryResponse)
 def platform_run_history(limit: int = 20, service=Depends(get_platform_service)):
     return RunHistoryResponse(**service.run_history(limit=limit))
@@ -1363,6 +1477,15 @@ def automation_start_next(
     return service.start_next(product_service=product_service, runway_service=runway_service)
 
 
+@app.post("/automation/start")
+def automation_start(
+    service=Depends(get_automation_service),
+    product_service=Depends(get_product_studio_service),
+    runway_service=Depends(get_runway_live_smoke_service),
+):
+    return service.start_automation(product_service=product_service, runway_service=runway_service)
+
+
 @app.post("/automation/pause")
 def automation_pause(service=Depends(get_automation_service)):
     return service.pause()
@@ -1378,6 +1501,21 @@ def automation_cancel_job(job_id: str, service=Depends(get_automation_service)):
     return service.cancel_job(job_id)
 
 
+@app.post("/automation/reset-daily-counter", response_model=AutomationResetDailyCounterResponse)
+def automation_reset_daily_counter(platform: str | None = None, service=Depends(get_automation_service)):
+    return AutomationResetDailyCounterResponse(**service.reset_daily_counter(platform=platform))
+
+
+@app.get("/automation/platform-schedules")
+def automation_platform_schedules(service=Depends(get_automation_service)):
+    return service.get_platform_scheduler()
+
+
+@app.post("/automation/platform-schedules")
+def automation_update_platform_schedules(body: PlatformSchedulerUpdateRequest, service=Depends(get_automation_service)):
+    return service.update_platform_scheduler(body.model_dump(exclude_none=True))
+
+
 @app.post("/upload/prepare")
 def upload_prepare(body: UploadPrepareRequest, service=Depends(get_automation_service)):
     return service.prepare_upload(body.model_dump())
@@ -1386,6 +1524,16 @@ def upload_prepare(body: UploadPrepareRequest, service=Depends(get_automation_se
 @app.post("/upload/youtube/submit")
 def upload_youtube_submit(body: UploadYouTubeSubmitRequest, service=Depends(get_automation_service)):
     return service.submit_youtube(body.model_dump())
+
+
+@app.post("/upload/instagram/submit")
+def upload_instagram_submit(body: UploadInstagramSubmitRequest, service=Depends(get_automation_service)):
+    return service.submit_instagram(body.model_dump())
+
+
+@app.post("/upload/tiktok/submit")
+def upload_tiktok_submit(body: UploadTikTokSubmitRequest, service=Depends(get_automation_service)):
+    return service.submit_tiktok(body.model_dump())
 
 
 @app.get("/upload/status", response_model=UploadCenterStatusResponse)

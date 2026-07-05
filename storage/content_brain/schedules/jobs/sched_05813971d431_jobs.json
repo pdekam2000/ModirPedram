@@ -1,0 +1,50 @@
+[
+  {
+    "job_id": "job_c702cf11a0e3",
+    "schedule_id": "sched_05813971d431",
+    "planned_date": "2026-07-03",
+    "planned_time": "09:00",
+    "topic": "Short, mind-blowing science and nature facts—one shocking truth per video about animals, space, the human body, or Earth.",
+    "duration_seconds": 30,
+    "clip_count": 3,
+    "platform_targets": [
+      "youtube_shorts"
+    ],
+    "status": "planned",
+    "output_package_path": "",
+    "created_at": "2026-07-03T14:20:46Z",
+    "updated_at": "2026-07-03T14:20:46Z"
+  },
+  {
+    "job_id": "job_6af1215aad39",
+    "schedule_id": "sched_05813971d431",
+    "planned_date": "2026-07-03",
+    "planned_time": "09:00",
+    "topic": "Short, mind-blowing science and nature facts—one shocking truth per video about animals, space, the human body, or Earth.",
+    "duration_seconds": 30,
+    "clip_count": 3,
+    "platform_targets": [
+      "youtube_shorts"
+    ],
+    "status": "planned",
+    "output_package_path": "",
+    "created_at": "2026-07-03T14:20:46Z",
+    "updated_at": "2026-07-03T14:20:46Z"
+  },
+  {
+    "job_id": "job_8dd1d925e24f",
+    "schedule_id": "sched_05813971d431",
+    "planned_date": "2026-07-03",
+    "planned_time": "09:00",
+    "topic": "Short, mind-blowing science and nature facts—one shocking truth per video about animals, space, the human body, or Earth.",
+    "duration_seconds": 30,
+    "clip_count": 3,
+    "platform_targets": [
+      "youtube_shorts"
+    ],
+    "status": "planned",
+    "output_package_path": "",
+    "created_at": "2026-07-03T14:20:46Z",
+    "updated_at": "2026-07-03T14:20:46Z"
+  }
+]
