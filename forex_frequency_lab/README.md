@@ -359,6 +359,30 @@ tried. Classic trend/RSI-pullback setups are also about as crowded and
 well-known as trading ideas get, which is consistent with not finding much
 left to extract from it here.
 
+## A third strategy: Donchian channel breakout
+
+One more genuinely different mechanism, tried after the two above:
+classic momentum/breakout trading (turtle-style) instead of a reversal or
+a gap. `donchian_breakout.py` goes long the moment price closes above its
+own trailing N-bar high, short the moment it closes below its trailing
+N-bar low - no trend filter, no RSI, pure breakout.
+
+**Result: decisively negative, no exceptions.** Swept channel length
+(10/20/40/55 bars) x reward:risk (1.5/2/3) x holding period (20/40 bars) -
+24 combinations, all six pairs pooled - and every single one came out
+negative both in-sample and out-of-sample
+(`output/donchian_breakout/parameter_sweep.csv`). Digging into why: at a
+representative setting, 62.5% of trades hit the stop and only 22% reached
+target - textbook false-breakout behavior (price breaks the range, then
+reverses back through the stop before actually trending). That is a real
+architectural mismatch, not just bad luck: classic breakout systems handle
+this with a *trailing* stop - cut the frequent false breakouts fast with a
+tight initial stop, then let the rare real ones run far past any fixed
+target - and this project's backtest engine only supports a fixed
+stop/target set at entry. A fair test of Donchian breakout would need a
+trailing-stop backtester, which is a bigger extension than was justified
+here given the fixed-exit version failed this uniformly.
+
 ## Validating the pipeline with synthetic data
 
 `forex_frequency_lab/synthetic_data.py` generates a random-walk price series
