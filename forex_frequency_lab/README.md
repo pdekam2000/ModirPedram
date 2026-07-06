@@ -315,6 +315,50 @@ spread-widening risk can't be dodged by waiting for the market to calm
 down; the trade has to be taken right at the volatile reopen or not at all,
 which is exactly when execution is least certain.
 
+## A second, unrelated strategy: trend + pullback + RSI reversal
+
+A completely separate idea from the gap-fade above (own module, own
+Expert Advisor if it had worked out): a classic multi-timeframe
+trend-following setup.
+
+- **`indicators.py`**: EMA, Wilder's RSI, and Wilder's ADX/+DI/-DI, each
+  cross-checked in tests against an independent reference implementation
+  (not just re-checking the same code against itself).
+- **`trend_pullback_rsi.py`**:
+  1. Resample real H4 data up to daily bars and label each day "up" /
+     "down" / "neutral" from an EMA50-vs-EMA200 crossover, gated by
+     ADX(14) ≥ 20 so a real trending regime is required, not just any
+     crossover.
+  2. On H4, enter *with* that trend the moment RSI(14) crosses back out of
+     oversold/overbought (30/70) — i.e. the pullback against the trend just
+     got exhausted and is reversing back the trend's way.
+  3. Stop-loss = 1.5× ATR(14), target = a multiple of that (3× per the
+     "سه‌پل سود" request), timeout exit after N bars.
+
+```bash
+python -m forex_frequency_lab.trend_pullback_rsi_cli \
+    --csvs data/EURUSD_H4.csv data/USDJPY_H4.csv data/AUDUSD_H4.csv \
+    --reward-risk-ratio 3.0 --max-hold-bars 20 \
+    --output-dir output/trend_pullback_rsi
+```
+
+**What we found: this one didn't work, and turning the profit target up to
+3× made it worse, not better.** At 3R target / 20-bar hold, almost no
+trade actually reaches the target (1–2 out of 26–50 per pair) — most
+either stop out at a full −1R or time out partway there — so the pooled
+result is negative both in-sample (−0.18R) and out-of-sample (−0.06R). A
+full sweep of reward:risk (1.5/2/3) × holding period (20/40/60/90 bars,
+`output/trend_pullback_rsi/reward_risk_hold_sweep.csv`) found the least-bad
+setting at 1.5R / 60 bars — but even there, per-pair results
+(`best_config_per_pair.csv`) are **inconsistent, not confirming**: EURUSD
+loses in both halves (−0.30R in-sample, −0.27R out-of-sample), AUDUSD is
+roughly flat, and only USDJPY looks good (+0.65R out-of-sample) — on just
+9 trades, far too few to trust. Unlike the gap-fade, which was positive on
+6 of 6 pairs, this strategy shows no cross-pair consistency at any setting
+tried. Classic trend/RSI-pullback setups are also about as crowded and
+well-known as trading ideas get, which is consistent with not finding much
+left to extract from it here.
+
 ## Validating the pipeline with synthetic data
 
 `forex_frequency_lab/synthetic_data.py` generates a random-walk price series
