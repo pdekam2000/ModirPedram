@@ -1,0 +1,27 @@
+{
+  "schedule_id": "sched_a1cbc512b9f4",
+  "title": "Daily Channel Plan",
+  "mode": "daily",
+  "videos_per_day": 8,
+  "duration_seconds": 30,
+  "clip_count": 3,
+  "topic_source": "channel",
+  "custom_topic": "",
+  "topic_list": [
+    "idea 1",
+    "idea 2",
+    "idea 3"
+  ],
+  "platforms": [
+    "tiktok",
+    "instagram_reels",
+    "youtube_shorts"
+  ],
+  "provider": "runway",
+  "start_date": "2026-07-06",
+  "end_date": "2026-07-12",
+  "run_time": "09:00",
+  "enabled": true,
+  "created_at": "2026-07-06T12:53:47Z",
+  "updated_at": "2026-07-06T12:53:47Z"
+}

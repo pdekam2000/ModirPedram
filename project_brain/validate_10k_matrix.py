@@ -43,7 +43,7 @@ def _run_submodule(module_name: str, section: str) -> list[dict]:
         _pass(
             f"{section}_all_pass",
             bool(report.get("summary", {}).get("all_pass")),
-            json.dumps(report.get("summary", {})),
+            json.dumps(report.get("summary", {}), ensure_ascii=False),
             section=section,
         )
     )
@@ -265,6 +265,7 @@ def validate_10j_backwards_compat(root: Path) -> list[dict]:
                         panel_data.get("runtime_state"),
                     ],
                 }
+                ensure_ascii=False,
             ),
             section="10J-compat",
         )
@@ -337,5 +338,5 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 if __name__ == "__main__":
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

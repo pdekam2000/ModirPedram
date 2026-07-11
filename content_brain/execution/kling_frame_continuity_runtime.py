@@ -268,7 +268,7 @@ def _ensure_frame_mp4(
                 live_payload["download_verify_error"] = "Recovered file is not a real MP4"
                 live_payload["recovery_available"] = True
                 video_path = ""
-        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2), encoding="utf-8")
+        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return video_path or _resolve_clip_video(clip_dir), live_payload
 
 
@@ -385,7 +385,7 @@ def run_kling_frame_continuity_chain(
         live_payload["story_chapter"] = story_chapter_for_clip(clip_index, clip_count=plan.clip_count)
         live_payload["clip_dir"] = str(clip_dir.resolve()).replace("\\", "/")
         clip_results.append(live_payload)
-        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2), encoding="utf-8")
+        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
         video_path, live_payload = _ensure_frame_mp4(
             run_id=run_id,
@@ -397,7 +397,7 @@ def run_kling_frame_continuity_chain(
         gate = evaluate_clip_download_gate(live_payload, video_path, cdp_url=cdp_url)
         live_payload.update(gate)
         clip_results[-1] = live_payload
-        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2), encoding="utf-8")
+        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
         chapter = str(
             live_payload.get("story_chapter")
@@ -507,7 +507,7 @@ def run_kling_frame_continuity_chain(
             except Exception as exc:
                 runtime_state.continuity_status = STATUS_CHAIN_STOPPED
                 runtime_state.stopped_at_clip = clip_index + 1
-                runtime_state.stop_reason = f"Use Frame handoff error: {str(exc)[:160]}"
+                runtime_state.stop_reason = f"Use Frame handoff error: {str(exc, ensure_ascii=False)[:160]}"
                 write_continuity_chain_files(run_dir, plan_chain=plan_chain, runtime_state=runtime_state)
                 write_use_frame_chain(run_dir, use_frame_state)
                 break

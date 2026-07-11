@@ -106,7 +106,7 @@ def _setup_publish_dir(tmp: Path) -> Path:
     publish.mkdir(parents=True)
     _write_video(publish / FINAL_PUBLISH_READY_NAME)
     (publish / "youtube_metadata.json").write_text(
-        json.dumps({"title": "Test", "description": "desc", "tags": [], "hashtags": []}),
+        json.dumps({"title": "Test", "description": "desc", "tags": [], "hashtags": []}, ensure_ascii=False),
         encoding="utf-8",
     )
     return run_dir

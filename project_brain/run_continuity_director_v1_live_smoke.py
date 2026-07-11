@@ -296,7 +296,7 @@ def main() -> int:
 
     chain = result.to_dict()
     chain_path = run_dir / "continuity_director_chain.json"
-    chain_path.write_text(json.dumps(chain, indent=2), encoding="utf-8")
+    chain_path.write_text(json.dumps(chain, indent=2, ensure_ascii=False), encoding="utf-8")
 
     report = _build_report(run_id=run_id, chain=chain, preflight=preflight, topic_guard=topic_guard)
     REPORT_PATH.write_text(report, encoding="utf-8")

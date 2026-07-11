@@ -554,7 +554,7 @@ if __name__ == "__main__":
         print("  seed_count:", len(trend_discovery.get("manual_seed_topics", [])))
         sample_seeds = trend_discovery.get("manual_seed_topics", [])[:3]
         print("  sample_seeds:", sample_seeds)
-        print("  JSON OK:", json.dumps(profile)[:120] + "...")
+        print("  JSON OK:", json.dumps(profile, ensure_ascii=False)[:120] + "...")
 
     print("\n" + "=" * 72)
     print("SEMANTIC UNIVERSE RESOLVE SMOKE TEST")

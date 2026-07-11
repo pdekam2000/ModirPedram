@@ -1,38 +1,41 @@
 {
   "version": "platform_daily_scheduler_v1",
+  "youtube_duration_seconds": 45,
+  "instagram_duration_seconds": 45,
+  "tiktok_duration_seconds": 30,
   "platforms": {
     "youtube_shorts": {
       "enabled": true,
-      "topic": "Science That Feels Impossible — surprising, cinematic science facts with a recurring female presenter (25-35s English Shorts)",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
       "videos_per_day": 3,
       "interval_hours": 4,
       "start_hour": 8,
-      "duration_seconds": 30
+      "duration_seconds": 45
     },
     "instagram_reels": {
       "enabled": true,
-      "topic": "Satisfying skincare transformations, aesthetic morning routines, glowing skin tips, and beautiful self-care rituals for women aged 18-35",
+      "topic": "Skincare & Self-Care — Instagram Reels",
       "videos_per_day": 3,
-      "interval_hours": 8,
+      "interval_hours": 6,
       "start_hour": 8,
-      "duration_seconds": 30
+      "duration_seconds": 45
     },
     "tiktok": {
       "enabled": false,
-      "topic": "Funny and unexpected animal moments, hilarious fails, surprising plot twists in real life",
+      "topic": "Quick Fitness Tips — TikTok",
       "videos_per_day": 3,
       "interval_hours": 4,
       "start_hour": 8,
       "duration_seconds": 30
     }
   },
-  "updated_at": "2026-07-05T19:55:37.993619+00:00",
+  "updated_at": "2026-07-11T07:22:36.235376+00:00",
   "daily_completion": {
-    "date": "2026-07-05",
+    "date": "2026-07-11",
     "platforms": {
       "youtube_shorts": 0,
-      "instagram_reels": 1
+      "instagram_reels": 0
     },
-    "completed_today": 1
+    "completed_today": 0
   }
 }

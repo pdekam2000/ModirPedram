@@ -65,7 +65,7 @@ def main() -> None:
     print("Old niche leaks:", len(bad))
 
     out = root / "project_brain" / "validation_science_topics.json"
-    out.write_text(json.dumps(topics, indent=2), encoding="utf-8")
+    out.write_text(json.dumps(topics, indent=2, ensure_ascii=False), encoding="utf-8")
     print("Wrote", out)
 
 

@@ -221,7 +221,7 @@ def write_runway_phase_i_checkpoint(
         payload["delivery_status"] = delivery_status
     if delivery_failures:
         payload["delivery_failures"] = list(delivery_failures)
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
@@ -277,7 +277,7 @@ def run_assembly(
     if not ffmpeg_available or not ffmpeg_bin:
         base_manifest["status"] = ASSEMBLY_PLAN_ONLY
         base_manifest["error"] = str(getattr(probe, "error", "") or "FFmpeg not available.")
-        manifest_path.write_text(json.dumps(base_manifest, indent=2), encoding="utf-8")
+        manifest_path.write_text(json.dumps(base_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
         return base_manifest
 
     from content_brain.execution.product_audio_source import strip_runway_audio_during_assembly
@@ -317,13 +317,13 @@ def run_assembly(
     if not ok:
         base_manifest["status"] = ASSEMBLY_FAILED
         base_manifest["error"] = error
-        manifest_path.write_text(json.dumps(base_manifest, indent=2), encoding="utf-8")
+        manifest_path.write_text(json.dumps(base_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
         return base_manifest
 
     if not output_path.is_file() or output_path.stat().st_size <= 0:
         base_manifest["status"] = ASSEMBLY_FAILED
         base_manifest["error"] = "Final output missing or empty after FFmpeg."
-        manifest_path.write_text(json.dumps(base_manifest, indent=2), encoding="utf-8")
+        manifest_path.write_text(json.dumps(base_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
         return base_manifest
 
     base_manifest["status"] = ASSEMBLY_ASSEMBLED
@@ -331,7 +331,7 @@ def run_assembly(
     assembled_duration = probe_duration_seconds(output_path)
     if assembled_duration:
         base_manifest["duration_seconds"] = assembled_duration
-    manifest_path.write_text(json.dumps(base_manifest, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(base_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     return base_manifest
 
 
@@ -368,7 +368,7 @@ def run_publish_package(
             "warnings": warnings,
             "created_at": _now(),
         }
-        manifest_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        manifest_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
         return payload
 
     package_dir = package_dir or _publish_package_dir(project_root)
@@ -425,7 +425,7 @@ def run_publish_package(
         "branding_status": str(branding_post_result.get("status") or ""),
         "created_at": _now(),
     }
-    metadata_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+    metadata_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
 
     prompts_dir = package_dir / "prompts"
     prompts_dir.mkdir(parents=True, exist_ok=True)
@@ -503,8 +503,7 @@ def run_publish_package(
                     "narration_audio_path": str(narration_audio_path) if audio_source.is_file() else "",
                     "segments": list(timeline_payload.get("segments") or []),
                 },
-                indent=2,
-            ),
+                indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
 
@@ -541,7 +540,7 @@ def run_publish_package(
             youtube_metadata.get("metadata_path") or (package_dir / "youtube_metadata.json")
         )
         metadata["youtube_metadata_path"] = youtube_metadata_path
-        metadata_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        metadata_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     except Exception as exc:
         warnings.append(f"youtube_metadata_generation_failed:{exc}")
 
@@ -570,7 +569,7 @@ def run_publish_package(
         "warnings": warnings,
         "created_at": _now(),
     }
-    manifest_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return payload
 
 

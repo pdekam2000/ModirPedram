@@ -227,7 +227,8 @@ def test_build_prior_from_clip_dir() -> None:
                     }
                 }
             }
-        ),
+                ensure_ascii=False,
+            ),
         encoding="utf-8",
     )
     sigs = build_prior_artifact_signatures_from_clip(clip_dir)

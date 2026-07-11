@@ -365,8 +365,8 @@ def main() -> int:
 
     result = run_kling_frame_to_video_shadow(cdp_url=args.cdp_url, map_path=args.map_path, dry_run=True)
     summary_path = ROOT / "project_brain" / "kling_frame_to_video_shadow_summary.json"
-    summary_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
-    print(json.dumps(result.to_dict(), indent=2), flush=True)
+    summary_path.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), flush=True)
     return 0 if result.ok else 1
 
 

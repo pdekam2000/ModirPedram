@@ -1181,7 +1181,7 @@ class PhaseIArtifactTracker:
             payload.update(extra)
         DEFAULT_ARTIFACT_CARD_DIAGNOSTICS.parent.mkdir(parents=True, exist_ok=True)
         DEFAULT_ARTIFACT_CARD_DIAGNOSTICS.write_text(
-            json.dumps(payload, indent=2),
+            json.dumps(payload, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
 

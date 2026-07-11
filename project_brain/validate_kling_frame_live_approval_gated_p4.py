@@ -169,7 +169,7 @@ def test_live_approved_output(*, cdp_url: str) -> None:
             cdp_url=cdp_url,
             map_path=DEFAULT_MAP_PATH,
         )
-        summary_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+        summary_path.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         payload = result.to_dict()
     _pass("live_generate_clicked", payload.get("generate_clicked") is True)
     _pass("live_approved_by", payload.get("approved_by") == "Pedram")

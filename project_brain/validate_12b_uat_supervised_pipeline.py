@@ -213,7 +213,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
                 "flags_disabled_after_failure",
                 os.getenv("MODIR_ASSEMBLY_REAL_EXECUTION_ENABLED") is None
                 and os.getenv("ASSEMBLY_RUNTIME_EXECUTION_APPROVED") is None,
-                json.dumps(flags_after),
+                json.dumps(flags_after, ensure_ascii=False),
             )
         )
 
@@ -452,7 +452,7 @@ def main(argv: list[str] | None = None) -> int:
 
     include_regressions = parse_include_regressions(argv)
     report = run_matrix(include_regressions=include_regressions)
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     print_validation_summary(report)
     return validation_exit_code(report)
 

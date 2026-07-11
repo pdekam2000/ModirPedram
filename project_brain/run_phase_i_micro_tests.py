@@ -355,7 +355,7 @@ def main() -> int:
     )
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"page_url: {report.get('page_url', '')}")
     for entry in report.get("page_catalog") or []:

@@ -273,11 +273,11 @@ def main() -> int:
     if args.validate_only:
         validation = validate_run(args.validate_only)
         write_report(preflight=None, generate_result={"run_id": args.validate_only}, validation=validation)
-        print(json.dumps(validation, indent=2))
+        print(json.dumps(validation, indent=2, ensure_ascii=False))
         return 0 if validation.get("checks", {}).get("all_pass") else 1
 
     pre = run_preflight()
-    print(json.dumps({"step": "preflight", "kling_clip_count": pre.get("kling_clip_count"), "ok": True}, indent=2))
+    print(json.dumps({"step": "preflight", "kling_clip_count": pre.get("kling_clip_count"), "ok": True}, indent=2, ensure_ascii=False))
     if args.preflight_only:
         write_report(preflight=pre, generate_result=None, validation=None)
         return 0
@@ -287,7 +287,7 @@ def main() -> int:
         cdp_url=args.cdp_url,
         approve_all=args.approve_all_clips,
     )
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2, ensure_ascii=False))
     run_id = str(result.get("run_id") or "")
     validation = validate_run(run_id) if run_id else None
     write_report(preflight=pre, generate_result=result, validation=validation)

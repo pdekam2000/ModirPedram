@@ -334,8 +334,7 @@ def generate_kling_starter_frame(
                 "generation_mode": result.generation_mode,
                 "credits_spent": False,
             },
-            indent=2,
-        ),
+            indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 

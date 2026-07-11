@@ -289,8 +289,8 @@ def reprocess_timeline_narration() -> dict[str, Any]:
 def main() -> int:
     summary = reprocess_timeline_narration()
     out = ROOT / "project_brain" / "timeline_aware_narration_reprocess_summary.json"
-    out.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print(json.dumps(summary, indent=2))
+    out.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0 if summary.get("ok") else 1
 
 

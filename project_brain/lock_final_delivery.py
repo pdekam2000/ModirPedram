@@ -154,7 +154,7 @@ def archive_stale_manifests(project_root: Path, *, run_id: str) -> dict[str, Any
                 moved.append({"source": str(run_publish), "archived_to": moved_path})
     report = {"version": LOCK_VERSION, "archived_at": _now(), "run_id": run_id, "moved": moved}
     report_path = archive_dir / "stale_manifest_report.json"
-    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     return report
 
 
@@ -197,14 +197,14 @@ def sync_publish_manifest(run_dir: Path, *, video_path: Path, run_id: str) -> No
             "run_id": run_id,
         }
     )
-    manifest_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     if metadata_path.parent.exists():
         meta = _read_json(metadata_path)
         meta.update({"branded_video_path": str(video_path.resolve()), "branded_video_name": video_path.name})
-        metadata_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
+        metadata_path.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
     runtime_publish = ROOT / "project_brain" / "runtime_state" / "runway_phase_i_publish_manifest.json"
     runtime_publish.parent.mkdir(parents=True, exist_ok=True)
-    runtime_publish.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    runtime_publish.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def lock_final_delivery(*, project_root: Path | None = None, run_dir: Path | None = None, run_id: str = "") -> dict[str, Any]:
@@ -299,7 +299,7 @@ def _render_inventory_md(inventory: dict[str, Any]) -> str:
         )
     lines.extend(["", "## Stale / duplicate manifests", ""])
     for item in inventory.get("duplicate_manifests") or []:
-        lines.append(f"- {json.dumps(item)}")
+        lines.append(f"- {json.dumps(item, ensure_ascii=False)}")
     lines.extend(["", "## Orphaned output roots", ""])
     for item in inventory.get("orphaned_outputs") or []:
         lines.append(f"- `{item}`")
@@ -337,7 +337,7 @@ def _render_cleanup_md(report: dict[str, Any]) -> str:
 
 def main() -> int:
     summary = lock_final_delivery()
-    print(json.dumps({"approved": summary.get("approved"), "registry": summary.get("registry"), "audit_status": (summary.get('reality_audit') or {}).get('status')}, indent=2))
+    print(json.dumps({"approved": summary.get("approved"), "registry": summary.get("registry"), "audit_status": (summary.get('reality_audit') or {}).get('status')}, indent=2, ensure_ascii=False))
     return 0 if summary.get("approved") else 1
 
 

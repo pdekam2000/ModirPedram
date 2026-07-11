@@ -590,7 +590,7 @@ if __name__ == "__main__":
             print("WEAK:", ", ".join(decision.package.weak_dimensions) or "none")
             print("TARGETS:", ", ".join(decision.package.revision_targets) or "none")
             print("FIXES:", "; ".join(decision.package.priority_fixes) or "none")
-            print("JSON OK:", json.dumps(payload)[:120] + "...")
+            print("JSON OK:", json.dumps(payload, ensure_ascii=False)[:120] + "...")
             print("ROUNDTRIP:", roundtrip.decision.value)
 
     def _demo_scorecard(

@@ -5,29 +5,86 @@ from __future__ import annotations
 from typing import Any
 
 INSTAGRAM_CONTENT_BRIEF = """INSTAGRAM CONTENT RULES:
-1. Each video teaches ONE specific skincare recipe
-2. Show EXACT quantities: "2 tablespoons honey + 1 teaspoon turmeric + 3 drops lemon juice"
-3. Presenter makes/applies treatment ON CAMERA
-4. Structure:
-   - Clip 1 (15s): Show ingredients + mix them
-     Presenter says: "Today I'm making [recipe name].
-     You need [exact ingredients]"
-   - Clip 2 (15s): Apply to face/skin + result
-     End with: "Follow for daily skincare recipes"
-5. Visual style: bright, clean, aesthetic kitchen or bathroom. Close-ups of ingredients and skin.
-6. NEVER repeat a recipe — track used recipes in story memory
-7. Recipe categories to rotate:
-   - Face masks (honey, clay, oat, egg, yogurt...)
-   - Night treatments
-   - Morning routines
-   - Seasonal (summer cooling, winter hydrating...)
-   - Anti-aging
-   - Brightening
-   - Acne solutions
-   - Pre-party glow
-   - Eye care
-   - Lip care
-   - Body scrubs"""
+Each 45-second video teaches ONE specific beauty recipe.
+The presenter demonstrates on camera with exact quantities.
+
+CONTENT CATEGORIES (rotate between these):
+
+1. FACE MASKS (most popular):
+   - Clay masks for oily/acne skin
+   - Honey masks for dry skin
+   - Turmeric masks for brightening
+   - Oat masks for sensitive skin
+   - Egg white masks for pores
+   - Coffee masks for dark circles
+   - Yogurt masks for glow
+   - Avocado masks for hydration
+
+2. HAIR TREATMENTS:
+   - Egg + olive oil mask for hair growth
+   - Coconut oil + honey for damaged hair
+   - Onion juice for hair loss
+   - Castor oil for thicker hair
+   - Rice water for shine
+   - Aloe vera for scalp health
+
+3. ACNE SOLUTIONS:
+   - Tea tree + aloe spot treatment
+   - Apple cider vinegar toner
+   - Green tea ice cubes for redness
+   - Salicylic honey treatment
+
+4. SKIN BRIGHTENING:
+   - Vitamin C serum (homemade)
+   - Lemon + honey overnight mask
+   - Turmeric + milk brightening paste
+   - Rose water toner
+
+5. ANTI-AGING:
+   - Retinol alternative: rosehip oil
+   - Collagen boost: bone broth mask
+   - Eye cream: cucumber + aloe
+   - Neck firming: egg white mask
+
+6. BODY CARE:
+   - Coffee body scrub
+   - Sugar lip scrub
+   - Coconut milk bath soak
+   - Himalayan salt scrub
+
+VIDEO STRUCTURE (45 seconds):
+Clip 1 (15s):
+   'Today I am making [RECIPE NAME]'
+   'You need: [EXACT QUANTITIES]'
+   Show all ingredients clearly
+   Mix them together on camera
+
+Clip 2 (15s):
+   Apply to face/hair on camera
+   'Leave for [TIME] then rinse'
+   Show result/before-after hint
+
+Clip 3 (15s):
+   'This works because [SCIENCE REASON]'
+   'Best for: [SKIN/HAIR TYPE]'
+   'Use [FREQUENCY]: daily/weekly/monthly'
+   End: 'Follow for daily beauty recipes!'
+
+TITLE FORMAT (curiosity + benefit):
+- 'This 2-Ingredient Mask Removes Dark Spots in 7 Days'
+- 'Why Your Hair Grows Faster With This Kitchen Ingredient'
+- 'Dermatologists Hate This $2 Acne Treatment'
+- 'The Overnight Mask That Erases Wrinkles'
+- 'Stop Buying Serums — Make This Instead'
+
+QUANTITIES must be EXACT:
+- '2 tablespoons raw honey'
+- '1 teaspoon turmeric powder'
+- '3 drops of lemon juice'
+- '1/2 ripe avocado'
+
+NEVER repeat a recipe — track in story memory.
+ALWAYS end with: Follow for daily beauty recipes!"""
 
 INSTAGRAM_RECIPE_SETTINGS: tuple[str, ...] = (
     "bright aesthetic kitchen with white marble counter and natural window light",
@@ -37,7 +94,7 @@ INSTAGRAM_RECIPE_SETTINGS: tuple[str, ...] = (
     "spa-style bathroom with white tiles, eucalyptus, and warm lighting",
 )
 
-INSTAGRAM_RECIPE_CTA = "Follow for daily skincare recipes"
+INSTAGRAM_RECIPE_CTA = "Follow for daily beauty recipes!"
 
 INSTAGRAM_RECIPE_POOL: tuple[dict[str, Any], ...] = (
     {
@@ -487,6 +544,307 @@ INSTAGRAM_RECIPE_POOL: tuple[dict[str, Any], ...] = (
         "season": "all year",
         "occasion": "daily",
         "category": "morning routines",
+    },
+    # --- 30 new recipes: hair, acne, brightening, anti-aging, body, face_mask ---
+    {
+        "recipe_name": "Egg Olive Oil Hair Growth Mask",
+        "ingredients": ["1 whole egg", "2 tablespoons olive oil", "1 teaspoon honey"],
+        "skin_benefit": "strengthens hair follicles and reduces breakage",
+        "application_time": "30 minutes",
+        "frequency": "once weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "hair",
+    },
+    {
+        "recipe_name": "Coconut Honey Hair Repair Mask",
+        "ingredients": ["2 tablespoons coconut oil", "1 tablespoon raw honey", "1 teaspoon apple cider vinegar"],
+        "skin_benefit": "repairs damaged strands and adds shine",
+        "application_time": "45 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "hair",
+    },
+    {
+        "recipe_name": "Onion Juice Hair Loss Treatment",
+        "ingredients": ["3 tablespoons fresh onion juice", "1 tablespoon castor oil", "5 drops rosemary oil"],
+        "skin_benefit": "supports scalp circulation and thinning hair",
+        "application_time": "20 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "hair",
+    },
+    {
+        "recipe_name": "Castor Oil Thicker Hair Treatment",
+        "ingredients": ["2 tablespoons castor oil", "1 tablespoon coconut oil", "1 teaspoon vitamin E oil"],
+        "skin_benefit": "nourishes roots for thicker-looking hair",
+        "application_time": "1 hour",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "hair",
+    },
+    {
+        "recipe_name": "Fermented Rice Water Hair Shine Rinse",
+        "ingredients": ["1 cup fermented rice water", "1 tablespoon aloe vera gel", "1 teaspoon honey"],
+        "skin_benefit": "smooths cuticle and boosts natural shine",
+        "application_time": "15 minutes",
+        "frequency": "once weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "hair",
+    },
+    {
+        "recipe_name": "Aloe Vera Scalp Health Treatment",
+        "ingredients": ["3 tablespoons fresh aloe vera gel", "1 tablespoon jojoba oil", "5 drops tea tree oil"],
+        "skin_benefit": "calms itchy scalp and reduces flaking",
+        "application_time": "25 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "hair",
+    },
+    {
+        "recipe_name": "Tea Tree Aloe Spot Treatment",
+        "ingredients": ["2 tablespoons aloe vera gel", "3 drops tea tree oil", "1 teaspoon witch hazel"],
+        "skin_benefit": "targets blemishes with antibacterial support",
+        "application_time": "10 minutes",
+        "frequency": "daily",
+        "season": "all year",
+        "occasion": "daily",
+        "category": "acne",
+    },
+    {
+        "recipe_name": "Apple Cider Vinegar Acne Toner",
+        "ingredients": ["2 tablespoons apple cider vinegar", "4 tablespoons distilled water", "1 teaspoon honey"],
+        "skin_benefit": "balances pH and clears congested pores",
+        "application_time": "5 minutes",
+        "frequency": "daily",
+        "season": "all year",
+        "occasion": "daily",
+        "category": "acne",
+    },
+    {
+        "recipe_name": "Green Tea Ice Cube Redness Treatment",
+        "ingredients": ["1 cup brewed green tea", "1 tablespoon aloe vera gel", "6 ice cubes"],
+        "skin_benefit": "reduces redness and calms inflamed skin",
+        "application_time": "5 minutes",
+        "frequency": "daily",
+        "season": "summer",
+        "occasion": "daily",
+        "category": "acne",
+    },
+    {
+        "recipe_name": "Salicylic Honey Blemish Treatment",
+        "ingredients": ["2 tablespoons raw honey", "1/4 teaspoon salicylic acid powder", "1 teaspoon aloe vera gel"],
+        "skin_benefit": "unclogs pores and fades active breakouts",
+        "application_time": "15 minutes",
+        "frequency": "three times weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "acne",
+    },
+    {
+        "recipe_name": "Homemade Vitamin C Brightening Serum",
+        "ingredients": ["1 teaspoon L-ascorbic acid powder", "2 tablespoons rose water", "1 teaspoon glycerin"],
+        "skin_benefit": "fades dark spots and boosts radiance",
+        "application_time": "overnight",
+        "frequency": "three times weekly",
+        "season": "all year",
+        "occasion": "night",
+        "category": "brightening",
+    },
+    {
+        "recipe_name": "Lemon Honey Overnight Brightening Mask",
+        "ingredients": ["2 tablespoons raw honey", "1 teaspoon fresh lemon juice", "1 tablespoon yogurt"],
+        "skin_benefit": "gentle acid exfoliation for brighter skin",
+        "application_time": "overnight",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "night",
+        "category": "brightening",
+    },
+    {
+        "recipe_name": "Turmeric Milk Brightening Paste",
+        "ingredients": ["2 tablespoons whole milk", "1 teaspoon turmeric powder", "1 teaspoon raw honey"],
+        "skin_benefit": "evens skin tone and softens texture",
+        "application_time": "20 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "brightening",
+    },
+    {
+        "recipe_name": "Rose Water Brightening Toner",
+        "ingredients": ["3 tablespoons rose water", "1 tablespoon witch hazel", "1 teaspoon vegetable glycerin"],
+        "skin_benefit": "hydrates and refreshes dull complexion",
+        "application_time": "5 minutes",
+        "frequency": "daily",
+        "season": "all year",
+        "occasion": "daily",
+        "category": "brightening",
+    },
+    {
+        "recipe_name": "Rosehip Oil Retinol Alternative Serum",
+        "ingredients": ["1 tablespoon rosehip oil", "1 teaspoon vitamin E oil", "2 drops frankincense oil"],
+        "skin_benefit": "supports cell renewal and fine line reduction",
+        "application_time": "overnight",
+        "frequency": "daily",
+        "season": "all year",
+        "occasion": "night",
+        "category": "anti_aging",
+    },
+    {
+        "recipe_name": "Bone Broth Collagen Boost Mask",
+        "ingredients": ["2 tablespoons bone broth gel", "1 tablespoon honey", "1 teaspoon rice flour"],
+        "skin_benefit": "plumps skin with collagen-supporting nutrients",
+        "application_time": "20 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "anti_aging",
+    },
+    {
+        "recipe_name": "Cucumber Aloe Eye Cream Treatment",
+        "ingredients": ["2 tablespoons grated cucumber", "1 tablespoon aloe vera gel", "1 teaspoon coconut oil"],
+        "skin_benefit": "depuffs eyes and softens fine lines",
+        "application_time": "15 minutes",
+        "frequency": "daily",
+        "season": "all year",
+        "occasion": "daily",
+        "category": "anti_aging",
+    },
+    {
+        "recipe_name": "Egg White Neck Firming Mask",
+        "ingredients": ["1 egg white", "1 teaspoon lemon juice", "1 tablespoon plain yogurt"],
+        "skin_benefit": "temporarily tightens neck skin and smooths crepey texture",
+        "application_time": "15 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "anti_aging",
+    },
+    {
+        "recipe_name": "Coffee Body Firming Scrub",
+        "ingredients": ["4 tablespoons coffee grounds", "2 tablespoons coconut oil", "1 tablespoon brown sugar"],
+        "skin_benefit": "exfoliates dead skin and improves circulation",
+        "application_time": "10 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "body",
+    },
+    {
+        "recipe_name": "Sugar Honey Lip Scrub Treatment",
+        "ingredients": ["1 tablespoon brown sugar", "1 teaspoon raw honey", "1/2 teaspoon olive oil"],
+        "skin_benefit": "removes flaky lips and restores softness",
+        "application_time": "3 minutes",
+        "frequency": "three times weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "body",
+    },
+    {
+        "recipe_name": "Coconut Milk Relaxing Bath Soak",
+        "ingredients": ["1 cup coconut milk", "2 tablespoons Epsom salt", "1 tablespoon honey"],
+        "skin_benefit": "softens full-body skin and soothes dryness",
+        "application_time": "20 minutes",
+        "frequency": "once weekly",
+        "season": "winter",
+        "occasion": "weekly",
+        "category": "body",
+    },
+    {
+        "recipe_name": "Himalayan Salt Body Polish",
+        "ingredients": ["3 tablespoons Himalayan pink salt", "2 tablespoons almond oil", "1 teaspoon lemon zest"],
+        "skin_benefit": "deep exfoliation and mineral-rich glow",
+        "application_time": "10 minutes",
+        "frequency": "once weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "body",
+    },
+    {
+        "recipe_name": "Bentonite Clay Oily Skin Mask",
+        "ingredients": ["2 tablespoons bentonite clay", "1 tablespoon apple cider vinegar", "1 teaspoon honey"],
+        "skin_benefit": "absorbs excess oil and clears congested pores",
+        "application_time": "15 minutes",
+        "frequency": "twice weekly",
+        "season": "summer",
+        "occasion": "weekly",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Raw Honey Dry Skin Hydrating Mask",
+        "ingredients": ["2 tablespoons raw honey", "1 tablespoon avocado oil", "1 teaspoon oatmeal flour"],
+        "skin_benefit": "deep moisture for dry and dehydrated skin",
+        "application_time": "20 minutes",
+        "frequency": "three times weekly",
+        "season": "winter",
+        "occasion": "daily",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Turmeric Brightening Face Mask",
+        "ingredients": ["1 teaspoon turmeric powder", "2 tablespoons plain yogurt", "1 teaspoon raw honey"],
+        "skin_benefit": "brightens dull skin and calms inflammation",
+        "application_time": "15 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Colloidal Oat Sensitive Skin Mask",
+        "ingredients": ["3 tablespoons colloidal oatmeal", "2 tablespoons warm water", "1 teaspoon honey"],
+        "skin_benefit": "soothes redness and strengthens sensitive skin barrier",
+        "application_time": "15 minutes",
+        "frequency": "three times weekly",
+        "season": "all year",
+        "occasion": "daily",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Egg White Pore Tightening Mask",
+        "ingredients": ["1 egg white", "1/2 teaspoon lemon juice", "1 teaspoon cornstarch"],
+        "skin_benefit": "minimizes pore appearance and mattifies skin",
+        "application_time": "15 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Coffee Under-Eye Dark Circle Mask",
+        "ingredients": ["1 tablespoon coffee grounds", "1 tablespoon coconut oil", "1 teaspoon honey"],
+        "skin_benefit": "reduces puffiness and brightens under-eye area",
+        "application_time": "10 minutes",
+        "frequency": "daily",
+        "season": "all year",
+        "occasion": "morning",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Greek Yogurt Glow Face Mask",
+        "ingredients": ["3 tablespoons Greek yogurt", "1 tablespoon honey", "1 teaspoon lemon juice"],
+        "skin_benefit": "lactic acid exfoliation for instant glow",
+        "application_time": "15 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "face_mask",
+    },
+    {
+        "recipe_name": "Avocado Hydration Face Mask",
+        "ingredients": ["1/2 ripe avocado", "1 tablespoon olive oil", "1 teaspoon honey"],
+        "skin_benefit": "restores lipids and deep hydration to thirsty skin",
+        "application_time": "20 minutes",
+        "frequency": "twice weekly",
+        "season": "all year",
+        "occasion": "weekly",
+        "category": "face_mask",
     },
 )
 

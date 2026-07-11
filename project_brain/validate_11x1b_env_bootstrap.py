@@ -92,7 +92,7 @@ def run_matrix() -> dict:
         with redirect_stdout(buffer):
             leaked_summary = bootstrap_project_env(project_root=root)
         captured = buffer.getvalue()
-        serialized = json.dumps(leaked_summary) + captured
+        serialized = json.dumps(leaked_summary, ensure_ascii=False) + captured
         secret_leaked = file_key in serialized
         leak_detail = "clean" if not secret_leaked else "secret found in output"
     results.append(
@@ -210,7 +210,7 @@ def run_matrix() -> dict:
 
 def main() -> int:
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     if report["all_pass"]:
         print(f"\nPASS — {report['passed']}/{report['total']} tests")
         return 0

@@ -522,8 +522,8 @@ def main() -> int:
         map_path=Path(args.map_path),
     )
     out = ROOT / "project_brain" / "kling_multishot_shadow_run_summary.json"
-    out.write_text(json.dumps(summary.to_dict(), indent=2), encoding="utf-8")
-    print(json.dumps(summary.to_dict(), indent=2))
+    out.write_text(json.dumps(summary.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(summary.to_dict(), indent=2, ensure_ascii=False))
     return 0 if summary.ok else 1
 
 

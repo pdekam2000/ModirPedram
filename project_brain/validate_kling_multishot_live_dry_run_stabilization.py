@@ -168,7 +168,7 @@ def test_live_dry_run_summary_if_present() -> None:
     _pass("live_summary_generate_not_clicked", summary.get("generate_clicked") is False)
     _pass("live_summary_no_credits", summary.get("credits_spent") is False)
     if summary.get("connect_browser"):
-        _pass("live_summary_ok", summary.get("ok") is True, json.dumps(summary.get("errors", [])))
+        _pass("live_summary_ok", summary.get("ok") is True, json.dumps(summary.get("errors", []), ensure_ascii=False))
 
 
 def test_relabel_validation_still_passes() -> None:

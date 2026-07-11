@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -17,6 +18,7 @@ ADAPTER_VERSION = "pwmap_runway_agent_adapter_v1"
 LEGACY_INTERNAL_RUNTIME = "legacy_internal"
 PWMAP_AGENT_RUNTIME = "pwmap_agent"
 MODIR_ROOT = Path(__file__).resolve().parents[2]
+VENV_PYTHON = sys.executable
 VENDORED_PWMAP_ROOT = MODIR_ROOT / "external" / "pwmap"
 DESKTOP_PWMAP_ROOT = Path(r"C:\Users\kaman\Desktop\pwmap")
 OUTPUT_ROOT_NAME = "pwmap_agent_runs"
@@ -25,9 +27,239 @@ KLING_CINEMATIC_MIN_CHARS = 2400
 KLING_CINEMATIC_MAX_CHARS = 2500
 
 YOUTUBE_TOPIC_KEYWORDS = ("animal", "dog", "cat", "funny", "fail")
-INSTAGRAM_TOPIC_KEYWORDS = ("skincare", "beauty", "routine", "glow")
+YOUTUBE_BEAUTY_BLOCK_KEYWORDS = (
+    "skincare",
+    "moisturizer",
+    "serum",
+    "beauty routine",
+    "face mask",
+)
+SCIENCE_SAFE_WORDS = (
+    "glow",
+    "glowing",
+    "radiant",
+    "luminous",
+    "skin cells",
+    "biological",
+)
+INSTAGRAM_TOPIC_KEYWORDS_HARD = YOUTUBE_BEAUTY_BLOCK_KEYWORDS
+INSTAGRAM_TOPIC_KEYWORDS_SOFT = ()
+INSTAGRAM_SOFT_KEYWORD_BLOCK_THRESHOLD = 0
+INSTAGRAM_TOPIC_KEYWORDS = YOUTUBE_BEAUTY_BLOCK_KEYWORDS
 
 STORY_BRIEF_MARKERS = ("Character:", "Clip 1:", "Visual hook:", "Conflict:", "Setting:")
+
+KLING_BLOCKED_PHRASES = (
+    "glowing right now",
+    "body scan",
+    "her skin",
+    "along her arms",
+    "along her cheeks",
+    "biochemical",
+    "her own skin",
+    "her body",
+)
+KLING_SAFETY_MAX_RETRIES = 3
+
+
+def validate_kling_safety(prompt: str) -> tuple[bool, str]:
+    lowered = str(prompt or "").lower()
+    for phrase in KLING_BLOCKED_PHRASES:
+        if phrase.lower() in lowered:
+            return False, f"kling_safety_blocked: {phrase}"
+    return True, "ok"
+
+
+def _clip_dict_from_frame_plan(preflight: dict[str, Any], clip_index: int) -> dict[str, Any]:
+    frame_plan = preflight.get("kling_frame_to_video_plan") or preflight.get("kling_frame_plan") or {}
+    clips = frame_plan.get("clips") if isinstance(frame_plan, dict) else None
+    if not isinstance(clips, list):
+        return {}
+    for clip in clips:
+        if not isinstance(clip, dict):
+            continue
+        if int(clip.get("clip_index") or 0) == clip_index:
+            return clip
+    if 1 <= clip_index <= len(clips) and isinstance(clips[clip_index - 1], dict):
+        return clips[clip_index - 1]
+    return {}
+
+
+def _openai_kwargs_from_clip(
+    *,
+    clip: dict[str, Any],
+    preflight: dict[str, Any],
+    clip_index: int,
+    total_clips: int,
+    prior_clip: dict[str, Any] | None,
+) -> dict[str, Any]:
+    chapter = dict(clip.get("chapter_progression") or {})
+    platform = str(preflight.get("platform") or "")
+    cast_match = re.search(
+        r"Same (.+?) with consistent",
+        str(clip.get("character_continuity") or ""),
+        flags=re.IGNORECASE,
+    )
+    cast = cast_match.group(1).strip() if cast_match else "the science presenter"
+    env_match = re.search(
+        r"Same (.+?);",
+        str(clip.get("environment_continuity") or ""),
+        flags=re.IGNORECASE,
+    )
+    environment = env_match.group(1).strip() if env_match else str(preflight.get("environment") or "science studio")
+    directives = clip.get("native_audio_directives") or {}
+    directives_summary = ""
+    if isinstance(directives, dict):
+        parts: list[str] = []
+        dialogue_lines = directives.get("dialogue_lines") or []
+        if dialogue_lines:
+            parts.append(f'Dialogue: "{dialogue_lines[0]}"')
+        ambience = directives.get("ambience") or []
+        if ambience:
+            parts.append(f"Ambience: {', '.join(str(item) for item in ambience[:4])}")
+        foley = directives.get("foley") or []
+        if foley:
+            parts.append(f"Foley: {', '.join(str(item) for item in foley[:4])}")
+        voice = str(directives.get("voice_acting") or "").strip()
+        if voice:
+            parts.append(f"Voice acting: {voice}")
+        parts.append("Native cinematic in-video audio only — no external narration or music track")
+        directives_summary = ". ".join(parts)
+
+    return {
+        "topic": str(preflight.get("authoritative_topic") or preflight.get("topic") or ""),
+        "cast": cast,
+        "environment": environment,
+        "beat": str(chapter.get("story_beat") or ""),
+        "emotion": str(chapter.get("emotion") or ""),
+        "chapter_role": str(chapter.get("chapter_label") or chapter.get("chapter_role") or f"Chapter {clip_index}"),
+        "story_objective": str(chapter.get("story_objective") or ""),
+        "visual_progression": str(chapter.get("visual_progression") or ""),
+        "dialogue": str(clip.get("dialogue") or ""),
+        "dialogue_goal": str(chapter.get("dialogue_goal") or ""),
+        "clip_index": clip_index,
+        "total_clips": total_clips,
+        "prior_bridge_hint": str(prior_clip.get("next_clip_reference_hint") or "") if prior_clip else "",
+        "bridge_hint": str(clip.get("next_clip_reference_hint") or ""),
+        "conflict_level": int(chapter.get("conflict_level") or clip_index),
+        "mood": str(preflight.get("mood") or preflight.get("filter_mood") or "dramatic"),
+        "style": str(preflight.get("visual_style") or preflight.get("style") or "cinematic"),
+        "camera_direction": str(clip.get("camera_direction") or ""),
+        "continuity_anchor": str(clip.get("continuity_anchor") or ""),
+        "directives_summary": directives_summary,
+        "character_continuity": str(clip.get("character_continuity") or ""),
+        "environment_continuity": str(clip.get("environment_continuity") or ""),
+        "target_platform": platform,
+        "platform": platform,
+        "youtube_genre": str(preflight.get("youtube_genre") or "science"),
+        "instagram_genre": str(preflight.get("instagram_genre") or ""),
+        "tiktok_genre": str(preflight.get("tiktok_genre") or ""),
+    }
+
+
+def _regenerate_prompt_for_kling_safety(
+    *,
+    clip: dict[str, Any],
+    preflight: dict[str, Any],
+    clip_index: int,
+    total_clips: int,
+    prior_clip: dict[str, Any] | None,
+    blocked_reason: str,
+) -> str | None:
+    from content_brain.story.kling_story_first_openai_writer import try_write_story_first_prompt_openai
+
+    kwargs = _openai_kwargs_from_clip(
+        clip=clip,
+        preflight=preflight,
+        clip_index=clip_index,
+        total_clips=total_clips,
+        prior_clip=prior_clip,
+    )
+    safety_feedback = (
+        f"{blocked_reason}. Kling 3.0 Pro blocked this prompt. "
+        "Rewrite using CONTENT SAFETY RULES: no skin/body/flesh references, no body scans on a person, "
+        "no romantic language, no 'glowing right now'. Use molecular diagrams, holographic science visuals, "
+        "and presenter gestures only — never describe her body."
+    )
+
+    for attempt in range(1, KLING_SAFETY_MAX_RETRIES + 1):
+        regenerated, meta = try_write_story_first_prompt_openai(
+            **kwargs,
+            regeneration_feedback=safety_feedback if attempt == 1 else (
+                f"{safety_feedback}\nRetry {attempt}: still unsafe or invalid — remove all blocked body/skin phrases."
+            ),
+        )
+        if not regenerated:
+            continue
+        ok, reason = validate_kling_safety(regenerated)
+        if ok:
+            return regenerated
+        safety_feedback = (
+            f"{reason}. Remove blocked phrases completely and focus on external science visuals only."
+        )
+    return None
+
+
+def _ensure_kling_safe_prompts(
+    *,
+    preflight: dict[str, Any],
+    prompts: list[str],
+    source: str,
+    logger: Any,
+) -> list[str]:
+    platform = str(preflight.get("platform") or "")
+    if platform not in {"youtube_shorts", "youtube"}:
+        return prompts
+
+    frame_plan = preflight.get("kling_frame_to_video_plan") or preflight.get("kling_frame_plan") or {}
+    clips = frame_plan.get("clips") if isinstance(frame_plan, dict) else None
+    if not isinstance(clips, list):
+        clips = []
+
+    safe_prompts: list[str] = []
+    for index, prompt in enumerate(prompts, start=1):
+        current = str(prompt or "")
+        prior_clip = _clip_dict_from_frame_plan(preflight, index - 1) if index > 1 else None
+        clip = _clip_dict_from_frame_plan(preflight, index) or (
+            clips[index - 1] if index - 1 < len(clips) and isinstance(clips[index - 1], dict) else {}
+        )
+
+        for attempt in range(1, KLING_SAFETY_MAX_RETRIES + 1):
+            ok, reason = validate_kling_safety(current)
+            if ok:
+                break
+            logger.error(
+                "Kling safety blocked clip %s (%s) attempt %s: %s",
+                index,
+                source,
+                attempt,
+                reason,
+            )
+            regenerated = _regenerate_prompt_for_kling_safety(
+                clip=clip if isinstance(clip, dict) else {},
+                preflight=preflight,
+                clip_index=index,
+                total_clips=len(prompts),
+                prior_clip=prior_clip if isinstance(prior_clip, dict) else None,
+                blocked_reason=reason,
+            )
+            if regenerated:
+                current = regenerated
+                if isinstance(clip, dict):
+                    clip["prompt"] = regenerated
+                continue
+            break
+        else:
+            raise PwmapAdapterError(
+                f"Kling safety validation failed for clip {index} after {KLING_SAFETY_MAX_RETRIES} retries: {reason}"
+            )
+
+        final_ok, final_reason = validate_kling_safety(current)
+        if not final_ok:
+            raise PwmapAdapterError(f"Kling safety validation failed for clip {index}: {final_reason}")
+        safe_prompts.append(current)
+
+    return safe_prompts
 
 
 def _is_story_brief_prompt(text: str) -> bool:
@@ -42,12 +274,17 @@ def _contains_topic_keyword(text: str, keyword: str) -> bool:
     return re.search(rf"\b{re.escape(keyword)}\b", str(text or ""), flags=re.IGNORECASE) is not None
 
 
+def _count_topic_keyword_hits(text: str, keywords: tuple[str, ...]) -> list[str]:
+    return [keyword for keyword in keywords if _contains_topic_keyword(text, keyword)]
+
+
 def validate_platform_prompt_isolation(platform: str, text: str) -> tuple[bool, str]:
     """Reject prompts that contain keywords from another platform's topic lane."""
     platform_key = str(platform or "").strip().lower()
     if platform_key in {"youtube_shorts", "youtube"}:
-        if any(_contains_topic_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_KEYWORDS):
-            return False, "instagram_keywords_in_youtube_prompt"
+        for keyword in YOUTUBE_BEAUTY_BLOCK_KEYWORDS:
+            if _contains_topic_keyword(text, keyword):
+                return False, f"instagram_keywords_in_youtube_prompt:{keyword}"
     if platform_key in {"instagram_reels", "instagram"}:
         if any(_contains_topic_keyword(text, keyword) for keyword in YOUTUBE_TOPIC_KEYWORDS):
             return False, "youtube_keywords_in_instagram_prompt"
@@ -357,6 +594,14 @@ def extract_prompts_from_preflight(preflight: dict[str, Any]) -> tuple[list[str]
         if not ok:
             logger.error("Platform topic contamination in clip %s: %s", index, reason)
             raise PwmapAdapterError(f"Platform topic contamination: {reason}")
+
+    prompts = _ensure_kling_safe_prompts(
+        preflight=preflight,
+        prompts=prompts,
+        source=source,
+        logger=logger,
+    )
+
     visual_style = str(
         preflight.get("visual_style")
         or preflight.get("style")
@@ -437,7 +682,7 @@ def build_subprocess_command(
             str(ps1),
         ]
     command = [
-        os.environ.get("PYTHON", "python"),
+        VENV_PYTHON,
         str(pwmap_root / "runway_agent.py"),
         "--job",
         str(job_path),
@@ -517,11 +762,17 @@ def copy_mp4_outputs(
             shutil.copy2(src, single)
         final_video = str(single.resolve()).replace("\\", "/")
     elif len(copied) > 1:
-        last = run_dir / f"clip_{len(copied)}.mp4"
-        merged = run_dir / "video.mp4"
-        if last.is_file() and last.resolve() != merged.resolve():
-            shutil.copy2(last, merged)
-        final_video = str(merged.resolve()).replace("\\", "/")
+        from content_brain.execution.pwmap_clip_assembly_guard import verify_clips_unique_for_assembly
+
+        guard = verify_clips_unique_for_assembly(run_dir=run_dir, clip_count=len(copied))
+        if guard.get("assembly_allowed"):
+            last = run_dir / f"clip_{len(copied)}.mp4"
+            merged = run_dir / "video.mp4"
+            if last.is_file() and last.resolve() != merged.resolve():
+                shutil.copy2(last, merged)
+            final_video = str(merged.resolve()).replace("\\", "/") if merged.is_file() else ""
+        else:
+            final_video = ""
     return copied, final_video
 
 
@@ -641,7 +892,7 @@ def run_pwmap_agent(
         )
         normalized = attach_credit_safety_to_report(result.to_dict(), credit_decision)
         normalized["job"] = job
-        (run_dir / "normalized_result.json").write_text(json.dumps(normalized, indent=2), encoding="utf-8")
+        (run_dir / "normalized_result.json").write_text(json.dumps(normalized, indent=2, ensure_ascii=False), encoding="utf-8")
         result.normalized_result_path = str((run_dir / "normalized_result.json").resolve()).replace("\\", "/")
         return result
 
@@ -676,9 +927,9 @@ def run_pwmap_agent(
         result.errors.append("paid_credit_blocked")
         blocked = attach_credit_safety_to_report(result.to_dict(), credit_decision)
         blocked["job"] = job
-        (run_dir / "normalized_result.json").write_text(json.dumps(blocked, indent=2), encoding="utf-8")
+        (run_dir / "normalized_result.json").write_text(json.dumps(blocked, indent=2, ensure_ascii=False), encoding="utf-8")
         (run_dir / "credit_safety_report.json").write_text(
-            json.dumps(credit_decision.to_report(), indent=2), encoding="utf-8"
+            json.dumps(credit_decision.to_report(), indent=2, ensure_ascii=False), encoding="utf-8"
         )
         result.normalized_result_path = str((run_dir / "normalized_result.json").resolve()).replace("\\", "/")
         return result
@@ -806,7 +1057,7 @@ def run_pwmap_agent(
 def _write_failure_artifacts(run_dir: Path, result: PwmapAgentRunResult) -> None:
     payload = result.to_dict()
     payload["finished_at"] = _now_iso()
-    (run_dir / "normalized_result.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (run_dir / "normalized_result.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     result.normalized_result_path = str((run_dir / "normalized_result.json").resolve()).replace("\\", "/")
     result.status = "failed"
 

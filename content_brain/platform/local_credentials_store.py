@@ -55,7 +55,7 @@ class LocalCredentialsStore:
 
     def _save(self, payload: dict[str, Any]) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        self.path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     def _apply_to_env(self, provider_id: str, plain: str) -> None:
         meta = PROVIDER_FIELDS.get(provider_id) or {}

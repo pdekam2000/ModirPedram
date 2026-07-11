@@ -196,7 +196,7 @@ def _unit_report_and_diagnostics() -> None:
         clip_number=2,
     )
     DEFAULT_PHASE_I_FAILURE_DIAGNOSTICS.parent.mkdir(parents=True, exist_ok=True)
-    DEFAULT_PHASE_I_FAILURE_DIAGNOSTICS.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    DEFAULT_PHASE_I_FAILURE_DIAGNOSTICS.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     _pass("diag_has_output_cards", "output_card_candidates" in payload)
     _pass("diag_has_reference", "reference_thumbnail_candidates" in payload)
     _pass("diag_has_generation", "generation_state_candidates" in payload)

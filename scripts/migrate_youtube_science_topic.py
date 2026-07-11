@@ -105,7 +105,7 @@ def main() -> None:
         "new_niche": CHANNEL_NAME,
     }
     marker_path = topic_dir / "INVALIDATED_youtube_science_migration.json"
-    marker_path.write_text(json.dumps(invalidation, indent=2), encoding="utf-8")
+    marker_path.write_text(json.dumps(invalidation, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Wrote invalidation marker: {marker_path.name}")
 
 

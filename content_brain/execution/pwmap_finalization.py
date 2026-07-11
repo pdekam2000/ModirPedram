@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from content_brain.execution.kling_useframe_generation_completion_gate import sha256_file
 from content_brain.execution.pwmap_runway_agent_adapter import (
     MIN_REAL_MP4_BYTES,
     OUTPUT_ROOT_NAME,
@@ -111,25 +112,9 @@ def verify_and_recover_clip_downloads(
 
 
 def _resolve_final_video_path(*, run_dir: Path, verified_clips: list[dict[str, Any]]) -> str:
+    """Do not synthesize video.mp4 from partial/duplicate clip recovery."""
     merged = run_dir / "video.mp4"
     if validate_mp4_path(merged)["valid"]:
-        return str(merged.resolve()).replace("\\", "/")
-    valid_paths = [
-        str(Path(clip["modir_path"]).resolve()).replace("\\", "/")
-        for clip in verified_clips
-        if clip.get("valid") and clip.get("modir_path")
-    ]
-    if not valid_paths:
-        return ""
-    if len(valid_paths) == 1:
-        single = run_dir / "video.mp4"
-        src = Path(valid_paths[0])
-        if src.resolve() != single.resolve():
-            shutil.copy2(src, single)
-        return str(single.resolve()).replace("\\", "/")
-    last = Path(valid_paths[-1])
-    if last.is_file():
-        shutil.copy2(last, merged)
         return str(merged.resolve()).replace("\\", "/")
     return ""
 
@@ -198,11 +183,11 @@ def write_finalization_artifacts(
         "topic": str((adapter_payload.get("preflight_snapshot") or {}).get("authoritative_topic") or ""),
         "finished_at": _now_iso(),
     }
-    (run_dir / "execution_report.json").write_text(json.dumps(execution_report, indent=2), encoding="utf-8")
+    (run_dir / "execution_report.json").write_text(json.dumps(execution_report, indent=2, ensure_ascii=False), encoding="utf-8")
     (run_dir / "agent_result.json").write_text(json.dumps(agent_result, indent=2, ensure_ascii=False), encoding="utf-8")
     error_payload = finalization.get("error")
     if error_payload:
-        (run_dir / "error.json").write_text(json.dumps(error_payload, indent=2), encoding="utf-8")
+        (run_dir / "error.json").write_text(json.dumps(error_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def register_pwmap_product_studio_run(
@@ -430,12 +415,18 @@ def parse_subprocess_failure_details(stdout: str) -> dict[str, Any]:
     if not error:
         downloads = len(re.findall(r"\[OK\] Downloaded:", text))
         clips_completed = max(clips_completed, downloads)
+    failure_stage = ""
+    if error:
+        if "use_frame_seek_failed" in error.lower() or "failure_stage=use_frame_seek_failed" in text:
+            failure_stage = "use_frame_seek_failed"
+        else:
+            failure_stage = "clip_generation"
     return {
         "expected_clip_count": expected_clip_count,
         "failed_clip_index": failed_clip_index,
         "clips_completed": clips_completed,
         "error": error,
-        "failure_stage": "clip_generation" if error else "",
+        "failure_stage": failure_stage,
     }
 
 
@@ -465,6 +456,7 @@ def recover_partial_clips_to_run_dir(
     run_started: datetime,
     run_ended: datetime | None = None,
 ) -> list[dict[str, Any]]:
+    """Recover unique clip downloads only — never duplicate prior clip bytes as clip_N."""
     run_dir.mkdir(parents=True, exist_ok=True)
     sources = scan_runway_downloads_for_run_window(
         downloads_dir,
@@ -472,10 +464,16 @@ def recover_partial_clips_to_run_dir(
         run_ended=run_ended,
     )
     recovered: list[dict[str, Any]] = []
-    for index, src in enumerate(sources, start=1):
+    seen_hashes: set[str] = set()
+    for src in sources:
         verify = validate_mp4_path(src)
         if not verify["valid"]:
             continue
+        file_hash = sha256_file(src)
+        if file_hash in seen_hashes:
+            continue
+        seen_hashes.add(file_hash)
+        index = len(recovered) + 1
         dest = run_dir / f"clip_{index}.mp4"
         if src.resolve() != dest.resolve():
             shutil.copy2(src, dest)
@@ -487,13 +485,9 @@ def recover_partial_clips_to_run_dir(
                 "size_bytes": verify["size_bytes"],
                 "valid": True,
                 "recovered_from_downloads_scan": True,
+                "sha256": file_hash,
             }
         )
-    if len(recovered) == 1:
-        single = run_dir / "video.mp4"
-        src = Path(recovered[0]["modir_path"])
-        if src.resolve() != single.resolve():
-            shutil.copy2(src, single)
     return recovered
 
 
@@ -544,6 +538,7 @@ def finalize_partial_pwmap_run(
     video_path = _resolve_final_video_path(run_dir=run_dir, verified_clips=recovered_clips)
     partial = clips_completed > 0 and clips_completed < expected_clip_count
     recovery_available = bool(recovered_clips)
+    failure_stage = str(failure.get("failure_stage") or "clip_generation")
 
     stages: dict[str, Any] = {
         STAGE_CLIPS_GENERATED: {
@@ -574,11 +569,14 @@ def finalize_partial_pwmap_run(
             "download_path": video_path,
             "output_ready": bool(video_path and validate_mp4_path(video_path)["valid"]),
             "recovery_available": recovery_available,
-            "failure_stage": failure.get("failure_stage") or "clip_generation",
+            "failure_stage": failure_stage,
             "failed_clip_index": failed_clip_index,
             "error": error_text,
             "clip_timeout_seconds": clip_timeout_seconds,
             "preflight_snapshot": preflight,
+            "youtube_upload_allowed": False,
+            "publish_ready": False,
+            "publish_package_ready": False,
             "finished_at": _now_iso(),
         }
     )

@@ -258,7 +258,7 @@ def write_report(data: dict[str, Any]) -> Path:
         "## Provider Response (safe summary)",
         "",
         "```json",
-        json.dumps(data["run_result_safe"], indent=2),
+        json.dumps(data["run_result_safe"], indent=2, ensure_ascii=False),
         "```",
         "",
         "## Artifacts",
@@ -270,7 +270,7 @@ def write_report(data: dict[str, Any]) -> Path:
         "### Manifest summary",
         "",
         "```json",
-        json.dumps(manifest, indent=2),
+        json.dumps(manifest, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Validation Checks",
@@ -287,18 +287,18 @@ def write_report(data: dict[str, Any]) -> Path:
             "",
             "**Before:**",
             "```json",
-            json.dumps(data["video_before"], indent=2),
+            json.dumps(data["video_before"], indent=2, ensure_ascii=False),
             "```",
             "",
             "**After:**",
             "```json",
-            json.dumps(data["video_after"], indent=2),
+            json.dumps(data["video_after"], indent=2, ensure_ascii=False),
             "```",
             "",
             "## Flags After Test",
             "",
             "```json",
-            json.dumps(data["flags_after_test"], indent=2),
+            json.dumps(data["flags_after_test"], indent=2, ensure_ascii=False),
             "```",
             "",
             "- `MODIR_VOICE_LIVE_TTS_ENABLED` removed from process environment",
@@ -330,7 +330,7 @@ def main() -> int:
     print("Phase 11H-2e — starting supervised real ElevenLabs smoke test (1 segment)...")
     data = run_smoke_test(root)
     report_path = write_report(data)
-    print(json.dumps({k: v for k, v in data.items() if k not in ("video_before", "video_after")}, indent=2))
+    print(json.dumps({k: v for k, v in data.items() if k not in ("video_before", "video_after")}, indent=2, ensure_ascii=False))
     print(f"\nReport: {report_path}")
     print(f"\n{'PASS' if data['all_checks_pass'] else 'FAIL'} — 11H-2e smoke test")
     return 0 if data["all_checks_pass"] else 1

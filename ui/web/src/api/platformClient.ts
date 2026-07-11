@@ -399,6 +399,9 @@ export type PlatformSchedulerState = {
   automation_enabled?: boolean;
   automation_paused?: boolean;
   daily_job_cap?: number;
+  youtube_duration_seconds?: number;
+  instagram_duration_seconds?: number;
+  tiktok_duration_seconds?: number;
   platforms?: Record<string, PlatformScheduleEntry>;
   updated_at?: string;
 };
@@ -445,6 +448,10 @@ export function prepareUploadPackages(body: Record<string, unknown>) {
 
 export function fetchYouTubeAuthStatus() {
   return request<Record<string, unknown>>("/upload/youtube/auth/status");
+}
+
+export function getYouTubeOAuthConnectUrl() {
+  return `${API_BASE}/upload/youtube/auth`;
 }
 
 export function startYouTubeAuth() {

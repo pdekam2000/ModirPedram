@@ -943,13 +943,13 @@ def _run_smoke_test() -> None:
     print("\nNARRATIVE PREMISE:")
     print(blueprint["narrative_premise"])
     print("\nQUALITY SCORE:")
-    print(json.dumps(blueprint["story_quality_score"], indent=2))
+    print(json.dumps(blueprint["story_quality_score"], indent=2, ensure_ascii=False))
     print("\nSCENE PLAN (first 2):")
     for scene in blueprint["scene_plan"][:2]:
-        print(json.dumps(scene, indent=2))
+        print(json.dumps(scene, indent=2, ensure_ascii=False))
     print("\nDIRECTOR SHOTS (first 2):")
     for shot in blueprint["director_shots"][:2]:
-        print(json.dumps(shot, indent=2))
+        print(json.dumps(shot, indent=2, ensure_ascii=False))
     print("\nSCHEMA DIRECTOR SHOTS VALID:",
           all(DirectorShot.from_dict(item).validate().is_valid
               for item in result["schema_director_shots"]))

@@ -53,7 +53,7 @@ def main() -> int:
 
     payload = result.to_dict()
     report_json = clip_dir / "recovery_report.json"
-    report_json.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    report_json.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     verify = verify_extracted_kling_mp4(dest) if dest.is_file() else {"is_real_mp4": False}
     recovery_run_md = clip_dir / "recovery_run_summary.md"

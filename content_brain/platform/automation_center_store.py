@@ -14,6 +14,8 @@ from pathlib import Path
 
 from typing import Any
 
+from content_brain.platform.json_utf8 import dumps_json, repair_mojibake_text
+
 
 
 AUTOMATION_VERSION = "platform_automation_center_v1"
@@ -94,7 +96,7 @@ class AutomationCenterStore:
 
         merged = dict(DEFAULT_STATE)
 
-        merged.update(payload if isinstance(payload, dict) else {})
+        merged.update(repair_mojibake_text(payload) if isinstance(payload, dict) else {})
 
         stored_flags = dict(merged.get("feature_flags") or {})
 
@@ -136,7 +138,7 @@ class AutomationCenterStore:
 
         self.path.parent.mkdir(parents=True, exist_ok=True)
 
-        self.path.write_text(json.dumps(current, indent=2), encoding="utf-8")
+        self.path.write_text(dumps_json(current), encoding="utf-8")
 
         return self.load()
 

@@ -102,7 +102,7 @@ def _read_state(project_root: Path) -> dict[str, Any]:
 def _write_state(project_root: Path, payload: dict[str, Any]) -> None:
     path = _state_path(project_root)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def is_cdp_reachable(cdp_url: str, *, timeout_seconds: float = 1.5) -> bool:

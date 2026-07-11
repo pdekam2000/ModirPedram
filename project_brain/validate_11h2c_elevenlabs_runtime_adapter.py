@@ -386,7 +386,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
             Path(tmp) / "n.mp3",
             segment_index=1,
         ).to_dict()
-    key_leak = "test-key-never-logged" in json.dumps(result_dict)
+    key_leak = "test-key-never-logged" in json.dumps(result_dict, ensure_ascii=False)
     header_has_key = any(c["headers"].get("xi-api-key") == "test-key-never-logged" for c in http.calls)
     results.append(
         _pass(
@@ -468,7 +468,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
             extras.get("provider") == "elevenlabs"
             and extras.get("provider_mode") == PROVIDER_MODE_LIVE
             and extras.get("real_provider_called") is True,
-            json.dumps({k: extras.get(k) for k in ("provider", "provider_mode")}),
+            json.dumps({k: extras.get(k) for k in ("provider", "provider_mode")}, ensure_ascii=False),
         )
     )
 
@@ -529,7 +529,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 def main() -> None:
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

@@ -86,14 +86,14 @@ def main() -> None:
         v1.write_bytes(b"original-branded-v1")
 
         (metadata_dir / "run_summary.json").write_text(
-            json.dumps({"run_id": "run_qf2", "topic": "Cute orange cartoon cat explorer", "assembly_status": "ASSEMBLED"}),
+            json.dumps({"run_id": "run_qf2", "topic": "Cute orange cartoon cat explorer", "assembly_status": "ASSEMBLED"}, ensure_ascii=False),
             encoding="utf-8",
         )
         (metadata_dir / "assembly_manifest.json").write_text(
-            json.dumps({"status": "ASSEMBLED", "clip_count": 2, "output_path": str(assembly_video)}),
+            json.dumps({"status": "ASSEMBLED", "clip_count": 2, "output_path": str(assembly_video)}, ensure_ascii=False),
             encoding="utf-8",
         )
-        (run_dir / "raw_downloads_manifest.json").write_text(json.dumps({"run_id": "run_qf2", "topic": "cat"}), encoding="utf-8")
+        (run_dir / "raw_downloads_manifest.json").write_text(json.dumps({"run_id": "run_qf2", "topic": "cat"}, ensure_ascii=False), encoding="utf-8")
 
         profile_dir = tmp / "project_brain" / "product_settings"
         profile_dir.mkdir(parents=True, exist_ok=True)
@@ -109,6 +109,7 @@ def main() -> None:
                     "narration_style": "child_story",
                     "asset_vault_enabled": True,
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )

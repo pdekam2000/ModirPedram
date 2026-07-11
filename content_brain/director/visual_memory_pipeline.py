@@ -127,7 +127,7 @@ def apply_visual_memory_pipeline(
 
     if persist:
         report_path.parent.mkdir(parents=True, exist_ok=True)
-        report_path.write_text(json.dumps(results_panel, indent=2), encoding="utf-8")
+        report_path.write_text(json.dumps(results_panel, indent=2, ensure_ascii=False), encoding="utf-8")
 
     return VisualMemoryPipelineResult(
         run_id=resolved_run_id,

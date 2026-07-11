@@ -79,8 +79,8 @@ def write_use_frame_chain(run_dir: str | Path, state: UseFrameChainState | dict[
     payload["updated_at"] = _now_iso()
     path = use_frame_chain_path(run_dir)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    (Path(run_dir).resolve() / USE_FRAME_CHAIN_FILENAME).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    (Path(run_dir).resolve() / USE_FRAME_CHAIN_FILENAME).write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     payload["use_frame_chain_path"] = str(path.resolve()).replace("\\", "/")
     return payload
 

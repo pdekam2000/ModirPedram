@@ -173,5 +173,5 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 if __name__ == "__main__":
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

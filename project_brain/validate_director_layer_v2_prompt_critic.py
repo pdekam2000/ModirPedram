@@ -85,7 +85,7 @@ def _test_structured_json() -> None:
         director_layer=director, dry_run=True,
     )
     payload = result.to_dict()
-    json.dumps(payload)
+    json.dumps(payload, ensure_ascii=False)
     meta = payload.get("metadata") or {}
     _pass("structured_json_output", all(k in meta for k in ("score", "decision", "issues", "rewrite_count")))
 

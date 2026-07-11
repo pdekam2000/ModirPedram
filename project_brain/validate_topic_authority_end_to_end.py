@@ -112,7 +112,7 @@ def test_no_stale_topic_reuse_from_latest_json() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         export_dir = Path(tmp)
         stale = _make_e2e_result("zander fishing method", 3)
-        (export_dir / "latest.json").write_text(json.dumps(stale), encoding="utf-8")
+        (export_dir / "latest.json").write_text(json.dumps(stale, ensure_ascii=False), encoding="utf-8")
         user_topic = "micro SaaS pricing psychology"
         bundle, _meta = resolve_live_smoke_prompts(
             story_idea=user_topic,

@@ -64,4 +64,4 @@ with sync_playwright() as p:
                 break
         if page:
             break
-    print(json.dumps(page.evaluate(JS), indent=2))
+    print(json.dumps(page.evaluate(JS), indent=2, ensure_ascii=False))

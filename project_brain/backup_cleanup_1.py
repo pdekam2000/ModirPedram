@@ -162,7 +162,7 @@ def main() -> int:
 
     if keep_validation.get("verdict") != "SAFE_TO_KEEP":
         print("VALIDATION FAILED — STOPPING. No deletions performed.", flush=True)
-        print(json.dumps(keep_validation, indent=2))
+        print(json.dumps(keep_validation, indent=2, ensure_ascii=False))
         return 1
 
     print("STEP 2-3 — Delete corrupt backup and stub", flush=True)
@@ -268,7 +268,7 @@ def main() -> int:
 
     (BRAIN / "BACKUP_CLEANUP_COMPLETION_REPORT.md").write_text("\n".join(completion) + "\n", encoding="utf-8")
 
-    print(json.dumps({"reclaimed_bytes": reclaimed, "new_zip": create_result["zip_rel"]}, indent=2))
+    print(json.dumps({"reclaimed_bytes": reclaimed, "new_zip": create_result["zip_rel"]}, indent=2, ensure_ascii=False))
     return 0 if new_validation.get("verdict") == "SAFE_TO_KEEP" else 2
 
 

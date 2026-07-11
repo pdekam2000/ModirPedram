@@ -56,7 +56,7 @@ def write_session_status(
         "session_path": str(runway_session_path(project_root)),
     }
     runway_session_status_path(project_root).write_text(
-        json.dumps(payload, indent=2),
+        json.dumps(payload, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     return payload

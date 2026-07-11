@@ -39,7 +39,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
         _pass(
             "all_11a_providers_have_entries",
             all(coverage.get(pid) for pid in DEFAULT_11A_PROVIDER_IDS),
-            json.dumps({k: v for k, v in coverage.items() if not v}),
+            json.dumps({k: v for k, v in coverage.items() if not v}, ensure_ascii=False),
         )
     )
 
@@ -48,7 +48,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
         _pass(
             "estimate_supported_video_capability",
             runway_est.blocked is False and runway_est.estimated_cost is not None,
-            json.dumps(runway_est.to_dict()),
+            json.dumps(runway_est.to_dict(), ensure_ascii=False),
         )
     )
     results.append(
@@ -140,5 +140,5 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 if __name__ == "__main__":
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

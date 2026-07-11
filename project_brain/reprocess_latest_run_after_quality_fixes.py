@@ -62,7 +62,7 @@ def _read_json(path: Path) -> dict[str, Any]:
 
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def _story_brief_from_e2e() -> dict[str, Any]:
@@ -471,7 +471,7 @@ def write_report(summary: dict[str, Any]) -> None:
 def main() -> int:
     summary = reprocess_run()
     write_report(summary)
-    print(json.dumps(summary, indent=2))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0 if summary.get("ok") else 1
 
 

@@ -125,7 +125,7 @@ def save_story_visual_artifacts(
         debug_dir = run_path / "debug" / "story_visual_1"
         debug_dir.mkdir(parents=True, exist_ok=True)
         diversity_path = debug_dir / "scene_diversity_report.json"
-        diversity_path.write_text(json.dumps(bundle.scene_diversity.to_dict(), indent=2), encoding="utf-8")
+        diversity_path.write_text(json.dumps(bundle.scene_diversity.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         paths["scene_diversity_report"] = str(diversity_path)
 
         run_emotion = run_path / "metadata" / "character_emotion_plan.json"
@@ -137,7 +137,7 @@ def save_story_visual_artifacts(
         paths["run_visual_repetition_report"] = str(run_repetition)
 
         summary_path = debug_dir / "story_visual_summary.json"
-        summary_path.write_text(json.dumps(bundle.to_dict(), indent=2), encoding="utf-8")
+        summary_path.write_text(json.dumps(bundle.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         paths["story_visual_summary"] = str(summary_path)
 
     return paths

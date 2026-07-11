@@ -162,6 +162,24 @@ class RunwayAgentError(Exception):
     pass
 
 
+class UseFrameSeekFailedError(RunwayAgentError):
+    """Previous clip preview could not be seeked to the last frame before Use Frame."""
+
+    failure_stage = "use_frame_seek_failed"
+
+    def __init__(self, clip_index: int, detail: str = "") -> None:
+        self.failed_clip_index = int(clip_index)
+        message = detail or "use_frame_seek_failed"
+        super().__init__(message)
+
+
+USE_FRAME_END_OFFSET_SEC = 0.30
+USE_FRAME_SEEK_TOLERANCE_SEC = 0.75
+USE_FRAME_SEEK_MAX_RETRIES = 3
+USE_FRAME_METADATA_WAIT_MS = 500
+USE_FRAME_METADATA_MAX_ATTEMPTS = 20
+
+
 def prepare_runway_session(page: Page, context: BrowserContext, project_root: Path) -> None:
     session_path = runway_session_path(project_root)
     if not session_path.is_file() or session_path.stat().st_size == 0:
@@ -814,22 +832,48 @@ def _feed_top_video(page: Page):
     return _feed_panel(page).locator("video").first
 
 
+def _wait_for_video_metadata_loaded(page: Page, video) -> float:
+    """Wait until the previous-clip HTML5 video reports a positive duration."""
+    for attempt in range(1, USE_FRAME_METADATA_MAX_ATTEMPTS + 1):
+        meta = video.first.evaluate(
+            """el => ({
+                readyState: Number(el.readyState) || 0,
+                duration: Number.isFinite(el.duration) && el.duration > 0 ? Number(el.duration) : 0,
+                currentTime: Number(el.currentTime) || 0,
+            })"""
+        )
+        duration = float(meta.get("duration") or 0.0)
+        ready_state = int(meta.get("readyState") or 0)
+        if duration > 0 and ready_state >= 1:
+            return duration
+        if attempt == 1 or attempt % 5 == 0:
+            print(
+                f"[i] Waiting for previous clip metadata "
+                f"(attempt {attempt}/{USE_FRAME_METADATA_MAX_ATTEMPTS}, duration={duration:.2f}s)..."
+            )
+        page.wait_for_timeout(USE_FRAME_METADATA_WAIT_MS)
+    return 0.0
+
+
 def seek_video_for_use_frame(
     page: Page,
     duration_sec: int,
     *,
     frame_second: float | None = None,
+    clip_index: int = 0,
 ) -> float:
     """
-    Seek the previous clip preview to the last frame before Use frame.
-    For 15s clips we target second 14 (duration - 1).
+    Seek the previous clip preview to duration - 0.30s before Use frame.
+    Fails closed if the seek cannot be verified within tolerance.
     """
-    target = frame_second if frame_second is not None else max(float(duration_sec) - 1.0, 0.0)
-    print(f"[step] Seeking previous clip to second {target:g} (last frame)...")
+    print("[step] Opening previous clip preview and seeking to last frame...")
 
     video = _feed_top_video(page)
     if video.count() == 0:
-        raise RunwayAgentError("No video in feed to seek for Use frame.")
+        raise UseFrameSeekFailedError(
+            clip_index or 2,
+            "use_frame_seek_failed: No video in feed to seek for Use frame.",
+        )
 
     video.first.scroll_into_view_if_needed()
     try:
@@ -838,43 +882,75 @@ def seek_video_for_use_frame(
         pass
     page.wait_for_timeout(400)
 
-    try:
-        video.first.evaluate(
-            """(el, t) => {
-                el.pause();
-                const dur = Number.isFinite(el.duration) && el.duration > 0 ? el.duration : t + 1;
-                el.currentTime = Math.min(t, Math.max(dur - 0.05, 0));
-            }""",
-            target,
+    media_duration = _wait_for_video_metadata_loaded(page, video)
+    if media_duration <= 0:
+        raise UseFrameSeekFailedError(
+            clip_index or 2,
+            "use_frame_seek_failed: Previous clip video metadata not loaded.",
         )
-        page.wait_for_timeout(700)
-        current = float(video.first.evaluate("el => el.currentTime"))
-        print(f"[OK] Video at {current:.2f}s (target {target:g}s)")
-        if current >= target - 1.0 or current >= max(duration_sec - 2, 0):
-            return current
-    except Exception as exc:
-        print(f"[i] JS seek note: {exc}")
 
-    card = _feed_top_card(page)
-    for sel in ("input[type='range']", "[role='slider']"):
+    target = (
+        float(frame_second)
+        if frame_second is not None
+        else max(0.0, media_duration - USE_FRAME_END_OFFSET_SEC)
+    )
+    target = min(target, max(0.0, media_duration - 0.05))
+    print(
+        f"[step] Seeking previous clip to {target:.2f}s "
+        f"(video.duration={media_duration:.2f}s, offset={USE_FRAME_END_OFFSET_SEC}s)..."
+    )
+
+    last_current = 0.0
+    for attempt in range(1, USE_FRAME_SEEK_MAX_RETRIES + 1):
         try:
-            slider = card.locator(sel).first
-            if slider.count() > 0 and slider.is_visible(timeout=500):
-                box = slider.bounding_box()
-                if box:
-                    ratio = min(target / max(float(duration_sec), 1.0), 0.98)
-                    page.mouse.click(
-                        box["x"] + box["width"] * ratio,
-                        box["y"] + box["height"] / 2,
-                    )
-                    page.wait_for_timeout(600)
-                    print(f"[OK] Timeline scrubbed to ~{target:g}s")
-                    return target
-        except Exception:
-            continue
+            video.first.evaluate(
+                """(el, t) => {
+                    el.pause();
+                    const dur = Number.isFinite(el.duration) && el.duration > 0 ? el.duration : t + 1;
+                    el.currentTime = Math.min(Math.max(t, 0), Math.max(dur - 0.05, 0));
+                }""",
+                target,
+            )
+        except Exception as exc:
+            print(f"[warn] JS seek attempt {attempt}/{USE_FRAME_SEEK_MAX_RETRIES}: {exc}")
 
-    print(f"[warn] Seek to {target:g}s not verified — continuing with Use frame.")
-    return target
+        page.wait_for_timeout(700)
+        probe = video.first.evaluate(
+            """el => ({
+                currentTime: Number(el.currentTime) || 0,
+                duration: Number.isFinite(el.duration) && el.duration > 0 ? Number(el.duration) : 0,
+            })"""
+        )
+        last_current = float(probe.get("currentTime") or 0.0)
+        probe_duration = float(probe.get("duration") or media_duration)
+        if probe_duration > 0:
+            target = min(target, max(0.0, probe_duration - USE_FRAME_END_OFFSET_SEC))
+
+        if abs(last_current - target) <= USE_FRAME_SEEK_TOLERANCE_SEC:
+            print(
+                f"[OK] Video at {last_current:.2f}s "
+                f"(target {target:.2f}s, duration {probe_duration:.2f}s)"
+            )
+            if last_current <= 1.0 and target > 1.0:
+                raise UseFrameSeekFailedError(
+                    clip_index or 2,
+                    f"use_frame_seek_failed: Seek landed near start ({last_current:.2f}s).",
+                )
+            return last_current
+
+        print(
+            f"[warn] Seek attempt {attempt}/{USE_FRAME_SEEK_MAX_RETRIES}: "
+            f"at {last_current:.2f}s, wanted {target:.2f}s "
+            f"(tolerance {USE_FRAME_SEEK_TOLERANCE_SEC}s)"
+        )
+
+    raise UseFrameSeekFailedError(
+        clip_index or 2,
+        (
+            "use_frame_seek_failed: Could not seek previous clip to last frame "
+            f"(current={last_current:.2f}s target={target:.2f}s duration={media_duration:.2f}s)."
+        ),
+    )
 
 
 def click_use_frame(
@@ -882,6 +958,7 @@ def click_use_frame(
     *,
     duration: int,
     frame_second: float | None = None,
+    clip_index: int = 0,
 ) -> None:
     """Seek to the last frame, then click Use frame under the previous clip."""
     print("[step] Use frame from previous clip (last frame)...")
@@ -889,7 +966,12 @@ def click_use_frame(
 
     card = _feed_top_card(page)
     _reveal_top_card(page)
-    seek_video_for_use_frame(page, duration, frame_second=frame_second)
+    seek_video_for_use_frame(
+        page,
+        duration,
+        frame_second=frame_second,
+        clip_index=clip_index,
+    )
     _reveal_top_card(page)
 
     for attempt in range(1, 4):
@@ -920,11 +1002,19 @@ def click_use_frame(
             pass
 
         print(f"[i] Use frame click attempt {attempt}/3 — retrying...")
-        seek_video_for_use_frame(page, duration, frame_second=frame_second)
+        seek_video_for_use_frame(
+            page,
+            duration,
+            frame_second=frame_second,
+            clip_index=clip_index,
+        )
         _reveal_top_card(page)
         page.wait_for_timeout(1000)
 
-    raise RunwayAgentError("Could not click 'Use frame' under the previous clip.")
+    raise UseFrameSeekFailedError(
+        clip_index or 2,
+        "use_frame_seek_failed: Could not click 'Use frame' under the previous clip.",
+    )
 
 
 def capture_output_snapshot(page: Page, *, label: str = "") -> dict[str, Any]:
@@ -1258,7 +1348,12 @@ def generate_one_clip(
             native_audio=native_audio,
         )
     else:
-        click_use_frame(page, duration=duration, frame_second=use_frame_second)
+        click_use_frame(
+            page,
+            duration=duration,
+            frame_second=use_frame_second,
+            clip_index=clip_index,
+        )
         use_frame_success = True
         if not _duration_is_set(page, duration):
             select_duration(page, duration)
@@ -1700,6 +1795,9 @@ def main() -> None:
         out_json.write_text(json.dumps(result_json, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"\n[OK] Batch complete — {len(results)} clip(s).")
         print(f"[OK] Result metadata: {out_json}")
+    except UseFrameSeekFailedError as exc:
+        print(f"[ERROR] failure_stage={exc.failure_stage} failed_clip_index={exc.failed_clip_index} {exc}")
+        sys.exit(EXIT_RUNTIME_ERROR)
     except RunwayAgentError as exc:
         print(f"[ERROR] {exc}")
         lowered = str(exc).lower()

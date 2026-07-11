@@ -76,9 +76,10 @@ def finalize_multiclip_output(
         return {
             "merged": False,
             "video_path": "",
-            "stitched_clip_count": 0,
+            "stitched_clip_count": int(assembly_guard.get("clip_count") or 0),
             "merge_note": assembly_guard.get("error") or "Duplicate clips blocked assembly.",
             "assembly_guard": assembly_guard,
+            "assembly_status": assembly_guard.get("assembly_status") or "blocked_duplicate_or_missing_clips",
             "duplicate_chain_failed": True,
             "youtube_upload_allowed": False,
         }
@@ -89,17 +90,19 @@ def finalize_multiclip_output(
             "merged": False,
             "video_path": str(video.resolve()).replace("\\", "/") if video.is_file() else "",
             "stitched_clip_count": 1 if video.is_file() else 0,
+            "assembly_status": "completed" if video.is_file() else "",
         }
 
     clip_paths = [run_dir / f"clip_{index}.mp4" for index in range(1, clip_count + 1)]
     existing = [path for path in clip_paths if path.is_file()]
-    if len(existing) < 2:
-        last = run_dir / f"clip_{len(existing)}.mp4" if existing else run_dir / "video.mp4"
+    if len(existing) < clip_count:
         return {
             "merged": False,
-            "video_path": str(last.resolve()).replace("\\", "/") if last.is_file() else "",
+            "video_path": "",
             "stitched_clip_count": len(existing),
-            "merge_note": "Insufficient clip artifacts for stitch; using last available clip.",
+            "assembly_status": "blocked_duplicate_or_missing_clips",
+            "merge_note": "Insufficient clip artifacts for stitch.",
+            "youtube_upload_allowed": False,
         }
 
     merged_path = run_dir / "video_merged.mp4"
@@ -480,11 +483,16 @@ def run_product_multiclip_generate(
                 copied_clips=partial_clips,
             )
             if verify["valid_clip_count"] > 0:
-                pwmap_result["status"] = "partial"
-                pwmap_result["ok"] = True
+                pwmap_result["status"] = "partial_failed"
+                pwmap_result["ok"] = False
                 pwmap_result["recovery_available"] = True
+                pwmap_result["youtube_upload_allowed"] = False
+                pwmap_result["publish_ready"] = False
+                pwmap_result["publish_package_ready"] = False
                 pwmap_result["clips"] = verify["verified_clips"]
                 pwmap_result["clip_count"] = verify["valid_clip_count"]
+                pwmap_result["video_path"] = ""
+                pwmap_result["download_path"] = ""
                 register_pwmap_product_studio_run(
                     project_root=project_root,
                     run_id=str(pwmap_result.get("run_id") or ""),

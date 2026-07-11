@@ -101,7 +101,7 @@ def upload_patch_package(
             raise PatchUploadError("JSON patch upload must be an object")
         manifest_path = target_dir / "manifest.json"
         if not manifest_path.exists():
-            manifest_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+            manifest_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     return {
         "ok": True,

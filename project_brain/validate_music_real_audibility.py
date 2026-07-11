@@ -137,7 +137,7 @@ def main() -> None:
         silent_track = tmp / "assets" / "audio" / "music" / "silent.mp3"
         _write_tone_mp3(silent_track, amplitude=1, seconds=2)
         (tmp / "project_brain" / "product_settings" / "channel_profile.json").write_text(
-            json.dumps({"music_provider": "local", "music_track_path": str(silent_track.relative_to(tmp)).replace("\\", "/")}),
+            json.dumps({"music_provider": "local", "music_track_path": str(silent_track.relative_to(tmp)).replace("\\", "/")}, ensure_ascii=False),
             encoding="utf-8",
         )
         silent_result = run_music_runtime(project_root=tmp, input_video_path=input_mp4)
@@ -146,7 +146,7 @@ def main() -> None:
         track = tmp / "assets" / "audio" / "music" / "test_track.mp3"
         _write_tone_mp3(track)
         (tmp / "project_brain" / "product_settings" / "channel_profile.json").write_text(
-            json.dumps({"music_provider": "local", "music_track_path": str(track.relative_to(tmp)).replace("\\", "/")}),
+            json.dumps({"music_provider": "local", "music_track_path": str(track.relative_to(tmp)).replace("\\", "/")}, ensure_ascii=False),
             encoding="utf-8",
         )
         resolved = resolve_music_track_path(tmp, {"music_track_path": str(track.relative_to(tmp)).replace("\\", "/")})
@@ -159,7 +159,7 @@ def main() -> None:
         _pass("mixed_status_completed", mixed.get("status") == "completed")
 
         (tmp / "project_brain" / "product_settings" / "channel_profile.json").write_text(
-            json.dumps({"music_provider": "local", "music_track_path": "assets/audio/music/missing.mp3"}),
+            json.dumps({"music_provider": "local", "music_track_path": "assets/audio/music/missing.mp3"}, ensure_ascii=False),
             encoding="utf-8",
         )
         for leftover in (tmp / "assets" / "audio" / "music").glob("*"):

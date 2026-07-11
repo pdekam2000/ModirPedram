@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
+from pathlib import Path
 from typing import Any
 
 from content_brain.story.story_first_prompt_engine import (
@@ -26,12 +28,26 @@ try:
 except ImportError:  # pragma: no cover
     OpenAI = None  # type: ignore[misc, assignment]
 
-OPENAI_WRITER_VERSION = "kling_story_first_openai_writer_v4_platform_genre"
+logger = logging.getLogger(__name__)
+
+OPENAI_WRITER_VERSION = "kling_story_first_openai_writer_v5_narrator_timing"
 DEFAULT_MODEL_FALLBACK = "gpt-4.1-mini"
 MODEL_PREFERENCE = ("gpt-4.1", DEFAULT_MODEL_FALLBACK)
 REQUEST_TIMEOUT_SECONDS = 90.0
 MAX_ATTEMPTS = 2
 OPENAI_MIN_STORY_RATIO = 0.60
+
+MAX_WORDS_PER_CLIP = 35
+MAX_WORDS_TOTAL = 70
+
+TIMING_RULES_BLOCK = """TIMING RULES — CRITICAL:
+- Total video = 30 seconds
+- Clip 1 = 15 seconds = MAX 35 words spoken
+- Clip 2 = 15 seconds = MAX 35 words spoken
+- Count words carefully before finalizing
+- Script must END completely before clip ends
+- Last 2 seconds = silence or music only
+- NEVER cut off mid-sentence"""
 
 SYSTEM_PROMPT_COMEDY = """You write Kling Frame-to-Video prompts as cinematic scene prose for native in-scene audio.
 
@@ -70,7 +86,9 @@ Clip 2 (15s): Payoff + Clear Ending
 - Show character reactions (4s)
 - HARD ENDING: freeze frame, laugh, or clear visual resolution (3s)
 - NEVER end mid-action or mid-sentence
-- Viewer must feel satisfied and complete"""
+- Viewer must feel satisfied and complete
+
+""" + TIMING_RULES_BLOCK
 
 SYSTEM_PROMPT_SCIENCE = """You write Kling Frame-to-Video prompts as premium cinematic science-documentary scene prose for native in-scene audio.
 
@@ -80,7 +98,7 @@ Return ONLY the final prompt text — no JSON, no markdown fences, no commentary
 
 Structure:
 1) STORY BODY — present-tense cinematic prose with a recurring female science presenter integrated into dynamic scientific visuals:
-   holographic displays, animated diagrams, macro/micro footage, space simulations, body visualizations, molecular animation.
+   holographic displays, animated diagrams, macro/micro footage, space simulations, molecular visualizations.
 2) TECHNICAL FOOTER — after a line exactly reading:
 --- Technical execution ---
 Include ONLY: visual style, audio style (native in-scene), camera style, continuity anchor.
@@ -105,8 +123,26 @@ Clip 1 (15s): Hook + Setup
 Clip 2 (15s): Payoff + Twist + CTA
 - Continue visual explanation (8s) — mechanism made vivid
 - Deliver strangest payoff (4s) — more surprising than the hook when possible
-- HARD ENDING (3s) — natural short CTA or memorable closing line
-- NEVER end mid-sentence. Viewer rewarded for watching to the end"""
+- Presenter finishes speaking, then 2-3 second silent reaction/pause shot (3s)
+- HARD ENDING — natural short CTA or memorable closing line
+- NEVER end mid-sentence. Visual resolution before cut
+
+""" + TIMING_RULES_BLOCK + """
+
+CONTENT SAFETY RULES — NEVER include:
+- Any reference to skin, body, flesh, glowing skin
+- Romantic or intimate language about the presenter
+- Body scan or body data visualization on person
+- Any phrase that could be sexual
+- Words: glowing (when describing person), her skin, body scan, flesh, sensual
+
+SAFE alternatives:
+- Instead of 'holographic body scan on her': use 'holographic molecular diagram beside her'
+- Instead of 'glowing right now': use 'the science reveals itself'
+- Instead of body-focused: focus on the SCIENCE FACT visualization
+
+The presenter is a SCIENCE HOST — describe her ACTIONS and GESTURES only,
+never her physical appearance or body."""
 
 SYSTEM_PROMPT_BEAUTY = """You write Kling Frame-to-Video prompts as cinematic skincare-tutorial scene prose for native in-scene audio.
 
@@ -140,7 +176,9 @@ Clip 2 (15s): Apply + Result + CTA
 - Application on face or skin with close-ups (8s)
 - Visible result or glow moment (4s)
 - HARD ENDING (3s) — "Follow for daily skincare recipes" or natural variant
-- NEVER end mid-sentence. Viewer must feel the tutorial is complete"""
+- NEVER end mid-sentence. Viewer must feel the tutorial is complete
+
+""" + TIMING_RULES_BLOCK
 
 
 def _resolve_platform_genre(**kwargs: Any) -> str:
@@ -183,12 +221,82 @@ def _clean(text: str) -> str:
     return re.sub(r"\s+", " ", str(text or "")).strip()
 
 
+def narrator_word_count(text: str) -> int:
+    return len(re.findall(r"\b\w+(?:'\w+)?\b", str(text or "")))
+
+
+def trim_narrator_line(text: str, *, max_words: int = MAX_WORDS_PER_CLIP) -> str:
+    cleaned = _clean(text)
+    if not cleaned:
+        return ""
+    words = re.findall(r"\b\w+(?:'\w+)?\b", cleaned)
+    if len(words) <= max_words:
+        return cleaned
+
+    trimmed_words = words[:max_words]
+    candidate = " ".join(trimmed_words)
+    sentence_end = max(candidate.rfind("."), candidate.rfind("!"), candidate.rfind("?"))
+    if sentence_end > len(candidate) * 0.45:
+        return candidate[: sentence_end + 1].strip()
+
+    partial = cleaned
+    for _ in range(len(words) - max_words + 1):
+        cut = partial.rfind(" ")
+        if cut <= 0:
+            break
+        partial = partial[:cut].rstrip(" ,;:-")
+        if narrator_word_count(partial) <= max_words:
+            sentence_end = max(partial.rfind("."), partial.rfind("!"), partial.rfind("?"))
+            if sentence_end > 0:
+                return partial[: sentence_end + 1].strip()
+            return f"{partial}."
+    return f"{candidate}."
+
+
+def validate_narrator_lines(lines: list[str]) -> list[str]:
+    trimmed: list[str] = []
+    total_words = 0
+    for raw in lines:
+        line = trim_narrator_line(raw, max_words=MAX_WORDS_PER_CLIP)
+        if not line:
+            continue
+        words = narrator_word_count(line)
+        remaining = MAX_WORDS_TOTAL - total_words
+        if remaining <= 0:
+            break
+        if words > remaining:
+            line = trim_narrator_line(line, max_words=remaining)
+            words = narrator_word_count(line)
+        if line:
+            trimmed.append(line)
+            total_words += words
+    return trimmed
+
+
 def _strip_fences(text: str) -> str:
     cleaned = str(text or "").strip()
     if cleaned.startswith("```"):
         cleaned = re.sub(r"^```[a-zA-Z]*\n?", "", cleaned)
         cleaned = re.sub(r"\n?```$", "", cleaned)
     return cleaned.strip()
+
+
+def get_openai_client(*, project_root: str | Path | None = None) -> OpenAI:
+    """Lazy OpenAI client — bootstraps .env on first use if the key is not loaded yet."""
+    if OpenAI is None:
+        raise ValueError("openai package not installed")
+    key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not key:
+        try:
+            from core.env_bootstrap import bootstrap_project_env
+
+            bootstrap_project_env(project_root=project_root)
+        except Exception as exc:
+            logger.debug("env bootstrap during OpenAI client init failed: %s", exc)
+        key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not key:
+        raise ValueError("OPENAI_API_KEY not set")
+    return OpenAI(api_key=key, timeout=REQUEST_TIMEOUT_SECONDS)
 
 
 def resolve_openai_writer_models() -> list[str]:
@@ -264,12 +372,13 @@ def _openai_text_completion(*, system_prompt: str, user_content: str, dry_run: b
         notes.append("openai_kling_prompt_dry_run")
         return "", "", notes
 
-    api_key = os.getenv("OPENAI_API_KEY", "").strip()
-    if not api_key or OpenAI is None:
-        notes.append("openai_client_unavailable")
+    try:
+        client = get_openai_client()
+    except ValueError as exc:
+        logger.error("OpenAI client unavailable for Kling prompt writer: %s", exc)
+        notes.append(f"openai_client_unavailable:{exc}")
         return "", "", notes
 
-    client = OpenAI(api_key=api_key, timeout=REQUEST_TIMEOUT_SECONDS)
     last_error = ""
     for model in resolve_openai_writer_models():
         try:
@@ -290,6 +399,7 @@ def _openai_text_completion(*, system_prompt: str, user_content: str, dry_run: b
             return content, model, notes
         except Exception as exc:  # pragma: no cover
             last_error = f"{model}:{exc}"
+            logger.error("OpenAI Kling prompt request failed (%s): %s", model, exc)
             continue
     notes.append(f"openai_kling_prompt_failed:{last_error or 'unknown'}")
     return "", "", notes
@@ -347,7 +457,9 @@ def _build_openai_brief(
         "native_audio_directives": directives_summary,
     }
     if dialogue:
-        brief["dialogue_line_to_quote"] = dialogue
+        brief["dialogue_line_to_quote"] = trim_narrator_line(dialogue)
+        brief["dialogue_word_count"] = narrator_word_count(brief["dialogue_line_to_quote"])
+        brief["dialogue_max_words"] = MAX_WORDS_PER_CLIP
     else:
         brief["dialogue_intent"] = dialogue_goal
     if clip_index > 1:
@@ -391,12 +503,14 @@ def _build_openai_brief(
         elif beauty_mode:
             brief["clip_timing_structure"] = (
                 "Clip 2 (15s) Apply+Result+CTA: application close-ups 8s, visible glow 4s, "
-                "HARD ENDING with follow-for-recipes CTA 3s — NEVER mid-sentence"
+                "presenter finishes speaking then 2-3s silent reaction/pause on result, "
+                "HARD ENDING with follow-for-recipes CTA — NEVER mid-sentence"
             )
         elif science_mode:
             brief["clip_timing_structure"] = (
                 "Clip 2 (15s) Payoff+Twist+CTA: visual explanation 8s, strangest payoff 4s, "
-                "HARD ENDING with natural CTA 3s — NEVER mid-sentence"
+                "presenter finishes speaking then 2-3s silent reaction/pause shot, HARD ENDING — "
+                "NEVER mid-sentence, visual resolution before cut"
             )
         else:
             brief["clip_timing_structure"] = (
@@ -404,8 +518,10 @@ def _build_openai_brief(
                 "HARD ENDING freeze/laugh/resolution 3s — NEVER mid-action or mid-sentence"
             )
         brief["two_clip_completion_rule"] = (
-            "Story must FULLY COMPLETE in 2 clips. Viewer must feel satisfied and complete."
+            "Story must FULLY COMPLETE in 2 clips. Viewer must feel satisfied and complete. "
+            f"Spoken dialogue per clip: max {MAX_WORDS_PER_CLIP} words; total max {MAX_WORDS_TOTAL} words."
         )
+        brief["timing_rules"] = TIMING_RULES_BLOCK
     return brief
 
 
@@ -419,6 +535,7 @@ def _build_user_prompt(**kwargs: Any) -> str:
         "target_platform",
         "genre",
         "niche",
+        "regeneration_feedback",
     }
     brief = _build_openai_brief(
         character_continuity=str(kwargs.get("character_continuity") or ""),
@@ -460,11 +577,13 @@ def try_write_story_first_prompt_openai(
     )
     feedback = ""
     raw_response = ""
+    regeneration_feedback = str(kwargs.get("regeneration_feedback") or "").strip()
     for attempt in range(1, MAX_ATTEMPTS + 1):
         attempt_prompt = user_prompt
-        if feedback:
+        extra_feedback = feedback or regeneration_feedback
+        if extra_feedback:
             attempt_prompt = (
-                f"{user_prompt}\n\nPrevious attempt failed validation:\n{feedback}\n"
+                f"{user_prompt}\n\nPrevious attempt failed validation:\n{extra_feedback}\n"
                 "Rewrite as pure cinematic scene prose with zero metadata labels."
             )
 
@@ -520,10 +639,17 @@ def try_write_story_first_prompt_openai(
 __all__ = [
     "OPENAI_WRITER_VERSION",
     "OPENAI_MIN_STORY_RATIO",
+    "MAX_WORDS_PER_CLIP",
+    "MAX_WORDS_TOTAL",
+    "TIMING_RULES_BLOCK",
+    "narrator_word_count",
+    "trim_narrator_line",
+    "validate_narrator_lines",
     "SYSTEM_PROMPT",
     "SYSTEM_PROMPT_BEAUTY",
     "SYSTEM_PROMPT_SCIENCE",
     "try_write_story_first_prompt_openai",
+    "get_openai_client",
     "_build_openai_brief",
     "_resolve_system_prompt",
 ]

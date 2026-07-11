@@ -64,7 +64,7 @@ def _print_safe(result: dict[str, Any]) -> None:
         "ELEVENLABS_API_KEY_in_os_environ": result["elevenlabs_api_key_in_os_environ"],
         "ElevenLabsConfigResolver_has_api_key": result["elevenlabs_config_resolver_has_api_key"],
     }
-    print(json.dumps(output, indent=2))
+    print(json.dumps(output, indent=2, ensure_ascii=False))
 
 
 def _infer_cause(result: dict[str, Any]) -> str:
@@ -112,7 +112,7 @@ def write_report(result: dict[str, Any], *, dry_run_rerun: dict[str, Any] | None
         "## Env Bootstrap",
         "",
         "```json",
-        json.dumps(bootstrap, indent=2),
+        json.dumps(bootstrap, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Diagnostic Output",

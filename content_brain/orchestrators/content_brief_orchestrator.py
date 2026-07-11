@@ -694,7 +694,7 @@ if __name__ == "__main__":
                 "| ROUNDTRIP TITLES:",
                 len(roundtrip.title_thumbnail_package.titles),
             )
-            print("JSON OK:", json.dumps(payload)[:140] + "...")
+            print("JSON OK:", json.dumps(payload, ensure_ascii=False)[:140] + "...")
             print("ROUNDTRIP:", roundtrip.brief_id[:18], roundtrip.next_action)
 
         print("\n" + "=" * 72)

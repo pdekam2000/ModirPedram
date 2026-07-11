@@ -40,8 +40,8 @@ def main() -> int:
         starter_image_prompt=args.starter_prompt,
         topic=args.topic,
     )
-    SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
-    print(json.dumps(result.to_dict(), indent=2), flush=True)
+    SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), flush=True)
     return 0 if result.ok else 1
 
 

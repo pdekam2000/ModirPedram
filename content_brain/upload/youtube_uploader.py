@@ -232,7 +232,7 @@ def upload_video_to_youtube(
                 "X-Upload-Content-Type": "video/mp4",
                 "X-Upload-Content-Length": str(path.stat().st_size),
             },
-            data=json.dumps(metadata),
+            data=json.dumps(metadata, ensure_ascii=False),
             timeout=60,
         )
         if init.status_code not in {200, 201}:

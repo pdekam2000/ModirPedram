@@ -271,7 +271,7 @@ def _apply_mock_video_artifacts(
 
     manifest = {"clips": [{"file_path": p, "clip_number": i + 1} for i, p in enumerate(clip_paths)]}
     manifest_path = video_dir / "video_manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
     session = store.load_session(session_id)
     runtime = ensure_multi_category_shell(dict(_dict(session.get("execution_runtime"))))
@@ -587,7 +587,7 @@ def _patch_mock_voice_manifest_timing(
         rec["duration_seconds"] = round(max(1.0, effective_total * share), 3)
         updated_files.append(rec)
     manifest["files"] = updated_files
-    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
     session = store.load_session(session_id)
     runtime = ensure_multi_category_shell(dict(_dict(session.get("execution_runtime"))))
@@ -733,7 +733,7 @@ def _run_assembly_stage(
         final_path.write_bytes(b"\x00\x00\x00\x1cftypmp42" + b"\x00" * 128)
         manifest_path = output_dir / "assembly_manifest.json"
         manifest_path.write_text(
-            json.dumps({"real_assembly_executed": False, "uat_mock_assembly": True}),
+            json.dumps({"real_assembly_executed": False, "uat_mock_assembly": True}, ensure_ascii=False),
             encoding="utf-8",
         )
         return {
@@ -850,7 +850,7 @@ def _write_review_template(
         },
         "publishable": None,
     }
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
@@ -910,7 +910,7 @@ def write_uat_report(session_id: str, data: dict[str, Any], *, project_root: Pat
         "## Stage summary",
         "",
         "```json",
-        json.dumps(stages, indent=2),
+        json.dumps(stages, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Warnings / errors",
@@ -1436,7 +1436,7 @@ class UATRuntimeEngine:
             "comments": submission.comments,
             "publishable": submission.publishable,
         }
-        review_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        review_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
         return {
             "success": True,
             "session_id": session_id,

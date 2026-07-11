@@ -133,7 +133,7 @@ def test_normalized_result_stable() -> None:
         "preflight_snapshot": {"authoritative_topic": "test topic"},
     }
     (run_dir / "video.mp4").write_bytes(b"\x00" * 1_100_000)
-    (run_dir / "normalized_result.json").write_text(json.dumps(payload), encoding="utf-8")
+    (run_dir / "normalized_result.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
     with patch("content_brain.execution.pwmap_runway_agent_adapter.pwmap_run_dir", return_value=run_dir):
         loaded = load_pwmap_agent_run_results(ROOT, run_id=run_id)
     _pass("loader_found", bool(loaded and loaded.get("found")))

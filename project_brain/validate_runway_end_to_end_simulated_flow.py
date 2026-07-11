@@ -406,7 +406,7 @@ def run_e2e_flow() -> E2EFlowReport:
 def main() -> int:
     report = run_e2e_flow()
     print("\n[validate_runway_end_to_end_simulated_flow] Summary")
-    print(json.dumps(report.to_dict(), indent=2))
+    print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
     return 0 if report.all_pass else 1
 
 

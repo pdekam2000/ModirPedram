@@ -266,7 +266,7 @@ def write_last_frame_use_frame_diagnostics(
     }
     DEFAULT_LAST_FRAME_USE_FRAME_DIAGNOSTICS.parent.mkdir(parents=True, exist_ok=True)
     DEFAULT_LAST_FRAME_USE_FRAME_DIAGNOSTICS.write_text(
-        json.dumps(payload, indent=2),
+        json.dumps(payload, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 

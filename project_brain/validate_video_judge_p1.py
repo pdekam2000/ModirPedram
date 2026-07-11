@@ -216,7 +216,7 @@ def test_no_automatic_weight_mutation() -> None:
         root = Path(tmp)
         weights_path = root / LIVE_WEIGHTS_PATH
         weights_path.parent.mkdir(parents=True, exist_ok=True)
-        weights_path.write_text(json.dumps({"dialogue_weight": 0.5}), encoding="utf-8")
+        weights_path.write_text(json.dumps({"dialogue_weight": 0.5}, ensure_ascii=False), encoding="utf-8")
         before = live_weights_snapshot(root)
         judge = {
             "version": JUDGE_P1_VERSION,
@@ -236,7 +236,7 @@ def test_no_automatic_weight_mutation() -> None:
         }
         run_video_learning_loop_p1(judge, project_root=root)
         after = live_weights_snapshot(root)
-        _pass("weights_unchanged", before == after, json.dumps(after))
+        _pass("weights_unchanged", before == after, json.dumps(after, ensure_ascii=False))
 
 
 def test_persist_roundtrip() -> None:

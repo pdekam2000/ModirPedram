@@ -106,6 +106,14 @@ def maybe_exchange_instagram_token(
     profile: dict[str, Any],
 ) -> dict[str, Any]:
     """Exchange token when app credentials are available."""
+    token = str(short_lived_token or "").strip()
+    if token.startswith("IG"):
+        return {
+            "ok": True,
+            "access_token": token,
+            "message": "Instagram Login token detected — no Facebook exchange needed.",
+            "skipped": True,
+        }
     app_id, app_secret = resolve_facebook_app_credentials(profile)
     return exchange_short_lived_token(
         short_lived_token=short_lived_token,

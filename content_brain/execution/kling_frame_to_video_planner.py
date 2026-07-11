@@ -41,6 +41,7 @@ from content_brain.execution.kling_native_audio_planner import (
     _extract_dialogue,
     _next_clip_reference_hint,
     _resolve_story_context,
+    resolve_bridge_hints,
 )
 
 PLANNER_VERSION = "kling_frame_to_video_planner_v3_openai_story_first"
@@ -169,6 +170,7 @@ def _build_clip_plan(
     instagram_genre: str = "",
     tiktok_genre: str = "",
     genre: str = "",
+    handoff_anchor: str = "",
 ) -> KlingFrameToVideoClipPlan:
     emotion = chapter.emotion if chapter else _emotion_for_clip(clip_index, context.mood)
     cast = _character_phrase(context.characters)
@@ -196,6 +198,11 @@ def _build_clip_plan(
         environment=context.environment,
         bridge_hint=bridge_hint,
         emotion=emotion,
+        platform=platform,
+        instagram_genre=instagram_genre,
+        genre=genre,
+        clip_index=clip_index,
+        handoff_anchor=handoff_anchor if clip_index <= 1 else "",
     )
     next_hint = ""
     if clip_index < total_clips:
@@ -203,6 +210,9 @@ def _build_clip_plan(
             bridge_hint=bridge_hint,
             characters=context.characters,
             next_beat=next_beat,
+            platform=platform,
+            instagram_genre=instagram_genre,
+            genre=genre,
         )
 
     prompt, prompt_authorship = _compose_frame_prompt(
@@ -299,12 +309,15 @@ def plan_kling_frame_to_video_content(
         explicit_mode=explicit_mode,
     )
 
-    bridge_hints = [
-        "glowing path deeper into the scene",
-        "hidden shelter entrance ahead",
-        "warm light spilling from a safe corridor",
-        "quiet clearing where the journey can rest",
-    ]
+    bridge_hints = list(
+        resolve_bridge_hints(
+            platform=platform,
+            instagram_genre=instagram_genre,
+            genre=genre,
+        )
+    )
+    story_anchors = dict((payload.story_package or {}).get("continuity_anchors") or {})
+    handoff_anchor = str(story_anchors.get("handoff") or "").strip()
 
     progression = build_story_progression_plan(
         planned_duration_seconds=planned,
@@ -338,6 +351,7 @@ def plan_kling_frame_to_video_content(
                 instagram_genre=instagram_genre,
                 tiktok_genre=tiktok_genre,
                 genre=genre,
+                handoff_anchor=handoff_anchor,
             )
         )
 

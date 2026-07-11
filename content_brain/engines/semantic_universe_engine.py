@@ -824,7 +824,7 @@ if __name__ == "__main__":
         print("  EMOTIONAL:", ", ".join(universe.emotional_angles[:4]))
         print("  CONFLICT:", ", ".join(universe.conflict_angles[:3]))
         print("  ROUNDTRIP OK:", roundtrip.source_niche == universe.source_niche)
-        print("  JSON OK:", json.dumps(payload)[:120] + "...")
+        print("  JSON OK:", json.dumps(payload, ensure_ascii=False)[:120] + "...")
 
         forbidden_hits = [
             seed

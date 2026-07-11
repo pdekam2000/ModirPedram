@@ -50,7 +50,7 @@ def save_canonical_run(project_root: str | Path, payload: dict[str, Any]) -> Pat
     body = dict(payload)
     body["version"] = CANONICAL_RUN_VERSION
     body["updated_at"] = _now()
-    path.write_text(json.dumps(body, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(body, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 

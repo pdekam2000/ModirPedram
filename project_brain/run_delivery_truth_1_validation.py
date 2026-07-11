@@ -57,7 +57,7 @@ def main() -> None:
     if archived_cat_video and Path(archived_cat_video).is_file():
         cat_audit = audit_final_mp4_delivery(archived_cat_video).to_dict()
         print("\nArchived cat MP4 audit (truth baseline):")
-        print(json.dumps(cat_audit, indent=2))
+        print(json.dumps(cat_audit, indent=2, ensure_ascii=False))
         _pass("cat_mp4_audit_ran", cat_audit.get("status") in {"PASS", "FAIL"})
         if cat_audit.get("status") == "PASS":
             print("WARNING: archived cat MP4 unexpectedly passed full delivery audit")
@@ -84,7 +84,7 @@ def main() -> None:
 
     delivery_truth = build_delivery_truth_panel(ROOT)
     print("\nCanonical delivery truth:")
-    print(json.dumps(delivery_truth, indent=2))
+    print(json.dumps(delivery_truth, indent=2, ensure_ascii=False))
 
     report = {
         "run_id": str(canonical.get("run_id") or ""),
@@ -102,9 +102,9 @@ def main() -> None:
         "archive_dir": archive_report.get("archive_dir"),
     }
     out_path = ROOT / "project_brain" / "DELIVERY_TRUTH_1_VALIDATION.json"
-    out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     print("\nValidation report written:", out_path)
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     print("=" * 60)
     print("DELIVERY-TRUTH-1 validation complete")
 

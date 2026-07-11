@@ -121,7 +121,7 @@ def main() -> int:
         }
 
     out = run_dir / "live_retest_forensic.json" if run_dir.is_dir() else ROOT / "project_brain" / "live_retest_forensic.json"
-    out.write_text(json.dumps(forensic, indent=2), encoding="utf-8")
+    out.write_text(json.dumps(forensic, indent=2, ensure_ascii=False), encoding="utf-8")
     print("forensic:", out)
     return 0 if forensic.get("hashes_differ") else 2
 

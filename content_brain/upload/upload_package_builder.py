@@ -188,7 +188,7 @@ def build_upload_packages(
         hashtags = _hashtags_text(metadata)
         (platform_dir / "caption.txt").write_text(caption, encoding="utf-8")
         (platform_dir / "hashtags.txt").write_text(hashtags, encoding="utf-8")
-        (platform_dir / "metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        (platform_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
 
         pinned = str(metadata.get("pinned_comment") or "").strip()
         pinned_name = f"{folder_name}_pinned_comment.txt"
@@ -249,7 +249,7 @@ def build_upload_packages(
             package["root_pinned_comment_path"] = str(root_pinned)
 
     manifest_path = upload_root / "upload_manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     manifest["manifest_path"] = str(manifest_path)
     return manifest
 

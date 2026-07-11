@@ -1282,7 +1282,7 @@ class MappedRunwayUINavigator:
         }
         DEFAULT_IMAGE_QUALITY_CHIP_DIAGNOSTICS.parent.mkdir(parents=True, exist_ok=True)
         DEFAULT_IMAGE_QUALITY_CHIP_DIAGNOSTICS.write_text(
-            json.dumps(payload, indent=2),
+            json.dumps(payload, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
 
@@ -3711,7 +3711,7 @@ class MappedRunwayUINavigator:
 
     @staticmethod
     def _use_for_video_candidates_eval_script() -> str:
-        labels_json = json.dumps(list(USE_FOR_VIDEO_ACTION_LABELS))
+        labels_json = json.dumps(list(USE_FOR_VIDEO_ACTION_LABELS), ensure_ascii=False)
         return f"""(payload) => {{
             const labels = {labels_json}.map((value) => String(value || '').toLowerCase());
             const normalize = (value) => String(value || '').replace(/\\s+/g, ' ').trim().toLowerCase();

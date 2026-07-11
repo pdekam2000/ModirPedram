@@ -867,7 +867,7 @@ if __name__ == "__main__":
             )
             print("CTR HOOKS:", " | ".join(payload["ctr_hooks"][:2]))
             print("WARNINGS:", "; ".join(payload["warnings"]) or "none")
-            print("JSON OK:", json.dumps(payload)[:140] + "...")
+            print("JSON OK:", json.dumps(payload, ensure_ascii=False)[:140] + "...")
             print("ROUNDTRIP:", roundtrip.recommended_title[:48])
 
     print("\n" + "=" * 72)

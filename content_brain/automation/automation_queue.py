@@ -9,6 +9,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from content_brain.platform.json_utf8 import dumps_json, repair_mojibake_text
+
 AUTOMATION_QUEUE_VERSION = "automation_queue_v1"
 JOBS_PATH = Path("project_brain") / "automation" / "automation_jobs.json"
 
@@ -80,6 +82,7 @@ class AutomationJob:
     output_path: str = ""
     publish_package_path: str = ""
     upload_package_path: str = ""
+    upload_result: dict[str, Any] | None = None
     error: str = ""
     created_at: str = ""
     updated_at: str = ""
@@ -106,6 +109,7 @@ class AutomationJob:
             "output_path": self.output_path,
             "publish_package_path": self.publish_package_path,
             "upload_package_path": self.upload_package_path,
+            "upload_result": self.upload_result,
             "error": self.error,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
@@ -126,6 +130,7 @@ class AutomationJob:
             output_path=str(payload.get("output_path") or ""),
             publish_package_path=str(payload.get("publish_package_path") or ""),
             upload_package_path=str(payload.get("upload_package_path") or ""),
+            upload_result=payload.get("upload_result") if isinstance(payload.get("upload_result"), dict) else None,
             error=str(payload.get("error") or ""),
             created_at=str(payload.get("created_at") or ""),
             updated_at=str(payload.get("updated_at") or ""),
@@ -146,13 +151,14 @@ class AutomationQueue:
             return {"version": AUTOMATION_QUEUE_VERSION, "jobs": [], "max_jobs_per_day": 5}
         if not isinstance(payload, dict):
             return {"version": AUTOMATION_QUEUE_VERSION, "jobs": [], "max_jobs_per_day": 5}
+        payload = repair_mojibake_text(payload)
         payload.setdefault("jobs", [])
         payload.setdefault("max_jobs_per_day", 5)
         return payload
 
     def _save_payload(self, payload: dict[str, Any]) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        self.path.write_text(dumps_json(payload), encoding="utf-8")
 
     def list_jobs(self) -> list[AutomationJob]:
         payload = self._load_payload()
@@ -256,20 +262,81 @@ class AutomationQueue:
                 count += 1
         return count
 
+    def _job_scheduled_date(self, job: AutomationJob) -> str:
+        return (job.scheduled_time or job.created_at or "")[:10]
+
     def active_jobs_today_for_platform(self, platform: str) -> int:
-        """Count non-failed jobs scheduled for today on a platform (completed + planned + running)."""
+        """Count today's platform slots used (completed + planned + running + failed attempts)."""
         today = datetime.now(timezone.utc).date().isoformat()
         count = 0
         for job in self.list_jobs():
-            if job.status in {JOB_FAILED, JOB_CANCELLED, JOB_SKIPPED}:
+            if job.status in {JOB_CANCELLED, JOB_SKIPPED}:
                 continue
             plat = str((job.platform_targets[0] if job.platform_targets else "") or "")
             if plat != platform:
                 continue
-            stamp = (job.scheduled_time or job.created_at or "")[:10]
-            if stamp == today:
+            if self._job_scheduled_date(job) == today:
                 count += 1
         return count
+
+    def cancel_remaining_planned_jobs_for_today(self, *, reason: str = "daily_cap_reached") -> int:
+        """Cancel all planned jobs scheduled for today once the daily cap is reached."""
+        today = datetime.now(timezone.utc).date().isoformat()
+        cancelled = 0
+        for job in self.list_jobs():
+            if job.status != JOB_PLANNED:
+                continue
+            if self._job_scheduled_date(job) != today:
+                continue
+            self.update_job(job.job_id, status=JOB_CANCELLED, error=reason)
+            cancelled += 1
+        return cancelled
+
+    def cancel_stale_planned_jobs(self, *, reason: str = "stale_planned_from_prior_day") -> int:
+        """Cancel planned jobs scheduled before today so they cannot replay after midnight."""
+        today = datetime.now(timezone.utc).date().isoformat()
+        cancelled = 0
+        for job in self.list_jobs():
+            if job.status != JOB_PLANNED:
+                continue
+            scheduled = self._job_scheduled_date(job)
+            if scheduled and scheduled < today:
+                self.update_job(job.job_id, status=JOB_CANCELLED, error=reason)
+                cancelled += 1
+        return cancelled
+
+    def cancel_excess_planned_jobs_for_platform(self, platform: str, *, daily_cap: int, reason: str) -> int:
+        """Cancel planned jobs when a platform already used its daily slots (incl. failures)."""
+        if daily_cap <= 0:
+            return 0
+        if self.active_jobs_today_for_platform(platform) < daily_cap:
+            return 0
+        today = datetime.now(timezone.utc).date().isoformat()
+        cancelled = 0
+        for job in self.list_jobs():
+            if job.status != JOB_PLANNED:
+                continue
+            plat = str((job.platform_targets[0] if job.platform_targets else "") or "")
+            if plat != platform:
+                continue
+            if self._job_scheduled_date(job) != today:
+                continue
+            self.update_job(job.job_id, status=JOB_CANCELLED, error=reason)
+            cancelled += 1
+        return cancelled
+
+    def enforce_platform_daily_caps(self, platform_caps: dict[str, int]) -> int:
+        """Cancel planned jobs for platforms that already hit videos_per_day."""
+        total = 0
+        for platform, cap in platform_caps.items():
+            if cap <= 0:
+                continue
+            total += self.cancel_excess_planned_jobs_for_platform(
+                platform,
+                daily_cap=int(cap),
+                reason="platform_daily_cap_reached",
+            )
+        return total
 
     def max_jobs_per_day(self) -> int:
         return int(self._load_payload().get("max_jobs_per_day") or 5)
@@ -283,6 +350,7 @@ class AutomationQueue:
         from content_brain.automation.platform_daily_scheduler_store import (
             PLATFORMS,
             PlatformDailySchedulerStore,
+            resolve_platform_duration_seconds,
         )
 
         scheduler = PlatformDailySchedulerStore(self.project_root)
@@ -307,6 +375,10 @@ class AutomationQueue:
             if not topic:
                 continue
             platform = str((raw.get("platform_targets") or raw.get("platforms") or ["youtube_shorts"])[0] or "")
+            scheduled_duration = int(
+                raw.get("duration_seconds")
+                or resolve_platform_duration_seconds(self.project_root, platform)
+            )
             daily_cap = int(platform_caps.get(platform) or 0)
             if daily_cap <= 0:
                 continue
@@ -326,7 +398,7 @@ class AutomationQueue:
                     ):
                         self.update_job(
                             existing.job_id,
-                            duration=int(raw.get("duration_seconds") or 30),
+                            duration=scheduled_duration,
                             clip_count=int(raw.get("clip_count") or 2),
                         )
                 continue
@@ -334,7 +406,7 @@ class AutomationQueue:
                 {
                     "topic": topic,
                     "title": str(raw.get("title") or topic),
-                    "duration": int(raw.get("duration_seconds") or 30),
+                    "duration": scheduled_duration,
                     "clip_count": int(raw.get("clip_count") or 3),
                     "platform_targets": list(raw.get("platform_targets") or raw.get("platforms") or ["youtube_shorts"]),
                     "scheduled_time": scheduled_time,
@@ -349,6 +421,10 @@ class AutomationQueue:
             if not topic:
                 continue
             platform = str((raw.get("platform_targets") or raw.get("platforms") or ["youtube_shorts"])[0] or "")
+            scheduled_duration = int(
+                raw.get("duration_seconds")
+                or resolve_platform_duration_seconds(self.project_root, platform)
+            )
             scheduled_time = f"{raw.get('planned_date') or ''}T{raw.get('planned_time') or ''}".strip("T")
             for existing in self.list_jobs():
                 if existing.status != JOB_PLANNED:
@@ -361,7 +437,7 @@ class AutomationQueue:
                         existing.job_id,
                         topic=topic,
                         title=topic,
-                        duration=int(raw.get("duration_seconds") or 30),
+                        duration=scheduled_duration,
                         clip_count=int(raw.get("clip_count") or 2),
                     )
         return created
@@ -430,24 +506,26 @@ class AutomationQueue:
     def recover_stale_running_jobs(self, *, max_age_minutes: int = STALE_RUNNING_MINUTES) -> list[str]:
         """Mark stuck running jobs as failed when they never acquired a run_id."""
         recovered: list[str] = []
-        job = self.running_job()
-        if job is None:
-            return recovered
-        updated = _parse_iso_timestamp(job.updated_at)
-        if updated is None:
-            return recovered
-        age_minutes = (datetime.now(timezone.utc) - updated).total_seconds() / 60.0
-        if age_minutes < max_age_minutes:
-            return recovered
-        if str(job.run_id or "").strip():
-            return recovered
-        self.update_job(
-            job.job_id,
-            status=JOB_FAILED,
-            error="stale_running_recovered",
-            run_id="",
-        )
-        recovered.append(job.job_id)
+        now = datetime.now(timezone.utc)
+        for job in self.list_jobs():
+            if job.status != JOB_RUNNING:
+                continue
+            if str(job.run_id or "").strip():
+                continue
+            anchor = _parse_iso_timestamp(job.updated_at) or _parse_iso_timestamp(job.created_at)
+            if anchor is None:
+                age_minutes = float(max_age_minutes) + 1.0
+            else:
+                age_minutes = (now - anchor).total_seconds() / 60.0
+            if age_minutes < max_age_minutes:
+                continue
+            self.update_job(
+                job.job_id,
+                status=JOB_FAILED,
+                error="stale_running_recovered",
+                run_id="",
+            )
+            recovered.append(job.job_id)
         return recovered
 
     def dedupe_planned_jobs(self) -> int:

@@ -59,7 +59,7 @@ class _FakeResponse:
     def __init__(self, status_code: int, payload=None, text: str = "", content: bytes = b""):
         self.status_code = status_code
         self._payload = payload
-        self.text = text or (json.dumps(payload) if payload is not None else "")
+        self.text = text or (json.dumps(payload, ensure_ascii=False) if payload is not None else "")
         self.content = content
 
     def json(self):
@@ -459,5 +459,5 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 if __name__ == "__main__":
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

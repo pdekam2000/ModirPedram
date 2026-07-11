@@ -143,7 +143,7 @@ def upload_video_to_tiktok(
             "uploaded": False,
             "status": "failed",
             "reason": "tiktok_init_missing_upload_url",
-            "details": json.dumps(init_payload)[:500],
+            "details": json.dumps(init_payload, ensure_ascii=False)[:500],
         }
 
     with path.open("rb") as handle:

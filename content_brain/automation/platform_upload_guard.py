@@ -6,7 +6,7 @@ import logging
 import re
 from typing import Any
 
-GUARD_VERSION = "platform_upload_guard_v2_science"
+GUARD_VERSION = "platform_upload_guard_v5_youtube_open"
 _logger = logging.getLogger(__name__)
 
 YOUTUBE_PLATFORMS = frozenset({"youtube_shorts", "youtube"})
@@ -44,11 +44,21 @@ YOUTUBE_TOPIC_REQUIRED = (
     "magnetic",
     "radiation",
 )
-YOUTUBE_TOPIC_FORBIDDEN = (
+YOUTUBE_SKINCARE_BLOCK_KEYWORDS = (
     "skincare",
+    "moisturizer",
+    "face mask",
+    "serum",
     "beauty routine",
-    "glow routine",
-    "self-care ritual",
+)
+YOUTUBE_SCIENCE_SAFE_PHRASES = (
+    "skin cells",
+    "skin deep",
+    "human skin",
+    "glowing",
+    "glow",
+)
+YOUTUBE_TOPIC_FORBIDDEN = YOUTUBE_SKINCARE_BLOCK_KEYWORDS + (
     "hilarious fail",
     "pet fail",
     "dark fantasy",
@@ -62,6 +72,25 @@ def _contains_keyword(text: str, keyword: str) -> bool:
     return re.search(rf"\b{re.escape(keyword)}\b", str(text or ""), flags=re.IGNORECASE) is not None
 
 
+def _youtube_has_skincare_contamination(text: str) -> bool:
+    """Block only clear skincare/beauty terms; never block science skin/glow phrasing."""
+    cleaned = str(text or "")
+    for phrase in YOUTUBE_SCIENCE_SAFE_PHRASES:
+        cleaned = re.sub(re.escape(phrase), " ", cleaned, flags=re.IGNORECASE)
+    return any(_contains_keyword(cleaned, keyword) for keyword in YOUTUBE_SKINCARE_BLOCK_KEYWORDS)
+
+
+def blocked_youtube_skincare_keyword(text: str) -> str:
+    """Return the first skincare block keyword matched in text, or empty string."""
+    cleaned = str(text or "")
+    for phrase in YOUTUBE_SCIENCE_SAFE_PHRASES:
+        cleaned = re.sub(re.escape(phrase), " ", cleaned, flags=re.IGNORECASE)
+    for keyword in YOUTUBE_SKINCARE_BLOCK_KEYWORDS:
+        if _contains_keyword(cleaned, keyword):
+            return keyword
+    return ""
+
+
 def normalize_platform(platform: str) -> str:
     key = str(platform or "").strip().lower()
     if key in {"youtube", "youtube_shorts"}:
@@ -73,22 +102,32 @@ def normalize_platform(platform: str) -> str:
     return key
 
 
-def validate_topic_for_platform(platform: str, topic: str) -> tuple[bool, str]:
-    """Block upload when topic does not match the target platform lane."""
+def validate_topic_for_platform(
+    platform: str,
+    topic: str,
+    *,
+    source: str = "content",
+) -> tuple[bool, str]:
+    """Block upload when topic does not match the target platform lane.
+
+    source:
+      - content: generated titles/stories — enforce required + forbidden keywords
+      - channel_brief: profile topic briefs — required keywords only (briefs may
+        mention other platforms in setup/cleanup instructions)
+    """
     normalized = normalize_platform(platform)
+    if normalized == "youtube_shorts":
+        # YouTube accepts all science content; cross-platform guard is Instagram-only.
+        return True, "ok"
+
     text = str(topic or "").strip()
     if not text:
         return False, "upload_topic_missing"
 
-    if normalized == "youtube_shorts":
-        if any(_contains_keyword(text, keyword) for keyword in YOUTUBE_TOPIC_FORBIDDEN):
-            return False, "instagram_keywords_in_youtube_upload"
-        if not any(_contains_keyword(text, keyword) for keyword in YOUTUBE_TOPIC_REQUIRED):
-            return False, "youtube_topic_missing_science_keywords"
-        return True, ""
+    check_forbidden = str(source or "content").lower() != "channel_brief"
 
     if normalized == "instagram_reels":
-        if any(_contains_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_FORBIDDEN):
+        if check_forbidden and any(_contains_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_FORBIDDEN):
             return False, "youtube_keywords_in_instagram_upload"
         if not any(_contains_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_REQUIRED):
             return False, "instagram_topic_missing_skincare_beauty_keywords"
@@ -161,11 +200,9 @@ def validate_platform_match(job: dict[str, Any] | Any, platform: str) -> None:
         job_platform = str(getattr(job, "platform", "") or (targets[0] if targets else platform))
 
     upload_platform = normalize_platform(platform or job_platform)
+    if upload_platform == "youtube_shorts":
+        return
     lowered = topic.lower()
-    if upload_platform == "youtube_shorts" and any(
-        marker in lowered for marker in ("skincare", "beauty routine", "glow routine")
-    ):
-        raise PlatformMatchError("WRONG TOPIC for YouTube")
     if upload_platform == "instagram_reels" and any(
         marker in lowered for marker in ("hilarious fail", "pet fail", "animal comedy")
     ):

@@ -76,7 +76,7 @@ def main() -> int:
         "live_snapshot": live,
         "conclusion": conclusion,
     }
-    DEFAULT_REPORT_PATH.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    DEFAULT_REPORT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"Report: {REPORT_PATH}")
     print(f"focus_dependent={conclusion.get('focus_dependent')}")

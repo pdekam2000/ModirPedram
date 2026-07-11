@@ -81,7 +81,7 @@ def archive_stale_delivery_artifacts(project_root: Path | None = None) -> dict[s
             payload["approved"] = False
             payload["delivery_reality_passed"] = False
             payload["archived_snapshot"] = str(snapshot)
-            source.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+            source.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
             log.append({"source": str(source), "status": "reset_unapproved", "snapshot": str(snapshot)})
 
     report = {
@@ -89,10 +89,10 @@ def archive_stale_delivery_artifacts(project_root: Path | None = None) -> dict[s
         "moved": [item for item in log if item.get("status") == "archived"],
         "reset": [item for item in log if item.get("status") != "archived"],
     }
-    (archive_dir / "ARCHIVE_LOG.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    (archive_dir / "ARCHIVE_LOG.json").write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     return report
 
 
 if __name__ == "__main__":
     result = archive_stale_delivery_artifacts()
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2, ensure_ascii=False))

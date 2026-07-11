@@ -95,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         result = engine.run_sync(config)
     except Exception as exc:
-        print(json.dumps({"success": False, "error": str(exc)}, indent=2))
+        print(json.dumps({"success": False, "error": str(exc)}, indent=2, ensure_ascii=False))
         return 1
 
     if config.open_folder and result.get("artifact_folder"):
@@ -104,7 +104,7 @@ def main(argv: list[str] | None = None) -> int:
         except OSError as exc:
             result.setdefault("warnings", []).append(f"Could not open folder: {exc}")
 
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2, ensure_ascii=False))
     print(f"\nReport: {result.get('runtime_report_path')}")
     print(f"Review template: {result.get('review_template_path')}")
     print(f"\n{'PASS' if result.get('success') else 'FAIL'} — 12B UAT pipeline")

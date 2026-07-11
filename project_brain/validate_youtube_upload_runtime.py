@@ -64,11 +64,12 @@ def _setup_publish(tmp: Path) -> Path:
                 "language": "en",
                 "made_for_kids": False,
             }
-        ),
+                ensure_ascii=False,
+            ),
         encoding="utf-8",
     )
     (publish / "publish_package.json").write_text(
-        json.dumps({"publish_ready": True, "final_video": str((publish / FINAL_BRANDED_PUBLISH_READY_NAME).resolve())}),
+        json.dumps({"publish_ready": True, "final_video": str((publish / FINAL_BRANDED_PUBLISH_READY_NAME).resolve())}, ensure_ascii=False),
         encoding="utf-8",
     )
     return publish
@@ -91,7 +92,7 @@ def main() -> int:
         root = Path(tmp)
         (root / "project_brain" / "product_settings").mkdir(parents=True, exist_ok=True)
         (root / "project_brain" / "product_settings" / "channel_profile.json").write_text(
-            json.dumps(_profile()),
+            json.dumps(_profile(), ensure_ascii=False),
             encoding="utf-8",
         )
         (root / "project_brain" / "local_credentials").mkdir(parents=True, exist_ok=True)
@@ -105,6 +106,7 @@ def main() -> int:
                         "token_uri": "https://oauth2.googleapis.com/token",
                     }
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )

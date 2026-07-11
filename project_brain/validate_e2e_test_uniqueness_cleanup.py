@@ -79,7 +79,7 @@ def main() -> int:
         _pass("unrelated_records_preserved", result["remaining_count"] == 2, f"remaining={result['remaining_count']}")
 
         payload = load_history(memory_path)
-        json.dumps(payload)
+        json.dumps(payload, ensure_ascii=False)
         _pass("json_remains_valid", isinstance(payload.get("records"), list))
         remaining_ids = {r.get("record_id") for r in payload["records"]}
         _pass("kept_production_row", "uniq_keep_production_01" in remaining_ids)

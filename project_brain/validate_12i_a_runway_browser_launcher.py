@@ -91,7 +91,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
             "launch_uses_controlled_profile",
             launch_result.get("success")
             and "real_chrome_profile" in str(launch_result.get("profile_path")),
-            json.dumps({k: launch_result[k] for k in launch_result if k != "profile_path"}),
+            json.dumps({k: launch_result[k] for k in launch_result if k != "profile_path"}, ensure_ascii=False),
         )
     )
 
@@ -144,7 +144,7 @@ def main(argv: list[str] | None = None) -> int:
 
     include_regressions = parse_include_regressions(argv)
     report = run_matrix(include_regressions=include_regressions)
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     print_validation_summary(report)
     return validation_exit_code(report)
 

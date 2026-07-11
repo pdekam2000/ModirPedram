@@ -1588,7 +1588,7 @@ class ContentBrainE2EMicroTestStudio:
         runway_txt_path = base.with_suffix(".runway_prompts.txt")
         payload = result.to_dict()
         json_path.write_text(
-            json.dumps(payload, indent=2, default=str),
+            json.dumps(payload, indent=2, default=str, ensure_ascii=False),
             encoding="utf-8",
         )
         md_path.write_text(self._render_markdown(result), encoding="utf-8")
@@ -1596,7 +1596,7 @@ class ContentBrainE2EMicroTestStudio:
         latest_json = self.export_dir / "latest.json"
         latest_md = self.export_dir / "latest.md"
         latest_runway = self.export_dir / "latest.runway_prompts.txt"
-        latest_json.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
+        latest_json.write_text(json.dumps(payload, indent=2, default=str, ensure_ascii=False), encoding="utf-8")
         latest_md.write_text(md_path.read_text(encoding="utf-8"), encoding="utf-8")
         latest_runway.write_text(runway_txt_path.read_text(encoding="utf-8"), encoding="utf-8")
         return StudioStepResult(

@@ -358,7 +358,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Tr
 
 def main() -> int:
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     return 0 if report["all_pass"] else 1
 
 

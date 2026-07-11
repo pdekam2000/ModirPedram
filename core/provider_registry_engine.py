@@ -193,7 +193,7 @@ class ProviderRegistryEngine:
                     default_registry,
                     f,
                     indent=4
-                )
+                , ensure_ascii=False)
 
         if not self.active_file.exists():
 
@@ -219,7 +219,7 @@ class ProviderRegistryEngine:
                     default_active,
                     f,
                     indent=4
-                )
+                , ensure_ascii=False)
 
     def load_registry(self):
 
@@ -256,7 +256,7 @@ class ProviderRegistryEngine:
                 active_config,
                 f,
                 indent=4
-            )
+            , ensure_ascii=False)
 
     def get_provider_names(
         self,

@@ -173,7 +173,7 @@ def extract_and_save_continuity_frame(
         "validation": validation,
     }
     report_path = continuity_dir(run_dir) / f"extract_c{clip_index}.json"
-    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
     return ExtractedLastFrame(
         video_path=str(source),

@@ -202,8 +202,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
                     "tts_executed": True,
                     "files": [{"segment_index": 0, "file_path": str(Path(tmp_dir) / "seg_0.mp3")}],
                 },
-                indent=2,
-            ),
+                indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
         timing_session = _session_with_voice_manifest("exec_11i2_timing", manifest_path)
@@ -324,7 +323,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 def main() -> int:
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         status = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

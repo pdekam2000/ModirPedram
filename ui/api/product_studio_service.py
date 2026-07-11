@@ -364,6 +364,10 @@ class ProductStudioService:
                 exchange_message = str(exchange.get("message") or "Long-lived token saved.")
             else:
                 exchange_message = str(exchange.get("message") or "Token exchange skipped.")
+        elif new_token:
+            from content_brain.upload.instagram_auth import refresh_instagram_profile_ids
+
+            store_payload = refresh_instagram_profile_ids(store_payload)
 
         self.profile_store.save(store_payload)
 
@@ -447,7 +451,7 @@ class ProductStudioService:
     def _save_elevenlabs_last_test(self, payload: dict[str, Any]) -> None:
         path = self._elevenlabs_status_path()
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     def _elevenlabs_config_snapshot(self) -> dict[str, Any]:
         from core.env_bootstrap import bootstrap_project_env
@@ -529,6 +533,7 @@ class ProductStudioService:
         custom_topic = str(payload.get("custom_topic") or "").strip()
         platform = str(payload.get("platform") or profile.get("default_platform") or "youtube_shorts")
         from content_brain.automation.platform_daily_scheduler import resolve_platform_topic
+        from content_brain.automation.platform_daily_scheduler_store import resolve_platform_duration_seconds
 
         automation_mode = bool(payload.get("automation_mode"))
         if topic_mode == "custom" and custom_topic and not automation_mode:
@@ -549,7 +554,10 @@ class ProductStudioService:
             or payload.get("audio_strategy_override")
             or "auto"
         )
-        duration_seconds = int(payload.get("duration_seconds") or profile.get("default_duration_seconds") or 30)
+        duration_seconds = int(
+            payload.get("duration_seconds")
+            or resolve_platform_duration_seconds(self.project_root, platform, profile=profile)
+        )
         from content_brain.execution.platform_video_style import resolve_platform_mood, resolve_platform_video_style
 
         style = resolve_platform_video_style(platform, profile, payload)
@@ -687,6 +695,12 @@ class ProductStudioService:
             kling_duration_meta["clip_count"] = product_duration["clip_count"]
             kling_duration_meta["planned_duration_seconds"] = product_duration["duration_seconds"]
             kling_duration_meta["requested_duration_seconds"] = duration_seconds
+            resolved_clip_count = int(
+                payload.get("clip_count") or product_duration["clip_count"] or ideation_clip_count or 1
+            )
+            resolved_duration_seconds = int(
+                payload.get("duration_seconds") or product_duration["duration_seconds"] or duration_seconds
+            )
             kling_plan = plan_kling_frame_from_audio_route(
                 topic=channel_topic,
                 audio_route=audio_route,
@@ -701,6 +715,8 @@ class ProductStudioService:
                 instagram_genre=str(profile.get("instagram_genre") or ""),
                 tiktok_genre=str(profile.get("tiktok_genre") or ""),
                 genre=str(profile.get("genre") or ""),
+                planned_duration_seconds=resolved_duration_seconds,
+                clip_count=resolved_clip_count,
             )
             kling_block = build_kling_frame_preflight_api_payload(
                 plan=kling_plan,
@@ -1694,7 +1710,10 @@ class ProductStudioService:
         if payload.get("clip_count") not in (None, ""):
             duration_seconds = clip_count * 10
         else:
-            duration_seconds = int(payload.get("duration_seconds") or profile.get("default_duration_seconds") or 30)
+            duration_seconds = int(
+                payload.get("duration_seconds")
+                or resolve_platform_duration_seconds(self.project_root, platform, profile=profile)
+            )
         use_director = bool(payload.get("use_ai_director", True))
         use_critic = bool(payload.get("use_prompt_critic", True))
         requested_clip_count = clip_count if payload.get("clip_count") not in (None, "") else None

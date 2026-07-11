@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import re
+import logging
 from dataclasses import dataclass, field
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 STORY_FIRST_VERSION = "story_first_prompt_engine_v1"
 
@@ -521,6 +524,32 @@ def fit_story_first_prompt_length(story_body: str, technical_footer: str) -> str
     return _fit_story_first_length(story_body, technical_footer)
 
 
+def _local_template_kwargs(**kwargs: Any) -> dict[str, Any]:
+    allowed = {
+        "topic",
+        "cast",
+        "environment",
+        "beat",
+        "emotion",
+        "chapter_role",
+        "story_objective",
+        "visual_progression",
+        "dialogue",
+        "dialogue_goal",
+        "clip_index",
+        "total_clips",
+        "prior_bridge_hint",
+        "bridge_hint",
+        "conflict_level",
+        "mood",
+        "style",
+        "camera_direction",
+        "continuity_anchor",
+        "directives_summary",
+    }
+    return {key: value for key, value in kwargs.items() if key in allowed}
+
+
 def compose_story_first_frame_prompt_primary(
     *,
     prefer_openai: bool = True,
@@ -564,7 +593,15 @@ def compose_story_first_frame_prompt_primary(
                 authorship.setdefault("notes", []).append("prior_clip_continuity_injected")
             return prompt, authorship
 
-    local_prompt = compose_story_first_frame_prompt(**kwargs)
+        platform = str(kwargs.get("target_platform") or kwargs.get("platform") or "").lower()
+        if platform in {"instagram_reels", "instagram"}:
+            logger.error(
+                "OpenAI failed for Instagram clip prompt (clip %s): %s",
+                kwargs.get("clip_index") or 1,
+                authorship.get("notes") or "unknown",
+            )
+
+    local_prompt = compose_story_first_frame_prompt(**_local_template_kwargs(**kwargs))
     authorship.setdefault("notes", []).append("local_template_fallback")
     prompt = ensure_prior_clip_continuity_language(
         local_prompt,

@@ -102,7 +102,7 @@ def test_recovery_runs_post_processing_without_runway() -> None:
         report = _fake_report(tmp, 2)
         report_path = tmp / "project_brain/runway_phase_i_3clip_last_report.json"
         report_path.parent.mkdir(parents=True, exist_ok=True)
-        report_path.write_text(json.dumps(report.__dict__, indent=2), encoding="utf-8")
+        report_path.write_text(json.dumps(report.__dict__, indent=2, ensure_ascii=False), encoding="utf-8")
 
         unavailable = FFmpegAvailabilityResult(available=False, error="simulated missing")
         with patch(
@@ -170,19 +170,19 @@ def test_results_ignores_stale_manifest_for_different_run_id() -> None:
         publish_dir = tmp / "outputs/publish/runway_phase_i"
         publish_dir.mkdir(parents=True, exist_ok=True)
         (publish_dir / "metadata.json").write_text(
-            json.dumps({"run_id": "cb_cat_run", "clip_count": 2}),
+            json.dumps({"run_id": "cb_cat_run", "clip_count": 2}, ensure_ascii=False),
             encoding="utf-8",
         )
         (runtime / "runway_phase_i_checkpoint.json").write_text(
-            json.dumps({"run_id": "cb_cat_run", "clip_count": 2}),
+            json.dumps({"run_id": "cb_cat_run", "clip_count": 2}, ensure_ascii=False),
             encoding="utf-8",
         )
         (runtime / "runway_phase_i_assembly_manifest.json").write_text(
-            json.dumps({"status": ASSEMBLY_ASSEMBLED, "clip_count": 2}),
+            json.dumps({"status": ASSEMBLY_ASSEMBLED, "clip_count": 2}, ensure_ascii=False),
             encoding="utf-8",
         )
         (runtime / "runway_phase_i_publish_manifest.json").write_text(
-            json.dumps({"status": PUBLISH_CREATED}),
+            json.dumps({"status": PUBLISH_CREATED}, ensure_ascii=False),
             encoding="utf-8",
         )
         final_video = tmp / "outputs/final/FINAL_RUNWAY_PHASE_I_VIDEO.mp4"
@@ -202,6 +202,7 @@ def test_results_ignores_stale_manifest_for_different_run_id() -> None:
                     "downloaded_file_paths": [grafig_clip],
                     "post_processing_status": "skipped",
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )
@@ -226,6 +227,7 @@ def test_results_ignores_stale_visual_continuity_for_different_run_id() -> None:
                     "overall_pass": False,
                     "clips": [{"clip_index": 1, "pass": False, "score": 0}],
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )
@@ -242,6 +244,7 @@ def test_results_ignores_stale_visual_continuity_for_different_run_id() -> None:
                     "downloaded_file_paths": clip_paths,
                     "post_processing_status": "skipped",
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )

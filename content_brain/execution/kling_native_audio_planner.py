@@ -71,6 +71,38 @@ DEFAULT_BRIDGE_HINTS: tuple[str, ...] = (
     "quiet clearing where the journey can rest",
 )
 
+BEAUTY_BRIDGE_HINTS: tuple[str, ...] = (
+    "the finished mask mixture ready to apply",
+    "gentle facial application with close-up skin texture",
+)
+
+BEAUTY_CONTINUITY_ANCHOR = (
+    "The presenter holds the finished mask mixture, ready to apply, final frame ready for handoff"
+)
+
+BEAUTY_CONTINUITY_ANCHOR_FINAL = (
+    "The presenter shows the applied treatment with visible skin glow, final frame ready for handoff"
+)
+
+
+def _is_beauty_content(*, platform: str = "", instagram_genre: str = "", genre: str = "") -> bool:
+    normalized_platform = str(platform or "").lower()
+    if normalized_platform in {"instagram_reels", "instagram"}:
+        return True
+    normalized_genre = str(instagram_genre or genre or "").lower()
+    return "beauty" in normalized_genre or "skincare" in normalized_genre
+
+
+def resolve_bridge_hints(
+    *,
+    platform: str = "",
+    instagram_genre: str = "",
+    genre: str = "",
+) -> tuple[str, ...]:
+    if _is_beauty_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        return BEAUTY_BRIDGE_HINTS
+    return DEFAULT_BRIDGE_HINTS
+
 DEFAULT_EMOTIONS: tuple[str, ...] = (
     "tender wonder",
     "rising tension",
@@ -377,15 +409,38 @@ def _continuity_anchor(
     environment: str,
     bridge_hint: str,
     emotion: str,
+    platform: str = "",
+    instagram_genre: str = "",
+    genre: str = "",
+    clip_index: int = 1,
+    handoff_anchor: str = "",
 ) -> str:
+    if handoff_anchor:
+        return _clean(handoff_anchor)
+    if _is_beauty_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        if int(clip_index) <= 1:
+            return _clean(BEAUTY_CONTINUITY_ANCHOR)
+        return _clean(BEAUTY_CONTINUITY_ANCHOR_FINAL)
     cast = _character_phrase(characters)
     return _clean(
         f"{cast} held at the edge of {bridge_hint} in {environment}, {emotion}, final frame ready for handoff"
     )
 
 
-def _next_clip_reference_hint(*, bridge_hint: str, characters: list[str], next_beat: str) -> str:
+def _next_clip_reference_hint(
+    *,
+    bridge_hint: str,
+    characters: list[str],
+    next_beat: str,
+    platform: str = "",
+    instagram_genre: str = "",
+    genre: str = "",
+) -> str:
     cast = _character_phrase(characters)
+    if _is_beauty_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        return _clean(
+            f"Same {cast} continue from {bridge_hint} to begin application: {next_beat}"
+        )
     return _clean(f"Same {cast} continue toward {bridge_hint} to begin: {next_beat}")
 
 
@@ -734,6 +789,8 @@ def plan_kling_frame_from_audio_route(
     instagram_genre: str = "",
     tiktok_genre: str = "",
     genre: str = "",
+    planned_duration_seconds: int | None = None,
+    clip_count: int | None = None,
 ) -> Any:
     """Build Frame-to-Video plan (primary production path) from audio router metadata."""
     from content_brain.execution.kling_frame_to_video_models import KLING_FRAME_TO_VIDEO_MODE
@@ -747,11 +804,12 @@ def plan_kling_frame_from_audio_route(
         kling_meta = {}
 
     planned_duration = int(
-        kling_meta.get("planned_duration_seconds")
+        planned_duration_seconds
+        or kling_meta.get("planned_duration_seconds")
         or kling_meta.get("requested_duration_seconds")
         or 30
     )
-    clip_total = int(kling_meta.get("clip_count") or 0) or None
+    clip_total = int(clip_count or kling_meta.get("clip_count") or 0) or None
     return plan_kling_frame_to_video_content(
         topic=topic,
         story_package=story_package,

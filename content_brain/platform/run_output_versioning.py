@@ -95,7 +95,7 @@ def write_raw_downloads_manifest(layout: VersionedRunLayout, downloaded_paths: l
         "downloaded_file_paths": list(downloaded_paths),
         "created_at": _now(),
     }
-    layout.downloads_manifest_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    layout.downloads_manifest_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def _copy_file(source: Path, target: Path) -> None:
@@ -146,12 +146,12 @@ def finalize_versioned_run_layout(
 
     if visual_continuity_report:
         (layout.metadata_dir / "visual_continuity_report.json").write_text(
-            json.dumps(visual_continuity_report, indent=2),
+            json.dumps(visual_continuity_report, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
 
-    (layout.metadata_dir / "assembly_manifest.json").write_text(json.dumps(assembly_manifest, indent=2), encoding="utf-8")
-    (layout.metadata_dir / "publish_manifest.json").write_text(json.dumps(publish_manifest, indent=2), encoding="utf-8")
+    (layout.metadata_dir / "assembly_manifest.json").write_text(json.dumps(assembly_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+    (layout.metadata_dir / "publish_manifest.json").write_text(json.dumps(publish_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
     summary = {
         "run_id": layout.run_id,
@@ -164,7 +164,7 @@ def finalize_versioned_run_layout(
         "created_at": _now(),
         "runway_report_path": runway_report_path,
     }
-    (layout.metadata_dir / "run_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    (layout.metadata_dir / "run_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
 
     index_path = root / RUNS_INDEX
     index_path.parent.mkdir(parents=True, exist_ok=True)
@@ -180,7 +180,7 @@ def finalize_versioned_run_layout(
     runs.insert(0, summary)
     index["runs"] = runs[:100]
     index["updated_at"] = _now()
-    index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
+    index_path.write_text(json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8")
 
     try:
         from content_brain.platform.asset_library import register_published_asset

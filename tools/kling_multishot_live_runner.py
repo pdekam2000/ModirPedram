@@ -152,7 +152,7 @@ def main() -> int:
 
         )
 
-        print(json.dumps(result, indent=2))
+        print(json.dumps(result, indent=2, ensure_ascii=False))
 
         return 0 if result.get("ok") else 1
 
@@ -186,7 +186,7 @@ def main() -> int:
 
     summary_path = ROOT / "project_brain" / "kling_multishot_live_run_summary.json"
 
-    summary_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    summary_path.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 
@@ -194,17 +194,17 @@ def main() -> int:
 
     run_dir.mkdir(parents=True, exist_ok=True)
 
-    (run_dir / "live_run_summary.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    (run_dir / "live_run_summary.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 
-    print(json.dumps(result.to_dict(), indent=2))
+    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
 
     if result.status == "awaiting_approval":
 
         print("\n--- APPROVAL CHECKLIST ---")
 
-        print(json.dumps(result.approval_checklist, indent=2))
+        print(json.dumps(result.approval_checklist, indent=2, ensure_ascii=False))
 
         print("\nTo proceed (spends credits):")
 

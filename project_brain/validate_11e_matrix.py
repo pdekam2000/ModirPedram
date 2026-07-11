@@ -74,7 +74,7 @@ def _run_subprocess_module(module_name: str, section: str) -> list[dict]:
             _pass(
                 f"{section}_all_pass",
                 bool(summary.get("all_pass")),
-                json.dumps(summary),
+                json.dumps(summary, ensure_ascii=False),
                 section=section,
             )
         )
@@ -100,7 +100,7 @@ def _run_submodule_gate(module_name: str, section: str) -> list[dict]:
             _pass(
                 f"{section}_all_pass",
                 all_pass,
-                json.dumps(summary) if summary else f"exit={result.returncode}",
+                json.dumps(summary, ensure_ascii=False) if summary else f"exit={result.returncode}",
                 section=section,
             )
         ]
@@ -312,5 +312,5 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 if __name__ == "__main__":
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

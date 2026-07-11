@@ -214,14 +214,14 @@ class TopicUniverseStudio:
         csv_path = base.with_suffix(".csv")
 
         payload = result.to_dict()
-        json_path.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
+        json_path.write_text(json.dumps(payload, indent=2, default=str, ensure_ascii=False), encoding="utf-8")
         md_path.write_text(self._render_markdown(result), encoding="utf-8")
         self._write_csv(csv_path, result)
 
         latest_json = self.export_dir / "latest.json"
         latest_md = self.export_dir / "latest.md"
         latest_csv = self.export_dir / "latest.csv"
-        latest_json.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
+        latest_json.write_text(json.dumps(payload, indent=2, default=str, ensure_ascii=False), encoding="utf-8")
         latest_md.write_text(md_path.read_text(encoding="utf-8"), encoding="utf-8")
         latest_csv.write_text(csv_path.read_text(encoding="utf-8"), encoding="utf-8", newline="")
 

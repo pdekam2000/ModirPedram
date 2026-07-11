@@ -252,7 +252,7 @@ def main() -> int:
         render_audit_markdown(result, run_id=run_id, final_video=str(video.resolve()) if video.is_file() else ""),
         encoding="utf-8",
     )
-    print(json.dumps(result.to_dict(), indent=2))
+    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
     return 0 if result.status == "PASS" else 1
 
 

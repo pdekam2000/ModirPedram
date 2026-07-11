@@ -109,14 +109,14 @@ def _unit_sanitize_storage() -> None:
 def _unit_parse_save_line() -> None:
     line = mapper_mod.CLICK_LABEL_SAVE_PREFIX + json.dumps(
         {"label_name": "test_button", "metadata": {"tag": "button"}, "_save_id": "1"}
-    )
+    , ensure_ascii=False)
     payload = mapper_mod._parse_save_line(line)
     _pass("parse_save_line", payload and payload.get("label_name") == "test_button")
 
 
 def _unit_json_valid() -> None:
     ui = mapper_mod.init_v2_map(page={"url": "x"}, elements={})
-    json.dumps(ui)
+    json.dumps(ui, ensure_ascii=False)
 
 
 def main() -> int:

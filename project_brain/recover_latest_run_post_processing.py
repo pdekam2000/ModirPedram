@@ -39,7 +39,7 @@ def load_latest_runway_report(project_root: Path) -> tuple[Path | None, dict[str
 
 
 def persist_runway_report(report_path: Path, report: dict[str, Any]) -> None:
-    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def recover_latest_run_post_processing(project_root: Path | None = None) -> dict[str, Any]:
@@ -87,7 +87,7 @@ def recover_latest_run_post_processing(project_root: Path | None = None) -> dict
 
 def main() -> int:
     summary = recover_latest_run_post_processing(ROOT)
-    print(json.dumps(summary, indent=2))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0 if summary.get("ok") else 1
 
 

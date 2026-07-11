@@ -697,7 +697,7 @@ def main() -> int:
         "estimated_reclaimable": reclaim["total_reclaimable_bytes"],
         "report": str((brain / "STORAGE_FORENSIC_REPORT.md").resolve()),
     }
-    print(json.dumps(summary, indent=2))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0
 
 

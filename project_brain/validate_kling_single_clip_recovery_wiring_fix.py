@@ -170,7 +170,7 @@ def test_report_lists_multiple_methods() -> None:
             }
         ]
     }
-    (clip_dir / "mp4_recovery_poll_report.json").write_text(json.dumps(poll_report), encoding="utf-8")
+    (clip_dir / "mp4_recovery_poll_report.json").write_text(json.dumps(poll_report, ensure_ascii=False), encoding="utf-8")
 
     with patch(
         "content_brain.execution.kling_frame_to_video_live_engine.recover_kling_frame_output",

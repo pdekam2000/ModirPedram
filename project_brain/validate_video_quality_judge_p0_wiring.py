@@ -54,19 +54,19 @@ def _write_runway_run(root: Path, run_id: str) -> tuple[Path, Path]:
     video = run_dir / "publish" / "FINAL_BRANDED.mp4"
     video.write_bytes(b"\x00" * 128)
     (run_dir / "metadata" / "run_summary.json").write_text(
-        json.dumps({"run_id": run_id, "topic": "Runway wiring test"}),
+        json.dumps({"run_id": run_id, "topic": "Runway wiring test"}, ensure_ascii=False),
         encoding="utf-8",
     )
     (run_dir / "metadata" / "assembly_manifest.json").write_text(
-        json.dumps({"run_id": run_id, "duration_seconds": 30.0, "clip_count": 2, "status": "ASSEMBLED"}),
+        json.dumps({"run_id": run_id, "duration_seconds": 30.0, "clip_count": 2, "status": "ASSEMBLED"}, ensure_ascii=False),
         encoding="utf-8",
     )
     (run_dir / "metadata" / "visual_continuity_report.json").write_text(
-        json.dumps({"run_id": run_id, "overall_score": 88, "overall_pass": True}),
+        json.dumps({"run_id": run_id, "overall_score": 88, "overall_pass": True}, ensure_ascii=False),
         encoding="utf-8",
     )
     (run_dir / "metadata" / "delivery_quality_gate.json").write_text(
-        json.dumps({"run_id": run_id, "delivery_status": "PASS", "canonical_video_path": str(video)}),
+        json.dumps({"run_id": run_id, "delivery_status": "PASS", "canonical_video_path": str(video)}, ensure_ascii=False),
         encoding="utf-8",
     )
     (root / "project_brain" / "runtime_state").mkdir(parents=True, exist_ok=True)
@@ -82,7 +82,8 @@ def _write_runway_run(root: Path, run_id: str) -> tuple[Path, Path]:
                     }
                 ]
             }
-        ),
+                ensure_ascii=False,
+            ),
         encoding="utf-8",
     )
     return run_dir, video
@@ -102,11 +103,12 @@ def _write_kling_run(root: Path, run_id: str) -> tuple[Path, Path]:
                 "audio_strategy": "kling_native_audio",
                 "provider": "kling_3_0_pro_native_audio",
             }
-        ),
+                ensure_ascii=False,
+            ),
         encoding="utf-8",
     )
     (run_dir / "preflight.json").write_text(
-        json.dumps({"authoritative_topic": "Kling wiring test", "kling_clip_count": 2}),
+        json.dumps({"authoritative_topic": "Kling wiring test", "kling_clip_count": 2}, ensure_ascii=False),
         encoding="utf-8",
     )
     return run_dir, video
@@ -207,7 +209,7 @@ def test_learning_not_applied_automatically() -> None:
         root = Path(tmp)
         live_path = root / LIVE_WEIGHTS_PATH
         live_path.parent.mkdir(parents=True, exist_ok=True)
-        live_path.write_text(json.dumps({"dialogue_weight": 0.4}), encoding="utf-8")
+        live_path.write_text(json.dumps({"dialogue_weight": 0.4}, ensure_ascii=False), encoding="utf-8")
         before = live_weights_snapshot(root)
         run_id = "learning_not_applied_test"
         run_dir, video = _write_kling_run(root, run_id)

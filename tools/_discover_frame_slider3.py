@@ -48,4 +48,4 @@ with sync_playwright() as p:
         btn.click(timeout=5000)
         time.sleep(0.6)
     result["after_click"] = page.evaluate(SCAN_JS)
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2, ensure_ascii=False))

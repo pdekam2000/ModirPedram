@@ -263,8 +263,8 @@ def write_continuity_chain_files(
     payload = merge_plan_chain_with_runtime(plan_chain=plan_chain, runtime_state=runtime_state)
     continuity_dir(run_dir).mkdir(parents=True, exist_ok=True)
     v1_path = continuity_chain_v1_path(run_dir)
-    v1_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    (run_dir / "continuity_chain.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    v1_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    (run_dir / "continuity_chain.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     payload["continuity_chain_v1_path"] = str(v1_path.resolve()).replace("\\", "/")
     return payload
 
@@ -317,7 +317,7 @@ def _ensure_clip_mp4(
                 if src.resolve() != dest.resolve():
                     shutil.copy2(src, dest)
                 video_path = str(dest.resolve())
-        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2), encoding="utf-8")
+        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return video_path, live_payload
 
 
@@ -361,7 +361,7 @@ def run_kling_continuity_chain(
                 "legacy_run_dir": str(legacy_dir.resolve()).replace("\\", "/"),
                 "canonical_clip_dir": str(clip_dir.resolve()).replace("\\", "/"),
             }
-            (clip_dir / "legacy_sibling_run.json").write_text(json.dumps(legacy_payload, indent=2), encoding="utf-8")
+            (clip_dir / "legacy_sibling_run.json").write_text(json.dumps(legacy_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
         upload_frame = prior_frame if clip_index > 1 else first_frame_path
         live = run_kling_multishot_live(
@@ -393,7 +393,7 @@ def run_kling_continuity_chain(
                 runtime_state.frames_uploaded.append(live_payload["first_frame_upload"])
 
         clip_results.append(live_payload)
-        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2), encoding="utf-8")
+        (clip_dir / "live_run_result.json").write_text(json.dumps(live_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
         video_path, live_payload = _ensure_clip_mp4(
             project_root=root,

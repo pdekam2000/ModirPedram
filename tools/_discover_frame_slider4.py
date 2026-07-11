@@ -44,4 +44,4 @@ with sync_playwright() as p:
     if page.locator('[role="slider"]').count() == 0:
         page.get_by_role("button", name="Duration").click(timeout=5000)
         time.sleep(0.5)
-    print(json.dumps(page.evaluate(JS), indent=2))
+    print(json.dumps(page.evaluate(JS), indent=2, ensure_ascii=False))

@@ -301,12 +301,12 @@ def render_e2e_40s_report_markdown(metrics: dict[str, Any], *, test_config: dict
         lines.append("- _(none)_")
 
     lines.extend(["", "## Stage summary", "", "```json"])
-    lines.append(json.dumps(metrics.get("stages") or {}, indent=2))
+    lines.append(json.dumps(metrics.get("stages") or {}, indent=2, ensure_ascii=False))
     lines.extend(["```", ""])
 
     if metrics.get("smoke_duration_guard"):
         lines.extend(["## Smoke guard (if applied)", "", "```json"])
-        lines.append(json.dumps(metrics.get("smoke_duration_guard"), indent=2))
+        lines.append(json.dumps(metrics.get("smoke_duration_guard"), indent=2, ensure_ascii=False))
         lines.extend(["```", ""])
 
     overall = final_ok and all(p for _, p, _ in objectives)

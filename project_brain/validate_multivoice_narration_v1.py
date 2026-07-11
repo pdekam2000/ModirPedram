@@ -36,6 +36,7 @@ def main() -> None:
                     "child_friendly_voice": "voice_cat_002",
                     "character_voice_2": "voice_friend_003",
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )

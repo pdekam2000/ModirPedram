@@ -68,8 +68,8 @@ def main() -> int:
             print("ERROR: --recover-output requires --run-id", file=sys.stderr)
             return 2
         result = recover_kling_frame_output(run_id=args.run_id, cdp_url=args.cdp_url)
-        SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
-        print(json.dumps(result.to_dict(), indent=2))
+        SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
+        print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
         return 0 if result.ok else 1
 
     result = run_kling_frame_to_video_live(
@@ -85,16 +85,16 @@ def main() -> int:
         max_wait_minutes=args.max_wait_minutes,
     )
 
-    SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
     run_dir = OUTPUT_ROOT / result.run_id
     run_dir.mkdir(parents=True, exist_ok=True)
-    (run_dir / "live_run_summary.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    (run_dir / "live_run_summary.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
-    print(json.dumps(result.to_dict(), indent=2))
+    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
 
     if result.status == "awaiting_approval":
         print("\n--- APPROVAL CHECKLIST ---")
-        print(json.dumps(result.approval_checklist, indent=2))
+        print(json.dumps(result.approval_checklist, indent=2, ensure_ascii=False))
         print("\nTo proceed (spends credits):")
         print(
             '  python tools/kling_frame_to_video_live_p4.py '

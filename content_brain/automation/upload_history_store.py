@@ -44,12 +44,17 @@ class UploadHistoryStore:
         error: str = "",
         uploaded_at: str = "",
     ) -> dict[str, Any]:
+        from content_brain.automation.platform_daily_scheduler import display_platform_topic
+        from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
+
+        profile = ProductChannelProfileStore(self.project_root).load()
+        resolved_title = display_platform_topic(platform, profile, str(title or ""))
         current = self.load()
         platforms = dict(current.get("platforms") or {})
         history = list(platforms.get(platform) or [])
         resolved_url = str(post_url or youtube_url or "")
         entry = {
-            "title": str(title or "Untitled"),
+            "title": resolved_title or "Untitled",
             "uploaded_at": uploaded_at or self._now(),
             "success": bool(success),
             "run_id": str(run_id or ""),

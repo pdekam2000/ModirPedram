@@ -105,7 +105,7 @@ def _build_session(tmp: Path, *, with_video: bool = True, subtitle_exts=("ass", 
         p = tmp / f"narration_{i + 1:03d}.mp3"
         _write(p)
         files.append({"segment_index": i, "file_path": str(p), "file_name": p.name})
-    _write(tmp / "voice_manifest.json", json.dumps({"files": files}))
+    _write(tmp / "voice_manifest.json", json.dumps({"files": files}, ensure_ascii=False))
     cr[CATEGORY_VOICE]["voice_manifest_path"] = str(tmp / "voice_manifest.json")
     ar[CATEGORY_VOICE] = [{"file_path": f["file_path"]} for f in files]
 
@@ -116,7 +116,7 @@ def _build_session(tmp: Path, *, with_video: bool = True, subtitle_exts=("ass", 
         sub_files.append({"format": ext, "file_path": str(p)})
     if sub_files:
         ar[CATEGORY_SUBTITLE_GENERATION] = sub_files
-        _write(tmp / "subtitle_manifest.json", json.dumps({"files": sub_files}))
+        _write(tmp / "subtitle_manifest.json", json.dumps({"files": sub_files}, ensure_ascii=False))
         cr[CATEGORY_SUBTITLE_GENERATION]["manifest_path"] = str(tmp / "subtitle_manifest.json")
 
     return {"execution_session_id": "exec_11j6", "execution_runtime": runtime}
@@ -251,7 +251,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Tr
 
 def main() -> int:
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

@@ -156,7 +156,7 @@ def detect_visual_repetition(
 def save_visual_repetition_report(path: str | Path, report: VisualRepetitionReport) -> Path:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(report.to_dict(), indent=2), encoding="utf-8")
+    target.write_text(json.dumps(report.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
     return target
 
 

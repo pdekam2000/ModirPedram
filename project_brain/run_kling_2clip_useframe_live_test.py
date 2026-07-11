@@ -289,8 +289,7 @@ def main() -> int:
                 "continuity_method": "use_frame",
                 "topic": args.topic,
             },
-            indent=2,
-        ),
+            indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
@@ -314,8 +313,8 @@ def main() -> int:
         },
     )
 
-    (out_dir / "generation_report.json").write_text(json.dumps(generation_report, indent=2), encoding="utf-8")
-    (out_dir / "continuity_chain.json").write_text(json.dumps(continuity_chain, indent=2), encoding="utf-8")
+    (out_dir / "generation_report.json").write_text(json.dumps(generation_report, indent=2, ensure_ascii=False), encoding="utf-8")
+    (out_dir / "continuity_chain.json").write_text(json.dumps(continuity_chain, indent=2, ensure_ascii=False), encoding="utf-8")
 
     clip_mp4s: dict[int, Path | None] = {}
     recovery_audits: dict[int, dict] = {}
@@ -335,10 +334,10 @@ def main() -> int:
         if mp4_src and mp4_src.is_file():
             shutil.copy2(mp4_src, dest)
             verify = verify_extracted_kling_mp4(dest)
-            (out_dir / f"clip_{clip_index}_verify.json").write_text(json.dumps(verify, indent=2), encoding="utf-8")
+            (out_dir / f"clip_{clip_index}_verify.json").write_text(json.dumps(verify, indent=2, ensure_ascii=False), encoding="utf-8")
             if verify.get("is_real_mp4"):
                 dest_clips[clip_index] = dest
-        (out_dir / f"clip_{clip_index}_recovery_audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
+        (out_dir / f"clip_{clip_index}_recovery_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")
 
     merged_path: Path | None = None
     merge_detail = "not_attempted"
@@ -348,7 +347,7 @@ def main() -> int:
         if ok:
             merged_path = merged_dest
             verify = verify_extracted_kling_mp4(merged_dest)
-            (out_dir / "merged_verify.json").write_text(json.dumps(verify, indent=2), encoding="utf-8")
+            (out_dir / "merged_verify.json").write_text(json.dumps(verify, indent=2, ensure_ascii=False), encoding="utf-8")
 
     clip1_ok = 1 in dest_clips
     clip2_ok = 2 in dest_clips

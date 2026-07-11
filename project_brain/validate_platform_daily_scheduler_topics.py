@@ -31,8 +31,7 @@ def _write_profile(root: Path, *, channel_topic: str, instagram_topic: str, tikt
                 "tiktok_channel_topic": tiktok_topic,
                 "instagram_channel_topic": instagram_topic,
             },
-            indent=2,
-        ),
+            indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 

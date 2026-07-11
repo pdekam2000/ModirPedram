@@ -162,7 +162,7 @@ def test_checkpoint_run_id_and_stale_overwrite() -> None:
         stale_path = tmp / "project_brain/runtime_state/runway_phase_i_checkpoint.json"
         stale_path.parent.mkdir(parents=True, exist_ok=True)
         stale_path.write_text(
-            json.dumps({"simulate": True, "run_id": "stale_sim", "checkpoint": "run_completed"}),
+            json.dumps({"simulate": True, "run_id": "stale_sim", "checkpoint": "run_completed"}, ensure_ascii=False),
             encoding="utf-8",
         )
 
@@ -186,11 +186,11 @@ def test_product_results_reads_manifests() -> None:
         runtime = tmp / "project_brain/runtime_state"
         runtime.mkdir(parents=True, exist_ok=True)
         (runtime / "runway_phase_i_assembly_manifest.json").write_text(
-            json.dumps({"status": ASSEMBLY_PLAN_ONLY}),
+            json.dumps({"status": ASSEMBLY_PLAN_ONLY}, ensure_ascii=False),
             encoding="utf-8",
         )
         (runtime / "runway_phase_i_publish_manifest.json").write_text(
-            json.dumps({"status": PUBLISH_SKIPPED_PLAN_ONLY}),
+            json.dumps({"status": PUBLISH_SKIPPED_PLAN_ONLY}, ensure_ascii=False),
             encoding="utf-8",
         )
         report_path = tmp / "project_brain/runway_live_smoke_last_report.json"
@@ -202,6 +202,7 @@ def test_product_results_reads_manifests() -> None:
                     "simulate": False,
                     "downloaded_file_paths": [str(tmp / "clip.mp4")],
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )

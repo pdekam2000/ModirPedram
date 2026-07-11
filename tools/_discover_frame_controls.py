@@ -29,4 +29,4 @@ JS = """
 with sync_playwright() as p:
     browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222", timeout=10000)
     page = next(cand for ctx in browser.contexts for cand in ctx.pages if "runwayml.com" in cand.url)
-    print(json.dumps(page.evaluate(JS), indent=2))
+    print(json.dumps(page.evaluate(JS), indent=2, ensure_ascii=False))

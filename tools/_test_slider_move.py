@@ -35,4 +35,4 @@ with sync_playwright() as p:
         page.mouse.click(tbox["x"] + tbox["width"] - 8, tbox["y"] + tbox["height"] / 2)
         time.sleep(0.3)
     max_text, max_val = read_duration()
-    print(json.dumps({"before": before_text, "min": min_text, "max": max_text, "min_val": min_val, "max_val": max_val}, indent=2))
+    print(json.dumps({"before": before_text, "min": min_text, "max": max_text, "min_val": min_val, "max_val": max_val}, indent=2, ensure_ascii=False))

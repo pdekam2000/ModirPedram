@@ -8,12 +8,16 @@ from __future__ import annotations
 
 import logging
 import os
+import socket
+import subprocess
+import sys
+import time
 from contextlib import asynccontextmanager
 from typing import Any, Optional
 
 from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pydantic import BaseModel
 
 from ui.api.dependencies import (
@@ -1531,6 +1535,33 @@ def upload_instagram_submit(body: UploadInstagramSubmitRequest, service=Depends(
     return service.submit_instagram(body.model_dump())
 
 
+@app.get("/upload/instagram/auth-status")
+def upload_instagram_auth_status(service=Depends(get_upload_service)):
+    return service.instagram_auth_status()
+
+
+@app.get("/media/video/{run_id}")
+def serve_pwmap_run_video(run_id: str, project_root=Depends(get_project_root)):
+    from content_brain.upload.media_video_resolver import is_valid_run_id, resolve_pwmap_run_video
+
+    if not is_valid_run_id(run_id):
+        raise HTTPException(status_code=400, detail={"code": "INVALID_RUN_ID", "message": "Invalid run id"})
+    video_path = resolve_pwmap_run_video(project_root, run_id)
+    if video_path is None:
+        raise HTTPException(status_code=404, detail={"code": "VIDEO_NOT_FOUND", "message": "Video not found for run"})
+    return FileResponse(video_path, media_type="video/mp4", filename=video_path.name)
+
+
+@app.get("/upload/instagram/public/{token}.mp4")
+def upload_instagram_public_video(token: str, service=Depends(get_upload_service)):
+    from content_brain.upload.instagram_video_stager import resolve_staged_video_path
+
+    video_path = resolve_staged_video_path(service.project_root, token)
+    if video_path is None:
+        raise HTTPException(status_code=404, detail={"code": "INSTAGRAM_STAGED_VIDEO_NOT_FOUND", "message": "Staged video not found"})
+    return FileResponse(video_path, media_type="video/mp4", filename=f"{token}.mp4")
+
+
 @app.post("/upload/tiktok/submit")
 def upload_tiktok_submit(body: UploadTikTokSubmitRequest, service=Depends(get_automation_service)):
     return service.submit_tiktok(body.model_dump())
@@ -1549,6 +1580,39 @@ def upload_generate_metadata(body: UploadMetadataRequest, service=Depends(get_up
 @app.post("/upload/packages/prepare")
 def upload_prepare_packages(body: UploadPackagePrepareRequest, service=Depends(get_upload_service)):
     return service.prepare_packages(body.model_dump())
+
+
+@app.get("/upload/youtube/auth")
+def upload_youtube_auth_connect(service=Depends(get_upload_service)):
+    """One-time YouTube OAuth: opens Google login in browser and saves token on success."""
+    from content_brain.upload.youtube_auth import _token_path, _token_secrets_path
+
+    result = service.youtube_oauth_connect(open_browser=True)
+    ok = bool(result.get("ok") or result.get("authorized"))
+    channel = str(result.get("channel_name") or "")
+    token_path = str(result.get("token_path") or _token_path(service.project_root))
+    secrets_path = str(result.get("token_secrets_path") or _token_secrets_path(service.project_root))
+    if ok:
+        body = (
+            "<html><body style='font-family:system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1rem'>"
+            "<h2>YouTube connected</h2>"
+            f"<p>Channel: <strong>{channel or 'Connected'}</strong></p>"
+            f"<p>Token saved to:<br><code>{token_path}</code><br><code>{secrets_path}</code></p>"
+            "<p>You can close this window and return to Settings.</p>"
+            "</body></html>"
+        )
+        return HTMLResponse(content=body, status_code=200)
+    error = str(result.get("error") or result.get("reason") or "oauth_failed")
+    details = str(result.get("details") or "")
+    body = (
+        "<html><body style='font-family:system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1rem'>"
+        "<h2>YouTube connection failed</h2>"
+        f"<p><strong>{error}</strong></p>"
+        f"<p>{details}</p>"
+        "<p>Ensure <code>secrets/client_secret*.json</code> exists, then try again from Settings.</p>"
+        "</body></html>"
+    )
+    return HTMLResponse(content=body, status_code=400)
 
 
 @app.get("/upload/youtube/auth/status")
@@ -1611,8 +1675,82 @@ def comments_draft_reply_reject(body: CommentDraftActionRequest, service=Depends
     return service.reject_comment_draft(body.model_dump())
 
 
+def is_port_in_use(port: int, host: str = "127.0.0.1") -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        return s.connect_ex((host, port)) == 0
+
+
+def _listening_pids_on_port(port: int) -> set[int]:
+    """Return PIDs listening on the given local TCP port."""
+    pids: set[int] = set()
+    if sys.platform == "win32":
+        result = subprocess.run(
+            ["netstat", "-ano"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        port_token = f":{port}"
+        for line in result.stdout.splitlines():
+            if port_token not in line:
+                continue
+            upper = line.upper()
+            if "LISTENING" not in upper and "ABH" not in upper:
+                continue
+            parts = line.split()
+            if not parts:
+                continue
+            try:
+                pid = int(parts[-1])
+            except ValueError:
+                continue
+            if pid > 0:
+                pids.add(pid)
+        return pids
+
+    result = subprocess.run(
+        ["lsof", "-ti", f"tcp:{port}", "-sTCP:LISTEN"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    for token in result.stdout.split():
+        try:
+            pids.add(int(token))
+        except ValueError:
+            continue
+    return pids
+
+
+def release_port(port: int) -> None:
+    """Terminate stale processes still bound to port before API startup."""
+    current_pid = os.getpid()
+    stale_pids = _listening_pids_on_port(port) - {current_pid}
+    if not stale_pids:
+        return
+
+    for pid in sorted(stale_pids):
+        logger.warning("Releasing port %s — terminating stale process pid=%s", port, pid)
+        if sys.platform == "win32":
+            subprocess.run(
+                ["taskkill", "/F", "/PID", str(pid)],
+                capture_output=True,
+                check=False,
+            )
+        else:
+            subprocess.run(["kill", "-9", str(pid)], capture_output=True, check=False)
+
+    time.sleep(2)
+    if is_port_in_use(port):
+        logger.error("Port %s still in use after cleanup attempt", port)
+
+
 def main():
     import uvicorn
+
+    if is_port_in_use(API_PORT):
+        logger.warning("Port %s is in use — cleaning up stale API process", API_PORT)
+        release_port(API_PORT)
 
     uvicorn.run(
         "ui.api.main:app",

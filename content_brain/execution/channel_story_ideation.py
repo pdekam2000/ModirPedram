@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import re
 import secrets
 from dataclasses import asdict, dataclass, field
@@ -31,12 +32,21 @@ from content_brain.execution.youtube_science_channel import (
     SCIENCE_SETTING_POOL,
     SCIENCE_VISUAL_HOOK_POOL,
     TOPIC_SUMMARY,
+    default_duration_for_platform,
     is_science_youtube_platform,
 )
 
-IDEATION_VERSION = "channel_story_ideation_v5_instagram_recipes"
+IDEATION_VERSION = "channel_story_ideation_v8_dedup_50_facts"
 MEMORY_RELATIVE_PATH = Path("data") / "story_memory" / "channel_story_history.jsonl"
 DEFAULT_CHANNEL_TOPIC = TOPIC_SUMMARY
+
+logger = logging.getLogger(__name__)
+
+MAX_WORDS_PER_CLIP = 35
+MAX_WORDS_TOTAL = 70
+TITLE_DEDUP_WINDOW = 50
+SCIENCE_FACT_DEDUP_WINDOW = 50
+SEO_TITLE_RETRY_ATTEMPTS = 5
 
 LOGLINE_SIMILARITY_REJECT = 0.72
 PROMPT_SIMILARITY_REJECT = 0.78
@@ -119,6 +129,134 @@ INSTAGRAM_PRESENTER = (
 )
 
 
+def _platform_key(platform: str) -> str:
+    normalized = str(platform or "").strip().lower()
+    if normalized in {"instagram_reels", "instagram"}:
+        return "instagram"
+    if normalized in {"youtube_shorts", "youtube"}:
+        return "youtube"
+    return normalized or "youtube"
+
+
+def _recent_memory_rows(
+    history: list[dict[str, Any]],
+    *,
+    platform: str,
+    limit: int,
+) -> list[dict[str, Any]]:
+    normalized_platform = _platform_key(platform)
+    rows: list[dict[str, Any]] = []
+    for row in reversed(history):
+        row_platform = _platform_key(str(row.get("target_platform") or row.get("platform") or ""))
+        if row_platform and normalized_platform and row_platform != normalized_platform:
+            continue
+        rows.append(row)
+        if len(rows) >= max(0, int(limit)):
+            break
+    rows.reverse()
+    return rows
+
+
+def get_last_n_titles(
+    n: int,
+    platform: str,
+    *,
+    history: list[dict[str, Any]] | None = None,
+) -> list[str]:
+    rows = _recent_memory_rows(list(history or []), platform=platform, limit=max(0, int(n)))
+    return [_normalize(str(row.get("title") or "")) for row in rows if _normalize(str(row.get("title") or ""))]
+
+
+def _title_is_duplicate(
+    title: str,
+    history: list[dict[str, Any]],
+    *,
+    target_platform: str,
+    window: int = TITLE_DEDUP_WINDOW,
+) -> bool:
+    normalized = _normalize(title).lower()
+    if not normalized:
+        return False
+    for row in _recent_memory_rows(history, platform=target_platform, limit=window):
+        prior = _normalize(str(row.get("title") or "")).lower()
+        if prior and prior == normalized:
+            return True
+    return False
+
+
+def _science_fact_key_from_fact(fact: dict[str, Any]) -> str:
+    return _normalize(str(fact.get("title") or fact.get("hook") or "")).lower()
+
+
+def _science_fact_keys_from_row(row: dict[str, Any]) -> set[str]:
+    keys: set[str] = set()
+    stored = _normalize(str(row.get("science_fact_key") or ""))
+    if stored:
+        keys.add(stored.lower())
+    title = _normalize(str(row.get("title") or ""))
+    if title:
+        keys.add(title.lower())
+    for tag in row.get("novelty_tags") or []:
+        token = str(tag or "").strip()
+        if token.lower().startswith("fact:"):
+            keys.add(token.split(":", 1)[1].strip().lower())
+    logline = str(row.get("logline") or "").lower()
+    for fact in SCIENCE_FACT_POOL:
+        hook = str(fact.get("hook") or "").lower()
+        fact_title = _science_fact_key_from_fact(fact)
+        if hook and hook in logline:
+            keys.add(fact_title)
+        if fact_title and fact_title in title.lower():
+            keys.add(fact_title)
+    return {key for key in keys if key}
+
+
+def get_last_n_science_facts(
+    n: int,
+    platform: str,
+    *,
+    history: list[dict[str, Any]] | None = None,
+) -> list[str]:
+    """Return recent science-fact keys for a platform (chronological)."""
+    if _platform_key(platform) != "youtube":
+        return []
+    facts: list[str] = []
+    seen: set[str] = set()
+    for row in reversed(list(history or [])):
+        row_platform = _platform_key(str(row.get("target_platform") or row.get("platform") or ""))
+        if row_platform != "youtube":
+            continue
+        for key in _science_fact_keys_from_row(row):
+            if key in seen:
+                continue
+            seen.add(key)
+            facts.append(key)
+        if len(facts) >= max(0, int(n)):
+            break
+    facts.reverse()
+    return facts
+
+
+def _used_science_facts_from_history(
+    history: list[dict[str, Any]],
+    *,
+    target_platform: str,
+    limit: int = SCIENCE_FACT_DEDUP_WINDOW,
+) -> set[str]:
+    return set(get_last_n_science_facts(limit, target_platform, history=history))
+
+
+def _select_science_fact(*, used_facts: set[str], attempt: int) -> dict[str, Any]:
+    available = [
+        dict(fact)
+        for fact in SCIENCE_FACT_POOL
+        if _science_fact_key_from_fact(fact) not in used_facts
+    ]
+    pool = available or [dict(fact) for fact in SCIENCE_FACT_POOL]
+    index = (secrets.randbelow(len(pool)) + attempt) % len(pool)
+    return pool[index]
+
+
 def _is_beauty_platform(target_platform: str, channel_topic: str) -> bool:
     """Instagram-only lane — never infer beauty from shared channel_topic text."""
     platform_key = str(target_platform or "").strip().lower()
@@ -135,6 +273,78 @@ def _now_iso() -> str:
 
 def _normalize(text: str) -> str:
     return " ".join(str(text or "").split()).strip()
+
+
+def _word_count(text: str) -> int:
+    return len(re.findall(r"\b\w+(?:'\w+)?\b", str(text or "")))
+
+
+def _trim_narrator_line(text: str, *, max_words: int = MAX_WORDS_PER_CLIP) -> str:
+    cleaned = _normalize(text)
+    if not cleaned:
+        return ""
+    words = re.findall(r"\b\w+(?:'\w+)?\b", cleaned)
+    if len(words) <= max_words:
+        return cleaned
+
+    trimmed_words = words[:max_words]
+    candidate = " ".join(trimmed_words)
+    sentence_end = max(candidate.rfind("."), candidate.rfind("!"), candidate.rfind("?"))
+    if sentence_end > len(candidate) * 0.45:
+        return candidate[: sentence_end + 1].strip()
+
+    partial = cleaned
+    for _ in range(len(words) - max_words + 1):
+        cut = partial.rfind(" ")
+        if cut <= 0:
+            break
+        partial = partial[:cut].rstrip(" ,;:-")
+        if _word_count(partial) <= max_words:
+            sentence_end = max(partial.rfind("."), partial.rfind("!"), partial.rfind("?"))
+            if sentence_end > 0:
+                return partial[: sentence_end + 1].strip()
+            return f"{partial}."
+    return f"{candidate}."
+
+
+def _validate_and_trim_narrator_lines(lines: list[str]) -> list[str]:
+    trimmed: list[str] = []
+    total_words = 0
+    for raw in lines:
+        line = _trim_narrator_line(raw, max_words=MAX_WORDS_PER_CLIP)
+        if not line:
+            continue
+        words = _word_count(line)
+        remaining = MAX_WORDS_TOTAL - total_words
+        if remaining <= 0:
+            break
+        if words > remaining:
+            line = _trim_narrator_line(line, max_words=remaining)
+            words = _word_count(line)
+        if line:
+            trimmed.append(line)
+            total_words += words
+    return trimmed
+
+
+def _science_narrator_lines(*, hook: str, setup: str, twist: str, cta: str) -> list[str]:
+    clip1 = _trim_narrator_line(f"{hook} {setup}")
+    clip2 = _trim_narrator_line(f"{twist} {cta}")
+    return _validate_and_trim_narrator_lines([clip1, clip2])
+
+
+def _beauty_narrator_lines(*, recipe_name: str, ingredients_text: str, skin_benefit: str) -> list[str]:
+    short_ingredients = ingredients_text
+    if _word_count(ingredients_text) > 12:
+        parts = [part.strip() for part in re.split(r",| and ", ingredients_text) if part.strip()]
+        short_ingredients = ", ".join(parts[:3])
+    clip1 = _trim_narrator_line(
+        f"Today I'm making {recipe_name}. You need {short_ingredients}."
+    )
+    clip2 = _trim_narrator_line(
+        f"See the {skin_benefit} after application. {INSTAGRAM_RECIPE_CTA}."
+    )
+    return _validate_and_trim_narrator_lines([clip1, clip2])
 
 
 def _tokens(text: str) -> set[str]:
@@ -276,6 +486,8 @@ class ChannelStoryIdea:
     banned_similarity_terms: list[str] = field(default_factory=list)
     continuity_anchors: dict[str, str] = field(default_factory=dict)
     clip_beat_outline: list[str] = field(default_factory=list)
+    clip_narrator_lines: list[str] = field(default_factory=list)
+    science_fact_key: str = ""
     channel_topic: str = ""
     niche: str = ""
     diversity_mode: str = DEFAULT_DIVERSITY_MODE
@@ -350,8 +562,9 @@ def _two_clip_story_beats(
             "Clip 2 (15s) Payoff+Twist+CTA: Continue visual explanation (8s) — "
             f"{idea.twist_or_reveal}. "
             f"Deliver strangest payoff (4s) — {idea.emotional_hook}. "
-            f"HARD ENDING (3s) — {idea.ending_beat}. "
-            "NEVER end mid-sentence. Viewer rewarded for watching to the end."
+            "Presenter finishes speaking completely, then holds a 2-3 second silent reaction/pause shot (3s) — "
+            f"{idea.ending_beat}. "
+            "Visual resolution before cut. NEVER end mid-sentence."
         )
     elif beauty_mode:
         clip1 = (
@@ -363,8 +576,9 @@ def _two_clip_story_beats(
         clip2 = (
             "Clip 2 (15s) Apply + Result: Apply treatment to face/skin on camera (8s). "
             f"Reveal visible result — {idea.twist_or_reveal} (4s). "
-            f'HARD ENDING (3s): Presenter says \"{INSTAGRAM_RECIPE_CTA}\". '
-            "Viewer knows the recipe and sees the payoff."
+            "Presenter finishes speaking, then 2-3 second silent reaction/pause on the glow result (3s). "
+            f'HARD ENDING: Presenter says \"{INSTAGRAM_RECIPE_CTA}\". '
+            "Visual resolution before cut. Viewer knows the recipe and sees the payoff."
         )
     else:
         clip1 = (
@@ -447,6 +661,9 @@ def _build_beauty_candidate(
             "camera": "macro ingredient close-ups, overhead mixing shots, face application close-ups",
             "palette": "clean whites, warm wood, soft greens, fresh natural tones",
             "wardrobe": "clean casual top or robe suited to kitchen/bathroom recipe demo",
+            "handoff": (
+                "The presenter holds the finished mask mixture, ready to apply, final frame ready for handoff"
+            ),
         },
         clip_beat_outline=[],
         channel_topic=channel_topic,
@@ -454,6 +671,11 @@ def _build_beauty_candidate(
         diversity_mode=diversity_mode,
     )
     idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count, beauty_mode=True)
+    idea.clip_narrator_lines = _beauty_narrator_lines(
+        recipe_name=recipe_name,
+        ingredients_text=ingredients_text,
+        skin_benefit=skin_benefit,
+    )
     idea.story_hash = _story_hash(idea)
     idea.prompt_hash = _prompt_hash(idea.rich_story_text())
     return idea
@@ -469,11 +691,11 @@ def _build_science_candidate(
     diversity_mode: str,
     banned_terms: list[str],
     attempt: int,
+    used_science_facts: set[str] | None = None,
 ) -> ChannelStoryIdea:
     setting_pool = SCIENCE_SETTING_POOL
-    fact_pool = SCIENCE_FACT_POOL
-    seed = secrets.randbelow(len(fact_pool))
-    fact = dict(fact_pool[(seed + attempt) % len(fact_pool)])
+    fact = _select_science_fact(used_facts=used_science_facts or set(), attempt=attempt)
+    seed = secrets.randbelow(len(SCIENCE_FACT_POOL))
     setting_bundle = dict(setting_pool[(seed + attempt) % len(setting_pool)])
     visual_hook = SCIENCE_VISUAL_HOOK_POOL[(seed + attempt * 2) % len(SCIENCE_VISUAL_HOOK_POOL)]
     ending = SCIENCE_ENDING_POOL[(seed + attempt * 3) % len(SCIENCE_ENDING_POOL)]
@@ -502,7 +724,14 @@ def _build_science_candidate(
     emotional_hook = mood or "intellectual wonder and disbelief"
     twist_reveal = twist
     ending_beat = f"{ending} {cta}"
-    tags = [pillar, setting.split(" ", 1)[0], "science", style or "cinematic documentary", diversity_mode]
+    tags = [
+        pillar,
+        setting.split(" ", 1)[0],
+        "science",
+        style or "cinematic documentary",
+        diversity_mode,
+        f"fact:{_science_fact_key_from_fact(fact)}",
+    ]
 
     idea = ChannelStoryIdea(
         unique_story_id=f"story_{hashlib.sha256(f'{channel_topic}:{attempt}:{seed}'.encode()).hexdigest()[:12]}",
@@ -529,8 +758,15 @@ def _build_science_candidate(
         channel_topic=channel_topic,
         niche=niche or "Science That Feels Impossible",
         diversity_mode=diversity_mode,
+        science_fact_key=_science_fact_key_from_fact(fact),
     )
     idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count, science_mode=True)
+    idea.clip_narrator_lines = _science_narrator_lines(
+        hook=hook,
+        setup=setup,
+        twist=twist,
+        cta=cta,
+    )
     idea.story_hash = _story_hash(idea)
     idea.prompt_hash = _prompt_hash(idea.rich_story_text())
     return idea
@@ -548,6 +784,7 @@ def _build_candidate(
     attempt: int,
     target_platform: str = "youtube_shorts",
     used_recipes: set[str] | None = None,
+    used_science_facts: set[str] | None = None,
 ) -> ChannelStoryIdea:
     if _is_science_platform(target_platform, channel_topic):
         return _build_science_candidate(
@@ -559,6 +796,7 @@ def _build_candidate(
             diversity_mode=diversity_mode,
             banned_terms=banned_terms,
             attempt=attempt,
+            used_science_facts=used_science_facts,
         )
     if _is_beauty_platform(target_platform, channel_topic):
         return _build_beauty_candidate(
@@ -634,11 +872,25 @@ def _build_candidate(
 def check_story_similarity(
     idea: ChannelStoryIdea,
     history: list[dict[str, Any]],
+    *,
+    target_platform: str = "youtube_shorts",
 ) -> tuple[bool, str, dict[str, Any]]:
     """Return (ok, reason, metrics)."""
     metrics: dict[str, Any] = {"checks": []}
     if not history:
         return True, "", metrics
+
+    if _title_is_duplicate(idea.title, history, target_platform=target_platform):
+        return False, "recent_duplicate_title", metrics
+
+    if idea.science_fact_key:
+        used_facts = _used_science_facts_from_history(
+            history,
+            target_platform=target_platform,
+            limit=SCIENCE_FACT_DEDUP_WINDOW,
+        )
+        if idea.science_fact_key.lower() in used_facts:
+            return False, "recent_duplicate_science_fact", metrics
 
     archetype = _extract_archetype(idea.main_character)
     recent_archetypes = [_extract_archetype(str(row.get("main_character") or "")) for row in history[-ARCHETYPE_STREAK_REJECT:]]
@@ -678,7 +930,7 @@ def generate_channel_story_idea(
     target_platform: str = "youtube_shorts",
     style: str = "cinematic",
     mood: str = "surprised laughter",
-    duration_seconds: int = 30,
+    duration_seconds: int | None = None,
     clip_count: int = 2,
     diversity_mode: str = DEFAULT_DIVERSITY_MODE,
     previous_story_memory: list[dict[str, Any]] | None = None,
@@ -687,6 +939,11 @@ def generate_channel_story_idea(
     history = list(previous_story_memory or [])
     banned = _banned_terms_from_history(history)
     used_recipes = _used_recipe_names_from_history(history)
+    used_science_facts = _used_science_facts_from_history(
+        history,
+        target_platform=target_platform,
+        limit=SCIENCE_FACT_DEDUP_WINDOW,
+    )
     topic = _normalize(channel_topic) or _normalize(niche) or DEFAULT_CHANNEL_TOPIC
 
     for attempt in range(MAX_IDEATION_ATTEMPTS):
@@ -701,12 +958,22 @@ def generate_channel_story_idea(
             attempt=attempt + attempt_offset,
             target_platform=target_platform,
             used_recipes=used_recipes,
+            used_science_facts=used_science_facts,
         )
-        ok, reason, _metrics = check_story_similarity(candidate, history)
+        if _title_is_duplicate(candidate.title, history, target_platform=target_platform):
+            used_science_facts.add(candidate.science_fact_key.lower())
+            continue
+        ok, reason, _metrics = check_story_similarity(
+            candidate,
+            history,
+            target_platform=target_platform,
+        )
         if ok:
             return candidate
         history = history + [candidate.to_dict()]
         used_recipes.add(candidate.title.strip().lower())
+        if candidate.science_fact_key:
+            used_science_facts.add(candidate.science_fact_key.lower())
 
     fallback = _build_candidate(
         channel_topic=topic,
@@ -719,6 +986,7 @@ def generate_channel_story_idea(
         attempt=MAX_IDEATION_ATTEMPTS + attempt_offset + secrets.randbelow(99),
         target_platform=target_platform,
         used_recipes=used_recipes,
+        used_science_facts=used_science_facts,
     )
     fallback.title = f"{fallback.title} — Variant {secrets.token_hex(3)}"
     fallback.story_hash = _story_hash(fallback)
@@ -768,6 +1036,16 @@ def channel_story_idea_to_runway_brief(idea: ChannelStoryIdea, *, clip_count: in
 
 
 def channel_story_idea_to_story_package(idea: ChannelStoryIdea) -> dict[str, Any]:
+    narrator_lines = list(idea.clip_narrator_lines or [])
+    dialogue_lines = [
+        {
+            "speaker": "Presenter",
+            "line": line,
+            "clip_index": index + 1,
+            "word_count": _word_count(line),
+        }
+        for index, line in enumerate(narrator_lines)
+    ]
     return {
         "topic": idea.channel_topic,
         "story_blueprint": {
@@ -778,6 +1056,17 @@ def channel_story_idea_to_story_package(idea: ChannelStoryIdea) -> dict[str, Any
             "opening_hook": idea.visual_hook,
             "escalation": idea.twist_or_reveal,
             "payoff": idea.ending_beat,
+            "clip_narrator_lines": narrator_lines,
+            "narrator_word_limits": {
+                "max_words_per_clip": MAX_WORDS_PER_CLIP,
+                "max_words_total": MAX_WORDS_TOTAL,
+                "clip_word_counts": [_word_count(line) for line in narrator_lines],
+                "total_word_count": sum(_word_count(line) for line in narrator_lines),
+            },
+        },
+        "dialogue_plan": {
+            "lines": dialogue_lines,
+            "narrator_lines": narrator_lines,
         },
         "environment_plan": {
             "primary_setting": idea.setting,
@@ -786,7 +1075,39 @@ def channel_story_idea_to_story_package(idea: ChannelStoryIdea) -> dict[str, Any
         },
         "emotion_plan": {"dominant_emotion": idea.emotional_hook},
         "characters": [{"name": idea.main_character, "role": "protagonist"}],
+        "continuity_anchors": dict(idea.continuity_anchors),
     }
+
+
+def _apply_seo_title_to_idea(
+    idea: ChannelStoryIdea,
+    *,
+    target_platform: str,
+    project_root: str | Path | None = None,
+    story_memory: list[dict[str, Any]] | None = None,
+    exclude_power_words: list[str] | None = None,
+) -> dict[str, Any]:
+    from content_brain.story.seo_title_generator import generate_seo_title
+
+    seo_meta = generate_seo_title(
+        content_title=idea.title,
+        logline=idea.logline,
+        visual_hook=idea.visual_hook,
+        target_platform=target_platform,
+        niche=idea.niche,
+        project_root=project_root,
+        story_memory=story_memory,
+        exclude_power_words=exclude_power_words,
+    )
+    seo_title = _normalize(str(seo_meta.get("seo_title") or ""))
+    if seo_title:
+        idea.title = seo_title[:120]
+    if _is_beauty_platform(target_platform, "") and not seo_meta.get("openai_applied"):
+        logger.error(
+            "OpenAI SEO title failed for Instagram: %s",
+            seo_meta.get("notes") or seo_meta.get("seo_title") or idea.title,
+        )
+    return seo_meta
 
 
 def ideate_and_persist_channel_story(
@@ -797,28 +1118,50 @@ def ideate_and_persist_channel_story(
     target_platform: str = "youtube_shorts",
     style: str = "cinematic",
     mood: str = "surprised laughter",
-    duration_seconds: int = 30,
+    duration_seconds: int | None = None,
     clip_count: int = 2,
     diversity_mode: str = DEFAULT_DIVERSITY_MODE,
     persist: bool = True,
+    exclude_power_words: list[str] | None = None,
 ) -> dict[str, Any]:
     memory = load_story_memory(project_root)
-    idea = generate_channel_story_idea(
-        channel_topic=channel_topic,
-        niche=niche,
-        target_platform=target_platform,
-        style=style,
-        mood=mood,
-        duration_seconds=duration_seconds,
-        clip_count=clip_count,
-        diversity_mode=diversity_mode,
-        previous_story_memory=memory,
-    )
-    ok, reason, metrics = check_story_similarity(idea, memory)
+    resolved_duration = int(duration_seconds or default_duration_for_platform(target_platform))
+    idea: ChannelStoryIdea | None = None
+    seo_title_meta: dict[str, Any] = {}
+    for seo_attempt in range(SEO_TITLE_RETRY_ATTEMPTS):
+        idea = generate_channel_story_idea(
+            channel_topic=channel_topic,
+            niche=niche,
+            target_platform=target_platform,
+            style=style,
+            mood=mood,
+            duration_seconds=resolved_duration,
+            clip_count=clip_count,
+            diversity_mode=diversity_mode,
+            previous_story_memory=memory,
+            attempt_offset=seo_attempt * MAX_IDEATION_ATTEMPTS,
+        )
+        seo_title_meta = _apply_seo_title_to_idea(
+            idea,
+            target_platform=target_platform,
+            project_root=project_root,
+            story_memory=memory,
+            exclude_power_words=exclude_power_words,
+        )
+        if not _title_is_duplicate(idea.title, memory, target_platform=target_platform):
+            break
+    if idea is None:
+        raise RuntimeError("channel_story_ideation_failed")
+    if _title_is_duplicate(idea.title, memory, target_platform=target_platform):
+        idea.title = f"{idea.title} — Variant {secrets.token_hex(3)}"
+    ok, reason, metrics = check_story_similarity(idea, memory, target_platform=target_platform)
     entry = {
         "channel_topic": channel_topic,
+        "target_platform": target_platform,
         "unique_story_id": idea.unique_story_id,
+        "seo_power_word": str(seo_title_meta.get("power_word_used") or ""),
         "title": idea.title,
+        "science_fact_key": idea.science_fact_key,
         "recipe_name": idea.title,
         "logline": idea.logline,
         "main_character": idea.main_character,
@@ -834,7 +1177,7 @@ def ideate_and_persist_channel_story(
     memory_path = ""
     if persist:
         memory_path = str(append_story_memory(project_root, entry))
-    brief = channel_story_idea_to_runway_brief(idea, clip_count=clip_count, duration_seconds=duration_seconds)
+    brief = channel_story_idea_to_runway_brief(idea, clip_count=clip_count, duration_seconds=resolved_duration)
     return {
         "channel_story_idea": idea.to_dict(),
         "runway_story_brief": brief.to_dict(),
@@ -842,6 +1185,9 @@ def ideate_and_persist_channel_story(
         "story_summary": idea.logline,
         "authoritative_topic": idea.rich_story_text(),
         "story_title": idea.title,
+        "title": idea.title,
+        "hook": idea.visual_hook,
+        "seo_title_meta": seo_title_meta,
         "similarity_ok": ok,
         "similarity_reason": reason,
         "similarity_metrics": metrics,
@@ -877,6 +1223,11 @@ def apply_channel_story_ideation(
     )
     diversity_mode = str(payload.get("story_diversity_mode") or DEFAULT_DIVERSITY_MODE)
     persist = not bool(payload.get("skip_story_memory_persist"))
+    exclude_power_words = [
+        str(word).strip()
+        for word in (payload.get("exclude_seo_power_words") or [])
+        if str(word).strip()
+    ]
 
     if override:
         idea = ChannelStoryIdea(
@@ -912,7 +1263,7 @@ def apply_channel_story_ideation(
         idea.story_hash = _story_hash(idea)
         idea.prompt_hash = _prompt_hash(override)
         memory = load_story_memory(project_root)
-        ok, reason, metrics = check_story_similarity(idea, memory)
+        ok, reason, metrics = check_story_similarity(idea, memory, target_platform=target_platform)
         brief = channel_story_idea_to_runway_brief(idea, clip_count=clip_count, duration_seconds=duration_seconds)
         return {
             "channel_topic": channel_topic,
@@ -941,6 +1292,7 @@ def apply_channel_story_ideation(
         clip_count=clip_count,
         diversity_mode=diversity_mode,
         persist=persist,
+        exclude_power_words=exclude_power_words,
     )
     ideation.update(
         {
@@ -961,7 +1313,12 @@ __all__ = [
     "DEFAULT_CHANNEL_TOPIC",
     "DEFAULT_DIVERSITY_MODE",
     "IDEATION_VERSION",
-    "LOGLINE_SIMILARITY_REJECT",
+    "SCIENCE_FACT_DEDUP_WINDOW",
+    "TITLE_DEDUP_WINDOW",
+    "get_last_n_science_facts",
+    "get_last_n_titles",
+    "MAX_WORDS_PER_CLIP",
+    "MAX_WORDS_TOTAL",
     "PROMPT_SIMILARITY_REJECT",
     "append_story_memory",
     "apply_channel_story_ideation",

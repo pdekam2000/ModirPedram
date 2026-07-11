@@ -6,7 +6,20 @@ CHANNEL_NAME = "Science That Feels Impossible"
 CHANNEL_SLUG = "science_that_feels_impossible"
 BRIEF_VERSION = "youtube_science_impossible_v1"
 
-DEFAULT_DURATION_SECONDS = 30
+DEFAULT_DURATION_SECONDS = 45
+YOUTUBE_DEFAULT_DURATION_SECONDS = 45
+INSTAGRAM_DEFAULT_DURATION_SECONDS = 45
+TIKTOK_DEFAULT_DURATION_SECONDS = 30
+
+def default_duration_for_platform(platform: str) -> int:
+    normalized = str(platform or "").strip().lower()
+    if normalized in {"youtube_shorts", "youtube"}:
+        return YOUTUBE_DEFAULT_DURATION_SECONDS
+    if normalized in {"instagram_reels", "instagram"}:
+        return INSTAGRAM_DEFAULT_DURATION_SECONDS
+    if normalized == "tiktok":
+        return TIKTOK_DEFAULT_DURATION_SECONDS
+    return DEFAULT_DURATION_SECONDS
 
 PRESENTER_DIRECTIVE = (
     "Recurring female science presenter: beautiful, confident, intelligent-looking, charismatic, "
@@ -40,7 +53,7 @@ CONTENT_PILLARS: tuple[str, ...] = (
     "Earth science and planetary phenomena",
 )
 
-TOPIC_SUMMARY = f"""Science That Feels Impossible — premium cinematic science Shorts (25–35 seconds, English).
+TOPIC_SUMMARY = f"""Science That Feels Impossible — premium cinematic science Shorts (40–45 seconds, English).
 
 One surprising, strange, mysterious, or visually powerful scientific fact per video. Intelligent, cinematic, mysterious, modern, visually addictive.
 
@@ -355,6 +368,10 @@ __all__ = [
     "CHANNEL_SLUG",
     "CONTENT_PILLARS",
     "DEFAULT_DURATION_SECONDS",
+    "INSTAGRAM_DEFAULT_DURATION_SECONDS",
+    "TIKTOK_DEFAULT_DURATION_SECONDS",
+    "YOUTUBE_DEFAULT_DURATION_SECONDS",
+    "default_duration_for_platform",
     "FORBIDDEN_TOPICS",
     "PREFERRED_TOPICS",
     "PRESENTER_DIRECTIVE",

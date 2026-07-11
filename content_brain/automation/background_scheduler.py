@@ -45,6 +45,9 @@ def _tick(project_root: Path) -> None:
     daily_cap = runner._daily_job_cap()
     completed_today = runner.queue.completed_today_count()
     if completed_today >= daily_cap:
+        cancelled = runner.queue.cancel_remaining_planned_jobs_for_today()
+        if cancelled:
+            logger.info("Cancelled %s remaining planned job(s) — daily cap reached.", cancelled)
         logger.info(
             "Daily cap reached: %s/%s videos completed. Next run tomorrow.",
             completed_today,
@@ -62,10 +65,28 @@ def _tick(project_root: Path) -> None:
     deduped = runner.queue.dedupe_planned_jobs()
     if deduped:
         logger.info("Cancelled %s duplicate planned job(s)", deduped)
+    try:
+        from content_brain.automation.platform_daily_scheduler_store import PLATFORMS, PlatformDailySchedulerStore
+
+        scheduler = PlatformDailySchedulerStore(project_root)
+        platform_state = dict((scheduler.load().get("platforms") or {}))
+        platform_caps = {
+            platform: max(1, min(5, int(dict(platform_state.get(platform) or {}).get("videos_per_day") or 3)))
+            for platform in PLATFORMS
+            if dict(platform_state.get(platform) or {}).get("enabled")
+        }
+        excess = runner.queue.enforce_platform_daily_caps(platform_caps)
+        if excess:
+            logger.info("Cancelled %s planned job(s) — per-platform daily cap reached.", excess)
+    except Exception as exc:
+        logger.debug("platform cap enforcement skipped: %s", exc)
 
     ok, reason = runner.preflight()
     if not ok:
         if reason == "daily_job_cap_reached":
+            cancelled = runner.queue.cancel_remaining_planned_jobs_for_today()
+            if cancelled:
+                logger.info("Cancelled %s remaining planned job(s) — daily cap reached.", cancelled)
             logger.info(
                 "Daily cap reached: %s/%s videos completed. Next run tomorrow.",
                 completed_today,
@@ -89,6 +110,9 @@ def _tick(project_root: Path) -> None:
             completed_after = runner.queue.completed_today_count()
             cap_after = runner._daily_job_cap()
             if completed_after >= cap_after:
+                cancelled = runner.queue.cancel_remaining_planned_jobs_for_today()
+                if cancelled:
+                    logger.info("Cancelled %s remaining planned job(s) — daily cap reached.", cancelled)
                 logger.info(
                     "Daily cap reached: %s/%s videos completed. Next run tomorrow.",
                     completed_after,

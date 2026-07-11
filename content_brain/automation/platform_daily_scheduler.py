@@ -41,9 +41,9 @@ def resolve_platform_job_title(platform: str, profile: dict[str, Any], entry_top
         name = str(profile.get("channel_name") or CHANNEL_NAME).strip()
         return f"{name} — YouTube Shorts"
     if platform == "instagram_reels":
-        return "Skincare & Self-Care — Instagram Reels"
+        return display_platform_topic(platform, profile, entry_topic)
     if platform == "tiktok":
-        return "TikTok Shorts"
+        return display_platform_topic(platform, profile, entry_topic)
     return str(profile.get("channel_name") or platform.replace("_", " ").title())
 
 
@@ -72,7 +72,20 @@ def resolve_platform_topic(
 
 
 def display_platform_topic(platform: str, profile: dict[str, Any], entry_topic: str = "") -> str:
-    """Short label for Upload Center / scheduler UI."""
+    """Short label for Upload Center / scheduler UI — never the OpenAI channel brief."""
+    if platform == "instagram_reels":
+        short = str(profile.get("instagram_channel_topic") or "").strip()
+        if short and len(short) <= MAX_JOB_TOPIC_CHARS and not short.upper().startswith("INSTAGRAM CONTENT"):
+            return short
+        stored = " ".join(str(entry_topic or "").split()).strip()
+        if stored and len(stored) <= MAX_JOB_TOPIC_CHARS and not stored.upper().startswith("INSTAGRAM CONTENT"):
+            return stored
+        return "Skincare & Self-Care — Instagram Reels"
+    if platform == "tiktok":
+        short = str(profile.get("tiktok_channel_topic") or "").strip()
+        if short and len(short) <= MAX_JOB_TOPIC_CHARS:
+            return short
+        return "Quick Fitness Tips — TikTok"
     return resolve_platform_job_title(platform, profile, entry_topic)
 
 
@@ -84,6 +97,31 @@ def _topic_needs_short_title(topic: str) -> bool:
         return True
     upper = text.upper()
     return upper.startswith("MAIN CHANNEL TOPIC") or upper.startswith("MAIN INSTAGRAM CONTENT TOPIC")
+
+
+def repair_planned_job_durations(project_root: str | Path) -> int:
+    """Sync planned job durations from platform scheduler settings."""
+    from content_brain.automation.automation_queue import JOB_PLANNED, JOB_RUNNING, AutomationQueue
+    from content_brain.automation.platform_daily_scheduler_store import PlatformDailySchedulerStore
+
+    store = PlatformDailySchedulerStore(project_root)
+    queue = AutomationQueue(project_root)
+    repaired = 0
+    for job in queue.list_jobs():
+        if job.status not in {JOB_PLANNED, JOB_RUNNING}:
+            continue
+        platform = str((job.platform_targets[0] if job.platform_targets else "") or "youtube_shorts")
+        expected = store.get_platform_duration(platform)
+        if int(job.duration or 0) == expected:
+            continue
+        product_duration = plan_product_duration(expected)
+        queue.update_job(
+            job.job_id,
+            duration=expected,
+            clip_count=int(product_duration.get("clip_count") or 2),
+        )
+        repaired += 1
+    return repaired
 
 
 def repair_planned_job_topics(project_root: str | Path) -> int:
@@ -171,22 +209,34 @@ def build_platform_daily_jobs(project_root: str | Path) -> list[dict[str, Any]]:
 
 def sync_platform_daily_jobs(project_root: str | Path) -> dict[str, Any]:
     """Create today's planned jobs for each enabled platform (independent schedules)."""
+    from content_brain.automation.automation_queue import AutomationQueue
+
     store = PlatformDailySchedulerStore(project_root)
     today = date.today().isoformat()
+    queue = AutomationQueue(project_root)
+    stale_cancelled = queue.cancel_stale_planned_jobs()
+    platform_state = dict((store.load().get("platforms") or {}))
+    platform_caps = {
+        platform: max(1, min(5, int(dict(platform_state.get(platform) or {}).get("videos_per_day") or 3)))
+        for platform in PLATFORMS
+        if dict(platform_state.get(platform) or {}).get("enabled")
+    }
+    excess_cancelled = queue.enforce_platform_daily_caps(platform_caps)
     repaired = repair_planned_job_topics(project_root)
+    duration_repaired = repair_planned_job_durations(project_root)
     created = build_platform_daily_jobs(project_root)
 
     if created:
-        from content_brain.automation.automation_queue import AutomationQueue
-
-        queue = AutomationQueue(project_root)
         queue.set_max_jobs_per_day(max(1, store.enabled_daily_cap()))
         imported = queue.import_scheduled_jobs(created)
         return {
             "date": today,
             "job_count": len(imported),
             "planned_count": len(created),
+            "stale_cancelled": stale_cancelled,
+            "excess_cancelled": excess_cancelled,
             "repaired_topics": repaired,
+            "repaired_durations": duration_repaired,
             "daily_cap": store.enabled_daily_cap(),
             "platforms": list({platform for job in imported for platform in job.platform_targets}),
         }
@@ -195,7 +245,10 @@ def sync_platform_daily_jobs(project_root: str | Path) -> dict[str, Any]:
         "date": today,
         "job_count": 0,
         "planned_count": 0,
+        "stale_cancelled": stale_cancelled,
+        "excess_cancelled": excess_cancelled,
         "repaired_topics": repaired,
+        "repaired_durations": duration_repaired,
         "daily_cap": store.enabled_daily_cap(),
         "platforms": [],
     }
@@ -221,14 +274,24 @@ def get_platform_scheduler_status(project_root: str | Path) -> dict[str, Any]:
             start_hour=int(entry.get("start_hour") or 8),
         )
         last_success = next((item for item in history.get(platform, []) if item.get("success")), None)
+        sanitized_history: list[dict[str, Any]] = []
+        for item in list(history.get(platform) or [])[:20]:
+            if not isinstance(item, dict):
+                continue
+            row = dict(item)
+            row["title"] = display_platform_topic(platform, profile, str(row.get("title") or ""))
+            sanitized_history.append(row)
         platforms_out[platform] = {
             **entry,
             "upload_times_preview": upload_times,
             "last_upload_success": bool(last_success),
-            "upload_history": list(history.get(platform) or [])[:20],
+            "upload_history": sanitized_history,
         }
     return {
         "version": state.get("version"),
+        "youtube_duration_seconds": state.get("youtube_duration_seconds"),
+        "instagram_duration_seconds": state.get("instagram_duration_seconds"),
+        "tiktok_duration_seconds": state.get("tiktok_duration_seconds"),
         "automation_enabled": bool(center.get("enabled")),
         "automation_paused": bool(center.get("paused", True)),
         "daily_job_cap": store.enabled_daily_cap(),

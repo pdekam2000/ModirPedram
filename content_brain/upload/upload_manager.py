@@ -159,7 +159,7 @@ class UploadManager:
         metadata_dir = run_dir / "upload" / "metadata"
         metadata_dir.mkdir(parents=True, exist_ok=True)
         metadata_path = metadata_dir / "platform_metadata.json"
-        metadata_path.write_text(json.dumps(bundle, indent=2), encoding="utf-8")
+        metadata_path.write_text(json.dumps(bundle, indent=2, ensure_ascii=False), encoding="utf-8")
         bundle["metadata_path"] = str(metadata_path)
         return bundle
 
@@ -302,7 +302,7 @@ class UploadManager:
             else:
                 continue
             metadata_path = package_dir / f"{target.platform}_metadata.json"
-            metadata_path.write_text(json.dumps({**target.to_dict(), **meta}, indent=2), encoding="utf-8")
+            metadata_path.write_text(json.dumps({**target.to_dict(), **meta}, indent=2, ensure_ascii=False), encoding="utf-8")
             target.metadata_path = str(metadata_path)
             targets.append(target)
 
@@ -317,7 +317,7 @@ class UploadManager:
             created_at=_now(),
         )
         manifest_path = package_dir / "upload_package.json"
-        manifest_path.write_text(json.dumps(package.to_dict(), indent=2), encoding="utf-8")
+        manifest_path.write_text(json.dumps(package.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         payload = package.to_dict()
         payload["manifest_path"] = str(manifest_path)
         if bundle:
@@ -475,7 +475,7 @@ class UploadManager:
             "upload_result": upload_result,
             "submitted_at": _now(),
         }
-        submit_path.write_text(json.dumps(submit_manifest, indent=2), encoding="utf-8")
+        submit_path.write_text(json.dumps(submit_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
         if upload_result.get("ok"):
             return {
@@ -561,6 +561,7 @@ class UploadManager:
             title=str(title or instagram_target.get("title") or package.get("topic") or "Reel"),
             caption=str(caption or instagram_target.get("description") or ""),
             hashtags=list(hashtags or instagram_target.get("hashtags") or []),
+            run_id=run_id,
             project_root=self.project_root,
         )
 
@@ -578,8 +579,7 @@ class UploadManager:
                     "upload_result": upload_result,
                     "submitted_at": _now(),
                 },
-                indent=2,
-            ),
+                indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
 
@@ -657,8 +657,7 @@ class UploadManager:
                     "upload_result": upload_result,
                     "submitted_at": _now(),
                 },
-                indent=2,
-            ),
+                indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
 

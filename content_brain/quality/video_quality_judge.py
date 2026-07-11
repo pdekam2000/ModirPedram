@@ -629,12 +629,12 @@ def persist_video_quality_judge(
     )
     run_quality_dir.mkdir(parents=True, exist_ok=True)
     run_output = run_quality_dir / "video_quality_judge.json"
-    run_output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    run_output.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     latest_dir = root / "project_brain" / "quality_judge"
     latest_dir.mkdir(parents=True, exist_ok=True)
     latest_output = latest_dir / "latest_video_quality_judge.json"
-    latest_output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    latest_output.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return run_output, latest_output
 
 

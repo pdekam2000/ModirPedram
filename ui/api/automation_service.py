@@ -59,6 +59,7 @@ class AutomationService:
 
     def create_job(self, payload: dict[str, Any]) -> dict[str, Any]:
         from content_brain.automation.platform_daily_scheduler import resolve_platform_job_title
+        from content_brain.automation.platform_daily_scheduler_store import resolve_platform_duration_seconds
 
         profile = self.profile_store.load()
         platform = str(
@@ -72,7 +73,11 @@ class AutomationService:
             {
                 "title": short_title,
                 "topic": short_title,
-                "duration": int(payload.get("duration") or payload.get("duration_seconds") or profile.get("default_duration_seconds") or 30),
+                "duration": int(
+                    payload.get("duration")
+                    or payload.get("duration_seconds")
+                    or resolve_platform_duration_seconds(self.project_root, platform, profile=profile)
+                ),
                 "clip_count": int(payload.get("clip_count") or 3),
                 "platform_targets": list(payload.get("platform_targets") or payload.get("platforms") or profile.get("upload_platforms") or ["youtube_shorts"]),
                 "scheduled_time": str(payload.get("scheduled_time") or ""),
@@ -224,8 +229,17 @@ class AutomationService:
             topic = str(updates.get("topic") or "").strip()
             profile_key = topic_field_map.get(platform)
             if profile_key and topic:
-                profile_updates[profile_key] = topic
-                if platform == "youtube_shorts":
+                from content_brain.automation.platform_daily_scheduler import MAX_JOB_TOPIC_CHARS
+
+                if platform == "instagram_reels":
+                    if len(topic) <= MAX_JOB_TOPIC_CHARS and not topic.upper().startswith("INSTAGRAM CONTENT"):
+                        profile_updates[profile_key] = topic
+                elif len(topic) <= MAX_JOB_TOPIC_CHARS:
+                    profile_updates[profile_key] = topic
+                    if platform == "youtube_shorts":
+                        profile_updates["channel_topic"] = topic
+                elif platform == "youtube_shorts":
+                    profile_updates[profile_key] = topic
                     profile_updates["channel_topic"] = topic
         if profile_updates:
             self.profile_store.save(profile_updates)
@@ -259,7 +273,7 @@ class AutomationService:
     def _save_comment_drafts(self, drafts: list[dict[str, Any]]) -> None:
         path = self._comment_drafts_path()
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(drafts, indent=2), encoding="utf-8")
+        path.write_text(json.dumps(drafts, indent=2, ensure_ascii=False), encoding="utf-8")
 
     def _list_upload_packages(self) -> list[dict[str, Any]]:
         root = self.project_root / "outputs" / "upload_packages"

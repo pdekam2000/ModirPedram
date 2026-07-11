@@ -92,7 +92,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
             "panel_renders_completed_dry_run_slot",
             "Assembly ready" in utils_text
             and "Planned steps" in assembly_panel_text
-            and STATUS_COMPLETED in json.dumps(completed_fixture),
+            and STATUS_COMPLETED in json.dumps(completed_fixture, ensure_ascii=False),
         )
     )
 
@@ -109,7 +109,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
     results.append(
         _pass(
             "panel_renders_pending_assembly_slot",
-            "Ready" in utils_text and STATUS_PENDING in json.dumps(pending_fixture),
+            "Ready" in utils_text and STATUS_PENDING in json.dumps(pending_fixture, ensure_ascii=False),
         )
     )
 
@@ -126,7 +126,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
     results.append(
         _pass(
             "panel_renders_skipped_assembly_slot",
-            "No assembly inputs" in utils_text and STATUS_SKIPPED in json.dumps(skipped_fixture),
+            "No assembly inputs" in utils_text and STATUS_SKIPPED in json.dumps(skipped_fixture, ensure_ascii=False),
         )
     )
 
@@ -291,7 +291,7 @@ def main(argv: list[str] | None = None) -> int:
 
     include_regressions = parse_include_regressions(argv)
     report = run_matrix(".", include_regressions=include_regressions)
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     print_validation_summary(report)
     return validation_exit_code(report)
 

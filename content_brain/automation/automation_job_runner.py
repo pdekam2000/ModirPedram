@@ -27,10 +27,37 @@ POLL_INTERVAL_SECONDS = 5
 MAX_WAIT_SECONDS = 7200
 logger = logging.getLogger(__name__)
 
+
+def _upload_debug(step: str, result: Any) -> None:
+    summary = result
+    if isinstance(result, dict):
+        summary = {
+            key: result.get(key)
+            for key in (
+                "ok",
+                "uploaded",
+                "status",
+                "reason",
+                "error",
+                "skipped",
+                "video_path",
+                "video_id",
+                "video_url",
+                "post_url",
+                "platforms",
+                "connect_required",
+            )
+            if key in result
+        }
+    message = f"[UPLOAD DEBUG] step: {step} result: {summary}"
+    print(message, flush=True)
+    logger.info(message)
+
 from content_brain.automation.platform_upload_guard import (
     guard_upload_or_block,
     normalize_platform,
     resolve_job_upload_targets,
+    upload_platform_allowed,
     validate_topic_for_platform,
 )
 
@@ -41,8 +68,36 @@ AUTOMATION_PLATFORM_TOPIC_KEYS: dict[str, str] = {
 }
 
 
+def _enforce_job_upload_targets(job: AutomationJob, platform: str) -> tuple[list[str], str]:
+    """Return upload targets that match the job platform only — never cross-upload."""
+    job_platform = normalize_platform(
+        platform or (job.platform_targets[0] if job.platform_targets else "")
+    )
+    if not job_platform:
+        return [], "job_platform_missing"
+    targets = resolve_job_upload_targets(job.platform_targets)
+    allowed = [
+        target
+        for target in targets
+        if upload_platform_allowed(job_platform=job_platform, upload_platform=target)
+    ]
+    if targets and not allowed:
+        reason = f"cross_platform_upload_blocked:{job_platform}->{','.join(targets)}"
+        logger.error("Upload blocked for job %s: %s", job.job_id, reason)
+        return [], reason
+    if len(allowed) != len(targets):
+        logger.error(
+            "Stripped mismatched upload targets for job %s platform=%s was=%s now=%s",
+            job.job_id,
+            job_platform,
+            targets,
+            allowed,
+        )
+    return allowed, ""
+
+
 def _validate_platform_topic_text(platform: str, text: str) -> tuple[bool, str]:
-    ok, reason = validate_topic_for_platform(platform, text)
+    ok, reason = validate_topic_for_platform(platform, text, source="channel_brief")
     return ok, reason
 
 
@@ -117,6 +172,9 @@ class AutomationJobRunner:
         if self.queue.running_job() is not None:
             return False, "job_already_running"
         if self.queue.completed_today_count() >= self._daily_job_cap():
+            cancelled = self.queue.cancel_remaining_planned_jobs_for_today()
+            if cancelled:
+                logger.info("Cancelled %s remaining planned job(s) — daily cap reached.", cancelled)
             return False, "daily_job_cap_reached"
 
         health = get_browser_health(self.project_root)
@@ -236,7 +294,21 @@ class AutomationJobRunner:
                 "error": topic_reason,
                 "stage": "topic_validation",
             }
-        duration_seconds = int(job.duration or profile.get("default_duration_seconds") or 30)
+        from content_brain.automation.platform_daily_scheduler_store import resolve_platform_duration_seconds
+
+        duration_seconds = resolve_platform_duration_seconds(
+            self.project_root,
+            platform,
+            profile=profile,
+        )
+        if job.duration and int(job.duration) != duration_seconds:
+            logger.info(
+                "Automation duration resolved platform=%s job_duration=%s scheduler_duration=%s",
+                platform,
+                job.duration,
+                duration_seconds,
+            )
+            self.queue.update_job(job.job_id, duration=duration_seconds)
         product_duration = plan_product_duration(duration_seconds)
         clip_count = int(product_duration.get("clip_count") or 2)
 
@@ -270,13 +342,31 @@ class AutomationJobRunner:
             channel_topic[:80],
         )
         start_result = product_service.create_video_generate(payload, runway_service=runway_service)
-        if not start_result.get("ok"):
-            return {
+        _upload_debug("create_video_generate", start_result)
+        start_ok = bool(start_result.get("ok"))
+        has_publish_ready = bool(
+            start_result.get("publish_package_ready")
+            or start_result.get("publish_ready")
+            or str(start_result.get("final_branded_publish_video_path") or "").strip()
+        )
+        if not start_ok and not has_publish_ready:
+            failure = {
                 "ok": False,
                 "error": str(start_result.get("message") or start_result.get("status") or "create_video_failed"),
                 "stage": "content_brain_or_runway_start",
                 "details": start_result,
             }
+            _upload_debug("create_video_generate_failed", failure)
+            return failure
+        if not start_ok and has_publish_ready:
+            _upload_debug(
+                "create_video_generate_partial_ok",
+                {
+                    "ok": start_ok,
+                    "message": start_result.get("message"),
+                    "publish_package_ready": start_result.get("publish_package_ready"),
+                },
+            )
 
         run_id = str(start_result.get("session_id") or start_result.get("run_id") or "")
         if self._is_pwmap_browser_result(start_result):
@@ -302,10 +392,49 @@ class AutomationJobRunner:
 
         upload_package: dict[str, Any] = {}
         platform_uploads: dict[str, Any] = {"ok": False, "skipped": True, "reason": "auto_upload_disabled"}
-        upload_targets = resolve_job_upload_targets(job.platform_targets)
+        upload_targets, upload_block_reason = _enforce_job_upload_targets(job, platform)
+        _upload_debug(
+            "enforce_job_upload_targets",
+            {"job_platform": normalize_platform(platform), "upload_targets": upload_targets, "block_reason": upload_block_reason},
+        )
         yt_chain = dict(report.get("youtube_upload") or start_result.get("youtube_upload") or {})
-        if is_auto_upload_enabled(self.project_root):
-            if not output_path and not publish_path:
+        auto_upload_on = is_auto_upload_enabled(self.project_root)
+        _upload_debug("auto_upload_enabled", {"enabled": auto_upload_on, "yt_chain": yt_chain})
+        if auto_upload_on and not upload_targets:
+            platform_uploads = {
+                "ok": False,
+                "skipped": True,
+                "reason": upload_block_reason or "cross_platform_upload_blocked",
+            }
+            _upload_debug("upload_targets_blocked", platform_uploads)
+        elif auto_upload_on:
+            from content_brain.automation.fail_closed_upload_gate import evaluate_automation_upload_gate
+
+            report_for_gate = dict(report or start_result)
+            upload_allowed, upload_block_reason = evaluate_automation_upload_gate(
+                project_root=self.project_root,
+                generation_report=report_for_gate,
+                run_id=run_id,
+                planned_clip_count=int(job.clip_count or 0),
+                publish_package_path=publish_path,
+            )
+            _upload_debug(
+                "fail_closed_upload_gate",
+                {
+                    "allowed": upload_allowed,
+                    "reason": upload_block_reason,
+                    "status": report_for_gate.get("status"),
+                    "clip_count": report_for_gate.get("clip_count"),
+                },
+            )
+            if not upload_allowed:
+                platform_uploads = {
+                    "ok": False,
+                    "skipped": True,
+                    "reason": upload_block_reason,
+                    "platforms": {},
+                }
+            elif not output_path and not publish_path:
                 output_path, publish_path = self._resolve_pwmap_output_paths(report or start_result)
             upload_package = self.upload_manager.prepare_full_upload_workflow(
                 topic=channel_topic,
@@ -316,6 +445,7 @@ class AutomationJobRunner:
                 use_openai=True,
                 automation_mode=True,
             )
+            _upload_debug("prepare_full_upload_workflow", upload_package)
 
             from content_brain.automation.auto_platform_upload import submit_automation_platform_uploads
 
@@ -336,6 +466,7 @@ class AutomationJobRunner:
                     },
                     "video_path": output_path or publish_path,
                 }
+                _upload_debug("platform_uploads_already_uploaded", platform_uploads)
             elif instagram_job and yt_chain.get("uploaded"):
                 logger.error(
                     "Ignoring cross-platform YouTube upload for Instagram job %s run_id=%s",
@@ -355,6 +486,7 @@ class AutomationJobRunner:
                     generation_report=report or start_result,
                     skip_youtube_if_already_uploaded=True,
                 )
+                _upload_debug("submit_automation_platform_uploads", platform_uploads)
             else:
                 platform_uploads = submit_automation_platform_uploads(
                     project_root=self.project_root,
@@ -371,8 +503,9 @@ class AutomationJobRunner:
                 )
                 if not platform_uploads.get("ok") and youtube_job and yt_chain.get("blocked_reason"):
                     platform_uploads["publish_chain_blocked_reason"] = yt_chain.get("blocked_reason")
+                _upload_debug("submit_automation_platform_uploads", platform_uploads)
 
-        return {
+        final_result = {
             "ok": True,
             "run_id": run_id,
             "output_path": output_path,
@@ -383,6 +516,8 @@ class AutomationJobRunner:
             "report": report,
             "start_result": start_result,
         }
+        _upload_debug("_execute_job_complete", final_result)
+        return final_result
 
     def _is_pwmap_browser_result(self, result: dict[str, Any]) -> bool:
         if result.get("browser_automation") or result.get("skip_credit_guard"):
@@ -477,6 +612,7 @@ class AutomationJobRunner:
 
     def _finalize_job(self, job_id: str, result: dict[str, Any]) -> dict[str, Any]:
         if result.get("ok"):
+            platform_uploads = dict(result.get("platform_uploads") or {})
             updated = self.queue.update_job(
                 job_id,
                 status=JOB_COMPLETED,
@@ -484,6 +620,7 @@ class AutomationJobRunner:
                 output_path=str(result.get("output_path") or ""),
                 publish_package_path=str(result.get("publish_package_path") or ""),
                 upload_package_path=str(result.get("upload_package_path") or ""),
+                upload_result=platform_uploads or None,
                 error="",
             )
             center = self.center.load()
@@ -499,6 +636,7 @@ class AutomationJobRunner:
             except Exception:
                 pass
             self._record_upload_history(job_dict, result)
+            _upload_debug("_finalize_job_completed", {"job_id": job_id, "upload_result": platform_uploads})
             return {"ok": True, "status": JOB_COMPLETED, "job": job_dict, "result": result}
 
         error = str(result.get("error") or "automation_failed")
@@ -509,6 +647,7 @@ class AutomationJobRunner:
         failed.insert(0, job_dict)
         self.center.save({"failed_jobs": failed[:100]})
         self._record_upload_history(job_dict, result, success=False, error=error)
+        _upload_debug("_finalize_job_failed", {"job_id": job_id, "error": error, "result": result})
         return {"ok": False, "status": JOB_FAILED, "job": updated.to_dict() if updated else {}, "error": error, "result": result}
 
     def _record_upload_history(
@@ -519,14 +658,42 @@ class AutomationJobRunner:
         success: bool | None = None,
         error: str = "",
     ) -> None:
-        if result.get("platform_uploads"):
-            return
-
+        from content_brain.automation.platform_daily_scheduler import display_platform_topic
         from content_brain.automation.upload_history_store import UploadHistoryStore
+        from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
 
         platform = str((job.get("platform_targets") or ["youtube_shorts"])[0] or "youtube_shorts")
-        title = str(job.get("title") or job.get("topic") or "Automation video")
+        profile = ProductChannelProfileStore(self.project_root).load()
+        title = display_platform_topic(
+            platform,
+            profile,
+            str(job.get("title") or job.get("topic") or ""),
+        )
         run_id = str(result.get("run_id") or job.get("run_id") or "")
+        uploads = dict(result.get("platform_uploads") or {})
+
+        if uploads and not uploads.get("skipped"):
+            history = UploadHistoryStore(self.project_root)
+            for platform_key, upload_result in (uploads.get("platforms") or {}).items():
+                if not isinstance(upload_result, dict):
+                    continue
+                post_url = str(
+                    upload_result.get("post_url")
+                    or upload_result.get("video_url")
+                    or upload_result.get("youtube_url")
+                    or ""
+                )
+                history.record(
+                    platform=str(platform_key or platform),
+                    title=title,
+                    success=bool(upload_result.get("ok") or upload_result.get("uploaded")),
+                    run_id=run_id,
+                    youtube_url=post_url,
+                    post_url=post_url,
+                    error=str(upload_result.get("reason") or upload_result.get("error") or ""),
+                )
+            return
+
         upload_ok = success
         post_url = ""
         if upload_ok is None:
@@ -540,7 +707,7 @@ class AutomationJobRunner:
             run_id=run_id,
             youtube_url=post_url,
             post_url=post_url,
-            error=error,
+            error=error or str(uploads.get("reason") or uploads.get("error") or ""),
         )
 
 

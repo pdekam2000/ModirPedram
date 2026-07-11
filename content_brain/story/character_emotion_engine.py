@@ -107,7 +107,7 @@ def build_character_emotion_plan(
 def save_character_emotion_plan(path: str | Path, plan: CharacterEmotionPlan) -> Path:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(plan.to_dict(), indent=2), encoding="utf-8")
+    target.write_text(json.dumps(plan.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
     return target
 
 

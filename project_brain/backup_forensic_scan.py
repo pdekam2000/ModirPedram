@@ -669,7 +669,7 @@ def main() -> int:
         "estimated_reclaimable": reclaim["estimated_reclaimable_bytes"],
         "zip_analyses": {k: {"entries": v.entry_count, "flags": v.flags} for k, v in zip_analyses.items()},
     }
-    print(json.dumps(summary, indent=2))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0
 
 

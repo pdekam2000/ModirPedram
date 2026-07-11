@@ -7,6 +7,11 @@ import os
 import re
 from typing import Any
 
+from content_brain.publish.youtube_metadata_generator import (
+    INSTAGRAM_BASE_HASHTAGS,
+    build_upload_youtube_description,
+    _build_hashtags,
+)
 from content_brain.upload.upload_models import (
     PLATFORM_INSTAGRAM,
     PLATFORM_TIKTOK,
@@ -14,7 +19,7 @@ from content_brain.upload.upload_models import (
     PRIVACY_PRIVATE,
 )
 
-PLATFORM_METADATA_AGENT_VERSION = "platform_metadata_agent_v1"
+PLATFORM_METADATA_AGENT_VERSION = "platform_metadata_agent_v2_structured_captions"
 
 YOUTUBE_CATEGORY_DEFAULT = "Science & Technology"
 
@@ -36,6 +41,49 @@ def _topic_words(topic: str) -> list[str]:
     return [word for word in words if len(word) > 2][:6]
 
 
+def _dedupe_hashtags(items: list[str], *, max_count: int = 25) -> list[str]:
+    seen: set[str] = set()
+    cleaned: list[str] = []
+    for item in items:
+        raw = str(item or "").strip().lstrip("#")
+        if not raw:
+            continue
+        key = raw.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(f"#{raw}")
+        if len(cleaned) >= max_count:
+            break
+    return cleaned
+
+
+def _parse_instagram_recipe_fields(
+    video_topic: str,
+    narration_script: str,
+) -> tuple[str, str]:
+    text = f"{video_topic}\n{narration_script}"
+    benefit_match = re.search(r"Benefits?:\s*([^.\n]+)", text, flags=re.IGNORECASE)
+    skin_benefit = benefit_match.group(1).strip() if benefit_match else "healthy glow and smoother skin"
+
+    ingredients_match = re.search(r"You need\s+([^.\n]+)", text, flags=re.IGNORECASE)
+    if ingredients_match:
+        ingredients = ingredients_match.group(1).strip()
+    else:
+        teaches_match = re.search(r"teaches\s+([^—\-]+)\s*[—\-]\s*([^.\n]+)", text, flags=re.IGNORECASE)
+        if teaches_match:
+            ingredients = teaches_match.group(2).strip()
+        else:
+            ingredients = "natural pantry ingredients shown in the reel"
+    return ingredients, skin_benefit
+
+
+def _build_instagram_hashtags(video_topic: str) -> list[str]:
+    tags = list(INSTAGRAM_BASE_HASHTAGS)
+    tags.extend(_slug_hashtags(_topic_words(video_topic)))
+    return _dedupe_hashtags(tags, max_count=25)
+
+
 def _rule_based_youtube(
     *,
     video_topic: str,
@@ -45,12 +93,18 @@ def _rule_based_youtube(
 ) -> dict[str, Any]:
     channel = str(channel_profile.get("channel_name") or "Channel").strip()
     title = str(video_topic or channel_profile.get("channel_topic") or "Short").strip()[:95]
-    description = str(channel_profile.get("youtube_default_description") or "").strip()
-    if not description:
-        description = f"{video_topic}\n\nFollow {channel} for more {channel_profile.get('main_niche', 'content')}."
-    hashtags = _slug_hashtags(list(channel_profile.get("youtube_default_hashtags") or ["shorts", "viral"]))
-    tags = _topic_words(video_topic) + ["shorts", "shortvideo"]
-    pinned = f"Thanks for watching! What should we cover next about {video_topic}? Drop a comment below."
+    description = build_upload_youtube_description(
+        video_topic=video_topic,
+        channel_profile=channel_profile,
+        narration_script=narration_script,
+    )
+    hashtags = _build_hashtags(topic=video_topic, channel_profile=channel_profile, is_short=True)
+    tags = _topic_words(video_topic) + ["shorts", "science facts", "mind blowing", channel.lower()]
+    pinned = (
+        "Thanks for watching! What should we cover next?\n"
+        f"👍 Like if this blew your mind!\n"
+        f"🔔 Subscribe to {channel} for daily science facts."
+    )
     if narration_script:
         pinned = f"{pinned}\n\nKey takeaway: {narration_script[:180].strip()}..."
     return {
@@ -60,7 +114,7 @@ def _rule_based_youtube(
         "hashtags": hashtags,
         "tags": sorted(set(tags))[:15],
         "category": YOUTUBE_CATEGORY_DEFAULT,
-        "privacy": str(channel_profile.get("youtube_privacy") or PRIVACY_PUBLIC),
+        "privacy": str(channel_profile.get("youtube_privacy") or PRIVACY_PRIVATE),
         "thumbnail_text": title[:40],
         "pinned_comment": pinned,
         "source": "rule_based",
@@ -93,17 +147,26 @@ def _rule_based_instagram(
     *,
     video_topic: str,
     channel_profile: dict[str, Any],
+    narration_script: str = "",
     content_language: str,
 ) -> dict[str, Any]:
-    caption = f"{video_topic}\n\n{channel_profile.get('cta_text') or 'Follow for more'}."
-    hashtags = _slug_hashtags(["reels", "explore"] + _topic_words(video_topic))
+    channel = str(channel_profile.get("channel_name") or "our skincare page").strip()
+    ingredients, skin_benefit = _parse_instagram_recipe_fields(video_topic, narration_script)
+    hashtags = _build_instagram_hashtags(video_topic)
+    caption = (
+        f"{video_topic}\n\n"
+        f"🧴 Ingredients:\n{ingredients}\n\n"
+        f"✨ Skin benefit: {skin_benefit}\n\n"
+        f"👀 Follow {channel} for daily skincare recipes!\n\n"
+        f"{' '.join(hashtags)}"
+    )
     return {
         "platform": PLATFORM_INSTAGRAM,
         "caption": caption,
         "hashtags": hashtags,
-        "alt_text": f"Short video about {video_topic} from {channel_profile.get('channel_name', 'channel')}.",
+        "alt_text": f"Skincare reel about {video_topic} from {channel}.",
         "cover_text": str(video_topic or "Reel")[:32],
-        "pinned_comment": f"Save this reel if {video_topic} is useful — what should we post next?",
+        "pinned_comment": f"Save this reel for {skin_benefit}. What recipe should we post next?",
         "source": "rule_based",
         "language": content_language,
     }
@@ -159,7 +222,8 @@ def _openai_metadata(
             "Return JSON only.",
             "privacy must default to private for YouTube.",
             "pinned_comment is a draft only — never claim it was posted.",
-            "Keep captions platform-native and concise.",
+            "YouTube descriptions must be 800-1500 characters with hook, branding, SEO keywords, 15-20 hashtags, and CTA.",
+            "Instagram captions must include ingredients list, skin benefit, follow CTA, and 25 skincare hashtags.",
         ],
     }
     try:
@@ -234,6 +298,7 @@ def generate_platform_metadata(
         payload = _rule_based_instagram(
             video_topic=video_topic,
             channel_profile=channel_profile,
+            narration_script=narration_script,
             content_language=language,
         )
     else:

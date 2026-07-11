@@ -95,7 +95,7 @@ def test_live_cdp(*, cdp_url: str) -> None:
         connect_browser=True,
     )
     summary_path = ROOT / "project_brain" / "kling_frame_live_dry_run_p2_summary.json"
-    summary_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    summary_path.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
     _pass("live_connect", result.connect_browser)
     _pass("live_no_generate", result.generate_clicked is False)

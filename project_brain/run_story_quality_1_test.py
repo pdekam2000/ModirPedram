@@ -115,9 +115,9 @@ def run_story_quality_1_test() -> dict[str, Any]:
         "output_path": str(video_path.resolve()),
         "duration_seconds": 12.0,
     }
-    (run_dir / "metadata" / "assembly_manifest.json").write_text(json.dumps(assembly_manifest, indent=2), encoding="utf-8")
+    (run_dir / "metadata" / "assembly_manifest.json").write_text(json.dumps(assembly_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     (run_dir / "metadata" / "run_summary.json").write_text(
-        json.dumps({"run_id": run_id, "topic": TOPIC, "clip_count": 3}, indent=2),
+        json.dumps({"run_id": run_id, "topic": TOPIC, "clip_count": 3}, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
@@ -265,13 +265,13 @@ def run_story_quality_1_test() -> dict[str, Any]:
         "branding_status": branding.get("status"),
         "subtitle_status": branding.get("subtitle_status"),
     }
-    (run_dir / "debug" / "story_quality_1" / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    (run_dir / "debug" / "story_quality_1" / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     return summary
 
 
 def main() -> int:
     summary = run_story_quality_1_test()
-    print(json.dumps(summary, indent=2))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0 if summary.get("ok") else 1
 
 

@@ -70,7 +70,7 @@ def story_package_path(project_root: str | Path, run_id: str) -> Path:
 def save_story_package(project_root: str | Path, package: StoryPackage) -> Path:
     path = story_package_path(project_root, package.run_id)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(package.to_dict(), indent=2), encoding="utf-8")
+    path.write_text(json.dumps(package.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 

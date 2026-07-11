@@ -51,7 +51,7 @@ def test_generate_starter_frame(*, topic: str) -> dict:
         characters=["young woman", "wounded robot dog"],
     )
     summary_path = ROOT / "project_brain" / "kling_starter_frame_p3_summary.json"
-    summary_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    summary_path.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
     frame = Path(result.starter_frame_path)
     _pass("starter_ok", result.ok, str(result.errors))

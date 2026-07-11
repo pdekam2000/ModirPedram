@@ -613,11 +613,11 @@ def persist_video_quality_judge_p1(
     )
     quality_dir.mkdir(parents=True, exist_ok=True)
     out_path = quality_dir / "video_quality_judge_p1.json"
-    out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     latest_dir = root / "project_brain" / "quality_judge"
     latest_dir.mkdir(parents=True, exist_ok=True)
-    (latest_dir / "latest_video_quality_judge_p1.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (latest_dir / "latest_video_quality_judge_p1.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return out_path
 
 
@@ -663,7 +663,7 @@ def persist_p1_proposed_updates(proposed: dict[str, Any], *, project_root: str |
     out_dir = root / "project_brain" / "quality_learning" / "proposed_updates_p1"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{run_id}.json"
-    out_path.write_text(json.dumps(proposed, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(proposed, indent=2, ensure_ascii=False), encoding="utf-8")
     return out_path
 
 

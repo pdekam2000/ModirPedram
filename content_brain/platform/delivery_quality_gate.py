@@ -203,11 +203,11 @@ def write_delivery_quality_gate(
     payload = result.to_dict()
     latest = root / "project_brain" / "runtime_state" / "delivery_quality_gate.json"
     latest.parent.mkdir(parents=True, exist_ok=True)
-    latest.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    latest.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     if run_dir:
         run_path = Path(run_dir).resolve() / "metadata" / "delivery_quality_gate.json"
         run_path.parent.mkdir(parents=True, exist_ok=True)
-        run_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        run_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
         return run_path
     return latest
 

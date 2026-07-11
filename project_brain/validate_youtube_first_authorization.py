@@ -54,7 +54,8 @@ def _write_client_secret(path: Path) -> None:
                     "redirect_uris": ["http://localhost"],
                 }
             }
-        ),
+                ensure_ascii=False,
+            ),
         encoding="utf-8",
     )
 
@@ -69,7 +70,7 @@ def main() -> int:
         _write_client_secret(secret_path)
         (root / "project_brain" / "product_settings").mkdir(parents=True, exist_ok=True)
         (root / "project_brain" / "product_settings" / "channel_profile.json").write_text(
-            json.dumps({"youtube_upload_enabled": False, "youtube_oauth_client_path": ""}),
+            json.dumps({"youtube_upload_enabled": False, "youtube_oauth_client_path": ""}, ensure_ascii=False),
             encoding="utf-8",
         )
 

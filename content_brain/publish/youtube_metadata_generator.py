@@ -10,10 +10,106 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-YOUTUBE_METADATA_VERSION = "youtube_metadata_generator_v1"
+YOUTUBE_METADATA_VERSION = "youtube_metadata_generator_v3_seo_tags"
 YOUTUBE_METADATA_FILENAME = "youtube_metadata.json"
 SHORTS_MAX_DURATION_SECONDS = 60
 LONG_FORM_MIN_DURATION_SECONDS = 61
+DESCRIPTION_MIN_CHARS = 800
+DESCRIPTION_TARGET_CHARS = 1200
+DESCRIPTION_MAX_CHARS = 1500
+
+YOUTUBE_SCIENCE_BRANDING_LINE = (
+    "🔬 Science That Feels Impossible — new mind-blowing fact every day. "
+    "Subscribe for daily science shorts!"
+)
+YOUTUBE_BASE_HASHTAGS = (
+    "#ScienceFacts",
+    "#MindBlowing",
+    "#DidYouKnow",
+    "#ScienceShorts",
+    "#LearnSomethingNew",
+    "#SpaceFacts",
+    "#NatureFacts",
+    "#ScienceIsAmazing",
+    "#Shorts",
+    "#YouTubeShorts",
+)
+YOUTUBE_SEO_BASE_TAGS: tuple[str, ...] = (
+    "science",
+    "facts",
+    "did you know",
+    "mind blowing",
+    "shorts",
+    "youtube shorts",
+    "science shorts",
+    "amazing facts",
+    "learn something new",
+    "science facts",
+    "impossible science",
+)
+YOUTUBE_TRENDING_TAGS: tuple[str, ...] = (
+    "shorts",
+    "viral",
+    "trending",
+    "2025",
+    "2026",
+)
+YOUTUBE_TITLE_POWER_WORDS: tuple[str, ...] = (
+    "Why",
+    "How",
+    "What Happens When",
+    "Never",
+    "Finally",
+    "Scientists Discovered",
+    "The Truth About",
+    "This Is Why",
+    "Nobody Talks About",
+    "The Real Reason",
+)
+SCIENCE_TOPIC_TAG_HINTS: dict[str, tuple[str, ...]] = {
+    "atom": ("atoms", "quantum physics", "physics facts", "atomic theory", "matter", "particles"),
+    "touch": ("atoms", "quantum physics", "physics facts", "atomic theory", "matter", "particles"),
+    "brain": ("brain science", "neuroscience", "psychology facts", "memory", "human brain"),
+    "memory": ("false memory", "psychology", "brain science", "neuroscience", "human mind"),
+    "space": ("space facts", "astrophysics", "universe", "cosmos", "nasa"),
+    "earth": ("earth science", "planet earth", "geology", "natural disasters"),
+    "time": ("time dilation", "relativity", "physics facts", "einstein", "spacetime"),
+    "quantum": ("quantum physics", "quantum mechanics", "particle physics", "science facts"),
+    "ocean": ("ocean facts", "deep sea", "marine biology", "ocean mysteries"),
+    "animal": ("strange animals", "biology facts", "wildlife", "nature facts"),
+    "tardigrade": ("tardigrade", "extremophile", "microscopic animals", "survival science"),
+    "light": ("bioluminescence", "human body", "science facts", "biology"),
+    "immune": ("immune system", "human body", "biology facts", "health science"),
+    "black hole": ("black hole", "astrophysics", "space facts", "universe"),
+    "jupiter": ("jupiter", "space facts", "planets", "solar system"),
+}
+INSTAGRAM_BASE_HASHTAGS = (
+    "#skincare",
+    "#diybeauty",
+    "#skincarerecipe",
+    "#naturalskincare",
+    "#glowingskin",
+    "#skintips",
+    "#beautyroutine",
+    "#selfcare",
+    "#skincarecommunity",
+    "#facemask",
+    "#organicskincare",
+    "#skincareproducts",
+    "#beautyhacks",
+    "#skincaretips",
+    "#healthyskin",
+    "#skincareaddict",
+    "#skincareroutine",
+    "#cleanbeauty",
+    "#skincarelover",
+    "#beautytips",
+    "#skincareobsessed",
+    "#glowup",
+    "#skincarejunkie",
+    "#homemadebeauty",
+    "#skincaregoals",
+)
 
 SPAM_PATTERNS = (
     r"\b(you won't believe|shocking|100% free|click now|must watch|gone wrong)\b",
@@ -46,9 +142,147 @@ NICHE_CATEGORY_MAP: dict[str, str] = {
     "business": "People & Blogs",
 }
 
-PLATFORM_TAGS = ("youtube", "shorts", "short video", "ai video", "generative video")
-GENRE_TAGS = ("storytelling", "cinematic", "viral", "trending")
-DESCRIPTION_TARGET_CHARS = 3800
+def _is_science_channel(channel_profile: dict[str, Any], topic: str) -> bool:
+    haystack = " ".join(
+        [
+            str(channel_profile.get("youtube_genre") or ""),
+            str(channel_profile.get("main_niche") or ""),
+            str(channel_profile.get("channel_name") or ""),
+            str(channel_profile.get("youtube_channel_topic") or "")[:200],
+            topic,
+        ]
+    ).lower()
+    return any(marker in haystack for marker in ("science", "impossible", "physics", "space", "brain"))
+
+
+def _topic_hashtag_tags(topic: str, *, limit: int = 8) -> list[str]:
+    tags: list[str] = []
+    for word in _topic_words(topic):
+        if len(word) < 4:
+            continue
+        tags.append(f"#{word.title()}")
+    return tags[:limit]
+
+
+def _build_youtube_description_hashtags(*, topic: str, channel_profile: dict[str, Any]) -> list[str]:
+    tags = list(YOUTUBE_BASE_HASHTAGS)
+    tags.extend(_topic_hashtag_tags(topic, limit=10))
+    channel = str(channel_profile.get("channel_name") or "").strip()
+    if channel:
+        compact = re.sub(r"[^a-zA-Z0-9]", "", channel)
+        if compact:
+            tags.append(f"#{compact}")
+    return _dedupe_hashtags(tags, min_count=15, max_count=20)
+
+
+def _expand_hook_paragraph(
+    *,
+    hook: str,
+    topic: str,
+    narration_script: str,
+    target_chars: int = 320,
+) -> str:
+    paragraphs: list[str] = []
+    lead = str(hook or "").strip()
+    if lead:
+        paragraphs.append(lead if lead.endswith(".") else f"{lead}.")
+    excerpt = " ".join(str(narration_script or "").split())
+    if excerpt and excerpt.lower() not in lead.lower():
+        sentences = re.split(r"(?<=[.!?])\s+", excerpt)
+        for sentence in sentences[:3]:
+            text = sentence.strip()
+            if text and text not in paragraphs:
+                paragraphs.append(text)
+            if sum(len(item) for item in paragraphs) >= target_chars:
+                break
+    if not paragraphs:
+        paragraphs.append(
+            f"This Short breaks down {topic} with cinematic visuals and a fast, curiosity-driven science hook."
+        )
+    body = " ".join(paragraphs)
+    if len(body) < 180 and excerpt:
+        body = f"{body} {excerpt[: max(0, target_chars - len(body) - 1)]}".strip()
+    return body[: max(220, target_chars)].strip()
+
+
+def _ensure_shorts_title(title: str, *, is_short: bool) -> str:
+    cleaned = _clean_title(title)
+    if not is_short:
+        return cleaned
+    if "#shorts" in cleaned.lower():
+        return cleaned
+    suffix = " #Shorts"
+    if len(cleaned) + len(suffix) > 95:
+        cleaned = cleaned[: max(1, 95 - len(suffix))].rstrip(" -|:")
+    return f"{cleaned}{suffix}"
+
+
+def _shorts_description_lead() -> str:
+    return "#Shorts #ScienceFacts"
+
+
+def _build_structured_youtube_description(
+    *,
+    topic: str,
+    channel_profile: dict[str, Any],
+    story_hook: str,
+    narration_script: str,
+    seo_keywords: list[str],
+    hashtags: list[str],
+    is_short: bool,
+) -> str:
+    channel = str(channel_profile.get("channel_name") or "Science That Feels Impossible").strip()
+    hook = _build_hook(topic, story_hook, narration_script)
+    hook_paragraph = _expand_hook_paragraph(
+        hook=hook,
+        topic=topic,
+        narration_script=narration_script,
+        target_chars=340,
+    )
+    branding = YOUTUBE_SCIENCE_BRANDING_LINE
+    if not _is_science_channel(channel_profile, topic):
+        branding = f"🔬 {channel} — subscribe for more cinematic shorts like this."
+
+    keyword_bits = [str(item).strip() for item in seo_keywords if str(item).strip()]
+    keyword_bits.extend(_topic_words(topic))
+    keyword_line = ", ".join(dict.fromkeys(keyword_bits))[:240]
+    if not keyword_line:
+        keyword_line = ", ".join(_topic_words(topic)) or topic
+
+    tag_line = " ".join(hashtags or _build_youtube_description_hashtags(topic=topic, channel_profile=channel_profile))
+    cta_block = (
+        "👍 Like if this blew your mind!\n"
+        "🔔 Subscribe for daily science facts\n"
+        "💬 Comment what you want to learn next"
+    )
+    lines = [
+        _shorts_description_lead() if is_short else hook_paragraph,
+        hook_paragraph if is_short else "",
+        "",
+        branding,
+        "",
+        f"🔑 Topics: {keyword_line}",
+        "",
+        tag_line,
+        "",
+        cta_block,
+    ]
+    if is_short:
+        lines.extend(["", "Built for YouTube Shorts — fast hook, cinematic pacing, native in-scene audio."])
+    disclosure = _ai_disclosure_block(channel_profile)
+    if disclosure:
+        lines.extend(["", disclosure])
+
+    description = "\n".join(line for line in lines if line is not None).strip()
+    if len(description) < DESCRIPTION_MIN_CHARS and narration_script:
+        extra = " ".join(str(narration_script).split())[:600]
+        if extra and extra not in description:
+            description = f"{description}\n\n{extra}".strip()
+    if len(description) > DESCRIPTION_MAX_CHARS:
+        description = description[: DESCRIPTION_MAX_CHARS - 3].rstrip() + "..."
+    return description
+
+
 
 
 def _openai_json_completion(*, system: str, user_payload: dict[str, Any], max_tokens: int = 1400) -> dict[str, Any] | None:
@@ -129,6 +363,93 @@ def _ai_generate_title(
     return _clean_title(title) if title else ""
 
 
+def _title_starts_with_power_word(title: str) -> bool:
+    cleaned = _clean_title(title)
+    lowered = cleaned.lower()
+    return any(lowered.startswith(word.lower()) for word in YOUTUBE_TITLE_POWER_WORDS)
+
+
+def _enhance_title_clickthrough(title: str) -> str:
+    cleaned = _clean_title(title)
+    if not cleaned or _title_starts_with_power_word(cleaned):
+        return cleaned
+    for prefix in ("Why", "How", "The Truth About"):
+        if cleaned.lower().startswith(prefix.lower()):
+            return cleaned
+        candidate = _clean_title(f"{prefix} {cleaned}")
+        if len(candidate) <= 95:
+            return candidate
+    return cleaned
+
+
+def _topic_tags_from_title(title: str) -> list[str]:
+    lowered = str(title or "").lower()
+    tags: list[str] = []
+    for keyword, hints in SCIENCE_TOPIC_TAG_HINTS.items():
+        if keyword in lowered:
+            tags.extend(hints)
+    for word in _topic_words(title):
+        if len(word) >= 4:
+            tags.append(word)
+    return tags
+
+
+def _ai_generate_topic_tags(title: str) -> list[str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        return []
+    try:
+        from openai import OpenAI
+    except ImportError:
+        return []
+    try:
+        client = OpenAI(api_key=api_key, timeout=30.0)
+        response = client.chat.completions.create(
+            model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+            messages=[
+                {
+                    "role": "user",
+                    "content": (
+                        f"Generate 5 YouTube search tags for a video titled: {title}. "
+                        "Return only comma-separated tags, no hashtags."
+                    ),
+                }
+            ],
+            temperature=0.45,
+            max_tokens=120,
+        )
+        raw = (response.choices[0].message.content or "").strip()
+        return [item.strip() for item in raw.split(",") if item.strip()][:5]
+    except Exception:
+        return []
+
+
+def _dedupe_search_tags(items: list[str], *, min_count: int = 20, max_count: int = 30) -> list[str]:
+    seen: set[str] = set()
+    cleaned: list[str] = []
+    for item in items:
+        raw = str(item or "").strip().lstrip("#")
+        if not raw:
+            continue
+        key = raw.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(raw[:40])
+        if len(cleaned) >= max_count:
+            break
+    if len(cleaned) < min_count:
+        for filler in YOUTUBE_SEO_BASE_TAGS + list(YOUTUBE_TRENDING_TAGS):
+            key = filler.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            cleaned.append(filler)
+            if len(cleaned) >= min_count:
+                break
+    return cleaned[:max_count]
+
+
 def _ai_generate_description(
     *,
     topic: str,
@@ -146,9 +467,12 @@ def _ai_generate_description(
     disclosure = _ai_disclosure_block(channel_profile)
     payload = _openai_json_completion(
         system=(
-            "Return JSON {\"description\": \"...\"}. Write a YouTube description near 3500-3800 characters. "
-            "Structure: compelling hook paragraph, keyword-rich story summary, channel intro + subscribe CTA, "
-            "SEO keyword paragraph, AI disclosure line if provided, hashtags line. "
+            "Return JSON {\"description\": \"...\"}. Write a YouTube description between 800-1500 characters. "
+            "Structure exactly: (1) hook paragraph 2-3 sentences about the video topic, "
+            "(2) channel branding line for Science That Feels Impossible, "
+            "(3) SEO line starting with '🔑 Topics:' and comma-separated keywords, "
+            "(4) 15-20 hashtags including #ScienceFacts #MindBlowing #ScienceShorts plus topic tags, "
+            "(5) CTA block with like/subscribe/comment lines. "
             "Natural prose — no spam, no misleading claims."
         ),
         user_payload={
@@ -170,9 +494,11 @@ def _ai_generate_description(
     if not payload:
         return ""
     description = str(payload.get("description") or "").strip()
-    if len(description) > 4000:
-        description = description[:3997].rstrip() + "..."
-    return description
+    if len(description) > DESCRIPTION_MAX_CHARS:
+        description = description[: DESCRIPTION_MAX_CHARS - 3].rstrip() + "..."
+    if description and len(description) >= DESCRIPTION_MIN_CHARS:
+        return description
+    return ""
 
 
 def _now_iso() -> str:
@@ -329,9 +655,11 @@ def _build_title(
         is_short=is_short,
     )
     if ai_title:
-        return ai_title, _clean_title(ai_title, max_len=42)
+        title = _ensure_shorts_title(_enhance_title_clickthrough(ai_title), is_short=is_short)
+        return title, _clean_title(title, max_len=42)
 
     title = _clean_title(next((item for item in candidates if item.strip()), topic))
+    title = _ensure_shorts_title(_enhance_title_clickthrough(title), is_short=is_short)
     short_title = _clean_title(title, max_len=42)
     return title, short_title
 
@@ -347,21 +675,16 @@ def _build_description(
     is_short: bool,
     duration_seconds: float | int | None,
 ) -> str:
-    channel = str(channel_profile.get("channel_name") or "Channel").strip()
-    summary = _build_hook(topic, story_hook, narration_script)
-    lines = [summary, ""]
-    if is_short:
-        lines.append("Built for YouTube Shorts — fast hook, cinematic pacing, native audio.")
-    else:
-        dur = int(duration_seconds or 0)
-        lines.append(f"Long-form story video (~{dur}s) with multi-clip continuity.")
-    lines.extend(["", f"Channel: {channel}"])
-    disclosure = _ai_disclosure_block(channel_profile)
-    if disclosure:
-        lines.extend(["", disclosure])
-    lines.extend(["", cta_text, "", " ".join(hashtags)])
-    template = "\n".join(line for line in lines if line is not None).strip()
-    seo_keywords = _topic_words(topic) + _topic_words(str(channel_profile.get("main_niche") or ""))
+    seo_keywords = _build_seo_keywords(topic=topic, tags=[], hashtags=hashtags)
+    structured = _build_structured_youtube_description(
+        topic=topic,
+        channel_profile=channel_profile,
+        story_hook=story_hook,
+        narration_script=narration_script,
+        seo_keywords=seo_keywords,
+        hashtags=hashtags,
+        is_short=is_short,
+    )
     ai_description = _ai_generate_description(
         topic=topic,
         channel_profile=channel_profile,
@@ -375,48 +698,54 @@ def _build_description(
     )
     if ai_description:
         return ai_description
-    return template
+    return structured
 
 
-def _build_tags(*, topic: str, channel_profile: dict[str, Any], is_short: bool, prompts: list[str]) -> list[str]:
+def _build_tags(
+    *,
+    topic: str,
+    channel_profile: dict[str, Any],
+    is_short: bool,
+    prompts: list[str],
+    title: str = "",
+) -> list[str]:
+    search_title = str(title or topic or "").strip()
     channel_name = str(channel_profile.get("channel_name") or "").strip()
-    niche = str(channel_profile.get("main_niche") or channel_profile.get("channel_topic") or "").strip()
-    priority_tags: list[str] = []
-    priority_tags.extend(_channel_name_tag_variants(channel_name))
-    priority_tags.extend(_topic_words(niche))
-    priority_tags.extend(_topic_words(niche.replace("_", " ")))
-
-    topic_tags = _topic_words(topic)
-    niche_tags = _topic_words(niche)
-    prompt_tags: list[str] = []
-    for prompt in prompts[:3]:
-        prompt_tags.extend(_topic_words(prompt)[:3])
-    secondary = topic_tags + niche_tags + list(GENRE_TAGS) + list(PLATFORM_TAGS) + prompt_tags
+    tags: list[str] = []
+    tags.extend(YOUTUBE_SEO_BASE_TAGS)
+    tags.extend(_topic_tags_from_title(search_title))
+    tags.extend(_ai_generate_topic_tags(search_title))
+    tags.extend(_channel_name_tag_variants(channel_name))
+    tags.extend(list(YOUTUBE_TRENDING_TAGS))
     if is_short:
-        secondary.extend(["youtube shorts", "vertical video", "short form"])
-    else:
-        secondary.extend(["long form", "multi clip", "story video"])
-    secondary.extend(["ai generated", "ai video", "generative ai"])
-
-    deduped: list[str] = []
-    seen: set[str] = set()
-    for tag in priority_tags + secondary:
-        key = tag.lower().lstrip("#")
-        if not key or key in seen:
-            continue
-        seen.add(key)
-        deduped.append(tag[:40].lstrip("#"))
-    return deduped[:30]
+        tags.extend(["vertical video", "short form", "science channel"])
+    for prompt in prompts[:2]:
+        tags.extend(_topic_words(prompt)[:3])
+    return _dedupe_search_tags(tags, min_count=20, max_count=30)
 
 
 def _build_hashtags(*, topic: str, channel_profile: dict[str, Any], is_short: bool) -> list[str]:
-    base = list(channel_profile.get("youtube_default_hashtags") or [])
-    topic_tags = _topic_words(topic)
-    generated = base + topic_tags + (["shorts"] if is_short else ["longform"])
-    niche = str(channel_profile.get("main_niche") or "")
-    generated.extend(_topic_words(niche))
-    generated.extend(["AIVideo", "YouTube"])
-    return _dedupe_hashtags([str(item) for item in generated])
+    return _build_youtube_description_hashtags(topic=topic, channel_profile=channel_profile)
+
+
+def build_upload_youtube_description(
+    *,
+    video_topic: str,
+    channel_profile: dict[str, Any],
+    narration_script: str = "",
+    story_hook: str = "",
+) -> str:
+    hashtags = _build_hashtags(topic=video_topic, channel_profile=channel_profile, is_short=True)
+    seo_keywords = _build_seo_keywords(topic=video_topic, tags=[], hashtags=hashtags)
+    return _build_structured_youtube_description(
+        topic=video_topic,
+        channel_profile=channel_profile,
+        story_hook=story_hook,
+        narration_script=narration_script,
+        seo_keywords=seo_keywords,
+        hashtags=hashtags,
+        is_short=True,
+    )
 
 
 def _build_thumbnail_prompt(
@@ -500,7 +829,13 @@ def generate_youtube_metadata(
         story_hook=story_hook,
     )
     cta_text = _build_cta_text(profile, topic)
-    tags = _build_tags(topic=topic, channel_profile=profile, is_short=short, prompts=prompt_list)
+    tags = _build_tags(
+        topic=topic,
+        channel_profile=profile,
+        is_short=short,
+        prompts=prompt_list,
+        title=title,
+    )
     category = _resolve_category(profile, topic)
     language = _normalize_language(str(profile.get("language") or profile.get("content_language") or "en"))
     made_for_kids = bool(profile.get("youtube_made_for_kids", False))
@@ -715,10 +1050,14 @@ def ensure_product_studio_publish_metadata(
 
 
 __all__ = [
+    "DESCRIPTION_MAX_CHARS",
+    "DESCRIPTION_MIN_CHARS",
+    "INSTAGRAM_BASE_HASHTAGS",
     "LONG_FORM_MIN_DURATION_SECONDS",
     "SHORTS_MAX_DURATION_SECONDS",
     "YOUTUBE_METADATA_FILENAME",
     "YOUTUBE_METADATA_VERSION",
+    "build_upload_youtube_description",
     "ensure_product_studio_publish_metadata",
     "generate_and_save_youtube_metadata",
     "generate_youtube_metadata",

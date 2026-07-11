@@ -108,7 +108,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
             "panel_renders_completed_subtitle_slot",
             "Subtitles ready" in utils_text
             and "Cue count" in subtitle_panel_text
-            and STATUS_COMPLETED in json.dumps(completed_fixture),
+            and STATUS_COMPLETED in json.dumps(completed_fixture, ensure_ascii=False),
         )
     )
 
@@ -125,7 +125,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
     results.append(
         _pass(
             "panel_renders_pending_subtitle_slot",
-            "Ready" in utils_text and STATUS_PENDING in json.dumps(pending_fixture),
+            "Ready" in utils_text and STATUS_PENDING in json.dumps(pending_fixture, ensure_ascii=False),
         )
     )
 
@@ -142,7 +142,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
     results.append(
         _pass(
             "panel_renders_skipped_subtitle_slot",
-            "No subtitle source" in utils_text and STATUS_SKIPPED in json.dumps(skipped_fixture),
+            "No subtitle source" in utils_text and STATUS_SKIPPED in json.dumps(skipped_fixture, ensure_ascii=False),
         )
     )
 
@@ -235,7 +235,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 def main() -> int:
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         status = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

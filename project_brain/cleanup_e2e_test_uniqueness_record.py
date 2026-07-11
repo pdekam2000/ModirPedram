@@ -118,7 +118,7 @@ def create_backup(path: Path, *, project_root: Path) -> Path:
     if path.is_file():
         shutil.copy2(path, backup_path)
     else:
-        backup_path.write_text(json.dumps({"records": []}, indent=2) + "\n", encoding="utf-8")
+        backup_path.write_text(json.dumps({"records": []}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return backup_path
 
 

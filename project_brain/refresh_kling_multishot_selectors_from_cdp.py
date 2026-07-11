@@ -146,7 +146,7 @@ def refresh_kling_multishot_selectors_from_cdp(
         if summary["refreshed"]:
             ui_map["labels"] = labels
             ui_map["updated_at"] = datetime.now(timezone.utc).isoformat()
-            path.write_text(json.dumps(ui_map, indent=2), encoding="utf-8")
+            path.write_text(json.dumps(ui_map, indent=2, ensure_ascii=False), encoding="utf-8")
 
         summary["ok"] = not summary["errors"]
         return summary
@@ -171,8 +171,8 @@ def main() -> int:
         map_path=Path(args.map_path),
     )
     out = ROOT / "project_brain" / "kling_multishot_selector_refresh_summary.json"
-    out.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print(json.dumps(summary, indent=2))
+    out.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0 if summary.get("ok") else 1
 
 

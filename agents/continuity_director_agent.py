@@ -245,7 +245,7 @@ def ensure_kling_frame_metadata_for_plan(
         "topic_guard_passed": guard_passed,
         "continuity_method": CONTINUITY_METHOD_LAST_FRAME,
     }
-    prompt_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    prompt_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return payload
 
 
@@ -416,9 +416,9 @@ class ContinuityDirectorAgent:
         payload = dict(payload)
         payload["updated_at"] = _now_iso()
         path = run_dir / CHAIN_FILENAME
-        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
         continuity_copy = continuity_dir(run_dir) / CHAIN_FILENAME
-        continuity_copy.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        continuity_copy.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
         return path
 
     def prepare_next_clip_first_frame(

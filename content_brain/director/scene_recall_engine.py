@@ -147,7 +147,7 @@ class SceneRecallStore:
         target.mkdir(parents=True, exist_ok=True)
         for package in packages:
             path = target / f"clip_{package.clip_index:02d}_recall.json"
-            path.write_text(json.dumps(package.to_dict(), indent=2), encoding="utf-8")
+            path.write_text(json.dumps(package.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         manifest = {
             "version": SCENE_RECALL_VERSION,
             "run_id": run_id,
@@ -156,7 +156,7 @@ class SceneRecallStore:
             "created_at": _now(),
         }
         manifest_path = target / "manifest.json"
-        manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
         return manifest_path
 
     def load_packages(self, run_id: str) -> list[SceneRecallPackage]:

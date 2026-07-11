@@ -240,7 +240,7 @@ def _dict(value):
 
 def main() -> int:
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

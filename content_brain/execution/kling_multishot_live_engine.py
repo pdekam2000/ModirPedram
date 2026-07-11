@@ -860,11 +860,11 @@ def run_kling_multishot_live(
             _record_step(result, "10", "generate_button", "blocked", "awaiting explicit operator approval")
             run_dir.mkdir(parents=True, exist_ok=True)
             (run_dir / "approval_checklist.json").write_text(
-                json.dumps(checklist.to_dict(), indent=2),
+                json.dumps(checklist.to_dict(), indent=2, ensure_ascii=False),
                 encoding="utf-8",
             )
             (run_dir / "live_run_prepare.json").write_text(
-                json.dumps(result.to_dict(), indent=2),
+                json.dumps(result.to_dict(), indent=2, ensure_ascii=False),
                 encoding="utf-8",
             )
             return result
@@ -929,7 +929,7 @@ def run_kling_multishot_live(
             result.download_status = DOWNLOAD_STATUS_FAILED
             result.status = STATUS_DOWNLOAD_FAILED
             result.ok = False
-            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return _fail(result, "13", "download", "Could not download MP4 output")
         result.download_path = str(downloaded.resolve())
         result.output_path = result.download_path
@@ -953,7 +953,7 @@ def run_kling_multishot_live(
             "audio_present": audio_present,
             "native_audio_notes": notes,
         }
-        (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
         ref = ROOT / "project_brain" / "kling_multishot_live_run_summary.json"
         if ref.is_file():
             shutil.copy2(ref, run_dir / "prepare_reference.json")
@@ -963,7 +963,7 @@ def run_kling_multishot_live(
         result.generation_completed = True
         result.download_status = DOWNLOAD_STATUS_PASSED
         result.dry_run_prepare = False
-        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         return result
 
     except Exception as exc:
@@ -1036,7 +1036,7 @@ def recover_kling_multishot_output(
         if downloaded is None:
             result.download_status = DOWNLOAD_STATUS_FAILED
             result.status = STATUS_DOWNLOAD_FAILED
-            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return _fail(result, "recover", "download", "Could not recover/download MP4 output")
 
         verify = verify_recovered_mp4(downloaded)
@@ -1048,7 +1048,7 @@ def recover_kling_multishot_output(
                 f"Recovered file is not a real MP4 "
                 f"(size={verify.get('size_bytes')}, duration={verify.get('duration_seconds')})"
             )
-            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return _fail(result, "recover", "download_verify", detail)
 
         result.download_path = str(downloaded.resolve())
@@ -1072,10 +1072,10 @@ def recover_kling_multishot_output(
             "native_audio_notes": notes,
             "legacy_note": "Recovered without Generate click",
         }
-        (run_dir / "recovery_metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        (run_dir / "recovery_metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
         result.ok = True
         result.status = STATUS_COMPLETED
-        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         return result
     except Exception as exc:
         result.ok = False

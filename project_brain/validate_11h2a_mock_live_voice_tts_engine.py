@@ -331,7 +331,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
         _pass(
             "manifest_required_fields_present",
             required_manifest and manifest.get("provider") == "mock_elevenlabs",
-            json.dumps({k: manifest.get(k) for k in ("provider", "provider_mode", "tts_executed")}),
+            json.dumps({k: manifest.get(k) for k in ("provider", "provider_mode", "tts_executed")}, ensure_ascii=False),
         )
     )
 
@@ -349,7 +349,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 def main() -> None:
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

@@ -90,7 +90,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
     with patch.dict(os.environ, {"ELEVENLABS_API_KEY": "super-secret-key-value"}, clear=False):
         summary = ElevenLabsConfigResolver(root).resolve({}).to_summary()
-    secret_leaked = "super-secret-key-value" in json.dumps(summary)
+    secret_leaked = "super-secret-key-value" in json.dumps(summary, ensure_ascii=False)
     results.append(
         _pass(
             "config_summary_never_exposes_secret",
@@ -198,7 +198,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 def main() -> int:
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

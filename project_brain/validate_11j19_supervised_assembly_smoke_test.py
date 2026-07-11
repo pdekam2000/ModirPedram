@@ -53,14 +53,14 @@ def _build_smoke_session(tmp: Path, *, session_id: str = "exec_11j19_smoke_test"
     voice_path = tmp / "narration_001.mp3"
     _write(voice_path)
     files = [{"segment_index": 0, "file_path": str(voice_path), "file_name": voice_path.name}]
-    _write(tmp / "voice_manifest.json", json.dumps({"files": files}))
+    _write(tmp / "voice_manifest.json", json.dumps({"files": files}, ensure_ascii=False))
     cr[CATEGORY_VOICE]["voice_manifest_path"] = str(tmp / "voice_manifest.json")
     ar[CATEGORY_VOICE] = [{"file_path": str(voice_path)}]
 
     ass_path = tmp / "subtitles.ass"
     _write(ass_path, "[Events]\n")
     ar[CATEGORY_SUBTITLE_GENERATION] = [{"format": "ass", "file_path": str(ass_path)}]
-    _write(tmp / "subtitle_manifest.json", json.dumps({"files": [{"format": "ass", "file_path": str(ass_path)}]}))
+    _write(tmp / "subtitle_manifest.json", json.dumps({"files": [{"format": "ass", "file_path": str(ass_path)}]}, ensure_ascii=False))
     cr[CATEGORY_SUBTITLE_GENERATION]["manifest_path"] = str(tmp / "subtitle_manifest.json")
 
     ts = "2026-05-31 10:00:00"
@@ -211,7 +211,8 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
                         "validation_status": "READY",
                         "output_artifacts": [{"file_name": EXPECTED_OUTPUT}],
                     }
-                ),
+                ensure_ascii=False,
+            ),
                 encoding="utf-8",
             )
             result.status = "completed"
@@ -359,7 +360,7 @@ def run_matrix(project_root: str | Path = ".", *, include_regressions: bool = Fa
 
 def main() -> int:
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

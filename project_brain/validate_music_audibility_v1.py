@@ -69,7 +69,7 @@ def main() -> None:
         track = tmp / "assets" / "audio" / "music" / "test_track.mp3"
         _write_tone_mp3(track)
         (tmp / "project_brain" / "product_settings" / "channel_profile.json").write_text(
-            json.dumps({"music_provider": "local", "music_track_path": str(track.relative_to(tmp)).replace("\\", "/")}),
+            json.dumps({"music_provider": "local", "music_track_path": str(track.relative_to(tmp)).replace("\\", "/")}, ensure_ascii=False),
             encoding="utf-8",
         )
         # Without real video+audio this may fail merge, but audibility logic exists

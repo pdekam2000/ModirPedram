@@ -94,7 +94,7 @@ def save_run_context(project_root: str | Path, context: RunContext | dict[str, A
     path.parent.mkdir(parents=True, exist_ok=True)
     payload["version"] = RUN_ISOLATION_VERSION
     payload["updated_at"] = _now()
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
@@ -158,7 +158,7 @@ def create_isolated_run_context(
         },
     )
     (layout.metadata_dir / "run_context.json").write_text(
-        json.dumps(context.to_dict(), indent=2),
+        json.dumps(context.to_dict(), indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     save_run_context(root, context)
@@ -235,7 +235,7 @@ def record_latest_run_attempt(project_root: str | Path, report: dict[str, Any] |
 
     path = root / LATEST_ATTEMPT_PATH
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     if run_id:
         existing = load_run_context(root, run_id)

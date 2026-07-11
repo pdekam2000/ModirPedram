@@ -130,6 +130,7 @@ def test_branding_pipeline_creates_final_video() -> None:
                     "intro_enabled": False,
                     "outro_enabled": False,
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )
@@ -211,12 +212,13 @@ def test_results_page_shows_branding_status() -> None:
                         "outro": {"status": "SKIP"},
                     },
                 }
+                ensure_ascii=False,
             ),
             encoding="utf-8",
         )
         report_path = tmp / "project_brain/runway_live_smoke_last_report.json"
         report_path.parent.mkdir(parents=True, exist_ok=True)
-        report_path.write_text(json.dumps({"ok": True, "simulate": False, "post_processing_status": "completed"}), encoding="utf-8")
+        report_path.write_text(json.dumps({"ok": True, "simulate": False, "post_processing_status": "completed"}, ensure_ascii=False), encoding="utf-8")
         results = ProductStudioService(tmp).latest_results()
         branding = results.get("branding_status") or {}
         _pass("results_branding_status", branding.get("subtitles") == "PASS")
@@ -245,7 +247,7 @@ def test_existing_audio_pipeline_still_works() -> None:
         final_video.write_bytes(b"assembled")
         profile_path = tmp / "project_brain/product_settings/channel_profile.json"
         profile_path.parent.mkdir(parents=True, exist_ok=True)
-        profile_path.write_text(json.dumps({"default_narration_provider": "none"}), encoding="utf-8")
+        profile_path.write_text(json.dumps({"default_narration_provider": "none"}, ensure_ascii=False), encoding="utf-8")
         result = run_audio_post_processing(
             project_root=tmp,
             report={"clip_count": 1},

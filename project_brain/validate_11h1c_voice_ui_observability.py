@@ -122,7 +122,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
     results.append(
         _pass(
             "fixture_skipped_displays_no_narration",
-            STATUS_SKIPPED in json.dumps(skipped_fixture) and NOTE_NO_NARRATION in json.dumps(skipped_fixture),
+            STATUS_SKIPPED in json.dumps(skipped_fixture, ensure_ascii=False) and NOTE_NO_NARRATION in json.dumps(skipped_fixture, ensure_ascii=False),
         )
     )
 
@@ -142,7 +142,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
     results.append(
         _pass(
             "fixture_credentials_missing_setup_needed",
-            CODE_CREDENTIALS_MISSING in json.dumps(failed_fixture) and NOTE_KEY_MISSING in json.dumps(failed_fixture),
+            CODE_CREDENTIALS_MISSING in json.dumps(failed_fixture, ensure_ascii=False) and NOTE_KEY_MISSING in json.dumps(failed_fixture, ensure_ascii=False),
         )
     )
 
@@ -164,7 +164,7 @@ def run_matrix(project_root: str | Path = ".") -> dict:
     results.append(
         _pass(
             "fixture_pending_preflight_ready",
-            STATUS_PENDING in json.dumps(pending_fixture) and NOTE_PREFLIGHT_READY in json.dumps(pending_fixture),
+            STATUS_PENDING in json.dumps(pending_fixture, ensure_ascii=False) and NOTE_PREFLIGHT_READY in json.dumps(pending_fixture, ensure_ascii=False),
         )
     )
 
@@ -195,7 +195,7 @@ def _dict(value):
 
 def main() -> int:
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     for item in report["results"]:
         mark = "PASS" if item["pass"] else "FAIL"
         detail = f" — {item['detail']}" if item.get("detail") else ""

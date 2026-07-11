@@ -7,10 +7,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from content_brain.platform.json_utf8 import dumps_json, repair_mojibake_text
+
 PLATFORM_DAILY_SCHEDULER_VERSION = "platform_daily_scheduler_v1"
 SETTINGS_PATH = Path("project_brain") / "automation" / "platform_daily_scheduler.json"
 
 PLATFORMS = ("youtube_shorts", "instagram_reels", "tiktok")
+
+ALLOWED_DURATION_SECONDS = (15, 30, 45, 60)
+
+PLATFORM_DURATION_ROOT_KEYS: dict[str, str] = {
+    "youtube_shorts": "youtube_duration_seconds",
+    "instagram_reels": "instagram_duration_seconds",
+    "tiktok": "tiktok_duration_seconds",
+}
 
 DEFAULT_PLATFORM_ENTRY: dict[str, Any] = {
     "enabled": False,
@@ -23,9 +33,78 @@ DEFAULT_PLATFORM_ENTRY: dict[str, Any] = {
 
 DEFAULT_STATE: dict[str, Any] = {
     "version": PLATFORM_DAILY_SCHEDULER_VERSION,
+    "youtube_duration_seconds": 45,
+    "instagram_duration_seconds": 45,
+    "tiktok_duration_seconds": 30,
     "platforms": {platform: dict(DEFAULT_PLATFORM_ENTRY) for platform in PLATFORMS},
     "updated_at": "",
 }
+
+
+def _normalize_duration_seconds(value: Any) -> int:
+    seconds = int(value or 30)
+    if seconds in ALLOWED_DURATION_SECONDS:
+        return seconds
+    return 30
+
+
+def get_platform_duration(platform: str, state: dict[str, Any] | None = None) -> int:
+    """Return configured duration for a platform from scheduler state."""
+    platform_key = str(platform or "").strip().lower()
+    if platform_key in {"youtube", "youtube_shorts"}:
+        platform_key = "youtube_shorts"
+    elif platform_key in {"instagram", "instagram_reels"}:
+        platform_key = "instagram_reels"
+    elif platform_key == "tiktok":
+        platform_key = "tiktok"
+    if platform_key not in PLATFORMS:
+        platform_key = "youtube_shorts"
+    payload = dict(state or {})
+    entry = dict((payload.get("platforms") or {}).get(platform_key) or {})
+    root_key = PLATFORM_DURATION_ROOT_KEYS.get(platform_key, "")
+    for candidate in (
+        entry.get("duration_seconds"),
+        payload.get(root_key) if root_key else None,
+        DEFAULT_STATE.get(root_key) if root_key else None,
+    ):
+        normalized = _normalize_duration_seconds(candidate)
+        if normalized in ALLOWED_DURATION_SECONDS:
+            return normalized
+    return 30
+
+
+def resolve_platform_duration_seconds(
+    project_root: str | Path,
+    platform: str,
+    *,
+    profile: dict[str, Any] | None = None,
+) -> int:
+    """Scheduler platform duration → channel profile default → code default."""
+    store = PlatformDailySchedulerStore(project_root)
+    scheduled = store.get_platform_duration(platform)
+    if profile is None:
+        from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
+
+        profile = ProductChannelProfileStore(project_root).load()
+    profile_default = int(profile.get("default_duration_seconds") or 30)
+    if scheduled in ALLOWED_DURATION_SECONDS:
+        return scheduled
+    if profile_default in ALLOWED_DURATION_SECONDS:
+        return profile_default
+    return 30
+
+
+def _sync_duration_root_keys(state: dict[str, Any]) -> dict[str, Any]:
+    """Platform entries are source of truth; root keys mirror them for persistence."""
+    platforms = dict(state.get("platforms") or {})
+    for platform, root_key in PLATFORM_DURATION_ROOT_KEYS.items():
+        entry = dict(platforms.get(platform) or DEFAULT_PLATFORM_ENTRY)
+        duration = _normalize_duration_seconds(entry.get("duration_seconds"))
+        entry["duration_seconds"] = duration
+        state[root_key] = duration
+        platforms[platform] = entry
+    state["platforms"] = platforms
+    return state
 
 
 class PlatformDailySchedulerStore:
@@ -36,15 +115,19 @@ class PlatformDailySchedulerStore:
     def _now(self) -> str:
         return datetime.now(timezone.utc).isoformat()
 
+    def get_platform_duration(self, platform: str) -> int:
+        return get_platform_duration(platform, self.load())
+
     def load(self) -> dict[str, Any]:
         if not self.path.is_file():
-            return self._with_profile_topics(dict(DEFAULT_STATE))
+            return self._with_profile_topics(_sync_duration_root_keys(dict(DEFAULT_STATE)))
         try:
             payload = json.loads(self.path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
-            return self._with_profile_topics(dict(DEFAULT_STATE))
+            return self._with_profile_topics(_sync_duration_root_keys(dict(DEFAULT_STATE)))
         if not isinstance(payload, dict):
-            return self._with_profile_topics(dict(DEFAULT_STATE))
+            return self._with_profile_topics(_sync_duration_root_keys(dict(DEFAULT_STATE)))
+        payload = repair_mojibake_text(payload)
         merged = dict(DEFAULT_STATE)
         merged.update(payload)
         platforms: dict[str, Any] = {}
@@ -55,10 +138,10 @@ class PlatformDailySchedulerStore:
                 entry.update(raw_platforms[platform])
             platforms[platform] = entry
         merged["platforms"] = platforms
-        return self._with_profile_topics(merged)
+        return self._with_profile_topics(_sync_duration_root_keys(merged))
 
     def _with_profile_topics(self, state: dict[str, Any]) -> dict[str, Any]:
-        from content_brain.automation.platform_daily_scheduler import resolve_platform_job_title
+        from content_brain.automation.platform_daily_scheduler import display_platform_topic, resolve_platform_job_title
         from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
 
         profile = ProductChannelProfileStore(self.project_root).load()
@@ -68,6 +151,8 @@ class PlatformDailySchedulerStore:
             entry.update(platforms.get(platform) or {})
             if not str(entry.get("topic") or "").strip():
                 entry["topic"] = resolve_platform_job_title(platform, profile, "")
+            else:
+                entry["topic"] = display_platform_topic(platform, profile, str(entry.get("topic") or ""))
             platforms[platform] = entry
         state["platforms"] = platforms
         return state
@@ -86,13 +171,14 @@ class PlatformDailySchedulerStore:
         entry["videos_per_day"] = max(1, min(5, int(entry.get("videos_per_day") or 3)))
         entry["interval_hours"] = max(1, min(8, int(entry.get("interval_hours") or 4)))
         entry["start_hour"] = max(0, min(23, int(entry.get("start_hour") or 8)))
-        entry["duration_seconds"] = max(15, min(60, int(entry.get("duration_seconds") or 30)))
+        entry["duration_seconds"] = _normalize_duration_seconds(entry.get("duration_seconds"))
         entry["topic"] = str(entry.get("topic") or "").strip()
         platforms[platform_key] = entry
         current["platforms"] = platforms
+        current = _sync_duration_root_keys(current)
         current["updated_at"] = self._now()
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
+        self.path.write_text(dumps_json(current), encoding="utf-8")
         return self.load()
 
     def save_all(self, payload: dict[str, Any]) -> dict[str, Any]:
@@ -128,7 +214,7 @@ class PlatformDailySchedulerStore:
         current["daily_completion"] = completion
         current["updated_at"] = self._now()
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
+        self.path.write_text(dumps_json(current), encoding="utf-8")
         return completion
 
     def reset_daily_completion(self, platform: str | None = None) -> dict[str, Any]:
@@ -144,7 +230,7 @@ class PlatformDailySchedulerStore:
             current["daily_completion"] = completion
             current["updated_at"] = self._now()
             self.path.parent.mkdir(parents=True, exist_ok=True)
-            self.path.write_text(json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
+            self.path.write_text(dumps_json(current), encoding="utf-8")
             return completion
 
         platforms = dict(completion.get("platforms") or {})
@@ -160,7 +246,7 @@ class PlatformDailySchedulerStore:
         current["daily_completion"] = completion
         current["updated_at"] = self._now()
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
+        self.path.write_text(dumps_json(current), encoding="utf-8")
         return completion
 
 
@@ -169,4 +255,6 @@ __all__ = [
     "PLATFORMS",
     "PLATFORM_DAILY_SCHEDULER_VERSION",
     "PlatformDailySchedulerStore",
+    "get_platform_duration",
+    "resolve_platform_duration_seconds",
 ]

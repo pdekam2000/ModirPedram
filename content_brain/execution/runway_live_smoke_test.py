@@ -793,7 +793,7 @@ def _write_phase_i_failure_diagnostics(
         )
     DEFAULT_PHASE_I_FAILURE_DIAGNOSTICS.parent.mkdir(parents=True, exist_ok=True)
     DEFAULT_PHASE_I_FAILURE_DIAGNOSTICS.write_text(
-        json.dumps(payload, indent=2),
+        json.dumps(payload, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
@@ -1945,7 +1945,7 @@ class RunwayLiveSmokeRunner:
             md_path = DEFAULT_REPORT_MD
             md_text = render_live_smoke_report_md(self.report)
         json_path.write_text(
-            json.dumps(self.report.to_dict(), indent=2),
+            json.dumps(self.report.to_dict(), indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
         md_path.write_text(md_text, encoding="utf-8")

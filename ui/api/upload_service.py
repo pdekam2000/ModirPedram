@@ -128,6 +128,21 @@ class UploadService:
         profile = self.profile_store.load()
         return get_youtube_auth_status(self.project_root, profile)
 
+    def instagram_auth_status(self) -> dict[str, Any]:
+        from content_brain.upload.instagram_auth import validate_instagram_credentials
+
+        profile = self.profile_store.load()
+        validation = validate_instagram_credentials(
+            access_token=str(profile.get("instagram_access_token") or ""),
+            account_id=str(profile.get("instagram_account_id") or ""),
+        )
+        return {
+            "upload_enabled": bool(profile.get("instagram_upload_enabled")),
+            "account_id": str(profile.get("instagram_account_id") or ""),
+            "public_base_url": str(profile.get("instagram_public_base_url") or ""),
+            **validation,
+        }
+
     def youtube_auth_start(self) -> dict[str, Any]:
         profile = self.profile_store.load()
         return build_oauth_authorization_url(self.project_root, profile)
@@ -169,6 +184,12 @@ class UploadService:
             },
         )
 
+    def youtube_oauth_connect(self, *, open_browser: bool = True, port: int = 8080) -> dict[str, Any]:
+        """Open Google OAuth in the browser, persist token, and return connection result."""
+        return self.youtube_first_authorization(
+            {"open_browser": open_browser, "enable_upload": True, "port": port}
+        )
+
     def youtube_first_authorization(self, payload: dict[str, Any] | None = None) -> dict[str, Any]:
         from content_brain.upload.youtube_first_authorization import run_first_youtube_authorization
 
@@ -180,6 +201,8 @@ class UploadService:
             enable_upload=bool(payload.get("enable_upload", True)),
         )
         if result.get("authorized"):
+            from content_brain.upload.youtube_auth import _token_path, _token_secrets_path
+
             self.profile_store.save(
                 {
                     "youtube_credentials_configured": True,
@@ -188,6 +211,8 @@ class UploadService:
                     "youtube_channel_name": result.get("channel_name") or "",
                 }
             )
+            result["token_path"] = str(_token_path(self.project_root))
+            result["token_secrets_path"] = str(_token_secrets_path(self.project_root))
         return {"ok": bool(result.get("authorized")), **result}
 
     def youtube_auth_result(self) -> dict[str, Any]:

@@ -213,7 +213,7 @@ def main() -> int:
         approved=approved,
     )
 
-    print(json.dumps({"output": str(output_video), "audit_status": audit_after.status, "approved": approved}, indent=2))
+    print(json.dumps({"output": str(output_video), "audit_status": audit_after.status, "approved": approved}, indent=2, ensure_ascii=False))
     return 0 if approved else 1
 
 

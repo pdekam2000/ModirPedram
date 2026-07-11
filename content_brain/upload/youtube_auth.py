@@ -7,12 +7,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from content_brain.platform.json_utf8 import dumps_json
+
 YOUTUBE_AUTH_VERSION = "youtube_auth_v2"
 YOUTUBE_SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube.readonly",
+    "https://www.googleapis.com/auth/youtube",
 ]
 TOKEN_FILENAME = "youtube_oauth_token.json"
+TOKEN_SECRETS_FILENAME = "youtube_token.json"
 ACCOUNT_FILENAME = "youtube_account.json"
 LOCAL_CREDENTIALS = Path("project_brain") / "local_credentials" / "credentials.local.json"
 
@@ -22,7 +26,23 @@ def _now() -> str:
 
 
 def _token_path(project_root: Path) -> Path:
+    """Canonical OAuth token path used by youtube_uploader via get_valid_access_token()."""
     return project_root / "project_brain" / "upload" / TOKEN_FILENAME
+
+
+def _token_secrets_path(project_root: Path) -> Path:
+    """User-visible mirror path under secrets/ (written on every save)."""
+    return project_root / "secrets" / TOKEN_SECRETS_FILENAME
+
+
+def resolve_token_paths(project_root: Path) -> list[Path]:
+    """All token locations checked on load (first match wins)."""
+    root = Path(project_root).resolve()
+    return [
+        _token_path(root),
+        _token_secrets_path(root),
+        root / "secrets" / "token.json",
+    ]
 
 
 def resolve_oauth_client_path(project_root: Path, profile: dict[str, Any]) -> Path | None:
@@ -68,23 +88,30 @@ def load_oauth_client(project_root: Path, profile: dict[str, Any]) -> dict[str, 
 
 
 def load_token(project_root: Path) -> dict[str, Any] | None:
-    path = _token_path(project_root)
-    if not path.is_file():
-        return None
-    try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return None
-    return payload if isinstance(payload, dict) else None
+    for path in resolve_token_paths(project_root):
+        if not path.is_file():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(payload, dict) and payload.get("access_token"):
+            return payload
+    return None
 
 
 def save_token(project_root: Path, token: dict[str, Any]) -> Path:
-    path = _token_path(project_root)
-    path.parent.mkdir(parents=True, exist_ok=True)
+    root = Path(project_root).resolve()
     payload = dict(token)
     payload["updated_at"] = _now()
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    return path
+    encoded = json.dumps(payload, indent=2, ensure_ascii=False)
+    primary = _token_path(root)
+    primary.parent.mkdir(parents=True, exist_ok=True)
+    primary.write_text(encoded, encoding="utf-8")
+    mirror = _token_secrets_path(root)
+    mirror.parent.mkdir(parents=True, exist_ok=True)
+    mirror.write_text(encoded, encoding="utf-8")
+    return primary
 
 
 def _account_path(project_root: Path) -> Path:
@@ -96,7 +123,7 @@ def save_account_info(project_root: Path, account: dict[str, Any]) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = dict(account)
     payload["updated_at"] = _now()
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
@@ -161,6 +188,8 @@ def get_youtube_auth_status(project_root: str | Path, profile: dict[str, Any]) -
         "refreshable": refreshable,
         "connect_required": bool(profile.get("youtube_upload_enabled")) and not authenticated,
         "token_path": str(_token_path(root)),
+        "token_secrets_path": str(_token_secrets_path(root)),
+        "token_search_paths": [str(path) for path in resolve_token_paths(root)],
         "youtube_account_id": str(account.get("youtube_account_id") or account.get("channel_id") or ""),
         "channel_id": str(account.get("channel_id") or ""),
         "channel_name": str(account.get("channel_name") or account.get("channel_title") or ""),
@@ -274,6 +303,8 @@ def get_valid_access_token(project_root: Path, profile: dict[str, Any]) -> str:
 
 __all__ = [
     "ACCOUNT_FILENAME",
+    "TOKEN_FILENAME",
+    "TOKEN_SECRETS_FILENAME",
     "YOUTUBE_AUTH_VERSION",
     "build_oauth_authorization_url",
     "exchange_authorization_code",
@@ -283,6 +314,7 @@ __all__ = [
     "load_account_info",
     "load_oauth_client",
     "resolve_oauth_client_path",
+    "resolve_token_paths",
     "refresh_access_token",
     "save_account_info",
     "save_token",

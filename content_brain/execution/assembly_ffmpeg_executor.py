@@ -388,7 +388,7 @@ class AssemblyFFmpegExecutor:
                 started_at=result.generated_at,
                 completed_at=_now(),
             )
-            manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+            manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
             result.status = STATUS_COMPLETED
             result.real_assembly_executed = True

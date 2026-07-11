@@ -350,7 +350,7 @@ def run_probe(*, run_id: str, cdp_url: str = DEFAULT_CDP_URL) -> dict[str, Any]:
             raise RuntimeError("No Runway generate tab found on CDP browser")
 
         payload["page_url"] = page.url
-        script = PROBE_EVAL_SCRIPT.replace("%SEARCH_TERMS%", json.dumps(list(SEARCH_TERMS)))
+        script = PROBE_EVAL_SCRIPT.replace("%SEARCH_TERMS%", json.dumps(list(SEARCH_TERMS), ensure_ascii=False))
         dom_payload = page.evaluate(script)
         payload["dom"] = dom_payload if isinstance(dom_payload, dict) else {"raw": dom_payload}
         payload["helperDiagnostics"] = _probe_helper_diagnostics(page)
@@ -383,7 +383,7 @@ def run_probe(*, run_id: str, cdp_url: str = DEFAULT_CDP_URL) -> dict[str, Any]:
     payload["finished_at"] = datetime.now(timezone.utc).isoformat()
     out_path = DIAGNOSTICS_DIR / f"kling_aspect_probe_{run_id}.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     payload["output_path"] = str(out_path.resolve()).replace("\\", "/")
     return payload
 
@@ -394,7 +394,7 @@ def main() -> int:
     parser.add_argument("--cdp-url", default=DEFAULT_CDP_URL)
     args = parser.parse_args()
     result = run_probe(run_id=str(args.run_id), cdp_url=str(args.cdp_url))
-    print(json.dumps({"ok": result.get("ok"), "output_path": result.get("output_path"), "error": result.get("error")}, indent=2))
+    print(json.dumps({"ok": result.get("ok"), "output_path": result.get("output_path"), "error": result.get("error")}, indent=2, ensure_ascii=False))
     return 0 if result.get("ok") else 1
 
 

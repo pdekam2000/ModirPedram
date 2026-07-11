@@ -28,7 +28,7 @@ def main() -> int:
         clip_index=max(1, int(args.clip_index)),
         cdp_url=args.cdp_url,
     )
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2, ensure_ascii=False))
     return 0 if result.get("ok") else 1
 
 

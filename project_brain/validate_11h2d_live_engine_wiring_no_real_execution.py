@@ -422,7 +422,7 @@ def main(argv: list[str] | None = None) -> int:
 
     include_regressions = parse_include_regressions(argv)
     report = run_matrix(include_regressions=include_regressions)
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     print_validation_summary(report)
     if validation_exit_code(report) == 0:
         print(f"\nPASS — {report['passed']}/{report['total']} tests")

@@ -117,7 +117,7 @@ def test_map_only_shadow_run() -> None:
 def test_live_cdp_validation(*, cdp_url: str) -> dict:
     result = run_kling_frame_to_video_shadow(cdp_url=cdp_url, map_path=DEFAULT_MAP_PATH, dry_run=True)
     summary_path = ROOT / "project_brain" / "kling_frame_to_video_shadow_summary.json"
-    summary_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+    summary_path.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
     _pass("live_cdp_ok", result.ok, str(result.errors[:3]))
     _pass("live_no_generate_click", result.generate_clicked is False)

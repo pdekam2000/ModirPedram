@@ -322,7 +322,7 @@ def main() -> int:
     )
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"latest_video_card_detected: {report.get('latest_video_card_detected')}")
     print(f"safe_http_url_found: {report.get('safe_http_url_found')}")

@@ -100,7 +100,7 @@ def _record_legacy_sibling(*, clip_dir: Path, legacy_dir: Path) -> None:
         "canonical_clip_dir": str(clip_dir.resolve()).replace("\\", "/"),
         "note": "Legacy sibling run folder retained for recovery; canonical clip output lives under parent/clips/.",
     }
-    (clip_dir / "legacy_sibling_run.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (clip_dir / "legacy_sibling_run.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def _clip_generation_completed(payload: dict[str, Any]) -> bool:
@@ -237,7 +237,7 @@ def write_kling_output_package(
     metadata: dict[str, Any] | None = None,
 ) -> None:
     run_dir.mkdir(parents=True, exist_ok=True)
-    (run_dir / "preflight.json").write_text(json.dumps(preflight, indent=2), encoding="utf-8")
+    (run_dir / "preflight.json").write_text(json.dumps(preflight, indent=2, ensure_ascii=False), encoding="utf-8")
     (run_dir / "approval.json").write_text(
         json.dumps(
             approval
@@ -247,16 +247,15 @@ def write_kling_output_package(
                 "confirm_credit_spend": False,
                 "approval_summary": build_approval_summary(preflight=preflight),
             },
-            indent=2,
-        ),
+            indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     if continuity_chain is not None:
-        (run_dir / "continuity_chain.json").write_text(json.dumps(continuity_chain, indent=2), encoding="utf-8")
+        (run_dir / "continuity_chain.json").write_text(json.dumps(continuity_chain, indent=2, ensure_ascii=False), encoding="utf-8")
     if generation_report is not None:
-        (run_dir / "generation_report.json").write_text(json.dumps(generation_report, indent=2), encoding="utf-8")
+        (run_dir / "generation_report.json").write_text(json.dumps(generation_report, indent=2, ensure_ascii=False), encoding="utf-8")
     if download_report is not None:
-        (run_dir / "download_report.json").write_text(json.dumps(download_report, indent=2), encoding="utf-8")
+        (run_dir / "download_report.json").write_text(json.dumps(download_report, indent=2, ensure_ascii=False), encoding="utf-8")
 
     meta = dict(metadata or {})
     meta.setdefault("run_id", run_id)
@@ -265,7 +264,7 @@ def write_kling_output_package(
     meta.setdefault("shot_mode", preflight.get("kling_shot_mode") or MULTISHOT_STRATEGY)
     meta.setdefault("clip_count", preflight.get("kling_clip_count"))
     meta.setdefault("created_at", datetime.now(timezone.utc).isoformat())
-    (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def _resolve_plan(preflight: dict[str, Any]) -> KlingNativeAudioPlan | None:
@@ -323,7 +322,7 @@ def ensure_kling_starter_frame_path(
         style=str(preflight.get("style") or "cinematic"),
     )
     report = result.to_dict()
-    (run_dir / "starter_frame_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    (run_dir / "starter_frame_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     if result.ok and result.starter_frame_path:
         return result.starter_frame_path, report
     return None, report
@@ -687,7 +686,7 @@ def recover_kling_product_run(
     payload = live.to_dict()
     payload["clip_index"] = clip_index
     payload["clip_dir"] = str(clip_dir.resolve()).replace("\\", "/")
-    (clip_dir / "live_run_result.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (clip_dir / "live_run_result.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     final_video = ""
     if live.download_path:

@@ -19,6 +19,8 @@ import {
   fetchAutomationCenter,
   fetchAutomationStatus,
   fetchCredentials,
+  fetchYouTubeAuthStatus,
+  getYouTubeOAuthConnectUrl,
   updateAutomationCenter,
   type AutomationCenterState,
   type AutomationStatus,
@@ -106,6 +108,7 @@ const emptyProfile: ChannelProfile = {
   instagram_access_token: "",
   instagram_account_id: "",
   instagram_token_expires_at: "",
+  instagram_public_base_url: "",
   instagram_privacy: "public",
   tiktok_upload_enabled: false,
   tiktok_client_key: "",
@@ -272,6 +275,8 @@ export function SettingsPage() {
   const [automation, setAutomation] = useState<AutomationCenterState | null>(null);
   const [automationStatus, setAutomationStatus] = useState<AutomationStatus | null>(null);
   const [automationBusy, setAutomationBusy] = useState(false);
+  const [youtubeAuth, setYoutubeAuth] = useState<Record<string, unknown> | null>(null);
+  const [youtubeConnecting, setYoutubeConnecting] = useState(false);
   const [visualMemoryPreview, setVisualMemoryPreview] = useState<Record<string, unknown> | null>(null);
   const [openSections, setOpenSections] = useState<SectionId[]>(["channel"]);
 
@@ -325,6 +330,7 @@ export function SettingsPage() {
     void refreshCredentials().catch(() => setCredentials([]));
     void fetchAutomationCenter().then(setAutomation).catch(() => setAutomation(null));
     void fetchAutomationStatus().then(setAutomationStatus).catch(() => setAutomationStatus(null));
+    void fetchYouTubeAuthStatus().then(setYoutubeAuth).catch(() => setYoutubeAuth(null));
     void fetchLatestResults()
       .then((payload) => {
         const memory = payload.visual_memory_report || payload.visual_memory;
@@ -339,6 +345,41 @@ export function SettingsPage() {
     const payload = await fetchCredentials();
     setCredentials(payload.providers || []);
   }
+
+  async function refreshYouTubeAuth(): Promise<Record<string, unknown> | null> {
+    try {
+      const status = await fetchYouTubeAuthStatus();
+      setYoutubeAuth(status);
+      if (status.authenticated) {
+        setProfile((current) => ({
+          ...current,
+          youtube_credentials_configured: true,
+          youtube_channel_name: String(status.channel_name || current.youtube_channel_name || ""),
+        }));
+      }
+      return status;
+    } catch {
+      setYoutubeAuth(null);
+      return null;
+    }
+  }
+
+  function handleConnectYouTube() {
+    setYoutubeConnecting(true);
+    window.open(getYouTubeOAuthConnectUrl(), "_blank", "noopener,noreferrer");
+    let attempts = 0;
+    const poll = window.setInterval(() => {
+      attempts += 1;
+      void refreshYouTubeAuth().then((status) => {
+        if (status?.authenticated || attempts >= 90) {
+          window.clearInterval(poll);
+          setYoutubeConnecting(false);
+        }
+      });
+    }, 2000);
+  }
+
+  const youtubeConnected = Boolean(youtubeAuth?.authenticated && youtubeAuth?.refreshable);
 
   function update<K extends keyof ChannelProfile>(key: K, value: ChannelProfile[K]) {
     setProfile((current) => ({ ...current, [key]: value }));
@@ -1033,7 +1074,30 @@ export function SettingsPage() {
             <input type="checkbox" checked={Boolean(profile.youtube_upload_enabled)} onChange={(e) => update("youtube_upload_enabled", e.target.checked)} />
             YouTube upload enabled
           </label>
-          <SettingsRow label="OAuth client path" helper="Path to Google OAuth client JSON">
+          <div className="settings-subsection upload-platform-credentials">
+            <div className="action-row" style={{ alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+              <button
+                type="button"
+                className="primary-btn"
+                disabled={youtubeConnecting}
+                onClick={handleConnectYouTube}
+              >
+                {youtubeConnecting ? "Connecting…" : "🔐 Connect YouTube Account"}
+              </button>
+              {youtubeConnected ? (
+                <span className="success-text" style={{ fontWeight: 600 }}>
+                  ● YouTube Connected
+                  {youtubeAuth?.channel_name ? ` — ${String(youtubeAuth.channel_name)}` : ""}
+                </span>
+              ) : (
+                <span className="muted">Not connected — OAuth token required for uploads</span>
+              )}
+            </div>
+            {youtubeAuth?.token_path ? (
+              <p className="muted settings-helper mono">Token: {String(youtubeAuth.token_path)}</p>
+            ) : null}
+          </div>
+          <SettingsRow label="OAuth client path" helper="Path to Google OAuth client JSON (auto-detected from secrets/)">
             <input
               className="filter-input full-width mono"
               value={profile.youtube_oauth_client_path || ""}
@@ -1158,6 +1222,23 @@ export function SettingsPage() {
                   onChange={(e) => update("instagram_account_id", e.target.value)}
                 />
               </SettingsRow>
+              <SettingsRow
+                label="Instagram Public URL"
+                helper="ngrok URL for Instagram video upload (e.g. https://abc.ngrok.io). Instagram cannot fetch videos from localhost."
+              >
+                <input
+                  id="instagram_public_base_url"
+                  className="filter-input full-width mono"
+                  type="url"
+                  autoComplete="off"
+                  placeholder="https://abc.ngrok.io"
+                  value={profile.instagram_public_base_url || ""}
+                  onChange={(e) => update("instagram_public_base_url", e.target.value)}
+                />
+              </SettingsRow>
+              <p className="muted settings-helper">
+                Videos are served at <code>{'{ngrok}'}/media/video/{'{run_id}'}</code> from this API.
+              </p>
               <p className="muted settings-helper">
                 Paste a short-lived token from Graph API Explorer — it is exchanged automatically on save for a 60-day token.
               </p>

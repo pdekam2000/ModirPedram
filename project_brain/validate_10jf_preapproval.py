@@ -246,7 +246,7 @@ def main() -> None:
         "test2": test2_completed_stops(root),
         "test3": test3_legacy_session(),
     }
-    print(json.dumps(results, indent=2))
+    print(json.dumps(results, indent=2, ensure_ascii=False))
     all_pass = all(item.get("pass") for item in results.values())
     print("ALL PASS" if all_pass else "SOME FAIL")
 

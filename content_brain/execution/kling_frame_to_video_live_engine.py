@@ -935,7 +935,7 @@ def run_kling_frame_to_video_live(
 
         result.approval_checklist = checklist.to_dict()
         run_dir.mkdir(parents=True, exist_ok=True)
-        (run_dir / "approval_checklist.json").write_text(json.dumps(checklist.to_dict(), indent=2), encoding="utf-8")
+        (run_dir / "approval_checklist.json").write_text(json.dumps(checklist.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         (run_dir / "frame_prompt.txt").write_text(prompt, encoding="utf-8")
         _capture_screenshot(page, result, "09", "approval_gate")
 
@@ -947,7 +947,7 @@ def run_kling_frame_to_video_live(
             result.status = STATUS_AWAITING_APPROVAL
             result.recovery_available = False
             _record_step(result, "10", "generate_button", "blocked", "awaiting explicit approval flags")
-            (run_dir / "live_run_prepare.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_prepare.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return result
 
         if not approved_by.strip():
@@ -955,14 +955,14 @@ def run_kling_frame_to_video_live(
             result.status = STATUS_AWAITING_APPROVAL
             result.recovery_available = False
             _record_step(result, "10", "generate_button", "blocked", "awaiting approved_by")
-            (run_dir / "live_run_prepare.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_prepare.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return result
         if not confirm_credit_spend:
             result.ok = True
             result.status = STATUS_AWAITING_APPROVAL
             result.recovery_available = False
             _record_step(result, "10", "generate_button", "blocked", "awaiting confirm_credit_spend")
-            (run_dir / "live_run_prepare.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_prepare.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return result
 
         approvals = grant_continuity_approval(
@@ -996,7 +996,7 @@ def run_kling_frame_to_video_live(
                 baseline_card_fingerprints=list(baseline_meta.get("fingerprints") or []),
             )
             (kling_frame_clip_dir(run_dir, clip_index) / "generation_completion_gate_context_pre.json").write_text(
-                json.dumps(gate_context.to_dict(), indent=2),
+                json.dumps(gate_context.to_dict(), indent=2, ensure_ascii=False),
                 encoding="utf-8",
             )
 
@@ -1031,7 +1031,7 @@ def run_kling_frame_to_video_live(
             )
             gate_context.generate_clicked_at = generate_clicked_at
             (kling_frame_clip_dir(run_dir, clip_index) / "generation_completion_gate_context.json").write_text(
-                json.dumps(gate_context.to_dict(), indent=2),
+                json.dumps(gate_context.to_dict(), indent=2, ensure_ascii=False),
                 encoding="utf-8",
             )
             gate_result = wait_for_generation_completion_gate(
@@ -1043,7 +1043,7 @@ def run_kling_frame_to_video_live(
                 max_wait_seconds=max_wait_minutes * 60,
             )
             (kling_frame_clip_dir(run_dir, clip_index) / "generation_completion_gate_result.json").write_text(
-                json.dumps(gate_result.to_dict(), indent=2),
+                json.dumps(gate_result.to_dict(), indent=2, ensure_ascii=False),
                 encoding="utf-8",
             )
             if not gate_result.gate_passed:
@@ -1084,7 +1084,7 @@ def run_kling_frame_to_video_live(
             result.recovery_available = True
             result.download_status = DOWNLOAD_STATUS_FAILED
             result.status = STATUS_DOWNLOAD_FAILED
-            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return _fail(result, "13", "download", "Could not download real MP4 after recovery polling")
 
         verify = verify_extracted_kling_mp4(downloaded)
@@ -1094,7 +1094,7 @@ def run_kling_frame_to_video_live(
             result.recovery_available = True
             result.download_status = DOWNLOAD_STATUS_FAILED
             result.status = STATUS_DOWNLOAD_FAILED
-            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+            (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
             return _fail(result, "13", "download", "Downloaded file is not a real MP4 (>1MB, ffprobe)")
 
         clip_dest, root_dest = _write_outputs(downloaded, run_dir, clip_index)
@@ -1124,11 +1124,11 @@ def run_kling_frame_to_video_live(
             "audio_present": audio_present,
             "verify": verify,
         }
-        (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
         result.ok = True
         result.status = STATUS_COMPLETED
         result.dry_run_prepare = False
-        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         return result
 
     except Exception as exc:
@@ -1229,7 +1229,7 @@ def recover_kling_frame_output(
         result.output_ready = True
         result.recovery_available = False
         result.download_status = DOWNLOAD_STATUS_PASSED
-        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+        (run_dir / "live_run_result.json").write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
         return result
     except Exception as exc:
         return _fail(result, "recover", "runtime", str(exc)[:200])

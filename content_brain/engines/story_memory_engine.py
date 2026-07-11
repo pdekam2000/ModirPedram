@@ -864,7 +864,7 @@ def _run_smoke_test() -> None:
         print("recent:", second.recent_repetition_score)
         print("lifetime:", second.lifetime_repetition_score)
         print("repeated_risk_score:", second.repeated_risk_score)
-        print("repeated_elements:", json.dumps(second.repeated_elements[:3], indent=2))
+        print("repeated_elements:", json.dumps(second.repeated_elements[:3], indent=2, ensure_ascii=False))
         print("suggestions:", second.suggested_variations[:2])
 
         store = StoryMemoryStore(memory_dir)
@@ -881,7 +881,7 @@ def _run_smoke_test() -> None:
         history = store.load_history()
         print("\n[5] SAMPLE HISTORY RECORD KEYS")
         if history.get("records"):
-            print(json.dumps(list(history["records"][0].keys()), indent=2))
+            print(json.dumps(list(history["records"][0].keys()), indent=2, ensure_ascii=False))
 
         print("\n[6] INDEX COUNTS")
         print("scene fingerprints:", len(store.load_scene_index().get("index", {})))

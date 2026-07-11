@@ -20,6 +20,7 @@ const PLATFORMS = [
 
 const VIDEOS_PER_DAY_OPTIONS = [1, 2, 3, 4, 5];
 const INTERVAL_OPTIONS = [1, 2, 4, 6, 8];
+const DURATION_OPTIONS = [15, 30, 45, 60];
 
 function platformLabel(platform: string) {
   return PLATFORMS.find((item) => item.id === platform)?.label || platform;
@@ -195,6 +196,32 @@ export function UploadCenterPage() {
               </div>
 
               <div className="upload-option-row">
+                <span className="upload-option-label">Video duration</span>
+                <div className="chip-row">
+                  {DURATION_OPTIONS.map((seconds) => (
+                    <button
+                      key={seconds}
+                      type="button"
+                      className={`chip-btn ${Number(entry.duration_seconds || 30) === seconds ? "active" : ""}`}
+                      disabled={busy}
+                      onClick={() => {
+                        setScheduler((current) => ({
+                          ...(current || {}),
+                          platforms: {
+                            ...(current?.platforms || {}),
+                            [platform.id]: { ...entry, duration_seconds: seconds },
+                          },
+                        }));
+                        void savePlatform(platform.id, { duration_seconds: seconds });
+                      }}
+                    >
+                      {seconds}s
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="upload-option-row">
                 <span className="upload-option-label">Interval between uploads</span>
                 <div className="chip-row">
                   {INTERVAL_OPTIONS.map((hours) => (
@@ -212,7 +239,6 @@ export function UploadCenterPage() {
               </div>
 
               <ul className="upload-platform-meta">
-                <li>Video duration: <strong>{entry.duration_seconds || 30}s</strong> (default)</li>
                 <li>Today's upload times: <strong>{timesPreview}</strong></li>
                 <li>
                   Upload status:{" "}

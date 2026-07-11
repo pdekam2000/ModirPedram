@@ -40,12 +40,12 @@ def test_start_next_calls_generation_pipeline() -> None:
         tmp = Path(tmp_dir)
         (tmp / "project_brain/product_settings").mkdir(parents=True, exist_ok=True)
         (tmp / "project_brain/product_settings/channel_profile.json").write_text(
-            json.dumps({"default_duration_seconds": 30, "use_ai_director_default": True}),
+            json.dumps({"default_duration_seconds": 30, "use_ai_director_default": True}, ensure_ascii=False),
             encoding="utf-8",
         )
         (tmp / "project_brain/platform").mkdir(parents=True, exist_ok=True)
         (tmp / "project_brain/platform/automation_center.json").write_text(
-            json.dumps({"enabled": True, "paused": False, "feature_flags": {"auto_upload": False}}),
+            json.dumps({"enabled": True, "paused": False, "feature_flags": {"auto_upload": False}}, ensure_ascii=False),
             encoding="utf-8",
         )
         queue = AutomationQueue(tmp)
@@ -124,7 +124,7 @@ def test_upload_package_created() -> None:
         tmp = Path(tmp_dir)
         (tmp / "project_brain/product_settings").mkdir(parents=True, exist_ok=True)
         (tmp / "project_brain/product_settings/channel_profile.json").write_text(
-            json.dumps({"youtube_default_description": "desc", "youtube_default_hashtags": ["#shorts"]}),
+            json.dumps({"youtube_default_description": "desc", "youtube_default_hashtags": ["#shorts"]}, ensure_ascii=False),
             encoding="utf-8",
         )
         video = tmp / "video.mp4"
@@ -145,7 +145,7 @@ def test_youtube_upload_defaults_private() -> None:
         tmp = Path(tmp_dir)
         (tmp / "project_brain/product_settings").mkdir(parents=True, exist_ok=True)
         (tmp / "project_brain/product_settings/channel_profile.json").write_text(
-            json.dumps({"youtube_upload_enabled": True, "youtube_privacy": "private"}),
+            json.dumps({"youtube_upload_enabled": True, "youtube_privacy": "private"}, ensure_ascii=False),
             encoding="utf-8",
         )
         manager = UploadManager(tmp)
@@ -180,7 +180,7 @@ def test_no_auto_upload_unless_enabled() -> None:
         tmp = Path(tmp_dir)
         (tmp / "project_brain/product_settings").mkdir(parents=True, exist_ok=True)
         (tmp / "project_brain/product_settings/channel_profile.json").write_text(
-            json.dumps({"youtube_upload_enabled": False}),
+            json.dumps({"youtube_upload_enabled": False}, ensure_ascii=False),
             encoding="utf-8",
         )
         manager = UploadManager(tmp)
@@ -192,7 +192,7 @@ def test_manual_generate_still_works() -> None:
     with tempfile.TemporaryDirectory() as tmp_dir:
         tmp = Path(tmp_dir)
         (tmp / "project_brain/product_settings").mkdir(parents=True, exist_ok=True)
-        (tmp / "project_brain/product_settings/channel_profile.json").write_text(json.dumps({}), encoding="utf-8")
+        (tmp / "project_brain/product_settings/channel_profile.json").write_text(json.dumps({}, ensure_ascii=False), encoding="utf-8")
         service = ProductStudioService(tmp)
         preflight = service.create_video_preflight(
             {"topic_mode": "custom", "custom_topic": "manual topic", "duration_seconds": 30, "provider": "runway"}

@@ -454,7 +454,7 @@ class DataForSEOTrendProvider(RealTrendProviderBase):
         return elapsed >= REQUEST_COOLDOWN_SECONDS
 
     def _post_live(self, payload: list[dict[str, Any]]) -> dict[str, Any]:
-        body = json.dumps(payload).encode("utf-8")
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         auth_token = base64.b64encode(
             f"{self._login}:{self._password}".encode("utf-8")
         ).decode("ascii")

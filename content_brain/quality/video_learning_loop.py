@@ -97,7 +97,7 @@ def persist_proposed_updates(
     out_dir = root / "project_brain" / "quality_learning" / "proposed_updates"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{run_id}.json"
-    out_path.write_text(json.dumps(proposed, indent=2), encoding="utf-8")
+    out_path.write_text(json.dumps(proposed, indent=2, ensure_ascii=False), encoding="utf-8")
     return out_path
 
 

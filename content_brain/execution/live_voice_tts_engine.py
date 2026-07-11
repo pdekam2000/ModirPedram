@@ -127,7 +127,8 @@ def _log_uat_smoke_cap_context(
                 "voice_provider": uat_run.get("voice_provider") or voice_slot.get("provider"),
             },
             sort_keys=True,
-        ),
+                ensure_ascii=False,
+            ),
     )
 
 

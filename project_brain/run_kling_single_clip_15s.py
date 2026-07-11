@@ -347,8 +347,7 @@ def main() -> int:
                 "provider": "kling_3_pro",
                 "topic": args.topic,
             },
-            indent=2,
-        ),
+            indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
@@ -369,17 +368,17 @@ def main() -> int:
         continuity_frame_in_ui=False,
     )
     live_dict = live.to_dict()
-    (run_dir / "live_run_result.json").write_text(json.dumps(live_dict, indent=2), encoding="utf-8")
+    (run_dir / "live_run_result.json").write_text(json.dumps(live_dict, indent=2, ensure_ascii=False), encoding="utf-8")
 
     mp4_src, recovery_audit = _resolve_mp4(run_id=run_id, live_result=live_dict, cdp_url=args.cdp_url)
-    (run_dir / "recovery_audit.json").write_text(json.dumps(recovery_audit, indent=2), encoding="utf-8")
+    (run_dir / "recovery_audit.json").write_text(json.dumps(recovery_audit, indent=2, ensure_ascii=False), encoding="utf-8")
     verify: dict = {}
     final_status = "FAIL"
 
     if mp4_src and mp4_src.is_file():
         shutil.copy2(mp4_src, dest)
         verify = verify_extracted_kling_mp4(dest)
-        (run_dir / "mp4_verify.json").write_text(json.dumps(verify, indent=2), encoding="utf-8")
+        (run_dir / "mp4_verify.json").write_text(json.dumps(verify, indent=2, ensure_ascii=False), encoding="utf-8")
 
     success = (
         bool(live_dict.get("generate_clicked"))

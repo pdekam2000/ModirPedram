@@ -145,7 +145,7 @@ def validate_10j_f() -> list[dict]:
     t2 = test2_completed_stops(root)
     t3 = test3_legacy_session()
     return [
-        _pass("10J-f_poll_running", t1.get("pass") is True, json.dumps(t1.get("intervals_seconds", []))),
+        _pass("10J-f_poll_running", t1.get("pass") is True, json.dumps(t1.get("intervals_seconds", []), ensure_ascii=False)),
         _pass("10J-f_poll_stops_terminal", t2.get("pass") is True),
         _pass("10J-f_legacy_session", t3.get("pass") is True),
     ]
@@ -189,5 +189,5 @@ def run_matrix() -> dict:
 
 if __name__ == "__main__":
     report = run_matrix()
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

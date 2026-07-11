@@ -45,8 +45,8 @@ def main() -> int:
         characters=["young woman", "wounded robot dog"],
         reference_image_path=args.reference_image or None,
     )
-    SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
-    print(json.dumps(result.to_dict(), indent=2), flush=True)
+    SUMMARY_PATH.write_text(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False), flush=True)
     return 0 if result.ok else 1
 
 

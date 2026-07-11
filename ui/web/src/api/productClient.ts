@@ -94,6 +94,7 @@ export type ChannelProfile = {
   instagram_account_id?: string;
   instagram_token_expires_at?: string;
   instagram_token_exchange_message?: string;
+  instagram_public_base_url?: string;
   instagram_privacy?: string;
   tiktok_upload_enabled?: boolean;
   tiktok_client_key?: string;

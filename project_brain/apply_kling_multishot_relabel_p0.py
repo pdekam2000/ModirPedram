@@ -25,7 +25,7 @@ def _load_map() -> dict[str, Any]:
 
 def _save_map(payload: dict[str, Any]) -> None:
     payload["updated_at"] = NOW
-    MAP_PATH.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    MAP_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def _el(elements: dict[str, Any], element_id: str) -> dict[str, Any]:
@@ -267,8 +267,8 @@ def apply_relabels() -> dict[str, Any]:
 def main() -> int:
     summary = apply_relabels()
     out = ROOT / "project_brain" / "kling_multishot_relabel_p0_summary.json"
-    out.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print(json.dumps(summary, indent=2))
+    out.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0 if summary.get("all_pass") else 1
 
 

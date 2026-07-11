@@ -92,7 +92,8 @@ def evaluate_voice_live_tts_smoke_caps(
                 "estimated_voice_cost": estimated_cost,
             },
             sort_keys=True,
-        ),
+                ensure_ascii=False,
+            ),
     )
 
     if int(segment_count) > SMOKE_MAX_SEGMENTS:

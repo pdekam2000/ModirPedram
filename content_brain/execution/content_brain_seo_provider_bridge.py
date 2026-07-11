@@ -433,7 +433,7 @@ def _post_dataforseo_endpoint(
     elapsed = time.monotonic() - _last_serp_request_at
     if elapsed < REQUEST_COOLDOWN_SECONDS:
         time.sleep(max(0.0, REQUEST_COOLDOWN_SECONDS - elapsed))
-    body = json.dumps(payload).encode("utf-8")
+    body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     auth_token = base64.b64encode(f"{login}:{password}".encode("utf-8")).decode("ascii")
     request = urllib.request.Request(
         endpoint,

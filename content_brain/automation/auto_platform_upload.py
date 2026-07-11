@@ -2,13 +2,38 @@
 
 from __future__ import annotations
 
-import json
+import logging
 from pathlib import Path
 from typing import Any
 
 from content_brain.upload.upload_models import PLATFORM_INSTAGRAM, PLATFORM_TIKTOK, PLATFORM_YOUTUBE
 
 AUTO_PLATFORM_UPLOAD_VERSION = "auto_platform_upload_v1"
+logger = logging.getLogger(__name__)
+
+
+def _upload_debug(step: str, result: Any) -> None:
+    summary = result
+    if isinstance(result, dict):
+        summary = {
+            key: result.get(key)
+            for key in (
+                "ok",
+                "uploaded",
+                "status",
+                "reason",
+                "error",
+                "video_path",
+                "video_id",
+                "video_url",
+                "post_url",
+                "platforms",
+            )
+            if key in result
+        }
+    message = f"[UPLOAD DEBUG] step: {step} result: {summary}"
+    print(message, flush=True)
+    logger.info(message)
 
 
 def _resolve_video_path(*, video_path: str, publish_package_path: str, upload_package: dict[str, Any]) -> str:
@@ -96,24 +121,59 @@ def submit_automation_platform_uploads(
         upload_package=package,
     )
     results: dict[str, Any] = {"ok": True, "platforms": {}, "video_path": resolved_video}
+    report = dict(generation_report or {})
 
     if not resolved_video:
         results["ok"] = False
         results["error"] = "video_missing_for_upload"
+        _upload_debug("video_missing_for_upload", results)
         return results
+
+    from content_brain.automation.fail_closed_upload_gate import evaluate_automation_upload_gate
+    from content_brain.automation.platform_upload_guard import normalize_platform
+
+    upload_allowed, upload_block_reason = evaluate_automation_upload_gate(
+        project_root=root,
+        generation_report=report,
+        run_id=run_id,
+        planned_clip_count=int(report.get("expected_clip_count") or report.get("clip_count") or 0),
+        publish_package_path=publish_package_path,
+    )
+    if not upload_allowed:
+        results["ok"] = False
+        results["error"] = upload_block_reason
+        results["platforms"] = {
+            normalize_platform(job_platform or (platform_targets[0] if platform_targets else "")): {
+                "ok": False,
+                "uploaded": False,
+                "status": "blocked",
+                "reason": upload_block_reason,
+            }
+        }
+        _upload_debug("fail_closed_upload_gate_blocked", results)
+        return results
+
+    _upload_debug("resolved_video", {"video_path": resolved_video, "platform_targets": platform_targets})
 
     from content_brain.automation.platform_upload_guard import (
         guard_upload_or_block,
-        normalize_platform,
         resolve_job_upload_targets,
     )
     from content_brain.upload.upload_manager import UploadManager
 
     manager = UploadManager(root)
-    report = dict(generation_report or {})
     title = str(topic or package.get("topic") or "Automation video")
     job_platform_key = normalize_platform(
         job_platform or (platform_targets[0] if platform_targets else "")
+    )
+    from content_brain.automation.platform_daily_scheduler import display_platform_topic
+    from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
+
+    profile = ProductChannelProfileStore(root).load()
+    display_title = display_platform_topic(
+        job_platform_key or (platform_targets[0] if platform_targets else ""),
+        profile,
+        title,
     )
     allowed_targets = resolve_job_upload_targets(platform_targets)
 
@@ -122,7 +182,7 @@ def submit_automation_platform_uploads(
         allowed, block_reason = guard_upload_or_block(
             job_platform=job_platform_key,
             upload_platform=normalized,
-            topic=title,
+            topic=display_title,
         )
         if not allowed:
             results["platforms"][normalized] = {
@@ -131,6 +191,7 @@ def submit_automation_platform_uploads(
                 "status": "blocked",
                 "reason": block_reason,
             }
+            _upload_debug(f"guard_blocked_{normalized}", results["platforms"][normalized])
             continue
         try:
             if normalized in {PLATFORM_YOUTUBE, "youtube"}:
@@ -148,11 +209,12 @@ def submit_automation_platform_uploads(
                     run_id=run_id,
                     automation_mode=automation_mode,
                 )
+                _upload_debug("submit_youtube_upload", upload_result)
                 results["platforms"][normalized] = upload_result
                 _record_history(
                     root,
                     platform=PLATFORM_YOUTUBE,
-                    title=title,
+                    title=display_title,
                     success=bool(upload_result.get("ok")),
                     run_id=run_id,
                     post_url=str(upload_result.get("video_url") or ""),
@@ -173,7 +235,7 @@ def submit_automation_platform_uploads(
                 _record_history(
                     root,
                     platform=PLATFORM_INSTAGRAM,
-                    title=title,
+                    title=display_title,
                     success=bool(upload_result.get("ok")),
                     run_id=run_id,
                     post_url=str(upload_result.get("post_url") or ""),
@@ -193,7 +255,7 @@ def submit_automation_platform_uploads(
                 _record_history(
                     root,
                     platform=PLATFORM_TIKTOK,
-                    title=title,
+                    title=display_title,
                     success=bool(upload_result.get("ok")),
                     run_id=run_id,
                     post_url=str(upload_result.get("post_url") or ""),
@@ -218,6 +280,7 @@ def submit_automation_platform_uploads(
 
     if results["platforms"]:
         results["ok"] = any(item.get("ok") or item.get("uploaded") for item in results["platforms"].values())
+    _upload_debug("submit_automation_platform_uploads_done", results)
     return results
 
 

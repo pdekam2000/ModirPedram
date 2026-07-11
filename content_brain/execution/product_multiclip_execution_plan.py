@@ -9,6 +9,7 @@ PRODUCT_CLIP_SECONDS = 15
 PRODUCT_DURATION_PRESETS: dict[int, int] = {
     15: 1,
     30: 2,
+    45: 3,
     40: 3,
     60: 4,
 }

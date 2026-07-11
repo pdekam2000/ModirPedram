@@ -109,7 +109,7 @@ def main() -> None:
         manifest = {"name": "Test Patch", "type": "feature_patch", "version": "0.0.1"}
         zip_path = tmp_root / "sample_patch.zip"
         with zipfile.ZipFile(zip_path, "w") as archive:
-            archive.writestr("manifest.json", json.dumps(manifest))
+            archive.writestr("manifest.json", json.dumps(manifest, ensure_ascii=False))
         upload = upload_patch_package(project_root=tmp_root, filename="sample_patch.zip", content=zip_path.read_bytes())
         _pass("upgrade_upload_accepts_zip", upload.get("ok") is True)
         _pass("upgrade_upload_no_auto_apply", upload.get("auto_applied") is False)

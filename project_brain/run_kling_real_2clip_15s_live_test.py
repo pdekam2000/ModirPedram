@@ -46,7 +46,7 @@ def _http_json(method: str, url: str, payload: dict | None = None) -> dict:
     data = None
     headers = {"Accept": "application/json"}
     if payload is not None:
-        data = json.dumps(payload).encode("utf-8")
+        data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         headers["Content-Type"] = "application/json"
     req = urllib.request.Request(url, data=data, headers=headers, method=method)
     with urllib.request.urlopen(req, timeout=60) as resp:
@@ -221,10 +221,10 @@ def main() -> int:
         return 1
 
     if not bridge_start.get("ok"):
-        print(json.dumps(bridge_start, indent=2))
+        print(json.dumps(bridge_start, indent=2, ensure_ascii=False))
         REPORT_PATH.write_text(
             "# KLING REAL 2-CLIP 15S LIVE TEST REPORT\n\nBridge start rejected.\n\n```json\n"
-            + json.dumps(bridge_start, indent=2)
+            + json.dumps(bridge_start, indent=2, ensure_ascii=False)
             + "\n```\n",
             encoding="utf-8",
         )

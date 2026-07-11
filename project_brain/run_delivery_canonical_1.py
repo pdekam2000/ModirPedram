@@ -63,7 +63,7 @@ def _sync_publish_metadata(publish_dir: Path, *, run_id: str, canonical_path: Pa
     payload["branded_video_name"] = CANONICAL_BRANDED_VIDEO_NAME
     payload["canonical_final_video_path"] = str(canonical_path.resolve())
     payload["run_id"] = run_id
-    metadata_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    metadata_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def _write_report(body: str) -> None:
@@ -191,7 +191,7 @@ def main() -> int:
         "## Registry",
         "",
         "```json",
-        json.dumps(load_final_delivery_registry(ROOT), indent=2),
+        json.dumps(load_final_delivery_registry(ROOT), indent=2, ensure_ascii=False),
         "```",
     ]
     _write_report("\n".join(report_lines) + "\n")
@@ -204,8 +204,7 @@ def main() -> int:
                 "delivery_truth_status": delivery_truth.get("status"),
                 "results_approved_run_id": results.get("approved_run_id"),
             },
-            indent=2,
-        )
+            indent=2, ensure_ascii=False)
     )
     return 0 if audit.status == "PASS" and delivery_truth.get("status") == "PASS" else 1
 

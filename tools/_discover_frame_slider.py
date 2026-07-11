@@ -55,6 +55,6 @@ with sync_playwright() as p:
         if page:
             break
     if not page:
-        print(json.dumps({"error": "no_runway_tab"}))
+        print(json.dumps({"error": "no_runway_tab"}, ensure_ascii=False))
         sys.exit(1)
-    print(json.dumps({"url": page.url, "discovery": page.evaluate(JS)}, indent=2))
+    print(json.dumps({"url": page.url, "discovery": page.evaluate(JS)}, indent=2, ensure_ascii=False))

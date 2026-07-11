@@ -417,7 +417,7 @@ def quarantine_invalid_candidate(path: str | Path, clip_dir: Path) -> str:
         except OSError:
             return ""
     meta_path = dest.with_suffix(dest.suffix + ".inspect.json")
-    meta_path.write_text(json.dumps(inspect, indent=2), encoding="utf-8")
+    meta_path.write_text(json.dumps(inspect, indent=2, ensure_ascii=False), encoding="utf-8")
     return str(dest.resolve()).replace("\\", "/")
 
 
@@ -773,7 +773,7 @@ def _write_extract_reports(
     payload["clip_index"] = clip_index
     payload["dest"] = str(dest)
     payload["finished_at"] = _now_iso()
-    (clip_dir / "mp4_extract_report.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (clip_dir / "mp4_extract_report.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     if result.poll_attempts:
         poll_payload = {
             "version": EXTRACTOR_VERSION,
@@ -786,7 +786,7 @@ def _write_extract_reports(
             "attempts": list(result.poll_attempts),
             "finished_at": _now_iso(),
         }
-        (clip_dir / "mp4_recovery_poll_report.json").write_text(json.dumps(poll_payload, indent=2), encoding="utf-8")
+        (clip_dir / "mp4_recovery_poll_report.json").write_text(json.dumps(poll_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def extract_real_kling_mp4(

@@ -87,7 +87,7 @@ def archive_superseded_branded_variants(
         "files": archived,
     }
     dest_root.mkdir(parents=True, exist_ok=True)
-    (dest_root / "archive_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    (dest_root / "archive_manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     return archived
 
 

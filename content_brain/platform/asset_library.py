@@ -72,7 +72,7 @@ def ensure_asset_library_structure(project_root: str | Path) -> Path:
     index_path = asset_index_path(root)
     if not index_path.is_file():
         index_path.write_text(
-            json.dumps({"version": ASSET_LIBRARY_VERSION, "assets": [], "updated_at": _now_iso()}, indent=2),
+            json.dumps({"version": ASSET_LIBRARY_VERSION, "assets": [], "updated_at": _now_iso()}, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
     return library_root
@@ -99,7 +99,7 @@ def save_asset_index(project_root: str | Path, payload: dict[str, Any]) -> None:
     payload = dict(payload)
     payload["version"] = ASSET_LIBRARY_VERSION
     payload["updated_at"] = _now_iso()
-    asset_index_path(root).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    asset_index_path(root).write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def sha256_file(path: Path) -> str:

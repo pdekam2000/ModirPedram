@@ -126,14 +126,14 @@ def run_matrix(project_root: str | Path = ".") -> dict:
         _pass(
             "legacy_registry_video_mapped",
             not legacy.get("legacy_missing"),
-            json.dumps(legacy.get("legacy_missing") or []),
+            json.dumps(legacy.get("legacy_missing") or [], ensure_ascii=False),
         )
     )
     results.append(
         _pass(
             "mode_catalog_families_mapped",
             len(legacy.get("mode_catalog_families_mapped") or []) >= 2,
-            json.dumps(legacy.get("mode_catalog_families_mapped") or []),
+            json.dumps(legacy.get("mode_catalog_families_mapped") or [], ensure_ascii=False),
         )
     )
 
@@ -172,5 +172,5 @@ def run_matrix(project_root: str | Path = ".") -> dict:
 
 if __name__ == "__main__":
     report = run_matrix(".")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2, ensure_ascii=False))
     raise SystemExit(0 if report["summary"]["all_pass"] else 1)

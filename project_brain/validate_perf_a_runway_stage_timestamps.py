@@ -128,8 +128,7 @@ def json_min_session(session_id: str) -> str:
             "session_id": session_id,
             "execution_runtime": {"operations": {"runway_browser_obs": {}}},
         },
-        indent=2,
-    )
+        indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":

@@ -125,10 +125,10 @@ def _generate_seed_artifacts(
     ass_path.write_text(SMOKE_ASS, encoding="utf-8")
 
     voice_files = [{"segment_index": 0, "file_path": str(narration_path), "file_name": narration_path.name}]
-    (voice_dir / "voice_manifest.json").write_text(json.dumps({"files": voice_files}), encoding="utf-8")
-    (video_dir / "video_manifest.json").write_text(json.dumps({"clips": [{"file_path": str(clip_path)}]}), encoding="utf-8")
+    (voice_dir / "voice_manifest.json").write_text(json.dumps({"files": voice_files}, ensure_ascii=False), encoding="utf-8")
+    (video_dir / "video_manifest.json").write_text(json.dumps({"clips": [{"file_path": str(clip_path)}]}, ensure_ascii=False), encoding="utf-8")
     sub_files = [{"format": "ass", "file_path": str(ass_path)}]
-    (subtitle_dir / "subtitle_manifest.json").write_text(json.dumps({"files": sub_files}), encoding="utf-8")
+    (subtitle_dir / "subtitle_manifest.json").write_text(json.dumps({"files": sub_files}, ensure_ascii=False), encoding="utf-8")
 
     return {
         "video_clips": [str(clip_path.resolve())],
@@ -369,13 +369,13 @@ def write_report(data: dict[str, Any]) -> Path:
         "## FFmpeg Availability",
         "",
         "```json",
-        json.dumps(data.get("ffmpeg") or {}, indent=2),
+        json.dumps(data.get("ffmpeg") or {}, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Input Artifacts",
         "",
         "```json",
-        json.dumps(data.get("input_artifacts") or {}, indent=2),
+        json.dumps(data.get("input_artifacts") or {}, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Command Summary (no secrets)",
@@ -388,13 +388,13 @@ def write_report(data: dict[str, Any]) -> Path:
         "## Dry-Run Result",
         "",
         "```json",
-        json.dumps(data.get("dry_run_safe") or {}, indent=2),
+        json.dumps(data.get("dry_run_safe") or {}, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Real Run Result",
         "",
         "```json",
-        json.dumps(data.get("real_run_safe") or {}, indent=2),
+        json.dumps(data.get("real_run_safe") or {}, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Output",
@@ -406,7 +406,7 @@ def write_report(data: dict[str, Any]) -> Path:
         "### Manifest summary",
         "",
         "```json",
-        json.dumps(manifest, indent=2),
+        json.dumps(manifest, indent=2, ensure_ascii=False),
         "```",
         "",
         "## Validation Checks",
@@ -422,7 +422,7 @@ def write_report(data: dict[str, Any]) -> Path:
             "## Flags After Test",
             "",
             "```json",
-            json.dumps(data["flags_after_test"], indent=2),
+            json.dumps(data["flags_after_test"], indent=2, ensure_ascii=False),
             "```",
             "",
             "## Safety Confirmations",
@@ -450,7 +450,7 @@ def main() -> int:
     print("Phase 11J-19 — starting supervised real FFmpeg assembly smoke test...")
     data = run_smoke_test(root)
     report_path = write_report(data)
-    print(json.dumps({k: v for k, v in data.items() if k not in ("env_bootstrap",)}, indent=2))
+    print(json.dumps({k: v for k, v in data.items() if k not in ("env_bootstrap",)}, indent=2, ensure_ascii=False))
     print(f"\nReport: {report_path}")
     print(f"\n{'PASS' if data['all_checks_pass'] else 'FAIL'} — 11J-19 smoke test")
     return 0 if data["all_checks_pass"] else 1

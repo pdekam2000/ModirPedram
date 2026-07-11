@@ -29,7 +29,7 @@ def _pass(name: str, ok: bool, detail: str = "") -> None:
 def _write_profile(tmp: Path, payload: dict) -> None:
     path = tmp / "project_brain/product_settings/channel_profile.json"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload), encoding="utf-8")
+    path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
 
 
 def test_youtube_metadata_generated() -> None:
@@ -174,7 +174,7 @@ def test_automation_creates_upload_packages_after_publish() -> None:
         _write_profile(tmp, {"default_duration_seconds": 30, "use_ai_director_default": True})
         (tmp / "project_brain/platform").mkdir(parents=True, exist_ok=True)
         (tmp / "project_brain/platform/automation_center.json").write_text(
-            json.dumps({"enabled": True, "paused": False, "feature_flags": {"auto_upload": False}}),
+            json.dumps({"enabled": True, "paused": False, "feature_flags": {"auto_upload": False}}, ensure_ascii=False),
             encoding="utf-8",
         )
         video = tmp / "outputs/final/FINAL_BRANDED_VIDEO.mp4"
