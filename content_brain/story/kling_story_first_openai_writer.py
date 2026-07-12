@@ -49,6 +49,19 @@ TIMING_RULES_BLOCK = """TIMING RULES — CRITICAL:
 - Last 2 seconds = silence or music only
 - NEVER cut off mid-sentence"""
 
+HORROR_THRILLER_LENGTH_BOOSTER = (
+    " A passerby flinches at a distant sound; steam hisses from a vent; wet fabric clings to skin; "
+    "every micro-gesture — a swallowed breath, a tightened jaw, a hand that almost reaches out — "
+    "keeps the moment alive and irreversible."
+)
+
+SCIENCE_CLOSING_TEMPLATE = (
+    " The presenter maintains eye contact with camera, "
+    "her expression conveying wonder and scientific curiosity. "
+    "The final frame shows her gesturing toward the next "
+    "discovery, inviting the viewer to follow."
+)
+
 SYSTEM_PROMPT_COMEDY = """You write Kling Frame-to-Video prompts as cinematic scene prose for native in-scene audio.
 
 Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
@@ -142,7 +155,13 @@ SAFE alternatives:
 - Instead of body-focused: focus on the SCIENCE FACT visualization
 
 The presenter is a SCIENCE HOST — describe her ACTIONS and GESTURES only,
-never her physical appearance or body."""
+never her physical appearance or body.
+
+CLOSING TEMPLATE — end the story body with this documentary tone (adapt naturally):
+"The presenter maintains eye contact with camera, her expression conveying wonder and scientific curiosity. The final frame shows her gesturing toward the next discovery, inviting the viewer to follow."
+
+FORBIDDEN closing filler — never use horror/thriller micro-gesture prose such as:
+"A passerby flinches at a distant sound; steam hisses from a vent; wet fabric clings to skin; every micro-gesture — a swallowed breath, a tightened jaw, a hand that almost reaches out — keeps the moment alive and irreversible."""
 
 SYSTEM_PROMPT_BEAUTY = """You write Kling Frame-to-Video prompts as cinematic skincare-tutorial scene prose for native in-scene audio.
 
@@ -320,6 +339,45 @@ def _technical_footer_from_context(**kwargs: Any) -> str:
     )
 
 
+def _strip_horror_thriller_booster(story_body: str) -> str:
+    cleaned = str(story_body or "")
+    cleaned = cleaned.replace(HORROR_THRILLER_LENGTH_BOOSTER.strip(), " ")
+    cleaned = re.sub(
+        r"A passerby flinches at a distant sound;.*?keeps the moment alive and irreversible\.?",
+        " ",
+        cleaned,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def _fit_science_story_first_length(story_body: str, technical_footer: str) -> str:
+    separator = "\n\n"
+    technical = technical_footer.strip()
+    story = _strip_horror_thriller_booster(story_body)
+
+    def _assemble() -> str:
+        return re.sub(r"\s+", " ", f"{story}{separator}{technical}").strip()
+
+    full = _assemble()
+    if len(full) > STORY_FIRST_PROMPT_TARGET_MAX:
+        overflow = len(full) - STORY_FIRST_PROMPT_TARGET_MAX
+        if overflow > 0 and len(story) > overflow + 200:
+            story = story[: len(story) - overflow].rsplit(" ", 1)[0].rstrip(".,;:") + "."
+
+    expand_index = 0
+    while len(_assemble()) < STORY_FIRST_PROMPT_MIN_CHARS:
+        story = re.sub(r"\s+", " ", f"{story}{SCIENCE_CLOSING_TEMPLATE}").strip()
+        expand_index += 1
+        if expand_index > 3:
+            break
+
+    full = _assemble()
+    if len(full) > STORY_FIRST_PROMPT_TARGET_MAX:
+        full = full[: STORY_FIRST_PROMPT_TARGET_MAX - 1].rsplit(" ", 1)[0].rstrip(".,;:") + "."
+    return full
+
+
 def _normalize_openai_prompt(raw: str, **kwargs: Any) -> str:
     text = _strip_fences(raw)
     technical = _technical_footer_from_context(**kwargs)
@@ -331,6 +389,9 @@ def _normalize_openai_prompt(raw: str, **kwargs: Any) -> str:
     else:
         story_body = text.strip()
 
+    science_mode = _resolve_system_prompt(**kwargs) == SYSTEM_PROMPT_SCIENCE
+    if science_mode:
+        return _fit_science_story_first_length(story_body, technical)
     return fit_story_first_prompt_length(story_body, technical)
 
 

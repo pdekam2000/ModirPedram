@@ -4,6 +4,150 @@
     "instagram_reels": [
       {
         "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T16:02:49.121288+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T152500_e3847597",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T16:02:49.084891+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T152500_e3847597",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T16:02:44.677627+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T152500_e3847597",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T15:23:53.646513+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T12:10:36.527031+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T112658_54482d27",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T12:10:36.493024+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T112658_54482d27",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T12:10:30.200906+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T112658_54482d27",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T11:25:50.872679+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T104408_bb4ce6b8",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T11:25:50.837236+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T104408_bb4ce6b8",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T11:25:45.091705+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T104408_bb4ce6b8",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T10:43:01.488309+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T095618_a5461d60",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T10:43:01.451745+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T095618_a5461d60",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T10:42:56.519258+00:00",
+        "success": false,
+        "run_id": "pwmap_20260711T095618_a5461d60",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "instagram_public_video_url_required"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T09:08:01.686426+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T08:52:32.979535+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "❌ Runway browser not connected. Click 'Connect Runway Browser' first."
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
+        "uploaded_at": "2026-07-11T08:51:19.521958+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "[Errno 28] No space left on device"
+      },
+      {
+        "title": "Skincare & Self-Care — Instagram Reels",
         "uploaded_at": "2026-07-11T07:11:32.112867+00:00",
         "success": false,
         "run_id": "",
@@ -307,150 +451,6 @@
         "youtube_url": "",
         "post_url": "",
         "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T20:54:08.599927+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T20:12:11.306992+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T19:26:06.916064+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T18:42:32.133499+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T18:02:24.057571+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T17:19:38.631721+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T16:33:19.145552+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T15:49:09.759609+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T15:03:17.725088+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T14:14:07.649329+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T13:30:22.043258+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T12:51:30.319465+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T12:13:53.052931+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T11:32:33.281193+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T10:47:10.351922+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T09:58:10.637361+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
       }
     ],
     "tiktok": [
@@ -554,6 +554,114 @@
       }
     ],
     "youtube_shorts": [
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-12T08:07:24.774962+00:00",
+        "success": true,
+        "run_id": "pwmap_20260712T072649_b185c4b4",
+        "youtube_url": "https://www.youtube.com/watch?v=x4McoW02PrQ",
+        "post_url": "https://www.youtube.com/watch?v=x4McoW02PrQ",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-12T07:25:54.850254+00:00",
+        "success": true,
+        "run_id": "pwmap_20260712T064458_25cfbb44",
+        "youtube_url": "https://www.youtube.com/watch?v=SDmddAecGE0",
+        "post_url": "https://www.youtube.com/watch?v=SDmddAecGE0",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-12T06:44:07.035709+00:00",
+        "success": true,
+        "run_id": "pwmap_20260712T060038_eb1acefe",
+        "youtube_url": "https://www.youtube.com/watch?v=GILxFJz8JiY",
+        "post_url": "https://www.youtube.com/watch?v=GILxFJz8JiY",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T19:38:59.689172+00:00",
+        "success": true,
+        "run_id": "pwmap_20260711T185801_42953d35",
+        "youtube_url": "https://www.youtube.com/watch?v=et4UnHUKpak",
+        "post_url": "https://www.youtube.com/watch?v=et4UnHUKpak",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T17:27:47.767354+00:00",
+        "success": true,
+        "run_id": "pwmap_20260711T164837_470fd65a",
+        "youtube_url": "https://www.youtube.com/watch?v=yKp7h73WBNg",
+        "post_url": "https://www.youtube.com/watch?v=yKp7h73WBNg",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T16:47:40.079030+00:00",
+        "success": true,
+        "run_id": "pwmap_20260711T160351_92c7fa4e",
+        "youtube_url": "https://www.youtube.com/watch?v=GWzRkNgR8eA",
+        "post_url": "https://www.youtube.com/watch?v=GWzRkNgR8eA",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T09:55:15.985862+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T09:41:09.633448+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "[Errno 28] No space left on device"
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T09:29:23.898604+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "[Errno 28] No space left on device"
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T08:13:21.674534+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T08:00:14.433081+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-11T07:34:12.872811+00:00",
+        "success": false,
+        "run_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+      },
       {
         "title": "Science That Feels Impossible — YouTube Shorts",
         "uploaded_at": "2026-07-11T06:03:33.081324+00:00",
@@ -895,116 +1003,8 @@
         "youtube_url": "",
         "post_url": "",
         "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T12:37:52.690515+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T12:27:30.958755+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T12:17:43.753119+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T12:07:23.259489+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T11:57:37.979264+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T11:46:58.245061+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T11:37:02.259768+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T11:26:48.292792+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T10:25:30.584468+00:00",
-        "success": false,
-        "run_id": "pwmap_20260708T100036_b9ae1492",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "WRONG TOPIC for YouTube"
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T10:25:30.536464+00:00",
-        "success": false,
-        "run_id": "pwmap_20260708T100036_b9ae1492",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "WRONG TOPIC for YouTube"
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T06:30:02.719914+00:00",
-        "success": false,
-        "run_id": "pwmap_20260708T060051_0cc1ac35",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "WRONG TOPIC for YouTube"
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T06:30:02.687891+00:00",
-        "success": false,
-        "run_id": "pwmap_20260708T060051_0cc1ac35",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "WRONG TOPIC for YouTube"
       }
     ]
   },
-  "updated_at": "2026-07-11T07:11:32.112867+00:00"
+  "updated_at": "2026-07-12T08:07:24.774962+00:00"
 }

@@ -89,6 +89,7 @@ class ChannelProfileDTO(BaseModel):
     instagram_account_id: str = ""
     instagram_token_expires_at: str = ""
     instagram_token_exchange_message: str = ""
+    instagram_public_base_url: str = ""
     instagram_privacy: str = "public"
     tiktok_upload_enabled: bool = False
     tiktok_client_key: str = ""
