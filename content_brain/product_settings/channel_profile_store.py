@@ -121,7 +121,7 @@ DEFAULT_CHANNEL_PROFILE: dict[str, Any] = {
     "updated_at": "",
     "genre": "",
     "youtube_genre": "science",
-    "instagram_genre": "beauty",
+    "instagram_genre": "perfumery",
     "tiktok_genre": "entertainment",
 }
 

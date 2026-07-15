@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import json
+import logging
+import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -11,10 +14,34 @@ from content_brain.upload.upload_models import PRIVACY_PRIVATE
 from content_brain.upload.youtube_auth import get_valid_access_token
 from content_brain.upload.youtube_category_map import resolve_youtube_category_id
 
+logger = logging.getLogger(__name__)
+
 YOUTUBE_UPLOADER_VERSION = "youtube_uploader_v2"
 YOUTUBE_UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
 YOUTUBE_THUMBNAIL_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
 YOUTUBE_PLAYLIST_ITEMS_URL = "https://www.googleapis.com/youtube/v3/playlistItems"
+THUMBNAIL_UPLOAD_ATTEMPTS = 4
+THUMBNAIL_RETRY_DELAYS_SECONDS = (2, 5, 10, 20)
+
+
+def extract_youtube_video_id(*candidates: Any) -> str:
+    """Pull a YouTube video id from a raw id or watch/short URL."""
+    for raw in candidates:
+        text = str(raw or "").strip()
+        if not text:
+            continue
+        if re.fullmatch(r"[\w-]{6,}", text):
+            return text
+        for pattern in (
+            r"[?&]v=([\w-]{6,})",
+            r"youtu\.be/([\w-]{6,})",
+            r"youtube\.com/shorts/([\w-]{6,})",
+            r"youtube\.com/embed/([\w-]{6,})",
+        ):
+            match = re.search(pattern, text)
+            if match:
+                return match.group(1)
+    return ""
 
 
 def _safe_privacy(value: str) -> str:
@@ -121,9 +148,9 @@ def upload_thumbnail_to_youtube(
     if not path.is_file() or path.stat().st_size <= 0:
         return {"ok": False, "status": "skipped", "reason": "thumbnail_missing"}
 
-    access_token = get_valid_access_token(Path(project_root).resolve(), profile)
-    if not access_token:
-        return {"ok": False, "status": "failed", "reason": "youtube_not_authenticated"}
+    resolved_id = extract_youtube_video_id(video_id)
+    if not resolved_id:
+        return {"ok": False, "status": "failed", "reason": "video_id_missing"}
 
     content_type = "image/jpeg"
     suffix = path.suffix.lower()
@@ -132,31 +159,75 @@ def upload_thumbnail_to_youtube(
     elif suffix == ".webp":
         content_type = "image/webp"
 
+    last_error: dict[str, Any] = {}
     try:
         import requests
+    except ImportError:
+        return {"ok": False, "status": "failed", "reason": "requests_unavailable"}
 
-        with path.open("rb") as handle:
+    for attempt in range(1, THUMBNAIL_UPLOAD_ATTEMPTS + 1):
+        access_token = get_valid_access_token(Path(project_root).resolve(), profile)
+        if not access_token:
+            return {"ok": False, "status": "failed", "reason": "youtube_not_authenticated"}
+        try:
+            with path.open("rb") as handle:
+                payload = handle.read()
             response = requests.post(
                 YOUTUBE_THUMBNAIL_URL,
-                params={"videoId": str(video_id)},
+                params={"videoId": resolved_id},
                 headers={
                     "Authorization": f"Bearer {access_token}",
                     "Content-Type": content_type,
                 },
-                data=handle.read(),
+                data=payload,
                 timeout=120,
             )
-        if response.status_code not in {200, 201}:
-            return {
+            if response.status_code in {200, 201}:
+                return {
+                    "ok": True,
+                    "status": "uploaded",
+                    "video_id": resolved_id,
+                    "thumbnail_path": str(path.resolve()),
+                    "attempts": attempt,
+                }
+            details = response.text[:500]
+            last_error = {
                 "ok": False,
                 "status": "failed",
                 "reason": "thumbnail_upload_failed",
                 "http_status": response.status_code,
-                "details": response.text[:500],
+                "details": details,
+                "attempts": attempt,
             }
-        return {"ok": True, "status": "uploaded", "video_id": video_id, "thumbnail_path": str(path.resolve())}
-    except Exception as exc:
-        return {"ok": False, "status": "failed", "reason": "thumbnail_upload_exception", "error": str(exc)}
+            retryable = response.status_code in {409, 429, 500, 503} or any(
+                marker in details.lower()
+                for marker in ("processing", "failedprecondition", "not been processed", "backenderror")
+            )
+            if not retryable or attempt >= THUMBNAIL_UPLOAD_ATTEMPTS:
+                return last_error
+            delay = THUMBNAIL_RETRY_DELAYS_SECONDS[min(attempt - 1, len(THUMBNAIL_RETRY_DELAYS_SECONDS) - 1)]
+            logger.warning(
+                "Thumbnail upload retry %s/%s for %s after HTTP %s (sleep %ss)",
+                attempt,
+                THUMBNAIL_UPLOAD_ATTEMPTS,
+                resolved_id,
+                response.status_code,
+                delay,
+            )
+            time.sleep(delay)
+        except Exception as exc:
+            last_error = {
+                "ok": False,
+                "status": "failed",
+                "reason": "thumbnail_upload_exception",
+                "error": str(exc),
+                "attempts": attempt,
+            }
+            if attempt >= THUMBNAIL_UPLOAD_ATTEMPTS:
+                return last_error
+            delay = THUMBNAIL_RETRY_DELAYS_SECONDS[min(attempt - 1, len(THUMBNAIL_RETRY_DELAYS_SECONDS) - 1)]
+            time.sleep(delay)
+    return last_error or {"ok": False, "status": "failed", "reason": "thumbnail_upload_failed"}
 
 
 def upload_video_to_youtube(
@@ -279,12 +350,34 @@ def upload_video_to_youtube(
         effective_visibility = "private" if scheduled else privacy_status
         effective_publish_time = publish_at_iso if scheduled else upload_time
         playlist_result: dict[str, Any] = {"ok": False, "status": "skipped", "reason": "playlist_id_not_configured"}
+        thumbnail_result: dict[str, Any] = {"ok": False, "status": "skipped", "reason": "thumbnail_not_attempted"}
         if video_id and not scheduled:
             playlist_result = add_video_to_youtube_playlist(
                 project_root=root,
                 profile=profile,
                 video_id=video_id,
             )
+            from content_brain.branding.thumbnail_generator import maybe_generate_and_upload_youtube_thumbnail
+
+            # YouTube often rejects custom thumbnails until the new video finishes initial processing.
+            time.sleep(3)
+            thumbnail_result = maybe_generate_and_upload_youtube_thumbnail(
+                project_root=root,
+                profile=profile,
+                video_path=path,
+                video_id=video_id,
+                title=str(title or ""),
+            )
+            if thumbnail_result.get("ok"):
+                logger.info("Thumbnail uploaded: %s", thumbnail_result.get("thumbnail_path"))
+            else:
+                logger.warning(
+                    "Thumbnail upload failed for %s: %s",
+                    video_id,
+                    (thumbnail_result.get("upload_result") or {}).get("reason")
+                    or thumbnail_result.get("reason")
+                    or thumbnail_result,
+                )
         return {
             "ok": True,
             "status": "scheduled" if scheduled else "uploaded",
@@ -299,6 +392,9 @@ def upload_video_to_youtube(
             "video_url": f"https://www.youtube.com/watch?v={video_id}" if video_id else "",
             "youtube_url": f"https://www.youtube.com/watch?v={video_id}" if video_id else "",
             "playlist_result": playlist_result,
+            "thumbnail_result": thumbnail_result,
+            "thumbnail_path": str(thumbnail_result.get("thumbnail_path") or ""),
+            "thumbnail_uploaded": bool(thumbnail_result.get("ok")),
             "response": payload,
             "version": YOUTUBE_UPLOADER_VERSION,
         }
@@ -366,6 +462,7 @@ __all__ = [
     "YOUTUBE_UPLOADER_VERSION",
     "add_video_to_youtube_playlist",
     "delete_video_from_youtube",
+    "extract_youtube_video_id",
     "upload_thumbnail_to_youtube",
     "upload_video_to_youtube",
 ]

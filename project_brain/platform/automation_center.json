@@ -6,6 +6,347 @@
   "queued_jobs": [],
   "run_history": [
     {
+      "job_id": "auto_4792bbacc1e7",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-15T08:00",
+      "run_id": "pwmap_20260715T074621_a2b2b675",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T074621_a2b2b675/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T074621_a2b2b675/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=qZGZAb6iksY"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T074621_a2b2b675/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-15T07:45:52.664480+00:00",
+      "updated_at": "2026-07-15T08:31:51.523872+00:00"
+    },
+    {
+      "job_id": "auto_efa36613cb4e",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-15T08:00",
+      "run_id": "pwmap_20260715T065026_d3d96df4",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T065026_d3d96df4/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T065026_d3d96df4/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=l7w8Gt6l7Zo"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T065026_d3d96df4/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-15T06:49:56.209204+00:00",
+      "updated_at": "2026-07-15T07:45:20.589482+00:00"
+    },
+    {
+      "job_id": "auto_834da3010f5b",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-15T08:00",
+      "run_id": "pwmap_20260715T060054_b1b3daad",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T060054_b1b3daad/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T060054_b1b3daad/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=xVGuZzMDb8c"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T060054_b1b3daad/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-15T06:00:07.729756+00:00",
+      "updated_at": "2026-07-15T06:49:24.175264+00:00"
+    },
+    {
+      "job_id": "auto_711071ef257a",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-14T08:00",
+      "run_id": "pwmap_20260714T073253_700ddbd2",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T073253_700ddbd2/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T073253_700ddbd2/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=sQIU9ocdgi8"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T073253_700ddbd2/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-14T07:32:27.090837+00:00",
+      "updated_at": "2026-07-14T08:15:01.198555+00:00"
+    },
+    {
+      "job_id": "auto_b4cc2406b477",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-14T08:00",
+      "run_id": "pwmap_20260714T064828_a17c1ab8",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T064828_a17c1ab8/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T064828_a17c1ab8/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=98FDQIWrQzs"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T064828_a17c1ab8/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-14T06:47:56.932423+00:00",
+      "updated_at": "2026-07-14T07:31:54.167208+00:00"
+    },
+    {
+      "job_id": "auto_f81345889081",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-14T08:00",
+      "run_id": "pwmap_20260714T060052_46936378",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T060052_46936378/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T060052_46936378/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=AVvM5c_69Z4"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260714T060052_46936378/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-14T06:00:26.558935+00:00",
+      "updated_at": "2026-07-14T06:47:23.942666+00:00"
+    },
+    {
+      "job_id": "auto_17daff025b63",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-13T08:00",
+      "run_id": "pwmap_20260713T162217_d4c111d4",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T162217_d4c111d4/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T162217_d4c111d4/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=_lLlbnEuha4"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T162217_d4c111d4/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-13T16:21:44.915938+00:00",
+      "updated_at": "2026-07-13T17:04:22.297230+00:00"
+    },
+    {
+      "job_id": "auto_774e061f4fed",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-13T08:00",
+      "run_id": "pwmap_20260713T152925_5b339e27",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T152925_5b339e27/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T152925_5b339e27/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=4Sn0qlxvc7g"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T152925_5b339e27/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-13T06:00:11.381044+00:00",
+      "updated_at": "2026-07-13T16:22:07.960166+00:00"
+    },
+    {
+      "job_id": "auto_b0159f9bf693",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-13T08:00",
+      "run_id": "pwmap_20260713T072604_02bf78b2",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T072604_02bf78b2/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T072604_02bf78b2/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=fsHI22ISTjw"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T072604_02bf78b2/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-13T07:25:36.940675+00:00",
+      "updated_at": "2026-07-13T08:13:03.810289+00:00"
+    },
+    {
+      "job_id": "auto_cc1632a6f5c3",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-13T08:00",
+      "run_id": "pwmap_20260713T064401_540bc123",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T064401_540bc123/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T064401_540bc123/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=-5FoiSzbzKw"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T064401_540bc123/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-13T06:43:23.184478+00:00",
+      "updated_at": "2026-07-13T07:25:03.868421+00:00"
+    },
+    {
+      "job_id": "auto_774e061f4fed",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "completed",
+      "scheduled_time": "2026-07-13T08:00",
+      "run_id": "pwmap_20260713T060042_1b1ac5fc",
+      "output_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T060042_1b1ac5fc/publish/FINAL_BRANDED_PUBLISH_READY.mp4",
+      "publish_package_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T060042_1b1ac5fc/publish",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=RxJ6j1-ceWY"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260713T060042_1b1ac5fc/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "",
+      "created_at": "2026-07-13T06:00:11.381044+00:00",
+      "updated_at": "2026-07-13T06:42:50.607516+00:00"
+    },
+    {
       "job_id": "auto_d60467795c0c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
@@ -2613,6 +2954,154 @@
   ],
   "failed_jobs": [
     {
+      "job_id": "auto_834da3010f5b",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-15T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=xVGuZzMDb8c"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T060054_b1b3daad/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "❌ Runway browser not connected. Click 'Connect Runway Browser' first.",
+      "created_at": "2026-07-15T06:00:07.729756+00:00",
+      "updated_at": "2026-07-15T18:36:04.911855+00:00",
+      "reason": "❌ Runway browser not connected. Click 'Connect Runway Browser' first."
+    },
+    {
+      "job_id": "auto_46427c414540",
+      "topic": "Skincare & Self-Care — Instagram Reels",
+      "title": "Skincare & Self-Care — Instagram Reels",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-15T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-15T17:33:36.943194+00:00",
+      "updated_at": "2026-07-15T17:37:32.991882+00:00",
+      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
+    },
+    {
+      "job_id": "auto_751d34d44c56",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-13T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent partial — clips preserved; recovery available.",
+      "created_at": "2026-07-13T15:49:14.626666+00:00",
+      "updated_at": "2026-07-13T16:21:13.332857+00:00",
+      "reason": "pwmap agent partial — clips preserved; recovery available."
+    },
+    {
+      "job_id": "auto_0f8590d688ae",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-12T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "❌ Runway browser not connected. Click 'Connect Runway Browser' first.",
+      "created_at": "2026-07-12T17:43:15.233595+00:00",
+      "updated_at": "2026-07-12T17:43:34.802234+00:00",
+      "reason": "❌ Runway browser not connected. Click 'Connect Runway Browser' first."
+    },
+    {
+      "job_id": "auto_ce0757a67db8",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-12T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": {
+        "ok": true,
+        "platforms": {
+          "youtube_shorts": {
+            "ok": true,
+            "uploaded": true,
+            "status": "already_uploaded",
+            "post_url": "https://www.youtube.com/watch?v=GILxFJz8JiY"
+          }
+        },
+        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260712T060038_eb1acefe/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
+      },
+      "error": "pwmap agent partial — clips preserved; recovery available.",
+      "created_at": "2026-07-12T06:00:16.676262+00:00",
+      "updated_at": "2026-07-12T17:43:09.031077+00:00",
+      "reason": "pwmap agent partial — clips preserved; recovery available."
+    },
+    {
+      "job_id": "auto_931b068cd59e",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-12T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 3221225786",
+      "created_at": "2026-07-12T17:35:21.417505+00:00",
+      "updated_at": "2026-07-12T17:43:08.913137+00:00",
+      "reason": "pwmap agent failed with exit code 3221225786"
+    },
+    {
       "job_id": "auto_aa8150a2cd13",
       "topic": "Skincare & Self-Care — Instagram Reels",
       "title": "Skincare & Self-Care — Instagram Reels",
@@ -4733,132 +5222,6 @@
       "created_at": "2026-07-07T18:14:44.117107+00:00",
       "updated_at": "2026-07-07T18:16:07.102916+00:00",
       "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-    },
-    {
-      "job_id": "auto_b7c537dce383",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-07T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
-      "created_at": "2026-07-07T18:12:45.923829+00:00",
-      "updated_at": "2026-07-07T18:14:14.067226+00:00",
-      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-    },
-    {
-      "job_id": "auto_59141a08ca56",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-07T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
-      "created_at": "2026-07-07T18:10:55.290985+00:00",
-      "updated_at": "2026-07-07T18:12:15.856033+00:00",
-      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-    },
-    {
-      "job_id": "auto_a4e2775347b3",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-07T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
-      "created_at": "2026-07-07T18:09:08.577232+00:00",
-      "updated_at": "2026-07-07T18:10:25.232360+00:00",
-      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-    },
-    {
-      "job_id": "auto_685deac84254",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-07T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
-      "created_at": "2026-07-07T18:06:57.629651+00:00",
-      "updated_at": "2026-07-07T18:08:38.518140+00:00",
-      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-    },
-    {
-      "job_id": "auto_28978e21f26f",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-07T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
-      "created_at": "2026-07-07T18:05:00.635450+00:00",
-      "updated_at": "2026-07-07T18:06:27.577227+00:00",
-      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
-    },
-    {
-      "job_id": "auto_560deed98c27",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "failed",
-      "scheduled_time": "2026-07-07T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
-      "created_at": "2026-07-07T18:03:00.144826+00:00",
-      "updated_at": "2026-07-07T18:04:30.581693+00:00",
-      "reason": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed)."
     }
   ],
   "feature_flags": {
@@ -4869,5 +5232,5 @@
     "suno_music": false,
     "analytics": false
   },
-  "updated_at": "2026-07-12T17:15:07.677732+00:00"
+  "updated_at": "2026-07-15T18:41:49.692018+00:00"
 }

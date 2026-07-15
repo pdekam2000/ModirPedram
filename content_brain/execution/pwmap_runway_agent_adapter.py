@@ -524,6 +524,8 @@ def build_pwmap_job(
     aspect: str = "9:16",
     native_audio: bool = True,
     use_frame_second: int | None = None,
+    platform: str = "",
+    platform_targets: list[str] | None = None,
 ) -> dict[str, Any]:
     job: dict[str, Any] = {
         "model": model,
@@ -531,6 +533,13 @@ def build_pwmap_job(
         "aspect": aspect,
         "native_audio": bool(native_audio),
     }
+    platform_text = str(platform or "").strip()
+    if platform_text:
+        job["platform"] = platform_text
+    if platform_targets:
+        job["platform_targets"] = [str(item).strip() for item in platform_targets if str(item).strip()]
+    elif platform_text:
+        job["platform_targets"] = [platform_text]
     if prompts:
         cleaned = [str(p).strip() for p in prompts if str(p).strip()]
         if not cleaned:
@@ -645,12 +654,20 @@ def build_pwmap_job_from_preflight(
             preflight=working_preflight,
         )
     prompts, meta = extract_prompts_from_preflight(working_preflight)
+    platform = str(working_preflight.get("platform") or "").strip()
+    platform_targets = [
+        str(item).strip()
+        for item in (working_preflight.get("platform_targets") or ([platform] if platform else []))
+        if str(item).strip()
+    ]
     if len(prompts) == 1:
         return build_pwmap_job(
             prompt=prompts[0],
             duration=meta["duration"],
             aspect=meta["aspect"],
             native_audio=native_audio,
+            platform=platform,
+            platform_targets=platform_targets,
         )
     return build_pwmap_job(
         prompts=prompts,
@@ -658,6 +675,8 @@ def build_pwmap_job_from_preflight(
         aspect=meta["aspect"],
         native_audio=native_audio,
         use_frame_second=meta.get("use_frame_second"),
+        platform=platform,
+        platform_targets=platform_targets,
     )
 
 

@@ -28,6 +28,15 @@ def _is_local_base_url(base_url: str) -> bool:
     return host in {"", "localhost", "127.0.0.1", "::1"}
 
 
+def _normalize_pwmap_run_id(run_id: str) -> str:
+    run_id_text = str(run_id or "").strip()
+    if not run_id_text:
+        return ""
+    if not run_id_text.startswith("pwmap_"):
+        run_id_text = f"pwmap_{run_id_text}"
+    return run_id_text
+
+
 def build_instagram_public_video_url(
     *,
     project_root: str | Path,
@@ -36,7 +45,7 @@ def build_instagram_public_video_url(
 ) -> dict[str, Any]:
     """Build a public video URL for Instagram Graph API video_url uploads."""
     base_url = _public_base_url(profile)
-    run_id_text = str(run_id or "").strip()
+    run_id_text = _normalize_pwmap_run_id(run_id)
     if not run_id_text:
         return {"ok": False, "message": "run_id_missing"}
 
@@ -65,6 +74,21 @@ def build_instagram_public_video_url(
         "base_url": base_url,
         "run_id": run_id_text,
     }
+
+
+def build_instagram_video_url(
+    *,
+    profile: dict[str, Any],
+    run_id: str = "",
+    project_root: str | Path = ".",
+) -> str:
+    """Return the public media URL for a pwmap run (convenience wrapper)."""
+    result = build_instagram_public_video_url(
+        project_root=project_root,
+        profile=profile,
+        run_id=run_id,
+    )
+    return str(result.get("public_url") or "")
 
 
 def stage_local_video_for_instagram(
@@ -138,6 +162,7 @@ __all__ = [
     "DEFAULT_PUBLIC_BASE_URL",
     "STAGING_SUBDIR",
     "build_instagram_public_video_url",
+    "build_instagram_video_url",
     "resolve_staged_video_path",
     "stage_local_video_for_instagram",
 ]

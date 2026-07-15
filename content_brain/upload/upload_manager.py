@@ -485,6 +485,8 @@ class UploadManager:
                 "manifest_path": str(submit_path),
                 "video_id": upload_result.get("video_id", ""),
                 "video_url": upload_result.get("video_url", ""),
+                "thumbnail_path": str(upload_result.get("thumbnail_path") or ""),
+                "thumbnail_uploaded": bool(upload_result.get("thumbnail_uploaded")),
                 "auto_upload": False,
             }
 

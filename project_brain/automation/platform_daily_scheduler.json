@@ -5,7 +5,7 @@
   "tiktok_duration_seconds": 30,
   "platforms": {
     "youtube_shorts": {
-      "enabled": true,
+      "enabled": false,
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "videos_per_day": 3,
       "interval_hours": 4,
@@ -14,7 +14,7 @@
     },
     "instagram_reels": {
       "enabled": false,
-      "topic": "Skincare & Self-Care — Instagram Reels",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "videos_per_day": 3,
       "interval_hours": 6,
       "start_hour": 8,
@@ -29,11 +29,12 @@
       "duration_seconds": 30
     }
   },
-  "updated_at": "2026-07-12T17:15:06.524784+00:00",
+  "updated_at": "2026-07-15T18:41:48.136957+00:00",
   "daily_completion": {
-    "date": "2026-07-12",
+    "date": "2026-07-15",
     "platforms": {
-      "youtube_shorts": 0
+      "youtube_shorts": 0,
+      "instagram_reels": 0
     },
     "completed_today": 0
   }

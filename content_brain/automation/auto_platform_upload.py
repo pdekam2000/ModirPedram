@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from content_brain.upload.upload_models import PLATFORM_INSTAGRAM, PLATFORM_TIKTOK, PLATFORM_YOUTUBE
+from content_brain.upload.media_video_resolver import verify_run_platform_for_upload
 
 AUTO_PLATFORM_UPLOAD_VERSION = "auto_platform_upload_v1"
 logger = logging.getLogger(__name__)
@@ -84,6 +85,9 @@ def _record_history(
     run_id: str,
     post_url: str,
     error: str,
+    video_id: str = "",
+    thumbnail_uploaded: bool | None = None,
+    thumbnail_path: str = "",
 ) -> None:
     from content_brain.automation.upload_history_store import UploadHistoryStore
 
@@ -95,6 +99,9 @@ def _record_history(
         youtube_url=post_url,
         post_url=post_url,
         error=error,
+        video_id=video_id,
+        thumbnail_uploaded=thumbnail_uploaded,
+        thumbnail_path=thumbnail_path,
     )
 
 
@@ -197,11 +204,18 @@ def submit_automation_platform_uploads(
             if normalized in {PLATFORM_YOUTUBE, "youtube"}:
                 yt_upload = dict(report.get("youtube_upload") or {})
                 if skip_youtube_if_already_uploaded and yt_upload.get("uploaded"):
+                    already_url = str(yt_upload.get("youtube_url") or yt_upload.get("video_url") or "")
+                    from content_brain.upload.youtube_uploader import extract_youtube_video_id
+
                     results["platforms"][normalized] = {
                         "ok": True,
                         "uploaded": True,
                         "status": "already_uploaded",
-                        "post_url": str(yt_upload.get("youtube_url") or yt_upload.get("video_url") or ""),
+                        "video_id": str(yt_upload.get("video_id") or extract_youtube_video_id(already_url) or ""),
+                        "video_url": already_url,
+                        "post_url": already_url,
+                        "thumbnail_uploaded": bool(yt_upload.get("thumbnail_uploaded")),
+                        "thumbnail_path": str(yt_upload.get("thumbnail_path") or ""),
                     }
                     continue
                 upload_result = manager.submit_youtube_upload(
@@ -219,8 +233,38 @@ def submit_automation_platform_uploads(
                     run_id=run_id,
                     post_url=str(upload_result.get("video_url") or ""),
                     error=str(upload_result.get("reason") or upload_result.get("error") or ""),
+                    video_id=str(upload_result.get("video_id") or ""),
+                    thumbnail_uploaded=bool(upload_result.get("thumbnail_uploaded"))
+                    if "thumbnail_uploaded" in upload_result
+                    else None,
+                    thumbnail_path=str(upload_result.get("thumbnail_path") or ""),
                 )
             elif normalized in {PLATFORM_INSTAGRAM, "instagram", "instagram_reels"}:
+                ok_platform, platform_reason, run_platform = verify_run_platform_for_upload(
+                    root,
+                    run_id,
+                    job_platform=job_platform_key or normalized,
+                )
+                if not ok_platform:
+                    upload_result = {
+                        "ok": False,
+                        "uploaded": False,
+                        "status": "blocked",
+                        "reason": platform_reason,
+                        "run_platform": run_platform,
+                    }
+                    results["platforms"][normalized] = upload_result
+                    _upload_debug(f"instagram_run_platform_blocked_{normalized}", upload_result)
+                    _record_history(
+                        root,
+                        platform=PLATFORM_INSTAGRAM,
+                        title=display_title,
+                        success=False,
+                        run_id=run_id,
+                        post_url="",
+                        error=platform_reason,
+                    )
+                    continue
                 meta = _platform_meta(package, PLATFORM_INSTAGRAM)
                 upload_result = manager.submit_instagram_upload(
                     upload_package=package,

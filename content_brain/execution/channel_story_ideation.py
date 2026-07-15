@@ -24,6 +24,15 @@ from content_brain.execution.instagram_skincare_recipes import (
     format_ingredients_list,
     recipe_memory_key,
 )
+from content_brain.execution.instagram_perfumery_recipes import (
+    INSTAGRAM_PERFUMERY_CTA,
+    INSTAGRAM_PERFUMERY_POOL,
+    INSTAGRAM_PERFUMERY_PRESENTER,
+    INSTAGRAM_PERFUMERY_SETTINGS,
+    famous_perfumes_text,
+    format_ingredient_summary,
+    ingredient_memory_key,
+)
 from content_brain.execution.youtube_science_channel import (
     PRESENTER_DIRECTIVE,
     SCIENCE_CTA_POOL,
@@ -126,6 +135,23 @@ ENDING_POOL: tuple[str, ...] = (
 
 INSTAGRAM_PRESENTER = (
     "friendly female skincare educator — bright, clean, approachable, demonstrates recipes on camera"
+)
+
+PERFUMERY_TOPIC_MARKERS = (
+    "perfume",
+    "fragrance",
+    "perfumery",
+    "ingredient",
+    "olfactive",
+    "fragrance secrets",
+)
+
+BEAUTY_TOPIC_MARKERS = (
+    "skincare",
+    "beauty recipe",
+    "face mask",
+    "hair treatment",
+    "beauty recipes",
 )
 
 
@@ -257,10 +283,33 @@ def _select_science_fact(*, used_facts: set[str], attempt: int) -> dict[str, Any
     return pool[index]
 
 
+def _is_instagram_platform(target_platform: str) -> bool:
+    return str(target_platform or "").strip().lower() in {"instagram_reels", "instagram"}
+
+
+def _is_perfumery_platform(target_platform: str, channel_topic: str) -> bool:
+    """Instagram perfumery education lane (active channel default)."""
+    if not _is_instagram_platform(target_platform):
+        return False
+    topic = str(channel_topic or "").lower()
+    if any(marker in topic for marker in BEAUTY_TOPIC_MARKERS) and not any(
+        marker in topic for marker in PERFUMERY_TOPIC_MARKERS
+    ):
+        return False
+    if any(marker in topic for marker in PERFUMERY_TOPIC_MARKERS):
+        return True
+    # Instagram channel is currently perfumery education by default.
+    return True
+
+
 def _is_beauty_platform(target_platform: str, channel_topic: str) -> bool:
-    """Instagram-only lane — never infer beauty from shared channel_topic text."""
-    platform_key = str(target_platform or "").strip().lower()
-    return platform_key in {"instagram_reels", "instagram"}
+    """Instagram skincare/beauty lane — only when topic clearly requests beauty recipes."""
+    if not _is_instagram_platform(target_platform):
+        return False
+    if _is_perfumery_platform(target_platform, channel_topic):
+        return False
+    topic = str(channel_topic or "").lower()
+    return any(marker in topic for marker in BEAUTY_TOPIC_MARKERS)
 
 
 def _is_science_platform(target_platform: str, channel_topic: str) -> bool:
@@ -347,6 +396,32 @@ def _beauty_narrator_lines(*, recipe_name: str, ingredients_text: str, skin_bene
     return _validate_and_trim_narrator_lines([clip1, clip2])
 
 
+def _perfumery_narrator_lines(
+    *,
+    ingredient_name: str,
+    origin: str,
+    scent_profile: str,
+    perfume_role: str,
+    famous_perfumes: str,
+    fun_fact: str,
+) -> list[str]:
+    short_origin = origin.split(",")[0].strip() if origin else "around the world"
+    short_scent = scent_profile
+    if _word_count(scent_profile) > 8:
+        parts = [part.strip() for part in scent_profile.split(",") if part.strip()]
+        short_scent = ", ".join(parts[:3])
+    clip1 = _trim_narrator_line(
+        f"Today we explore {ingredient_name}. It comes from {short_origin} and smells {short_scent}."
+    )
+    perfume_example = famous_perfumes.split(",")[0].strip() if famous_perfumes else "iconic classics"
+    fact = fun_fact.rstrip(".!?")
+    clip2 = _trim_narrator_line(
+        f"Perfumers use this as a {perfume_role}. Famous in {perfume_example}. "
+        f"{fact}. {INSTAGRAM_PERFUMERY_CTA}"
+    )
+    return _validate_and_trim_narrator_lines([clip1, clip2])
+
+
 def _tokens(text: str) -> set[str]:
     words = re.findall(r"[a-z0-9']+", _normalize(text).lower())
     return {word for word in words if len(word) > 2 and word not in STOPWORDS}
@@ -425,15 +500,17 @@ def _extract_archetype(character: str) -> str:
 def _used_recipe_names_from_history(history: list[dict[str, Any]]) -> set[str]:
     used: set[str] = set()
     for row in history:
-        recipe_name = _normalize(str(row.get("recipe_name") or ""))
-        if recipe_name:
-            used.add(recipe_name.lower())
+        for key in ("recipe_name", "ingredient_name"):
+            name = _normalize(str(row.get(key) or ""))
+            if name:
+                used.add(name.lower())
         title = _normalize(str(row.get("title") or ""))
         if title:
             used.add(title.lower())
         for tag in row.get("novelty_tags") or []:
             token = str(tag or "").strip()
-            if token.lower().startswith("recipe:"):
+            lowered = token.lower()
+            if lowered.startswith("recipe:") or lowered.startswith("ingredient:"):
                 used.add(token.split(":", 1)[1].strip().lower())
     return used
 
@@ -445,6 +522,17 @@ def _select_instagram_recipe(*, used_recipes: set[str], attempt: int) -> dict[st
         if recipe["recipe_name"].strip().lower() not in used_recipes
     ]
     pool = available or [dict(recipe) for recipe in INSTAGRAM_RECIPE_POOL]
+    index = (secrets.randbelow(len(pool)) + attempt) % len(pool)
+    return pool[index]
+
+
+def _select_instagram_ingredient(*, used_ingredients: set[str], attempt: int) -> dict[str, Any]:
+    available = [
+        dict(item)
+        for item in INSTAGRAM_PERFUMERY_POOL
+        if str(item.get("ingredient_name") or "").strip().lower() not in used_ingredients
+    ]
+    pool = available or [dict(item) for item in INSTAGRAM_PERFUMERY_POOL]
     index = (secrets.randbelow(len(pool)) + attempt) % len(pool)
     return pool[index]
 
@@ -514,15 +602,28 @@ def _clip_beats_for_idea(
     *,
     beauty_mode: bool = False,
     science_mode: bool = False,
+    perfumery_mode: bool = False,
 ) -> list[str]:
     if clip_count == 2:
-        return _two_clip_story_beats(idea, beauty_mode=beauty_mode, science_mode=science_mode)
+        return _two_clip_story_beats(
+            idea,
+            beauty_mode=beauty_mode,
+            science_mode=science_mode,
+            perfumery_mode=perfumery_mode,
+        )
     if science_mode:
         beats = [
             f"Open with hook (0-2s): {idea.visual_hook}",
             f"Setup (2-8s): {idea.conflict}",
             f"Visual explanation (8-22s): {idea.twist_or_reveal} with cinematic scientific visuals",
             f"Twist/payoff + CTA (22-30s): {idea.ending_beat}",
+        ]
+    elif perfumery_mode:
+        beats = [
+            f"Show raw ingredient macros — {idea.visual_hook}",
+            f"Teach origin and scent profile in {idea.setting}",
+            f"Show perfume role and famous fragrance examples — {idea.twist_or_reveal}",
+            f"Deliver fun fact and close with {idea.ending_beat}",
         ]
     elif beauty_mode:
         beats = [
@@ -548,6 +649,7 @@ def _two_clip_story_beats(
     *,
     beauty_mode: bool = False,
     science_mode: bool = False,
+    perfumery_mode: bool = False,
 ) -> list[str]:
     """30s / 2×15s: Hook+Setup (3+10+2s) then Payoff+Ending (8+4+3s)."""
     if science_mode:
@@ -565,6 +667,20 @@ def _two_clip_story_beats(
             "Presenter finishes speaking completely, then holds a 2-3 second silent reaction/pause shot (3s) — "
             f"{idea.ending_beat}. "
             "Visual resolution before cut. NEVER end mid-sentence."
+        )
+    elif perfumery_mode:
+        clip1 = (
+            "Clip 1 (15s) Ingredient + Origin + Scent: Presenter says "
+            f'\"Today we explore {idea.title}.\" '
+            f"Macro close-ups of the raw material in {idea.setting}. "
+            f"Teach origin and scent: {idea.conflict}. Setup COMPLETE."
+        )
+        clip2 = (
+            "Clip 2 (15s) Role + Famous Perfumes + Fun Fact: Show extraction or blending (8s). "
+            f"Reveal perfume role and icons — {idea.twist_or_reveal} (4s). "
+            "Presenter finishes speaking, then 2-3 second silent elegant pause (3s). "
+            f'HARD ENDING: Presenter says \"{INSTAGRAM_PERFUMERY_CTA}\". '
+            "Visual resolution before cut. Viewer learns one ingredient completely."
         )
     elif beauty_mode:
         clip1 = (
@@ -678,6 +794,97 @@ def _build_beauty_candidate(
     )
     idea.story_hash = _story_hash(idea)
     idea.prompt_hash = _prompt_hash(idea.rich_story_text())
+    return idea
+
+
+def _build_perfumery_candidate(
+    *,
+    channel_topic: str,
+    niche: str,
+    style: str,
+    mood: str,
+    clip_count: int,
+    diversity_mode: str,
+    banned_terms: list[str],
+    used_ingredients: set[str],
+    attempt: int,
+) -> ChannelStoryIdea:
+    ingredient = _select_instagram_ingredient(used_ingredients=used_ingredients, attempt=attempt)
+    setting = INSTAGRAM_PERFUMERY_SETTINGS[
+        (secrets.randbelow(len(INSTAGRAM_PERFUMERY_SETTINGS)) + attempt) % len(INSTAGRAM_PERFUMERY_SETTINGS)
+    ]
+    ingredient_name = str(ingredient.get("ingredient_name") or "Fragrance Ingredient")
+    origin = str(ingredient.get("origin") or "perfume laboratories worldwide")
+    scent_profile = str(ingredient.get("scent_profile") or "complex aromatic character")
+    perfume_role = str(ingredient.get("perfume_role") or "heart note")
+    famous = famous_perfumes_text(ingredient)
+    fun_fact = str(ingredient.get("fun_fact") or "Perfumers guard this material like treasure.")
+    category = str(ingredient.get("category") or "essential_oils")
+    scientific_name = str(ingredient.get("scientific_name") or "")
+    extraction_method = str(ingredient.get("extraction_method") or "")
+
+    character = INSTAGRAM_PERFUMERY_PRESENTER
+    title = ingredient_name
+    summary = format_ingredient_summary(ingredient)
+    logline = (
+        f"In {setting}, the presenter teaches {ingredient_name} "
+        f"({scientific_name}). Origin: {origin}. Scent: {scent_profile}. "
+        f"Role: {perfume_role}. Famous in: {famous}. Fun fact: {fun_fact}."
+    )
+    conflict = f"from {origin}; smells {scent_profile}"
+    visual_hook = f"macro close-up of {ingredient_name} texture, color, and aromatic detail"
+    emotional_hook = f"{mood or 'elegant curiosity'} as the fragrance secret is revealed"
+    twist = f"used as a {perfume_role} in {famous or 'iconic perfumes'}; {fun_fact}"
+    ending = f"{INSTAGRAM_PERFUMERY_CTA} — {ingredient_name} fragrance secret"
+    tags = [
+        ingredient_memory_key(ingredient_name),
+        category,
+        perfume_role,
+        extraction_method or "fragrance education",
+        style or "elegant mysterious",
+        diversity_mode,
+    ]
+
+    idea = ChannelStoryIdea(
+        unique_story_id=f"story_{hashlib.sha256(f'{ingredient_name}:{attempt}'.encode()).hexdigest()[:12]}",
+        title=title,
+        logline=logline,
+        main_character=character,
+        setting=setting,
+        conflict=conflict,
+        visual_hook=visual_hook,
+        emotional_hook=emotional_hook,
+        twist_or_reveal=twist,
+        ending_beat=ending,
+        novelty_tags=tags,
+        banned_similarity_terms=list(banned_terms),
+        continuity_anchors={
+            "character": character,
+            "location": setting,
+            "lighting": "warm golden rim light with soft amber highlights on bottles and botanicals",
+            "camera": "macro ingredient textures, elegant product inserts, perfume blending close-ups",
+            "palette": "amber, gold, deep greens, crystal glass, sophisticated dark wood",
+            "wardrobe": "elegant dark or cream blouse suited to luxury fragrance education",
+            "handoff": (
+                f"The presenter holds {ingredient_name} beside a perfume bottle, final frame ready for handoff"
+            ),
+        },
+        clip_beat_outline=[],
+        channel_topic=channel_topic,
+        niche=category or niche or "perfumery education",
+        diversity_mode=diversity_mode,
+    )
+    idea.clip_beat_outline = _clip_beats_for_idea(idea, clip_count, perfumery_mode=True)
+    idea.clip_narrator_lines = _perfumery_narrator_lines(
+        ingredient_name=ingredient_name,
+        origin=origin,
+        scent_profile=scent_profile,
+        perfume_role=perfume_role,
+        famous_perfumes=famous,
+        fun_fact=fun_fact,
+    )
+    idea.story_hash = _story_hash(idea)
+    idea.prompt_hash = _prompt_hash(idea.rich_story_text() + " " + summary)
     return idea
 
 
@@ -797,6 +1004,18 @@ def _build_candidate(
             banned_terms=banned_terms,
             attempt=attempt,
             used_science_facts=used_science_facts,
+        )
+    if _is_perfumery_platform(target_platform, channel_topic):
+        return _build_perfumery_candidate(
+            channel_topic=channel_topic,
+            niche=niche,
+            style=style,
+            mood=mood,
+            clip_count=clip_count,
+            diversity_mode=diversity_mode,
+            banned_terms=banned_terms,
+            used_ingredients=used_recipes or set(),
+            attempt=attempt,
         )
     if _is_beauty_platform(target_platform, channel_topic):
         return _build_beauty_candidate(
@@ -1051,7 +1270,7 @@ def channel_story_idea_to_story_package(idea: ChannelStoryIdea) -> dict[str, Any
         "story_blueprint": {
             "hook": idea.visual_hook,
             "setup": idea.logline,
-            "genre": idea.niche or "skincare education",
+            "genre": idea.niche or "perfumery education",
             "scene_progression": list(idea.clip_beat_outline),
             "opening_hook": idea.visual_hook,
             "escalation": idea.twist_or_reveal,
@@ -1102,7 +1321,10 @@ def _apply_seo_title_to_idea(
     seo_title = _normalize(str(seo_meta.get("seo_title") or ""))
     if seo_title:
         idea.title = seo_title[:120]
-    if _is_beauty_platform(target_platform, "") and not seo_meta.get("openai_applied"):
+    if (
+        _is_instagram_platform(target_platform)
+        and not seo_meta.get("openai_applied")
+    ):
         logger.error(
             "OpenAI SEO title failed for Instagram: %s",
             seo_meta.get("notes") or seo_meta.get("seo_title") or idea.title,
@@ -1163,6 +1385,7 @@ def ideate_and_persist_channel_story(
         "title": idea.title,
         "science_fact_key": idea.science_fact_key,
         "recipe_name": idea.title,
+        "ingredient_name": idea.title if _is_instagram_platform(target_platform) else "",
         "logline": idea.logline,
         "main_character": idea.main_character,
         "setting": idea.setting,

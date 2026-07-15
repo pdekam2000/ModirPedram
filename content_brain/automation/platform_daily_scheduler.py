@@ -17,6 +17,12 @@ PLATFORM_TOPIC_PROFILE_KEYS: dict[str, str] = {
     "tiktok": "tiktok_channel_topic",
 }
 
+PLATFORM_UPLOAD_ENABLED_KEYS: dict[str, str] = {
+    "youtube_shorts": "youtube_upload_enabled",
+    "instagram_reels": "instagram_upload_enabled",
+    "tiktok": "tiktok_upload_enabled",
+}
+
 MAX_JOB_TOPIC_CHARS = 120
 JOB_TOPIC_DISPLAY_MAX = 80
 
@@ -207,10 +213,34 @@ def build_platform_daily_jobs(project_root: str | Path) -> list[dict[str, Any]]:
     return created
 
 
+def sync_scheduler_enabled_from_profile(
+    project_root: str | Path,
+    profile: dict[str, Any] | None = None,
+) -> list[str]:
+    """Align platform_daily_scheduler.enabled with channel profile upload flags."""
+    from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
+
+    if profile is None:
+        profile = ProductChannelProfileStore(project_root).load()
+    upload_platforms = {str(platform).strip().lower() for platform in (profile.get("upload_platforms") or [])}
+    store = PlatformDailySchedulerStore(project_root)
+    synced: list[str] = []
+    for platform in PLATFORMS:
+        flag_key = PLATFORM_UPLOAD_ENABLED_KEYS.get(platform, "")
+        should_enable = platform in upload_platforms and bool(profile.get(flag_key))
+        entry = dict((store.load().get("platforms") or {}).get(platform) or {})
+        if bool(entry.get("enabled")) == should_enable:
+            continue
+        store.save_platform(platform, {"enabled": should_enable})
+        synced.append(platform)
+    return synced
+
+
 def sync_platform_daily_jobs(project_root: str | Path) -> dict[str, Any]:
     """Create today's planned jobs for each enabled platform (independent schedules)."""
     from content_brain.automation.automation_queue import AutomationQueue
 
+    sync_scheduler_enabled_from_profile(project_root)
     store = PlatformDailySchedulerStore(project_root)
     today = date.today().isoformat()
     queue = AutomationQueue(project_root)
@@ -304,6 +334,7 @@ __all__ = [
     "JOB_TOPIC_DISPLAY_MAX",
     "MAX_JOB_TOPIC_CHARS",
     "PLATFORM_TOPIC_PROFILE_KEYS",
+    "PLATFORM_UPLOAD_ENABLED_KEYS",
     "build_platform_daily_jobs",
     "compute_upload_times",
     "display_platform_topic",
@@ -312,5 +343,6 @@ __all__ = [
     "resolve_platform_job_title",
     "resolve_platform_topic",
     "sync_platform_daily_jobs",
+    "sync_scheduler_enabled_from_profile",
     "truncate_topic_display",
 ]

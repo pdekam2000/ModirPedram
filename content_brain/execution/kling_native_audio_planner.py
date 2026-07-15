@@ -84,8 +84,35 @@ BEAUTY_CONTINUITY_ANCHOR_FINAL = (
     "The presenter shows the applied treatment with visible skin glow, final frame ready for handoff"
 )
 
+PERFUMERY_BRIDGE_HINTS: tuple[str, ...] = (
+    "the fragrance ingredient beside an amber perfume bottle",
+    "elegant blending scene with blotter strips and warm golden light",
+)
+
+PERFUMERY_CONTINUITY_ANCHOR = (
+    "The presenter holds the fragrance ingredient beside a perfume bottle, final frame ready for handoff"
+)
+
+PERFUMERY_CONTINUITY_ANCHOR_FINAL = (
+    "The presenter finishes the fragrance lesson with an elegant pause toward camera, final frame ready for handoff"
+)
+
+
+def _is_perfumery_content(*, platform: str = "", instagram_genre: str = "", genre: str = "") -> bool:
+    normalized_platform = str(platform or "").lower()
+    normalized_genre = str(instagram_genre or genre or "").lower()
+    if any(token in normalized_genre for token in ("perfumery", "perfume", "fragrance")):
+        return True
+    if normalized_platform in {"instagram_reels", "instagram"} and not any(
+        token in normalized_genre for token in ("beauty", "skincare")
+    ):
+        return True
+    return False
+
 
 def _is_beauty_content(*, platform: str = "", instagram_genre: str = "", genre: str = "") -> bool:
+    if _is_perfumery_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        return False
     normalized_platform = str(platform or "").lower()
     if normalized_platform in {"instagram_reels", "instagram"}:
         return True
@@ -99,6 +126,8 @@ def resolve_bridge_hints(
     instagram_genre: str = "",
     genre: str = "",
 ) -> tuple[str, ...]:
+    if _is_perfumery_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        return PERFUMERY_BRIDGE_HINTS
     if _is_beauty_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
         return BEAUTY_BRIDGE_HINTS
     return DEFAULT_BRIDGE_HINTS
@@ -417,6 +446,10 @@ def _continuity_anchor(
 ) -> str:
     if handoff_anchor:
         return _clean(handoff_anchor)
+    if _is_perfumery_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        if int(clip_index) <= 1:
+            return _clean(PERFUMERY_CONTINUITY_ANCHOR)
+        return _clean(PERFUMERY_CONTINUITY_ANCHOR_FINAL)
     if _is_beauty_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
         if int(clip_index) <= 1:
             return _clean(BEAUTY_CONTINUITY_ANCHOR)
@@ -437,6 +470,10 @@ def _next_clip_reference_hint(
     genre: str = "",
 ) -> str:
     cast = _character_phrase(characters)
+    if _is_perfumery_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
+        return _clean(
+            f"Same {cast} continue from {bridge_hint} into perfume role and fun fact: {next_beat}"
+        )
     if _is_beauty_content(platform=platform, instagram_genre=instagram_genre, genre=genre):
         return _clean(
             f"Same {cast} continue from {bridge_hint} to begin application: {next_beat}"

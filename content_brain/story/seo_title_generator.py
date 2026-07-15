@@ -290,7 +290,11 @@ def generate_seo_title(
         title.lower()
         for title in get_last_n_titles(DEDUP_WINDOW, target_platform, story_memory=memory)
     }
-    genre_hint = "beauty skincare tutorial" if _is_beauty_platform(target_platform) else "science short"
+    genre_hint = (
+        "perfume fragrance ingredient education"
+        if _is_beauty_platform(target_platform)
+        else "science short"
+    )
 
     last_error = ""
     tried_power_words: set[str] = {word.lower() for word in (exclude_power_words or [])}

@@ -43,9 +43,13 @@ class UploadHistoryStore:
         post_url: str = "",
         error: str = "",
         uploaded_at: str = "",
+        video_id: str = "",
+        thumbnail_uploaded: bool | None = None,
+        thumbnail_path: str = "",
     ) -> dict[str, Any]:
         from content_brain.automation.platform_daily_scheduler import display_platform_topic
         from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
+        from content_brain.upload.youtube_uploader import extract_youtube_video_id
 
         profile = ProductChannelProfileStore(self.project_root).load()
         resolved_title = display_platform_topic(platform, profile, str(title or ""))
@@ -53,13 +57,17 @@ class UploadHistoryStore:
         platforms = dict(current.get("platforms") or {})
         history = list(platforms.get(platform) or [])
         resolved_url = str(post_url or youtube_url or "")
+        resolved_video_id = str(video_id or extract_youtube_video_id(resolved_url) or "")
         entry = {
             "title": resolved_title or "Untitled",
             "uploaded_at": uploaded_at or self._now(),
             "success": bool(success),
             "run_id": str(run_id or ""),
+            "video_id": resolved_video_id,
             "youtube_url": resolved_url,
             "post_url": resolved_url,
+            "thumbnail_uploaded": thumbnail_uploaded,
+            "thumbnail_path": str(thumbnail_path or ""),
             "error": str(error or ""),
         }
         history.insert(0, entry)

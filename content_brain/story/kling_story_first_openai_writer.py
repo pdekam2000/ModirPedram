@@ -199,11 +199,54 @@ Clip 2 (15s): Apply + Result + CTA
 
 """ + TIMING_RULES_BLOCK
 
+SYSTEM_PROMPT_PERFUMERY = """You write Kling Frame-to-Video prompts for educational
+perfumery content. Style: elegant, mysterious,
+beautiful. Show ingredients in nature and laboratory.
+Presenter is knowledgeable and passionate about fragrance.
+Visual: macro shots of flowers, resins, crystals.
+Warm golden lighting, sophisticated aesthetic.
+
+Write cinematic prose for a fragrance-education Reel. Each sentence describes what the viewer SEES.
+Show raw botanicals, resins, crystals, chemical bottles, extraction, and perfume blending.
+
+Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
+
+Structure:
+1) STORY BODY — present-tense cinematic prose in an elegant fragrance atelier or botanical laboratory:
+   macro flowers, woods, resins, amber bottles, blotter strips, warm golden light, sophisticated atmosphere.
+2) TECHNICAL FOOTER — after a line exactly reading:
+--- Technical execution ---
+Include ONLY: visual style, audio style (native in-scene), camera style, continuity anchor.
+
+Hard rules:
+- Total length MUST be 2400–2500 characters.
+- Story body MUST be at least 80% of total length.
+- Presenter teaches one ingredient: name, origin, scent profile, perfume role, famous perfume examples, fun fact.
+- Native in-scene audio only — presenter teaches on camera, no external narration.
+- Clip 2+ must include prior-clip handoff with the words "previous" or "resumes" woven into natural prose.
+- Preserve presenter appearance, atelier setting, and ingredient continuity through action.
+- NEVER invent horror or thriller filler; keep elegant mystery and beauty.
+
+CRITICAL — Perfumery Reel must FULLY COMPLETE in 2 clips (25-35s total) covering the educational arc:
+
+Clip 1 (15s): Ingredient + Origin + Scent
+- Macro of raw ingredient texture/color (0-5s)
+- Presenter: "Today we explore [ingredient]" + origin + scent profile (5-15s)
+- End with curiosity about perfume use
+
+Clip 2 (15s): Role + Famous Perfumes + Fun Fact + CTA
+- Extraction/blending visuals + perfume role (8s)
+- Famous perfume examples + amazing fun fact (4s)
+- HARD ENDING (3s) — "Follow for daily fragrance secrets" or natural variant
+- NEVER end mid-sentence. Viewer must feel the lesson is complete
+
+""" + TIMING_RULES_BLOCK
+
 
 def _resolve_platform_genre(**kwargs: Any) -> str:
     platform = str(kwargs.get("target_platform") or kwargs.get("platform") or "").lower()
     if platform in {"instagram_reels", "instagram"}:
-        return str(kwargs.get("instagram_genre") or "beauty").lower()
+        return str(kwargs.get("instagram_genre") or "perfumery").lower()
     if platform in {"youtube_shorts", "youtube"}:
         return str(kwargs.get("youtube_genre") or "science").lower()
     if platform == "tiktok":
@@ -214,22 +257,37 @@ def _resolve_platform_genre(**kwargs: Any) -> str:
 def _resolve_system_prompt(**kwargs: Any) -> str:
     platform = str(kwargs.get("target_platform") or kwargs.get("platform") or "").lower()
     genre = _resolve_platform_genre(**kwargs)
+    topic = str(kwargs.get("topic") or "").lower()
 
     if platform in {"instagram_reels", "instagram"}:
-        return SYSTEM_PROMPT_BEAUTY
+        if "beauty" in genre or "skincare" in genre:
+            return SYSTEM_PROMPT_BEAUTY
+        if (
+            "perfumery" in genre
+            or "perfume" in genre
+            or "fragrance" in genre
+            or "perfume" in topic
+            or "fragrance" in topic
+            or "perfumery" in topic
+        ):
+            return SYSTEM_PROMPT_PERFUMERY
+        return SYSTEM_PROMPT_PERFUMERY
     if platform in {"youtube_shorts", "youtube"}:
         return SYSTEM_PROMPT_SCIENCE
     if platform == "tiktok":
         return SYSTEM_PROMPT_COMEDY
 
+    if "perfumery" in genre or "perfume" in genre or "fragrance" in genre:
+        return SYSTEM_PROMPT_PERFUMERY
     if "beauty" in genre or "skincare" in genre:
         return SYSTEM_PROMPT_BEAUTY
     if "science" in genre:
         return SYSTEM_PROMPT_SCIENCE
 
-    topic = str(kwargs.get("topic") or "").lower()
     if "science" in topic or "impossible" in topic:
         return SYSTEM_PROMPT_SCIENCE
+    if "perfume" in topic or "fragrance" in topic or "perfumery" in topic:
+        return SYSTEM_PROMPT_PERFUMERY
     return SYSTEM_PROMPT_COMEDY
 
 
@@ -530,24 +588,40 @@ def _build_openai_brief(
     brief["length_target"] = f"{STORY_FIRST_PROMPT_TARGET_MIN}-{STORY_FIRST_PROMPT_TARGET_MAX} characters"
     if int(total_clips) == 2:
         platform = str(target_platform or "").lower()
-        beauty_mode = platform in {"instagram_reels", "instagram"} or str(instagram_genre or "").lower() in {
-            "beauty",
-            "skincare",
-        }
+        genre = str(instagram_genre or "").lower()
+        topic_l = str(topic or "").lower()
+        perfumery_mode = (
+            platform in {"instagram_reels", "instagram"}
+            and (
+                genre in {"perfumery", "perfume", "fragrance"}
+                or any(token in topic_l for token in ("perfume", "fragrance", "perfumery"))
+                or genre not in {"beauty", "skincare"}
+            )
+        )
+        beauty_mode = (not perfumery_mode) and (
+            platform in {"instagram_reels", "instagram"}
+            or genre in {"beauty", "skincare"}
+        )
         science_mode = (
             platform in {"youtube_shorts", "youtube"}
             or str(youtube_genre or "").lower() == "science"
             or (
                 not beauty_mode
+                and not perfumery_mode
                 and not platform
                 and any(
-                    marker in str(topic or "").lower()
+                    marker in topic_l
                     for marker in ("science", "impossible", "physics", "brain", "quantum")
                 )
             )
         )
         if int(clip_index) <= 1:
-            if beauty_mode:
+            if perfumery_mode:
+                brief["clip_timing_structure"] = (
+                    "Clip 1 (15s) Ingredient+Origin+Scent: raw ingredient macro 0-5s, presenter names "
+                    "ingredient + origin + scent profile 5-15s, curiosity gap into perfume use"
+                )
+            elif beauty_mode:
                 brief["clip_timing_structure"] = (
                     "Clip 1 (15s) Ingredients+Mix: ingredient close-ups 0-5s, presenter names exact "
                     "quantities while mixing 5-15s, mixture ready to apply"
@@ -561,6 +635,12 @@ def _build_openai_brief(
                 brief["clip_timing_structure"] = (
                     "Clip 1 (15s) Hook+Setup: arresting visual 3s, build situation 10s, clear tension 2s"
                 )
+        elif perfumery_mode:
+            brief["clip_timing_structure"] = (
+                "Clip 2 (15s) Role+Famous Perfumes+Fun Fact+CTA: extraction/blending 8s, "
+                "famous perfume example + shocking fun fact 4s, presenter finishes then 2-3s "
+                "silent pause, HARD ENDING with fragrance-secrets CTA — NEVER mid-sentence"
+            )
         elif beauty_mode:
             brief["clip_timing_structure"] = (
                 "Clip 2 (15s) Apply+Result+CTA: application close-ups 8s, visible glow 4s, "
@@ -708,6 +788,7 @@ __all__ = [
     "validate_narrator_lines",
     "SYSTEM_PROMPT",
     "SYSTEM_PROMPT_BEAUTY",
+    "SYSTEM_PROMPT_PERFUMERY",
     "SYSTEM_PROMPT_SCIENCE",
     "try_write_story_first_prompt_openai",
     "get_openai_client",

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import shutil
 import time
 from pathlib import Path
 from typing import Any
@@ -60,6 +61,7 @@ from content_brain.automation.platform_upload_guard import (
     upload_platform_allowed,
     validate_topic_for_platform,
 )
+from content_brain.upload.media_video_resolver import verify_run_platform_for_upload
 
 AUTOMATION_PLATFORM_TOPIC_KEYS: dict[str, str] = {
     "youtube_shorts": "youtube_channel_topic",
@@ -69,7 +71,6 @@ AUTOMATION_PLATFORM_TOPIC_KEYS: dict[str, str] = {
 
 
 def _enforce_job_upload_targets(job: AutomationJob, platform: str) -> tuple[list[str], str]:
-    """Return upload targets that match the job platform only — never cross-upload."""
     job_platform = normalize_platform(
         platform or (job.platform_targets[0] if job.platform_targets else "")
     )
@@ -112,6 +113,188 @@ def _resolve_automation_channel_topic(profile: dict[str, Any], platform: str) ->
     if not topic and platform == "youtube_shorts":
         topic = str(profile.get("channel_topic") or "").strip()
     return topic
+
+
+def _block_upload_if_run_platform_mismatch(
+    *,
+    project_root: Path,
+    run_id: str,
+    job_platform: str,
+    upload_targets: list[str],
+) -> dict[str, Any] | None:
+    """Fail closed when run folder metadata platform does not match the job platform."""
+    normalized = normalize_platform(job_platform)
+    if normalized not in {"instagram_reels", "youtube_shorts", "tiktok"}:
+        return None
+    if not str(run_id or "").strip():
+        return None
+    ok_platform, reason, run_platform = verify_run_platform_for_upload(
+        project_root,
+        run_id,
+        job_platform=normalized,
+    )
+    if ok_platform:
+        return None
+    blocked_platforms = {
+        target: {
+            "ok": False,
+            "uploaded": False,
+            "status": "blocked",
+            "reason": reason,
+            "run_platform": run_platform,
+        }
+        for target in upload_targets
+    }
+    return {
+        "ok": False,
+        "skipped": True,
+        "reason": reason,
+        "run_platform": run_platform,
+        "platforms": blocked_platforms,
+    }
+
+
+def _platform_upload_succeeded(platform_uploads: dict[str, Any], platform_key: str) -> bool:
+    platforms = dict((platform_uploads or {}).get("platforms") or {})
+    entry = dict(platforms.get(platform_key) or {})
+    if not entry:
+        return False
+    if entry.get("ok") or entry.get("uploaded"):
+        status = str(entry.get("status") or "").lower()
+        if status in {"blocked", "failed"}:
+            return False
+        return True
+    return False
+
+
+def _should_cleanup_run_after_upload(platform_uploads: dict[str, Any]) -> bool:
+    """Cleanup when YouTube and/or Instagram upload succeeded."""
+    youtube_ok = _platform_upload_succeeded(platform_uploads, "youtube_shorts") or _platform_upload_succeeded(
+        platform_uploads, "youtube"
+    )
+    instagram_ok = _platform_upload_succeeded(platform_uploads, "instagram_reels") or _platform_upload_succeeded(
+        platform_uploads, "instagram"
+    )
+    return bool(youtube_ok or instagram_ok)
+
+
+def _cleanup_run_folder(
+    project_root: str | Path,
+    run_id: str,
+    *,
+    keep_thumbnail: bool = True,
+) -> dict[str, Any]:
+    """Delete raw pwmap run folder after successful upload; optionally preserve thumbnails."""
+    resolved_id = str(run_id or "").strip()
+    if not resolved_id.startswith("pwmap_"):
+        return {"ok": False, "reason": "invalid_run_id", "freed_mb": 0.0}
+
+    root = Path(project_root).resolve()
+    run_dir = root / "outputs" / "pwmap_agent_runs" / resolved_id
+    if not run_dir.is_dir():
+        return {"ok": False, "reason": "run_dir_missing", "freed_mb": 0.0}
+
+    size_bytes = 0
+    try:
+        size_bytes = sum(path.stat().st_size for path in run_dir.rglob("*") if path.is_file())
+    except OSError:
+        size_bytes = 0
+
+    preserved: list[str] = []
+    if keep_thumbnail:
+        thumb_dest_dir = root / "outputs" / "thumbnails"
+        thumb_dest_dir.mkdir(parents=True, exist_ok=True)
+        candidates: list[Path] = []
+        for pattern in ("**/*thumb*.jpg", "**/*thumbnail*.jpg", "**/*thumb*.png", "**/*thumbnail*.png"):
+            candidates.extend(run_dir.glob(pattern))
+        seen: set[str] = set()
+        for thumb in candidates:
+            key = str(thumb.resolve())
+            if key in seen or not thumb.is_file():
+                continue
+            seen.add(key)
+            dest = thumb_dest_dir / f"{resolved_id}_{thumb.name}"
+            try:
+                shutil.copy2(thumb, dest)
+                preserved.append(str(dest))
+            except OSError as exc:
+                logger.warning("Failed to preserve thumbnail %s: %s", thumb, exc)
+
+    shutil.rmtree(run_dir, ignore_errors=True)
+    freed_mb = size_bytes / (1024 * 1024)
+    still_exists = run_dir.exists()
+    logger.info(
+        "Cleaned up run folder: %s (%.1f MB freed, preserved_thumbs=%s)",
+        resolved_id,
+        freed_mb,
+        len(preserved),
+    )
+    return {
+        "ok": not still_exists,
+        "run_id": resolved_id,
+        "freed_mb": round(freed_mb, 1),
+        "preserved_thumbnails": preserved,
+        "reason": "deleted" if not still_exists else "delete_incomplete",
+    }
+
+
+def _enrich_youtube_thumbnail_after_upload(
+    *,
+    project_root: Path,
+    profile: dict[str, Any],
+    platform_uploads: dict[str, Any],
+    video_path: str,
+    title: str,
+) -> dict[str, Any]:
+    """Generate/upload thumbnail when YouTube upload succeeded but thumbnail was not attached yet."""
+    uploads = dict(platform_uploads or {})
+    yt = dict((uploads.get("platforms") or {}).get("youtube_shorts") or {})
+    if not (yt.get("ok") or yt.get("uploaded")):
+        return uploads
+    if yt.get("thumbnail_uploaded"):
+        return uploads
+
+    from content_brain.upload.youtube_uploader import extract_youtube_video_id
+
+    video_id = extract_youtube_video_id(
+        yt.get("video_id"),
+        yt.get("youtube_video_id"),
+        yt.get("video_url"),
+        yt.get("youtube_url"),
+        yt.get("post_url"),
+    )
+    path = str(video_path or uploads.get("video_path") or "")
+    existing_thumb = project_root / "outputs" / "thumbnails" / f"{video_id}.jpg" if video_id else None
+    if not video_id:
+        logger.warning("Thumbnail enrichment skipped — missing YouTube video_id")
+        return uploads
+    if (not path or not Path(path).is_file()) and not (existing_thumb and existing_thumb.is_file()):
+        logger.warning("Thumbnail enrichment skipped — missing video and existing thumbnail for %s", video_id)
+        return uploads
+
+    from content_brain.branding.thumbnail_generator import maybe_generate_and_upload_youtube_thumbnail
+
+    thumb = maybe_generate_and_upload_youtube_thumbnail(
+        project_root=project_root,
+        profile=profile,
+        video_path=path if path and Path(path).is_file() else str(existing_thumb or ""),
+        video_id=video_id,
+        title=title,
+    )
+    yt["video_id"] = video_id
+    yt["thumbnail_result"] = thumb
+    yt["thumbnail_path"] = str(thumb.get("thumbnail_path") or "")
+    yt["thumbnail_uploaded"] = bool(thumb.get("ok"))
+    uploads.setdefault("platforms", {})["youtube_shorts"] = yt
+    if thumb.get("ok"):
+        logger.info("Thumbnail uploaded: %s", thumb.get("thumbnail_path"))
+    else:
+        logger.warning(
+            "Thumbnail enrichment failed for %s: %s",
+            video_id,
+            (thumb.get("upload_result") or {}).get("reason") or thumb.get("reason") or thumb,
+        )
+    return uploads
 
 
 class AutomationJobRunner:
@@ -436,74 +619,104 @@ class AutomationJobRunner:
                 }
             elif not output_path and not publish_path:
                 output_path, publish_path = self._resolve_pwmap_output_paths(report or start_result)
-            upload_package = self.upload_manager.prepare_full_upload_workflow(
-                topic=channel_topic,
-                platform_targets=upload_targets,
-                video_path=output_path or publish_path,
-                publish_package_path=publish_path,
+
+            platform_mismatch = _block_upload_if_run_platform_mismatch(
+                project_root=self.project_root,
                 run_id=run_id,
-                use_openai=True,
-                automation_mode=True,
+                job_platform=platform,
+                upload_targets=upload_targets,
             )
-            _upload_debug("prepare_full_upload_workflow", upload_package)
-
-            from content_brain.automation.auto_platform_upload import submit_automation_platform_uploads
-
-            job_platform = normalize_platform(platform)
-            youtube_job = job_platform == "youtube_shorts"
-            instagram_job = job_platform == "instagram_reels"
-
-            if youtube_job and (yt_chain.get("uploaded") or yt_chain.get("ok")):
-                platform_uploads = {
-                    "ok": True,
-                    "platforms": {
-                        "youtube_shorts": {
-                            "ok": True,
-                            "uploaded": True,
-                            "status": "already_uploaded",
-                            "post_url": str(yt_chain.get("youtube_url") or yt_chain.get("video_url") or ""),
-                        }
-                    },
-                    "video_path": output_path or publish_path,
-                }
-                _upload_debug("platform_uploads_already_uploaded", platform_uploads)
-            elif instagram_job and yt_chain.get("uploaded"):
-                logger.error(
-                    "Ignoring cross-platform YouTube upload for Instagram job %s run_id=%s",
-                    job.job_id,
-                    run_id,
-                )
-                platform_uploads = submit_automation_platform_uploads(
-                    project_root=self.project_root,
-                    platform_targets=upload_targets,
-                    video_path=output_path or publish_path,
-                    publish_package_path=publish_path,
-                    upload_package=upload_package,
-                    run_id=run_id,
-                    topic=channel_topic,
-                    automation_mode=True,
-                    job_platform=platform,
-                    generation_report=report or start_result,
-                    skip_youtube_if_already_uploaded=True,
-                )
-                _upload_debug("submit_automation_platform_uploads", platform_uploads)
+            if platform_mismatch:
+                platform_uploads = platform_mismatch
+                _upload_debug("run_platform_mismatch_blocked", platform_uploads)
             else:
-                platform_uploads = submit_automation_platform_uploads(
-                    project_root=self.project_root,
+                upload_package = self.upload_manager.prepare_full_upload_workflow(
+                    topic=channel_topic,
                     platform_targets=upload_targets,
                     video_path=output_path or publish_path,
                     publish_package_path=publish_path,
-                    upload_package=upload_package,
                     run_id=run_id,
-                    topic=channel_topic,
+                    use_openai=True,
                     automation_mode=True,
-                    job_platform=platform,
-                    generation_report=report or start_result,
-                    skip_youtube_if_already_uploaded=youtube_job,
                 )
-                if not platform_uploads.get("ok") and youtube_job and yt_chain.get("blocked_reason"):
-                    platform_uploads["publish_chain_blocked_reason"] = yt_chain.get("blocked_reason")
-                _upload_debug("submit_automation_platform_uploads", platform_uploads)
+                _upload_debug("prepare_full_upload_workflow", upload_package)
+
+                from content_brain.automation.auto_platform_upload import submit_automation_platform_uploads
+
+                job_platform = normalize_platform(platform)
+                youtube_job = job_platform == "youtube_shorts"
+                instagram_job = job_platform == "instagram_reels"
+
+                if youtube_job and (yt_chain.get("uploaded") or yt_chain.get("ok")):
+                    platform_uploads = {
+                        "ok": True,
+                        "platforms": {
+                            "youtube_shorts": {
+                                "ok": True,
+                                "uploaded": True,
+                                "status": "already_uploaded",
+                                "post_url": str(yt_chain.get("youtube_url") or yt_chain.get("video_url") or ""),
+                            }
+                        },
+                        "video_path": output_path or publish_path,
+                    }
+                    _upload_debug("platform_uploads_already_uploaded", platform_uploads)
+                elif instagram_job and yt_chain.get("uploaded"):
+                    logger.error(
+                        "Ignoring cross-platform YouTube upload for Instagram job %s run_id=%s",
+                        job.job_id,
+                        run_id,
+                    )
+                    platform_uploads = submit_automation_platform_uploads(
+                        project_root=self.project_root,
+                        platform_targets=upload_targets,
+                        video_path=output_path or publish_path,
+                        publish_package_path=publish_path,
+                        upload_package=upload_package,
+                        run_id=run_id,
+                        topic=channel_topic,
+                        automation_mode=True,
+                        job_platform=platform,
+                        generation_report=report or start_result,
+                        skip_youtube_if_already_uploaded=True,
+                    )
+                    _upload_debug("submit_automation_platform_uploads", platform_uploads)
+                else:
+                    platform_uploads = submit_automation_platform_uploads(
+                        project_root=self.project_root,
+                        platform_targets=upload_targets,
+                        video_path=output_path or publish_path,
+                        publish_package_path=publish_path,
+                        upload_package=upload_package,
+                        run_id=run_id,
+                        topic=channel_topic,
+                        automation_mode=True,
+                        job_platform=platform,
+                        generation_report=report or start_result,
+                        skip_youtube_if_already_uploaded=youtube_job,
+                    )
+                    if not platform_uploads.get("ok") and youtube_job and yt_chain.get("blocked_reason"):
+                        platform_uploads["publish_chain_blocked_reason"] = yt_chain.get("blocked_reason")
+                    _upload_debug("submit_automation_platform_uploads", platform_uploads)
+
+                if youtube_job and isinstance(platform_uploads, dict) and not platform_uploads.get("skipped"):
+                    platform_uploads = _enrich_youtube_thumbnail_after_upload(
+                        project_root=self.project_root,
+                        profile=profile,
+                        platform_uploads=platform_uploads,
+                        video_path=output_path or publish_path,
+                        title=channel_topic,
+                    )
+                    _upload_debug("youtube_thumbnail_enriched", platform_uploads)
+
+                if (
+                    isinstance(platform_uploads, dict)
+                    and not platform_uploads.get("skipped")
+                    and _should_cleanup_run_after_upload(platform_uploads)
+                ):
+                    cleanup_result = self._cleanup_run_folder(run_id, keep_thumbnail=True)
+                    platform_uploads["run_cleanup"] = cleanup_result
+                    _upload_debug("run_folder_cleanup", cleanup_result)
 
         final_result = {
             "ok": True,
@@ -518,6 +731,9 @@ class AutomationJobRunner:
         }
         _upload_debug("_execute_job_complete", final_result)
         return final_result
+
+    def _cleanup_run_folder(self, run_id: str, keep_thumbnail: bool = True) -> dict[str, Any]:
+        return _cleanup_run_folder(self.project_root, run_id, keep_thumbnail=keep_thumbnail)
 
     def _is_pwmap_browser_result(self, result: dict[str, Any]) -> bool:
         if result.get("browser_automation") or result.get("skip_credit_guard"):
