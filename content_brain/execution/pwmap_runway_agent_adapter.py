@@ -100,13 +100,18 @@ def _openai_kwargs_from_clip(
         str(clip.get("character_continuity") or ""),
         flags=re.IGNORECASE,
     )
-    cast = cast_match.group(1).strip() if cast_match else "the science presenter"
+    cast = cast_match.group(1).strip() if cast_match else (
+        "the fragrance educator" if "instagram" in platform.lower() else "the science presenter"
+    )
     env_match = re.search(
         r"Same (.+?);",
         str(clip.get("environment_continuity") or ""),
         flags=re.IGNORECASE,
     )
-    environment = env_match.group(1).strip() if env_match else str(preflight.get("environment") or "science studio")
+    environment = env_match.group(1).strip() if env_match else str(
+        preflight.get("environment")
+        or ("elegant fragrance atelier" if "instagram" in platform.lower() else "science studio")
+    )
     directives = clip.get("native_audio_directives") or {}
     directives_summary = ""
     if isinstance(directives, dict):
@@ -178,8 +183,15 @@ def _regenerate_prompt_for_kling_safety(
     safety_feedback = (
         f"{blocked_reason}. Kling 3.0 Pro blocked this prompt. "
         "Rewrite using CONTENT SAFETY RULES: no skin/body/flesh references, no body scans on a person, "
-        "no romantic language, no 'glowing right now'. Use molecular diagrams, holographic science visuals, "
-        "and presenter gestures only — never describe her body."
+        "no romantic language, no 'glowing right now'. "
+        + (
+            "Use elegant fragrance visuals — macro ingredients, resins, perfume bottles, atelier lighting — "
+            "and presenter gestures only — never describe her body."
+            if "instagram" in str(preflight.get("platform") or "").lower()
+            else
+            "Use molecular diagrams, holographic science visuals, "
+            "and presenter gestures only — never describe her body."
+        )
     )
 
     for attempt in range(1, KLING_SAFETY_MAX_RETRIES + 1):

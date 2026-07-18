@@ -514,10 +514,14 @@ class AutomationJobRunner:
         }
         if platform == "youtube_shorts":
             payload["youtube_channel_topic"] = channel_topic
+            payload["youtube_genre"] = str(profile.get("youtube_genre") or "science")
         elif platform == "instagram_reels":
             payload["instagram_channel_topic"] = channel_topic
+            payload["instagram_genre"] = str(profile.get("instagram_genre") or "perfumery")
+            payload["instagram_channel_brief"] = channel_topic
         elif platform == "tiktok":
             payload["tiktok_channel_topic"] = channel_topic
+            payload["tiktok_genre"] = str(profile.get("tiktok_genre") or "entertainment")
         logger.info(
             "Automation job starting platform=%s clip_count=%s topic=%s",
             platform,

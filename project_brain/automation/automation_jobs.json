@@ -2,7 +2,7 @@
   "version": "automation_queue_v1",
   "jobs": [
     {
-      "job_id": "auto_7138c20d7ccd",
+      "job_id": "auto_1520f4fb7b2e",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -11,18 +11,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:42:29.084199+00:00",
-      "updated_at": "2026-07-15T05:42:59.175640+00:00"
+      "created_at": "2026-07-18T20:45:35.879732+00:00",
+      "updated_at": "2026-07-18T20:45:35.939630+00:00"
     },
     {
-      "job_id": "auto_9fad8578dded",
+      "job_id": "auto_7f4f2eb93803",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -31,18 +31,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:42:29.101220+00:00",
-      "updated_at": "2026-07-15T05:42:59.185628+00:00"
+      "created_at": "2026-07-18T20:45:35.885731+00:00",
+      "updated_at": "2026-07-18T20:45:35.946634+00:00"
     },
     {
-      "job_id": "auto_e6aa581a345c",
+      "job_id": "auto_64f4b45324fa",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -51,78 +51,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:42:59.213611+00:00",
-      "updated_at": "2026-07-15T05:43:29.279587+00:00"
+      "created_at": "2026-07-18T20:45:35.892726+00:00",
+      "updated_at": "2026-07-18T20:45:35.954636+00:00"
     },
     {
-      "job_id": "auto_eba20c6df987",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_4d3adf8e6418",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:42:59.227201+00:00",
-      "updated_at": "2026-07-15T05:43:29.290594+00:00"
+      "created_at": "2026-07-18T20:45:35.902731+00:00",
+      "updated_at": "2026-07-18T20:45:35.963143+00:00"
     },
     {
-      "job_id": "auto_91b779f48820",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_2c14b94126f2",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:42:59.240214+00:00",
-      "updated_at": "2026-07-15T05:43:29.299612+00:00"
+      "created_at": "2026-07-18T20:45:35.910886+00:00",
+      "updated_at": "2026-07-18T20:45:35.970793+00:00"
     },
     {
-      "job_id": "auto_494a003077bc",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_7343efbd05ee",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:43:29.327853+00:00",
-      "updated_at": "2026-07-15T05:43:59.404460+00:00"
+      "created_at": "2026-07-18T20:45:35.919885+00:00",
+      "updated_at": "2026-07-18T20:45:35.972301+00:00"
     },
     {
-      "job_id": "auto_9b6a36d3da9f",
+      "job_id": "auto_41855738377b",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -131,18 +131,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:43:29.340858+00:00",
-      "updated_at": "2026-07-15T05:43:59.415737+00:00"
+      "created_at": "2026-07-18T20:45:36.056323+00:00",
+      "updated_at": "2026-07-18T20:57:35.825117+00:00"
     },
     {
-      "job_id": "auto_261ba6f3830d",
+      "job_id": "auto_18b117e4779c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -151,18 +151,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:43:29.353057+00:00",
-      "updated_at": "2026-07-15T05:43:59.425323+00:00"
+      "created_at": "2026-07-18T20:45:36.062583+00:00",
+      "updated_at": "2026-07-18T20:46:12.985200+00:00"
     },
     {
-      "job_id": "auto_86cc572b7a67",
+      "job_id": "auto_6ca02c464b49",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -171,78 +171,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:43:59.453829+00:00",
-      "updated_at": "2026-07-15T05:44:29.523722+00:00"
+      "created_at": "2026-07-18T20:45:36.069584+00:00",
+      "updated_at": "2026-07-18T20:46:12.991211+00:00"
     },
     {
-      "job_id": "auto_75d1172e8681",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_7ac7dbce4fd9",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:43:59.469886+00:00",
-      "updated_at": "2026-07-15T05:44:29.534736+00:00"
+      "created_at": "2026-07-18T20:45:36.075583+00:00",
+      "updated_at": "2026-07-18T20:46:12.918803+00:00"
     },
     {
-      "job_id": "auto_a5147273709e",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_1e4c7cdd8e0a",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:43:59.485886+00:00",
-      "updated_at": "2026-07-15T05:44:29.544736+00:00"
+      "created_at": "2026-07-18T20:45:36.082583+00:00",
+      "updated_at": "2026-07-18T20:46:12.925702+00:00"
     },
     {
-      "job_id": "auto_370149911138",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_9658fc96b9ef",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:44:29.573366+00:00",
-      "updated_at": "2026-07-15T05:44:59.638970+00:00"
+      "created_at": "2026-07-18T20:45:36.088583+00:00",
+      "updated_at": "2026-07-18T20:46:12.932700+00:00"
     },
     {
-      "job_id": "auto_fd169515f434",
+      "job_id": "auto_7c207b131394",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -251,78 +251,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:44:29.586373+00:00",
-      "updated_at": "2026-07-15T05:44:59.648977+00:00"
+      "created_at": "2026-07-18T20:46:12.950701+00:00",
+      "updated_at": "2026-07-18T20:46:12.997206+00:00"
     },
     {
-      "job_id": "auto_b3f8cc3e900c",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_b9c2d0c61db0",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:44:29.599378+00:00",
-      "updated_at": "2026-07-15T05:44:59.658531+00:00"
+      "created_at": "2026-07-18T20:46:12.957701+00:00",
+      "updated_at": "2026-07-18T20:46:13.005207+00:00"
     },
     {
-      "job_id": "auto_83a3b3228137",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_8e2cd7732c2f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:44:59.686294+00:00",
-      "updated_at": "2026-07-15T05:45:29.759653+00:00"
+      "created_at": "2026-07-18T20:46:12.964210+00:00",
+      "updated_at": "2026-07-18T20:46:13.011718+00:00"
     },
     {
-      "job_id": "auto_19fd28fb2aee",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_5652a594f253",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:44:59.700312+00:00",
-      "updated_at": "2026-07-15T05:45:29.769817+00:00"
+      "created_at": "2026-07-18T20:46:12.971212+00:00",
+      "updated_at": "2026-07-18T20:46:13.018454+00:00"
     },
     {
-      "job_id": "auto_5aa126e30f4e",
+      "job_id": "auto_c999d3ecd634",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -330,19 +330,19 @@
       "platform_targets": [
         "youtube_shorts"
       ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "status": "planned",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:44:59.712858+00:00",
-      "updated_at": "2026-07-15T05:45:29.779334+00:00"
+      "error": "",
+      "created_at": "2026-07-18T20:46:14.999418+00:00",
+      "updated_at": "2026-07-18T21:09:23.905769+00:00"
     },
     {
-      "job_id": "auto_bf8f3ca5b861",
+      "job_id": "auto_9b668c2fd3ae",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -351,18 +351,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:45:29.806854+00:00",
-      "updated_at": "2026-07-15T05:45:59.883026+00:00"
+      "created_at": "2026-07-18T20:46:15.005424+00:00",
+      "updated_at": "2026-07-18T20:56:30.362782+00:00"
     },
     {
-      "job_id": "auto_86e21ab5df2b",
+      "job_id": "auto_3e91afb7cfa1",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -371,78 +371,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:45:29.819389+00:00",
-      "updated_at": "2026-07-15T05:45:59.894018+00:00"
+      "created_at": "2026-07-18T20:46:15.011946+00:00",
+      "updated_at": "2026-07-18T20:56:30.368852+00:00"
     },
     {
-      "job_id": "auto_376c8f58ef12",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_7ecef3168934",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:45:29.832916+00:00",
-      "updated_at": "2026-07-15T05:45:59.903023+00:00"
+      "created_at": "2026-07-18T20:46:15.018823+00:00",
+      "updated_at": "2026-07-18T20:56:30.382312+00:00"
     },
     {
-      "job_id": "auto_b6df2718af85",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_72d2ac2e7b0b",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:45:59.932456+00:00",
-      "updated_at": "2026-07-15T05:46:30.000636+00:00"
+      "created_at": "2026-07-18T20:46:15.024820+00:00",
+      "updated_at": "2026-07-18T20:56:30.389110+00:00"
     },
     {
-      "job_id": "auto_b60337204bcd",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_792ad550f244",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:45:59.945453+00:00",
-      "updated_at": "2026-07-15T05:46:30.011304+00:00"
+      "created_at": "2026-07-18T20:46:15.030813+00:00",
+      "updated_at": "2026-07-18T20:56:30.395716+00:00"
     },
     {
-      "job_id": "auto_ad21057a087a",
+      "job_id": "auto_5a08defc2561",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -451,18 +451,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:45:59.958454+00:00",
-      "updated_at": "2026-07-15T05:46:30.022396+00:00"
+      "created_at": "2026-07-18T20:56:30.419467+00:00",
+      "updated_at": "2026-07-18T20:56:30.477094+00:00"
     },
     {
-      "job_id": "auto_5cd68eb487aa",
+      "job_id": "auto_8d261d445325",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -471,78 +471,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:46:30.050401+00:00",
-      "updated_at": "2026-07-15T05:47:00.117734+00:00"
+      "created_at": "2026-07-18T20:56:30.427176+00:00",
+      "updated_at": "2026-07-18T20:56:30.484885+00:00"
     },
     {
-      "job_id": "auto_faf218632238",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_4db56757c360",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:46:30.064415+00:00",
-      "updated_at": "2026-07-15T05:47:00.128296+00:00"
+      "created_at": "2026-07-18T20:56:30.434923+00:00",
+      "updated_at": "2026-07-18T20:56:30.495063+00:00"
     },
     {
-      "job_id": "auto_e39e7b14122e",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ffbed301052e",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:46:30.078520+00:00",
-      "updated_at": "2026-07-15T05:47:00.139291+00:00"
+      "created_at": "2026-07-18T20:56:30.443542+00:00",
+      "updated_at": "2026-07-18T20:56:30.504309+00:00"
     },
     {
-      "job_id": "auto_9ec263ac5311",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_a516463a17dd",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:47:00.168512+00:00",
-      "updated_at": "2026-07-15T05:47:30.235201+00:00"
+      "created_at": "2026-07-18T20:56:30.451589+00:00",
+      "updated_at": "2026-07-18T20:56:30.512972+00:00"
     },
     {
-      "job_id": "auto_389b5089a7ff",
+      "job_id": "auto_d04641c82d40",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -551,18 +551,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:47:00.180897+00:00",
-      "updated_at": "2026-07-15T05:47:30.245192+00:00"
+      "created_at": "2026-07-18T20:57:05.603060+00:00",
+      "updated_at": "2026-07-18T20:57:05.674306+00:00"
     },
     {
-      "job_id": "auto_182a2a83857b",
+      "job_id": "auto_ddbc3f8e13dd",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -571,78 +571,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:47:00.193897+00:00",
-      "updated_at": "2026-07-15T05:47:30.255198+00:00"
+      "created_at": "2026-07-18T20:57:05.614053+00:00",
+      "updated_at": "2026-07-18T20:57:05.684306+00:00"
     },
     {
-      "job_id": "auto_ffcaf646b122",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_3ca785c85ce8",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:47:30.283831+00:00",
-      "updated_at": "2026-07-15T05:48:00.362599+00:00"
+      "created_at": "2026-07-18T20:57:05.625056+00:00",
+      "updated_at": "2026-07-18T20:57:05.697505+00:00"
     },
     {
-      "job_id": "auto_f9b0642fca11",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_650705a3e249",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:47:30.296835+00:00",
-      "updated_at": "2026-07-15T05:48:00.373408+00:00"
+      "created_at": "2026-07-18T20:57:05.635578+00:00",
+      "updated_at": "2026-07-18T20:57:05.707506+00:00"
     },
     {
-      "job_id": "auto_ca7f51003e4c",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_7ca076337a1a",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:47:30.308967+00:00",
-      "updated_at": "2026-07-15T05:48:00.383416+00:00"
+      "created_at": "2026-07-18T20:57:05.646310+00:00",
+      "updated_at": "2026-07-18T20:57:05.717516+00:00"
     },
     {
-      "job_id": "auto_159445673b13",
+      "job_id": "auto_469a9d9f0702",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -651,78 +651,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:48:00.413289+00:00",
-      "updated_at": "2026-07-15T05:48:30.479232+00:00"
+      "created_at": "2026-07-18T20:57:35.787109+00:00",
+      "updated_at": "2026-07-18T20:57:35.831624+00:00"
     },
     {
-      "job_id": "auto_d059451a1102",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_fb211875b895",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:48:00.426290+00:00",
-      "updated_at": "2026-07-15T05:48:30.490232+00:00"
+      "created_at": "2026-07-18T20:57:35.795113+00:00",
+      "updated_at": "2026-07-18T20:57:35.839150+00:00"
     },
     {
-      "job_id": "auto_0e5dd2260106",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_7dc584522ad8",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:48:00.440289+00:00",
-      "updated_at": "2026-07-15T05:48:30.499238+00:00"
+      "created_at": "2026-07-18T20:57:35.802121+00:00",
+      "updated_at": "2026-07-18T20:57:35.845149+00:00"
     },
     {
-      "job_id": "auto_fe31cb59b292",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ac1a5fc1caaa",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:48:30.527347+00:00",
-      "updated_at": "2026-07-15T05:49:00.607001+00:00"
+      "created_at": "2026-07-18T20:57:35.809114+00:00",
+      "updated_at": "2026-07-18T20:57:35.851956+00:00"
     },
     {
-      "job_id": "auto_076fbc261618",
+      "job_id": "auto_fb311371e392",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -731,18 +731,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:48:30.541346+00:00",
-      "updated_at": "2026-07-15T05:49:00.619522+00:00"
+      "created_at": "2026-07-18T20:58:05.903477+00:00",
+      "updated_at": "2026-07-18T20:58:05.946774+00:00"
     },
     {
-      "job_id": "auto_0fdfd92740f1",
+      "job_id": "auto_879faf7a42c9",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -751,78 +751,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:48:30.554351+00:00",
-      "updated_at": "2026-07-15T05:49:00.631133+00:00"
+      "created_at": "2026-07-18T20:58:05.910476+00:00",
+      "updated_at": "2026-07-18T20:58:05.952777+00:00"
     },
     {
-      "job_id": "auto_a9115633f8c5",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_c89c2780f785",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:49:00.666304+00:00",
-      "updated_at": "2026-07-15T05:49:30.744849+00:00"
+      "created_at": "2026-07-18T20:58:05.917477+00:00",
+      "updated_at": "2026-07-18T20:58:05.959776+00:00"
     },
     {
-      "job_id": "auto_08ee424fd400",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_6182bd3d6957",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:49:00.682924+00:00",
-      "updated_at": "2026-07-15T05:49:30.756273+00:00"
+      "created_at": "2026-07-18T20:58:05.924483+00:00",
+      "updated_at": "2026-07-18T20:58:05.965784+00:00"
     },
     {
-      "job_id": "auto_f0d38060c69a",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ca3952ec71b2",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:49:00.699446+00:00",
-      "updated_at": "2026-07-15T05:49:30.765594+00:00"
+      "created_at": "2026-07-18T20:58:05.931490+00:00",
+      "updated_at": "2026-07-18T20:58:05.970777+00:00"
     },
     {
-      "job_id": "auto_f445e697b306",
+      "job_id": "auto_b85440811ca3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -831,18 +831,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:49:30.793155+00:00",
-      "updated_at": "2026-07-15T05:50:00.866234+00:00"
+      "created_at": "2026-07-18T20:58:36.020765+00:00",
+      "updated_at": "2026-07-18T20:58:36.073434+00:00"
     },
     {
-      "job_id": "auto_f3d5d6001f35",
+      "job_id": "auto_88ebcaec5479",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -851,78 +851,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:49:30.806169+00:00",
-      "updated_at": "2026-07-15T05:50:00.876077+00:00"
+      "created_at": "2026-07-18T20:58:36.028779+00:00",
+      "updated_at": "2026-07-18T20:58:36.081433+00:00"
     },
     {
-      "job_id": "auto_8b28f29d43b4",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ea30908edbb7",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:49:30.820699+00:00",
-      "updated_at": "2026-07-15T05:50:00.885078+00:00"
+      "created_at": "2026-07-18T20:58:36.038275+00:00",
+      "updated_at": "2026-07-18T20:58:36.088962+00:00"
     },
     {
-      "job_id": "auto_3d444bfea834",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_f48a172a4c68",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:50:00.914449+00:00",
-      "updated_at": "2026-07-15T05:50:30.994599+00:00"
+      "created_at": "2026-07-18T20:58:36.046407+00:00",
+      "updated_at": "2026-07-18T20:58:36.096946+00:00"
     },
     {
-      "job_id": "auto_8db197562446",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_2a15493e6e67",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:50:00.927464+00:00",
-      "updated_at": "2026-07-15T05:50:31.005022+00:00"
+      "created_at": "2026-07-18T20:58:36.054404+00:00",
+      "updated_at": "2026-07-18T20:58:36.104242+00:00"
     },
     {
-      "job_id": "auto_6849fa48a731",
+      "job_id": "auto_3ba264d595cd",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -931,18 +931,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:50:00.941865+00:00",
-      "updated_at": "2026-07-15T05:50:31.014716+00:00"
+      "created_at": "2026-07-18T20:59:06.151293+00:00",
+      "updated_at": "2026-07-18T20:59:06.200917+00:00"
     },
     {
-      "job_id": "auto_164c91e4c90f",
+      "job_id": "auto_63475348ba81",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -951,78 +951,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:50:31.042629+00:00",
-      "updated_at": "2026-07-15T05:51:01.147902+00:00"
+      "created_at": "2026-07-18T20:59:06.159294+00:00",
+      "updated_at": "2026-07-18T20:59:06.207916+00:00"
     },
     {
-      "job_id": "auto_6b3b1db22fd4",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_2029526c8cd3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:50:31.093751+00:00",
-      "updated_at": "2026-07-15T05:51:01.158988+00:00"
+      "created_at": "2026-07-18T20:59:06.167294+00:00",
+      "updated_at": "2026-07-18T20:59:06.215917+00:00"
     },
     {
-      "job_id": "auto_c08d688d4473",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ec8258d050b4",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:50:31.106448+00:00",
-      "updated_at": "2026-07-15T05:51:01.168565+00:00"
+      "created_at": "2026-07-18T20:59:06.175299+00:00",
+      "updated_at": "2026-07-18T20:59:06.224921+00:00"
     },
     {
-      "job_id": "auto_b77888647d6d",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_233a6d851587",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:51:01.196717+00:00",
-      "updated_at": "2026-07-15T05:51:31.260640+00:00"
+      "created_at": "2026-07-18T20:59:06.182298+00:00",
+      "updated_at": "2026-07-18T20:59:06.230921+00:00"
     },
     {
-      "job_id": "auto_a5e1d075acb3",
+      "job_id": "auto_5eed25b950fb",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1031,18 +1031,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:51:01.210727+00:00",
-      "updated_at": "2026-07-15T05:51:31.271968+00:00"
+      "created_at": "2026-07-18T20:59:36.274849+00:00",
+      "updated_at": "2026-07-18T20:59:36.323044+00:00"
     },
     {
-      "job_id": "auto_c543d41de6d1",
+      "job_id": "auto_ddd83dbe8b7c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1051,78 +1051,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:51:01.223767+00:00",
-      "updated_at": "2026-07-15T05:51:31.280889+00:00"
+      "created_at": "2026-07-18T20:59:36.282854+00:00",
+      "updated_at": "2026-07-18T20:59:36.330040+00:00"
     },
     {
-      "job_id": "auto_79310351f3d9",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_0154b3b2be7e",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:51:31.309049+00:00",
-      "updated_at": "2026-07-15T05:52:01.383859+00:00"
+      "created_at": "2026-07-18T20:59:36.290372+00:00",
+      "updated_at": "2026-07-18T20:59:36.337550+00:00"
     },
     {
-      "job_id": "auto_ff547b0afbbe",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_cc911c96cc1e",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:51:31.321274+00:00",
-      "updated_at": "2026-07-15T05:52:01.394853+00:00"
+      "created_at": "2026-07-18T20:59:36.297043+00:00",
+      "updated_at": "2026-07-18T20:59:36.344871+00:00"
     },
     {
-      "job_id": "auto_9881fb1fb8aa",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_5755b234f34b",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:51:31.335269+00:00",
-      "updated_at": "2026-07-15T05:52:01.404855+00:00"
+      "created_at": "2026-07-18T20:59:36.305036+00:00",
+      "updated_at": "2026-07-18T20:59:36.350873+00:00"
     },
     {
-      "job_id": "auto_a7b8566ed2f2",
+      "job_id": "auto_5b25989deff8",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1131,18 +1131,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:52:01.433187+00:00",
-      "updated_at": "2026-07-15T05:52:31.513489+00:00"
+      "created_at": "2026-07-18T21:00:06.397282+00:00",
+      "updated_at": "2026-07-18T21:00:06.446884+00:00"
     },
     {
-      "job_id": "auto_6512d1d8ee6a",
+      "job_id": "auto_5133bb03b11f",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1151,78 +1151,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:52:01.446169+00:00",
-      "updated_at": "2026-07-15T05:52:31.524136+00:00"
+      "created_at": "2026-07-18T21:00:06.405218+00:00",
+      "updated_at": "2026-07-18T21:00:06.453731+00:00"
     },
     {
-      "job_id": "auto_671a39620463",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_5660979c6bf7",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:52:01.459179+00:00",
-      "updated_at": "2026-07-15T05:52:31.533137+00:00"
+      "created_at": "2026-07-18T21:00:06.413232+00:00",
+      "updated_at": "2026-07-18T21:00:06.461732+00:00"
     },
     {
-      "job_id": "auto_567242f03a87",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_c7e1c7cdbdb9",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:52:31.561142+00:00",
-      "updated_at": "2026-07-15T05:53:01.632804+00:00"
+      "created_at": "2026-07-18T21:00:06.420368+00:00",
+      "updated_at": "2026-07-18T21:00:06.468734+00:00"
     },
     {
-      "job_id": "auto_9b1b3c160c2a",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ab9ac04f2b0b",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:52:31.575158+00:00",
-      "updated_at": "2026-07-15T05:53:01.643265+00:00"
+      "created_at": "2026-07-18T21:00:06.428373+00:00",
+      "updated_at": "2026-07-18T21:00:06.474732+00:00"
     },
     {
-      "job_id": "auto_444b9d58a43b",
+      "job_id": "auto_d4e0a78c290e",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1231,18 +1231,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:52:31.589159+00:00",
-      "updated_at": "2026-07-15T05:53:01.652735+00:00"
+      "created_at": "2026-07-18T21:00:36.515376+00:00",
+      "updated_at": "2026-07-18T21:00:36.574753+00:00"
     },
     {
-      "job_id": "auto_fd9545dc5115",
+      "job_id": "auto_2a159aa13ee2",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1251,78 +1251,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:53:01.681972+00:00",
-      "updated_at": "2026-07-15T05:53:31.762854+00:00"
+      "created_at": "2026-07-18T21:00:36.523376+00:00",
+      "updated_at": "2026-07-18T21:00:36.581757+00:00"
     },
     {
-      "job_id": "auto_e8161f80062a",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_cb7b8a53751c",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:53:01.693964+00:00",
-      "updated_at": "2026-07-15T05:53:31.773378+00:00"
+      "created_at": "2026-07-18T21:00:36.531409+00:00",
+      "updated_at": "2026-07-18T21:00:36.589758+00:00"
     },
     {
-      "job_id": "auto_709a6b2f06a9",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_f8fc0162f15d",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:53:01.706903+00:00",
-      "updated_at": "2026-07-15T05:53:31.782387+00:00"
+      "created_at": "2026-07-18T21:00:36.539410+00:00",
+      "updated_at": "2026-07-18T21:00:36.597263+00:00"
     },
     {
-      "job_id": "auto_9bf61e23ca23",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_fa0048134542",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:53:31.810657+00:00",
-      "updated_at": "2026-07-15T05:54:01.880324+00:00"
+      "created_at": "2026-07-18T21:00:36.553752+00:00",
+      "updated_at": "2026-07-18T21:00:36.604135+00:00"
     },
     {
-      "job_id": "auto_56da0e3edb9e",
+      "job_id": "auto_9c3989012414",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1331,18 +1331,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:53:31.823580+00:00",
-      "updated_at": "2026-07-15T05:54:01.893326+00:00"
+      "created_at": "2026-07-18T21:01:06.668841+00:00",
+      "updated_at": "2026-07-18T21:01:06.737044+00:00"
     },
     {
-      "job_id": "auto_504295188938",
+      "job_id": "auto_b56e00a8ab55",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1351,78 +1351,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:53:31.836524+00:00",
-      "updated_at": "2026-07-15T05:54:01.906329+00:00"
+      "created_at": "2026-07-18T21:01:06.681853+00:00",
+      "updated_at": "2026-07-18T21:01:06.744548+00:00"
     },
     {
-      "job_id": "auto_e8414958944c",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_2f0fb39ba3c4",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:54:01.940578+00:00",
-      "updated_at": "2026-07-15T05:54:32.023572+00:00"
+      "created_at": "2026-07-18T21:01:06.693851+00:00",
+      "updated_at": "2026-07-18T21:01:06.753557+00:00"
     },
     {
-      "job_id": "auto_11094088d885",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_148d5402f369",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:54:01.956583+00:00",
-      "updated_at": "2026-07-15T05:54:32.033985+00:00"
+      "created_at": "2026-07-18T21:01:06.704045+00:00",
+      "updated_at": "2026-07-18T21:01:06.760558+00:00"
     },
     {
-      "job_id": "auto_e30a3dbf7730",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_f0e481cf20ca",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:54:01.972607+00:00",
-      "updated_at": "2026-07-15T05:54:32.042986+00:00"
+      "created_at": "2026-07-18T21:01:06.716038+00:00",
+      "updated_at": "2026-07-18T21:01:06.768026+00:00"
     },
     {
-      "job_id": "auto_815f3b97b71e",
+      "job_id": "auto_f340c786fdd3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1431,18 +1431,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:54:32.071876+00:00",
-      "updated_at": "2026-07-15T05:55:02.143468+00:00"
+      "created_at": "2026-07-18T21:01:36.815927+00:00",
+      "updated_at": "2026-07-18T21:01:36.876166+00:00"
     },
     {
-      "job_id": "auto_98920f4f48c1",
+      "job_id": "auto_41c84f93f4ce",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1451,78 +1451,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:54:32.085656+00:00",
-      "updated_at": "2026-07-15T05:55:02.154055+00:00"
+      "created_at": "2026-07-18T21:01:36.825929+00:00",
+      "updated_at": "2026-07-18T21:01:36.883749+00:00"
     },
     {
-      "job_id": "auto_1c38c4a4b782",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_09cae9bf0d74",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:54:32.098292+00:00",
-      "updated_at": "2026-07-15T05:55:02.163550+00:00"
+      "created_at": "2026-07-18T21:01:36.834935+00:00",
+      "updated_at": "2026-07-18T21:01:36.892251+00:00"
     },
     {
-      "job_id": "auto_a7b874dc7170",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_15d18a1dc000",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:55:02.193039+00:00",
-      "updated_at": "2026-07-15T05:55:32.262614+00:00"
+      "created_at": "2026-07-18T21:01:36.843935+00:00",
+      "updated_at": "2026-07-18T21:01:36.899684+00:00"
     },
     {
-      "job_id": "auto_a8f2c2c26d06",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_ae18c31fe135",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:55:02.205993+00:00",
-      "updated_at": "2026-07-15T05:55:32.273025+00:00"
+      "created_at": "2026-07-18T21:01:36.852817+00:00",
+      "updated_at": "2026-07-18T21:01:36.906683+00:00"
     },
     {
-      "job_id": "auto_5cf5927dec31",
+      "job_id": "auto_97a5544bc977",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1531,18 +1531,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:55:02.219025+00:00",
-      "updated_at": "2026-07-15T05:55:32.282037+00:00"
+      "created_at": "2026-07-18T21:02:06.951584+00:00",
+      "updated_at": "2026-07-18T21:02:07.036295+00:00"
     },
     {
-      "job_id": "auto_9aa70b03a887",
+      "job_id": "auto_1bd30fd60cb3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1551,78 +1551,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:55:32.310101+00:00",
-      "updated_at": "2026-07-15T05:56:02.375054+00:00"
+      "created_at": "2026-07-18T21:02:06.964449+00:00",
+      "updated_at": "2026-07-18T21:02:07.043285+00:00"
     },
     {
-      "job_id": "auto_b4fcd36f70ae",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_a3b3069387c1",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:55:32.323155+00:00",
-      "updated_at": "2026-07-15T05:56:02.386921+00:00"
+      "created_at": "2026-07-18T21:02:06.980448+00:00",
+      "updated_at": "2026-07-18T21:02:07.053410+00:00"
     },
     {
-      "job_id": "auto_3b59b39d7d62",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_3b17584cdea6",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:55:32.335635+00:00",
-      "updated_at": "2026-07-15T05:56:02.395921+00:00"
+      "created_at": "2026-07-18T21:02:06.995453+00:00",
+      "updated_at": "2026-07-18T21:02:07.060411+00:00"
     },
     {
-      "job_id": "auto_7b97f50897a9",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_d016246cc493",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:56:02.424200+00:00",
-      "updated_at": "2026-07-15T05:56:32.492289+00:00"
+      "created_at": "2026-07-18T21:02:07.008104+00:00",
+      "updated_at": "2026-07-18T21:02:07.071409+00:00"
     },
     {
-      "job_id": "auto_602e687d95e1",
+      "job_id": "auto_521135800323",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1631,18 +1631,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:56:02.436216+00:00",
-      "updated_at": "2026-07-15T05:56:32.503305+00:00"
+      "created_at": "2026-07-18T21:02:37.123765+00:00",
+      "updated_at": "2026-07-18T21:02:37.183648+00:00"
     },
     {
-      "job_id": "auto_469596d6272a",
+      "job_id": "auto_ae2badfdf5b8",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1651,78 +1651,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:56:02.449215+00:00",
-      "updated_at": "2026-07-15T05:56:32.512305+00:00"
+      "created_at": "2026-07-18T21:02:37.132772+00:00",
+      "updated_at": "2026-07-18T21:02:37.190648+00:00"
     },
     {
-      "job_id": "auto_8af67e165042",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_908620dfd89f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:56:32.539359+00:00",
-      "updated_at": "2026-07-15T05:57:02.618138+00:00"
+      "created_at": "2026-07-18T21:02:37.141771+00:00",
+      "updated_at": "2026-07-18T21:02:37.199702+00:00"
     },
     {
-      "job_id": "auto_500a6338651e",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_00cb19fdd6a6",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:56:32.554363+00:00",
-      "updated_at": "2026-07-15T05:57:02.627726+00:00"
+      "created_at": "2026-07-18T21:02:37.150829+00:00",
+      "updated_at": "2026-07-18T21:02:37.207571+00:00"
     },
     {
-      "job_id": "auto_795b1f42e09a",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_f40224e6fe88",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:56:32.567887+00:00",
-      "updated_at": "2026-07-15T05:57:02.637382+00:00"
+      "created_at": "2026-07-18T21:02:37.160639+00:00",
+      "updated_at": "2026-07-18T21:02:37.215108+00:00"
     },
     {
-      "job_id": "auto_f418133806a5",
+      "job_id": "auto_74c77f285b3b",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1731,18 +1731,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:57:02.665693+00:00",
-      "updated_at": "2026-07-15T05:57:32.729372+00:00"
+      "created_at": "2026-07-18T21:03:07.269067+00:00",
+      "updated_at": "2026-07-18T21:03:07.328513+00:00"
     },
     {
-      "job_id": "auto_3a32232c11cd",
+      "job_id": "auto_17d4a5060f41",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1751,78 +1751,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:57:02.678694+00:00",
-      "updated_at": "2026-07-15T05:57:32.740373+00:00"
+      "created_at": "2026-07-18T21:03:07.278586+00:00",
+      "updated_at": "2026-07-18T21:03:07.335516+00:00"
     },
     {
-      "job_id": "auto_4b49c151c0e4",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_9f7075ea3e39",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:57:02.691693+00:00",
-      "updated_at": "2026-07-15T05:57:32.749373+00:00"
+      "created_at": "2026-07-18T21:03:07.287595+00:00",
+      "updated_at": "2026-07-18T21:03:07.344524+00:00"
     },
     {
-      "job_id": "auto_0322dfcc1d92",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_55095d563866",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:57:32.776912+00:00",
-      "updated_at": "2026-07-15T05:58:02.839674+00:00"
+      "created_at": "2026-07-18T21:03:07.295594+00:00",
+      "updated_at": "2026-07-18T21:03:07.352335+00:00"
     },
     {
-      "job_id": "auto_b532245abe8f",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_b40c3cfe7eb3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:57:32.789410+00:00",
-      "updated_at": "2026-07-15T05:58:02.850460+00:00"
+      "created_at": "2026-07-18T21:03:07.304507+00:00",
+      "updated_at": "2026-07-18T21:03:07.359341+00:00"
     },
     {
-      "job_id": "auto_41432f7fcb61",
+      "job_id": "auto_d481468ceaa0",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1831,18 +1831,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:57:32.802430+00:00",
-      "updated_at": "2026-07-15T05:58:02.860459+00:00"
+      "created_at": "2026-07-18T21:03:37.416909+00:00",
+      "updated_at": "2026-07-18T21:03:37.478258+00:00"
     },
     {
-      "job_id": "auto_e409b7f24b36",
+      "job_id": "auto_f91316ba3b24",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1851,78 +1851,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:58:02.889390+00:00",
-      "updated_at": "2026-07-15T05:58:32.959648+00:00"
+      "created_at": "2026-07-18T21:03:37.425852+00:00",
+      "updated_at": "2026-07-18T21:03:37.485778+00:00"
     },
     {
-      "job_id": "auto_549972aba288",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_b45272f5e608",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:58:02.902394+00:00",
-      "updated_at": "2026-07-15T05:58:32.970926+00:00"
+      "created_at": "2026-07-18T21:03:37.435123+00:00",
+      "updated_at": "2026-07-18T21:03:37.495153+00:00"
     },
     {
-      "job_id": "auto_7297557c3aa0",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_dce4905e95f8",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:58:02.915929+00:00",
-      "updated_at": "2026-07-15T05:58:32.980892+00:00"
+      "created_at": "2026-07-18T21:03:37.443863+00:00",
+      "updated_at": "2026-07-18T21:03:37.504005+00:00"
     },
     {
-      "job_id": "auto_4c74eef3d631",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_7c8a5241a5e7",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:58:33.047623+00:00",
-      "updated_at": "2026-07-15T05:59:03.112593+00:00"
+      "created_at": "2026-07-18T21:03:37.454416+00:00",
+      "updated_at": "2026-07-18T21:03:37.511931+00:00"
     },
     {
-      "job_id": "auto_d1aea528b8a4",
+      "job_id": "auto_5b5c00bef64d",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1931,18 +1931,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:58:33.060637+00:00",
-      "updated_at": "2026-07-15T05:59:03.122954+00:00"
+      "created_at": "2026-07-18T21:04:07.570591+00:00",
+      "updated_at": "2026-07-18T21:04:07.634958+00:00"
     },
     {
-      "job_id": "auto_eea4d3cf0823",
+      "job_id": "auto_58f94971ae1b",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1951,38 +1951,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:58:33.073916+00:00",
-      "updated_at": "2026-07-15T05:59:03.132257+00:00"
+      "created_at": "2026-07-18T21:04:07.580124+00:00",
+      "updated_at": "2026-07-18T21:04:07.642976+00:00"
     },
     {
-      "job_id": "auto_89af1bc1b907",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
+      "job_id": "auto_cad9b481d7d7",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
-        "youtube_shorts"
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:04:07.589144+00:00",
+      "updated_at": "2026-07-18T21:04:07.652473+00:00"
+    },
+    {
+      "job_id": "auto_9e9397334181",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:04:07.598130+00:00",
+      "updated_at": "2026-07-18T21:04:07.660474+00:00"
+    },
+    {
+      "job_id": "auto_67f15f062b15",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:59:03.161351+00:00",
-      "updated_at": "2026-07-15T05:59:33.227274+00:00"
+      "created_at": "2026-07-18T21:04:07.609956+00:00",
+      "updated_at": "2026-07-18T21:04:07.667752+00:00"
     },
     {
-      "job_id": "auto_be289078f7bc",
+      "job_id": "auto_87da86adf347",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1991,38 +2031,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:59:03.174706+00:00",
-      "updated_at": "2026-07-15T05:59:33.238213+00:00"
+      "created_at": "2026-07-18T21:04:37.717451+00:00",
+      "updated_at": "2026-07-18T21:04:37.781536+00:00"
     },
     {
-      "job_id": "auto_43ba68db1870",
+      "job_id": "auto_b38bf8a8a62c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:04:37.727534+00:00",
+      "updated_at": "2026-07-18T21:04:37.789556+00:00"
+    },
+    {
+      "job_id": "auto_ee1296eb75f3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:04:37.736859+00:00",
+      "updated_at": "2026-07-18T21:04:37.799551+00:00"
+    },
+    {
+      "job_id": "auto_2b7f10ed17fe",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:04:37.745866+00:00",
+      "updated_at": "2026-07-18T21:04:37.806636+00:00"
+    },
+    {
+      "job_id": "auto_16401dc596ca",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:59:03.188548+00:00",
-      "updated_at": "2026-07-15T05:59:33.246993+00:00"
+      "created_at": "2026-07-18T21:04:37.756008+00:00",
+      "updated_at": "2026-07-18T21:04:37.814659+00:00"
     },
     {
-      "job_id": "auto_1678d81713e6",
+      "job_id": "auto_a76a21c341cd",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2031,38 +2131,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:59:33.275643+00:00",
-      "updated_at": "2026-07-15T06:00:03.341717+00:00"
+      "created_at": "2026-07-18T21:05:07.862999+00:00",
+      "updated_at": "2026-07-18T21:05:07.929222+00:00"
     },
     {
-      "job_id": "auto_b300f22006b3",
+      "job_id": "auto_bd34b595f509",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:05:07.872897+00:00",
+      "updated_at": "2026-07-18T21:05:07.937224+00:00"
+    },
+    {
+      "job_id": "auto_a94a652b55c6",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:05:07.882897+00:00",
+      "updated_at": "2026-07-18T21:05:07.948228+00:00"
+    },
+    {
+      "job_id": "auto_906f7ae18570",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:05:07.892913+00:00",
+      "updated_at": "2026-07-18T21:05:07.960935+00:00"
+    },
+    {
+      "job_id": "auto_7e6b293088dc",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:59:33.289186+00:00",
-      "updated_at": "2026-07-15T06:00:03.352803+00:00"
+      "created_at": "2026-07-18T21:05:07.902911+00:00",
+      "updated_at": "2026-07-18T21:05:07.968928+00:00"
     },
     {
-      "job_id": "auto_e23ff77937d5",
+      "job_id": "auto_b7cdf9e67f67",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2071,38 +2231,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T05:59:33.302194+00:00",
-      "updated_at": "2026-07-15T06:00:03.361736+00:00"
+      "created_at": "2026-07-18T21:05:38.019773+00:00",
+      "updated_at": "2026-07-18T21:05:38.087281+00:00"
     },
     {
-      "job_id": "auto_bf6ab69f2ace",
+      "job_id": "auto_37a9a4c91edf",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:05:38.029068+00:00",
+      "updated_at": "2026-07-18T21:05:38.095282+00:00"
+    },
+    {
+      "job_id": "auto_dd1de40f703f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:05:38.039073+00:00",
+      "updated_at": "2026-07-18T21:05:38.106184+00:00"
+    },
+    {
+      "job_id": "auto_0d17670bc7a0",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:05:38.049086+00:00",
+      "updated_at": "2026-07-18T21:05:38.113862+00:00"
+    },
+    {
+      "job_id": "auto_e0d71129e79e",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:00:03.391727+00:00",
-      "updated_at": "2026-07-15T06:00:03.452323+00:00"
+      "created_at": "2026-07-18T21:05:38.059602+00:00",
+      "updated_at": "2026-07-18T21:05:38.121863+00:00"
     },
     {
-      "job_id": "auto_538babd1c4ad",
+      "job_id": "auto_1ead440b4c07",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2111,38 +2331,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:00:03.404733+00:00",
-      "updated_at": "2026-07-15T06:00:03.461325+00:00"
+      "created_at": "2026-07-18T21:06:08.179901+00:00",
+      "updated_at": "2026-07-18T21:06:08.252697+00:00"
     },
     {
-      "job_id": "auto_3f582539715c",
+      "job_id": "auto_8d9d4d45eb89",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:06:08.189915+00:00",
+      "updated_at": "2026-07-18T21:06:08.261778+00:00"
+    },
+    {
+      "job_id": "auto_f3796b474ad6",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:06:08.199918+00:00",
+      "updated_at": "2026-07-18T21:06:08.271785+00:00"
+    },
+    {
+      "job_id": "auto_4702ac0f5bf8",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-18T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-18T21:06:08.210530+00:00",
+      "updated_at": "2026-07-18T21:06:08.278784+00:00"
+    },
+    {
+      "job_id": "auto_feac13926563",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:00:03.417244+00:00",
-      "updated_at": "2026-07-15T06:00:03.470923+00:00"
+      "created_at": "2026-07-18T21:06:08.224687+00:00",
+      "updated_at": "2026-07-18T21:06:08.285777+00:00"
     },
     {
-      "job_id": "auto_834da3010f5b",
+      "job_id": "auto_efd9a30b2f84",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2151,109 +2431,18 @@
         "youtube_shorts"
       ],
       "status": "running",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
-      "upload_result": {
-        "ok": true,
-        "platforms": {
-          "youtube_shorts": {
-            "ok": true,
-            "uploaded": true,
-            "status": "already_uploaded",
-            "post_url": "https://www.youtube.com/watch?v=xVGuZzMDb8c"
-          }
-        },
-        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T060054_b1b3daad/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
-      },
+      "upload_result": null,
       "error": "",
-      "created_at": "2026-07-15T06:00:07.729756+00:00",
-      "updated_at": "2026-07-15T18:41:50.576015+00:00"
+      "created_at": "2026-07-18T21:06:38.333483+00:00",
+      "updated_at": "2026-07-18T21:06:39.888961+00:00"
     },
     {
-      "job_id": "auto_3e97cb66965b",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:00:07.744750+00:00",
-      "updated_at": "2026-07-15T06:49:54.253909+00:00"
-    },
-    {
-      "job_id": "auto_c14bdc01cbaa",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T16:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:00:07.757753+00:00",
-      "updated_at": "2026-07-15T06:49:54.265580+00:00"
-    },
-    {
-      "job_id": "auto_9557293a91ac",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:49:54.297586+00:00",
-      "updated_at": "2026-07-15T06:49:54.349464+00:00"
-    },
-    {
-      "job_id": "auto_57ca3731e29f",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:49:54.313349+00:00",
-      "updated_at": "2026-07-15T06:49:54.360468+00:00"
-    },
-    {
-      "job_id": "auto_efa36613cb4e",
+      "job_id": "auto_746977d2a51f",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2262,1777 +2451,75 @@
         "youtube_shorts"
       ],
       "status": "planned",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": {
-        "ok": true,
-        "platforms": {
-          "youtube_shorts": {
-            "ok": true,
-            "uploaded": true,
-            "status": "already_uploaded",
-            "post_url": "https://www.youtube.com/watch?v=l7w8Gt6l7Zo"
-          }
-        },
-        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T065026_d3d96df4/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
-      },
-      "error": "",
-      "created_at": "2026-07-15T06:49:56.209204+00:00",
-      "updated_at": "2026-07-15T18:35:01.369137+00:00"
-    },
-    {
-      "job_id": "auto_981e49ee8d43",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T12:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T06:49:56.230342+00:00",
-      "updated_at": "2026-07-15T07:45:50.666174+00:00"
-    },
-    {
-      "job_id": "auto_ce5e5383f3ad",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T07:45:50.705721+00:00",
-      "updated_at": "2026-07-15T07:45:50.757429+00:00"
-    },
-    {
-      "job_id": "auto_4792bbacc1e7",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "planned",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": {
-        "ok": true,
-        "platforms": {
-          "youtube_shorts": {
-            "ok": true,
-            "uploaded": true,
-            "status": "already_uploaded",
-            "post_url": "https://www.youtube.com/watch?v=qZGZAb6iksY"
-          }
-        },
-        "video_path": "C:/Users/kaman/Desktop/ModirAgentOS/outputs/pwmap_agent_runs/pwmap_20260715T074621_a2b2b675/publish/FINAL_BRANDED_PUBLISH_READY.mp4"
-      },
-      "error": "",
-      "created_at": "2026-07-15T07:45:52.664480+00:00",
-      "updated_at": "2026-07-15T18:35:01.369137+00:00"
-    },
-    {
-      "job_id": "auto_778aa96aed82",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:33:32.044828+00:00",
-      "updated_at": "2026-07-15T17:33:32.123630+00:00"
-    },
-    {
-      "job_id": "auto_915507a2c59b",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:33:32.059832+00:00",
-      "updated_at": "2026-07-15T17:33:32.134637+00:00"
-    },
-    {
-      "job_id": "auto_1fcdbbf8b9dc",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:33:32.075836+00:00",
-      "updated_at": "2026-07-15T17:33:32.145151+00:00"
-    },
-    {
-      "job_id": "auto_46427c414540",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:33:36.943194+00:00",
-      "updated_at": "2026-07-15T17:41:49.990367+00:00"
-    },
-    {
-      "job_id": "auto_7e341f0a6c51",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:33:36.957713+00:00",
-      "updated_at": "2026-07-15T17:38:03.058916+00:00"
-    },
-    {
-      "job_id": "auto_e24abc0820e3",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:33:36.971719+00:00",
-      "updated_at": "2026-07-15T17:38:03.068917+00:00"
-    },
-    {
-      "job_id": "auto_0be6eae6d417",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:38:03.104427+00:00",
-      "updated_at": "2026-07-15T17:38:03.163387+00:00"
-    },
-    {
-      "job_id": "auto_243632de3fa0",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:38:03.118273+00:00",
-      "updated_at": "2026-07-15T17:38:03.174387+00:00"
-    },
-    {
-      "job_id": "auto_fd40060b874a",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "planned",
-      "scheduled_time": "2026-07-15T08:00",
+      "scheduled_time": "2026-07-18T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "",
-      "created_at": "2026-07-15T17:38:13.754434+00:00",
-      "updated_at": "2026-07-15T18:35:17.828333+00:00"
+      "created_at": "2026-07-18T21:06:38.344489+00:00",
+      "updated_at": "2026-07-18T21:06:38.344489+00:00"
     },
     {
-      "job_id": "auto_b4c9158b5727",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
+      "job_id": "auto_14661b039ea2",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
+      "scheduled_time": "2026-07-18T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:38:13.768032+00:00",
-      "updated_at": "2026-07-15T17:40:19.403957+00:00"
+      "created_at": "2026-07-18T21:06:38.355802+00:00",
+      "updated_at": "2026-07-18T21:06:38.417804+00:00"
     },
     {
-      "job_id": "auto_6591b592565b",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
+      "job_id": "auto_c0fac06a3cc3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
+      "scheduled_time": "2026-07-18T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:40:19.470727+00:00",
-      "updated_at": "2026-07-15T17:40:19.559834+00:00"
+      "created_at": "2026-07-18T21:06:38.367172+00:00",
+      "updated_at": "2026-07-18T21:06:38.425806+00:00"
     },
     {
-      "job_id": "auto_6bdc5978ed7e",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
+      "job_id": "auto_5f701842e651",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
       "clip_count": 3,
       "platform_targets": [
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
+      "scheduled_time": "2026-07-18T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:40:49.669161+00:00",
-      "updated_at": "2026-07-15T17:40:49.723293+00:00"
-    },
-    {
-      "job_id": "auto_0d2fe64720ae",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:41:19.800958+00:00",
-      "updated_at": "2026-07-15T17:41:19.854155+00:00"
-    },
-    {
-      "job_id": "auto_d6dc03a1c9ac",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:41:49.939209+00:00",
-      "updated_at": "2026-07-15T17:41:50.002881+00:00"
-    },
-    {
-      "job_id": "auto_ccc85ef09260",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:42:20.072721+00:00",
-      "updated_at": "2026-07-15T17:42:20.130849+00:00"
-    },
-    {
-      "job_id": "auto_826367fef4fb",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:42:20.086721+00:00",
-      "updated_at": "2026-07-15T17:42:20.140854+00:00"
-    },
-    {
-      "job_id": "auto_932301c88899",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:42:50.229023+00:00",
-      "updated_at": "2026-07-15T17:42:50.292248+00:00"
-    },
-    {
-      "job_id": "auto_e921761cadc8",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:42:50.246028+00:00",
-      "updated_at": "2026-07-15T17:42:50.302249+00:00"
-    },
-    {
-      "job_id": "auto_bd49d56be896",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:43:20.370224+00:00",
-      "updated_at": "2026-07-15T17:43:20.430282+00:00"
-    },
-    {
-      "job_id": "auto_1432764a9a83",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:43:20.384224+00:00",
-      "updated_at": "2026-07-15T17:43:20.444299+00:00"
-    },
-    {
-      "job_id": "auto_bd4c686e4e30",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:43:50.516627+00:00",
-      "updated_at": "2026-07-15T17:43:50.575685+00:00"
-    },
-    {
-      "job_id": "auto_b8adeb869cfe",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:43:50.530632+00:00",
-      "updated_at": "2026-07-15T17:43:50.587203+00:00"
-    },
-    {
-      "job_id": "auto_01ad55f4446e",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:44:20.664121+00:00",
-      "updated_at": "2026-07-15T17:44:20.721649+00:00"
-    },
-    {
-      "job_id": "auto_2ba8bc30911a",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:44:20.678121+00:00",
-      "updated_at": "2026-07-15T17:44:20.731637+00:00"
-    },
-    {
-      "job_id": "auto_e76166163369",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:44:50.807465+00:00",
-      "updated_at": "2026-07-15T17:44:50.866714+00:00"
-    },
-    {
-      "job_id": "auto_0b882b646990",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:44:50.821674+00:00",
-      "updated_at": "2026-07-15T17:44:50.876351+00:00"
-    },
-    {
-      "job_id": "auto_f7582200a838",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:45:20.949179+00:00",
-      "updated_at": "2026-07-15T17:45:21.015311+00:00"
-    },
-    {
-      "job_id": "auto_f22ee4425010",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:45:20.963282+00:00",
-      "updated_at": "2026-07-15T17:45:21.025311+00:00"
-    },
-    {
-      "job_id": "auto_ba36e215e9f2",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:45:51.099548+00:00",
-      "updated_at": "2026-07-15T17:45:51.161563+00:00"
-    },
-    {
-      "job_id": "auto_954e12a9e3c2",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:45:51.116297+00:00",
-      "updated_at": "2026-07-15T17:45:51.171737+00:00"
-    },
-    {
-      "job_id": "auto_32b240427f14",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:46:21.244104+00:00",
-      "updated_at": "2026-07-15T17:46:21.304703+00:00"
-    },
-    {
-      "job_id": "auto_12a580e8f30b",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:46:21.257608+00:00",
-      "updated_at": "2026-07-15T17:46:21.314230+00:00"
-    },
-    {
-      "job_id": "auto_6c2d888c0f50",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:46:51.391655+00:00",
-      "updated_at": "2026-07-15T17:46:51.455893+00:00"
-    },
-    {
-      "job_id": "auto_582763773008",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:46:51.408256+00:00",
-      "updated_at": "2026-07-15T17:46:51.469076+00:00"
-    },
-    {
-      "job_id": "auto_fbd96dd87812",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:47:21.550107+00:00",
-      "updated_at": "2026-07-15T17:47:21.607051+00:00"
-    },
-    {
-      "job_id": "auto_aaff32020f6d",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:47:21.563503+00:00",
-      "updated_at": "2026-07-15T17:47:21.619402+00:00"
-    },
-    {
-      "job_id": "auto_6eac8e215a75",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:47:51.693506+00:00",
-      "updated_at": "2026-07-15T17:47:51.751169+00:00"
-    },
-    {
-      "job_id": "auto_9239085915f0",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:47:51.706528+00:00",
-      "updated_at": "2026-07-15T17:47:51.762682+00:00"
-    },
-    {
-      "job_id": "auto_cf3dac2ec2fe",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:48:21.842617+00:00",
-      "updated_at": "2026-07-15T17:48:21.899667+00:00"
-    },
-    {
-      "job_id": "auto_5142828bbeab",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:48:21.855621+00:00",
-      "updated_at": "2026-07-15T17:48:21.912929+00:00"
-    },
-    {
-      "job_id": "auto_8d4710685bfa",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:48:51.987831+00:00",
-      "updated_at": "2026-07-15T17:48:52.051016+00:00"
-    },
-    {
-      "job_id": "auto_a702c2239e42",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:48:52.004847+00:00",
-      "updated_at": "2026-07-15T17:48:52.060554+00:00"
-    },
-    {
-      "job_id": "auto_0ee716b996f7",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:49:22.127046+00:00",
-      "updated_at": "2026-07-15T17:49:22.184824+00:00"
-    },
-    {
-      "job_id": "auto_b253dbc63c9c",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:49:22.140558+00:00",
-      "updated_at": "2026-07-15T17:49:22.195749+00:00"
-    },
-    {
-      "job_id": "auto_04781e9ce9a8",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:49:52.270967+00:00",
-      "updated_at": "2026-07-15T17:49:52.327338+00:00"
-    },
-    {
-      "job_id": "auto_6be6c2922a03",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:49:52.284479+00:00",
-      "updated_at": "2026-07-15T17:49:52.337350+00:00"
-    },
-    {
-      "job_id": "auto_12d6a805b7e6",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:50:22.419346+00:00",
-      "updated_at": "2026-07-15T17:50:22.477029+00:00"
-    },
-    {
-      "job_id": "auto_8fc60c9fd8c6",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:50:22.433367+00:00",
-      "updated_at": "2026-07-15T17:50:22.487037+00:00"
-    },
-    {
-      "job_id": "auto_8a2fdb682de8",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:50:52.556876+00:00",
-      "updated_at": "2026-07-15T17:50:52.616717+00:00"
-    },
-    {
-      "job_id": "auto_2134b32127e4",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:50:52.571135+00:00",
-      "updated_at": "2026-07-15T17:50:52.630730+00:00"
-    },
-    {
-      "job_id": "auto_43c6f212ef4d",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:51:22.736854+00:00",
-      "updated_at": "2026-07-15T17:51:22.792622+00:00"
-    },
-    {
-      "job_id": "auto_5cac84761bfd",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:51:22.750392+00:00",
-      "updated_at": "2026-07-15T17:51:22.802652+00:00"
-    },
-    {
-      "job_id": "auto_3fde50f50639",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:51:52.872573+00:00",
-      "updated_at": "2026-07-15T17:51:52.930885+00:00"
-    },
-    {
-      "job_id": "auto_eddf420c4100",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:51:52.886586+00:00",
-      "updated_at": "2026-07-15T17:51:52.941884+00:00"
-    },
-    {
-      "job_id": "auto_7f3f3d0e11bb",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:52:23.018255+00:00",
-      "updated_at": "2026-07-15T17:52:23.077024+00:00"
-    },
-    {
-      "job_id": "auto_885c6b1334b2",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:52:23.032255+00:00",
-      "updated_at": "2026-07-15T17:52:23.087027+00:00"
-    },
-    {
-      "job_id": "auto_04d9c90d996f",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:52:53.168150+00:00",
-      "updated_at": "2026-07-15T17:52:53.230736+00:00"
-    },
-    {
-      "job_id": "auto_2385247e8683",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:52:53.185845+00:00",
-      "updated_at": "2026-07-15T17:52:53.240736+00:00"
-    },
-    {
-      "job_id": "auto_4cfea52de1a0",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:53:23.318355+00:00",
-      "updated_at": "2026-07-15T17:53:23.375567+00:00"
-    },
-    {
-      "job_id": "auto_a1224752c08c",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:53:23.332359+00:00",
-      "updated_at": "2026-07-15T17:53:23.385560+00:00"
-    },
-    {
-      "job_id": "auto_18f4e85c3586",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:53:53.457082+00:00",
-      "updated_at": "2026-07-15T17:53:53.515771+00:00"
-    },
-    {
-      "job_id": "auto_caa6483ca208",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:53:53.471209+00:00",
-      "updated_at": "2026-07-15T17:53:53.525783+00:00"
-    },
-    {
-      "job_id": "auto_62dc3de74bc2",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:54:23.602289+00:00",
-      "updated_at": "2026-07-15T17:54:23.664893+00:00"
-    },
-    {
-      "job_id": "auto_44c3c34343b6",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:54:23.617364+00:00",
-      "updated_at": "2026-07-15T17:54:23.676973+00:00"
-    },
-    {
-      "job_id": "auto_8d1a048e2f51",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:54:53.755208+00:00",
-      "updated_at": "2026-07-15T17:54:53.824454+00:00"
-    },
-    {
-      "job_id": "auto_d97a9f7eb0b9",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:54:53.772269+00:00",
-      "updated_at": "2026-07-15T17:54:53.838458+00:00"
-    },
-    {
-      "job_id": "auto_0714c3bbc44e",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:55:23.913867+00:00",
-      "updated_at": "2026-07-15T17:55:23.974706+00:00"
-    },
-    {
-      "job_id": "auto_58f35d7c5a01",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:55:23.928379+00:00",
-      "updated_at": "2026-07-15T17:55:23.983712+00:00"
-    },
-    {
-      "job_id": "auto_3141f04054d7",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:55:54.054566+00:00",
-      "updated_at": "2026-07-15T17:55:54.112138+00:00"
-    },
-    {
-      "job_id": "auto_1ee921a0a9f6",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:55:54.069132+00:00",
-      "updated_at": "2026-07-15T17:55:54.122655+00:00"
-    },
-    {
-      "job_id": "auto_0b48628d2492",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:56:24.200410+00:00",
-      "updated_at": "2026-07-15T17:56:24.266943+00:00"
-    },
-    {
-      "job_id": "auto_16b271b538bd",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:56:24.217825+00:00",
-      "updated_at": "2026-07-15T17:56:24.280492+00:00"
-    },
-    {
-      "job_id": "auto_6c76bdf7e02d",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:56:54.359565+00:00",
-      "updated_at": "2026-07-15T17:56:54.425230+00:00"
-    },
-    {
-      "job_id": "auto_7e0eb4e2ee08",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:56:54.376625+00:00",
-      "updated_at": "2026-07-15T17:56:54.439773+00:00"
-    },
-    {
-      "job_id": "auto_9a24b53822eb",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:57:24.537321+00:00",
-      "updated_at": "2026-07-15T17:57:24.607653+00:00"
-    },
-    {
-      "job_id": "auto_c515c6927331",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:57:24.558333+00:00",
-      "updated_at": "2026-07-15T17:57:24.621800+00:00"
-    },
-    {
-      "job_id": "auto_7b7b59a34f9e",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:57:54.709285+00:00",
-      "updated_at": "2026-07-15T17:57:54.775448+00:00"
-    },
-    {
-      "job_id": "auto_b2faa19a2957",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:57:54.726306+00:00",
-      "updated_at": "2026-07-15T17:57:54.789093+00:00"
-    },
-    {
-      "job_id": "auto_529e0d11f139",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:58:24.918954+00:00",
-      "updated_at": "2026-07-15T17:58:24.998610+00:00"
-    },
-    {
-      "job_id": "auto_2789064ec6e7",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:58:24.935959+00:00",
-      "updated_at": "2026-07-15T17:58:25.011613+00:00"
-    },
-    {
-      "job_id": "auto_929cf2fec048",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "planned",
-      "scheduled_time": "2026-07-15T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "",
-      "created_at": "2026-07-15T17:58:27.305885+00:00",
-      "updated_at": "2026-07-15T18:41:49.714016+00:00"
-    },
-    {
-      "job_id": "auto_c855155754ca",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T17:58:27.319419+00:00",
-      "updated_at": "2026-07-15T18:11:29.464715+00:00"
-    },
-    {
-      "job_id": "auto_2e1d75eed4a5",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T18:11:29.546637+00:00",
-      "updated_at": "2026-07-15T18:11:29.650426+00:00"
-    },
-    {
-      "job_id": "auto_b249eb853be9",
-      "topic": "Skincare & Self-Care — Instagram Reels",
-      "title": "Skincare & Self-Care — Instagram Reels",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-15T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-15T18:11:59.751965+00:00",
-      "updated_at": "2026-07-15T18:11:59.825871+00:00"
+      "created_at": "2026-07-18T21:06:38.377716+00:00",
+      "updated_at": "2026-07-18T21:06:38.432797+00:00"
     }
   ],
   "max_jobs_per_day": 6

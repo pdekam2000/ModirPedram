@@ -266,11 +266,15 @@ class AutomationQueue:
         return (job.scheduled_time or job.created_at or "")[:10]
 
     def active_jobs_today_for_platform(self, platform: str) -> int:
-        """Count today's platform slots used (completed + planned + running + failed attempts)."""
+        """Count today's platform slots used (completed + planned + running).
+
+        Failed jobs do not permanently burn daily slots — after a bug fix, new
+        planned jobs must still be creatable the same day.
+        """
         today = datetime.now(timezone.utc).date().isoformat()
         count = 0
         for job in self.list_jobs():
-            if job.status in {JOB_CANCELLED, JOB_SKIPPED}:
+            if job.status not in {JOB_PLANNED, JOB_RUNNING, JOB_COMPLETED}:
                 continue
             plat = str((job.platform_targets[0] if job.platform_targets else "") or "")
             if plat != platform:

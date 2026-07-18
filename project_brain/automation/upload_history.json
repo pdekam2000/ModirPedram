@@ -3,6 +3,42 @@
   "platforms": {
     "instagram_reels": [
       {
+        "title": "Perfumery Ingredients — Daily Fragrance Education",
+        "uploaded_at": "2026-07-18T13:57:22.181071+00:00",
+        "success": false,
+        "run_id": "",
+        "video_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": "instagram_topic_missing_skincare_beauty_keywords"
+      },
+      {
+        "title": "Perfumery Ingredients — Daily Fragrance Education",
+        "uploaded_at": "2026-07-18T12:31:13.538812+00:00",
+        "success": false,
+        "run_id": "",
+        "video_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": "instagram_topic_missing_skincare_beauty_keywords"
+      },
+      {
+        "title": "Perfumery Ingredients — Daily Fragrance Education",
+        "uploaded_at": "2026-07-18T12:31:11.059524+00:00",
+        "success": false,
+        "run_id": "",
+        "video_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": "instagram_topic_missing_skincare_beauty_keywords"
+      },
+      {
         "title": "Skincare & Self-Care — Instagram Reels",
         "uploaded_at": "2026-07-15T17:37:33.019972+00:00",
         "success": false,
@@ -424,33 +460,6 @@
         "youtube_url": "",
         "post_url": "",
         "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-10T01:23:52.842199+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T23:55:34.056791+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
-      },
-      {
-        "title": "Skincare & Self-Care — Instagram Reels",
-        "uploaded_at": "2026-07-09T22:27:14.368466+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "cannot access local variable 'report' where it is not associated with a value"
       }
     ],
     "tiktok": [
@@ -554,6 +563,90 @@
       }
     ],
     "youtube_shorts": [
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T20:45:58.646232+00:00",
+        "success": false,
+        "run_id": "",
+        "video_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": "'charmap' codec can't encode character '\\u274c' in position 82: character maps to <undefined>"
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T20:23:58.562192+00:00",
+        "success": true,
+        "run_id": "pwmap_20260718T193346_1b4bf93a",
+        "video_id": "Cj08BoGgfSY",
+        "youtube_url": "https://www.youtube.com/watch?v=Cj08BoGgfSY",
+        "post_url": "https://www.youtube.com/watch?v=Cj08BoGgfSY",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T19:32:52.468278+00:00",
+        "success": true,
+        "run_id": "pwmap_20260718T184458_568bbbc9",
+        "video_id": "4lsvkrdgmGY",
+        "youtube_url": "https://www.youtube.com/watch?v=4lsvkrdgmGY",
+        "post_url": "https://www.youtube.com/watch?v=4lsvkrdgmGY",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T18:44:28.328702+00:00",
+        "success": false,
+        "run_id": "",
+        "video_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": "❌ Runway browser not connected. Click 'Connect Runway Browser' first."
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T13:56:49.139534+00:00",
+        "success": false,
+        "run_id": "",
+        "video_id": "",
+        "youtube_url": "",
+        "post_url": "",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": "pwmap agent partial — clips preserved; recovery available."
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T13:22:47.223151+00:00",
+        "success": true,
+        "run_id": "pwmap_20260718T123205_4324bb01",
+        "video_id": "PWPo-xw5H7w",
+        "youtube_url": "https://www.youtube.com/watch?v=PWPo-xw5H7w",
+        "post_url": "https://www.youtube.com/watch?v=PWPo-xw5H7w",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": ""
+      },
+      {
+        "title": "Science That Feels Impossible — YouTube Shorts",
+        "uploaded_at": "2026-07-18T12:30:57.308517+00:00",
+        "success": true,
+        "run_id": "pwmap_20260718T114324_2a17580f",
+        "video_id": "6UcEIFIHvIs",
+        "youtube_url": "https://www.youtube.com/watch?v=6UcEIFIHvIs",
+        "post_url": "https://www.youtube.com/watch?v=6UcEIFIHvIs",
+        "thumbnail_uploaded": null,
+        "thumbnail_path": "",
+        "error": ""
+      },
       {
         "title": "Science That Feels Impossible — YouTube Shorts",
         "uploaded_at": "2026-07-15T18:36:04.949736+00:00",
@@ -940,71 +1033,8 @@
         "youtube_url": "https://www.youtube.com/watch?v=l9AAv0i-SU4",
         "post_url": "https://www.youtube.com/watch?v=l9AAv0i-SU4",
         "error": ""
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-09T00:15:39.761059+00:00",
-        "success": true,
-        "run_id": "pwmap_20260708T233231_312dc540",
-        "youtube_url": "https://www.youtube.com/watch?v=pt88s4swLfE",
-        "post_url": "https://www.youtube.com/watch?v=pt88s4swLfE",
-        "error": ""
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T22:52:10.239946+00:00",
-        "success": true,
-        "run_id": "pwmap_20260708T220930_eb1bea34",
-        "youtube_url": "https://www.youtube.com/watch?v=kgMF4H_asPA",
-        "post_url": "https://www.youtube.com/watch?v=kgMF4H_asPA",
-        "error": ""
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T21:27:40.910989+00:00",
-        "success": false,
-        "run_id": "",
-        "youtube_url": "",
-        "post_url": "",
-        "error": "pwmap agent partial — clips preserved; recovery available."
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T19:28:54.946287+00:00",
-        "success": true,
-        "run_id": "pwmap_20260708T191329_14926d07",
-        "youtube_url": "https://www.youtube.com/watch?v=5tnnjRp-Mak",
-        "post_url": "https://www.youtube.com/watch?v=5tnnjRp-Mak",
-        "error": ""
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T19:28:54.895406+00:00",
-        "success": true,
-        "run_id": "pwmap_20260708T191329_14926d07",
-        "youtube_url": "https://www.youtube.com/watch?v=5tnnjRp-Mak",
-        "post_url": "https://www.youtube.com/watch?v=5tnnjRp-Mak",
-        "error": ""
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T18:30:55.898531+00:00",
-        "success": true,
-        "run_id": "pwmap_20260708T180601_d8816af9",
-        "youtube_url": "https://www.youtube.com/watch?v=igKbKStmgXU",
-        "post_url": "https://www.youtube.com/watch?v=igKbKStmgXU",
-        "error": ""
-      },
-      {
-        "title": "Science That Feels Impossible — YouTube Shorts",
-        "uploaded_at": "2026-07-08T18:30:55.858996+00:00",
-        "success": true,
-        "run_id": "pwmap_20260708T180601_d8816af9",
-        "youtube_url": "https://www.youtube.com/watch?v=igKbKStmgXU",
-        "post_url": "https://www.youtube.com/watch?v=igKbKStmgXU",
-        "error": ""
       }
     ]
   },
-  "updated_at": "2026-07-15T18:36:04.949736+00:00"
+  "updated_at": "2026-07-18T20:45:58.646232+00:00"
 }

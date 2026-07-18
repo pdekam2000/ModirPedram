@@ -16,11 +16,12 @@ except ImportError:  # pragma: no cover
 
 logger = logging.getLogger(__name__)
 
-SEO_TITLE_GENERATOR_VERSION = "seo_title_generator_v4_dedup_50_facts"
+SEO_TITLE_GENERATOR_VERSION = "seo_title_generator_v5_lifetime_dedup"
 MAX_TITLE_CHARS = 60
 REQUEST_TIMEOUT_SECONDS = 45.0
 MODEL_PREFERENCE = ("gpt-4.1-mini", "gpt-4.1")
-DEDUP_WINDOW = 50
+# 0 = never reuse any prior title from story memory (lifetime).
+DEDUP_WINDOW = 0
 MAX_GENERATION_ATTEMPTS = 8
 VARIETY_CHECK_COUNT = 3
 
@@ -135,9 +136,10 @@ def get_last_n_titles(
     story_memory: list[dict[str, Any]] | None = None,
     project_root: str | Path | None = None,
 ) -> list[str]:
-    """Return the last n titles for a platform from story memory (chronological)."""
+    """Return titles for a platform from story memory. n<=0 = all titles."""
     memory = list(story_memory or _load_story_memory(project_root))
-    return _titles_from_memory_rows(memory, platform=platform, limit=max(0, int(n)))
+    limit = len(memory) if int(n) <= 0 else max(0, int(n))
+    return _titles_from_memory_rows(memory, platform=platform, limit=limit)
 
 
 def _power_words_for_platform(platform: str) -> tuple[str, ...]:
@@ -209,8 +211,12 @@ def _request_openai_title(
 ) -> str:
     prompt = user_content
     if avoid_titles:
-        joined = "; ".join(avoid_titles[:12])
-        prompt += f"\nDo NOT reuse or closely mimic these recent titles: {joined}\n"
+        # Lifetime dedup: pass as many as fit; prefer most recent when truncating.
+        sample = list(avoid_titles)
+        if len(sample) > 40:
+            sample = sample[-40:]
+        joined = "; ".join(sample)
+        prompt += f"\nDo NOT reuse or closely mimic these prior titles: {joined}\n"
 
     response = client.chat.completions.create(
         model=model,

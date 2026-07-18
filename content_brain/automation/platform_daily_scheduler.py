@@ -86,7 +86,7 @@ def display_platform_topic(platform: str, profile: dict[str, Any], entry_topic: 
         stored = " ".join(str(entry_topic or "").split()).strip()
         if stored and len(stored) <= MAX_JOB_TOPIC_CHARS and not stored.upper().startswith("INSTAGRAM CONTENT"):
             return stored
-        return "Skincare & Self-Care — Instagram Reels"
+        return "Perfumery Ingredients — Daily Fragrance Education"
     if platform == "tiktok":
         short = str(profile.get("tiktok_channel_topic") or "").strip()
         if short and len(short) <= MAX_JOB_TOPIC_CHARS:
@@ -217,7 +217,11 @@ def sync_scheduler_enabled_from_profile(
     project_root: str | Path,
     profile: dict[str, Any] | None = None,
 ) -> list[str]:
-    """Align platform_daily_scheduler.enabled with channel profile upload flags."""
+    """Enable scheduler platforms from profile upload flags — never auto-disable.
+
+    Upload Center is the only place that turns a platform OFF (`save_platform(enabled=False)`).
+    A stale/false profile upload flag must not wipe scheduler.enabled on every sync tick.
+    """
     from content_brain.product_settings.channel_profile_store import ProductChannelProfileStore
 
     if profile is None:
@@ -227,12 +231,14 @@ def sync_scheduler_enabled_from_profile(
     synced: list[str] = []
     for platform in PLATFORMS:
         flag_key = PLATFORM_UPLOAD_ENABLED_KEYS.get(platform, "")
-        should_enable = platform in upload_platforms and bool(profile.get(flag_key))
+        profile_wants_enabled = platform in upload_platforms and bool(profile.get(flag_key))
         entry = dict((store.load().get("platforms") or {}).get(platform) or {})
-        if bool(entry.get("enabled")) == should_enable:
-            continue
-        store.save_platform(platform, {"enabled": should_enable})
-        synced.append(platform)
+        already_enabled = bool(entry.get("enabled"))
+        # Only promote OFF → ON from profile. Never demote ON → OFF here.
+        if profile_wants_enabled and not already_enabled:
+            store.save_platform(platform, {"enabled": True})
+            synced.append(platform)
+        # Explicit protection: never auto-disable Instagram (or any platform) from profile sync.
     return synced
 
 

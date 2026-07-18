@@ -53,8 +53,10 @@ logger = logging.getLogger(__name__)
 
 MAX_WORDS_PER_CLIP = 35
 MAX_WORDS_TOTAL = 70
-TITLE_DEDUP_WINDOW = 50
-SCIENCE_FACT_DEDUP_WINDOW = 50
+# 0 = check ALL titles ever stored for the platform (never reuse a title).
+TITLE_DEDUP_WINDOW = 0
+SCIENCE_FACT_DEDUP_WINDOW = 0
+TITLE_DEDUP_ALL = 0
 SEO_TITLE_RETRY_ATTEMPTS = 5
 
 LOGLINE_SIMILARITY_REJECT = 0.72
@@ -164,6 +166,14 @@ def _platform_key(platform: str) -> str:
     return normalized or "youtube"
 
 
+def _dedup_limit(limit: int, history_size: int) -> int:
+    """Resolve dedup window. 0 / negative = scan entire history."""
+    resolved = int(limit)
+    if resolved <= 0:
+        return max(0, int(history_size))
+    return resolved
+
+
 def _recent_memory_rows(
     history: list[dict[str, Any]],
     *,
@@ -172,12 +182,13 @@ def _recent_memory_rows(
 ) -> list[dict[str, Any]]:
     normalized_platform = _platform_key(platform)
     rows: list[dict[str, Any]] = []
+    capped = _dedup_limit(limit, len(history))
     for row in reversed(history):
         row_platform = _platform_key(str(row.get("target_platform") or row.get("platform") or ""))
         if row_platform and normalized_platform and row_platform != normalized_platform:
             continue
         rows.append(row)
-        if len(rows) >= max(0, int(limit)):
+        if capped and len(rows) >= capped:
             break
     rows.reverse()
     return rows
@@ -189,8 +200,27 @@ def get_last_n_titles(
     *,
     history: list[dict[str, Any]] | None = None,
 ) -> list[str]:
-    rows = _recent_memory_rows(list(history or []), platform=platform, limit=max(0, int(n)))
+    hist = list(history or [])
+    rows = _recent_memory_rows(hist, platform=platform, limit=_dedup_limit(n, len(hist)))
     return [_normalize(str(row.get("title") or "")) for row in rows if _normalize(str(row.get("title") or ""))]
+
+
+def all_used_titles(
+    history: list[dict[str, Any]] | None,
+    *,
+    target_platform: str,
+) -> set[str]:
+    """Lowercased set of every title ever used on this platform."""
+    titles: set[str] = set()
+    for row in _recent_memory_rows(
+        list(history or []),
+        platform=target_platform,
+        limit=TITLE_DEDUP_ALL,
+    ):
+        prior = _normalize(str(row.get("title") or "")).lower()
+        if prior:
+            titles.add(prior)
+    return titles
 
 
 def _title_is_duplicate(
@@ -243,12 +273,14 @@ def get_last_n_science_facts(
     *,
     history: list[dict[str, Any]] | None = None,
 ) -> list[str]:
-    """Return recent science-fact keys for a platform (chronological)."""
+    """Return science-fact keys for a platform (chronological). n<=0 = all."""
     if _platform_key(platform) != "youtube":
         return []
     facts: list[str] = []
     seen: set[str] = set()
-    for row in reversed(list(history or [])):
+    hist = list(history or [])
+    capped = _dedup_limit(n, len(hist))
+    for row in reversed(hist):
         row_platform = _platform_key(str(row.get("target_platform") or row.get("platform") or ""))
         if row_platform != "youtube":
             continue
@@ -257,7 +289,7 @@ def get_last_n_science_facts(
                 continue
             seen.add(key)
             facts.append(key)
-        if len(facts) >= max(0, int(n)):
+        if capped and len(facts) >= capped:
             break
     facts.reverse()
     return facts
@@ -313,6 +345,12 @@ def _is_beauty_platform(target_platform: str, channel_topic: str) -> bool:
 
 
 def _is_science_platform(target_platform: str, channel_topic: str) -> bool:
+    """YouTube-only science lane — never for Instagram/TikTok."""
+    if _is_instagram_platform(target_platform):
+        return False
+    platform_key = str(target_platform or "").strip().lower()
+    if platform_key in {"tiktok"}:
+        return False
     return is_science_youtube_platform(target_platform, channel_topic)
 
 
@@ -993,19 +1031,20 @@ def _build_candidate(
     used_recipes: set[str] | None = None,
     used_science_facts: set[str] | None = None,
 ) -> ChannelStoryIdea:
-    if _is_science_platform(target_platform, channel_topic):
-        return _build_science_candidate(
-            channel_topic=channel_topic,
-            niche=niche,
-            style=style,
-            mood=mood,
-            clip_count=clip_count,
-            diversity_mode=diversity_mode,
-            banned_terms=banned_terms,
-            attempt=attempt,
-            used_science_facts=used_science_facts,
-        )
-    if _is_perfumery_platform(target_platform, channel_topic):
+    # Instagram first — never allow science/YouTube ideation to claim Instagram jobs.
+    if _is_instagram_platform(target_platform):
+        if _is_beauty_platform(target_platform, channel_topic):
+            return _build_beauty_candidate(
+                channel_topic=channel_topic,
+                niche=niche,
+                style=style,
+                mood=mood,
+                clip_count=clip_count,
+                diversity_mode=diversity_mode,
+                banned_terms=banned_terms,
+                used_recipes=used_recipes or set(),
+                attempt=attempt,
+            )
         return _build_perfumery_candidate(
             channel_topic=channel_topic,
             niche=niche,
@@ -1017,8 +1056,8 @@ def _build_candidate(
             used_ingredients=used_recipes or set(),
             attempt=attempt,
         )
-    if _is_beauty_platform(target_platform, channel_topic):
-        return _build_beauty_candidate(
+    if _is_science_platform(target_platform, channel_topic):
+        return _build_science_candidate(
             channel_topic=channel_topic,
             niche=niche,
             style=style,
@@ -1026,8 +1065,8 @@ def _build_candidate(
             clip_count=clip_count,
             diversity_mode=diversity_mode,
             banned_terms=banned_terms,
-            used_recipes=used_recipes or set(),
             attempt=attempt,
+            used_science_facts=used_science_facts,
         )
     pool = SETTING_POOL_HIGH if diversity_mode == DIVERSITY_HIGH_VARIETY else SETTING_POOL_SAFE
     if diversity_mode == DIVERSITY_EPISODIC_SERIES:
@@ -1306,6 +1345,42 @@ def _apply_seo_title_to_idea(
     story_memory: list[dict[str, Any]] | None = None,
     exclude_power_words: list[str] | None = None,
 ) -> dict[str, Any]:
+    memory = list(story_memory or [])
+    blocked = all_used_titles(memory, target_platform=target_platform)
+
+    # Prefer pre-generated bank titles (one OpenAI batch → many videos).
+    # Skip any bank title already present in lifetime story memory.
+    if project_root:
+        try:
+            from content_brain.story.title_bank import get_next_title
+
+            for _ in range(40):
+                bank_title = get_next_title(
+                    target_platform,
+                    Path(project_root),
+                    blocked_titles=blocked,
+                )
+                bank_title = _normalize(str(bank_title or ""))
+                if not bank_title:
+                    break
+                if bank_title.lower() in blocked or _title_is_duplicate(
+                    bank_title,
+                    memory,
+                    target_platform=target_platform,
+                ):
+                    blocked.add(bank_title.lower())
+                    continue
+                idea.title = bank_title[:120]
+                return {
+                    "seo_title": bank_title[:120],
+                    "openai_applied": True,
+                    "openai_model": "title_bank",
+                    "power_word_used": "",
+                    "notes": ["seo_title_from_bank", "seo_title_lifetime_dedup"],
+                }
+        except Exception as exc:
+            logger.warning("title_bank lookup failed, falling back to per-video SEO: %s", exc)
+
     from content_brain.story.seo_title_generator import generate_seo_title
 
     seo_meta = generate_seo_title(
@@ -1315,10 +1390,22 @@ def _apply_seo_title_to_idea(
         target_platform=target_platform,
         niche=idea.niche,
         project_root=project_root,
-        story_memory=story_memory,
+        story_memory=memory,
         exclude_power_words=exclude_power_words,
     )
     seo_title = _normalize(str(seo_meta.get("seo_title") or ""))
+    if seo_title and (
+        seo_title.lower() in blocked
+        or _title_is_duplicate(seo_title, memory, target_platform=target_platform)
+    ):
+        seo_meta.setdefault("notes", []).append("seo_title_duplicate_blocked_lifetime")
+        # Keep generating until unused or attempts exhausted inside generator;
+        # if still duplicate, force a unique suffix so we never persist a collision.
+        if seo_title.lower() in blocked:
+            unique = f"{seo_title} — {secrets.token_hex(3)}"
+            seo_title = _normalize(unique)[:120]
+            seo_meta["seo_title"] = seo_title
+            seo_meta["notes"].append("seo_title_forced_unique_suffix")
     if seo_title:
         idea.title = seo_title[:120]
     if (
@@ -1538,6 +1625,8 @@ __all__ = [
     "IDEATION_VERSION",
     "SCIENCE_FACT_DEDUP_WINDOW",
     "TITLE_DEDUP_WINDOW",
+    "TITLE_DEDUP_ALL",
+    "all_used_titles",
     "get_last_n_science_facts",
     "get_last_n_titles",
     "MAX_WORDS_PER_CLIP",

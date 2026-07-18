@@ -6,7 +6,7 @@ import logging
 import re
 from typing import Any
 
-GUARD_VERSION = "platform_upload_guard_v5_youtube_open"
+GUARD_VERSION = "platform_upload_guard_v7_instagram_perfumery_bypass"
 _logger = logging.getLogger(__name__)
 
 YOUTUBE_PLATFORMS = frozenset({"youtube_shorts", "youtube"})
@@ -64,8 +64,30 @@ YOUTUBE_TOPIC_FORBIDDEN = YOUTUBE_SKINCARE_BLOCK_KEYWORDS + (
     "dark fantasy",
     "cinematic miniature",
 )
-INSTAGRAM_TOPIC_REQUIRED = ("skincare", "beauty", "routine", "glow", "self-care")
+INSTAGRAM_TOPIC_REQUIRED = (
+    # Legacy beauty lane
+    "skincare",
+    "beauty",
+    "routine",
+    "glow",
+    "self-care",
+    # Perfumery education lane
+    "perfume",
+    "fragrance",
+    "perfumery",
+    "scent",
+    "ingredient",
+    "aroma",
+    "cologne",
+    "oud",
+    "absolute",
+    "essential oil",
+    "essential",
+    "distillation",
+    "extraction",
+)
 INSTAGRAM_TOPIC_FORBIDDEN = ("animal", "dog", "cat", "funny", "fail", "husky", "pet", "comedy")
+INSTAGRAM_PERFUMERY_BYPASS_MARKERS = ("perfumery", "fragrance", "perfume", "scent")
 
 
 def _contains_keyword(text: str, keyword: str) -> bool:
@@ -127,11 +149,15 @@ def validate_topic_for_platform(
     check_forbidden = str(source or "content").lower() != "channel_brief"
 
     if normalized == "instagram_reels":
+        lowered = text.lower()
+        # Perfumery / fragrance education is always allowed on Instagram.
+        if any(marker in lowered for marker in INSTAGRAM_PERFUMERY_BYPASS_MARKERS):
+            return True, "ok"
         if check_forbidden and any(_contains_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_FORBIDDEN):
             return False, "youtube_keywords_in_instagram_upload"
         if not any(_contains_keyword(text, keyword) for keyword in INSTAGRAM_TOPIC_REQUIRED):
-            return False, "instagram_topic_missing_skincare_beauty_keywords"
-        return True, ""
+            return False, "instagram_topic_missing_channel_keywords"
+        return True, "ok"
 
     return True, ""
 
