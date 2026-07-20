@@ -2,7 +2,7 @@
   "version": "automation_queue_v1",
   "jobs": [
     {
-      "job_id": "auto_1520f4fb7b2e",
+      "job_id": "auto_aa1e888074d4",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -11,18 +11,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:35.879732+00:00",
-      "updated_at": "2026-07-18T20:45:35.939630+00:00"
+      "created_at": "2026-07-20T15:31:54.636881+00:00",
+      "updated_at": "2026-07-20T15:31:54.728897+00:00"
     },
     {
-      "job_id": "auto_7f4f2eb93803",
+      "job_id": "auto_57bc85dcc042",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:31:54.652799+00:00",
+      "updated_at": "2026-07-20T15:31:54.743430+00:00"
+    },
+    {
+      "job_id": "auto_ba4e2eaaf635",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:31:54.664474+00:00",
+      "updated_at": "2026-07-20T15:31:54.751388+00:00"
+    },
+    {
+      "job_id": "auto_20266a1f394b",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:31:54.675951+00:00",
+      "updated_at": "2026-07-20T15:31:54.759146+00:00"
+    },
+    {
+      "job_id": "auto_bf6d7a867322",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:32:05.301312+00:00",
+      "updated_at": "2026-07-20T15:35:44.673783+00:00"
+    },
+    {
+      "job_id": "auto_ce2ca3629aa3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -31,18 +111,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:35.885731+00:00",
-      "updated_at": "2026-07-18T20:45:35.946634+00:00"
+      "created_at": "2026-07-20T15:32:05.317364+00:00",
+      "updated_at": "2026-07-20T15:36:14.876060+00:00"
     },
     {
-      "job_id": "auto_64f4b45324fa",
+      "job_id": "auto_9d19d28aaf2c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -51,18 +131,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:35.892726+00:00",
-      "updated_at": "2026-07-18T20:45:35.954636+00:00"
+      "created_at": "2026-07-20T15:32:05.329200+00:00",
+      "updated_at": "2026-07-20T15:36:14.884514+00:00"
     },
     {
-      "job_id": "auto_4d3adf8e6418",
+      "job_id": "auto_d2167eefa4d2",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -71,18 +151,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:35.902731+00:00",
-      "updated_at": "2026-07-18T20:45:35.963143+00:00"
+      "created_at": "2026-07-20T15:32:05.341553+00:00",
+      "updated_at": "2026-07-20T15:36:14.746909+00:00"
     },
     {
-      "job_id": "auto_2c14b94126f2",
+      "job_id": "auto_da4cc89400ea",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -91,18 +171,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:35.910886+00:00",
-      "updated_at": "2026-07-18T20:45:35.970793+00:00"
+      "created_at": "2026-07-20T15:32:05.353659+00:00",
+      "updated_at": "2026-07-20T15:36:14.755635+00:00"
     },
     {
-      "job_id": "auto_7343efbd05ee",
+      "job_id": "auto_bad8c3cb9680",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -111,18 +191,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:35.919885+00:00",
-      "updated_at": "2026-07-18T20:45:35.972301+00:00"
+      "created_at": "2026-07-20T15:32:05.365839+00:00",
+      "updated_at": "2026-07-20T15:36:14.764365+00:00"
     },
     {
-      "job_id": "auto_41855738377b",
+      "job_id": "auto_680c42d93d78",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -131,18 +211,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:36.056323+00:00",
-      "updated_at": "2026-07-18T20:57:35.825117+00:00"
+      "created_at": "2026-07-20T15:36:14.793316+00:00",
+      "updated_at": "2026-07-20T15:36:14.892521+00:00"
     },
     {
-      "job_id": "auto_18b117e4779c",
+      "job_id": "auto_02436bd30c6a",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:36:14.810455+00:00",
+      "updated_at": "2026-07-20T15:36:14.904709+00:00"
+    },
+    {
+      "job_id": "auto_0af25db9b6d3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:36:14.823170+00:00",
+      "updated_at": "2026-07-20T15:36:14.913765+00:00"
+    },
+    {
+      "job_id": "auto_6d78fdcbc034",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:36:14.836666+00:00",
+      "updated_at": "2026-07-20T15:36:14.922000+00:00"
+    },
+    {
+      "job_id": "auto_31324859a532",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:36:25.500488+00:00",
+      "updated_at": "2026-07-20T15:40:03.849271+00:00"
+    },
+    {
+      "job_id": "auto_386d5156482c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -151,18 +311,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:36.062583+00:00",
-      "updated_at": "2026-07-18T20:46:12.985200+00:00"
+      "created_at": "2026-07-20T15:36:25.512466+00:00",
+      "updated_at": "2026-07-20T15:40:34.019043+00:00"
     },
     {
-      "job_id": "auto_6ca02c464b49",
+      "job_id": "auto_657580108ec9",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -171,18 +331,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:36.069584+00:00",
-      "updated_at": "2026-07-18T20:46:12.991211+00:00"
+      "created_at": "2026-07-20T15:36:25.524498+00:00",
+      "updated_at": "2026-07-20T15:40:34.026958+00:00"
     },
     {
-      "job_id": "auto_7ac7dbce4fd9",
+      "job_id": "auto_5f9c065cc0ff",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -191,18 +351,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:36.075583+00:00",
-      "updated_at": "2026-07-18T20:46:12.918803+00:00"
+      "created_at": "2026-07-20T15:36:25.537158+00:00",
+      "updated_at": "2026-07-20T15:40:33.899613+00:00"
     },
     {
-      "job_id": "auto_1e4c7cdd8e0a",
+      "job_id": "auto_3f2b49aa0d6b",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -211,18 +371,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:36.082583+00:00",
-      "updated_at": "2026-07-18T20:46:12.925702+00:00"
+      "created_at": "2026-07-20T15:36:25.550324+00:00",
+      "updated_at": "2026-07-20T15:40:33.907668+00:00"
     },
     {
-      "job_id": "auto_9658fc96b9ef",
+      "job_id": "auto_cbab6a4e9115",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -231,18 +391,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:45:36.088583+00:00",
-      "updated_at": "2026-07-18T20:46:12.932700+00:00"
+      "created_at": "2026-07-20T15:36:25.563425+00:00",
+      "updated_at": "2026-07-20T15:40:33.915822+00:00"
     },
     {
-      "job_id": "auto_7c207b131394",
+      "job_id": "auto_154985f7ad89",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -251,18 +411,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:12.950701+00:00",
-      "updated_at": "2026-07-18T20:46:12.997206+00:00"
+      "created_at": "2026-07-20T15:40:33.941255+00:00",
+      "updated_at": "2026-07-20T15:40:34.034450+00:00"
     },
     {
-      "job_id": "auto_b9c2d0c61db0",
+      "job_id": "auto_1b647fd2fb93",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -271,18 +431,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:12.957701+00:00",
-      "updated_at": "2026-07-18T20:46:13.005207+00:00"
+      "created_at": "2026-07-20T15:40:33.956749+00:00",
+      "updated_at": "2026-07-20T15:40:34.045842+00:00"
     },
     {
-      "job_id": "auto_8e2cd7732c2f",
+      "job_id": "auto_6f42f764b6ef",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -291,18 +451,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:12.964210+00:00",
-      "updated_at": "2026-07-18T20:46:13.011718+00:00"
+      "created_at": "2026-07-20T15:40:33.968534+00:00",
+      "updated_at": "2026-07-20T15:40:34.054259+00:00"
     },
     {
-      "job_id": "auto_5652a594f253",
+      "job_id": "auto_c8a028d8cfdb",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -311,18 +471,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:12.971212+00:00",
-      "updated_at": "2026-07-18T20:46:13.018454+00:00"
+      "created_at": "2026-07-20T15:40:33.980016+00:00",
+      "updated_at": "2026-07-20T15:40:34.061636+00:00"
     },
     {
-      "job_id": "auto_c999d3ecd634",
+      "job_id": "auto_f6ded581092d",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -330,39 +490,19 @@
       "platform_targets": [
         "youtube_shorts"
       ],
-      "status": "planned",
-      "scheduled_time": "2026-07-18T08:00",
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
-      "error": "",
-      "created_at": "2026-07-18T20:46:14.999418+00:00",
-      "updated_at": "2026-07-18T21:09:23.905769+00:00"
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:40:44.641673+00:00",
+      "updated_at": "2026-07-20T15:44:13.695719+00:00"
     },
     {
-      "job_id": "auto_9b668c2fd3ae",
-      "topic": "Science That Feels Impossible — YouTube Shorts",
-      "title": "Science That Feels Impossible — YouTube Shorts",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "youtube_shorts"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:15.005424+00:00",
-      "updated_at": "2026-07-18T20:56:30.362782+00:00"
-    },
-    {
-      "job_id": "auto_3e91afb7cfa1",
+      "job_id": "auto_c5eabd085046",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -371,78 +511,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:15.011946+00:00",
-      "updated_at": "2026-07-18T20:56:30.368852+00:00"
+      "created_at": "2026-07-20T15:40:44.653013+00:00",
+      "updated_at": "2026-07-20T15:44:43.870553+00:00"
     },
     {
-      "job_id": "auto_7ecef3168934",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:15.018823+00:00",
-      "updated_at": "2026-07-18T20:56:30.382312+00:00"
-    },
-    {
-      "job_id": "auto_72d2ac2e7b0b",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:15.024820+00:00",
-      "updated_at": "2026-07-18T20:56:30.389110+00:00"
-    },
-    {
-      "job_id": "auto_792ad550f244",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:46:15.030813+00:00",
-      "updated_at": "2026-07-18T20:56:30.395716+00:00"
-    },
-    {
-      "job_id": "auto_5a08defc2561",
+      "job_id": "auto_5f4dfb4716e7",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -451,18 +531,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:56:30.419467+00:00",
-      "updated_at": "2026-07-18T20:56:30.477094+00:00"
+      "created_at": "2026-07-20T15:40:44.664532+00:00",
+      "updated_at": "2026-07-20T15:44:43.878370+00:00"
     },
     {
-      "job_id": "auto_8d261d445325",
+      "job_id": "auto_868a4a697c45",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:40:44.675805+00:00",
+      "updated_at": "2026-07-20T15:44:43.750851+00:00"
+    },
+    {
+      "job_id": "auto_05dda253f1ff",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:40:44.688383+00:00",
+      "updated_at": "2026-07-20T15:44:43.758619+00:00"
+    },
+    {
+      "job_id": "auto_348af03d1121",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:40:44.700300+00:00",
+      "updated_at": "2026-07-20T15:44:43.766701+00:00"
+    },
+    {
+      "job_id": "auto_e0b95c25e9fd",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -471,18 +611,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:56:30.427176+00:00",
-      "updated_at": "2026-07-18T20:56:30.484885+00:00"
+      "created_at": "2026-07-20T15:44:43.793307+00:00",
+      "updated_at": "2026-07-20T15:44:43.885994+00:00"
     },
     {
-      "job_id": "auto_4db56757c360",
+      "job_id": "auto_eda67bf5e3f4",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -491,18 +631,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:56:30.434923+00:00",
-      "updated_at": "2026-07-18T20:56:30.495063+00:00"
+      "created_at": "2026-07-20T15:44:43.809306+00:00",
+      "updated_at": "2026-07-20T15:44:43.898506+00:00"
     },
     {
-      "job_id": "auto_ffbed301052e",
+      "job_id": "auto_06d4848341c9",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -511,18 +651,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:56:30.443542+00:00",
-      "updated_at": "2026-07-18T20:56:30.504309+00:00"
+      "created_at": "2026-07-20T15:44:43.821224+00:00",
+      "updated_at": "2026-07-20T15:44:43.906147+00:00"
     },
     {
-      "job_id": "auto_a516463a17dd",
+      "job_id": "auto_8dfbcbe7341c",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -531,18 +671,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:56:30.451589+00:00",
-      "updated_at": "2026-07-18T20:56:30.512972+00:00"
+      "created_at": "2026-07-20T15:44:43.833209+00:00",
+      "updated_at": "2026-07-20T15:44:43.913566+00:00"
     },
     {
-      "job_id": "auto_d04641c82d40",
+      "job_id": "auto_29b0fa4f9737",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:44:54.459243+00:00",
+      "updated_at": "2026-07-20T15:48:20.838394+00:00"
+    },
+    {
+      "job_id": "auto_cee79b3330a0",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -551,18 +711,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:05.603060+00:00",
-      "updated_at": "2026-07-18T20:57:05.674306+00:00"
+      "created_at": "2026-07-20T15:44:54.471419+00:00",
+      "updated_at": "2026-07-20T15:48:51.005715+00:00"
     },
     {
-      "job_id": "auto_ddbc3f8e13dd",
+      "job_id": "auto_1c1e2b39b9bd",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -571,18 +731,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:05.614053+00:00",
-      "updated_at": "2026-07-18T20:57:05.684306+00:00"
+      "created_at": "2026-07-20T15:44:54.483875+00:00",
+      "updated_at": "2026-07-20T15:48:51.013556+00:00"
     },
     {
-      "job_id": "auto_3ca785c85ce8",
+      "job_id": "auto_d9532b985a29",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -591,18 +751,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:05.625056+00:00",
-      "updated_at": "2026-07-18T20:57:05.697505+00:00"
+      "created_at": "2026-07-20T15:44:54.496421+00:00",
+      "updated_at": "2026-07-20T15:48:50.887312+00:00"
     },
     {
-      "job_id": "auto_650705a3e249",
+      "job_id": "auto_195b2f70a197",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -611,18 +771,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:05.635578+00:00",
-      "updated_at": "2026-07-18T20:57:05.707506+00:00"
+      "created_at": "2026-07-20T15:44:54.508988+00:00",
+      "updated_at": "2026-07-20T15:48:50.895495+00:00"
     },
     {
-      "job_id": "auto_7ca076337a1a",
+      "job_id": "auto_687778c31aa0",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -631,18 +791,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:05.646310+00:00",
-      "updated_at": "2026-07-18T20:57:05.717516+00:00"
+      "created_at": "2026-07-20T15:44:54.523060+00:00",
+      "updated_at": "2026-07-20T15:48:50.903234+00:00"
     },
     {
-      "job_id": "auto_469a9d9f0702",
+      "job_id": "auto_8ba73a4fca41",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -651,18 +811,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:35.787109+00:00",
-      "updated_at": "2026-07-18T20:57:35.831624+00:00"
+      "created_at": "2026-07-20T15:48:50.928896+00:00",
+      "updated_at": "2026-07-20T15:48:51.021247+00:00"
     },
     {
-      "job_id": "auto_fb211875b895",
+      "job_id": "auto_d3c363619a21",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -671,18 +831,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:35.795113+00:00",
-      "updated_at": "2026-07-18T20:57:35.839150+00:00"
+      "created_at": "2026-07-20T15:48:50.944551+00:00",
+      "updated_at": "2026-07-20T15:48:51.032817+00:00"
     },
     {
-      "job_id": "auto_7dc584522ad8",
+      "job_id": "auto_c7bd85c4b250",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -691,18 +851,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:35.802121+00:00",
-      "updated_at": "2026-07-18T20:57:35.845149+00:00"
+      "created_at": "2026-07-20T15:48:50.956081+00:00",
+      "updated_at": "2026-07-20T15:48:51.040545+00:00"
     },
     {
-      "job_id": "auto_ac1a5fc1caaa",
+      "job_id": "auto_cae1df27d42c",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -711,18 +871,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:57:35.809114+00:00",
-      "updated_at": "2026-07-18T20:57:35.851956+00:00"
+      "created_at": "2026-07-20T15:48:50.968158+00:00",
+      "updated_at": "2026-07-20T15:48:51.047885+00:00"
     },
     {
-      "job_id": "auto_fb311371e392",
+      "job_id": "auto_6a0047ae1aea",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:49:01.608210+00:00",
+      "updated_at": "2026-07-20T15:52:30.437303+00:00"
+    },
+    {
+      "job_id": "auto_39263f4a4894",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -731,18 +911,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:05.903477+00:00",
-      "updated_at": "2026-07-18T20:58:05.946774+00:00"
+      "created_at": "2026-07-20T15:49:01.619506+00:00",
+      "updated_at": "2026-07-20T15:53:00.624624+00:00"
     },
     {
-      "job_id": "auto_879faf7a42c9",
+      "job_id": "auto_edee02dae334",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -751,18 +931,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:05.910476+00:00",
-      "updated_at": "2026-07-18T20:58:05.952777+00:00"
+      "created_at": "2026-07-20T15:49:01.631742+00:00",
+      "updated_at": "2026-07-20T15:53:00.634428+00:00"
     },
     {
-      "job_id": "auto_c89c2780f785",
+      "job_id": "auto_dc1853607fc8",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -771,18 +951,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:05.917477+00:00",
-      "updated_at": "2026-07-18T20:58:05.959776+00:00"
+      "created_at": "2026-07-20T15:49:01.646866+00:00",
+      "updated_at": "2026-07-20T15:53:00.505476+00:00"
     },
     {
-      "job_id": "auto_6182bd3d6957",
+      "job_id": "auto_77ae4c3b7c93",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -791,18 +971,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:05.924483+00:00",
-      "updated_at": "2026-07-18T20:58:05.965784+00:00"
+      "created_at": "2026-07-20T15:49:01.662743+00:00",
+      "updated_at": "2026-07-20T15:53:00.513676+00:00"
     },
     {
-      "job_id": "auto_ca3952ec71b2",
+      "job_id": "auto_24cc60cdbbb3",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -811,18 +991,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:05.931490+00:00",
-      "updated_at": "2026-07-18T20:58:05.970777+00:00"
+      "created_at": "2026-07-20T15:49:01.679834+00:00",
+      "updated_at": "2026-07-20T15:53:00.521539+00:00"
     },
     {
-      "job_id": "auto_b85440811ca3",
+      "job_id": "auto_d299769936c3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -831,18 +1011,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:36.020765+00:00",
-      "updated_at": "2026-07-18T20:58:36.073434+00:00"
+      "created_at": "2026-07-20T15:53:00.547020+00:00",
+      "updated_at": "2026-07-20T15:53:00.642454+00:00"
     },
     {
-      "job_id": "auto_88ebcaec5479",
+      "job_id": "auto_4a876a300132",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:53:00.563785+00:00",
+      "updated_at": "2026-07-20T15:53:00.654328+00:00"
+    },
+    {
+      "job_id": "auto_6b401c288370",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:53:00.575706+00:00",
+      "updated_at": "2026-07-20T15:53:00.665625+00:00"
+    },
+    {
+      "job_id": "auto_70a100c3d62d",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:53:00.587268+00:00",
+      "updated_at": "2026-07-20T15:53:00.674059+00:00"
+    },
+    {
+      "job_id": "auto_7f7ff1674d55",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:53:11.227256+00:00",
+      "updated_at": "2026-07-20T15:56:51.375647+00:00"
+    },
+    {
+      "job_id": "auto_8d7518c68f64",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -851,78 +1111,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:36.028779+00:00",
-      "updated_at": "2026-07-18T20:58:36.081433+00:00"
+      "created_at": "2026-07-20T15:53:11.238863+00:00",
+      "updated_at": "2026-07-20T15:57:21.547788+00:00"
     },
     {
-      "job_id": "auto_ea30908edbb7",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:36.038275+00:00",
-      "updated_at": "2026-07-18T20:58:36.088962+00:00"
-    },
-    {
-      "job_id": "auto_f48a172a4c68",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:36.046407+00:00",
-      "updated_at": "2026-07-18T20:58:36.096946+00:00"
-    },
-    {
-      "job_id": "auto_2a15493e6e67",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:58:36.054404+00:00",
-      "updated_at": "2026-07-18T20:58:36.104242+00:00"
-    },
-    {
-      "job_id": "auto_3ba264d595cd",
+      "job_id": "auto_d3ea1deb5653",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -931,18 +1131,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:06.151293+00:00",
-      "updated_at": "2026-07-18T20:59:06.200917+00:00"
+      "created_at": "2026-07-20T15:53:11.250870+00:00",
+      "updated_at": "2026-07-20T15:57:21.555638+00:00"
     },
     {
-      "job_id": "auto_63475348ba81",
+      "job_id": "auto_fa16dfa9eea3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:53:11.263026+00:00",
+      "updated_at": "2026-07-20T15:57:21.426244+00:00"
+    },
+    {
+      "job_id": "auto_11a659ddf7a3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:53:11.275398+00:00",
+      "updated_at": "2026-07-20T15:57:21.434089+00:00"
+    },
+    {
+      "job_id": "auto_ed182b6ad50f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T15:53:11.287732+00:00",
+      "updated_at": "2026-07-20T15:57:21.441683+00:00"
+    },
+    {
+      "job_id": "auto_c82e474dfb7f",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -951,18 +1211,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:06.159294+00:00",
-      "updated_at": "2026-07-18T20:59:06.207916+00:00"
+      "created_at": "2026-07-20T15:57:21.467507+00:00",
+      "updated_at": "2026-07-20T15:57:21.564998+00:00"
     },
     {
-      "job_id": "auto_2029526c8cd3",
+      "job_id": "auto_23dfe328f80f",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -971,18 +1231,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:06.167294+00:00",
-      "updated_at": "2026-07-18T20:59:06.215917+00:00"
+      "created_at": "2026-07-20T15:57:21.483273+00:00",
+      "updated_at": "2026-07-20T15:57:21.576225+00:00"
     },
     {
-      "job_id": "auto_ec8258d050b4",
+      "job_id": "auto_dad8cb78a70e",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -991,18 +1251,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:06.175299+00:00",
-      "updated_at": "2026-07-18T20:59:06.224921+00:00"
+      "created_at": "2026-07-20T15:57:21.495025+00:00",
+      "updated_at": "2026-07-20T15:57:21.583588+00:00"
     },
     {
-      "job_id": "auto_233a6d851587",
+      "job_id": "auto_7f51bae98ba1",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1011,18 +1271,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:06.182298+00:00",
-      "updated_at": "2026-07-18T20:59:06.230921+00:00"
+      "created_at": "2026-07-20T15:57:21.506534+00:00",
+      "updated_at": "2026-07-20T15:57:21.591051+00:00"
     },
     {
-      "job_id": "auto_5eed25b950fb",
+      "job_id": "auto_e1134f120f8e",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T15:57:32.133657+00:00",
+      "updated_at": "2026-07-20T16:01:12.017773+00:00"
+    },
+    {
+      "job_id": "auto_d3d088b78251",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1031,18 +1311,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:36.274849+00:00",
-      "updated_at": "2026-07-18T20:59:36.323044+00:00"
+      "created_at": "2026-07-20T15:57:32.145384+00:00",
+      "updated_at": "2026-07-20T16:01:42.205440+00:00"
     },
     {
-      "job_id": "auto_ddd83dbe8b7c",
+      "job_id": "auto_c3e78e865f1e",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1051,18 +1331,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:36.282854+00:00",
-      "updated_at": "2026-07-18T20:59:36.330040+00:00"
+      "created_at": "2026-07-20T15:57:32.156769+00:00",
+      "updated_at": "2026-07-20T16:01:42.213415+00:00"
     },
     {
-      "job_id": "auto_0154b3b2be7e",
+      "job_id": "auto_5d1fab58453b",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1071,18 +1351,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:36.290372+00:00",
-      "updated_at": "2026-07-18T20:59:36.337550+00:00"
+      "created_at": "2026-07-20T15:57:32.168436+00:00",
+      "updated_at": "2026-07-20T16:01:42.085612+00:00"
     },
     {
-      "job_id": "auto_cc911c96cc1e",
+      "job_id": "auto_43c29ccf2d80",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1091,18 +1371,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:36.297043+00:00",
-      "updated_at": "2026-07-18T20:59:36.344871+00:00"
+      "created_at": "2026-07-20T15:57:32.179850+00:00",
+      "updated_at": "2026-07-20T16:01:42.093661+00:00"
     },
     {
-      "job_id": "auto_5755b234f34b",
+      "job_id": "auto_cfc8005c65f4",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1111,18 +1391,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T20:59:36.305036+00:00",
-      "updated_at": "2026-07-18T20:59:36.350873+00:00"
+      "created_at": "2026-07-20T15:57:32.191321+00:00",
+      "updated_at": "2026-07-20T16:01:42.101504+00:00"
     },
     {
-      "job_id": "auto_5b25989deff8",
+      "job_id": "auto_ffa82d8600eb",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1131,18 +1411,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:06.397282+00:00",
-      "updated_at": "2026-07-18T21:00:06.446884+00:00"
+      "created_at": "2026-07-20T16:01:42.127717+00:00",
+      "updated_at": "2026-07-20T16:01:42.221292+00:00"
     },
     {
-      "job_id": "auto_5133bb03b11f",
+      "job_id": "auto_0b8b3c069adc",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:01:42.143328+00:00",
+      "updated_at": "2026-07-20T16:01:42.232609+00:00"
+    },
+    {
+      "job_id": "auto_06f0964caec0",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:01:42.155825+00:00",
+      "updated_at": "2026-07-20T16:01:42.240475+00:00"
+    },
+    {
+      "job_id": "auto_e7c3b47b7356",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:01:42.167567+00:00",
+      "updated_at": "2026-07-20T16:01:42.247872+00:00"
+    },
+    {
+      "job_id": "auto_be98e3c64450",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:01:52.797475+00:00",
+      "updated_at": "2026-07-20T16:05:31.303336+00:00"
+    },
+    {
+      "job_id": "auto_6a19c4c912c6",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1151,78 +1511,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:06.405218+00:00",
-      "updated_at": "2026-07-18T21:00:06.453731+00:00"
+      "created_at": "2026-07-20T16:01:52.809184+00:00",
+      "updated_at": "2026-07-20T16:06:01.487461+00:00"
     },
     {
-      "job_id": "auto_5660979c6bf7",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:06.413232+00:00",
-      "updated_at": "2026-07-18T21:00:06.461732+00:00"
-    },
-    {
-      "job_id": "auto_c7e1c7cdbdb9",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:06.420368+00:00",
-      "updated_at": "2026-07-18T21:00:06.468734+00:00"
-    },
-    {
-      "job_id": "auto_ab9ac04f2b0b",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:06.428373+00:00",
-      "updated_at": "2026-07-18T21:00:06.474732+00:00"
-    },
-    {
-      "job_id": "auto_d4e0a78c290e",
+      "job_id": "auto_10e7b5ec59c3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1231,18 +1531,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:36.515376+00:00",
-      "updated_at": "2026-07-18T21:00:36.574753+00:00"
+      "created_at": "2026-07-20T16:01:52.820654+00:00",
+      "updated_at": "2026-07-20T16:06:01.495675+00:00"
     },
     {
-      "job_id": "auto_2a159aa13ee2",
+      "job_id": "auto_87e57fd6bcb8",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:01:52.832336+00:00",
+      "updated_at": "2026-07-20T16:06:01.363193+00:00"
+    },
+    {
+      "job_id": "auto_7194a4c55984",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:01:52.843689+00:00",
+      "updated_at": "2026-07-20T16:06:01.371696+00:00"
+    },
+    {
+      "job_id": "auto_4e428cbe9e01",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:01:52.855087+00:00",
+      "updated_at": "2026-07-20T16:06:01.379306+00:00"
+    },
+    {
+      "job_id": "auto_306aa60be992",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1251,18 +1611,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:36.523376+00:00",
-      "updated_at": "2026-07-18T21:00:36.581757+00:00"
+      "created_at": "2026-07-20T16:06:01.407789+00:00",
+      "updated_at": "2026-07-20T16:06:01.504318+00:00"
     },
     {
-      "job_id": "auto_cb7b8a53751c",
+      "job_id": "auto_f86e254e05b1",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1271,18 +1631,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:36.531409+00:00",
-      "updated_at": "2026-07-18T21:00:36.589758+00:00"
+      "created_at": "2026-07-20T16:06:01.423322+00:00",
+      "updated_at": "2026-07-20T16:06:01.516745+00:00"
     },
     {
-      "job_id": "auto_f8fc0162f15d",
+      "job_id": "auto_c63503be52a5",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1291,18 +1651,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:36.539410+00:00",
-      "updated_at": "2026-07-18T21:00:36.597263+00:00"
+      "created_at": "2026-07-20T16:06:01.435013+00:00",
+      "updated_at": "2026-07-20T16:06:01.525176+00:00"
     },
     {
-      "job_id": "auto_fa0048134542",
+      "job_id": "auto_64b108afa1ed",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1311,18 +1671,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:00:36.553752+00:00",
-      "updated_at": "2026-07-18T21:00:36.604135+00:00"
+      "created_at": "2026-07-20T16:06:01.446989+00:00",
+      "updated_at": "2026-07-20T16:06:01.533683+00:00"
     },
     {
-      "job_id": "auto_9c3989012414",
+      "job_id": "auto_57b0417fd2aa",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:06:12.089984+00:00",
+      "updated_at": "2026-07-20T16:09:39.016291+00:00"
+    },
+    {
+      "job_id": "auto_0a4a2d64655f",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1331,18 +1711,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:06.668841+00:00",
-      "updated_at": "2026-07-18T21:01:06.737044+00:00"
+      "created_at": "2026-07-20T16:06:12.102563+00:00",
+      "updated_at": "2026-07-20T16:10:09.233939+00:00"
     },
     {
-      "job_id": "auto_b56e00a8ab55",
+      "job_id": "auto_cd58fc653805",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1351,18 +1731,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:06.681853+00:00",
-      "updated_at": "2026-07-18T21:01:06.744548+00:00"
+      "created_at": "2026-07-20T16:06:12.116164+00:00",
+      "updated_at": "2026-07-20T16:10:09.242540+00:00"
     },
     {
-      "job_id": "auto_2f0fb39ba3c4",
+      "job_id": "auto_ddf25aa9f516",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1371,18 +1751,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:06.693851+00:00",
-      "updated_at": "2026-07-18T21:01:06.753557+00:00"
+      "created_at": "2026-07-20T16:06:12.129339+00:00",
+      "updated_at": "2026-07-20T16:10:09.097071+00:00"
     },
     {
-      "job_id": "auto_148d5402f369",
+      "job_id": "auto_0ce290c203e4",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1391,18 +1771,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:06.704045+00:00",
-      "updated_at": "2026-07-18T21:01:06.760558+00:00"
+      "created_at": "2026-07-20T16:06:12.141965+00:00",
+      "updated_at": "2026-07-20T16:10:09.108101+00:00"
     },
     {
-      "job_id": "auto_f0e481cf20ca",
+      "job_id": "auto_de66b045a3a9",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1411,18 +1791,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:06.716038+00:00",
-      "updated_at": "2026-07-18T21:01:06.768026+00:00"
+      "created_at": "2026-07-20T16:06:12.155040+00:00",
+      "updated_at": "2026-07-20T16:10:09.119192+00:00"
     },
     {
-      "job_id": "auto_f340c786fdd3",
+      "job_id": "auto_0dcd6099faed",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1431,18 +1811,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:36.815927+00:00",
-      "updated_at": "2026-07-18T21:01:36.876166+00:00"
+      "created_at": "2026-07-20T16:10:09.148949+00:00",
+      "updated_at": "2026-07-20T16:10:09.250679+00:00"
     },
     {
-      "job_id": "auto_41c84f93f4ce",
+      "job_id": "auto_254ac5624fc3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:10:09.167200+00:00",
+      "updated_at": "2026-07-20T16:10:09.263088+00:00"
+    },
+    {
+      "job_id": "auto_61a22c844b21",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:10:09.180284+00:00",
+      "updated_at": "2026-07-20T16:10:09.271114+00:00"
+    },
+    {
+      "job_id": "auto_06c3f40e90de",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:10:09.193092+00:00",
+      "updated_at": "2026-07-20T16:10:09.279456+00:00"
+    },
+    {
+      "job_id": "auto_3fe04cbb42f1",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:10:19.858259+00:00",
+      "updated_at": "2026-07-20T16:13:57.631043+00:00"
+    },
+    {
+      "job_id": "auto_e868a2b6e73d",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1451,78 +1911,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:36.825929+00:00",
-      "updated_at": "2026-07-18T21:01:36.883749+00:00"
+      "created_at": "2026-07-20T16:10:19.870986+00:00",
+      "updated_at": "2026-07-20T16:14:27.834539+00:00"
     },
     {
-      "job_id": "auto_09cae9bf0d74",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:36.834935+00:00",
-      "updated_at": "2026-07-18T21:01:36.892251+00:00"
-    },
-    {
-      "job_id": "auto_15d18a1dc000",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:36.843935+00:00",
-      "updated_at": "2026-07-18T21:01:36.899684+00:00"
-    },
-    {
-      "job_id": "auto_ae18c31fe135",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:01:36.852817+00:00",
-      "updated_at": "2026-07-18T21:01:36.906683+00:00"
-    },
-    {
-      "job_id": "auto_97a5544bc977",
+      "job_id": "auto_914754e13dc2",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1531,18 +1931,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:06.951584+00:00",
-      "updated_at": "2026-07-18T21:02:07.036295+00:00"
+      "created_at": "2026-07-20T16:10:19.884520+00:00",
+      "updated_at": "2026-07-20T16:14:27.842945+00:00"
     },
     {
-      "job_id": "auto_1bd30fd60cb3",
+      "job_id": "auto_7bfed84123eb",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:10:19.896792+00:00",
+      "updated_at": "2026-07-20T16:14:27.694704+00:00"
+    },
+    {
+      "job_id": "auto_594774ef1879",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:10:19.909147+00:00",
+      "updated_at": "2026-07-20T16:14:27.703365+00:00"
+    },
+    {
+      "job_id": "auto_f2eab107c033",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:10:19.922041+00:00",
+      "updated_at": "2026-07-20T16:14:27.711619+00:00"
+    },
+    {
+      "job_id": "auto_e810da84ce0f",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1551,18 +2011,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:06.964449+00:00",
-      "updated_at": "2026-07-18T21:02:07.043285+00:00"
+      "created_at": "2026-07-20T16:14:27.739782+00:00",
+      "updated_at": "2026-07-20T16:14:27.850838+00:00"
     },
     {
-      "job_id": "auto_a3b3069387c1",
+      "job_id": "auto_aeb6fe4c5b70",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1571,18 +2031,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:06.980448+00:00",
-      "updated_at": "2026-07-18T21:02:07.053410+00:00"
+      "created_at": "2026-07-20T16:14:27.762037+00:00",
+      "updated_at": "2026-07-20T16:14:27.862486+00:00"
     },
     {
-      "job_id": "auto_3b17584cdea6",
+      "job_id": "auto_e236ac6d1ecd",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1591,18 +2051,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:06.995453+00:00",
-      "updated_at": "2026-07-18T21:02:07.060411+00:00"
+      "created_at": "2026-07-20T16:14:27.778369+00:00",
+      "updated_at": "2026-07-20T16:14:27.870305+00:00"
     },
     {
-      "job_id": "auto_d016246cc493",
+      "job_id": "auto_4cb4a9d62d27",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1611,18 +2071,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:07.008104+00:00",
-      "updated_at": "2026-07-18T21:02:07.071409+00:00"
+      "created_at": "2026-07-20T16:14:27.793192+00:00",
+      "updated_at": "2026-07-20T16:14:27.878162+00:00"
     },
     {
-      "job_id": "auto_521135800323",
+      "job_id": "auto_0f785da6a3b2",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:14:38.432631+00:00",
+      "updated_at": "2026-07-20T16:18:08.532906+00:00"
+    },
+    {
+      "job_id": "auto_b4abb51b4481",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1631,18 +2111,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:37.123765+00:00",
-      "updated_at": "2026-07-18T21:02:37.183648+00:00"
+      "created_at": "2026-07-20T16:14:38.445505+00:00",
+      "updated_at": "2026-07-20T16:18:38.767009+00:00"
     },
     {
-      "job_id": "auto_ae2badfdf5b8",
+      "job_id": "auto_8e1be416f0f2",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1651,18 +2131,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:37.132772+00:00",
-      "updated_at": "2026-07-18T21:02:37.190648+00:00"
+      "created_at": "2026-07-20T16:14:38.458368+00:00",
+      "updated_at": "2026-07-20T16:18:38.775471+00:00"
     },
     {
-      "job_id": "auto_908620dfd89f",
+      "job_id": "auto_265ef8789c0f",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1671,18 +2151,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:37.141771+00:00",
-      "updated_at": "2026-07-18T21:02:37.199702+00:00"
+      "created_at": "2026-07-20T16:14:38.474214+00:00",
+      "updated_at": "2026-07-20T16:18:38.599919+00:00"
     },
     {
-      "job_id": "auto_00cb19fdd6a6",
+      "job_id": "auto_c6518cbee6a1",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1691,18 +2171,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:37.150829+00:00",
-      "updated_at": "2026-07-18T21:02:37.207571+00:00"
+      "created_at": "2026-07-20T16:14:38.486995+00:00",
+      "updated_at": "2026-07-20T16:18:38.607842+00:00"
     },
     {
-      "job_id": "auto_f40224e6fe88",
+      "job_id": "auto_7dd8bbf2c2f0",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1711,18 +2191,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:02:37.160639+00:00",
-      "updated_at": "2026-07-18T21:02:37.215108+00:00"
+      "created_at": "2026-07-20T16:14:38.499222+00:00",
+      "updated_at": "2026-07-20T16:18:38.631243+00:00"
     },
     {
-      "job_id": "auto_74c77f285b3b",
+      "job_id": "auto_32f5a5dbdabe",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1731,18 +2211,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:07.269067+00:00",
-      "updated_at": "2026-07-18T21:03:07.328513+00:00"
+      "created_at": "2026-07-20T16:18:38.666057+00:00",
+      "updated_at": "2026-07-20T16:18:38.783226+00:00"
     },
     {
-      "job_id": "auto_17d4a5060f41",
+      "job_id": "auto_2ef731b50bc8",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:18:38.683694+00:00",
+      "updated_at": "2026-07-20T16:18:38.796473+00:00"
+    },
+    {
+      "job_id": "auto_a89968455694",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:18:38.709925+00:00",
+      "updated_at": "2026-07-20T16:18:38.807288+00:00"
+    },
+    {
+      "job_id": "auto_fb1d659d5711",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:18:38.725445+00:00",
+      "updated_at": "2026-07-20T16:18:38.816854+00:00"
+    },
+    {
+      "job_id": "auto_6cbba78a84c1",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:18:49.365493+00:00",
+      "updated_at": "2026-07-20T16:22:15.965350+00:00"
+    },
+    {
+      "job_id": "auto_bb41cc857b2d",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1751,78 +2311,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:07.278586+00:00",
-      "updated_at": "2026-07-18T21:03:07.335516+00:00"
+      "created_at": "2026-07-20T16:18:49.377501+00:00",
+      "updated_at": "2026-07-20T16:22:46.140930+00:00"
     },
     {
-      "job_id": "auto_9f7075ea3e39",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:07.287595+00:00",
-      "updated_at": "2026-07-18T21:03:07.344524+00:00"
-    },
-    {
-      "job_id": "auto_55095d563866",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:07.295594+00:00",
-      "updated_at": "2026-07-18T21:03:07.352335+00:00"
-    },
-    {
-      "job_id": "auto_b40c3cfe7eb3",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:07.304507+00:00",
-      "updated_at": "2026-07-18T21:03:07.359341+00:00"
-    },
-    {
-      "job_id": "auto_d481468ceaa0",
+      "job_id": "auto_12de0b1e1d9b",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1831,18 +2331,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:37.416909+00:00",
-      "updated_at": "2026-07-18T21:03:37.478258+00:00"
+      "created_at": "2026-07-20T16:18:49.391265+00:00",
+      "updated_at": "2026-07-20T16:22:46.149160+00:00"
     },
     {
-      "job_id": "auto_f91316ba3b24",
+      "job_id": "auto_77cd078eb93d",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:18:49.404798+00:00",
+      "updated_at": "2026-07-20T16:22:46.018335+00:00"
+    },
+    {
+      "job_id": "auto_c789b9386d15",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:18:49.418936+00:00",
+      "updated_at": "2026-07-20T16:22:46.026093+00:00"
+    },
+    {
+      "job_id": "auto_3a73ee843a59",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:18:49.432757+00:00",
+      "updated_at": "2026-07-20T16:22:46.033636+00:00"
+    },
+    {
+      "job_id": "auto_90332291ba66",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1851,18 +2411,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:37.425852+00:00",
-      "updated_at": "2026-07-18T21:03:37.485778+00:00"
+      "created_at": "2026-07-20T16:22:46.061111+00:00",
+      "updated_at": "2026-07-20T16:22:46.157008+00:00"
     },
     {
-      "job_id": "auto_b45272f5e608",
+      "job_id": "auto_6c4a90d5b7ec",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1871,18 +2431,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:37.435123+00:00",
-      "updated_at": "2026-07-18T21:03:37.495153+00:00"
+      "created_at": "2026-07-20T16:22:46.076529+00:00",
+      "updated_at": "2026-07-20T16:22:46.168530+00:00"
     },
     {
-      "job_id": "auto_dce4905e95f8",
+      "job_id": "auto_08ce4b809713",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1891,18 +2451,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:37.443863+00:00",
-      "updated_at": "2026-07-18T21:03:37.504005+00:00"
+      "created_at": "2026-07-20T16:22:46.088289+00:00",
+      "updated_at": "2026-07-20T16:22:46.176083+00:00"
     },
     {
-      "job_id": "auto_7c8a5241a5e7",
+      "job_id": "auto_6e37d5c2f5d4",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1911,18 +2471,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:03:37.454416+00:00",
-      "updated_at": "2026-07-18T21:03:37.511931+00:00"
+      "created_at": "2026-07-20T16:22:46.100187+00:00",
+      "updated_at": "2026-07-20T16:22:46.183408+00:00"
     },
     {
-      "job_id": "auto_5b5c00bef64d",
+      "job_id": "auto_66729a8ca903",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:22:56.736210+00:00",
+      "updated_at": "2026-07-20T16:26:32.714647+00:00"
+    },
+    {
+      "job_id": "auto_b41d92335b85",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1931,18 +2511,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:07.570591+00:00",
-      "updated_at": "2026-07-18T21:04:07.634958+00:00"
+      "created_at": "2026-07-20T16:22:56.748684+00:00",
+      "updated_at": "2026-07-20T16:27:02.899024+00:00"
     },
     {
-      "job_id": "auto_58f94971ae1b",
+      "job_id": "auto_367df3111806",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -1951,18 +2531,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:07.580124+00:00",
-      "updated_at": "2026-07-18T21:04:07.642976+00:00"
+      "created_at": "2026-07-20T16:22:56.760183+00:00",
+      "updated_at": "2026-07-20T16:27:02.906984+00:00"
     },
     {
-      "job_id": "auto_cad9b481d7d7",
+      "job_id": "auto_4c6f2dcf2e9e",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1971,18 +2551,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:07.589144+00:00",
-      "updated_at": "2026-07-18T21:04:07.652473+00:00"
+      "created_at": "2026-07-20T16:22:56.772147+00:00",
+      "updated_at": "2026-07-20T16:27:02.777163+00:00"
     },
     {
-      "job_id": "auto_9e9397334181",
+      "job_id": "auto_72d868fe914d",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -1991,18 +2571,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:07.598130+00:00",
-      "updated_at": "2026-07-18T21:04:07.660474+00:00"
+      "created_at": "2026-07-20T16:22:56.783855+00:00",
+      "updated_at": "2026-07-20T16:27:02.785695+00:00"
     },
     {
-      "job_id": "auto_67f15f062b15",
+      "job_id": "auto_ad925d897d71",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2011,18 +2591,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:07.609956+00:00",
-      "updated_at": "2026-07-18T21:04:07.667752+00:00"
+      "created_at": "2026-07-20T16:22:56.796381+00:00",
+      "updated_at": "2026-07-20T16:27:02.793871+00:00"
     },
     {
-      "job_id": "auto_87da86adf347",
+      "job_id": "auto_ffe85a6c6afc",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2031,18 +2611,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:37.717451+00:00",
-      "updated_at": "2026-07-18T21:04:37.781536+00:00"
+      "created_at": "2026-07-20T16:27:02.820723+00:00",
+      "updated_at": "2026-07-20T16:27:02.914552+00:00"
     },
     {
-      "job_id": "auto_b38bf8a8a62c",
+      "job_id": "auto_2e6668868e93",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:27:02.838573+00:00",
+      "updated_at": "2026-07-20T16:27:02.925864+00:00"
+    },
+    {
+      "job_id": "auto_80067101c306",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:27:02.850659+00:00",
+      "updated_at": "2026-07-20T16:27:02.933261+00:00"
+    },
+    {
+      "job_id": "auto_96eb55f8f447",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:27:02.862494+00:00",
+      "updated_at": "2026-07-20T16:27:02.940525+00:00"
+    },
+    {
+      "job_id": "auto_2a968401caf8",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:27:13.482028+00:00",
+      "updated_at": "2026-07-20T16:30:49.793572+00:00"
+    },
+    {
+      "job_id": "auto_7b6fdbf00125",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2051,78 +2711,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:37.727534+00:00",
-      "updated_at": "2026-07-18T21:04:37.789556+00:00"
+      "created_at": "2026-07-20T16:27:13.494084+00:00",
+      "updated_at": "2026-07-20T16:31:19.960546+00:00"
     },
     {
-      "job_id": "auto_ee1296eb75f3",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:37.736859+00:00",
-      "updated_at": "2026-07-18T21:04:37.799551+00:00"
-    },
-    {
-      "job_id": "auto_2b7f10ed17fe",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:37.745866+00:00",
-      "updated_at": "2026-07-18T21:04:37.806636+00:00"
-    },
-    {
-      "job_id": "auto_16401dc596ca",
-      "topic": "Perfumery Ingredients — Daily Fragrance Education",
-      "title": "Perfumery Ingredients — Daily Fragrance Education",
-      "duration": 45,
-      "clip_count": 3,
-      "platform_targets": [
-        "instagram_reels"
-      ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
-      "run_id": "",
-      "output_path": "",
-      "publish_package_path": "",
-      "upload_package_path": "",
-      "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:04:37.756008+00:00",
-      "updated_at": "2026-07-18T21:04:37.814659+00:00"
-    },
-    {
-      "job_id": "auto_a76a21c341cd",
+      "job_id": "auto_06917b08fba3",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2131,18 +2731,78 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:07.862999+00:00",
-      "updated_at": "2026-07-18T21:05:07.929222+00:00"
+      "created_at": "2026-07-20T16:27:13.505822+00:00",
+      "updated_at": "2026-07-20T16:31:19.968402+00:00"
     },
     {
-      "job_id": "auto_bd34b595f509",
+      "job_id": "auto_d1facfa0c5ea",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:27:13.517582+00:00",
+      "updated_at": "2026-07-20T16:31:19.841404+00:00"
+    },
+    {
+      "job_id": "auto_7baf38119151",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:27:13.530503+00:00",
+      "updated_at": "2026-07-20T16:31:19.849556+00:00"
+    },
+    {
+      "job_id": "auto_531ae54a981f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:27:13.543285+00:00",
+      "updated_at": "2026-07-20T16:31:19.857478+00:00"
+    },
+    {
+      "job_id": "auto_de35681b33b9",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2151,18 +2811,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:07.872897+00:00",
-      "updated_at": "2026-07-18T21:05:07.937224+00:00"
+      "created_at": "2026-07-20T16:31:19.883827+00:00",
+      "updated_at": "2026-07-20T16:31:19.976320+00:00"
     },
     {
-      "job_id": "auto_a94a652b55c6",
+      "job_id": "auto_ef28ce8fa117",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2171,18 +2831,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:07.882897+00:00",
-      "updated_at": "2026-07-18T21:05:07.948228+00:00"
+      "created_at": "2026-07-20T16:31:19.899441+00:00",
+      "updated_at": "2026-07-20T16:31:19.987609+00:00"
     },
     {
-      "job_id": "auto_906f7ae18570",
+      "job_id": "auto_a2692a7940e4",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2191,18 +2851,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:07.892913+00:00",
-      "updated_at": "2026-07-18T21:05:07.960935+00:00"
+      "created_at": "2026-07-20T16:31:19.910995+00:00",
+      "updated_at": "2026-07-20T16:31:19.995760+00:00"
     },
     {
-      "job_id": "auto_7e6b293088dc",
+      "job_id": "auto_3ff44915b359",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2211,18 +2871,38 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:07.902911+00:00",
-      "updated_at": "2026-07-18T21:05:07.968928+00:00"
+      "created_at": "2026-07-20T16:31:19.922704+00:00",
+      "updated_at": "2026-07-20T16:31:20.003185+00:00"
     },
     {
-      "job_id": "auto_b7cdf9e67f67",
+      "job_id": "auto_ede76b154ad9",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:31:30.551427+00:00",
+      "updated_at": "2026-07-20T16:35:24.564161+00:00"
+    },
+    {
+      "job_id": "auto_f72f73e8ac05",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2231,18 +2911,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:38.019773+00:00",
-      "updated_at": "2026-07-18T21:05:38.087281+00:00"
+      "created_at": "2026-07-20T16:31:30.563025+00:00",
+      "updated_at": "2026-07-20T16:35:54.789989+00:00"
     },
     {
-      "job_id": "auto_37a9a4c91edf",
+      "job_id": "auto_52891cd8bd8e",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2251,18 +2931,18 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T16:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:38.029068+00:00",
-      "updated_at": "2026-07-18T21:05:38.095282+00:00"
+      "created_at": "2026-07-20T16:31:30.574356+00:00",
+      "updated_at": "2026-07-20T16:35:54.800694+00:00"
     },
     {
-      "job_id": "auto_dd1de40f703f",
+      "job_id": "auto_7bc45ab436de",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2271,18 +2951,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:38.039073+00:00",
-      "updated_at": "2026-07-18T21:05:38.106184+00:00"
+      "created_at": "2026-07-20T16:31:30.586215+00:00",
+      "updated_at": "2026-07-20T16:35:54.642398+00:00"
     },
     {
-      "job_id": "auto_0d17670bc7a0",
+      "job_id": "auto_614624f86e14",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2291,18 +2971,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:38.049086+00:00",
-      "updated_at": "2026-07-18T21:05:38.113862+00:00"
+      "created_at": "2026-07-20T16:31:30.598108+00:00",
+      "updated_at": "2026-07-20T16:35:54.654351+00:00"
     },
     {
-      "job_id": "auto_e0d71129e79e",
+      "job_id": "auto_d583a21bf979",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2311,18 +2991,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:05:38.059602+00:00",
-      "updated_at": "2026-07-18T21:05:38.121863+00:00"
+      "created_at": "2026-07-20T16:31:30.610529+00:00",
+      "updated_at": "2026-07-20T16:35:54.665887+00:00"
     },
     {
-      "job_id": "auto_1ead440b4c07",
+      "job_id": "auto_9b97b9a1c2ad",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2331,18 +3011,98 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:08.179901+00:00",
-      "updated_at": "2026-07-18T21:06:08.252697+00:00"
+      "created_at": "2026-07-20T16:35:54.699610+00:00",
+      "updated_at": "2026-07-20T16:35:54.811937+00:00"
     },
     {
-      "job_id": "auto_8d9d4d45eb89",
+      "job_id": "auto_032642d3ce8f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:35:54.718634+00:00",
+      "updated_at": "2026-07-20T16:35:54.826458+00:00"
+    },
+    {
+      "job_id": "auto_8f422b531a28",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:35:54.733938+00:00",
+      "updated_at": "2026-07-20T16:35:54.837259+00:00"
+    },
+    {
+      "job_id": "auto_57f550b1bd72",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:35:54.749176+00:00",
+      "updated_at": "2026-07-20T16:35:54.847973+00:00"
+    },
+    {
+      "job_id": "auto_db82a23b1279",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:36:05.400933+00:00",
+      "updated_at": "2026-07-20T16:39:49.974916+00:00"
+    },
+    {
+      "job_id": "auto_4868a17fcfe5",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2351,18 +3111,38 @@
         "youtube_shorts"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:08.189915+00:00",
-      "updated_at": "2026-07-18T21:06:08.261778+00:00"
+      "created_at": "2026-07-20T16:36:05.413661+00:00",
+      "updated_at": "2026-07-20T16:40:20.148720+00:00"
     },
     {
-      "job_id": "auto_f3796b474ad6",
+      "job_id": "auto_9b88bac09054",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:36:05.425393+00:00",
+      "updated_at": "2026-07-20T16:40:20.156675+00:00"
+    },
+    {
+      "job_id": "auto_48d3e7d91d07",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2371,18 +3151,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:08.199918+00:00",
-      "updated_at": "2026-07-18T21:06:08.271785+00:00"
+      "created_at": "2026-07-20T16:36:05.437171+00:00",
+      "updated_at": "2026-07-20T16:40:20.029380+00:00"
     },
     {
-      "job_id": "auto_4702ac0f5bf8",
+      "job_id": "auto_c5bd4caf2ecd",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2391,18 +3171,18 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:08.210530+00:00",
-      "updated_at": "2026-07-18T21:06:08.278784+00:00"
+      "created_at": "2026-07-20T16:36:05.449292+00:00",
+      "updated_at": "2026-07-20T16:40:20.037973+00:00"
     },
     {
-      "job_id": "auto_feac13926563",
+      "job_id": "auto_ce0443175e47",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2411,18 +3191,698 @@
         "instagram_reels"
       ],
       "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:08.224687+00:00",
-      "updated_at": "2026-07-18T21:06:08.285777+00:00"
+      "created_at": "2026-07-20T16:36:05.461543+00:00",
+      "updated_at": "2026-07-20T16:40:20.045522+00:00"
     },
     {
-      "job_id": "auto_efd9a30b2f84",
+      "job_id": "auto_190d47b7df2d",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:20.071069+00:00",
+      "updated_at": "2026-07-20T16:40:20.164170+00:00"
+    },
+    {
+      "job_id": "auto_e1798b26b715",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:20.087278+00:00",
+      "updated_at": "2026-07-20T16:40:20.175594+00:00"
+    },
+    {
+      "job_id": "auto_ccb945d72c6f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:20.098736+00:00",
+      "updated_at": "2026-07-20T16:40:20.183462+00:00"
+    },
+    {
+      "job_id": "auto_d14ac9b2c564",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:20.111089+00:00",
+      "updated_at": "2026-07-20T16:40:20.191222+00:00"
+    },
+    {
+      "job_id": "auto_fcf6f9b63fdb",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:40:30.741199+00:00",
+      "updated_at": "2026-07-20T16:44:06.107456+00:00"
+    },
+    {
+      "job_id": "auto_af182ba2d47e",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T12:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:30.753559+00:00",
+      "updated_at": "2026-07-20T16:44:36.280239+00:00"
+    },
+    {
+      "job_id": "auto_2fa6e8bf7e56",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:30.765372+00:00",
+      "updated_at": "2026-07-20T16:44:36.288233+00:00"
+    },
+    {
+      "job_id": "auto_9d5ce5f1fda2",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:30.777005+00:00",
+      "updated_at": "2026-07-20T16:44:36.161318+00:00"
+    },
+    {
+      "job_id": "auto_113ee8f45fed",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:30.789772+00:00",
+      "updated_at": "2026-07-20T16:44:36.169570+00:00"
+    },
+    {
+      "job_id": "auto_2581bf713ee3",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:40:30.801236+00:00",
+      "updated_at": "2026-07-20T16:44:36.177721+00:00"
+    },
+    {
+      "job_id": "auto_01aa72eb7ea8",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:36.203627+00:00",
+      "updated_at": "2026-07-20T16:44:36.296241+00:00"
+    },
+    {
+      "job_id": "auto_2569203caf58",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:36.218743+00:00",
+      "updated_at": "2026-07-20T16:44:36.307751+00:00"
+    },
+    {
+      "job_id": "auto_14cac8417c1b",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:36.230463+00:00",
+      "updated_at": "2026-07-20T16:44:36.316458+00:00"
+    },
+    {
+      "job_id": "auto_69b4736217f1",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:36.241834+00:00",
+      "updated_at": "2026-07-20T16:44:36.324202+00:00"
+    },
+    {
+      "job_id": "auto_05876f66f06a",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:44:46.876680+00:00",
+      "updated_at": "2026-07-20T16:48:11.952202+00:00"
+    },
+    {
+      "job_id": "auto_be1bdbf393c3",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T12:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:46.888475+00:00",
+      "updated_at": "2026-07-20T16:48:42.134628+00:00"
+    },
+    {
+      "job_id": "auto_07bfa09979ed",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:46.900329+00:00",
+      "updated_at": "2026-07-20T16:48:42.142464+00:00"
+    },
+    {
+      "job_id": "auto_e3989fe57228",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:46.912268+00:00",
+      "updated_at": "2026-07-20T16:48:42.009910+00:00"
+    },
+    {
+      "job_id": "auto_ed9495e0f7ae",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:46.924188+00:00",
+      "updated_at": "2026-07-20T16:48:42.022310+00:00"
+    },
+    {
+      "job_id": "auto_d7937a5ce29f",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:44:46.936412+00:00",
+      "updated_at": "2026-07-20T16:48:42.030542+00:00"
+    },
+    {
+      "job_id": "auto_a9d65572c131",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:42.056893+00:00",
+      "updated_at": "2026-07-20T16:48:42.150099+00:00"
+    },
+    {
+      "job_id": "auto_d44b9c2098bc",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:42.073533+00:00",
+      "updated_at": "2026-07-20T16:48:42.161809+00:00"
+    },
+    {
+      "job_id": "auto_7cc2eeef421c",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:42.084960+00:00",
+      "updated_at": "2026-07-20T16:48:42.169953+00:00"
+    },
+    {
+      "job_id": "auto_91c6a70970fa",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:42.096841+00:00",
+      "updated_at": "2026-07-20T16:48:42.177648+00:00"
+    },
+    {
+      "job_id": "auto_15915d625e44",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "failed",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "pwmap agent failed with exit code 1 (runtime error — generation or browser launch failed).",
+      "created_at": "2026-07-20T16:48:52.718962+00:00",
+      "updated_at": "2026-07-20T16:52:20.106019+00:00"
+    },
+    {
+      "job_id": "auto_357acfbc066c",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T12:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:52.730919+00:00",
+      "updated_at": "2026-07-20T16:52:50.291685+00:00"
+    },
+    {
+      "job_id": "auto_20720d34ae11",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:52.742702+00:00",
+      "updated_at": "2026-07-20T16:52:50.300094+00:00"
+    },
+    {
+      "job_id": "auto_bbbc12779c0c",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:52.754592+00:00",
+      "updated_at": "2026-07-20T16:52:50.168874+00:00"
+    },
+    {
+      "job_id": "auto_dc010369f315",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:52.767160+00:00",
+      "updated_at": "2026-07-20T16:52:50.177360+00:00"
+    },
+    {
+      "job_id": "auto_67b7d11e74ee",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:48:52.779106+00:00",
+      "updated_at": "2026-07-20T16:52:50.185052+00:00"
+    },
+    {
+      "job_id": "auto_b389f3871b4b",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:52:50.212392+00:00",
+      "updated_at": "2026-07-20T16:52:50.307949+00:00"
+    },
+    {
+      "job_id": "auto_1a524c5b5c5e",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T08:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:52:50.228860+00:00",
+      "updated_at": "2026-07-20T16:52:50.323295+00:00"
+    },
+    {
+      "job_id": "auto_da6f381951dd",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T14:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:52:50.241578+00:00",
+      "updated_at": "2026-07-20T16:52:50.331143+00:00"
+    },
+    {
+      "job_id": "auto_8ac11fb138cd",
+      "topic": "Perfumery Ingredients — Daily Fragrance Education",
+      "title": "Perfumery Ingredients — Daily Fragrance Education",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "instagram_reels"
+      ],
+      "status": "cancelled",
+      "scheduled_time": "2026-07-20T20:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "platform_daily_cap_reached",
+      "created_at": "2026-07-20T16:52:50.253536+00:00",
+      "updated_at": "2026-07-20T16:52:50.338839+00:00"
+    },
+    {
+      "job_id": "auto_9d0767922a52",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2431,18 +3891,18 @@
         "youtube_shorts"
       ],
       "status": "running",
-      "scheduled_time": "2026-07-18T12:00",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "",
-      "created_at": "2026-07-18T21:06:38.333483+00:00",
-      "updated_at": "2026-07-18T21:06:39.888961+00:00"
+      "created_at": "2026-07-20T16:53:00.891728+00:00",
+      "updated_at": "2026-07-20T16:53:01.027858+00:00"
     },
     {
-      "job_id": "auto_746977d2a51f",
+      "job_id": "auto_6999dd4c3b8c",
       "topic": "Science That Feels Impossible — YouTube Shorts",
       "title": "Science That Feels Impossible — YouTube Shorts",
       "duration": 45,
@@ -2451,18 +3911,38 @@
         "youtube_shorts"
       ],
       "status": "planned",
-      "scheduled_time": "2026-07-18T16:00",
+      "scheduled_time": "2026-07-20T12:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
       "error": "",
-      "created_at": "2026-07-18T21:06:38.344489+00:00",
-      "updated_at": "2026-07-18T21:06:38.344489+00:00"
+      "created_at": "2026-07-20T16:53:00.903269+00:00",
+      "updated_at": "2026-07-20T16:53:00.903269+00:00"
     },
     {
-      "job_id": "auto_14661b039ea2",
+      "job_id": "auto_c60780215cf2",
+      "topic": "Science That Feels Impossible — YouTube Shorts",
+      "title": "Science That Feels Impossible — YouTube Shorts",
+      "duration": 45,
+      "clip_count": 3,
+      "platform_targets": [
+        "youtube_shorts"
+      ],
+      "status": "planned",
+      "scheduled_time": "2026-07-20T16:00",
+      "run_id": "",
+      "output_path": "",
+      "publish_package_path": "",
+      "upload_package_path": "",
+      "upload_result": null,
+      "error": "",
+      "created_at": "2026-07-20T16:53:00.914960+00:00",
+      "updated_at": "2026-07-20T16:53:00.914960+00:00"
+    },
+    {
+      "job_id": "auto_50517fc42eec",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2470,19 +3950,19 @@
       "platform_targets": [
         "instagram_reels"
       ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T08:00",
+      "status": "planned",
+      "scheduled_time": "2026-07-20T08:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:38.355802+00:00",
-      "updated_at": "2026-07-18T21:06:38.417804+00:00"
+      "error": "",
+      "created_at": "2026-07-20T16:53:00.930041+00:00",
+      "updated_at": "2026-07-20T16:53:00.930041+00:00"
     },
     {
-      "job_id": "auto_c0fac06a3cc3",
+      "job_id": "auto_326dc03437fc",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2490,19 +3970,19 @@
       "platform_targets": [
         "instagram_reels"
       ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T14:00",
+      "status": "planned",
+      "scheduled_time": "2026-07-20T14:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:38.367172+00:00",
-      "updated_at": "2026-07-18T21:06:38.425806+00:00"
+      "error": "",
+      "created_at": "2026-07-20T16:53:00.944948+00:00",
+      "updated_at": "2026-07-20T16:53:00.944948+00:00"
     },
     {
-      "job_id": "auto_5f701842e651",
+      "job_id": "auto_e8e8e93b0b98",
       "topic": "Perfumery Ingredients — Daily Fragrance Education",
       "title": "Perfumery Ingredients — Daily Fragrance Education",
       "duration": 45,
@@ -2510,16 +3990,16 @@
       "platform_targets": [
         "instagram_reels"
       ],
-      "status": "cancelled",
-      "scheduled_time": "2026-07-18T20:00",
+      "status": "planned",
+      "scheduled_time": "2026-07-20T20:00",
       "run_id": "",
       "output_path": "",
       "publish_package_path": "",
       "upload_package_path": "",
       "upload_result": null,
-      "error": "platform_daily_cap_reached",
-      "created_at": "2026-07-18T21:06:38.377716+00:00",
-      "updated_at": "2026-07-18T21:06:38.432797+00:00"
+      "error": "",
+      "created_at": "2026-07-20T16:53:00.959685+00:00",
+      "updated_at": "2026-07-20T16:53:00.959685+00:00"
     }
   ],
   "max_jobs_per_day": 6

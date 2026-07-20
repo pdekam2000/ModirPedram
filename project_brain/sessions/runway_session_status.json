@@ -2,5 +2,7 @@
   "connected": true,
   "disconnected": false,
   "message": "Runway session restored OK",
-  "updated_at": "2026-07-18T23:07:13"
+  "validated": true,
+  "updated_at": "2026-07-20T16:53:33.815528+00:00",
+  "session_path": "C:\\Users\\kaman\\Desktop\\ModirAgentOS\\project_brain\\sessions\\runway_session.json"
 }

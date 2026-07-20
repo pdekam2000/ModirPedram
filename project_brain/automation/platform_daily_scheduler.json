@@ -29,13 +29,13 @@
       "duration_seconds": 30
     }
   },
-  "updated_at": "2026-07-18T21:09:22.987056+00:00",
+  "updated_at": "2026-07-20T06:46:24.527629+00:00",
   "daily_completion": {
-    "date": "2026-07-18",
+    "date": "2026-07-20",
     "platforms": {
       "instagram_reels": 0,
-      "youtube_shorts": 2
+      "youtube_shorts": 1
     },
-    "completed_today": 2
+    "completed_today": 1
   }
 }

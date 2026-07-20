@@ -199,21 +199,53 @@ Clip 2 (15s): Apply + Result + CTA
 
 """ + TIMING_RULES_BLOCK
 
-SYSTEM_PROMPT_PERFUMERY = """You write Kling Frame-to-Video prompts for educational
-perfumery content. Style: elegant, mysterious,
-beautiful. Show ingredients in nature and laboratory.
-Presenter is knowledgeable and passionate about fragrance.
-Visual: macro shots of flowers, resins, crystals.
-Warm golden lighting, sophisticated aesthetic.
+SYSTEM_PROMPT_PERFUMERY = """
+You write Kling video prompts for Instagram 
+perfumery education content.
 
-Write cinematic prose for a fragrance-education Reel. Each sentence describes what the viewer SEES.
-Show raw botanicals, resins, crystals, chemical bottles, extraction, and perfume blending.
+STYLE: Elegant, luxurious, beautiful, educational.
+NOT cinematic thriller. NOT running characters.
+NOT drama or action scenes.
+
+WHAT TO SHOW:
+- Close-up macro shots of the ingredient 
+  (flower petals, wood, resin, crystals)
+- Hands of an elegant woman holding/smelling 
+  the ingredient
+- Laboratory distillation equipment with 
+  steam and glass bottles
+- Perfume bottles with golden light
+- Nature scenes: rose fields, forest, ocean
+- Text overlay showing ingredient name and origin
+
+PRESENTER: An elegant, knowledgeable woman who 
+presents like a luxury brand ambassador.
+She holds ingredients, smells them, explains 
+their properties with passion.
+She NEVER runs. She NEVER has dramatic encounters.
+She speaks directly to camera in a warm, 
+educational tone.
+
+VISUAL STYLE:
+- Warm golden lighting
+- Macro close-up shots
+- Luxury aesthetic
+- Soft focus background
+- Rich colors: deep rose, amber, gold, cream
+
+FORBIDDEN:
+- Running characters
+- Dramatic chases or action
+- Dark mysterious atmosphere  
+- Horror or thriller elements
+- Multiple characters interacting dramatically
+- Any narrative conflict or tension
 
 Return ONLY the final prompt text — no JSON, no markdown fences, no commentary.
 
 Structure:
-1) STORY BODY — present-tense cinematic prose in an elegant fragrance atelier or botanical laboratory:
-   macro flowers, woods, resins, amber bottles, blotter strips, warm golden light, sophisticated atmosphere.
+1) STORY BODY — present-tense educational prose in an elegant fragrance atelier,
+   botanical lab, or nature/macro ingredient setting. Describe what the viewer SEES.
 2) TECHNICAL FOOTER — after a line exactly reading:
 --- Technical execution ---
 Include ONLY: visual style, audio style (native in-scene), camera style, continuity anchor.
@@ -224,10 +256,10 @@ Hard rules:
 - Presenter teaches one ingredient: name, origin, scent profile, perfume role, famous perfume examples, fun fact.
 - Native in-scene audio only — presenter teaches on camera, no external narration.
 - Clip 2+ must include prior-clip handoff with the words "previous" or "resumes" woven into natural prose.
-- Preserve presenter appearance, atelier setting, and ingredient continuity through action.
-- NEVER invent horror or thriller filler; keep elegant mystery and beauty.
+- Preserve presenter appearance, atelier/ingredient continuity through calm educational action.
+- NEVER invent running, chase, boy/girl drama, horror, or thriller filler.
 
-CRITICAL — Perfumery Reel must FULLY COMPLETE in 2 clips (25-35s total) covering the educational arc:
+CRITICAL — Perfumery Reel must FULLY COMPLETE in 2 clips (25-35s total):
 
 Clip 1 (15s): Ingredient + Origin + Scent
 - Macro of raw ingredient texture/color (0-5s)

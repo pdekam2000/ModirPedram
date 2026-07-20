@@ -1547,9 +1547,12 @@ def serve_pwmap_run_video(run_id: str, project_root=Depends(get_project_root)):
     if not is_valid_run_id(run_id):
         raise HTTPException(status_code=400, detail={"code": "INVALID_RUN_ID", "message": "Invalid run id"})
     video_path = resolve_pwmap_run_video(project_root, run_id)
-    if video_path is None:
-        raise HTTPException(status_code=404, detail={"code": "VIDEO_NOT_FOUND", "message": "Video not found for run"})
-    return FileResponse(video_path, media_type="video/mp4", filename=video_path.name)
+    if video_path is None or not video_path.is_file():
+        raise HTTPException(
+            status_code=404,
+            detail={"code": "VIDEO_NOT_FOUND", "message": "Video file not found for run"},
+        )
+    return FileResponse(path=str(video_path), media_type="video/mp4", filename=video_path.name)
 
 
 @app.get("/upload/instagram/public/{token}.mp4")

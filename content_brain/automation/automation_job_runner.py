@@ -464,6 +464,34 @@ class AutomationJobRunner:
                 "error": f"missing_platform_topic:{platform}",
                 "stage": "topic_resolution",
             }
+        # Instagram-only: never allow YouTube science channel topic to drive IG jobs.
+        if platform == "instagram_reels":
+            yt_topic = str(profile.get("youtube_channel_topic") or profile.get("channel_topic") or "").strip()
+            lowered = channel_topic.lower()
+            if yt_topic and channel_topic.strip() == yt_topic:
+                return {
+                    "ok": False,
+                    "error": "instagram_topic_is_youtube_channel_topic",
+                    "stage": "topic_resolution",
+                }
+            if "science that feels impossible" in lowered or "youtube shorts" in lowered:
+                return {
+                    "ok": False,
+                    "error": "instagram_topic_looks_like_youtube_science",
+                    "stage": "topic_resolution",
+                }
+            if "perfum" not in lowered and "fragrance" not in lowered and "scent" not in lowered:
+                # Prefer brief; if short topic lacks markers, still require genre field.
+                if str(profile.get("instagram_genre") or "").lower() not in {
+                    "perfumery",
+                    "perfume",
+                    "fragrance",
+                }:
+                    return {
+                        "ok": False,
+                        "error": "instagram_topic_missing_perfumery_markers",
+                        "stage": "topic_resolution",
+                    }
         topic_ok, topic_reason = _validate_platform_topic_text(platform, channel_topic)
         if not topic_ok:
             logger.error(

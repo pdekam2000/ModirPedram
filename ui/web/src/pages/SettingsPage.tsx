@@ -159,6 +159,42 @@ function formatInstagramTokenExpiry(iso: string | undefined) {
   });
 }
 
+function getInstagramTokenExpiryStatus(iso: string | undefined): {
+  label: string;
+  warning: string | null;
+  urgent: boolean;
+} {
+  if (!iso) {
+    return {
+      label: "Not set — save/refresh token to set expiry",
+      warning: "Token expiry is unknown. Refresh the Instagram token soon.",
+      urgent: true,
+    };
+  }
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) {
+    return { label: iso, warning: null, urgent: false };
+  }
+  const label = formatInstagramTokenExpiry(iso);
+  const msLeft = date.getTime() - Date.now();
+  const daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
+  if (msLeft <= 0) {
+    return {
+      label,
+      warning: "Instagram token has EXPIRED. Generate a new token and save it.",
+      urgent: true,
+    };
+  }
+  if (daysLeft <= 7) {
+    return {
+      label,
+      warning: `Instagram token expires in ${daysLeft} day${daysLeft === 1 ? "" : "s"}. Refresh now to avoid upload failures.`,
+      urgent: true,
+    };
+  }
+  return { label, warning: null, urgent: false };
+}
+
 function presetOrCustom(value: string, presets: readonly string[]) {
   const normalized = value.trim().toLowerCase();
   const match = presets.find((item) => item.toLowerCase() === normalized);
@@ -1198,7 +1234,7 @@ export function SettingsPage() {
               </SettingsRow>
               <SettingsRow
                 label="Instagram Access Token"
-                helper={`Token expires: ${formatInstagramTokenExpiry(profile.instagram_token_expires_at)}`}
+                helper={`Token expires: ${getInstagramTokenExpiryStatus(profile.instagram_token_expires_at).label}`}
               >
                 <input
                   id="instagram_access_token"
@@ -1209,6 +1245,21 @@ export function SettingsPage() {
                   onChange={(e) => update("instagram_access_token", e.target.value)}
                 />
               </SettingsRow>
+              {(() => {
+                const expiry = getInstagramTokenExpiryStatus(profile.instagram_token_expires_at);
+                if (!expiry.warning) return null;
+                return (
+                  <p
+                    className="muted settings-helper"
+                    style={{
+                      color: expiry.urgent ? "#b45309" : undefined,
+                      fontWeight: expiry.urgent ? 600 : undefined,
+                    }}
+                  >
+                    ⚠ {expiry.warning}
+                  </p>
+                );
+              })()}
               {instagramExchangeMessage ? (
                 <p className="muted settings-helper">{instagramExchangeMessage}</p>
               ) : null}

@@ -6,7 +6,7 @@ import logging
 import re
 from typing import Any
 
-GUARD_VERSION = "platform_upload_guard_v7_instagram_perfumery_bypass"
+GUARD_VERSION = "platform_upload_guard_v8_instagram_science_presenter_only"
 _logger = logging.getLogger(__name__)
 
 YOUTUBE_PLATFORMS = frozenset({"youtube_shorts", "youtube"})
@@ -86,7 +86,16 @@ INSTAGRAM_TOPIC_REQUIRED = (
     "distillation",
     "extraction",
 )
-INSTAGRAM_TOPIC_FORBIDDEN = ("animal", "dog", "cat", "funny", "fail", "husky", "pet", "comedy")
+INSTAGRAM_TOPIC_FORBIDDEN = (
+    # Only clear YouTube science-presenter bleed — never block perfumery chemistry terms.
+    "science presenter",
+    "science documentary",
+    "quantum physics",
+    "tardigrade",
+    "galaxy",
+    "black hole",
+    "space station",
+)
 INSTAGRAM_PERFUMERY_BYPASS_MARKERS = ("perfumery", "fragrance", "perfume", "scent")
 
 

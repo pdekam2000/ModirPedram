@@ -26,7 +26,28 @@ MIN_REAL_MP4_BYTES = 1_000_000
 KLING_CINEMATIC_MIN_CHARS = 2400
 KLING_CINEMATIC_MAX_CHARS = 2500
 
-YOUTUBE_TOPIC_KEYWORDS = ("animal", "dog", "cat", "funny", "fail")
+# Only block CLEAR YouTube science-presenter bleed into Instagram prompts.
+# Do NOT block perfumery terms: molecule, chemical, laboratory, extraction,
+# distillation, animalic, musk, civet, cat (as ingredient lore), etc.
+SCIENCE_PRESENTER_KEYWORDS = (
+    "science presenter",
+    "science documentary",
+    "quantum physics",
+    "tardigrade",
+    "galaxy",
+    "black hole",
+    "space station",
+)
+# Extra Instagram-only bleed signals (never applied to YouTube checks).
+INSTAGRAM_SCIENCE_BLEED_KEYWORDS = SCIENCE_PRESENTER_KEYWORDS + (
+    "science studio",
+    "futuristic science",
+    "science that feels impossible",
+    "stomach acid",
+    "holographic science",
+)
+# Back-compat alias used by Instagram prompt isolation checks.
+YOUTUBE_TOPIC_KEYWORDS = SCIENCE_PRESENTER_KEYWORDS
 YOUTUBE_BEAUTY_BLOCK_KEYWORDS = (
     "skincare",
     "moisturizer",
@@ -298,8 +319,9 @@ def validate_platform_prompt_isolation(platform: str, text: str) -> tuple[bool, 
             if _contains_topic_keyword(text, keyword):
                 return False, f"instagram_keywords_in_youtube_prompt:{keyword}"
     if platform_key in {"instagram_reels", "instagram"}:
-        if any(_contains_topic_keyword(text, keyword) for keyword in YOUTUBE_TOPIC_KEYWORDS):
-            return False, "youtube_keywords_in_instagram_prompt"
+        for keyword in INSTAGRAM_SCIENCE_BLEED_KEYWORDS:
+            if _contains_topic_keyword(text, keyword):
+                return False, f"youtube_keywords_in_instagram_prompt:{keyword}"
     return True, ""
 
 
@@ -672,6 +694,23 @@ def build_pwmap_job_from_preflight(
         for item in (working_preflight.get("platform_targets") or ([platform] if platform else []))
         if str(item).strip()
     ]
+    # Instagram jobs must never silently inherit YouTube/default platform.
+    if any("instagram" in str(t).lower() for t in platform_targets) or platform.lower() in {
+        "instagram_reels",
+        "instagram",
+    }:
+        if platform.lower() not in {"instagram_reels", "instagram"}:
+            raise PwmapAdapterError(
+                f"instagram_platform_mismatch: expected instagram_reels, got {platform or 'empty'}"
+            )
+        platform = "instagram_reels"
+        platform_targets = ["instagram_reels"]
+        for index, prompt in enumerate(prompts, start=1):
+            ok, reason = validate_platform_prompt_isolation(platform, prompt)
+            if not ok:
+                raise PwmapAdapterError(
+                    f"Instagram clip {index} rejected science bleed: {reason}"
+                )
     if len(prompts) == 1:
         return build_pwmap_job(
             prompt=prompts[0],
